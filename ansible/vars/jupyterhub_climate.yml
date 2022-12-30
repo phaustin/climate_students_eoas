@@ -1,0 +1,24 @@
+---
+#
+#  setup_jupyterhub.yml
+#
+git_remote_repos: "~/repos"
+climhub_github_repo:
+  "https://github.com/phaustin/climate_modeling_eoas.git"
+container_version: may27
+dockerhub_id: phaustin
+hub_service_name: climatehub
+hub_image_name: climatehub
+base_notebook_service_name: base
+notebook_service_name: climatebook
+hub_domain: jupyter.phaustin.org
+jupyterhub_template_list:
+  - { src: "templates/jupyterhub/docker-compose-jupyterhub.j2"  , dest: "{{ climate_git_remote_path }}/jupyterhub/docker-compose-jupyterhub.yml" }
+  - { src: "templates/jupyterhub/Dockerfile_hub.j2" , dest: "{{ climate_git_remote_path }}/jupyterhub/{{ hub_service_name }}_image/Dockerfile" }
+  - { src: "templates/jupyterhub/Dockerfile_notebook.j2" , dest: "{{ climate_git_remote_path }}/jupyterhub/{{ notebook_service_name }}_image/Dockerfile" }
+  - { src: "templates/jupyterhub/Dockerfile_base.j2" , dest: "{{ climate_git_remote_path }}/jupyterhub/{{ base_notebook_service_name }}_image/Dockerfile" }
+  - { src: "templates/jupyterhub/jupyterhub_config.j2" , dest: "{{ climate_git_remote_path }}/jupyterhub/{{ hub_service_name }}_image/jupyterhub_config.py" }
+  - { src: "templates/jupyterhub/jupyterhub_config_systemd.j2" , dest: "{{ climate_git_remote_path }}/jupyterhub/{{ hub_service_name }}_image/jupyterhub_config_systemd.py" }
+
+JHUB_OAUTH_CALLBACK_URL: "https://{{ hub_domain }}/hub/oauth_callback"
+

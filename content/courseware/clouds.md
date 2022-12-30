@@ -3,15 +3,16 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.14.4
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
 
 +++ {"slideshow": {"slide_type": "slide"}}
+
 (nb:clouds)=
 # Clouds and cloud feedback
 
@@ -424,7 +425,6 @@ which we subtract from the net top-of-atmosphere budget to get
 
 $$ (1-c)\Delta F_{clear}  = \Delta R - \Delta T \left( \lambda_0 - \lambda_{clear} \right) $$
 
-
 +++
 
 which suggests that we can estimate the **clear-sky feedback** from
@@ -490,7 +490,7 @@ ____________
 
 +++
 
-<img src='http://www.climatechange2013.org/images/figures/WGI_AR5_Fig9-43.jpg'>
+<img src='https://www.climatechange2013.org/images/figures/WGI_AR5_Fig9-43.jpg'>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -505,7 +505,6 @@ ____________
 
 ## 7. Measuring $\lambda_{clear}$ with radiative kernels
 ____________
-
 
 +++ {"slideshow": {"slide_type": "slide"}}
 

@@ -1,0 +1,35 @@
+version: '3.7'
+
+#
+# see vars/jupyterhub.yml for
+# hub_service_name, dockerhub_id, container_version, hub_domain
+#
+services:
+
+  {{ hub_service_name }}:
+    build:
+        context: {{ hub_image_name }}-image
+        dockerfile: ./Dockerfile
+    image: {{ dockerhub_id }}/{{ hub_image_name }}:{{ container_version }}
+    container_name: {{ hub_image_name }}_{{ container_version }}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - JHUB_OAUTH_CALLBACK_URL
+      - JHUB_OAUTH_CLIENT_ID
+      - JHUB_OAUTH_CLIENT_SECRET
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.{{ hub_service_name }}.rule=Host(`{{ hub_domain }}`)"
+      - traefik.http.routers.{{ hub_service_name }}.tls=true
+      - traefik.http.routers.{{ hub_service_name }}.tls.certresolver=lets-encrypt
+      - "traefik.http.routers.{{ hub_service_name }}.service={{hub_service_name }}"
+      - "traefik.http.services.{{ hub_service_name }}.loadbalancer.server.port=8000"
+    restart: on-failure
+    networks:
+      - {{ network_name }}
+
+
+networks:
+  {{ network_name }}:
+    external: true

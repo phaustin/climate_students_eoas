@@ -1,0 +1,38 @@
+---
+- hosts: all
+  vars_files:
+    # git_remote_repos
+    - vars/jovyan_vars.yml
+    # jupyterhub_template_list
+    - vars/jupyterhub_climate.yml
+    # jupyterhub_git_remote_path
+    - vars/traefik_vars.yml
+  tasks:
+    - name: create dest folders if needed
+      file:
+        path: "{{ item.dest | dirname }}"
+        state: directory
+      loop:
+        "{{ jupyterhub_template_list }}"
+    - name: fill and copy templates for jupyterhub
+      template:
+        src: '{{ item.src }}'
+        dest: '{{ item.dest }}'
+      loop:
+        "{{ jupyterhub_template_list }}"
+    #https://ahelpme.com/software/ansible/ansible-using-ansible-vault-with-copy-module-to-decrypt-on-the-fly-files/
+    - name: decrypt and copy user_list.txt
+      copy:
+        src: 'files/jupyterhub/vault_user_list.txt'
+        dest: '{{ climate_git_remote_path }}/jupyterhub/{{ hub_service_name }}_image/user_list.txt'
+        decrypt: yes
+        backup: no
+    - name: decrypt and copy user_list_systemd.txt
+      copy:
+        src: 'files/jupyterhub/vault_user_list_systemd.txt'
+        dest: '{{ climate_git_remote_path }}/jupyterhub/{{ hub_service_name }}_image/user_list_systemd.txt'
+        decrypt: yes
+        backup: no
+
+#  ansible-playbook -i hosts.yml -l n7jov -u jovyan setup_jupyterhub.yml
+

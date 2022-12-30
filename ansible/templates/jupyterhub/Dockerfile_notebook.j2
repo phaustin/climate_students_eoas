@@ -1,0 +1,15 @@
+FROM {{ dockerhub_id }}/{{ base_notebook_service_name }}:{{ container_version }}
+
+USER ${NB_USER}
+
+RUN mkdir -p ${HOME}/work/data_share
+
+COPY jupyter_notebook_config.py /etc/jupyter/
+
+WORKDIR "${HOME}/work"
+
+RUN touch "/home/jovyan/container_version_{{ container_version }}.txt"
+
+
+CMD ["jupyterhub-singleuser"]
+
