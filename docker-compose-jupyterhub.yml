@@ -1,0 +1,35 @@
+version: '3.7'
+
+#
+# see vars/jupyterhub.yml for
+# hub_service_name, dockerhub_id, container_version, hub_domain
+#
+services:
+
+  climatehub:
+    build:
+        context: climatehub_image
+        dockerfile: ./Dockerfile
+    image: phaustin/climatehub:dec31
+    container_name: climatehub_dec31
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - JHUB_OAUTH_CALLBACK_URL
+      - JHUB_OAUTH_CLIENT_ID
+      - JHUB_OAUTH_CLIENT_SECRET
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.climatehub.rule=Host(`climhub.phaustin.org`)"
+      - traefik.http.routers.climatehub.tls=true
+      - traefik.http.routers.climatehub.tls.certresolver=lets-encrypt
+      - "traefik.http.routers.climatehub.service=climatehub"
+      - "traefik.http.services.climatehub.loadbalancer.server.port=8000"
+    restart: on-failure
+    networks:
+      - traefik_net
+
+
+networks:
+  traefik_net:
+    external: true

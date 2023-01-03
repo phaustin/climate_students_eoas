@@ -28,11 +28,11 @@ services:
     networks:
       - net_feb21
 
-  climbook_mar04:
-    image: phaustin/climbook:mar04
+  climbook_dec31:
+    image: phaustin/climbook:dec31
     build:
       context: notebook_image
-    container_name: climbook_mar04
+    container_name: climbook_dec31
 
   single_notebook:
     image: phaustin/single:mar04

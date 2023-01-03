@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+
+  climate_image:
+    image: climate_image:dec31
+    build:
+      context: notebook_image
+    container_name: climate_image
