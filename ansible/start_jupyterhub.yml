@@ -2,7 +2,9 @@
 - hosts: all
   vars_files:
     - vars/jovyan_vars.yml
-    - vars/jupyterhub_vars.yml
+    # JHUB_OAUTH_CALLBACK_URL
+    - vars/jupyterhub_climate.yml
+    # vault_jhub_oath_client_id, vault_jhub_oauth_client_secret
     - vars/vault.yml
   tasks:
     - name: start jupyterhub
@@ -13,7 +15,7 @@
         JHUB_OAUTH_CLIENT_SECRET: "{{ vault_jhub_oauth_client_secret }}"
       register: jupyterhub_status
       args:
-        chdir: "{{ git_remote_path }}/jupyterhub"
+        chdir: "{{ climate_git_remote_path }}/jupyterhub"
         executable: /bin/bash
 
 

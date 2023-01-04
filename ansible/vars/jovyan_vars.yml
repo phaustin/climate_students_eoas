@@ -25,5 +25,3 @@ git_username:
   "Phil Austin"
 git_email:
   "paustin@eoas.ubc.ca"
-climate_git_remote_path: "{{ git_remote_repos }}/climate_modeling_eoas"
-climate_git_branch: "main"
