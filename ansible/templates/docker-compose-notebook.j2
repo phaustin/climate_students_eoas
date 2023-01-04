@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+
+  {{ notebook_name }}:
+    image: {{ notebook_image_name }}
+    build:
+      context: {{ notebook_dir }}
+    container_name: {{ notebook_name }}

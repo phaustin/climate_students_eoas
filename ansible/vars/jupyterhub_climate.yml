@@ -11,9 +11,13 @@ hub_service_name: climatehub
 hub_image_name: climatehub
 base_notebook_service_name: base
 notebook_service_name: climatebook
-hub_domain: jupyter.phaustin.org
+hub_domain: climhub.phaustin.org
+notebook_name: climate_image
+notebook_image_name: climate_image:dec31
+notebook_dir: notebook_image
 jupyterhub_template_list:
-  - { src: "templates/jupyterhub/docker-compose-jupyterhub.j2"  , dest: "{{ climate_git_remote_path }}/jupyterhub/docker-compose-jupyterhub.yml" }
+  - { src: "templates/jupyterhub/docker-compose-jupyterhub.j2"  , dest: "{{ climate_git_remote_path }}/docker-compose-jupyterhub.yml" }
+  - { src: "templates/docker-compose-notebook.j2"  , dest: "{{ climate_git_remote_path }}/docker-compose-notebook.yml" }
   - { src: "templates/jupyterhub/Dockerfile_hub.j2" , dest: "{{ climate_git_remote_path }}/jupyterhub/{{ hub_service_name }}_image/Dockerfile" }
   - { src: "templates/jupyterhub/Dockerfile_notebook.j2" , dest: "{{ climate_git_remote_path }}/jupyterhub/{{ notebook_service_name }}_image/Dockerfile" }
   - { src: "templates/jupyterhub/Dockerfile_base.j2" , dest: "{{ climate_git_remote_path }}/jupyterhub/{{ base_notebook_service_name }}_image/Dockerfile" }
