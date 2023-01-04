@@ -6,4 +6,5 @@ content/*/.ipynb_checkpoints/*
 _build
 content/_build
 *~
+climatehub_image/user_list.txt
 
