@@ -1,11 +1,6 @@
 Climate Modelling (directed studies, W2 2023)
 =============================================================================================
 
-PDF copy
---------
-
-`Grad and Ugrad syllabi and schedule <pdf_files/numeric.pdf>`_
-
 Course Summary
 --------------
 
