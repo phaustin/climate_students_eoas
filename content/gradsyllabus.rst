@@ -69,6 +69,9 @@ student must hand in their own solution in their own words.
 
 Each student will choose (from the list below, or in agreement with instructors)
 one relevant peer-reviewed journal paper to read and present to the class.
+Presentations will be graded on both the knowledge of the science in the paper,
+and the clarity of the presentation at an appropriate level (for both undergraduate
+and graduate students).
 
 To present in:
 
