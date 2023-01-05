@@ -68,16 +68,21 @@ Assignments can be worked with partners or alone, but each
 student must hand in their own solution in their own words.
 
 Each student will choose (from the list below, or in agreement with instructors)
-a relevant peer-reviewed journal paper to read and present to the class.
+one relevant peer-reviewed journal paper to read and present to the class.
 
 To present in:
-Week 4 or 5:
+
+Week 4 or 5, one of:
+
 Seeley et al. 2019, `FAT or FiTT: Are Anvil Clouds or the Tropopause Temperature Invariant? <https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018RG000607>`_
+
 Zelinka et al. 2020, `Causes of Higher Climate Sensitivity in CMIP6 Models <https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019GL085782>`_
+
 Meehl et al. 2020, `Context for interpreting equilibrium climate sensitivity and transient climate response from the CMIP6 Earth system models <https://www.science.org/doi/10.1126/sciadv.aba1981>`_
 
-Week 6:
+Week 6, one of:
 Hourdin et al. 2017, `The Art and Science of Climate Model Tuning <https://journals.ametsoc.org/view/journals/bams/98/3/bams-d-15-00135.1.xml>`_
+
 O'Gorman and Dwyer 2018, `Using Machine Learning to Parameterize Moist Convection: Potential for Modeling of Climate, Climate Change, and Extreme Events <https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018MS001351>`_
 
 Week 7:
@@ -86,8 +91,9 @@ Vallis et al. 2014, `Response of the large-scale structure of the atmosphere to 
 Week 8:
 Wunsch and Ferrari 2018, `100 Years of the Ocean General Circulation <https://journals.ametsoc.org/view/journals/amsm/59/1/amsmonographs-d-18-0002.1.xml>`_
 
-Week 9:
+Week 9, one of:
 Jeevanjee et al. 2017, `A perspective on model hierachies <https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017MS001038>`_
+
 Maher et al. 2019, `Model Hierarchies for Understanding Atmospheric Circulation <https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018RG000607>`_
 
 
