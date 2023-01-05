@@ -97,7 +97,7 @@ include a summarizing table. If you do not understand the scope of a
 problem, please ask. Help with the labs is
 available 1) through piazza (see CANVAS) so you can contact your classmates
 and ask them 2) during the weekly scheduled lab or 3) directly from the
-instructors. Assignments, quizzes, mini-projects and the project are expected on
+instructors. Assignments, quizzes, and the project are expected on
 time. Late ones will be marked and then the mark will be multiplied by
 :math:`(0.9)^{\rm (number\ of\ days\ or\ part\ days\ late)}`. 
 
