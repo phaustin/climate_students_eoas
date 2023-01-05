@@ -55,7 +55,7 @@ https://phaustin.org/climate_book/home.html
 Grades
 ------
    -  Assignments 40% (individual with collaboration)
-   -  Class presentation of journal paper 10%
+   -  Class presentation of journal paper 10% (individual)
    -  Reading Quizzes 5% (individual)
    -  In-class Worksheets 5% (group)
    -  Project Proposal 5%
