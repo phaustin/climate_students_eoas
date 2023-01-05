@@ -141,7 +141,6 @@ Week 1 (9-15 Jan) Introduction (PA)
 
 
 Week 2 (16-22 Jan) - Introduction to Climate Models and the Global Energy Budget (RHW)
-
    - Pre-class reading: Chapters 1 & 2 of Global Physical Climatology
    
    - Pre-class Quiz #1
@@ -154,7 +153,6 @@ Week 2 (16-22 Jan) - Introduction to Climate Models and the Global Energy Budget
 
 
 Week 3 (23-30 Jan) - Radiative Transfer (PA)
-
    - Pre-class reading: Chapters 3 & 4 of Global Physical Climatology
 
    - Pre-class Quiz #2
@@ -171,7 +169,6 @@ Week 3 (23-30 Jan) - Radiative Transfer (PA)
 
 
 Week 4 (30 Jan - 5 Feb) - Radiative Equilibrium and Climate Change (PA)
-
    - Pre-class reading: Chapter 13 of Global Physical Climatology (and re-cap chapter 3)
    
    - Pre-class Quiz #3
@@ -185,7 +182,6 @@ Week 4 (30 Jan - 5 Feb) - Radiative Equilibrium and Climate Change (PA)
 
 
 Week 5 (6-12 Feb) - Modelling feedbacks and transient warming (RHW)
-
    - Pre-class reading: Chapters 10 and 11 of Global Physical Climatology
 
    - Pre-class Quiz #4
@@ -201,7 +197,6 @@ Week 5 (6-12 Feb) - Modelling feedbacks and transient warming (RHW)
 
 
 Week 6 (13-19 Feb) - Modelling climate change (RHW)
-
    - Pre-class reading: Chapter 13 of Global Physical Climatology
 
    - Pre-class Quiz #5
@@ -211,15 +206,14 @@ Week 6 (13-19 Feb) - Modelling climate change (RHW)
       - Notebook 18: Insolation
       - Notebook 19: Orbital variations, insolation, and the ice ages
       - Notebook 20: Heat transport
-
-    - Assignment 5 - Climate change in the CESM simulations - due 9pm Feb 13th - all parts
+   
+   - Assignment 5 - Climate change in the CESM simulations - due 9pm Feb 13th - all parts
 
 
 Mid-term break: 20-26 Feb
 
 
 Week 7 (27 Feb - 5 Mar) - Modelling atmospheric general circulation (RHW)
-
    - Pre-class reading: Chapter 13 of Global Physical Climatology
 
    - Pre-class Quiz #6
@@ -236,7 +230,6 @@ Week 7 (27 Feb - 5 Mar) - Modelling atmospheric general circulation (RHW)
 
 
 Week 8 (27 Feb - 5 Mar) - Modelling coupled atmosphere-ocean circulation and internal variability (RHW)
-
    - Pre-class reading: Chapter 7 and 8 of Global Physical Climatology (Ocean General Circulation and Climate and Intraseasonal and Interannual variability)
 
    - Pre-class Quiz #7
@@ -252,7 +245,6 @@ Week 8 (27 Feb - 5 Mar) - Modelling coupled atmosphere-ocean circulation and int
    - Students choose final project topic from a selection, in discussion with instructors
 
 Week 9 (6 - 12 Mar) - Climate model hierachy and uses (RHW)
-
    - Pre-class reading: Chapters 9, 12 and 13 of Global Physical Climatology (Paleoclimate, Natural Climate Change and Anthropogenic Climate Change)
 
    - Pre-class Quiz #8
@@ -268,13 +260,11 @@ Weeks 10 - 13 (20 Mar - 13 Apr)
    - Work on projects
 
 
--  Project
-
-   -  Estimate: 16 hours
+-  Project Components:
 
    -  Proposal
 
-   -  20 minute presentation to the class
+   -  10-20 minute presentation to the class
 
    -  Project report
 
