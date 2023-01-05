@@ -234,7 +234,7 @@ Week 8 (27 Feb - 5 Mar) - Modelling coupled atmosphere-ocean circulation and int
    - Pre-class Quiz #7
 
    - Labs: 
-      - Notebook 24: Ice-albedo feedback and Snowball Earth in the EBM
+      - Notebook 24: A peek at numerical methods for diffusion models
       - Notebook 25: Ice-albedo feedback and Snowball Earth in the EBM
       - Notebook 26: Coupled Dynamics in the CESM
       - Notebook: analysis of CESM large ensemble data: https://github.com/NCAR/cesm-lens-aws; 
