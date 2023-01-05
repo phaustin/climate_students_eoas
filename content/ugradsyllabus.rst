@@ -112,7 +112,8 @@ Tentative schedule, including assignment deadlines
 --------
 
 Week 1 (9-15 Jan) Introduction (PA)
-- Introductory Meeting: set class time, introduce jupyter notebooks, github, and the structure of the course
+
+   - Introductory Meeting: set class time, introduce jupyter notebooks, github, and the structure of the course
 
    - Pre-class reading: syllabus
 
