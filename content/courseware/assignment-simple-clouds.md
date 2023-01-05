@@ -50,7 +50,7 @@ For this question we will suppose (as we did in the lecture notes) that there is
 
 ## Question 1
 
-Suppose a cloud reflects a fraction $\alpha_c$ of the shortwave beam incoming from above. $\alpha_c$ is a number between 0 and 1. Provide a coherent argument (in words, sketches, and/or equations) for why the **shortwave** effects cloud should alway be a **cooling** on the surface. Is this cooling effect different if the cloud is low or high? Explain.
+Suppose a cloud reflects a fraction $\alpha_c$ of the shortwave beam incoming from above. $\alpha_c$ is a number between 0 and 1. Provide a coherent argument (in words, sketches, and/or equations) for why the **shortwave** effects of a cloud should alway be a **cooling** on the surface. Is this cooling effect different if the cloud is low or high? Explain.
 
 ```{code-cell} ipython3
 
