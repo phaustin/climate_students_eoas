@@ -1,4 +1,4 @@
-Graduate Climate Modelling:  (directed studies for Jan 2023)
+Climate Modelling (directed studies, W2 2023)
 =============================================================================================
 
 PDF copy
