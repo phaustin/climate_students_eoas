@@ -32,7 +32,9 @@ Prerequisites
 -------------
 
 One of PHYS 102, PHYS 108, PHYS 118, PHYS 158, PHYS 102, MATH 211, MATH 215, MATH 255, MATH 256, MATH 265.  
+
 Familiarity with python, or strong coding skills in another language (the course is taught in python). 
+
 Familiarity with the basics of global climate science is recommended but not required.   
 
 
