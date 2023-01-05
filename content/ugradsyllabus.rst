@@ -116,7 +116,8 @@ Week 1 (9-15 Jan) Introduction (PA)
 
    - Pre-class reading: syllabus
 
-   - Lab: Notebook 1: Climate models, the global energy budget and Fun with Python
+   - Lab: 
+      - Notebook 1: Climate models, the global energy budget and Fun with Python
 
 
 Week 2 (16-22 Jan) - Introduction to Climate Models and the Global Energy Budget (RHW)
@@ -125,8 +126,9 @@ Week 2 (16-22 Jan) - Introduction to Climate Models and the Global Energy Budget
    
    - Pre-class Quiz #1
 
-   - Labs: Notebook 2: Modeling the global energy budget
-           Notebook 3: The climate system and climate models
+   - Labs: 
+      - Notebook 2: Modeling the global energy budget
+      - Notebook 3: The climate system and climate models
 
    - Assignment 1 - Climate change in the zero-dimensional EBM - due 9pm Jan 23rd - all problems (1 & 2)
 
@@ -137,10 +139,11 @@ Week 3 (23-30 Jan) - Radiative Transfer (PA)
 
    - Pre-class Quiz #2
 
-   -  Labs: Notebook 4: Introducing the Community Earth System Model (CESM)
-            Notebook 5: Building simple climate models using climlab
-            Notebook 6: A Brief Review of Radiation
-            Notebook 7: Elementary greenhouse models
+   - Labs: 
+      - Notebook 4: Introducing the Community Earth System Model (CESM)
+      - Notebook 5: Building simple climate models using climlab
+      - Notebook 6: A Brief Review of Radiation
+      - Notebook 7: Elementary greenhouse models
 
    - Optional lab: Notebook 8
 
@@ -153,9 +156,10 @@ Week 4 (30 Jan - 5 Feb) - Radiative Equilibrium and Climate Change (PA)
    
    - Pre-class Quiz #3
 
-   -  Labs: Notebook 9: Grey radiation modeling with climlab
-            Notebook 10: Modeling non-scattering radiative transfer
-            Notebook 11: Who needs spectral bands? We do. Some baby steps…
+   - Labs: 
+      - Notebook 9: Grey radiation modeling with climlab
+      - Notebook 10: Modeling non-scattering radiative transfer
+      - Notebook 11: Who needs spectral bands? We do. Some baby steps…
 
    - Assignment 3 - Clouds in the Leaky Greenhouse Model - due 9pm Feb 6th - problems (1, 2, 3, 4, and 5)
 
@@ -166,11 +170,12 @@ Week 5 (6-12 Feb) - Modelling feedbacks and transient warming (RHW)
 
    - Pre-class Quiz #4
 
-   -  Labs: Notebook 12: Radiative Equilibrium
-            Notebook 13: Radiative-Convective Equilibrium
-            Notebook 14: Climate sensitivity and feedback
-            Notebook 15: Examing the transient and equilibrium CO_2 response in the CESM
-            Notebook 16: Toy models of transient warming
+   - Labs: 
+      - Notebook 12: Radiative Equilibrium
+      - Notebook 13: Radiative-Convective Equilibrium
+      - Notebook 14: Climate sensitivity and feedback
+      - Notebook 15: Examing the transient and equilibrium CO_2 response in the CESM
+      - Notebook 16: Toy models of transient warming
 
    - Assignment 4 - Feedbacks in the Radiative-Convective Model - due 9pm Feb 13th - all problems (1, 2, 3, 4, and 5)
 
@@ -181,15 +186,16 @@ Week 6 (13-19 Feb) - Modelling climate change (RHW)
 
    - Pre-class Quiz #5
 
-   - Labs: Notebook 17: Clouds and cloud feedback
-           Notebook 18: Insolation
-           Notebook 19: Orbital variations, insolation, and the ice ages
-           Notebook 20: Heat transport
+   - Labs: 
+      - Notebook 17: Clouds and cloud feedback
+      - Notebook 18: Insolation
+      - Notebook 19: Orbital variations, insolation, and the ice ages
+      - Notebook 20: Heat transport
 
     - Assignment 5 - Climate change in the CESM simulations - due 9pm Feb 13th - parts 1, 2, 3, 4, and 5
 
 
-- Mid-term break: 20-26 Feb
+Mid-term break: 20-26 Feb
 
 
 Week 7 (27 Feb - 5 Mar) - Modelling atmospheric general circulation (RHW)
@@ -198,10 +204,11 @@ Week 7 (27 Feb - 5 Mar) - Modelling atmospheric general circulation (RHW)
 
    - Pre-class Quiz #6
 
-   - Labs: Notebook 17: Clouds and cloud feedback
-           Notebook 18: Insolation
-           Notebook 19: Orbital variations, insolation, and the ice ages
-           Notebook 20: Heat transport
+   - Labs: 
+      - Notebook 17: Clouds and cloud feedback
+      - Notebook 18: Insolation
+      - Notebook 19: Orbital variations, insolation, and the ice ages
+      - Notebook 20: Heat transport
 
    - Students choose final project topic from a selection in discussion with instructors
 
@@ -212,11 +219,12 @@ Week 8 (27 Feb - 5 Mar) - Modelling coupled atmosphere-ocean circulation and int
 
    - Pre-class Quiz #7
 
-   - Labs: Notebook 24: Ice-albedo feedback and Snowball Earth in the EBM
-           Notebook 26: Coupled Dynamics in the CESM
-           Notebook: analysis of CESM large ensemble data: https://github.com/NCAR/cesm-lens-aws
-               - follow this link to run a jupyter notebook on `Pangeo <https://aws-uswest2-binder.pangeo.io/v2/gh/NCAR/cesm-lens-aws/binder-config?urlpath=git-pull?repo=https://github.com/NCAR/cesm-lens-aws%26amp%3Bbranch=main%26amp%3Burlpath=lab/tree/cesm-lens-aws/%3Fautodecode>`_
-               - log in with github account - create one for free if you don’t already have one
+   - Labs: 
+      - Notebook 24: Ice-albedo feedback and Snowball Earth in the EBM
+      - Notebook 26: Coupled Dynamics in the CESM
+      - Notebook: analysis of CESM large ensemble data: https://github.com/NCAR/cesm-lens-aws; 
+        running the notebook on `Pangeo <https://aws-uswest2-binder.pangeo.io/v2/gh/NCAR/cesm-lens-aws/binder-config?urlpath=git-pull?repo=https://github.com/NCAR/cesm-lens-aws%26amp%3Bbranch=main%26amp%3Burlpath=lab/tree/cesm-lens-aws/%3Fautodecode>`_ will give you access to the
+        large ensemble dataset without having to download it. Login with github (you can create an account for free if you don’t already have one)
 
    - Optional notebook: Notebook 25: Ice-albedo feedback and Snowball Earth in the EBM
 
@@ -228,8 +236,9 @@ Week 9 (6 - 12 Mar) - Climate model hierachy and uses (RHW)
 
    - Pre-class Quiz #8
 
-   - Labs: Notebook 27: The surface energy balance
-           Notebook 28: Land-Ocean contrasts under climate change
+   - Labs: 
+      - Notebook 27: The surface energy balance
+      - Notebook 28: Land-Ocean contrasts under climate change
 
    - Project proposal - due 9pm Feb 20th
 
