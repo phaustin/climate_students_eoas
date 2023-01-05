@@ -111,17 +111,15 @@ Meeting Times
 Tentative schedule, including assignment deadlines
 --------
 
--  Week 1 (9-15 Jan) PA
-Introductory Meeting
-Goals: set class time, introduce jupyter notebooks, github, and the structure of the course
+Week 1 (9-15 Jan) Introduction (PA)
+- Introductory Meeting: set class time, introduce jupyter notebooks, github, and the structure of the course
 
    - Pre-class reading: syllabus
 
    - Lab: Notebook 1: Climate models, the global energy budget and Fun with Python
 
 
--  Week 2 (16-22 Jan) RHW
-Introduction to Climate Models and the Global Energy Budget
+Week 2 (16-22 Jan) - Introduction to Climate Models and the Global Energy Budget (RHW)
 
    - Pre-class reading: Chapters 1 & 2 of Global Physical Climatology
    
@@ -133,8 +131,7 @@ Introduction to Climate Models and the Global Energy Budget
    - Assignment 1 - Climate change in the zero-dimensional EBM - due 9pm Jan 23rd - all problems (1 & 2)
 
 
--  Week 3 (23-30 Jan) PA
-Radiative Transfer
+Week 3 (23-30 Jan) - Radiative Transfer (PA)
 
    - Pre-class reading: Chapters 3 & 4 of Global Physical Climatology
 
@@ -150,8 +147,7 @@ Radiative Transfer
    - Assignment 2 - Global average budgets in the CESM pre-industrial control simulation - due 9pm Jan 30th - all problems (1 & 2)
 
 
--  Week 4 (30 Jan - 5 Feb) PA
-Radiative Equilibrium and Climate Change
+Week 4 (30 Jan - 5 Feb) - Radiative Equilibrium and Climate Change (PA)
 
    - Pre-class reading: Chapter 13 of Global Physical Climatology (and re-cap chapter 3)
    
@@ -164,8 +160,7 @@ Radiative Equilibrium and Climate Change
    - Assignment 3 - Clouds in the Leaky Greenhouse Model - due 9pm Feb 6th - problems (1, 2, 3, 4, and 5)
 
 
--  Week 5 (6-12 Feb) RHW
-Modelling feedbacks and transient warming
+Week 5 (6-12 Feb) - Modelling feedbacks and transient warming (RHW)
 
    - Pre-class reading: Chapters 10 and 11 of Global Physical Climatology
 
@@ -180,8 +175,7 @@ Modelling feedbacks and transient warming
    - Assignment 4 - Feedbacks in the Radiative-Convective Model - due 9pm Feb 13th - all problems (1, 2, 3, 4, and 5)
 
 
--  Week 6 (13-19 Feb) RHW
-Modelling climate change
+Week 6 (13-19 Feb) - Modelling climate change (RHW)
 
    - Pre-class reading: Chapter 13 of Global Physical Climatology
 
@@ -198,8 +192,7 @@ Modelling climate change
 - Mid-term break: 20-26 Feb
 
 
--  Week 7 (27 Feb - 5 Mar) RHW
-Modelling atmospheric general circulation 
+Week 7 (27 Feb - 5 Mar) - Modelling atmospheric general circulation (RHW)
 
    - Pre-class reading: Chapter 13 of Global Physical Climatology
 
@@ -213,8 +206,7 @@ Modelling atmospheric general circulation
    - Students choose final project topic from a selection in discussion with instructors
 
 
--  Week 8 (27 Feb - 5 Mar) RHW
-Modelling coupled atmosphere-ocean circulation and internal variability
+Week 8 (27 Feb - 5 Mar) - Modelling coupled atmosphere-ocean circulation and internal variability (RHW)
 
    - Pre-class reading: Chapter 7 and 8 of Global Physical Climatology (Ocean General Circulation and Climate and Intraseasonal and Interannual variability)
 
@@ -230,8 +222,7 @@ Modelling coupled atmosphere-ocean circulation and internal variability
 
    - Students choose final project topic from a selection, in discussion with instructors
 
--  Week 9 (6 - 12 Mar) RHW
-Climate model hierachy and uses
+Week 9 (6 - 12 Mar) - Climate model hierachy and uses (RHW)
 
    - Pre-class reading: Chapters 9, 12 and 13 of Global Physical Climatology (Paleoclimate, Natural Climate Change and Anthropogenic Climate Change)
 
