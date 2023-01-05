@@ -1,4 +1,4 @@
-Climate Modelling: ATSC 448B (directed studies for W2 2023)
+Climate Modelling: ATSC 448B (directed studies, Jan 2023)
 =======================================================================================
 
 
