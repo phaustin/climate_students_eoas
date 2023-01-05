@@ -1,4 +1,4 @@
-Climate Modelling (directed studies, W2 2023)
+Climate Modelling (directed studies, Jan 2023)
 =============================================================================================
 
 Course Summary
