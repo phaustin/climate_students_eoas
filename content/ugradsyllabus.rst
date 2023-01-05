@@ -88,7 +88,7 @@ allowing you to miss one quiz.
 The in-class worksheets will be marked for a complete effort. There
 will be a “grace space” policy allowing you to miss one class
 worksheet. The grace space policy is to accommodate missed classes due
-to illness, “away games” for athletes etc. In-class paper worksheets
+to illness, “away games” for athletes etc. In-class worksheets
 are done as a group and are to handed in (one worksheet only per
 group) at the end of the worksheet time.
 
