@@ -25,8 +25,8 @@ Instructors
 
 Textbook
 -------------
-Global Physical Climatology, Dennis Hartmann (available online through the 
-UBC library: https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&SS_jc=TC0001767901&title=Global%20physical%20climatology)
+Global Physical Climatology, Dennis Hartmann `available online through the 
+UBC library <https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&SS_jc=TC0001767901&title=Global%20physical%20climatology>`_
 
 Prerequisites
 -------------
@@ -221,7 +221,7 @@ Modelling coupled atmosphere-ocean circulation and internal variability
    - Labs: Notebook 24: Ice-albedo feedback and Snowball Earth in the EBM
            Notebook 26: Coupled Dynamics in the CESM
            Notebook: analysis of CESM large ensemble data: https://github.com/NCAR/cesm-lens-aws
-               - follow this link to run a jupyter notebook on Pangeo: https://aws-uswest2-binder.pangeo.io/v2/gh/NCAR/cesm-lens-aws/binder-config?urlpath=git-pull?repo=https://github.com/NCAR/cesm-lens-aws%26amp%3Bbranch=main%26amp%3Burlpath=lab/tree/cesm-lens-aws/%3Fautodecode 
+               - follow this link to run a jupyter notebook on `Pangeo <https://aws-uswest2-binder.pangeo.io/v2/gh/NCAR/cesm-lens-aws/binder-config?urlpath=git-pull?repo=https://github.com/NCAR/cesm-lens-aws%26amp%3Bbranch=main%26amp%3Burlpath=lab/tree/cesm-lens-aws/%3Fautodecode>`_
                - log in with github account - create one for free if you don’t already have one
 
    - Optional notebook: Notebook 25: Ice-albedo feedback and Snowball Earth in the EBM

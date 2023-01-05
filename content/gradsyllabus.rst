@@ -77,23 +77,23 @@ a relevant peer-reviewed journal paper to read and present to the class.
 
 To present in:
 Week 4 or 5:
-Seeley et al. 2019, FAT or FiTT: Are Anvil Clouds or the Tropopause Temperature Invariant? (https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018RG000607)
-Zelinka et al. 2020, Causes of Higher Climate Sensitivity in CMIP6 Models (https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019GL085782)
-Meehl et al. 2020, Context for interpreting equilibrium climate sensitivity and transient climate response from the CMIP6 Earth system models (https://www.science.org/doi/10.1126/sciadv.aba1981)
+Seeley et al. 2019, `FAT or FiTT: Are Anvil Clouds or the Tropopause Temperature Invariant? <https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018RG000607>`_
+Zelinka et al. 2020, `Causes of Higher Climate Sensitivity in CMIP6 Models <https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019GL085782>`_
+Meehl et al. 2020, `Context for interpreting equilibrium climate sensitivity and transient climate response from the CMIP6 Earth system models <https://www.science.org/doi/10.1126/sciadv.aba1981>`_
 
 Week 6:
-Hourdin et al. 2017, The Art and Science of Climate Model Tuning (https://journals.ametsoc.org/view/journals/bams/98/3/bams-d-15-00135.1.xml)
-O'Gorman and Dwyer 2018, Using Machine Learning to Parameterize Moist Convection: Potential for Modeling of Climate, Climate Change, and Extreme Events (https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018MS001351)
+Hourdin et al. 2017, `The Art and Science of Climate Model Tuning <https://journals.ametsoc.org/view/journals/bams/98/3/bams-d-15-00135.1.xml>`_
+O'Gorman and Dwyer 2018, `Using Machine Learning to Parameterize Moist Convection: Potential for Modeling of Climate, Climate Change, and Extreme Events <https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018MS001351>`_
 
 Week 7:
-Vallis et al. 2014 Response of the large-scale structure of the atmosphere to global warming (https://rmets.onlinelibrary.wiley.com/doi/full/10.1002/qj.2456)
+Vallis et al. 2014, `Response of the large-scale structure of the atmosphere to global warming <https://rmets.onlinelibrary.wiley.com/doi/full/10.1002/qj.2456>`_
 
 Week 8:
-Wunsch and Ferrari 2018, 100 Years of the Ocean General Circulation (https://journals.ametsoc.org/view/journals/amsm/59/1/amsmonographs-d-18-0002.1.xml)
+Wunsch and Ferrari 2018, `100 Years of the Ocean General Circulation <https://journals.ametsoc.org/view/journals/amsm/59/1/amsmonographs-d-18-0002.1.xml>`_
 
 Week 9:
-Jeevanjee et al. 2017, A perspective on model hierachies (https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017MS001038)
-Maher et al. 2019, Model Hierarchies for Understanding Atmospheric Circulation (https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018RG000607)
+Jeevanjee et al. 2017, `A perspective on model hierachies <https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017MS001038>`_
+Maher et al. 2019, `Model Hierarchies for Understanding Atmospheric Circulation <https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018RG000607>`_
 
 
 Quizzes are done online, reflect the learning objectives of each lab
@@ -240,7 +240,7 @@ Modelling coupled atmosphere-ocean circulation and internal variability
    - Labs: Notebook 24: Ice-albedo feedback and Snowball Earth in the EBM
            Notebook 26: Coupled Dynamics in the CESM
            Notebook: analysis of CESM large ensemble data: https://github.com/NCAR/cesm-lens-aws
-               - follow this link to run a jupyter notebook on Pangeo: https://aws-uswest2-binder.pangeo.io/v2/gh/NCAR/cesm-lens-aws/binder-config?urlpath=git-pull?repo=https://github.com/NCAR/cesm-lens-aws%26amp%3Bbranch=main%26amp%3Burlpath=lab/tree/cesm-lens-aws/%3Fautodecode 
+               - follow this link to run a jupyter notebook on `Pangeo <https://aws-uswest2-binder.pangeo.io/v2/gh/NCAR/cesm-lens-aws/binder-config?urlpath=git-pull?repo=https://github.com/NCAR/cesm-lens-aws%26amp%3Bbranch=main%26amp%3Burlpath=lab/tree/cesm-lens-aws/%3Fautodecode>`_
                - log in with github account - create one for free if you don’t already have one
 
    - Optional notebook: Notebook 25: Ice-albedo feedback and Snowball Earth in the EBM
