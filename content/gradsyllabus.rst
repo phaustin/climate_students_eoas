@@ -29,8 +29,8 @@ Instructors
 
 Textbook
 -------------
-Global Physical Climatology, Dennis Hartmann (available online through the 
-UBC library: https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&SS_jc=TC0001767901&title=Global%20physical%20climatology)
+Global Physical Climatology, Dennis Hartmann `available online through the 
+UBC library <https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&SS_jc=TC0001767901&title=Global%20physical%20climatology>`
 
 Course Structure
 ----------------
