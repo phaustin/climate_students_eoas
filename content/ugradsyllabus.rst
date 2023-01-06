@@ -1,10 +1,8 @@
-Climate Modelling: ATSC 448B (directed studies, Jan 2023)
+Undergraduate Syllabus
 =======================================================================================
 
-
-Course Summary
+Climate Modelling: ATSC 448B (directed studies, Jan 2023)
 --------------
-
 Python-based introduction to climate modelling and the underlying physics of climate models, 
 including a focus on radiation and single-column models as well as atmosphere and ocean
 circulation and full general circulation models (GCMs).

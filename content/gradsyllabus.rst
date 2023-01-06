@@ -1,9 +1,8 @@
-Climate Modelling (directed studies, Jan 2023)
+Graduate Syllabus
 =============================================================================================
 
-Course Summary
+Climate Modelling (directed studies, Jan 2023)
 --------------
-
 Python-based introduction to climate modelling and the underlying physics of climate models, 
 including a focus on radiation and single-column models as well as atmosphere and ocean
 circulation and full general circulation models (GCMs).
