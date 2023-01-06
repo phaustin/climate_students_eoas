@@ -255,17 +255,11 @@ Week 9 (6 - 12 Mar) - Climate model hierachy and uses (RHW)
 
    - Project proposal - due 9pm Feb 20th
 
-Weeks 10 - 13 (20 Mar - 13 Apr)
-   - Work on projects
-
-
--  Project Components:
-
-   -  Proposal
-
-   -  10-20 minute presentation to the class
-
-   -  Project report
+Weeks 10 - 13 (20 Mar - 13 Apr) - Work on projects
+   -  Project Components:
+         -  Proposal
+         -  10-20 minute presentation to the class
+         -  Project report
 
 
 University Statement on Values and Policies
