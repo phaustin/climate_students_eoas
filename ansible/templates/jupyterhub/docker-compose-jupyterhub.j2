@@ -1,6 +1,6 @@
 version: '3.7'
 
-#
+# generated from https://github.com/phaustin/climate_modeling_eoas/blob/main/ansible/templates/jupyterhub/docker-compose-jupyterhub.j2
 # see vars/jupyterhub_climate.yml for
 # hub_service_name, dockerhub_id, container_version, hub_domain, JHUB_OAUTH_CALLBACK_URL
 #  example:  hub_service_name: climatehub
@@ -13,7 +13,7 @@ services:
 
   {{ hub_service_name }}:
     build:
-        context: {{ hub_image_name }}-image
+        context: {{ hub_image_name }}_image
         dockerfile: ./Dockerfile
     image: {{ dockerhub_id }}/{{ hub_image_name }}:{{ container_version }}
     container_name: {{ hub_image_name }}_{{ container_version }}

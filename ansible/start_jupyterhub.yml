@@ -2,10 +2,10 @@
 - hosts: all
   vars_files:
     - vars/jovyan_vars.yml
-    # JHUB_OAUTH_CALLBACK_URL
     - vars/jupyterhub_climate.yml
-    # vault_jhub_oath_client_id, vault_jhub_oauth_client_secret
+    # JHUB_OAUTH_CALLBACK_URL, climate_git_remote_path, hub_image_name
     - vars/vault.yml
+    # vault_jhub_oath_client_id, vault_jhub_oauth_client_secret
   tasks:
     - name: start jupyterhub
       shell: "docker-compose -f docker-compose-jupyterhub.yml up -d"
@@ -15,7 +15,8 @@
         JHUB_OAUTH_CLIENT_SECRET: "{{ vault_jhub_oauth_client_secret }}"
       register: jupyterhub_status
       args:
-        chdir: "{{ climate_git_remote_path }}/jupyterhub"
+        chdir: "{{ climate_git_remote_path }}"
         executable: /bin/bash
 
+#  ansible-playbook -i hosts.yml -l n7jov -u jovyan start_jupyterhub.yml
 

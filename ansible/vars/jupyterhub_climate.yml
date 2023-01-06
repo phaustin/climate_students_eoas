@@ -11,12 +11,12 @@ climhub_github_repo:
 container_version: dec31
 dockerhub_id: phaustin
 hub_service_name: climatehub
-hub_image_name: climatehub
+hub_image_name: climatehub_image
 base_notebook_service_name: base
 notebook_service_name: climatebook
 hub_domain: climhub.phaustin.org
 notebook_name: climate_image
-notebook_image_name: {{ notebook_name }}:{{ container_version }}
+notebook_image_name: "{{ notebook_name }}:{{ container_version }}"
 notebook_dir: notebook_image
 jupyterhub_template_list:
   - { src: "templates/jupyterhub/docker-compose-jupyterhub.j2"  , dest: "{{ climate_git_remote_path }}/docker-compose-jupyterhub.yml" }
