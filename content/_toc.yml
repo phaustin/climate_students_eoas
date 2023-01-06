@@ -3,7 +3,8 @@ root: home.md
 parts:
 - caption: Syllabus
   chapters:
-  - file: syllabus.md
+  - file: ugradsyllabus.rst
+  - file: gradsyllabus.rst
 - caption: Front matter
   chapters:
   - file: preamble.md
