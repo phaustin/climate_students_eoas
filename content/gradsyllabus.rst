@@ -218,23 +218,21 @@ Week 7 (27 Feb - 5 Mar) - Modelling atmospheric general circulation (RHW)
    - Pre-class Quiz #6
 
    - Labs: 
-      - Notebook 17: Clouds and cloud feedback
-      - Notebook 18: Insolation
-      - Notebook 19: Orbital variations, insolation, and the ice ages
-      - Notebook 20: Heat transport
+      - Notebook 21: The one-dimensional energy balance model
+      - Notebook 22: Modeling the seasonal cycle of surface temperature
+      - Notebook 23: Atmospheric Dynamics in the CESM
+      - Notebook 24: A peek at numerical methods for diffusion models
 
    - Students choose final project topic from a selection in discussion with instructors
 
    - Assignment 6 - Insolation and Orbital parameters - due 9pm Mar 6th
 
-
-Week 8 (6 Mar - 12 Mar) - Modelling coupled atmosphere-ocean circulation and internal variability (RHW)
+Week 8 (6 - 12 Mar) - Modelling coupled atmosphere-ocean circulation and internal variability (RHW)
    - Pre-class reading: Chapter 7 and 8 of Global Physical Climatology (Ocean General Circulation and Climate and Intraseasonal and Interannual variability)
 
    - Pre-class Quiz #7
 
    - Labs: 
-      - Notebook 24: A peek at numerical methods for diffusion models
       - Notebook 25: Ice-albedo feedback and Snowball Earth in the EBM
       - Notebook 26: Coupled Dynamics in the CESM
       - Notebook: analysis of CESM large ensemble data: https://github.com/NCAR/cesm-lens-aws; 
