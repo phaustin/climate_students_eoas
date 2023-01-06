@@ -8,7 +8,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Climate Laboratory
 
 execute:
-  execute_notebooks: off
+  execute_notebooks: auto
 parse:
   myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
     - amsmath
@@ -27,7 +27,7 @@ repository:
 
 launch_buttons:
   notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
-  jupyterhub_url: https://jupyterhub.eoas.ubc.ca
+  jupyterhub_url: https://climhub.phaustin.org
 
 html:
   home_page_in_navbar: true
