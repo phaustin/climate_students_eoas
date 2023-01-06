@@ -207,7 +207,7 @@ Week 7 (27 Feb - 5 Mar) - Modelling atmospheric general circulation (RHW)
    - Students choose final project topic from a selection in discussion with instructors
 
 Week 8 (6 - 12 Mar) - Modelling coupled atmosphere-ocean circulation and internal variability (RHW)
-   - Pre-class reading: Chapter 7 and 8 of Global Physical Climatology (Ocean General Circulation and Climate and Intraseasonal and Interannual variability)
+   - Pre-class reading: Chapter 7 and 8 of Global Physical Climatology
 
    - Pre-class Quiz #7
 
