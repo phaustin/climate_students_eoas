@@ -10,7 +10,7 @@ book_name: "climate_2022"
 website_dir: "~/repos/climate_students_eoas"
 book_remote_path: "{{ website_dir }}/book_html_source"
 book_remote_html: "{{ book_remote_path }}/"
-book_local_html: "~/repos/climate_students_eoas/content/_build/html"
+book_local_html: "~/repos/climate_students_eoas/content/_build/html/"
 book_prefix: "/climate_2022"
 dest_dir: "{{ git_remote_path }}/website/{{ book_remote_path }}"
 website_template_list:
