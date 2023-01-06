@@ -228,7 +228,7 @@ Week 7 (27 Feb - 5 Mar) - Modelling atmospheric general circulation (RHW)
    - Assignment 6 - Insolation and Orbital parameters - due 9pm Mar 6th
 
 Week 8 (6 - 12 Mar) - Modelling coupled atmosphere-ocean circulation and internal variability (RHW)
-   - Pre-class reading: Chapter 7 and 8 of Global Physical Climatology (Ocean General Circulation and Climate and Intraseasonal and Interannual variability)
+   - Pre-class reading: Chapter 7 and 8 of Global Physical Climatology
 
    - Pre-class Quiz #7
 
