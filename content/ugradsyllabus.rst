@@ -256,10 +256,10 @@ available here
 https://senate.ubc.ca/policies-resources-support-student-success.
 
 
-Supporting Diversity and Inclusions
+Supporting Diversity and Inclusion
 -----------------------------------
 
-Atmospheric Science, Oceanography and the Earth Sciences havebeen
+Atmospheric Science, Oceanography and the Earth Sciences have been
 historically dominated by a small subset of
 privileged people who are predominantly male and white, missing out on
 many influential individuals thoughts and
