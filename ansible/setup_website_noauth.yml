@@ -25,7 +25,7 @@
         src: "{{ book_local_html }}"
         dest: "{{ book_remote_html }}"
         group: "no"
-# ansible-playbook -i hosts.yml -u jovyan -l n7jov -e "course_name=climate" setup_website_noauth.yml 
+# ansible-playbook -i hosts.yml -u jovyan -l n7jov -e "course_name=climate_2022" setup_website_noauth.yml 
 
 
 
