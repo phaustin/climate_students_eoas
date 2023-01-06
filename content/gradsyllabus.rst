@@ -148,7 +148,7 @@ Week 2 (16-22 Jan) - Introduction to Climate Models and the Global Energy Budget
       - Notebook 2: Modeling the global energy budget
       - Notebook 3: The climate system and climate models
 
-   - Assignment 1 - Climate change in the zero-dimensional EBM - due 9pm Jan 23rd - all problems (1 & 2)
+   - Assignment 1 - Climate change in the zero-dimensional EBM - due 9pm Jan 23rd
 
 
 Week 3 (23-30 Jan) - Radiative Transfer (PA)
@@ -164,7 +164,7 @@ Week 3 (23-30 Jan) - Radiative Transfer (PA)
 
    - Optional lab: Notebook 8
 
-   - Assignment 2 - Global average budgets in the CESM pre-industrial control simulation - due 9pm Jan 30th - all problems (1 & 2)
+   - Assignment 2 - Global average budgets in the CESM pre-industrial control simulation - due 9pm Jan 30th
 
 
 Week 4 (30 Jan - 5 Feb) - Radiative Equilibrium and Climate Change (PA)
@@ -177,7 +177,7 @@ Week 4 (30 Jan - 5 Feb) - Radiative Equilibrium and Climate Change (PA)
       - Notebook 10: Modeling non-scattering radiative transfer
       - Notebook 11: Who needs spectral bands? We do. Some baby steps…
 
-   - Assignment 3 - Clouds in the Leaky Greenhouse Model - due 9pm Feb 6th - problems (1, 2, 3, 4, and 5)
+   - Assignment 3 - Clouds in the Leaky Greenhouse Model - due 9pm Feb 6th
 
 
 Week 5 (6-12 Feb) - Modelling feedbacks and transient warming (RHW)
@@ -192,7 +192,7 @@ Week 5 (6-12 Feb) - Modelling feedbacks and transient warming (RHW)
       - Notebook 15: Examing the transient and equilibrium CO_2 response in the CESM
       - Notebook 16: Toy models of transient warming
 
-   - Assignment 4 - Feedbacks in the Radiative-Convective Model - due 9pm Feb 13th - all problems (1, 2, 3, 4, and 5)
+   - Assignment 4 - Feedbacks in the Radiative-Convective Model - due 9pm Feb 13th
 
 
 Week 6 (13-19 Feb) - Modelling climate change (RHW)
@@ -206,7 +206,7 @@ Week 6 (13-19 Feb) - Modelling climate change (RHW)
       - Notebook 19: Orbital variations, insolation, and the ice ages
       - Notebook 20: Heat transport
    
-   - Assignment 5 - Climate change in the CESM simulations - due 9pm Feb 13th - all parts
+   - Assignment 5 - Climate change in the CESM simulations - due 9pm Feb 13th
 
 
 Mid-term break: 20-26 Feb
@@ -225,7 +225,7 @@ Week 7 (27 Feb - 5 Mar) - Modelling atmospheric general circulation (RHW)
 
    - Students choose final project topic from a selection in discussion with instructors
 
-   - Assignment 6 - Insolation and Orbital parameters - due 9pm Mar 6th - all parts
+   - Assignment 6 - Insolation and Orbital parameters - due 9pm Mar 6th
 
 
 Week 8 (27 Feb - 5 Mar) - Modelling coupled atmosphere-ocean circulation and internal variability (RHW)
