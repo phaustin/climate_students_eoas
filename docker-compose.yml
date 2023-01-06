@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  webserver_feb09:
+    build: apache_image
+    image: phaustin/apache_dev:feb09
+    container_name: apache_dev_feb09
+    ports:
+      - "${TEXT_PORT}:80"
+    volumes:
+      - ./content/_build/html:/usr/local/share/climlab
+      - ./settings:/srv/settings
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    command: bash -c
+            "cp -a /srv/settings/httpd.conf /usr/local/apache2/conf/httpd.conf
+             && httpd-foreground
+            "
+
+  jupyterhub_feb21:
+    build: hub_image
+    image: phaustin/climhub:feb21
+    container_name: jupyterhub_feb21
+    depends_on: [climbook_mar04]
+    ports:
+      - ${NB_PORT}:8000
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - net_feb21
+
+  climbook_mar04:
+    image: phaustin/climbook:mar04
+    build:
+      context: notebook_image
+    container_name: climbook_mar04
+
+  single_notebook:
+    image: phaustin/single:mar04
+    build:
+      context: single_notebook_image
+    container_name: single_mar04
+    ports:
+      - ${SINGLE_NB_PORT}:8888
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/home/jovyan/shared_files:/home/jovyan/shared_files"
+    command: ["jupyter","notebook","--no-browser"]
+    networks:
+      - net_feb21
+
+    
+# force the network name to be "jupyterhub"
+# this needs to be matched in jupyterhub_config.py by:
+# c.DockerSpawner.network_name = 'jupyterhub'
+networks:
+    net_feb21:
+      driver: bridge
+      name: net_feb21
