@@ -112,7 +112,6 @@ Tentative schedule, including assignment deadlines
 --------
 
 Week 1 (9-15 Jan) Introduction (PA)
-
    - Introductory Meeting: set class time, introduce jupyter notebooks, github, and the structure of the course
 
    - Pre-class reading: syllabus
@@ -122,7 +121,6 @@ Week 1 (9-15 Jan) Introduction (PA)
 
 
 Week 2 (16-22 Jan) - Introduction to Climate Models and the Global Energy Budget (RHW)
-
    - Pre-class reading: Chapters 1 & 2 of Global Physical Climatology
    
    - Pre-class Quiz #1
@@ -135,7 +133,6 @@ Week 2 (16-22 Jan) - Introduction to Climate Models and the Global Energy Budget
 
 
 Week 3 (23-30 Jan) - Radiative Transfer (PA)
-
    - Pre-class reading: Chapters 3 & 4 of Global Physical Climatology
 
    - Pre-class Quiz #2
@@ -152,7 +149,6 @@ Week 3 (23-30 Jan) - Radiative Transfer (PA)
 
 
 Week 4 (30 Jan - 5 Feb) - Radiative Equilibrium and Climate Change (PA)
-
    - Pre-class reading: Chapter 13 of Global Physical Climatology (and re-cap chapter 3)
    
    - Pre-class Quiz #3
@@ -166,7 +162,6 @@ Week 4 (30 Jan - 5 Feb) - Radiative Equilibrium and Climate Change (PA)
 
 
 Week 5 (6-12 Feb) - Modelling feedbacks and transient warming (RHW)
-
    - Pre-class reading: Chapters 10 and 11 of Global Physical Climatology
 
    - Pre-class Quiz #4
@@ -182,7 +177,6 @@ Week 5 (6-12 Feb) - Modelling feedbacks and transient warming (RHW)
 
 
 Week 6 (13-19 Feb) - Modelling climate change (RHW)
-
    - Pre-class reading: Chapter 13 of Global Physical Climatology
 
    - Pre-class Quiz #5
@@ -192,47 +186,41 @@ Week 6 (13-19 Feb) - Modelling climate change (RHW)
       - Notebook 18: Insolation
       - Notebook 19: Orbital variations, insolation, and the ice ages
       - Notebook 20: Heat transport
+   
+   - Assignment 5 - Climate change in the CESM simulations - due 9pm Feb 13th - all parts
 
-    - Assignment 5 - Climate change in the CESM simulations - due 9pm Feb 13th - parts 1, 2, 3, 4, and 5
 
-
-Mid-term break: 20-26 Feb
-
+-- Mid-term break: 20-26 Feb -- 
+      
 
 Week 7 (27 Feb - 5 Mar) - Modelling atmospheric general circulation (RHW)
-
    - Pre-class reading: Chapter 13 of Global Physical Climatology
 
    - Pre-class Quiz #6
 
    - Labs: 
-      - Notebook 17: Clouds and cloud feedback
-      - Notebook 18: Insolation
-      - Notebook 19: Orbital variations, insolation, and the ice ages
-      - Notebook 20: Heat transport
+      - Notebook 21: The one-dimensional energy balance model
+      - Notebook 22: Modeling the seasonal cycle of surface temperature
+      - Notebook 23: Atmospheric Dynamics in the CESM
+      - Notebook 24: A peek at numerical methods for diffusion models
 
    - Students choose final project topic from a selection in discussion with instructors
 
-
-Week 8 (27 Feb - 5 Mar) - Modelling coupled atmosphere-ocean circulation and internal variability (RHW)
-
+Week 8 (6 - 12 Mar) - Modelling coupled atmosphere-ocean circulation and internal variability (RHW)
    - Pre-class reading: Chapter 7 and 8 of Global Physical Climatology (Ocean General Circulation and Climate and Intraseasonal and Interannual variability)
 
    - Pre-class Quiz #7
 
    - Labs: 
-      - Notebook 24: Ice-albedo feedback and Snowball Earth in the EBM
+      - Notebook 25: Ice-albedo feedback and Snowball Earth in the EBM
       - Notebook 26: Coupled Dynamics in the CESM
       - Notebook: analysis of CESM large ensemble data: https://github.com/NCAR/cesm-lens-aws; 
         running the notebook on `Pangeo <https://aws-uswest2-binder.pangeo.io/v2/gh/NCAR/cesm-lens-aws/binder-config?urlpath=git-pull?repo=https://github.com/NCAR/cesm-lens-aws%26amp%3Bbranch=main%26amp%3Burlpath=lab/tree/cesm-lens-aws/%3Fautodecode>`_ will give you access to the
         large ensemble dataset without having to download it. Login with github (you can create an account for free if you don’t already have one)
 
-   - Optional notebook: Notebook 25: Ice-albedo feedback and Snowball Earth in the EBM
+   - Project proposal - due 9pm Mar 6th
 
-   - Students choose final project topic from a selection, in discussion with instructors
-
-Week 9 (6 - 12 Mar) - Climate model hierachy and uses (RHW)
-
+Week 9 (13 - 19 Mar) - Climate model hierachy and uses (RHW)
    - Pre-class reading: Chapters 9, 12 and 13 of Global Physical Climatology (Paleoclimate, Natural Climate Change and Anthropogenic Climate Change)
 
    - Pre-class Quiz #8
@@ -240,22 +228,13 @@ Week 9 (6 - 12 Mar) - Climate model hierachy and uses (RHW)
    - Labs: 
       - Notebook 27: The surface energy balance
       - Notebook 28: Land-Ocean contrasts under climate change
+      - Notebook 29: Water, water everywhere!
 
-   - Project proposal - due 9pm Feb 20th
-
-Weeks 10 - 13 (20 Mar - 13 Apr)
-   - Work on projects
-
-
--  Project
-
-   -  Estimate: 16 hours
-
-   -  Proposal
-
-   -  20 minute presentation to the class
-
-   -  Project report
+Weeks 10-13 (20 Mar - 13 Apr) - Work on projects
+   -  Project Components:
+         -  Proposal
+         -  10-20 minute presentation to the class
+         -  Project report
 
 
 University Statement on Values and Policies
