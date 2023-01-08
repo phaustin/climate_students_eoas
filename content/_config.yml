@@ -21,8 +21,8 @@ parse:
 exclude_patterns: ["*ipynb"]
 
 repository:
-  url: https://github.com/phaustin/ClimateLaboratoryBook
-  branch: jb
+  url: https://github.com/phaustin/climate_students_eoas
+  branch: student_branch
   path_to_book: content
 
 launch_buttons:
@@ -31,5 +31,6 @@ launch_buttons:
 
 html:
   home_page_in_navbar: true
-  baseurl: https://phaustin.github.io/ClimateLaboratoryBook
+  baseurl: https://phaustin.org/climate_2022
+  
   

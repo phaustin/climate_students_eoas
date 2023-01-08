@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+
+  solo_image:
+    image: phaustin/solo_image:jan08
+    init: true
+    build:
+      context: solo_image
+      dockerfile: Dockerfile_solo
+      args:
+        NB_USER: phil
+        NB_UID: 1001
+        NB_GID: 2005
+    container_name: solo_image
+    labels:
+      - "traefik.enable=false"
+    volumes:
+      - ./shared_files:/home/phil/shared_files
+      - ./content/courseware:/home/phil/course_notebooks:ro
+    command: ["tail","-F","no_file"]
+    
