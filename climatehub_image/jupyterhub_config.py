@@ -15,7 +15,7 @@ c.JupyterHub.hub_connect_ip = 'climatehub'
 
 # pick a docker image. This should have the same version of jupyterhub
 # in it as our Hub.
-c.DockerSpawner.image ='climate_image:dec31'
+c.DockerSpawner.image ='phaustin/climate_image:retry'
 notebook_dir = "/home/jovyan"
 c.DockerSpawner.notebook_dir = notebook_dir
 
