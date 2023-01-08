@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+
+  climate_image:
+    image: phaustin/climate_image:solo
+    build:
+      context: solo_image
+      dockerfile: Dockerfile_solo
+    container_name: solo_image
+    command: ["tail","-F","no_file"]
+    
