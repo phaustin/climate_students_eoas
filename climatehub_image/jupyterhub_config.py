@@ -16,7 +16,7 @@ c.JupyterHub.hub_connect_ip = 'climatehub'
 # pick a docker image. This should have the same version of jupyterhub
 # in it as our Hub.
 c.DockerSpawner.image ='phaustin/climate_image:retry2'
-notebook_dir = "/home/jovyan/work"
+notebook_dir = "/home/jovyan"
 c.DockerSpawner.notebook_dir = notebook_dir
 
 # tell the user containers to connect to our docker network
@@ -24,8 +24,8 @@ c.DockerSpawner.network_name = 'traefik_net'
 c.DockerSpawner.volumes = {"jupyterhub-user-{username}": notebook_dir,
                             "/home/jovyan/repos/climate_modeling_eoas/shared_files": 
                             {"bind": '/home/jovyan/shared_files', "mode": "rw"},
-                            "/home/jovyan/repos/climate_modeling_eoas/content":
-                            {"bind": '/home/jovyan/content', "mode": "ro"}
+                            "/home/jovyan/repos/climate_students_eoas/content":
+                            {"bind": '/home/jovyan/couse_notebooks', "mode": "ro"}
                            }
 
 
