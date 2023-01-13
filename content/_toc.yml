@@ -5,6 +5,9 @@ parts:
   chapters:
   - file: ugradsyllabus.rst
   - file: gradsyllabus.rst
+- caption: Weekly topics
+  chapters:
+  - file: week1_topics.md
 - caption: Front matter
   chapters:
   - file: preamble.md

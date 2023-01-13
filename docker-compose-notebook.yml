@@ -1,9 +1,0 @@
-version: '3'
-
-services:
-
-  climate_image:
-    image: phaustin/climate_image:retry2
-    build:
-      context: notebook_image
-    container_name: climate_image

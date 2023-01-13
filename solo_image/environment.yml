@@ -1,9 +1,0 @@
-name: climlab-courseware
-channels:
-  - eoas_ubc
-  - conda-forge
-  - defaults
-dependencies:
-  - python
-  - conda-lock
-# conda-lock --kind explicit -f environment.yml -p linux-64
