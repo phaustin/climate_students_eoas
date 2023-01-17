@@ -3,10 +3,10 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.14.4
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -93,7 +93,9 @@ We will look at many of these processes in detail throughout the course.
 
 +++
 
-![Observed global energy flows from Trenberth and Fasullo (2012)](../images/GlobalEnergyBudget.png)
+<img src="../images/GlobalEnergyBudget.png"  width="80%">
+
+Observed global energy flows from Trenberth and Fasullo (2012)
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -211,7 +213,7 @@ Try typing a few different ways, with and without whitespace.
 
 #### Python fact 1
 
-extra spaces are ignored!  
+extra spaces are ignored!
 
 +++
 
@@ -282,7 +284,6 @@ def OLR(T):
     tau=238.5 / sigma / 288**4
     OLR=tau*sigma*T**4
     return(OLR)
-
 ```
 
 Note a few things:
@@ -306,7 +307,7 @@ we will see plenty of examples of this – in this case, the indentation lets th
 
 `def` is a keyword that defines a function. 
 
-Just like a mathematical function, a Python function takes one or more input arguments, performs some operations on those inputs, and gives back some resulting value. 
+Just like a mathematical function, a Python function takes one or more input arguments, performs some operations on those inputs, and gives back some resulting value.
 
 +++
 
@@ -340,7 +341,7 @@ The interpreter will ignore anything that follows `#` on a line of code.
 
 Note also that we defined variables named `sigma` and `tau` inside our OLR function. 
 
-What happens if you try to `print(tau)`? 
+What happens if you try to `print(tau)`?
 
 ```{code-cell} ipython3
 
@@ -436,7 +437,7 @@ Also, try typing `history`
 
 ```
 
-This is very handy. The Python console is taking notes for you! 
+This is very handy. The Python console is taking notes for you!
 
 ```{code-cell} ipython3
 
