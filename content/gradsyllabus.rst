@@ -81,6 +81,8 @@ Week 4 or 5, one of:
 
    - Meehl et al. 2020, `Context for interpreting equilibrium climate sensitivity and transient climate response from the CMIP6 Earth system models <https://www.science.org/doi/10.1126/sciadv.aba1981>`_
 
+   - Roe 2008, `Feedbacks, Timescales, and Seeing Red <https://www.annualreviews.org/doi/10.1146/annurev.earth.061008.134734>`_
+
 Week 6, one of:
    - Hourdin et al. 2017, `The Art and Science of Climate Model Tuning <https://journals.ametsoc.org/view/journals/bams/98/3/bams-d-15-00135.1.xml>`_
 
@@ -88,6 +90,10 @@ Week 6, one of:
 
 Week 7:
    - Vallis et al. 2014, `Response of the large-scale structure of the atmosphere to global warming <https://rmets.onlinelibrary.wiley.com/doi/full/10.1002/qj.2456>`_
+
+   - Trenberth and Caron 2001, `Estimates of Meridional Atmosphere and Ocean Heat Transports <https://journals.ametsoc.org/view/journals/clim/14/16/1520-0442_2001_014_3433_eomaao_2.0.co_2.xml>`_
+
+   - Singh et al. 2022, `Climate Sensitivity is Sensitive to Changes in Ocean Heat Transport <https://journals.ametsoc.org/view/journals/clim/35/9/JCLI-D-21-0674.1.xml>`_
 
 Week 8:
    - Wunsch and Ferrari 2018, `100 Years of the Ocean General Circulation <https://journals.ametsoc.org/view/journals/amsm/59/1/amsmonographs-d-18-0002.1.xml>`_
