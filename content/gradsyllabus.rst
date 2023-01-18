@@ -93,10 +93,10 @@ Week 7:
 
    - Trenberth and Caron 2001, `Estimates of Meridional Atmosphere and Ocean Heat Transports <https://journals.ametsoc.org/view/journals/clim/14/16/1520-0442_2001_014_3433_eomaao_2.0.co_2.xml>`_
 
-   - Singh et al. 2022, `Climate Sensitivity is Sensitive to Changes in Ocean Heat Transport <https://journals.ametsoc.org/view/journals/clim/35/9/JCLI-D-21-0674.1.xml>`_
-
 Week 8:
    - Wunsch and Ferrari 2018, `100 Years of the Ocean General Circulation <https://journals.ametsoc.org/view/journals/amsm/59/1/amsmonographs-d-18-0002.1.xml>`_
+
+   - Singh et al. 2022, `Climate Sensitivity is Sensitive to Changes in Ocean Heat Transport <https://journals.ametsoc.org/view/journals/clim/35/9/JCLI-D-21-0674.1.xml>`_
 
 Week 9, one of:
    - Jeevanjee et al. 2017, `A perspective on model hierachies <https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017MS001038>`_
