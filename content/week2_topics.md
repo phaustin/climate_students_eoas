@@ -40,7 +40,7 @@ won't change anything in your working directory.
           nothing to commit, working tree clean
 
   If not, then you need to move the files you've changed out of this repository into your work folder
-  because all changes will be overwritten in the next step.  First fetch the changes
+  because all changes will be overwritten in the next step. Now fetch the changes
 
           git fetch
 
