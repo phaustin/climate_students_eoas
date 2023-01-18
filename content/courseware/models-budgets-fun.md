@@ -93,7 +93,7 @@ We will look at many of these processes in detail throughout the course.
 
 +++
 
-<img src="../images/GlobalEnergyBudget.png"  width="80%">
+<img src="./images/GlobalEnergyBudget.png"  width="80%">
 
 Observed global energy flows from Trenberth and Fasullo (2012)
 
