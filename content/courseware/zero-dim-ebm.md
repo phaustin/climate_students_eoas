@@ -3,10 +3,10 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.14.4
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -30,11 +30,13 @@ ____________
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-Let's look again at the observations:
+Let's look again at the observations in this diagram of energy fluxes:
 
 +++
 
-![Observed global energy flows from Trenberth and Fasullo (2012)](../images/GlobalEnergyBudget.png)
+<img src="./images/GlobalEnergyBudget.png"  width="80%">
+
+Observed global energy flows from Trenberth and Fasullo (2012)
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -104,7 +106,6 @@ Freflected = 101.9  #  reflected shortwave flux in W/m2
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-
 The **planetary albedo** is the fraction of $Q$ that is reflected.
 
 We will denote the planetary albedo by $\alpha$.
@@ -168,8 +169,6 @@ We want to know:
     - Changes in greenhouse gases
     - Changes in cloudiness
     - etc.
-
-
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -297,7 +296,6 @@ But so far, we don’t actually have a MODEL. We just have a statement of a budg
 
 For now, the state variable we are most interested in is **temperature** – because it is directly connected to the physics of each term above.
 
-
 +++
 
 ### An energy balance **model**
@@ -311,7 +309,6 @@ where $T_s$ is the **global mean surface temperature**, and $C$ is a constant �
 then our budget equation becomes:
 
 +++
-
 
 $$ C \frac{dT_s}{dt} = \text{ASR} - \text{OLR} $$
 
@@ -523,7 +520,7 @@ What did we just do?
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-#### Python fact 12: Use square bracket [ ] to refer to elements of an array or list. Use round parentheses ( ) for function arguments. 
+#### Python fact 12: Use square bracket [ ] to refer to elements of an array or list. Use round parentheses ( ) for function arguments.
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
