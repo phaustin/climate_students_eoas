@@ -3,10 +3,10 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.14.4
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -41,28 +41,28 @@ Which begs some further definitions:
 
 #### Atmosphere
 
->The gaseous envelope surrounding the Earth. 
+>The gaseous envelope surrounding the Earth.
 
 +++ {"slideshow": {"slide_type": "fragment"}}
 
 #### Hydrosphere
 
->The component of the climate system comprising liquid surface and subterranean water, such as oceans, seas, rivers, lakes, underground water, etc. 
+>The component of the climate system comprising liquid surface and subterranean water, such as oceans, seas, rivers, lakes, underground water, etc.
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
 #### **Biosphere** (terrestrial and marine):
-> The part of the Earth system comprising all ecosystems and living organisms… including derived dead organic matter, such as litter, soil organic matter and oceanic detritus. 
+> The part of the Earth system comprising all ecosystems and living organisms… including derived dead organic matter, such as litter, soil organic matter and oceanic detritus.
 
 +++ {"slideshow": {"slide_type": "fragment"}}
 
 #### **Cryosphere**:
-> All regions on and beneath the surface of the Earth and ocean where water is in solid form, including sea ice, lake ice, river ice, snow cover, glaciers and ice sheets, and frozen ground (which includes permafrost). 
+> All regions on and beneath the surface of the Earth and ocean where water is in solid form, including sea ice, lake ice, river ice, snow cover, glaciers and ice sheets, and frozen ground (which includes permafrost).
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
 #### **Lithosphere**: 
-> The upper layer of the solid Earth, both continental and oceanic, which comprises all crustal rocks and the cold, mainly elastic part of the uppermost mantle. 
+> The upper layer of the solid Earth, both continental and oceanic, which comprises all crustal rocks and the cold, mainly elastic part of the uppermost mantle.
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -80,7 +80,7 @@ Here are two nice figures from the IPCC AR5 WG1 report:
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-<img src='http://www.climatechange2013.org/images/figures/WGI_AR5_Fig1-2.jpg' width="800">
+<img src='https://www.ipcc.ch/site/assets/uploads/2017/09/Fig1-02.jpg' width="800">
 
 +++ {"slideshow": {"slide_type": "skip"}}
 
@@ -100,7 +100,7 @@ So we don’t tend to include ice sheet and geological feedbacks – though coup
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-<img src="https://brian-rose.github.io/ClimateLaboratoryBook/images/Primer_Table1.8.png" width="800">
+<img src="./images/Primer_Table1.8.png" width="800">
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -123,7 +123,7 @@ An example from our own work so far: the **greenhouse effect**, which causes the
 
 In reality the greenhouse effect arises from the contributions of several different gases, at various levels, to the absorption and emission of longwave radiation. Key greenhouse species include water vapor and cloud droplets, which both strongly tied to the day-to-day variations in weather.
 
-How can we represent this in a climate model?  
+How can we represent this in a climate model?
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -167,13 +167,13 @@ Model is based on real physical principles (e.g. Newton’s laws of motion, cons
 
 #### Con
 
-Requires lots of computer resources. Must simulate the weather even though we really just want the climate (statistics of weather!) 
+Requires lots of computer resources. Must simulate the weather even though we really just want the climate (statistics of weather!)
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
 Essentially a **simulation** involves representing (at least some aspects of) the underlying rules that govern the process. *There is a chain of causality linking input to output*.
 
-**Parameterization** involves making assumptions about the **statistical properties** of the process – so we can calculate some relevant statistical properties of the output given the input, without needing to explicitly model the actual events. 
+**Parameterization** involves making assumptions about the **statistical properties** of the process – so we can calculate some relevant statistical properties of the output given the input, without needing to explicitly model the actual events.
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -220,11 +220,11 @@ The timestep of the model and the horizontal and vertical scales resolved.
 
 ### The climate modeling pyramid
 
-The edges represent the basic elements of the models, with **complexity increasing upwards**. Around the base of the pyramid are the simpler climate models, which incorporate only one primary process. 
+The edges represent the basic elements of the models, with **complexity increasing upwards**. Around the base of the pyramid are the simpler climate models, which incorporate only one primary process.
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-<img src='https://brian-rose.github.io/ClimateLaboratoryBook/images/Primer_Figure2.2.png' width="800">
+<img src='./images/Primer_Figure2.2.png' width="800">
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -277,7 +277,7 @@ These models can exists as *fully coupled ocean-atmosphere models* or, for testi
 
 These models attempt to simulate as many processes as possible and produce a three-dimensional picture of the time evolution of the state of the whole climate system. 
 
-Vertical resolution is much finer than horizontal resolution but, even so, the number of layers is usually much less than the number of columns. 
+Vertical resolution is much finer than horizontal resolution but, even so, the number of layers is usually much less than the number of columns.
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -313,13 +313,13 @@ For brevity we use the generic term GCM to mean any complex three-dimensional mo
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-<img src='http://www.atmos.albany.edu/facstaff/brose/classes/ENV415_Spring2018/images/Primer_Table2.1.png' width="800">
+<img src='./images/Primer_Table2.1.png' width="800">
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
 In this course we are going to work extensively with two kinds of simple one-dimensional model: **EBM**s and **RCM**s. 
 
-Section 2.2.1 and 2.2.2 of the *Primer* give a sneak peek of the ingredients and uses for these models. 
+Section 2.2.1 and 2.2.2 of the *Primer* give a sneak peek of the ingredients and uses for these models.
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -383,7 +383,7 @@ The discretized equations are then solved numerically by **timestepping**, (conc
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-<img src='http://www.climatechange2013.org/images/figures/WGI_AR5_Fig1-13.jpg' width="800">
+<img src='https://www.ipcc.ch/site/assets/uploads/2018/02/Fig1-13.jpg' width="800">
 
 +++ {"slideshow": {"slide_type": "skip"}}
 
