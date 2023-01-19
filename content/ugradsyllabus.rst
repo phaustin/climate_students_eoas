@@ -160,7 +160,7 @@ Week 4 (30 Jan - 5 Feb) - Radiative Equilibrium and Climate Change (PA)
 
 
 Week 5 (6-12 Feb) - Modelling feedbacks and transient warming (RHW)
-   - Pre-class reading: Chapters 10 and 11 of Global Physical Climatology
+   - Pre-class reading: Chapters 10 of Global Physical Climatology
 
    - Pre-class Quiz #4
 
@@ -175,7 +175,7 @@ Week 5 (6-12 Feb) - Modelling feedbacks and transient warming (RHW)
 
 
 Week 6 (13-19 Feb) - Modelling climate change (RHW)
-   - Pre-class reading: Chapter 13 of Global Physical Climatology
+   - Pre-class reading: Chapters 11 and 12 of Global Physical Climatology
 
    - Pre-class Quiz #5
 
@@ -192,7 +192,7 @@ Week 6 (13-19 Feb) - Modelling climate change (RHW)
       
 
 Week 7 (27 Feb - 5 Mar) - Modelling atmospheric general circulation (RHW)
-   - Pre-class reading: Chapter 13 of Global Physical Climatology
+   - Pre-class reading: Chapter 6 of Global Physical Climatology
 
    - Pre-class Quiz #6
 
@@ -219,7 +219,7 @@ Week 8 (6 - 12 Mar) - Modelling coupled atmosphere-ocean circulation and interna
    - Project proposal - due 9pm Mar 6th
 
 Week 9 (13 - 19 Mar) - Climate model hierachy and uses (RHW)
-   - Pre-class reading: Chapters 9, 12 and 13 of Global Physical Climatology (Paleoclimate, Natural Climate Change and Anthropogenic Climate Change)
+   - Pre-class reading: Chapter 9 and re-cap chapters 12 and 13 of Global Physical Climatology (Paleoclimate, Natural Climate Change and Anthropogenic Climate Change)
 
    - Pre-class Quiz #8
 
