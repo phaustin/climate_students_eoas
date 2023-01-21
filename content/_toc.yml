@@ -18,18 +18,18 @@ parts:
   - file: attribution.md
   - file: extra_reading.md
 - caption: Week 1 Labs
-  numbered: False
+  numbered: True
   chapters:
   - file: courseware/week1/lab1_models-budgets-fun.md
 - caption: Week 2 Labs
-  numbered: False
+  numbered: True
   chapters:
   - file: courseware/week2/lab2_zero-dim-ebm.md
     sections:
     - file: courseware/week2/lab2_1_analytical-efolding.md
   - file: courseware/week2/lab3_climate-system-models.md
 - caption: Week 3 Labs
-  numbered: False
+  numbered: True
   chapters:
   - file: courseware/week3/lab4_introducing-cesm.md  
   - file: courseware/week3/lab5_climlab-intro.md
@@ -37,24 +37,24 @@ parts:
   - file: courseware/week3/lab7_elementary-greenhouse.md
   - file: courseware/week3/lab8_sympy-greenhouse.md
 - caption: Week 4 Labs
-  numbered: False
+  numbered: True
   chapters:
   - file: courseware/week4/lab9_grey-radiation-climlab.md
   - file: courseware/week4/lab10_radiative-transfer.md
   - file: courseware/week4/lab11_spectral-bands.md
+- caption: Week 5 Labs
+  numbered: True
+  chapters:
+  - file: courseware/week5/lab12_radeq.md
+  - file: courseware/week5/lab13_rce.md
+  - file: courseware/week5/lab14_sensitivity-feedback.md
+    sections:
+    - file: courseware/week5/lab14_2_advanced-sensitivity-feedback.md
+  - file: courseware/week5/lab15_transient-cesm.md
+  - file: courseware/week5/lab16_transient-toy.md
 - caption: Other Labs
   numbered: False
   chapters:
-  - file: courseware/grey-radiation-climlab.md
-  - file: courseware/radiative-transfer.md
-  - file: courseware/spectral-bands.md
-  - file: courseware/radeq.md
-  - file: courseware/rce.md
-  - file: courseware/sensitivity-feedback.md
-    sections:
-    - file: courseware/advanced-sensitivity-feedback.md
-  - file: courseware/transient-cesm.md
-  - file: courseware/transient-toy.md
   - file: courseware/clouds.md
   - file: courseware/insolation.md
   - file: courseware/orbital.md
