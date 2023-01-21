@@ -52,24 +52,33 @@ parts:
     - file: courseware/week5/lab14_2_advanced-sensitivity-feedback.md
   - file: courseware/week5/lab15_transient-cesm.md
   - file: courseware/week5/lab16_transient-toy.md
-- caption: Other Labs
+- caption: Week 6 Labs
+  numbered: True
+  chapters:
+  - file: courseware/week6/lab17_clouds.md
+  - file: courseware/week6/lab18_insolation.md
+  - file: courseware/week6/lab19_orbital.md
+  - file: courseware/week6/lab20_heat-transport.md
+    sections:
+    - file: courseware/week6/lab20_2_advanced-heat-transport.md
+- caption: Week 7 Labs
+  numbered: True
+  chapters:
+  - file: courseware/week7/lab21_one-dim-ebm.md
+  - file: courseware/week7/lab22_seasonal-cycle.md
+  - file: courseware/week7/lab23_cesm-atmospheric-dynamics.md
+  - file: courseware/week7/lab24_numerical-diffusion.md
+- caption: Week 8 Labs
+  numbered: True
+  chapters:
+  - file: courseware/week8/lab25_albedo-snowball.md
+    sections:
+    - file: courseware/week8/lab25_2_advanced-albedo-feedback.md
+    - file: courseware/week8/lab25_3_advanced-snowball-earth.md
+  - file: courseware/week8/lab26_cesm-coupled-dynamics.md
+- caption: Week 9 Labs
   numbered: False
   chapters:
-  - file: courseware/clouds.md
-  - file: courseware/insolation.md
-  - file: courseware/orbital.md
-  - file: courseware/heat-transport.md
-    sections:
-    - file: courseware/advanced-heat-transport.md
-  - file: courseware/one-dim-ebm.md
-  - file: courseware/seasonal-cycle.md
-  - file: courseware/cesm-atmospheric-dynamics.md
-  - file: courseware/numerical-diffusion.md
-  - file: courseware/albedo-snowball.md
-    sections:
-    - file: courseware/advanced-albedo-feedback.md
-    - file: courseware/advanced-snowball-earth.md
-  - file: courseware/cesm-coupled-dynamics.md
   - file: courseware/surface-energy-balance.md
   - file: courseware/land-ocean-contrast.md
   - file: courseware/water-water-everywhere.md
