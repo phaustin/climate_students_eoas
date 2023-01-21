@@ -17,19 +17,34 @@ parts:
   - file: how-to.md
   - file: attribution.md
   - file: extra_reading.md
-- caption: Lectures
-  numbered: true
+- caption: Week 1 Labs
+  numbered: False
   chapters:
-  - file: courseware/models-budgets-fun.md
-  - file: courseware/zero-dim-ebm.md
+  - file: courseware/week1/lab1_models-budgets-fun.md
+- caption: Week 2 Labs
+  numbered: False
+  chapters:
+  - file: courseware/week2/lab2_zero-dim-ebm.md
     sections:
-    - file: courseware/analytical-efolding.md
-  - file: courseware/climate-system-models.md
-  - file: courseware/introducing-cesm.md
-  - file: courseware/climlab-intro.md
-  - file: courseware/radiation.md
-  - file: courseware/elementary-greenhouse.md
-  - file: courseware/sympy-greenhouse.md
+    - file: courseware/week2/lab2_1_analytical-efolding.md
+  - file: courseware/week2/lab3_climate-system-models.md
+- caption: Week 3 Labs
+  numbered: False
+  chapters:
+  - file: courseware/week3/lab4_introducing-cesm.md  
+  - file: courseware/week3/lab5_climlab-intro.md
+  - file: courseware/week3/lab6_radiation.md
+  - file: courseware/week3/lab7_elementary-greenhouse.md
+  - file: courseware/week3/lab8_sympy-greenhouse.md
+- caption: Week 4 Labs
+  numbered: False
+  chapters:
+  - file: courseware/week4/lab9_grey-radiation-climlab.md
+  - file: courseware/week4/lab10_radiative-transfer.md
+  - file: courseware/week4/lab11_spectral-bands.md
+- caption: Other Labs
+  numbered: False
+  chapters:
   - file: courseware/grey-radiation-climlab.md
   - file: courseware/radiative-transfer.md
   - file: courseware/spectral-bands.md
