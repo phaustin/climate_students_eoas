@@ -528,7 +528,7 @@ Let’s now consider a thin band of the climate system, of width $\delta \phi$ ,
 
 +++
 
-<img src='../images/ZonalEnergyBudget_sketch.png' width=400>
+<img src='../../images/ZonalEnergyBudget_sketch.png' width=400>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -818,7 +818,7 @@ As an exercise, you might try applying different corrections other than the glob
 
 +++
 
-<img src='../images/Fasullo_Trenberth_2008b_Fig7.jpg'>
+<img src='../../images/Fasullo_Trenberth_2008b_Fig7.jpg'>
 
 +++ {"slideshow": {"slide_type": "-"}}
 

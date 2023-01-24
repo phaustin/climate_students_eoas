@@ -34,7 +34,7 @@ Let's look again at the observations in this diagram of energy fluxes:
 
 +++
 
-<img src="./images/GlobalEnergyBudget.png"  width="80%">
+<img src="../../images/GlobalEnergyBudget.png"  width="80%">
 
 Observed global energy flows from Trenberth and Fasullo (2012)
 

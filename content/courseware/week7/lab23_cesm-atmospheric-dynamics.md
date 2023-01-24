@@ -344,7 +344,7 @@ Models such as CESM actually have variables such as $\overline{vT}$ as an output
 
 Look at the y-axis in our first plot of zonal mean zonal wind. Notice that the variable is not 'pressure', it's 'hybrid level at midpoints'. If you explore the dimension 'lev' in atmfile you find the units are 'level' and the standard name is: 'atmosphere_hybrid_sigma_pressure_coordinate'.  The CESM model default outputs are on model levels, which are not isobaric surfaces. This version of the CESM uses what's known as a hybrid vertical co-ordinate: near the surface, the levels follow the terrain, often known as a 'sigma' co-ordinate; this makes calculation of the dynamics near the surface simpler. At the top of the model, the levels are isobaric surfaces; in between they are a hybrid, or "sigma-pressure'. This is illustrated in the schematic below.
 
-<img src='../images/Fig_hyb_coord.jpg'>
+<img src='../../images/Fig_hyb_coord.jpg'>
 
 > Figure | The hybrid sigma-pressure co-ordinates in this version of the CESM model.
 

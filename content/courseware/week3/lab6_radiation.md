@@ -327,7 +327,7 @@ Now look at the atmospheric **absorption spectra**.
 
 +++
 
-<img src='../images/MarshallPlumbFig2.5.png'>
+<img src='../../images/MarshallPlumbFig2.5.png'>
 
 +++ {"slideshow": {"slide_type": "skip"}}
 

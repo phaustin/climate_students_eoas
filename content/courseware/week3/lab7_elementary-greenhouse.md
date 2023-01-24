@@ -30,7 +30,7 @@ We will make our first attempt at quantifying the greenhouse effect in the simpl
 
 +++
 
-<img src="../images/1layerAtm_sketch.png">
+<img src="../../images/1layerAtm_sketch.png">
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -183,7 +183,7 @@ both up and down.
 
 +++
 
-<img src='../images/2layerAtm_sketch.png'>
+<img src='../../images/2layerAtm_sketch.png'>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 

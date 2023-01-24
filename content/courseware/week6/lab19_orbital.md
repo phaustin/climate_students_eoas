@@ -70,7 +70,7 @@ The x axis is plotted in **Thousands of years before present** (present-day is a
 
 +++
 
-<img src='../images/Lisiecki_Raymo_Fig.4top.png' width=800>
+<img src='../../images/Lisiecki_Raymo_Fig.4top.png' width=800>
 
 +++
 
@@ -86,7 +86,7 @@ The ice ages (times of extensive glaciation and high ocean $\delta^{18}$O) do no
 
 +++
 
-<img src='../images/ImbrieImbrie_Fig42.png' width=400>
+<img src='../../images/ImbrieImbrie_Fig42.png' width=400>
 
 +++
 
@@ -178,7 +178,7 @@ The Earth’s orbit around the Sun traces out an **ellipse**, with the Sun at on
 
 +++
 
-<img src='../images/ImbrieImbrie_Fig14.png' width=600>
+<img src='../../images/ImbrieImbrie_Fig14.png' width=600>
 
 +++
 

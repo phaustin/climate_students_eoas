@@ -100,7 +100,7 @@ So we don’t tend to include ice sheet and geological feedbacks – though coup
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-<img src="./images/Primer_Table1.8.png" width="800">
+<img src="../../images/Primer_Table1.8.png" width="800">
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -224,7 +224,7 @@ The edges represent the basic elements of the models, with **complexity increasi
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-<img src='./images/Primer_Figure2.2.png' width="800">
+<img src='../../images/Primer_Figure2.2.png' width="800">
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -313,7 +313,7 @@ For brevity we use the generic term GCM to mean any complex three-dimensional mo
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-<img src='./images/Primer_Table2.1.png' width="800">
+<img src='../../images/Primer_Table2.1.png' width="800">
 
 +++ {"slideshow": {"slide_type": "slide"}}
 

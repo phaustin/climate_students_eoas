@@ -428,7 +428,7 @@ First, some information on the nomenclature for Earth history:
 
 +++
 
-<img src='../images/GeoTimeScale2009.png'>
+<img src='../../images/GeoTimeScale2009.png'>
 
 Source: Walker, J. and Geissman, J. (2009). Geologic time scale. Technical report, Geological Society of America.
 
@@ -438,7 +438,7 @@ The long view of glacial epochs on Earth:
 
 +++
 
-<img src='../images/Hoffman_etal_SciAdv_Fig2.pdf' width="800">
+<img src='../../images/Hoffman_etal_SciAdv_Fig2.pdf' width="800">
 
 Source: [Hoffman et al. (2017), Science Advances 3:e1600983, doi:10.1126/sciadv.1600983](https://advances.sciencemag.org/lookup/doi/10.1126/sciadv.1600983)
 
@@ -450,7 +450,7 @@ Evidently the climate was **very cold** at these times (635 Ma and 715 Ma)
 
 +++
 
-<img src='../images/Hoffman_Li_2009.png'>
+<img src='../../images/Hoffman_Li_2009.png'>
 
 Source: [Hoffman, P. F. and Li, Z.-X. (2009). A palaeogeographic context for Neoproterozoic glaciation. Palaeogeogr. Palaeoclimatol. Palaeoecol., 277:158–172.](https://doi.org/10.1016/j.palaeo.2009.03.013)
 

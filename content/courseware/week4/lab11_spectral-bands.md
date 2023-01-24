@@ -161,7 +161,7 @@ This figure shows the Planck function for Earth's surface temperature compared w
 
 +++
 
-<img src='../images/Terrestrial_spectrum.png'>
+<img src='../../images/Terrestrial_spectrum.png'>
 
 +++
 

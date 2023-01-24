@@ -500,13 +500,13 @@ Through most of the previous notes we have been thinking about **global averages
 
 We've been working with an energy budget that looks something like this:
 
-<img src='../images/column_sketch.pdf' width=200>
+<img src='../../images/column_sketch.pdf' width=200>
 
 +++
 
 When we start thinking about regional climates, we need to modify our budget to account for the **additional heating or cooling** due to **transport** in and out of the column:
 
-<img src='../images/column_sketch2.pdf' width=200>
+<img src='../../images/column_sketch2.pdf' width=200>
 
 +++
 
@@ -524,7 +524,7 @@ Let’s now consider a thin band of the climate system, of width $\delta \phi$ ,
 
 +++
 
-<img src='../images/ZonalEnergyBudget_sketch.png' width=400>
+<img src='../../images/ZonalEnergyBudget_sketch.png' width=400>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -702,7 +702,7 @@ Equatorward of 35º (across the tropics) there is **net heating by radiation** a
 
 +++
 
-<img src='../images/Fasullo_Trenberth_2008b_Fig7.jpg'>
+<img src='../../images/Fasullo_Trenberth_2008b_Fig7.jpg'>
 
 +++ {"slideshow": {"slide_type": "-"}}
 

@@ -47,7 +47,7 @@ We define the **solar zenith angle** $\theta_s$ as the angle between the local n
 
 +++
 
-<img src='../images/Hartmann_Fig2.5.png'>
+<img src='../../images/Hartmann_Fig2.5.png'>
 
 +++
 
@@ -154,7 +154,7 @@ $$ \overline{\cos\theta_s}^{day} = \frac{\int_{-h_0}^{h_0} Q \cos\theta_s~dh}{\i
 
 +++
 
-<img src='../images/Hartmann_Fig2.8.png'>
+<img src='../../images/Hartmann_Fig2.8.png'>
 
 +++ {"slideshow": {"slide_type": "-"}}
 

@@ -230,7 +230,7 @@ print('The Transient Climate Response is {:.3} K.'.format(float(TCR)))
 
 +++
 
-<img src='../images/AR5_Table9.5.png'>
+<img src='../../images/AR5_Table9.5.png'>
 
 +++
 

@@ -40,7 +40,7 @@ $LWP$ determines the key optical properties of the cloud, both in the longwave a
 
 +++
 
-<img src='../images/CloudOpticalProperties_Webster1994.png'>
+<img src='../../images/CloudOpticalProperties_Webster1994.png'>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -516,7 +516,7 @@ You have been building a (primitive) kernel for the water vapor feedback in the 
 
 +++
 
-<img src='../images/Kernels_Held&Soden2000.png'>
+<img src='../../images/Kernels_Held&Soden2000.png'>
 
 +++
 
