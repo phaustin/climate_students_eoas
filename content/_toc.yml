@@ -79,19 +79,19 @@ parts:
 - caption: Week 9 Labs
   numbered: False
   chapters:
-  - file: courseware/surface-energy-balance.md
-  - file: courseware/land-ocean-contrast.md
-  - file: courseware/water-water-everywhere.md
+  - file: courseware/week9/lab27_surface-energy-balance.md
+  - file: courseware/week9/lab28_land-ocean-contrast.md
+  - file: courseware/week9/lab29_water-water-everywhere.md
 - caption: Assignments
   chapters:
   - file: about-assignments.md
-  - file: courseware/assignment-zero-dim-ebm.md
-  - file: courseware/assignment-cesm-control.md
-  - file: courseware/assignment-cesm-control-hints.md
-  - file: courseware/assignment-simple-clouds.md
-  - file: courseware/assignment-rcm-feedback.md
-  - file: courseware/assignment-cesm-climate-change.md
-  - file: courseware/assignment-insolation-orbit.md
+  - file: courseware/assignments/assignment1-zero-dim-ebm.md
+  - file: courseware/assignments/assignment2-cesm-control.md
+  - file: courseware/assignments/assignment2-cesm-control-hints.md
+  - file: courseware/assignments/assignment3-simple-clouds.md
+  - file: courseware/assignments/assignment4-rcm-feedback.md
+  - file: courseware/assignments/assignment5-cesm-climate-change.md
+  - file: courseware/assignments/assignment6-insolation-orbit.md
 - caption: Extra notebooks
   chapters:
   - file: courseware/schwarz.rst
