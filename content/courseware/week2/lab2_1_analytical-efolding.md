@@ -25,7 +25,7 @@ ____________
 
 +++
 
-Previously we considered a zero-dimensional **Energy Balance Model** with the governing equation
+Previously we considered a zero-dimensional **Energy Balance Model** with the governing equation:
 
 $$ C \frac{dT_s}{dt} = (1-\alpha) Q - \tau \sigma T_s^4 $$
 
