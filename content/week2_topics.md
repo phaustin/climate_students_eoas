@@ -1,5 +1,5 @@
 # Week 2
-
+Class: Friday Jan 20
 [pdf of class slides here](https://nextcloud.eoas.ubc.ca/s/4EB9NyebRNBCejX)
 
 Pre-class Reading:
