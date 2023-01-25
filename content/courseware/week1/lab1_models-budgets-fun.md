@@ -36,7 +36,7 @@ First, some thoughts on modeling from [xkcd](https://xkcd.com)
 
 Let's be a little pedantic and decompose that question:
 
-- what is Climate?
+- what is the Climate?
 - what is a Model?
 
 +++ {"slideshow": {"slide_type": "fragment"}}

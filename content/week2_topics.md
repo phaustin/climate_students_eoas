@@ -1,6 +1,6 @@
 # Week 2
 
-[pdf of class slides](https://nextcloud.eoas.ubc.ca/s/4EB9NyebRNBCejX)
+[pdf of class slides here](https://nextcloud.eoas.ubc.ca/s/4EB9NyebRNBCejX)
 
 Pre-class Reading:
 Chapters 1 & 2 of Global Physical Climatology
