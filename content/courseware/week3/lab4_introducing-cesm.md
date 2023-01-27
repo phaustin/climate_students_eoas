@@ -3,10 +3,10 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.14.4
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -185,7 +185,7 @@ topo.PHIS
 
 We will now read the geopotential and make a plot of the topography of the Earth's surface as represented on the 2º grid. The code below makes a colorful plot of the topography. We also use the land-sea mask in order to plot nothing at grid points that are entirely ocean-covered. 
 
-Execute this code exactly as written first, and then play around with it to see how you might customize the graph. 
+Execute this code exactly as written first, and then play around with it to see how you might customize the graph.
 
 ```{code-cell} ipython3
 g = 9.8  # gravity in m/s2
@@ -258,7 +258,7 @@ Now we are going to look at the **annual mean heat flux out of the ocean**.
 
 It is stored in the field `qdp` in the dataset we just opened. 
 
-The sign convention in CESM is that `qdp > 0` where **heat is going IN to the ocean**. We will change the sign to plot heat going OUT of the ocean INTO the atmosphere (a more atmosphere-centric viewpoint). 
+The sign convention in CESM is that `qdp > 0` where **heat is going IN to the ocean**. We will change the sign to plot heat going OUT of the ocean INTO the atmosphere (a more atmosphere-centric viewpoint).
 
 ```{code-cell} ipython3
 som_input.qdp
@@ -278,7 +278,7 @@ We will use the power of `xarray` here to take the average over the time dimensi
 (-som_input.qdp.mean(dim='time')).plot()
 ```
 
-Now make a nice plot of the annual mean q-flux. 
+Now make a nice plot of the annual mean q-flux.
 
 ```{code-cell} ipython3
 #  We can always set a non-standard size for our figure window
@@ -387,7 +387,7 @@ Here's another variable:
 atm_control.SOLIN
 ```
 
-Apparently this is the incoming solar radiation or **insolation**, with shape (240,96,144) meaning it's got 240 months, 96 latitude points and 144 longitude points. 
+Apparently this is the incoming solar radiation or **insolation**, with shape (240,96,144) meaning it's got 240 months, 96 latitude points and 144 longitude points.
 
 +++
 
@@ -438,10 +438,6 @@ In order to compare these numbers with the control run, **we need to take global
 Before proceeding with these notes, try to answer the following question:
 
 **Why does it not make sense to simply average over each data point on a latitude-longitude grid?**
-
-+++
-
-
 
 +++
 

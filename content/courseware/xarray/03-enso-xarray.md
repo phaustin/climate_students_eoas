@@ -15,7 +15,6 @@ kernelspec:
 
 # Calculating ENSO with Xarray
 
-
 +++
 
 ---
@@ -52,7 +51,7 @@ In this notebook, we will:
 
 +++ {"tags": []}
 
-## Imports 
+## Imports
 
 ```{code-cell} ipython3
 import cartopy.crs as ccrs
@@ -66,7 +65,6 @@ from pythia_datasets import DATASETS
 ## The Niño 3.4 Index
 
 +++
-
 
 In this notebook, we are going to combine several topics we've covered so far to compute the [Niño 3.4 Index](https://climatedataguide.ucar.edu/climate-data/nino-sst-indices-nino-12-3-34-4-oni-and-tni) for the CESM2 submission for the [CMIP6 project](https://esgf-node.llnl.gov/projects/cmip6/). 
 
@@ -118,7 +116,7 @@ tos_nino34 = ds.sel(lat=slice(-5, 5), lon=slice(190, 240))
 tos_nino34
 ```
 
-The other option for selecting our region of interest is to use 
+The other option for selecting our region of interest is to use
 
 ```{code-cell} ipython3
 tos_nino34 = ds.where(
@@ -217,7 +215,7 @@ plt.title('Niño 3.4 Index');
 
 ## Summary
 
-We have applied a variety of Xarray's selection, grouping, and statistical functions to compute and visualize an important climate index. 
+We have applied a variety of Xarray's selection, grouping, and statistical functions to compute and visualize an important climate index.
 
 +++
 

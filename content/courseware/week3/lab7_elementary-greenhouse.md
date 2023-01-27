@@ -3,10 +3,10 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.14.4
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -118,7 +118,6 @@ Basically we just need to read our **list of assumptions** above and realize tha
 - Absorption and emission varies strongly with wavelength *(atmosphere does not behave like a blackbody)*.
 - Emissions are not determined by a single temperature $T_a$ but by the detailed *vertical profile* of air temperture.
 - Energy is redistributed in the vertical by a variety of dynamical transport mechanisms (e.g. convection and boundary layer turbulence).
-
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -411,7 +410,7 @@ which of course add up to the total OLR we wrote down above.
 
 ### Exercise: calculate contributions to OLR
 
-**Write some simple Python code to calculate each term in the OLR using the observed temperatures and the tuned value $\epsilon = 0.586$. Fill out the list below using your calculated numbers.** 
+**Write some simple Python code to calculate each term in the OLR using the observed temperatures and the tuned value $\epsilon = 0.586$. Fill out the list below using your calculated numbers.**
 
 ```{code-cell} ipython3
 
@@ -423,7 +422,7 @@ which of course add up to the total OLR we wrote down above.
 
 - Surface: 
 - Level 0: 
-- Level 1: 
+- Level 1:
 
 ```{code-cell} ipython3
 # now sum up the numbers to verify you get something very close to 238.5
@@ -466,7 +465,6 @@ OLR_s &= (1-\epsilon)^2 \sigma T_s^4  \\
 OLR_0 &= \epsilon(1-\epsilon)\sigma T_0^4 \\
 OLR_1 &= \epsilon \sigma T_1^4 
 \end{align*}
-
 
 +++ {"slideshow": {"slide_type": "slide"}}
 

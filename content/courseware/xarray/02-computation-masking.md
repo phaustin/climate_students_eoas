@@ -280,7 +280,6 @@ plt.legend(['unweighted', 'weighted']);
 - `rolling`: [Useful for computing aggregations on moving windows of your dataset e.g. computing moving averages](https://xarray.pydata.org/en/stable/user-guide/computation.html#rolling-window-operations)
 - `coarsen`: [Generic functionality for downsampling data](https://xarray.pydata.org/en/stable/user-guide/computation.html#coarsen-large-arrays)
 
-
 +++
 
 For example, resample to annual frequency:
@@ -316,7 +315,7 @@ plt.legend(['5-month moving average', 'monthly data']);
 
 +++ {"tags": []}
 
-Using the `xr.where()` or `.where()` method, elements of an xarray Dataset or xarray DataArray that satisfy a given condition or multiple conditions can be replaced/masked. To demonstrate this, we are going to use the `.where()` method on the `tos` DataArray. 
+Using the `xr.where()` or `.where()` method, elements of an xarray Dataset or xarray DataArray that satisfy a given condition or multiple conditions can be replaced/masked. To demonstrate this, we are going to use the `.where()` method on the `tos` DataArray.
 
 +++
 
@@ -375,7 +374,6 @@ sample.where((sample > 25) & (sample < 30)).plot(size=6);
 We can use coordinates to apply a mask as well. Below, we use the `latitude` and `longitude` coordinates to mask everywhere outside of the [Niño 3.4 region](https://www.ncdc.noaa.gov/teleconnections/enso/indicators/sst/):
 
 ![](https://www.ncdc.noaa.gov/monitoring-content/teleconnections/nino-regions.gif)
-
 
 ```{code-cell} ipython3
 sample.where(

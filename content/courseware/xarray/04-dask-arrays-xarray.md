@@ -101,7 +101,7 @@ Now let's create the same array using Dask's array interface.
 darr = da.random.random(shape, chunks=(300, 100, 200))
 ```
 
-A chunk size to tell us how to block up our array, like `(300, 100, 200)`. 
+A chunk size to tell us how to block up our array, like `(300, 100, 200)`.
 
 +++
 
@@ -112,12 +112,11 @@ A chunk size to tell us how to block up our array, like `(300, 100, 200)`.
 
 </div>
 
-
 ```{code-cell} ipython3
 darr
 ```
 
-Notice that we just see a symbolic representation of the array, including its `shape`, `dtype`, and `chunksize`. No data has been generated yet. Let's visualize the constructed task graph. 
+Notice that we just see a symbolic representation of the array, including its `shape`, `dtype`, and `chunksize`. No data has been generated yet. Let's visualize the constructed task graph.
 
 ```{code-cell} ipython3
 darr.visualize()
@@ -227,7 +226,7 @@ Recall that a Dask's array consists of many chunked arrays:
 darr
 ```
 
-To read data as Dask arrays with Xarray, we need to specify the `chunks` argument to `open_dataset()` function. 
+To read data as Dask arrays with Xarray, we need to specify the `chunks` argument to `open_dataset()` function.
 
 ```{code-cell} ipython3
 ds = xr.open_dataset(DATASETS.fetch('CESM2_sst_data.nc'), chunks={})
@@ -273,7 +272,7 @@ dask.visualize(ds)
 ### Parallel and lazy computation using `dask.array` with Xarray
 
 
-Xarray seamlessly wraps Dask so all computation is deferred until explicitly requested. 
+Xarray seamlessly wraps Dask so all computation is deferred until explicitly requested.
 
 ```{code-cell} ipython3
 z = ds.tos.mean(['lat', 'lon']).dot(ds.tos.T)
@@ -327,7 +326,6 @@ will be disappointed.  Notably Dask Array has the following failings:
 ## Learn More
 
 Visit the [Dask Array documentation](https://docs.dask.org/en/latest/array.html). In particular, this [array screencast](https://youtu.be/9h_61hXCDuI) will reinforce the concepts you learned here.
-
 
 ```{code-cell} ipython3
 from IPython.display import YouTubeVideo
