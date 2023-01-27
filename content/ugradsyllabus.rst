@@ -156,7 +156,7 @@ Week 4 (30 Jan - 5 Feb) - Radiative Equilibrium and Climate Change (PA)
 
    - Assignment 3 - Clouds in the Leaky Greenhouse Model - due 9pm Feb 10th - problems (1, 2, 3, 4, and 5)
 
-Week 5 (6-12 Feb) - Modelling feedbacks and transient warming (RHW)
+Week 5 (6-12 Feb) - Modelling feedbacks and transient warming (PA)
    - Pre-class reading: Chapters 10 of Global Physical Climatology
 
    - Pre-class Quiz #4
