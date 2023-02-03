@@ -10,6 +10,7 @@ parts:
   - file: week1_topics.md
   - file: week2_topics.md
   - file: week3_topics.md
+  - file: week4_topics.md
 - caption: Front matter
   chapters:
   - file: preamble.md

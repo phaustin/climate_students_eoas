@@ -5,6 +5,8 @@ Class: Friday Jan 20
 Pre-class Reading:
 Chapters 1 & 2 of Global Physical Climatology
 
+Worksheet:[Worksheet 1]( https://github.com/phaustin/climate_students_eoas/blob/student_branch/worksheets/Worksheet1_students.pdf)
+
 Due:
 Pre-class quiz 1
 

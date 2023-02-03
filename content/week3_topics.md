@@ -8,6 +8,8 @@ Chapters 3 & 4 of Global Physical Climatology
 Due:
 Pre-class quiz 2
 
+Worksheet:[Worksheet 2]( https://github.com/phaustin/climate_students_eoas/blob/student_branch/worksheets/Worksheet2_students.pdf)
+
 Learning Goals
 
 - Understanding the Schwartzchild equation:
