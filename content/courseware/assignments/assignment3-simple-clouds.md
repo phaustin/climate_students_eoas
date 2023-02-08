@@ -106,6 +106,13 @@ How would your answer change if the atmosphere were **isothermal**, i.e. $T_s = 
 ```{code-cell} ipython3
 
 ```
+## Question 6
+
+Under what circumstances (structure of atmospheric temperature, i.e. relative values of $T_s$, $T_0$ and $T_1$) would you answer to question 4 be the opposite, and why?
+
+```{code-cell} ipython3
+
+```
 
 ____________
 
