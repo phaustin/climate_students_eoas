@@ -9,6 +9,8 @@ parts:
   chapters:
   - file: week1_topics.md
   - file: week2_topics.md
+  - file: week3_topics.md
+  - file: week4_topics.md
 - caption: Front matter
   chapters:
   - file: preamble.md
@@ -92,6 +94,12 @@ parts:
   - file: courseware/assignments/assignment4-rcm-feedback.md
   - file: courseware/assignments/assignment5-cesm-climate-change.md
   - file: courseware/assignments/assignment6-insolation-orbit.md
+- caption: xarray tutorial
+  chapters:
+  - file: courseware/xarray/01-xarray-intro.md
+  - file: courseware/xarray/02-computation-masking.md
+  - file: courseware/xarray/03-enso-xarray.md
+  - file: courseware/xarray/04-dask-arrays-xarray.md
 - caption: Extra notebooks
   chapters:
   - file: courseware/schwarz.rst

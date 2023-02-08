@@ -3,10 +3,10 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.14.4
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -36,7 +36,7 @@ We all know how to work these things out with pencil and paper. But it can be te
 
 Symbolic math software lets us use the computer to automate a lot of tedious algebra.
 
-The [sympy](http://www.sympy.org/en/index.html) package is a powerful open-source symbolic math library that is well-integrated into the scientific Python ecosystem. 
+The [sympy](http://www.sympy.org/en/index.html) package is a powerful open-source symbolic math library that is well-integrated into the scientific Python ecosystem.
 
 +++
 
@@ -129,7 +129,6 @@ $$ U_1 = (1-\epsilon) U_0 + E_0 $$
 
 ```{code-cell} ipython3
 U_1 = (1-epsilon)*U_0 + E_0
-U_1
 ```
 
 +++ {"slideshow": {"slide_type": "fragment"}}
@@ -177,7 +176,7 @@ OLR
 
 ### Downwelling beam
 
-Let $D$ be the downwelling longwave beam. Since there is no longwave radiation coming in from space, we begin with 
+Let $D$ be the downwelling longwave beam. Since there is no longwave radiation coming in from space, we begin with
 
 ```{code-cell} ipython3
 fromspace = 0
@@ -267,7 +266,7 @@ We wrote down the expression for OLR as a function of temperatures and absorptiv
 
 We just need to equate this to the observed value and solve a **quadratic equation** for $\epsilon$.
 
-This is where the real power of the symbolic math toolkit comes in. 
+This is where the real power of the symbolic math toolkit comes in.
 
 +++ {"slideshow": {"slide_type": "slide"}}
 

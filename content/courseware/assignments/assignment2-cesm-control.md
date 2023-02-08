@@ -3,10 +3,10 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.14.4
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -124,7 +124,7 @@ Notice that the dimensions are `(time: 12, lat: 94, lon: 192)`. The time dimensi
 
 - Make a well-labeled timeseries graph of the global-averaged observed average surface air temperature climatology. 
 - Verify that the annual cycle we found in the CESM simulation also exists in the observations.
-- In your own words, suggest a plausible physical explanation for why this annual cycle exists. 
+- In your own words, suggest a plausible physical explanation for why this annual cycle exists.
 
 ```{code-cell} ipython3
 
