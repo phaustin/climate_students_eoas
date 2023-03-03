@@ -100,8 +100,12 @@ parts:
   - file: courseware/xarray/02-computation-masking.md
   - file: courseware/xarray/03-enso-xarray.md
   - file: courseware/xarray/04-dask-arrays-xarray.md
+- caption: Project resources
+  chapters:
+  - file: resources/resource_links.md
 - caption: Extra notebooks
   chapters:
+  - file: docs/feedback_notation.md
   - file: courseware/schwarz.rst
   - file: courseware/hydrostat.rst
   - file: courseware/hydrostatic_balance.md
