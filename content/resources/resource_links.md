@@ -30,7 +30,9 @@ kernelspec:
 
 - [CESM2-LENS](https://www.cesm.ucar.edu/community-projects/lens2) Details of the CESM2 Large ENsemble Simulations (LENS) that can be used to address questions of natural variability. 
 
-- [Climate Data Gateway at NCAR](https://www.earthsystemgrid.org/) Access to CESM simulations, including the CESM2-LENS
+- [CESM1-LENS data and example jupyter notebooks](https://ncar.github.io/cesm-lens-aws/) -- some examples of jupyter notebooks analysing large ensemble data
+
+- [Climate Data Gateway at NCAR](https://www.earthsystemgrid.org/) -- Additional access to CESM simulations, including the CESM2-LENS
 
 - [Introduction to Taylor diagrams](https://cdat.llnl.gov/Jupyter-notebooks/vcs/Taylor_Diagrams/Taylor_Diagrams.html) -- a tool for comparing models against each other and against data
 
