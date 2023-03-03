@@ -16,4 +16,4 @@ Learning Goals
 
 - Develop Project ideas (worksheet) 
 
-
+  - useful [links for projects:]( https://phaustin.org/climate_2022/resources/resource_links.html)
