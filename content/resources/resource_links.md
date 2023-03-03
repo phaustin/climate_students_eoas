@@ -20,7 +20,7 @@ kernelspec:
 
 - [Project Pythia CMIP6 cookbook](https://projectpythia.org/cmip6-cookbook/README.html) -- workflow examples for climate senstivity, mean surface temperature, precipitation, regridding, multimodel means
 
-- [Using the Pangeo catalog](https://pangeo-data.github.io/pangeo-cmip6-cloud/accessing_data.html) -- how to search and load datasets - includes CMIP6 and LENS (large ensembles)
+- [Using the Pangeo catalog](https://pangeo-data.github.io/pangeo-cmip6-cloud/accessing_data.html) -- how to search and load datasets - includes CMIP6 and LENS (large ensembles), has a variety of MIP experiments, including the standard 'scenario' experiments, but also 1%CO2 increase experiments, land-use experiments (including deforestation), polar-amplification experiments....
 
 - [CMIP6 variable list](https://pcmdi.llnl.gov/mips/cmip3/variableList.html#overview) -- all the model variables in the CMIP6 table
 
