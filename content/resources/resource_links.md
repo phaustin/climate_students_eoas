@@ -20,8 +20,17 @@ kernelspec:
 
 - [Project Pythia CMIP6 cookbook](https://projectpythia.org/cmip6-cookbook/README.html) -- workflow examples for climate senstivity, mean surface temperature, precipitation, regridding, multimodel means
 
-- [Using the Pangeo catalog](https://pangeo-data.github.io/pangeo-cmip6-cloud/accessing_data.html) -- how to search and load datasets
+- [Using the Pangeo catalog](https://pangeo-data.github.io/pangeo-cmip6-cloud/accessing_data.html) -- how to search and load datasets - includes CMIP6 and LENS (large ensembles)
 
 - [CMIP6 variable list](https://pcmdi.llnl.gov/mips/cmip3/variableList.html#overview) -- all the model variables in the CMIP6 table
 
+- [Other CMIP6 data access](https://esgf-node.llnl.gov/search/cmip6/) -- where to download data from model experiments that aren't included in the Pangeo catalog, including other MIPS
+
+- [Model Intercomparison Projects (MIPs) included in CMIP6](https://www.wcrp-climate.org/modelling-wgcm-mip-catalogue/modelling-wgcm-cmip6-endorsed-mips) -- details on difference simulations run by multiple climate modelling centres across the World to address apecific questions about the climate
+
+- [CESM2-LENS](https://www.cesm.ucar.edu/community-projects/lens2) Details of the CESM2 Large ENsemble Simulations (LENS) that can be used to address questions of natural variability. 
+
+- [Climate Data Gateway at NCAR](https://www.earthsystemgrid.org/) Access to CESM simulations, including the CESM2-LENS
+
 - [Introduction to Taylor diagrams](https://cdat.llnl.gov/Jupyter-notebooks/vcs/Taylor_Diagrams/Taylor_Diagrams.html) -- a tool for comparing models against each other and against data
+
