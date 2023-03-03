@@ -226,6 +226,7 @@ Week 7 (27 Feb - 5 Mar) - Modelling atmospheric general circulation (RHW)
    - Students choose final project topic from a selection in discussion with instructors
 
    - Assignment 6 - Insolation and Orbital parameters - due 9pm Mar 10th
+   - Project proposal - due 9pm Mar 10th
 
 Week 8 (6 - 12 Mar) - Modelling coupled atmosphere-ocean circulation and internal variability (RHW)
    - Pre-class reading: Chapter 7 and 8 of Global Physical Climatology
@@ -239,12 +240,8 @@ Week 8 (6 - 12 Mar) - Modelling coupled atmosphere-ocean circulation and interna
         running the notebook on `Pangeo <https://aws-uswest2-binder.pangeo.io/v2/gh/NCAR/cesm-lens-aws/binder-config?urlpath=git-pull?repo=https://github.com/NCAR/cesm-lens-aws%26amp%3Bbranch=main%26amp%3Burlpath=lab/tree/cesm-lens-aws/%3Fautodecode>`_ will give you access to the
         large ensemble dataset without having to download it. Login with github (you can create an account for free if you don’t already have one)
 
-   - Project proposal - due 9pm Mar 13th
-
 Week 9 (13 - 19 Mar) - Climate model hierachy and uses (RHW)
    - Pre-class reading: Chapter 9 and re-cap chapters 12 and 13 of Global Physical Climatology (Paleoclimate, Natural Climate Change and Anthropogenic Climate Change)
-
-   - Pre-class Quiz #8
 
    - Labs: 
       - Notebook 27: The surface energy balance
