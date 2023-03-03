@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -17,6 +17,12 @@ kernelspec:
 
 ### CMIP6
 - [Lamont course on earth data](https://earth-env-data-science.github.io/lectures/models/intro_models.html)  -- 4 notebooks on CMIP6 model analysis
+
+- [CMIP6 scenarios](https://climate-scenarios.canada.ca/?page=cmip6-overview-notes) -- model forcing scenarios (shared socio-economic pathways)
+
+- [IPCC working group 1 sixth assessment report](https://www.ipcc.ch/report/ar6/wg1/)
+
+- [Processed time series and maps](https://climate-scenarios.canada.ca/?page=cmip6-scenarios)
 
 - [Project Pythia CMIP6 cookbook](https://projectpythia.org/cmip6-cookbook/README.html) -- workflow examples for climate senstivity, mean surface temperature, precipitation, regridding, multimodel means
 
