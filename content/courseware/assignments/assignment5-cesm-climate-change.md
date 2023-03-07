@@ -81,56 +81,17 @@ days_per_year = 365
 ```
 
 ```{code-cell} ipython3
+# define a function to compute the global mean using correctly spatial weights
 def global_mean(field, weight=gw):
     return (field * weight).mean(dim=('lat', 'lon')) / weight.mean(dim='lat')
 ```
 
 ```{code-cell} ipython3
-#  Loop through the four simulations and produce the global mean timeseries
-TREFHT_global = {}
-for name in casenames:
-    TREFHT_global[name] = global_mean(atm[name].TREFHT)
+# global_mean(atm['cpl_control'].FSNT)
 ```
 
 ```{code-cell} ipython3
-fig, axes = plt.subplots(2,1,figsize=(10,8), dpi=150)
-for name in casenames:
-    if 'cpl' in name:
-        ax = axes[0]
-        ax.set_title('Fully coupled ocean')
-    else:
-        ax = axes[1]
-        ax.set_title('Slab ocean')
-    field = TREFHT_global[name]
-    field_running = field.rolling(time=12, center=True).mean()
-    line = ax.plot(field.time / days_per_year, 
-                   field, 
-                   label=name,
-                   linewidth=0.75,
-                   )
-    ax.plot(field_running.time / days_per_year, 
-            field_running, 
-            color=line[0].get_color(),
-            linewidth=2,
-           )
-counter = 0
-for ax in axes:
-    ax.legend();
-    if counter == 1:
-        ax.set_xlabel('Years')
-    ax.set_ylabel('Temperature (K)')
-    ax.grid();
-    ax.set_xlim(0,100)
-    counter += 1
-fig.suptitle('Global mean surface air temperature in CESM simulations', fontsize=16);
-```
-
-```{code-cell} ipython3
-global_mean(atm['cpl_control'].FSNT)
-```
-
-```{code-cell} ipython3
-global_mean(atm['cpl_control']['FLNT'])
+# global_mean(atm['cpl_control']['FLNT'])
 ```
 
 ```{code-cell} ipython3
@@ -159,7 +120,6 @@ print(f"OLR array:\n\t{fluxes_global['OLR']['cpl_control']}\n")
 ```
 
 ```{code-cell} ipython3
-
 fig, axes = plt.subplots(2,2,figsize=(10,8), dpi=150)
 for ii, flux in enumerate(radiative_fluxes):
     for name in casenames:
@@ -198,7 +158,6 @@ fig.suptitle('Global mean ASR and OLR in CESM simulations', fontsize=16);
 ```
 
 ```{code-cell} ipython3
-
 fig, axes = plt.subplots(2,1,figsize=(10,8), dpi=150)
 for name in casenames:
     if 'cpl' in name:
@@ -261,7 +220,6 @@ print(f"coupled model doubling: {asr2x_cpl}")
 ```
 
 ```{code-cell} ipython3
-
 print("OLR time averages")
 # extract the last 10 years from the slab ocean control simulation
 olr0_slab = fluxes_global['OLR']['som_control'].isel(time=clim_slice_slab).mean(dim='time')
