@@ -106,6 +106,7 @@ parts:
 - caption: Project resources
   chapters:
   - file: resources/resource_links.md
+  - file: resources/loading-cmip6-dataa.md
 - caption: Extra notebooks
   chapters:
   - file: docs/feedback_notation.md

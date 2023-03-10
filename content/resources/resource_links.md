@@ -24,6 +24,8 @@ kernelspec:
 
 - [Processed time series and maps](https://climate-scenarios.canada.ca/?page=cmip6-scenarios)
 
+- [google sheet with CMIP6 variables](https://docs.google.com/spreadsheets/d/1UUtoz6Ofyjlpx5LdqhKcwHFz2SGoTQV2_yekHyMfL9Y/edit#gid=1221485271)
+
 - [Project Pythia CMIP6 cookbook](https://projectpythia.org/cmip6-cookbook/README.html) -- workflow examples for climate senstivity, mean surface temperature, precipitation, regridding, multimodel means
 
 - [Using the Pangeo catalog](https://pangeo-data.github.io/pangeo-cmip6-cloud/accessing_data.html) -- how to search and load datasets - includes CMIP6 and LENS (large ensembles), has a variety of MIP experiments, including the standard 'scenario' experiments, but also 1%CO2 increase experiments, land-use experiments (including deforestation), polar-amplification experiments....
@@ -42,3 +44,6 @@ kernelspec:
 
 - [Introduction to Taylor diagrams](https://cdat.llnl.gov/Jupyter-notebooks/vcs/Taylor_Diagrams/Taylor_Diagrams.html) -- a tool for comparing models against each other and against data
 
+### EOAS notebooks
+
+- {ref}`resource:intake_esm`
