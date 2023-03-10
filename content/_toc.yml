@@ -21,6 +21,7 @@ parts:
   - file: how-to.md
   - file: attribution.md
   - file: extra_reading.md
+  - file: project-resources.md
 - caption: Week 1 Labs
   numbered: True
   chapters:
