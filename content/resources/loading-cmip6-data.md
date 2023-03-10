@@ -53,7 +53,7 @@ cat = intake.open_esm_datastore(url)
 cat
 ```
 
-The summary above tells us that this catalog contains 261 data assets.
+The summary above tells us that this catalog contains 514818 data assets.
 We can get more information on the individual data assets contained in the
 catalog by looking at the underlying dataframe created when we load the catalog:
 
