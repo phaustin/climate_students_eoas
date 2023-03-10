@@ -4,25 +4,29 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python
+  - python=3.10
   - numpy
   - matplotlib
   - xarray
   - pip
   - metpy
-  - mamba
   - cartopy
+  - pyngl
   - sympy
+  - scipy
   - ffmpeg
+  - jupyterhub=3.1
   - jupyterlab
+  - jupyterlab-myst
   - jupytext
   - eofs
-  - intake
+  - intake-esm
   - gcsfs
   - proplot
   - climlab
-  - numba  # older version will hang forever under python 3, https://github.com/brian-rose/climlab/issues/101
+  - numba  
   - netcdf4
   - nc-time-axis
   - conda-lock
+  - xarray-datatree
 # conda-lock --kind explicit -f environment.yml -p linux-64
