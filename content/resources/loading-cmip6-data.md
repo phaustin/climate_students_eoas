@@ -4,12 +4,14 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
+
++++ {"user_expressions": []}
 
 (resource:intake_esm)=
 # Accessing CMIP6 data with intake-esm
@@ -18,7 +20,7 @@ Prelimnary:  You'll need to install both `intake-esm` and `xarray-datatree`:
 
 ```
 mamba install -c conda-forge intake-esm
-mamba install -c xarray-datatree
+mamba install -c conda-forge xarray-datatree
 ```
 
 This notebook demonstrates how to access Google Cloud CMIP6 data using intake-esm.
@@ -34,6 +36,8 @@ It's basic usage is shown below. To begin, let's import `intake`:
 ```{code-cell} ipython3
 import intake
 ```
+
++++ {"user_expressions": []}
 
 ## Load the catalog
 
@@ -53,6 +57,8 @@ cat = intake.open_esm_datastore(url)
 cat
 ```
 
++++ {"user_expressions": []}
+
 The summary above tells us that this catalog contains 514818 data assets.
 We can get more information on the individual data assets contained in the
 catalog by looking at the underlying dataframe created when we load the catalog:
@@ -60,6 +66,8 @@ catalog by looking at the underlying dataframe created when we load the catalog:
 ```{code-cell} ipython3
 cat.df
 ```
+
++++ {"user_expressions": []}
 
 The first data asset listed in the catalog contains:
 
@@ -100,6 +108,8 @@ unique['experiment_id'][:10]
 unique['table_id'][:10]
 ```
 
++++ {"user_expressions": []}
+
 ## Search for specific datasets
 
 The {py:meth}`~intake_esm.core.esm_datastore.search` method allows the user to
@@ -135,6 +145,8 @@ cat_subset = cat.search(
 cat_subset
 ```
 
++++ {"user_expressions": []}
+
 ## Load datasets using `to_dataset_dict()`
 
 Intake-esm implements convenience utilities for loading the query results into
@@ -145,6 +157,8 @@ is available under `.aggregation_info` property of the catalog:
 ```{code-cell} ipython3
 cat.esmcat.aggregation_control
 ```
+
++++ {"user_expressions": []}
 
 To load data assets into xarray datasets, we need to use the
 {py:meth}`~intake_esm.core.esm_datastore.to_dataset_dict` method. This method
@@ -160,6 +174,8 @@ dset_dict = cat_subset.to_dataset_dict(
 [key for key in dset_dict.keys()][:10]
 ```
 
++++ {"user_expressions": []}
+
 We can access a particular dataset as follows:
 
 ```{code-cell} ipython3
@@ -167,11 +183,15 @@ ds = dset_dict["CMIP.CCCma.CanESM5.historical.Oyr.gn"]
 ds
 ```
 
++++ {"user_expressions": []}
+
 Let’s create a quick plot for a slice of the data:
 
 ```{code-cell} ipython3
 ds.o2.isel(time=0, lev=0, member_id=range(1, 24, 4)).plot(col="member_id", col_wrap=3, robust=True)
 ```
+
++++ {"user_expressions": []}
 
 ## Use custom preprocessing functions
 
@@ -199,6 +219,8 @@ for k, ds in dset_dict_raw.items():
     print(f"dataset key={k}\n\tdimensions={sorted(list(ds.dims))}\n")
 ```
 
++++ {"user_expressions": []}
+
 ```{note}
 Note that both models follow a different naming scheme. We can define a little
 helper function and pass it to `.to_dataset_dict()` to fix this. For
@@ -222,6 +244,8 @@ dset_dict_fixed = cat_pp.to_dataset_dict(xarray_open_kwargs={"consolidated": Tru
 for k, ds in dset_dict_fixed.items():
     print(f"dataset key={k}\n\tdimensions={sorted(list(ds.dims))}\n")
 ```
+
++++ {"user_expressions": []}
 
 This was just an example for one dimension.
 
