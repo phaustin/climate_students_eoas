@@ -56,6 +56,7 @@ Jan-2023
   - Ocean and coupled Atmosphere-Ocean dynamics
     - [Wunsch and Ferrari 2018: 100 Years of the Ocean General Circulation](https://journals.ametsoc.org/view/journals/amsm/59/1/amsmonographs-d-18-0002.1.xml#bib167). A nice review of the history of the physical oceanography as well as an overview of the circulation itself.
 
+    - [Zhang et al. 2019, AMOC and the AMV](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2019RG000644)
 
 - Python/programming
 
