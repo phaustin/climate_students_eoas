@@ -13,8 +13,8 @@ kernelspec:
 
 +++ {"user_expressions": []}
 
-(resource:intake_esm)=
-# Comparing low cloud fraction in hot and cold models
+(resource:hot_cold)=
+# Worksheet: Comparing low cloud fraction in hot and cold models
 
 This notebook is based on [Zelinka et al., 2020](https://www.dropbox.com/s/2mbf87tdviosdki/Geophysical%20Research%20Letters%20-%202020%20-%20Zelinka%20-%20Causes%20of%20Higher%20Climate%20Sensitivity%20in%20CMIP6%20Models.pdf?dl=0) which includes
 a  supplementary [table S1](https://www.dropbox.com/s/5l7kmf2rxhflgpc/zelinka_grl_supplement.pdf?dl=0) that

@@ -108,6 +108,7 @@ parts:
   chapters:
   - file: resources/resource_links.md
   - file: resources/loading-cmip6-dataa.md
+  - file: resources/hot_cold_models.md
 - caption: Extra notebooks
   chapters:
   - file: docs/feedback_notation.md
