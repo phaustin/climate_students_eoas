@@ -13,8 +13,8 @@ kernelspec:
 
 +++ {"user_expressions": []}
 
-(resource:intake_esm)=
-# Accessing CMIP6 data with intake-esm
+(resource:intake_esm_LENS)=
+# Accessing CESM LENS (and LENS2) data with intake-esm
 
 Preliminary:  You'll need to install `intake-esm`, `xarray-datatree`, and `s3fs` into 
 

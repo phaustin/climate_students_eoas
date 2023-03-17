@@ -47,3 +47,6 @@ kernelspec:
 ### EOAS notebooks
 
 - {ref}`resource:intake_esm`
+
+- {ref}`resource:intake_esm_LENS`
+
