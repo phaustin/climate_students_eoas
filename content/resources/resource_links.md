@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-#  Project resources
+#  Project links and notebooks
 
 ## Working with model datasets
 
