@@ -28,6 +28,7 @@ parts:
   - file: resources/resource_links.md
   - file: resources/loading-cmip6-data.md
   - file: resources/loading-CESM-LENS-data.md
+  - file: resources/hot_cold_models.md
 
 - caption: Week 1 Labs
   numbered: True
