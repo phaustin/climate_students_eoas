@@ -101,7 +101,12 @@ unique['source_id'][:10]
 ```
 
 ```{code-cell} ipython3
-unique['experiment_id'][:10]
+experiments = unique['experiment_id']
+```
+
+```{code-cell} ipython3
+experiments.sort()
+experiments
 ```
 
 ```{code-cell} ipython3
