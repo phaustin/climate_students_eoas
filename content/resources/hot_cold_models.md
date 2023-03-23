@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.4
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -22,7 +22,7 @@ lists the equilibrium climate senitivity for 27 CMIP6 models.
 
 They find that differences in southern ocean low cloud amount can explain much of the climate
 sensitivity differences.  Below we ask you to compare southern ocean cloud fraction for 
-a high and low climate sensitivity model run 
+a high and low climate sensitivity model run
 
 ```{code-cell} ipython3
 import intake
@@ -128,7 +128,7 @@ What is the difference between **cl** and **clt**?  What table do they belong to
 cat_subset = cat.search(
     experiment_id=["historical", "ssp585"],
     table_id="Amon",
-    source_id = "CESM2",
+    source_id = ["CESM2","MIROC6"],
     variable_id="clt",
     grid_label="gn",
 )
@@ -156,13 +156,59 @@ To load data assets into xarray datasets, we need to use the
 returns a dictionary of aggregate xarray datasets as the name hints.
 
 ```{code-cell} ipython3
-dset_dict = cat_subset.to_dataset_dict(
-    xarray_open_kwargs={"consolidated": True, "decode_times": True, "use_cftime": True}
-)
+readit = False
+if readit:
+    dset_dict = cat_subset.to_dataset_dict(
+        xarray_open_kwargs={"consolidated": True, "decode_times": True, "use_cftime": True}
+    )
+else:
+    dset_dict = dict()
 ```
 
 ```{code-cell} ipython3
 [key for key in dset_dict.keys()]
+```
+
+```{code-cell} ipython3
+:tags: []
+
+from pathlib import Path
+import xarray as xr
+filenames=['cesm2_ssp585.nc','cesm2_historicial.nc','miroc6_ssp585.nc','miroc6_historical.nc']
+dataset_names =['ScenarioMIP.NCAR.CESM2.ssp585.Amon.gn',
+     'CMIP.NCAR.CESM2.historical.Amon.gn',
+     'ScenarioMIP.MIROC.MIROC6.ssp585.Amon.gn',
+     'CMIP.MIROC.MIROC6.historical.Amon.gn']
+home = Path.home()
+out_dir = home /"cmip6_files"
+out_dir.mkdir(exist_ok=True,parents=True)
+if readit:
+    for ds, filename in zip(dset_dict.values(),filenames):
+        out_file = out_dir / filename
+        print(f"writing {out_file}")
+        ds.to_netcdf(out_file)
+else:
+    for filename,dataset_name in zip(filenames,dataset_names):
+        the_file = out_dir / filename
+        dset_dict[dataset_name]=xr.open_dataset(the_file)
+        
+dset_dict
+```
+
+```{code-cell} ipython3
+:tags: []
+
+for the_ds in dset_dict.values():
+    the_ds.close()
+```
+
+```{code-cell} ipython3
+:tags: []
+
+from pathlib import Path
+home = Path.home()
+out_dir = home /"cmip6_files"
+ds.to_n
 ```
 
 +++ {"user_expressions": []}
@@ -171,7 +217,7 @@ We can access a particular dataset as follows:
 
 ```{code-cell} ipython3
 ds = dset_dict['ScenarioMIP.NCAR.CESM2.ssp585.Amon.gn']
-ds
+filename = out_dir / cesm2_ssp585.nc
 ```
 
 +++ {"user_expressions": []}
