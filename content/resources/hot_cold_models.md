@@ -13,13 +13,8 @@ kernelspec:
 
 +++ {"user_expressions": []}
 
-<<<<<<< HEAD
 (resource:hot_cold)=
 # Worksheet: Comparing total cloud fraction in hot and cold models
-=======
-(resource:intake_esm)=
-# Comparing low cloud fraction in hot and cold models
->>>>>>> 8504894 (fix legend)
 
 This notebook is motivated by  [Zelinka et al., 2020](https://www.dropbox.com/s/2mbf87tdviosdki/Geophysical%20Research%20Letters%20-%202020%20-%20Zelinka%20-%20Causes%20of%20Higher%20Climate%20Sensitivity%20in%20CMIP6%20Models.pdf?dl=0) which includes
 a  supplementary [table S1](https://www.dropbox.com/s/5l7kmf2rxhflgpc/zelinka_grl_supplement.pdf?dl=0) that
@@ -402,19 +397,12 @@ clt_so_zonal
 
 [https://docs.xarray.dev/en/stable/user-guide/computation.html#rolling-window-operations](https://docs.xarray.dev/en/stable/user-guide/computation.html#rolling-window-operations)
 
-<<<<<<< HEAD
 In the cell below I use a 5-year running mean to remove shorter-timescale flucuations. Note how
 I include the metadata in the title for a legend entry.
-=======
-+++ {"user_expressions": []}
-
-### Step 1, zonal mean
->>>>>>> 8504894 (fix legend)
 
 ```{code-cell} ipython3
 :user_expressions: []
 
-<<<<<<< HEAD
 from matplotlib import pyplot as plt
 rolling = clt_so_zonal.rolling(time=60)
 clt_mean = rolling.mean()
@@ -425,22 +413,6 @@ ax.set(title="southern ocean cloud fraction",
     xlabel="time (years)", ylabel = "cloud fraction (percent)")
 fig.legend();
 ```
-=======
-```{code-cell} ipython3
-def calc_final(run_ds):
-    zonal=run_ds.mean(dim='lon')
-    hit = zonal['clt'].coords['lat'] < -30
-    southern_ocean = zonal['clt'][0,:,hit].mean(dim='lat')
-    return southern_ocean
-
-southern_ocean = calc_final(run1)
-southern_ocean.plot();
-```
-
-+++ {"user_expressions": []}
-
-### Step 2, average over the southern ocean
->>>>>>> 8504894 (fix legend)
 
 +++ {"user_expressions": []}
 
