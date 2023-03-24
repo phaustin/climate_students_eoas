@@ -55,13 +55,13 @@ Use the `intake_esm.tutorial.get_url()` method to access smaller subsetted catal
 
 ```{code-cell} ipython3
 import intake_esm
-url ="https://raw.githubusercontent.com/NCAR/intake-esm-datastore/main/catalogs/pangeo-cmip6.json"
-# url = "https://storage.googleapis.com/cmip6/pangeo-cmip6.json"
+# url ="https://raw.githubusercontent.com/NCAR/intake-esm-datastore/main/catalogs/pangeo-cmip6.json"
+url_official = "https://storage.googleapis.com/cmip6/pangeo-cmip6.json"
 ```
 
 ```{code-cell} ipython3
-cat = intake.open_esm_datastore(url)
-cat
+cat = intake.open_esm_datastore(url_official)
+cat.df
 ```
 
 +++ {"user_expressions": []}
