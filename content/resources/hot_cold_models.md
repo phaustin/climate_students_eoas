@@ -147,7 +147,7 @@ cat_subset.search(experiment_id = ["historical","ssp585"],source_id=["CESM2","MI
 
 +++ {"user_expressions": []}
 
-So grab these four realizations
+So grab these four realizations, plus the areacella weights for each of them. 
 
 ```{code-cell} ipython3
 single_realization = cat_subset.search(experiment_id = ["historical","ssp585"],source_id=["CESM2","MIROC6"],member_id = "r10i1p1f1")
@@ -193,9 +193,7 @@ dset_dict.keys()
 
 ## Add the area weights to the cloud cover datsets
 
-We can reduce our total datasets from 8 to 4 if we copy the areacella array into the
-cl dataset.  Be sure to line up the fx and Amon dataset keys correctly so you're 
-copying apples to apples
+To keep track of the variables and weights, it helps to have the keys in two sorted lists
 
 ```{code-cell} ipython3
 fx_keys = [key for key in dset_dict.keys() if key.find('fx') > -1]
@@ -203,12 +201,6 @@ cl_keys = [key for key in dset_dict.keys() if key.find('Amon') > -1]
 fx_keys.sort()
 cl_keys.sort()
 fx_keys, cl_keys
-```
-
-```{code-cell} ipython3
-for cl_key, fx_key in zip(cl_keys, fx_keys):
-    ds = dset_dict[cl_key]
-    ds['areacella'] = dset_dict[fx_key]['areacella']
 ```
 
 +++ {"user_expressions": []}
@@ -255,64 +247,87 @@ else:
 
 +++ {"user_expressions": []}
 
-We can access a particular dataset as follows.  We can choose simple name, confident
+We can access a particular dataset as follows.  We can choose a simple name like ds, confident
 that we can reconstruct the scenario and model from the metadata
 
 ```{code-cell} ipython3
 ds = dset_dict['ScenarioMIP.NCAR.CESM2.ssp585.Amon.gn']
+weights = dset_dict['ScenarioMIP.NCAR.CESM2.ssp585.fx.gn']['areacella']
 print(f"{ds.experiment_id=}, {ds.member_id.data[0]=}, {ds.source_id=}")
 ds
 ```
 
+```{code-cell} ipython3
+weights
+```
+
 +++ {"user_expressions": []}
 
-squeeze out the unit dimensions
+### squeeze out the unit dimensions
 
 ```{code-cell} ipython3
 ds = ds.squeeze()
-ds
+weights = weights.squeeze()
 ```
 
 +++ {"user_expressions": []}
 
 ## Q4: Calculate a zonal average time serie for the Southern ocean
 
-Do this in two steps
-
-+++ {"user_expressions": []}
-
-### Step 1,take the zonal mean
+We want to take the zonal mean, weighted by the changing area with latitude, for latitudes
+south of -30 degrees
 
 See [https://earth-env-data-science.github.io/lectures/xarray/xarray-part2.html](https://earth-env-data-science.github.io/lectures/xarray/xarray-part2.html) for how to average over the **lon** dimension
 
-```{code-cell} ipython3
-
-```
-
-```{code-cell} ipython3
-:user_expressions: []
-
-us_585_zonalavg = us_585.mean(dim="lon")
-us_585_zonalavg
-```
-
 +++ {"user_expressions": []}
 
-### Step 2, average over the southern ocean
-
-Use logical indexing to get that part of the zonal mean for the Southern Ocean, i.e.
-seletct latitudes south of -30.  Find the average over latitude for that subsection, which should
-give you a 1 dimensional time series
+### Find the weighte mean for the southern ocean
 
 ```{code-cell} ipython3
-:user_expressions: []
-
-hit = us_585_zonalavg.lat < -30
-us_585_zonalavg['cl']
+hit = ds.lat < -30
+clt_so  = ds['clt'][:,hit,:]
+clt_so_weighted = clt_so.weighted(weights)
+clt_so_zonal = clt_so.mean(dim=["lon","lat"])
+clt_so_zonal
 ```
 
 +++ {"user_expressions": []}
 
 ### Step 3, compare time series between the low and high sensitivity models
 
-+++ {"user_expressions": []}
+https://docs.xarray.dev/en/stable/user-guide/computation.html#rolling-window-operations
+
+```{code-cell} ipython3
+:user_expressions: []
+
+from matplotlib import pyplot as plt
+rolling = clt_so_zonal.rolling(time=60)
+clt_mean = rolling.mean()
+fig, ax = plt.subplots(1,1,figsize=(8,8))
+clt_mean.plot(ax=ax,label = f"{ds.experiment_id}, {ds.source_id}")
+ax.grid(True)
+ax.set(title="southern ocean cloud fraction",
+    xlabel="time (years)", ylabel = "cloud fraction (percent)");
+```
+
+```{code-cell} ipython3
+def make_average(ds, weights):
+    ds = ds.squeeze()
+    weights = weights.squeeze()
+    hit = ds.lat < -30
+    clt_so  = ds['clt'][:,hit,:]
+    clt_so_weighted = clt_so.weighted(weights)
+    clt_so_zonal = clt_so.mean(dim=["lon","lat"])
+    rolling = clt_so_zonal.rolling(time=60)
+    clt_mean = rolling.mean()
+    return clt_mean
+```
+
+```{code-cell} ipython3
+ds =dset_dict['ScenarioMIP.MIROC.MIROC6.ssp585.Amon.gn']
+weights = dset_dict['ScenarioMIP.MIROC.MIROC6.ssp585.fx.gn']['areacella']
+miroc6_clt_mean = make_average(ds, weights)
+miroc6_clt_mean.plot(ax=ax,label = f"{ds.experiment_id}, {ds.source_id}")
+fig.legend()
+display(fig)
+```
