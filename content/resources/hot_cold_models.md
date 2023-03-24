@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -89,7 +89,7 @@ unique
 
 ```{code-cell} ipython3
 unique['source_id'].sort()
-unique['source_id']
+unique['source_id'][:10]
 ```
 
 ```{code-cell} ipython3
@@ -98,7 +98,7 @@ experiments = unique['experiment_id']
 
 ```{code-cell} ipython3
 experiments.sort()
-experiments
+experiments[:10]
 ```
 
 ```{code-cell} ipython3
@@ -110,7 +110,7 @@ unique['table_id'][:10]
 ## Q1: find a low and a high climate sensitivity model
 
 
-I'll use a high sensitivity example, substitute your model choice here.
+For the low sensitivity, I'll use MIROC6, ECS = 2.6 K/doubling, for the high sensitivity,  CESM2, ECS = 5.15 K/doubling
 
 +++ {"user_expressions": []}
 
@@ -122,18 +122,41 @@ What is the difference between **cl** and **clt**?  What table do they belong to
 
 +++ {"user_expressions": []}
 
-## Q3 Grab one realization from each of your two models following the cells below
+## Q3 Grab one realization from each of your two models for two scenarios: historical and ssp585
+
+First we need to find the available realizations.  To do this, get every realization by
+leaving "member_id" unspecified. Note that there are 50 realization for the historical runs
 
 ```{code-cell} ipython3
 cat_subset = cat.search(
-    experiment_id=["historical", "ssp585"],
-    table_id="Amon",
+    experiment_id=["historical","ssp585"],
+    table_id=["Amon","fx"],
     source_id = ["CESM2","MIROC6"],
-    variable_id="clt",
-    grid_label="gn",
-)
+    variable_id=["clt","areacella"],
+    grid_label="gn")
+cat_subset.df.tail()
+```
 
-cat_subset
++++ {"user_expressions": []}
+
+Now sort by member_id to get a common realization -- everyone has member_id = "r10i1p1f1"
+
+```{code-cell} ipython3
+cat_subset.search(experiment_id = ["historical","ssp585"],source_id=["CESM2","MIROC6"]).df.sort_values("member_id").head()
+```
+
++++ {"user_expressions": []}
+
+So grab these four realizations
+
+```{code-cell} ipython3
+single_realization = cat_subset.search(experiment_id = ["historical","ssp585"],source_id=["CESM2","MIROC6"],member_id = "r10i1p1f1")
+```
+
+```{code-cell} ipython3
+:user_expressions: []
+
+single_realization.df
 ```
 
 +++ {"user_expressions": []}
@@ -151,91 +174,103 @@ cat.esmcat.aggregation_control
 
 +++ {"user_expressions": []}
 
-To load data assets into xarray datasets, we need to use the
-{py:meth}`~intake_esm.core.esm_datastore.to_dataset_dict` method. This method
-returns a dictionary of aggregate xarray datasets as the name hints.
+### Get the 8 datasets (this is a lazy operation)
+
+The following command reads in the consolidated metadata, but doesn't grab any actual data.
+The data reads will occur later when  you make select operations
 
 ```{code-cell} ipython3
-readit = False
-if readit:
-    dset_dict = cat_subset.to_dataset_dict(
+dset_dict = single_realization.to_dataset_dict(
         xarray_open_kwargs={"consolidated": True, "decode_times": True, "use_cftime": True}
     )
-else:
-    dset_dict = dict()
 ```
 
 ```{code-cell} ipython3
-[key for key in dset_dict.keys()]
+dset_dict.keys()
+```
+
++++ {"user_expressions": []}
+
+## Add the area weights to the cloud cover datsets
+
+We can reduce our total datasets from 8 to 4 if we copy the areacella array into the
+cl dataset.  Be sure to line up the fx and Amon dataset keys correctly so you're 
+copying apples to apples
+
+```{code-cell} ipython3
+fx_keys = [key for key in dset_dict.keys() if key.find('fx') > -1]
+cl_keys = [key for key in dset_dict.keys() if key.find('Amon') > -1]
+fx_keys.sort()
+cl_keys.sort()
+fx_keys, cl_keys
 ```
 
 ```{code-cell} ipython3
-:tags: []
+for cl_key, fx_key in zip(cl_keys, fx_keys):
+    ds = dset_dict[cl_key]
+    ds['areacella'] = dset_dict[fx_key]['areacella']
+```
 
-from pathlib import Path
-import xarray as xr
++++ {"user_expressions": []}
+
+## reading with checkpoint
+
++++ {"user_expressions": []}
+
+The cell below shows how to save the datasets to disk, which means fetching all
+the data and downloading.  You should have an good idea about how big your files
+will be before you do this
+
++++ {"user_expressions": []}
+
+```python
+readit = True
+write_files = False
+out_dir = home /"cmip6_files"
+out_dir.mkdir(exist_ok=True,parents=True)
 filenames=['cesm2_ssp585.nc','cesm2_historicial.nc','miroc6_ssp585.nc','miroc6_historical.nc']
 dataset_names =['ScenarioMIP.NCAR.CESM2.ssp585.Amon.gn',
      'CMIP.NCAR.CESM2.historical.Amon.gn',
      'ScenarioMIP.MIROC.MIROC6.ssp585.Amon.gn',
      'CMIP.MIROC.MIROC6.historical.Amon.gn']
-home = Path.home()
-out_dir = home /"cmip6_files"
-out_dir.mkdir(exist_ok=True,parents=True)
 if readit:
-    for ds, filename in zip(dset_dict.values(),filenames):
-        out_file = out_dir / filename
-        print(f"writing {out_file}")
-        ds.to_netcdf(out_file)
+    #
+    # download over the internet
+    #
+    dset_dict = single_realization.to_dataset_dict(
+        xarray_open_kwargs={"consolidated": True, "decode_times": True, "use_cftime": True}
+    )
+    if write_files:
+        for ds, filename in zip(dset_dict.values(),filenames):
+            out_file = out_dir / filename
+            print(f"writing {out_file}")
+            ds.to_netcdf(out_file)
 else:
-    for filename,dataset_name in zip(filenames,dataset_names):
-        the_file = out_dir / filename
-        dset_dict[dataset_name]=xr.open_dataset(the_file)
-        
-dset_dict
-```
-
-```{code-cell} ipython3
-:tags: []
-
-for the_ds in dset_dict.values():
-    the_ds.close()
-```
-
-```{code-cell} ipython3
-:tags: []
-
-from pathlib import Path
-home = Path.home()
-out_dir = home /"cmip6_files"
-ds.to_n
+    #
+    # read from a diskfile
+    #
+    dset_dict = dict()
+    dset_dict[dataset_name]=xr.open_dataset(the_file)
 ```
 
 +++ {"user_expressions": []}
 
-We can access a particular dataset as follows:
+We can access a particular dataset as follows.  We can choose simple name, confident
+that we can reconstruct the scenario and model from the metadata
 
 ```{code-cell} ipython3
 ds = dset_dict['ScenarioMIP.NCAR.CESM2.ssp585.Amon.gn']
-filename = out_dir / cesm2_ssp585.nc
+print(f"{ds.experiment_id=}, {ds.member_id.data[0]=}, {ds.source_id=}")
+ds
 ```
 
 +++ {"user_expressions": []}
 
-## Find the model realizations
+squeeze out the unit dimensions
 
 ```{code-cell} ipython3
-ds.coords['member_id']
-```
-
-+++ {"user_expressions": []}
-
-### Grab one realization
-
-```{code-cell} ipython3
-:user_expressions: []
-
-run1 = ds.sel(member_id = 'r10i1p1f1')
+ds = ds.squeeze()
+ds
 ```
 
 +++ {"user_expressions": []}
@@ -244,9 +279,24 @@ run1 = ds.sel(member_id = 'r10i1p1f1')
 
 Do this in two steps
 
-### Step 1, zonal mean
++++ {"user_expressions": []}
+
+### Step 1,take the zonal mean
 
 See [https://earth-env-data-science.github.io/lectures/xarray/xarray-part2.html](https://earth-env-data-science.github.io/lectures/xarray/xarray-part2.html) for how to average over the **lon** dimension
+
+```{code-cell} ipython3
+
+```
+
+```{code-cell} ipython3
+:user_expressions: []
+
+us_585_zonalavg = us_585.mean(dim="lon")
+us_585_zonalavg
+```
+
++++ {"user_expressions": []}
 
 ### Step 2, average over the southern ocean
 
@@ -254,4 +304,15 @@ Use logical indexing to get that part of the zonal mean for the Southern Ocean, 
 seletct latitudes south of -30.  Find the average over latitude for that subsection, which should
 give you a 1 dimensional time series
 
+```{code-cell} ipython3
+:user_expressions: []
+
+hit = us_585_zonalavg.lat < -30
+us_585_zonalavg['cl']
+```
+
++++ {"user_expressions": []}
+
 ### Step 3, compare time series between the low and high sensitivity models
+
++++ {"user_expressions": []}
