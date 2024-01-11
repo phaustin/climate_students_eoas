@@ -1,0 +1,952 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Accessing CESM LENS (and LENS2) data with intake-esm &#8212; Climate Laboratory Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'resources/loading-CESM-LENS-data';</script>
+    <link rel="canonical" href="https://phaustin.github.io/ClimateLaboratoryBook/resources/loading-CESM-LENS-data.html" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Worksheet: Comparing total cloud fraction in hot and cold models" href="hot_cold_models.html" />
+    <link rel="prev" title="Accessing CMIP6 data with intake-esm" href="loading-cmip6-data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Climate Laboratory Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    The Climate Laboratory
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ugradsyllabus.html">Undergraduate Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gradsyllabus.html">Graduate Syllabus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week1_topics.html">Week 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2_topics.html">Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3_topics.html">Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4_topics.html">Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7_topics.html">Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9_topics.html">Week 9</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preamble.html">Preamble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About this Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../who-for.html">Who is the book for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to.html">How to use this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../attribution.html">How to cite and reuse this material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra_reading.html">Additional resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="resource_links.html">Project links and notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-cmip6-data.html">Accessing CMIP6 data with intake-esm</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Accessing CESM LENS (and LENS2) data with intake-esm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hot_cold_models.html">Worksheet: Comparing total cloud fraction in hot and cold models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week1/lab1_models-budgets-fun.html">1. Climate models, the global energy budget, and Fun with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../courseware/week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week3/lab4_introducing-cesm.html">4. Introducing the Community Earth System Model (CESM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week3/lab5_climlab-intro.html">5. Building simple climate models using climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week3/lab6_radiation.html">6. A Brief Review of Radiation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week3/lab7_elementary-greenhouse.html">7. Elementary greenhouse models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week3/lab8_sympy-greenhouse.html">8. Advanced topic: Solving the two-layer grey gas model analytically with sympy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week4/lab9_grey-radiation-climlab.html">9. Grey radiation modeling with climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week4/lab10_radiative-transfer.html">10. Modeling non-scattering radiative transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week4/lab11_spectral-bands.html">11. Who needs spectral bands? We do. Some baby steps…</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week5/lab12_radeq.html">12. Radiative Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week5/lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../courseware/week5/lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week6/lab18_insolation.html">18. Insolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../courseware/week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week7/lab21_one-dim-ebm.html">21. The one-dimensional energy balance model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week7/lab22_seasonal-cycle.html">22. Modeling the seasonal cycle of surface temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week7/lab23_cesm-atmospheric-dynamics.html">23. Atmospheric Dynamics in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week7/lab24_numerical-diffusion.html">24. A peek at numerical methods for diffusion models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../courseware/week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../courseware/week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week9/lab27_surface-energy-balance.html">The surface energy balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week9/lab28_land-ocean-contrast.html">Land-Ocean contrasts under climate change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week9/lab29_water-water-everywhere.html">Water, water everywhere!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../about-assignments.html">About the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/assignments/assignment1-zero-dim-ebm.html">Assignment: Climate change in the zero-dimensional EBM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/assignments/assignment2-cesm-control.html">Assignment: Global average budgets in the CESM pre-industrial control simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/assignments/assignment2-cesm-control-hints.html">Additional hints and guidance for CESM budgets assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/assignments/assignment3-simple-clouds.html">Assignment: Clouds in the Leaky Greenhouse Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/assignments/assignment4-rcm-feedback.html">Assignment: Feedbacks in the Radiative-Convective Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/assignments/assignment5-cesm-climate-change.html">Assignment: Climate change in the CESM simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/assignments/assignment6-insolation-orbit.html">Assignment: Insolation and orbital parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">xarray tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../courseware/xarray/01-xarray-intro.html">Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/xarray/02-computation-masking.html">Computations and Masks with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/xarray/03-enso-xarray.html">Calculating ENSO with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/xarray/04-dask-arrays-xarray.html">Dask Arrays with Xarray</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/feedback_notation.html">Feedback notation for worksheet 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/hydrostat.html">Hydrostatic balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/hydrostatic_balance.html">Scale heights for typical atmospheric soundings</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../courseware/multi_layer_equilibrium.html">Radiative equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/bayes_lecture.html">What I wish I’d known about statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/resources/loading-CESM-LENS-data.md&branch=jb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/resources/loading-CESM-LENS-data.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/resources/loading-CESM-LENS-data.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Accessing CESM LENS (and LENS2) data with intake-esm</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-catalog-cesm-lens1">Load the catalog - CESM LENS1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-unique-entries">Finding unique entries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-specific-datasets">Search for specific datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-catalog-cesm-lens2">Explore the catalog - CESM LENS2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-datasets-using-to-dataset-dict">Load datasets using <code class="docutils literal notranslate"><span class="pre">to_dataset_dict()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-cesm-lens2">For CESM LENS2</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="accessing-cesm-lens-and-lens2-data-with-intake-esm">
+<span id="resource-intake-esm-lens"></span><h1>Accessing CESM LENS (and LENS2) data with intake-esm<a class="headerlink" href="#accessing-cesm-lens-and-lens2-data-with-intake-esm" title="Permalink to this headline">#</a></h1>
+<p>Preliminary:  You’ll need to install <code class="docutils literal notranslate"><span class="pre">intake-esm</span></code>, <code class="docutils literal notranslate"><span class="pre">xarray-datatree</span></code>, and <code class="docutils literal notranslate"><span class="pre">s3fs</span></code> into</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mamba</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">intake</span><span class="o">-</span><span class="n">esm</span>
+<span class="n">mamba</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">xarray</span><span class="o">-</span><span class="n">datatree</span>
+<span class="n">mamba</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">s3fs</span>
+</pre></div>
+</div>
+<p>This notebook demonstrates how to access Google Cloud CMIP6 data using intake-esm.</p>
+<p>Intake-esm is a data cataloging utility built on top of intake, pandas, and
+xarray. Intake-esm aims to facilitate:</p>
+<ul class="simple">
+<li><p>the discovery of earth’s climate and weather datasets.</p></li>
+<li><p>the ingestion of these datasets into xarray dataset containers.</p></li>
+</ul>
+<p>It’s basic usage is shown below. To begin, let’s import <code class="docutils literal notranslate"><span class="pre">intake</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">intake</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="load-the-catalog-cesm-lens1">
+<h2>Load the catalog - CESM LENS1<a class="headerlink" href="#load-the-catalog-cesm-lens1" title="Permalink to this headline">#</a></h2>
+<p>At import time, intake-esm plugin is available in intake’s registry as
+<code class="docutils literal notranslate"><span class="pre">esm_datastore</span></code> and can be accessed with <code class="docutils literal notranslate"><span class="pre">intake.open_esm_datastore()</span></code> function.
+Use the <code class="docutils literal notranslate"><span class="pre">intake_esm.tutorial.get_url()</span></code> method to access smaller subsetted catalogs for tutorial purposes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">intake_esm</span>
+<span class="c1">#url = intake_esm.tutorial.get_url(&#39;google_cmip6&#39;)</span>
+<span class="c1">#print(url)</span>
+<span class="c1"># If you want CESM LENS1:</span>
+<span class="n">url</span> <span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/NCAR/cesm-lens-aws/main/intake-catalogs/aws-cesm1-le.json&quot;</span>
+
+<span class="c1"># If you want CESM LENS2:</span>
+<span class="c1">#url = &quot;https://raw.githubusercontent.com/NCAR/cesm2-le-aws/main/intake-catalogs/aws-cesm2-le.json&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">=</span> <span class="n">intake</span><span class="o">.</span><span class="n">open_esm_datastore</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">cat</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The summary above tells us that this catalog contains 442 data assets (for CESM LENS1).
+We can get more information on the individual data assets contained in the
+catalog by looking at the underlying dataframe created when we load the catalog:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span><span class="o">.</span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first data asset listed in the catalog contains:</p>
+<ul class="simple">
+<li><p>the net longwave flux at the surface (variable_id=’FLNS’), on daily timescales, from 1920-01-01 to 2005-12-31.</p></li>
+</ul>
+</section>
+<section id="finding-unique-entries">
+<h2>Finding unique entries<a class="headerlink" href="#finding-unique-entries" title="Permalink to this headline">#</a></h2>
+<p>To get unique values for given columns in the catalog, intake-esm provides a
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">unique()</span></code> method:</p>
+<p>Let’s query the data catalog to see what models(<code class="docutils literal notranslate"><span class="pre">source_id</span></code>), experiments
+(<code class="docutils literal notranslate"><span class="pre">experiment_id</span></code>) and temporal frequencies (<code class="docutils literal notranslate"><span class="pre">table_id</span></code>) are available.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">unique</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">unique</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s look at the different variables that are available:</span>
+<span class="n">unique</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># If you don&#39;t know the shorthand for the variable you&#39;re interested in, we can look </span>
+<span class="c1"># at the &quot;long_name&quot; instead, which is a more descriptive version of the variable name:</span>
+<span class="n">unique</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s look at the different experiments that are available:</span>
+<span class="n">unique</span><span class="p">[</span><span class="s1">&#39;experiment&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="search-for-specific-datasets">
+<h2>Search for specific datasets<a class="headerlink" href="#search-for-specific-datasets" title="Permalink to this headline">#</a></h2>
+<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code> method allows the user to
+perform a query on a catalog using keyword arguments. The keyword argument names
+must match column names in the catalog. The search method returns a
+subset of the catalog with all the entries that match the provided query.</p>
+<p>In the example below, we are are going to search for the following:</p>
+<ul class="simple">
+<li><p>long_name: <code class="docutils literal notranslate"><span class="pre">sea</span> <span class="pre">level</span> <span class="pre">pressure</span></code> which stands for</p></li>
+<li><p>experiments: [‘CTRL’,’20C’, ‘HIST’,’RCP85’]:</p>
+<ul>
+<li><p>20C: all forcing of the recent past (20th century).</p></li>
+<li><p>RCP85: emission-driven RCP8.5.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cat_subset</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+    <span class="n">experiment</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CTRL&quot;</span><span class="p">,</span><span class="s2">&quot;20C&quot;</span><span class="p">,</span><span class="s2">&quot;HIST&quot;</span><span class="p">,</span> <span class="s2">&quot;RCP85&quot;</span><span class="p">],</span>
+    <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sea level pressure&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">cat_subset</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cat_subset</span><span class="o">.</span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that sea level pressure uses the variable name ‘PSL’ (‘pressure sea level’). We can also see that this variable is available on 3 different time frequencies: daily, 6-hourly (hourly6) and monthly averages</p>
+</section>
+<section id="explore-the-catalog-cesm-lens2">
+<h2>Explore the catalog - CESM LENS2<a class="headerlink" href="#explore-the-catalog-cesm-lens2" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url2</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/NCAR/cesm2-le-aws/main/intake-catalogs/aws-cesm2-le.json&quot;</span>
+<span class="n">cat2</span> <span class="o">=</span> <span class="n">intake</span><span class="o">.</span><span class="n">open_esm_datastore</span><span class="p">(</span><span class="n">url2</span><span class="p">)</span>
+<span class="n">cat2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cat2</span><span class="o">.</span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">unique2</span> <span class="o">=</span> <span class="n">cat2</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">unique2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># If you don&#39;t know the shorthand for the variable you&#39;re interested in, we can look </span>
+<span class="c1"># at the &quot;long_name&quot; instead, which is a more descriptive version of the variable name:</span>
+<span class="n">unique2</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cat_subset2</span> <span class="o">=</span> <span class="n">cat2</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+    <span class="n">experiment</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;historical&quot;</span><span class="p">,</span><span class="s2">&quot;ssp370&quot;</span><span class="p">],</span>
+    <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sea level pressure&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">cat_subset2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-datasets-using-to-dataset-dict">
+<h2>Load datasets using <code class="docutils literal notranslate"><span class="pre">to_dataset_dict()</span></code><a class="headerlink" href="#load-datasets-using-to-dataset-dict" title="Permalink to this headline">#</a></h2>
+<p>Intake-esm implements convenience utilities for loading the query results into
+higher level xarray datasets. The logic for merging/concatenating the query
+results into higher level xarray datasets is provided in the input JSON file and
+is available under <code class="docutils literal notranslate"><span class="pre">.aggregation_info</span></code> property of the catalog:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span><span class="o">.</span><span class="n">esmcat</span><span class="o">.</span><span class="n">aggregation_control</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To load data assets into xarray datasets, we need to use the
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">to_dataset_dict()</span></code> method. This method
+returns a dictionary of aggregate xarray datasets as the name hints.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># For loading CESM LENS1:</span>
+<span class="n">dset_dict</span> <span class="o">=</span> <span class="n">cat_subset</span><span class="o">.</span><span class="n">to_dataset_dict</span><span class="p">(</span><span class="n">zarr_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;consolidated&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span> <span class="n">storage_options</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;anon&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dset_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()][:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can access a particular dataset as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">dset_dict</span><span class="p">[</span><span class="s2">&quot;atm.20C.monthly&quot;</span><span class="p">]</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that there are 40 different ensemble members (as we expect for CESM LENS1)</p>
+<p>Let’s create a quick plot for a slice of the data for a subset of the ensemble members</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">PSL</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">member_id</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="s2">&quot;member_id&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s look at how sea level pressure has changed over time in different ensemble member, </span>
+<span class="c1"># for a grid box close to Vancouer </span>
+<span class="k">for</span> <span class="n">iens</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span> <span class="c1"># only selecting every 4th ensemble member so the plot isn&#39;t too messy. </span>
+    <span class="n">ds</span><span class="o">.</span><span class="n">PSL</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="mi">237</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;nearest&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">member_id</span><span class="o">=</span><span class="n">iens</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+    
+<span class="c1"># Plot the ensemble mean on top</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">PSL</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="mi">237</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;nearest&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;member_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># What if we look at the CTRL simulation instead?</span>
+<span class="n">ds_ctrl</span> <span class="o">=</span> <span class="n">dset_dict</span><span class="p">[</span><span class="s2">&quot;atm.CTRL.monthly&quot;</span><span class="p">]</span>
+<span class="n">ds_ctrl</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are now no separate ensemble members: this is just one long control simulation of 21612/12 = 1801 years! In this case, the forcing (approximating pre-industrial forcing) is constant over time, unlike in the 20th century simulations, where the forcing changes with time. Think about why this means that it’s reasonable to run a single 1801-year simulation for the control simulation, but necessary to have multiple ensemble members for the 20th century simulations.</p>
+<section id="for-cesm-lens2">
+<h3>For CESM LENS2<a class="headerlink" href="#for-cesm-lens2" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cat2</span><span class="o">.</span><span class="n">esmcat</span><span class="o">.</span><span class="n">aggregation_control</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## For CESM LENS2:</span>
+<span class="n">dset_dict2</span> <span class="o">=</span> <span class="n">cat_subset2</span><span class="o">.</span><span class="n">to_dataset_dict</span><span class="p">(</span>
+    <span class="n">xarray_open_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;consolidated&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;decode_times&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span> <span class="n">storage_options</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;anon&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dset_dict2</span><span class="o">.</span><span class="n">keys</span><span class="p">()][:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds_cmip6</span> <span class="o">=</span> <span class="n">dset_dict2</span><span class="p">[</span><span class="s2">&quot;atm.ssp370.monthly.cmip6&quot;</span><span class="p">]</span>
+<span class="n">ds_cmip6</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here we have 50 members. There are 50 other members under the &#39;smbb&#39; </span>
+<span class="c1"># (see https://www.cesm.ucar.edu/community-projects/lens2 ) for more details on these differences, related</span>
+<span class="c1"># to biomass burning emissions</span>
+<span class="n">ds_smbb</span> <span class="o">=</span> <span class="n">dset_dict2</span><span class="p">[</span><span class="s2">&quot;atm.ssp370.monthly.smbb&quot;</span><span class="p">]</span>
+<span class="n">ds_smbb</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unless you think your results will be critically sensitive to the exact biomass burning specification, </span>
+<span class="c1"># you can combine these two sets of 50 members to create one 100 member ensemble.</span>
+<span class="n">merge_ds</span><span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ds_cmip6</span><span class="p">,</span> <span class="n">ds_smbb</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;member_id&#39;</span><span class="p">)</span>
+<span class="n">merge_ds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># information about the start year can be found in the member_id:</span>
+<span class="c1"># e.g. r10i1181p1f1 is initialized on year 1181</span>
+<span class="c1"># In the print-out below, you can see that some initialization dates have just one member, e.g. 1181: r10i1181p1f1, </span>
+<span class="c1"># whilst others have mutliple members, with micro-perturbations to the initial conditions, e.g. 1281: r1i1281p1f1,</span>
+<span class="c1"># r2i1281p1f1, r3i1281p1f1 etc...</span>
+<span class="n">merge_ds</span><span class="o">.</span><span class="n">member_id</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./resources"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="loading-cmip6-data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Accessing CMIP6 data with intake-esm</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="hot_cold_models.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Worksheet: Comparing total cloud fraction in hot and cold models</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-catalog-cesm-lens1">Load the catalog - CESM LENS1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-unique-entries">Finding unique entries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-specific-datasets">Search for specific datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-catalog-cesm-lens2">Explore the catalog - CESM LENS2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-datasets-using-to-dataset-dict">Load datasets using <code class="docutils literal notranslate"><span class="pre">to_dataset_dict()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-cesm-lens2">For CESM LENS2</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Rose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

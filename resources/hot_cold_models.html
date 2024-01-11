@@ -1,0 +1,1117 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Worksheet: Comparing total cloud fraction in hot and cold models &#8212; Climate Laboratory Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'resources/hot_cold_models';</script>
+    <link rel="canonical" href="https://phaustin.github.io/ClimateLaboratoryBook/resources/hot_cold_models.html" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Climate models, the global energy budget, and Fun with Python" href="../courseware/week1/lab1_models-budgets-fun.html" />
+    <link rel="prev" title="Accessing CESM LENS (and LENS2) data with intake-esm" href="loading-CESM-LENS-data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Climate Laboratory Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    The Climate Laboratory
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ugradsyllabus.html">Undergraduate Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gradsyllabus.html">Graduate Syllabus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week1_topics.html">Week 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2_topics.html">Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3_topics.html">Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4_topics.html">Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7_topics.html">Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9_topics.html">Week 9</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preamble.html">Preamble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About this Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../who-for.html">Who is the book for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to.html">How to use this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../attribution.html">How to cite and reuse this material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra_reading.html">Additional resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="resource_links.html">Project links and notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-cmip6-data.html">Accessing CMIP6 data with intake-esm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-CESM-LENS-data.html">Accessing CESM LENS (and LENS2) data with intake-esm</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Worksheet: Comparing total cloud fraction in hot and cold models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week1/lab1_models-budgets-fun.html">1. Climate models, the global energy budget, and Fun with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../courseware/week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week3/lab4_introducing-cesm.html">4. Introducing the Community Earth System Model (CESM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week3/lab5_climlab-intro.html">5. Building simple climate models using climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week3/lab6_radiation.html">6. A Brief Review of Radiation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week3/lab7_elementary-greenhouse.html">7. Elementary greenhouse models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week3/lab8_sympy-greenhouse.html">8. Advanced topic: Solving the two-layer grey gas model analytically with sympy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week4/lab9_grey-radiation-climlab.html">9. Grey radiation modeling with climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week4/lab10_radiative-transfer.html">10. Modeling non-scattering radiative transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week4/lab11_spectral-bands.html">11. Who needs spectral bands? We do. Some baby steps…</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week5/lab12_radeq.html">12. Radiative Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week5/lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../courseware/week5/lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week6/lab18_insolation.html">18. Insolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../courseware/week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week7/lab21_one-dim-ebm.html">21. The one-dimensional energy balance model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week7/lab22_seasonal-cycle.html">22. Modeling the seasonal cycle of surface temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week7/lab23_cesm-atmospheric-dynamics.html">23. Atmospheric Dynamics in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week7/lab24_numerical-diffusion.html">24. A peek at numerical methods for diffusion models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../courseware/week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../courseware/week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week9/lab27_surface-energy-balance.html">The surface energy balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week9/lab28_land-ocean-contrast.html">Land-Ocean contrasts under climate change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week9/lab29_water-water-everywhere.html">Water, water everywhere!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../about-assignments.html">About the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/assignments/assignment1-zero-dim-ebm.html">Assignment: Climate change in the zero-dimensional EBM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/assignments/assignment2-cesm-control.html">Assignment: Global average budgets in the CESM pre-industrial control simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/assignments/assignment2-cesm-control-hints.html">Additional hints and guidance for CESM budgets assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/assignments/assignment3-simple-clouds.html">Assignment: Clouds in the Leaky Greenhouse Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/assignments/assignment4-rcm-feedback.html">Assignment: Feedbacks in the Radiative-Convective Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/assignments/assignment5-cesm-climate-change.html">Assignment: Climate change in the CESM simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/assignments/assignment6-insolation-orbit.html">Assignment: Insolation and orbital parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">xarray tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../courseware/xarray/01-xarray-intro.html">Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/xarray/02-computation-masking.html">Computations and Masks with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/xarray/03-enso-xarray.html">Calculating ENSO with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/xarray/04-dask-arrays-xarray.html">Dask Arrays with Xarray</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/feedback_notation.html">Feedback notation for worksheet 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/hydrostat.html">Hydrostatic balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/hydrostatic_balance.html">Scale heights for typical atmospheric soundings</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../courseware/multi_layer_equilibrium.html">Radiative equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/bayes_lecture.html">What I wish I’d known about statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/resources/hot_cold_models.md&branch=jb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/resources/hot_cold_models.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/resources/hot_cold_models.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Worksheet: Comparing total cloud fraction in hot and cold models</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-catalog">Load the catalog</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-unique-entries">Finding unique entries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-find-a-low-and-a-high-climate-sensitivity-model">Q1: find a low and a high climate sensitivity model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-cloud-fraction">Q2: cloud fraction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-grab-one-realization-from-each-of-your-two-models-for-two-scenarios-historical-and-ssp585">Q3 Grab one realization from each of your two models for two scenarios: historical and ssp585</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lazy-loading-datasets-by-row">lazy-loading datasets by row</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-datasets-using-to-dataset-dict">Load datasets using <code class="docutils literal notranslate"><span class="pre">to_dataset_dict()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-8-datasets-this-is-a-lazy-operation">Get the 8 datasets (this is a lazy operation)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keep-track-of-the-areacella-for-each-dataset">Keep track of the <code class="docutils literal notranslate"><span class="pre">areacella</span></code> for each dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limiting-the-dataset-to-the-sourthern-ocean-without-reading-the-data">limiting the dataset to the Sourthern Ocean without reading the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-a-checkpoint">saving a checkpoint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-area-weighted-cloud-fraction-for-1-dataset-over-the-southern-ocean">Find the area weighted cloud fraction for 1 dataset over the southern ocean</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-areacella-weights">The areacella weights</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#squeeze-out-the-unit-dimensions">squeeze out the unit dimensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-weighted-method-to-apply-weights-to-the-average">use the weighted method to apply weights to the average</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-weights-to-the-dataarray">Add weights to the dataArray</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#take-the-zonal-mean">Take the zonal mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smooth-the-data-with-a-rolling-window">Smooth the data with a rolling window</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#now-add-miroc6">now add miroc6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-miroc-5-year-rolling-mean-to-the-plot">add the miroc 5 year rolling mean to the plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-runs">Historical runs</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="worksheet-comparing-total-cloud-fraction-in-hot-and-cold-models">
+<span id="resource-hot-cold"></span><h1>Worksheet: Comparing total cloud fraction in hot and cold models<a class="headerlink" href="#worksheet-comparing-total-cloud-fraction-in-hot-and-cold-models" title="Permalink to this headline">#</a></h1>
+<p>This notebook is motivated by  <a class="reference external" href="https://www.dropbox.com/s/2mbf87tdviosdki/Geophysical%20Research%20Letters%20-%202020%20-%20Zelinka%20-%20Causes%20of%20Higher%20Climate%20Sensitivity%20in%20CMIP6%20Models.pdf?dl=0">Zelinka et al., 2020</a> which includes
+a  supplementary <a class="reference external" href="https://www.dropbox.com/s/5l7kmf2rxhflgpc/zelinka_grl_supplement.pdf?dl=0">table S1</a> that
+lists the equilibrium climate senitivity for 27 CMIP6 models.</p>
+<p>They find that differences in southern ocean low cloud amount can explain much of the climate
+sensitivity differences.  Below we ask you to compare southern ocean cloud fraction for
+a high and low climate sensitivity model run.</p>
+<p>Below we compare the total cloud fraction <a class="reference external" href="https://cmip-publications.llnl.gov/view/CMIP6/?type=variable&amp;option=clt%20-%20Total%20Cloud%20Cover%20Percentage">clt</a>
+for CESM2 (NCAR) and MIROC6 (Japan)</p>
+<p>Things to note in this notebook</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#sec-lazy"><span class="std std-ref">lazy-loading datasets by row</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-isel"><span class="std std-ref">limiting the dataset to the Sourthern Ocean without reading the data</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-checkpoint"><span class="std std-ref">saving a checkpoint</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-weighted"><span class="std std-ref">Find the area weighted cloud fraction for 1 dataset over the southern ocean</span></a></p></li>
+</ul>
+<p>Bottom line:  These two models have very different ideas about the cloud fraction over the Southern Ocean</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">intake</span>
+<span class="kn">import</span> <span class="nn">xarray</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="load-the-catalog">
+<h2>Load the catalog<a class="headerlink" href="#load-the-catalog" title="Permalink to this headline">#</a></h2>
+<p>At import time, intake-esm plugin is available in intake’s registry as
+<code class="docutils literal notranslate"><span class="pre">esm_datastore</span></code> and can be accessed with <code class="docutils literal notranslate"><span class="pre">intake.open_esm_datastore()</span></code> function.
+Use the <code class="docutils literal notranslate"><span class="pre">intake_esm.tutorial.get_url()</span></code> method to access smaller subsetted catalogs for tutorial purposes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">intake_esm</span>
+<span class="c1"># url =&quot;https://raw.githubusercontent.com/NCAR/intake-esm-datastore/main/catalogs/pangeo-cmip6.json&quot;</span>
+<span class="n">url_official</span> <span class="o">=</span> <span class="s2">&quot;https://storage.googleapis.com/cmip6/pangeo-cmip6.json&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">=</span> <span class="n">intake</span><span class="o">.</span><span class="n">open_esm_datastore</span><span class="p">(</span><span class="n">url_official</span><span class="p">)</span>
+<span class="n">cat</span><span class="o">.</span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The summary above tells us that this catalog contains 514818 data assets.
+We can get more information on the individual data assets contained in the
+catalog by looking at the underlying pandas dataframe created when we load the catalog:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span><span class="o">.</span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first data asset listed in the catalog contains:</p>
+<ul class="simple">
+<li><p>the surace pressure (variable_id=’ps’), as a function of latitude, longitude, time,</p></li>
+<li><p>the high resolution version of the CMCC climate model (source_id=’CMCC-CM2-HR4’),</p></li>
+<li><p>the high resolution model intercomparison expermenet (experiment_id=’HighResMIP’),</p></li>
+<li><p>developed by the Euro-Mediterranean Centre on Climate Change (instution_id=’CMCC’),</p></li>
+<li><p>run as part of the Coupled Model Intercomparison Project (activity_id=’CMIP’)</p></li>
+</ul>
+<p>And is located in Google Cloud Storage at ‘gs://cmip6/CMIP6/HighResMIP/CMCC/CMCC-CM2-HR4/highresSST-present/r1i1p1f1/Amon/ps/gn/v20170706/”</p>
+</section>
+<section id="finding-unique-entries">
+<h2>Finding unique entries<a class="headerlink" href="#finding-unique-entries" title="Permalink to this headline">#</a></h2>
+<p>To get unique values for given columns in the catalog, intake-esm provides a
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">unique()</span></code> method:</p>
+<p>Let’s query the data catalog to see what models(<code class="docutils literal notranslate"><span class="pre">source_id</span></code>), experiments
+(<code class="docutils literal notranslate"><span class="pre">experiment_id</span></code>) and temporal frequencies (<code class="docutils literal notranslate"><span class="pre">table_id</span></code>) are available.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">unique</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">unique</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">unique</span><span class="p">[</span><span class="s1">&#39;source_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">unique</span><span class="p">[</span><span class="s1">&#39;source_id&#39;</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiments</span> <span class="o">=</span> <span class="n">unique</span><span class="p">[</span><span class="s1">&#39;experiment_id&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiments</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">experiments</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">unique</span><span class="p">[</span><span class="s1">&#39;table_id&#39;</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="q1-find-a-low-and-a-high-climate-sensitivity-model">
+<h2>Q1: find a low and a high climate sensitivity model<a class="headerlink" href="#q1-find-a-low-and-a-high-climate-sensitivity-model" title="Permalink to this headline">#</a></h2>
+<p>For the low sensitivity, I’ll use MIROC6, ECS = 2.6 K/doubling, for the high sensitivity,  CESM2, ECS = 5.15 K/doubling</p>
+</section>
+<section id="q2-cloud-fraction">
+<h2>Q2: cloud fraction<a class="headerlink" href="#q2-cloud-fraction" title="Permalink to this headline">#</a></h2>
+<p>Check the variable list at <a class="reference external" href="https://pcmdi.llnl.gov/mips/cmip3/variableList.html#overview">https://pcmdi.llnl.gov/mips/cmip3/variableList.html#overview</a></p>
+<p>What is the difference between <strong>cl</strong> and <strong>clt</strong>?  What table do they belong to?</p>
+<p>These are both monthly averaged atmospheric variables in the table Amon – clt is averaged over height and is 3 dimensional
+(time, lon, lat) while cl is four dimensional (time, height, lon, lat)</p>
+</section>
+<section id="q3-grab-one-realization-from-each-of-your-two-models-for-two-scenarios-historical-and-ssp585">
+<h2>Q3 Grab one realization from each of your two models for two scenarios: historical and ssp585<a class="headerlink" href="#q3-grab-one-realization-from-each-of-your-two-models-for-two-scenarios-historical-and-ssp585" title="Permalink to this headline">#</a></h2>
+<p>First we need to find the available realizations.  To do this, get every realization by
+leaving “member_id” unspecified. Note that there are 50 realization for the historical runs</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cat_subset</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+    <span class="n">experiment_id</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;historical&quot;</span><span class="p">,</span><span class="s2">&quot;ssp585&quot;</span><span class="p">],</span>
+    <span class="n">table_id</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Amon&quot;</span><span class="p">,</span><span class="s2">&quot;fx&quot;</span><span class="p">],</span>
+    <span class="n">source_id</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CESM2&quot;</span><span class="p">,</span><span class="s2">&quot;MIROC6&quot;</span><span class="p">],</span>
+    <span class="n">variable_id</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;clt&quot;</span><span class="p">,</span><span class="s2">&quot;areacella&quot;</span><span class="p">],</span>
+    <span class="n">grid_label</span><span class="o">=</span><span class="s2">&quot;gn&quot;</span><span class="p">)</span>
+<span class="n">cat_subset</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now sort by member_id to get a common realization – everyone has member_id = “r10i1p1f1”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cat_subset</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">experiment_id</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;historical&quot;</span><span class="p">,</span><span class="s2">&quot;ssp585&quot;</span><span class="p">],</span><span class="n">source_id</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CESM2&quot;</span><span class="p">,</span><span class="s2">&quot;MIROC6&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;member_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So grab these four realizations, plus the areacella weights for each of them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">single_realization</span> <span class="o">=</span> <span class="n">cat_subset</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">experiment_id</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;historical&quot;</span><span class="p">,</span><span class="s2">&quot;ssp585&quot;</span><span class="p">],</span><span class="n">source_id</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CESM2&quot;</span><span class="p">,</span><span class="s2">&quot;MIROC6&quot;</span><span class="p">],</span><span class="n">member_id</span> <span class="o">=</span> <span class="s2">&quot;r10i1p1f1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">single_realization</span><span class="o">.</span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lazy-loading-datasets-by-row">
+<span id="sec-lazy"></span><h2>lazy-loading datasets by row<a class="headerlink" href="#lazy-loading-datasets-by-row" title="Permalink to this headline">#</a></h2>
+<p>We can use <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.open_dataset.html">xarray.open_dataset</a> to read in the metadata from a google store zstore url.  This can take a few seconds, but it’s “lazy” in the
+sense that no data is read until some calculation (a plot, average, etc.) is conducted.  If you want to force a data read,
+use <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.load_dataset.html">xarray.load_dataset</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># get aeracella for miroc6 historical r10i1p1f1</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xarray</span><span class="o">.</span><span class="n">open_zarr</span><span class="p">(</span><span class="n">single_realization</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;zstore&#39;</span><span class="p">])</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-datasets-using-to-dataset-dict">
+<h2>Load datasets using <code class="docutils literal notranslate"><span class="pre">to_dataset_dict()</span></code><a class="headerlink" href="#load-datasets-using-to-dataset-dict" title="Permalink to this headline">#</a></h2>
+<p>Intake-esm implements convenience utilities for loading the query results into
+higher level xarray datasets. The logic for merging/concatenating the query
+results into higher level xarray datasets is provided in the input JSON file and
+is available under <code class="docutils literal notranslate"><span class="pre">.aggregation_info</span></code> property of the catalog:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span><span class="o">.</span><span class="n">esmcat</span><span class="o">.</span><span class="n">aggregation_control</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The purpose of aggregation control is to combine variable datasets from the same table_id into a single dataset if possible.</p>
+<section id="get-the-8-datasets-this-is-a-lazy-operation">
+<h3>Get the 8 datasets (this is a lazy operation)<a class="headerlink" href="#get-the-8-datasets-this-is-a-lazy-operation" title="Permalink to this headline">#</a></h3>
+<p>The following command reads in the consolidated metadata, but doesn’t grab any actual data.
+The data reads will occur later when  you make select operations.</p>
+<p>The advantage of using <code class="docutils literal notranslate"><span class="pre">to_dataset_dict</span></code> over the raw <code class="docutils literal notranslate"><span class="pre">open_zarr</span></code> is that this this produces a dictionary with
+keys that mark the institution, model, scenario, table an grid.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dset_dict</span> <span class="o">=</span> <span class="n">single_realization</span><span class="o">.</span><span class="n">to_dataset_dict</span><span class="p">(</span>
+        <span class="n">xarray_open_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;consolidated&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;decode_times&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;use_cftime&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dset_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="keep-track-of-the-areacella-for-each-dataset">
+<h2>Keep track of the <code class="docutils literal notranslate"><span class="pre">areacella</span></code> for each dataset<a class="headerlink" href="#keep-track-of-the-areacella-for-each-dataset" title="Permalink to this headline">#</a></h2>
+<p>To keep track of the variables and weights, it helps to have the keys in two sorted lists</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fx_keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dset_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;fx&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">cl_keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dset_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;Amon&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">fx_keys</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">cl_keys</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">fx_keys</span><span class="p">,</span> <span class="n">cl_keys</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="limiting-the-dataset-to-the-sourthern-ocean-without-reading-the-data">
+<span id="sec-isel"></span><h2>limiting the dataset to the Sourthern Ocean without reading the data<a class="headerlink" href="#limiting-the-dataset-to-the-sourthern-ocean-without-reading-the-data" title="Permalink to this headline">#</a></h2>
+<p>To fetch the minimum amount of data, you can use <a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/indexing.html#vectorized-indexing">xarray.isel</a> to
+describe a slice that will be applied when a calculation is done.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_so</span><span class="p">(</span><span class="n">the_ds</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    slice the dataset for latitudes south of -30 degrees</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#</span>
+    <span class="c1"># logical index of all latitudes south of -30</span>
+    <span class="c1">#</span>
+    <span class="n">hit</span> <span class="o">=</span> <span class="n">the_ds</span><span class="o">.</span><span class="n">lat</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">30</span>
+    <span class="n">so_slice</span> <span class="o">=</span> <span class="n">the_ds</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">indexers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lat&#39;</span><span class="p">:</span><span class="n">hit</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">so_slice</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This reduces the latitude dimension size from 128 to 43, so your file size is 1/3 of the full dataset size</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">ds</span> <span class="ow">in</span> <span class="n">dset_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">dset_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">=</span><span class="n">get_so</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="saving-a-checkpoint">
+<span id="sec-checkpoint"></span><h2>saving a checkpoint<a class="headerlink" href="#saving-a-checkpoint" title="Permalink to this headline">#</a></h2>
+<p>You might want to load the dataset into memory (be careful) and save to disk for future acesss.  You
+can preview how much space you’ll need with <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.nbytes.html">xarray.dataset.nbytes</a></p>
+<p>The cell below shows how to checkpoint the datasets to disk and restore from disk back to a dictionary</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">readit</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">write_files</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">out_dir</span> <span class="o">=</span> <span class="n">home</span> <span class="o">/</span><span class="s2">&quot;cmip6_files&quot;</span>
+<span class="n">out_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">filenames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cesm2_ssp585.nc&#39;</span><span class="p">,</span><span class="s1">&#39;cesm2_historicial.nc&#39;</span><span class="p">,</span><span class="s1">&#39;miroc6_ssp585.nc&#39;</span><span class="p">,</span><span class="s1">&#39;miroc6_historical.nc&#39;</span><span class="p">]</span>
+<span class="n">dataset_names</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;ScenarioMIP.NCAR.CESM2.ssp585.Amon.gn&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;CMIP.NCAR.CESM2.historical.Amon.gn&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;ScenarioMIP.MIROC.MIROC6.ssp585.Amon.gn&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;CMIP.MIROC.MIROC6.historical.Amon.gn&#39;</span><span class="p">]</span>
+<span class="k">if</span> <span class="n">readit</span><span class="p">:</span>
+    <span class="c1">#</span>
+    <span class="c1"># download over the internet</span>
+    <span class="c1">#</span>
+    <span class="n">dset_dict</span> <span class="o">=</span> <span class="n">single_realization</span><span class="o">.</span><span class="n">to_dataset_dict</span><span class="p">(</span>
+        <span class="n">xarray_open_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;consolidated&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;decode_times&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;use_cftime&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">write_files</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">ds</span><span class="p">,</span> <span class="n">filename</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dset_dict</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span><span class="n">filenames</span><span class="p">):</span>
+            <span class="n">out_file</span> <span class="o">=</span> <span class="n">out_dir</span> <span class="o">/</span> <span class="n">filename</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;writing </span><span class="si">{</span><span class="n">out_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">ds</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">out_file</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1">#</span>
+    <span class="c1"># read from a diskfile</span>
+    <span class="c1">#</span>
+    <span class="n">dset_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">dset_dict</span><span class="p">[</span><span class="n">dataset_name</span><span class="p">]</span><span class="o">=</span><span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">the_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="find-the-area-weighted-cloud-fraction-for-1-dataset-over-the-southern-ocean">
+<span id="sec-weighted"></span><h2>Find the area weighted cloud fraction for 1 dataset over the southern ocean<a class="headerlink" href="#find-the-area-weighted-cloud-fraction-for-1-dataset-over-the-southern-ocean" title="Permalink to this headline">#</a></h2>
+<p>Note that I don’t need a long variable name that includes all the metadata,
+I can get that information at any point from the variable itself</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">dset_dict</span><span class="p">[</span><span class="s1">&#39;ScenarioMIP.NCAR.CESM2.ssp585.Amon.gn&#39;</span><span class="p">]</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">dset_dict</span><span class="p">[</span><span class="s1">&#39;ScenarioMIP.NCAR.CESM2.ssp585.fx.gn&#39;</span><span class="p">][</span><span class="s1">&#39;areacella&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">experiment_id</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">source_id</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="the-areacella-weights">
+<h3>The areacella weights<a class="headerlink" href="#the-areacella-weights" title="Permalink to this headline">#</a></h3>
+<p>We’re on a sphere, so every latitude band is going to have grid cells with different areas.  The grid size
+will vary between models, so it’s important to do weighted averages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="squeeze-out-the-unit-dimensions">
+<h3>squeeze out the unit dimensions<a class="headerlink" href="#squeeze-out-the-unit-dimensions" title="Permalink to this headline">#</a></h3>
+<p>Our variables come indexed over member id and starting year, but since we only have 1 member_id and 1 starting year, we
+can squeeze those out</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;clt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="use-the-weighted-method-to-apply-weights-to-the-average">
+<h3>use the weighted method to apply weights to the average<a class="headerlink" href="#use-the-weighted-method-to-apply-weights-to-the-average" title="Permalink to this headline">#</a></h3>
+<p>The <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.DataArray.weighted.html">dataArray.weighted</a> method makes a dataArray “weight aware”.
+You want to make sure you copy this weighted dataArray to a new variable, because it wipes out all of the dataArray metadata</p>
+</section>
+<section id="add-weights-to-the-dataarray">
+<h3>Add weights to the dataArray<a class="headerlink" href="#add-weights-to-the-dataarray" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clt_so</span>  <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;clt&#39;</span><span class="p">]</span>
+<span class="n">clt_so</span> <span class="o">=</span>  <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;clt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+<span class="n">clt_so</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="take-the-zonal-mean">
+<h3>Take the zonal mean<a class="headerlink" href="#take-the-zonal-mean" title="Permalink to this headline">#</a></h3>
+<p>Note that this is the first statement that actually fetches variable values from google</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clt_so_zonal</span> <span class="o">=</span> <span class="n">clt_so</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">,</span><span class="s2">&quot;lat&quot;</span><span class="p">])</span>
+<span class="n">clt_so_zonal</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="smooth-the-data-with-a-rolling-window">
+<h3>Smooth the data with a rolling window<a class="headerlink" href="#smooth-the-data-with-a-rolling-window" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/computation.html#rolling-window-operations">https://docs.xarray.dev/en/stable/user-guide/computation.html#rolling-window-operations</a></p>
+<p>In the cell below I use a 5-year running mean to remove shorter-timescale flucuations. Note how
+I include the metadata in the title for a legend entry.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">rolling</span> <span class="o">=</span> <span class="n">clt_so_zonal</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">clt_mean</span> <span class="o">=</span> <span class="n">rolling</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">clt_mean</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">experiment_id</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">source_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;southern ocean cloud fraction&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;time (years)&quot;</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="s2">&quot;cloud fraction (percent)&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="now-add-miroc6">
+<h2>now add miroc6<a class="headerlink" href="#now-add-miroc6" title="Permalink to this headline">#</a></h2>
+<p>Make a function so we don’t need to copy/paste sells</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_average</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+    <span class="n">clt_so_weighted</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;clt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+    <span class="n">clt_so_zonal</span> <span class="o">=</span> <span class="n">clt_so_weighted</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">,</span><span class="s2">&quot;lat&quot;</span><span class="p">])</span>
+    <span class="n">rolling</span> <span class="o">=</span> <span class="n">clt_so_zonal</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+    <span class="n">clt_mean</span> <span class="o">=</span> <span class="n">rolling</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">clt_mean</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-the-miroc-5-year-rolling-mean-to-the-plot">
+<h2>add the miroc 5 year rolling mean to the plot<a class="headerlink" href="#add-the-miroc-5-year-rolling-mean-to-the-plot" title="Permalink to this headline">#</a></h2>
+<p>looks like, for these realizations, there’s a pretty dramatic difference between the hot and cold models</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds_miroc</span> <span class="o">=</span><span class="n">dset_dict</span><span class="p">[</span><span class="s1">&#39;ScenarioMIP.MIROC.MIROC6.ssp585.Amon.gn&#39;</span><span class="p">]</span>
+<span class="n">weights_miroc</span> <span class="o">=</span> <span class="n">dset_dict</span><span class="p">[</span><span class="s1">&#39;ScenarioMIP.MIROC.MIROC6.ssp585.fx.gn&#39;</span><span class="p">][</span><span class="s1">&#39;areacella&#39;</span><span class="p">]</span>
+<span class="n">miroc6_clt_mean</span> <span class="o">=</span> <span class="n">make_average</span><span class="p">(</span><span class="n">ds_miroc</span><span class="p">,</span> <span class="n">weights_miroc</span><span class="p">)</span>
+<span class="n">miroc6_clt_mean</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">source_id</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">source_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Southern ocean cloud fraction comparison: &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">source_id</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">experiment_id</span><span class="si">}</span><span class="s2"> vs &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ds_miroc</span><span class="o">.</span><span class="n">source_id</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">ds_miroc</span><span class="o">.</span><span class="n">experiment_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
+       <span class="n">xlabel</span> <span class="o">=</span> <span class="s2">&quot;time (year)&quot;</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="s2">&quot;cloud faction (percent)&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="historical-runs">
+<h2>Historical runs<a class="headerlink" href="#historical-runs" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dset_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds_miroc</span> <span class="o">=</span><span class="n">dset_dict</span><span class="p">[</span><span class="s1">&#39;CMIP.MIROC.MIROC6.historical.Amon.gn&#39;</span><span class="p">]</span>
+<span class="n">weights_miroc</span> <span class="o">=</span> <span class="n">dset_dict</span><span class="p">[</span><span class="s1">&#39;CMIP.MIROC.MIROC6.historical.fx.gn&#39;</span><span class="p">][</span><span class="s1">&#39;areacella&#39;</span><span class="p">]</span>
+<span class="n">miroc6_clt_mean</span> <span class="o">=</span> <span class="n">make_average</span><span class="p">(</span><span class="n">ds_miroc</span><span class="p">,</span> <span class="n">weights_miroc</span><span class="p">)</span>
+<span class="n">miroc6_clt_mean</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">source_id</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">source_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ds_cesm</span> <span class="o">=</span><span class="n">dset_dict</span><span class="p">[</span><span class="s1">&#39;CMIP.NCAR.CESM2.historical.Amon.gn&#39;</span><span class="p">]</span>
+<span class="n">weights_cesm</span> <span class="o">=</span> <span class="n">dset_dict</span><span class="p">[</span><span class="s1">&#39;CMIP.NCAR.CESM2.historical.fx.gn&#39;</span><span class="p">][</span><span class="s1">&#39;areacella&#39;</span><span class="p">]</span>
+<span class="n">cesm_clt_mean</span> <span class="o">=</span> <span class="n">make_average</span><span class="p">(</span><span class="n">ds_cesm</span><span class="p">,</span> <span class="n">weights_cesm</span><span class="p">)</span>
+<span class="n">cesm_clt_mean</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">source_id</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">source_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Southern ocean cloud fraction comparison: &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">source_id</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">ds</span><span class="o">.</span><span class="n">experiment_id</span><span class="si">}</span><span class="s2"> vs &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ds_miroc</span><span class="o">.</span><span class="n">source_id</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">ds_miroc</span><span class="o">.</span><span class="n">experiment_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
+       <span class="n">xlabel</span> <span class="o">=</span> <span class="s2">&quot;time (year)&quot;</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="s2">&quot;cloud faction (percent)&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./resources"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="loading-CESM-LENS-data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Accessing CESM LENS (and LENS2) data with intake-esm</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../courseware/week1/lab1_models-budgets-fun.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Climate models, the global energy budget, and Fun with Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-catalog">Load the catalog</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-unique-entries">Finding unique entries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-find-a-low-and-a-high-climate-sensitivity-model">Q1: find a low and a high climate sensitivity model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-cloud-fraction">Q2: cloud fraction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-grab-one-realization-from-each-of-your-two-models-for-two-scenarios-historical-and-ssp585">Q3 Grab one realization from each of your two models for two scenarios: historical and ssp585</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lazy-loading-datasets-by-row">lazy-loading datasets by row</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-datasets-using-to-dataset-dict">Load datasets using <code class="docutils literal notranslate"><span class="pre">to_dataset_dict()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-8-datasets-this-is-a-lazy-operation">Get the 8 datasets (this is a lazy operation)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keep-track-of-the-areacella-for-each-dataset">Keep track of the <code class="docutils literal notranslate"><span class="pre">areacella</span></code> for each dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limiting-the-dataset-to-the-sourthern-ocean-without-reading-the-data">limiting the dataset to the Sourthern Ocean without reading the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-a-checkpoint">saving a checkpoint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-area-weighted-cloud-fraction-for-1-dataset-over-the-southern-ocean">Find the area weighted cloud fraction for 1 dataset over the southern ocean</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-areacella-weights">The areacella weights</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#squeeze-out-the-unit-dimensions">squeeze out the unit dimensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-weighted-method-to-apply-weights-to-the-average">use the weighted method to apply weights to the average</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-weights-to-the-dataarray">Add weights to the dataArray</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#take-the-zonal-mean">Take the zonal mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smooth-the-data-with-a-rolling-window">Smooth the data with a rolling window</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#now-add-miroc6">now add miroc6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-miroc-5-year-rolling-mean-to-the-plot">add the miroc 5 year rolling mean to the plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-runs">Historical runs</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Rose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

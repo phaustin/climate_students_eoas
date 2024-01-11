@@ -1,0 +1,1149 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>23. Atmospheric Dynamics in the CESM &#8212; Climate Laboratory Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/week7/lab23_cesm-atmospheric-dynamics';</script>
+    <link rel="canonical" href="https://phaustin.github.io/ClimateLaboratoryBook/courseware/week7/lab23_cesm-atmospheric-dynamics.html" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="24. A peek at numerical methods for diffusion models" href="lab24_numerical-diffusion.html" />
+    <link rel="prev" title="22. Modeling the seasonal cycle of surface temperature" href="lab22_seasonal-cycle.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../home.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Climate Laboratory Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home.html">
+                    The Climate Laboratory
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ugradsyllabus.html">Undergraduate Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gradsyllabus.html">Graduate Syllabus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../week1_topics.html">Week 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week2_topics.html">Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week3_topics.html">Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week4_topics.html">Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week7_topics.html">Week 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble.html">Preamble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About this Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../who-for.html">Who is the book for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how-to.html">How to use this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attribution.html">How to cite and reuse this material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra_reading.html">Additional resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week1/lab1_models-budgets-fun.html">1. Climate models, the global energy budget, and Fun with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab4_introducing-cesm.html">4. Introducing the Community Earth System Model (CESM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab5_climlab-intro.html">5. Building simple climate models using climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab6_radiation.html">6. A Brief Review of Radiation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab7_elementary-greenhouse.html">7. Elementary greenhouse models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab8_sympy-greenhouse.html">8. Advanced topic: Solving the two-layer grey gas model analytically with sympy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week4/lab9_grey-radiation-climlab.html">9. Grey radiation modeling with climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/lab10_radiative-transfer.html">10. Modeling non-scattering radiative transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/lab11_spectral-bands.html">11. Who needs spectral bands? We do. Some baby steps…</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab12_radeq.html">12. Radiative Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/lab18_insolation.html">18. Insolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lab21_one-dim-ebm.html">21. The one-dimensional energy balance model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab22_seasonal-cycle.html">22. Modeling the seasonal cycle of surface temperature</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">23. Atmospheric Dynamics in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab24_numerical-diffusion.html">24. A peek at numerical methods for diffusion models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab27_surface-energy-balance.html">The surface energy balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab28_land-ocean-contrast.html">Land-Ocean contrasts under climate change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab29_water-water-everywhere.html">Water, water everywhere!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../about-assignments.html">About the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment1-zero-dim-ebm.html">Assignment: Climate change in the zero-dimensional EBM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment2-cesm-control.html">Assignment: Global average budgets in the CESM pre-industrial control simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment2-cesm-control-hints.html">Additional hints and guidance for CESM budgets assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment3-simple-clouds.html">Assignment: Clouds in the Leaky Greenhouse Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment4-rcm-feedback.html">Assignment: Feedbacks in the Radiative-Convective Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment5-cesm-climate-change.html">Assignment: Climate change in the CESM simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment6-insolation-orbit.html">Assignment: Insolation and orbital parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">xarray tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../xarray/01-xarray-intro.html">Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xarray/02-computation-masking.html">Computations and Masks with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xarray/03-enso-xarray.html">Calculating ENSO with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xarray/04-dask-arrays-xarray.html">Dask Arrays with Xarray</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/feedback_notation.html">Feedback notation for worksheet 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydrostat.html">Hydrostatic balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydrostatic_balance.html">Scale heights for typical atmospheric soundings</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../multi_layer_equilibrium.html">Radiative equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bayes_lecture.html">What I wish I’d known about statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/week7/lab23_cesm-atmospheric-dynamics.md&branch=jb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/courseware/week7/lab23_cesm-atmospheric-dynamics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/courseware/week7/lab23_cesm-atmospheric-dynamics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Atmospheric Dynamics in the CESM</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-cesm">23.1. About the CESM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components-of-cesm">23.1.1. Key components of CESM:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#large-scale-circulation-in-the-cesm">23.2. Large-scale circulation in the CESM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonal-mean-circulation">23.2.1. Zonal mean circulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eddy-transport-in-cesm">23.2.2. Eddy transport in CESM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vertical-levels">23.2.3. Vertical levels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-exploration">23.2.4. Further exploration</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="atmospheric-dynamics-in-the-cesm">
+<span id="nb-atmdyn"></span><h1><span class="section-number">23. </span>Atmospheric Dynamics in the CESM<a class="headerlink" href="#atmospheric-dynamics-in-the-cesm" title="Permalink to this headline">#</a></h1>
+<p>This notebook is an extension of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany. Notebook by Rachel H. White, University of British Columbia (https://www.eoas.ubc.ca/people/rachelwhite)</p>
+<p>There are ‘Discussion points’ and ‘Exercises’ throughout these notebooks. You should come to class prepared to discuss your thoughts on the Discussion points.</p>
+<p>Learning goals:</p>
+<ul class="simple">
+<li><p>Be able to analyse atmospheric dynamics in the CESM climate model data</p></li>
+<li><p>Compare the CESM model to re-analysis data (best guess of observations for most atmospheric dynamics)</p></li>
+</ul>
+<hr class="docutils" />
+<section id="about-the-cesm">
+<h2><span class="section-number">23.1. </span>About the CESM<a class="headerlink" href="#about-the-cesm" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<section id="key-components-of-cesm">
+<h3><span class="section-number">23.1.1. </span>Key components of CESM:<a class="headerlink" href="#key-components-of-cesm" title="Permalink to this headline">#</a></h3>
+<p>see http://www.cesm.ucar.edu/models/cesm1.2/ for more info</p>
+<ul class="simple">
+<li><p>Atmospheric model (AGCM)</p>
+<ul>
+<li><p>Community Atmsophere Model (CAM)</p></li>
+</ul>
+</li>
+<li><p>Ocean model (OGCM)</p>
+<ul>
+<li><p>Parallel Ocean Program (POP)</p></li>
+</ul>
+</li>
+<li><p>Land surface model</p>
+<ul>
+<li><p>Community Land Model (CLM)</p></li>
+</ul>
+</li>
+<li><p>Sea ice model</p>
+<ul>
+<li><p>Community Ice CodE (CICE)</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>You need to be connected to the internet to run the code in this notebook</strong></p>
+<p>You can browse the available data through a web interface here:</p>
+<p>http://thredds.atmos.albany.edu:8080/thredds/catalog.html</p>
+<p>Within this folder called <code class="docutils literal notranslate"><span class="pre">CESM</span> <span class="pre">archive</span></code>, you will find another folder called <code class="docutils literal notranslate"><span class="pre">som_input</span></code> which contains all the input files.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="large-scale-circulation-in-the-cesm">
+<h2><span class="section-number">23.2. </span>Large-scale circulation in the CESM<a class="headerlink" href="#large-scale-circulation-in-the-cesm" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
+<span class="kn">import</span> <span class="nn">Ngl</span>
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">cartopy.util</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can compare the CESM model results to those in the Hartmann book we are reading (see in particular chapter 6), to see how well the CESM model reproduces observed circulation</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cesm_data_path</span> <span class="o">=</span> <span class="s2">&quot;http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/&quot;</span>
+<span class="n">cesm_input_path</span> <span class="o">=</span> <span class="n">cesm_data_path</span> <span class="o">+</span> <span class="s2">&quot;som_input/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="zonal-mean-circulation">
+<h3><span class="section-number">23.2.1. </span>Zonal mean circulation<a class="headerlink" href="#zonal-mean-circulation" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Let&#39;s compare the zonal mean circulation</span>
+<span class="c1">#atmfile = xr.open_dataset( cesm_data_path + &#39;som_cam5/&#39; + &#39;atm/hist/&#39; + &#39;som_cam5.cam.h0.0030-12.nc&#39;)</span>
+<span class="n">atmfile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span> <span class="n">cesm_data_path</span> <span class="o">+</span> <span class="s2">&quot;cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc&quot;</span><span class="p">)</span>
+<span class="n">atmfile</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># we want to take the zonal mean</span>
+<span class="n">zmU</span> <span class="o">=</span> <span class="n">atmfile</span><span class="o">.</span><span class="n">U</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">)</span>
+
+<span class="c1"># Now we want to take seasonal means</span>
+<span class="n">zmU_seas</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">data</span> <span class="ow">in</span> <span class="n">zmU</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.season&#39;</span><span class="p">):</span>
+    <span class="n">zmU_seas</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The groupby function (https://xarray.pydata.org/en/stable/groupby.html) is very useful for quickly separating data. Explore the output from zmU.grouby(‘time.season’), in order to understand what data is in zmU_seas,</p>
+<p><strong>Discussion point:</strong> <em>Why is this not an exact seasonal climatology? (Hint: Think about weighting.)</em></p>
+<p>Let’s make a plot! Remember <code class="docutils literal notranslate"><span class="pre">xarray</span></code> is able to automatically generate labeled plots. This is very handy for “quick and dirty” investigation of the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">zmU_seas</span><span class="p">[</span><span class="s1">&#39;DJF&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>But this is not the best way to look at zonal cross-sections. For a start, the plot is upside down, as pressure decreases with height. We can make a function to create a nicer looking plot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_zonal_mean</span><span class="p">(</span><span class="n">plotvar</span><span class="p">,</span><span class="n">title</span><span class="p">):</span>
+    <span class="c1"># We can change the size/aspect ratio of our plot</span>
+    <span class="c1"># Note that these change values globally, i.e. throughout your notebook</span>
+    <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+    <span class="c1"># and change the default font size</span>
+    <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span><span class="mi">16</span><span class="p">})</span>
+
+    <span class="c1"># Plot DJF and then JJA</span>
+    <span class="k">for</span> <span class="n">seas</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;DJF&#39;</span><span class="p">,</span><span class="s1">&#39;JJA&#39;</span><span class="p">]:</span>
+        <span class="c1"># use contourf to plot filled contours</span>
+        <span class="c1"># set the contour levels to be plotted as an array from -70 to 70 at intervals of 5</span>
+        <span class="c1"># note that to include to top value of 70, you must select a value slightly above 70</span>
+        <span class="n">plotvar</span><span class="p">[</span><span class="n">seas</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">70</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+
+        <span class="c1"># change the y scale to be logarithmic</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+        <span class="c1"># invert the axis so it represents height, but shows pressure</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+        <span class="c1"># set the top and bottom pressure of the plot</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+        <span class="c1"># set the y axis tick labels</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">1000</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;1000&#39;</span><span class="p">,</span><span class="s1">&#39;500&#39;</span><span class="p">,</span><span class="s1">&#39;200&#39;</span><span class="p">,</span><span class="s1">&#39;100&#39;</span><span class="p">,</span><span class="s1">&#39;50&#39;</span><span class="p">,</span><span class="s1">&#39;20&#39;</span><span class="p">,</span><span class="s1">&#39;10&#39;</span><span class="p">])</span>
+
+        <span class="c1"># add a title</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">seas</span> <span class="o">+</span> <span class="s1">&#39; zonal mean zonal wind&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_zonal_mean</span><span class="p">(</span><span class="n">zmU_seas</span><span class="p">,</span><span class="s1">&#39;CESM&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Compare to a plot created from NCER re-analysis data</span>
+<span class="n">ncep_url</span> <span class="o">=</span> <span class="s2">&quot;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/&quot;</span>
+<span class="n">ncep_uwnd</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">ncep_url</span> <span class="o">+</span> <span class="s2">&quot;pressure/uwnd.mon.1981-2010.ltm.nc&quot;</span><span class="p">)</span>
+
+<span class="c1"># This is already a long term mean (ltm) but we still need to calculate means for each season:</span>
+<span class="n">ncep_uwnd_seas</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">ncep_uwnd_seas</span><span class="p">[</span><span class="s1">&#39;DJF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ncep_uwnd</span><span class="o">.</span><span class="n">uwnd</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">)</span> <span class="c1"># selecting months 0 (Jan), 1 (Feb), and 11 (Dec)</span>
+<span class="n">ncep_uwnd_seas</span><span class="p">[</span><span class="s1">&#39;JJA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ncep_uwnd</span><span class="o">.</span><span class="n">uwnd</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">)</span> <span class="c1"># selecting months 5 (Jun), 6 (Jul), and 7 (Aug)</span>
+
+<span class="n">plot_zonal_mean</span><span class="p">(</span><span class="n">ncep_uwnd_seas</span><span class="p">,</span><span class="s1">&#39;NCEP reanalysis&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When completing model evaluation like this, it is often useful to plot both the model and the re-analysis or observations on the same plot, so you can better evaluate model biases. Even better is to plot the model bias itself, but this involves re-gridding the datasets to be on the same grid (same latitudes, longitudes and pressure levels).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_zonal_mean_comp</span><span class="p">(</span><span class="n">plotvarmodel</span><span class="p">,</span><span class="n">plotvarNCEP</span><span class="p">,</span><span class="n">title</span><span class="p">):</span>
+    <span class="c1"># We can change the size/aspect ratio of our plot</span>
+    <span class="c1"># Note that these change values globally, i.e. throughout your notebook</span>
+    <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+    <span class="c1"># and change the default font size</span>
+    <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span><span class="mi">16</span><span class="p">})</span>
+
+    <span class="c1"># Plot DJF and then JJA</span>
+    <span class="k">for</span> <span class="n">seas</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;DJF&#39;</span><span class="p">,</span><span class="s1">&#39;JJA&#39;</span><span class="p">]:</span>
+        <span class="c1"># use contourf to plot filled contours</span>
+        <span class="c1"># set the contour levels to be plotted as an array from -70 to 70 at intervals of 5</span>
+        <span class="c1"># note that to include to top value of 70, you must select a value slightly above 70</span>
+        <span class="n">plotvarmodel</span><span class="p">[</span><span class="n">seas</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">70</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+        <span class="n">plotvarmodel</span><span class="p">[</span><span class="n">seas</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">70</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;lightgrey&#39;</span><span class="p">)</span>
+
+
+        <span class="n">plotvarNCEP</span><span class="p">[</span><span class="n">seas</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">70</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+        <span class="c1"># change the y scale to be logarithmic</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+        <span class="c1"># invert the axis so it represents height, but shows pressure</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+        <span class="c1"># set the top and bottom pressure of the plot</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+        <span class="c1"># set the y axis tick labels</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">1000</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;1000&#39;</span><span class="p">,</span><span class="s1">&#39;500&#39;</span><span class="p">,</span><span class="s1">&#39;200&#39;</span><span class="p">,</span><span class="s1">&#39;100&#39;</span><span class="p">,</span><span class="s1">&#39;50&#39;</span><span class="p">,</span><span class="s1">&#39;20&#39;</span><span class="p">,</span><span class="s1">&#39;10&#39;</span><span class="p">])</span>
+
+        <span class="c1"># add a title</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">seas</span> <span class="o">+</span> <span class="s1">&#39; zonal mean zonal wind&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_zonal_mean_comp</span><span class="p">(</span><span class="n">zmU_seas</span><span class="p">,</span><span class="n">ncep_uwnd_seas</span><span class="p">,</span><span class="s1">&#39;CESM and NCEP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Discussion point:</strong> <em>Compare the model to the re-analysis “observations”. How well does the model do? What might affect the model results - think about what we know about the experiment cpl_1850_f19 from before.</em></p>
+<p><strong>Extra exercise:</strong> try calculating an exact seasonal mean, and compare the differences.</p>
+<p>Now let’s look at the meridional mass streamfunction, as in figure 6.5 in the Hartmann book. This is a measure of the strength of the meridional overturning circulation. Meridional mass streamfunction isn’t an output of the model. So we need to calculate it.
+Similar to matlab, if there is a variable you want to calculate, it is likely someone has already made a package
+that calculate it. In this case we can use a function from the TropD package: https://tropd.github.io/pytropd/index.html
+This function is shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">TropD_Calculate_StreamFunction</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lev</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Calculate streamfunction by integrating meridional wind from top of the atmosphere to surface</span>
+
+<span class="sd">      Args:</span>
+
+<span class="sd">        V: array of zonal-mean meridional wind with dimensions (lat, lev)</span>
+<span class="sd">      </span>
+<span class="sd">        lat: equally spaced latitude array</span>
+
+<span class="sd">        lev: vertical level array in hPa</span>
+
+<span class="sd">      Returns:</span>
+<span class="sd">  </span>
+<span class="sd">        ndarray: the streamfunction psi(lat,lev) </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">EarthRadius</span> <span class="o">=</span> <span class="mf">6371220.0</span>
+    <span class="n">EarthGrav</span> <span class="o">=</span> <span class="mf">9.80616</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">V</span><span class="p">))</span> 
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">V</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># edited RHW</span>
+    <span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">V</span><span class="p">))</span>
+
+    <span class="c1"># RHW edit: use tile to repeat cos(lat) len(lev) times, rather than repeat and then reshape</span>
+    <span class="n">COS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lat</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">),[</span><span class="nb">len</span><span class="p">(</span><span class="n">lev</span><span class="p">),</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">psi</span> <span class="o">=</span> <span class="p">(</span><span class="n">EarthRadius</span><span class="o">/</span><span class="n">EarthGrav</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> \
+         <span class="o">*</span> <span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">cumtrapz</span><span class="p">(</span><span class="n">B</span> <span class="o">*</span> <span class="n">V</span> <span class="o">*</span> <span class="n">COS</span><span class="p">,</span> <span class="n">lev</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+  
+    <span class="k">return</span> <span class="n">psi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We need seasonal mean, zonal mean, meridional wind</span>
+<span class="n">zmV</span> <span class="o">=</span> <span class="n">atmfile</span><span class="o">.</span><span class="n">V</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">)</span>
+
+<span class="c1"># Now we want to take seasonal means</span>
+<span class="n">zmV_seas</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">data</span> <span class="ow">in</span> <span class="n">zmV</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.season&#39;</span><span class="p">):</span>
+    <span class="n">zmV_seas</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="c1"># Calculate mean meridional mass streamfunction on seasonal means:</span>
+<span class="n">psi_cesm</span><span class="o">=</span><span class="p">{}</span>
+<span class="k">for</span> <span class="n">iseas</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;DJF&#39;</span><span class="p">,</span><span class="s1">&#39;JJA&#39;</span><span class="p">]:</span>
+    <span class="n">psi_cesm</span><span class="p">[</span><span class="n">iseas</span><span class="p">]</span> <span class="o">=</span> <span class="n">TropD_Calculate_StreamFunction</span><span class="p">(</span><span class="n">zmV_seas</span><span class="p">[</span><span class="n">iseas</span><span class="p">],</span> <span class="n">zmV_seas</span><span class="p">[</span><span class="n">iseas</span><span class="p">]</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">zmV_seas</span><span class="p">[</span><span class="n">iseas</span><span class="p">]</span><span class="o">.</span><span class="n">lev</span><span class="p">)</span>
+
+<span class="c1"># now add the annual mean:</span>
+<span class="n">psi_cesm</span><span class="p">[</span><span class="s1">&#39;ANN&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">TropD_Calculate_StreamFunction</span><span class="p">(</span><span class="n">zmV</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">),</span> <span class="n">zmV</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">zmV</span><span class="o">.</span><span class="n">lev</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The output from TropD_Calculate_StreamFunction is a numpy array, not an xarray - this is often the case for functions from downloaded packages - so we have two options:</p>
+<ol class="arabic simple">
+<li><p>turn it into an xarray since we know the coordinate and dimensions.
+or 2. plot by hand since we’re going to have to adjust the plot anyway.
+For now, here’s option 2:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span><span class="mi">16</span><span class="p">})</span>
+
+<span class="k">for</span> <span class="n">iseas</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;DJF&#39;</span><span class="p">,</span><span class="s1">&#39;JJA&#39;</span><span class="p">,</span><span class="s1">&#39;ANN&#39;</span><span class="p">]:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">zmV</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">zmV</span><span class="o">.</span><span class="n">lev</span><span class="p">,</span><span class="n">psi_cesm</span><span class="p">[</span><span class="n">iseas</span><span class="p">],</span><span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">20E10</span><span class="p">,</span><span class="mf">21E10</span><span class="p">,</span><span class="mf">2E10</span><span class="p">),</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">zmV</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">zmV</span><span class="o">.</span><span class="n">lev</span><span class="p">,</span><span class="n">psi_cesm</span><span class="p">[</span><span class="n">iseas</span><span class="p">],</span><span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">20E10</span><span class="p">,</span><span class="mf">21E10</span><span class="p">,</span><span class="mf">2E10</span><span class="p">),</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;lightgrey&#39;</span><span class="p">,</span><span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> <em>Alter this code to improve this figure. Access the NCEP v field, calculate meridional streamfunction, and add in the NCEP meridional overturning streamfunction to this plot.</em></p>
+<p><strong>Discussion point:</strong> <em>How well does the model do in comparison with the observations?</em></p>
+<p>For those of you interested in creating xarrays. See https://xarray.pydata.org/en/stable/data-structures.html for  more detail, and the basics are shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># First let&#39;s combine the seasons into a single np array, the first dimension will be season with our</span>
+<span class="c1"># 3 &#39;seasons&#39; of interest: &#39;DJF&#39;,&#39;JJA&#39;,&#39;ANN&#39;</span>
+<span class="n">psi_cesm_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">zmV</span><span class="o">.</span><span class="n">lev</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">zmV</span><span class="o">.</span><span class="n">lat</span><span class="p">)])</span>
+<span class="c1"># now fill with the values: note we now need to remember what index we use for each season here - we will add this</span>
+<span class="c1"># information back in later, so we store it in seas_array</span>
+<span class="n">index</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">seas_array</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DJF&#39;</span><span class="p">,</span><span class="s1">&#39;JJA&#39;</span><span class="p">,</span><span class="s1">&#39;ANN&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">iseas</span> <span class="ow">in</span> <span class="n">seas_array</span><span class="p">:</span>
+    <span class="n">psi_cesm_array</span><span class="p">[</span><span class="n">index</span><span class="p">,:,:]</span> <span class="o">=</span> <span class="n">psi_cesm</span><span class="p">[</span><span class="n">iseas</span><span class="p">];</span> <span class="n">index</span><span class="o">+=</span><span class="mi">1</span> <span class="c1"># this increments index by 1</span>
+    
+<span class="n">psi_cesm_xr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">psi_cesm_array</span><span class="p">,</span>
+                          <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;lev&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span>
+                          <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="n">seas_array</span><span class="p">,</span><span class="s1">&#39;lev&#39;</span><span class="p">:</span><span class="n">zmV</span><span class="o">.</span><span class="n">lev</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">:</span><span class="n">zmV</span><span class="o">.</span><span class="n">lat</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> <em>Alter the code below to check this dataarray gives the same results as before.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check this dataarray gives the same results as before</span>
+<span class="n">psi_cesm_xr</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;ANN&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contour</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eddy-transport-in-cesm">
+<h3><span class="section-number">23.2.2. </span>Eddy transport in CESM<a class="headerlink" href="#eddy-transport-in-cesm" title="Permalink to this headline">#</a></h3>
+<p>Moving away from zonal means, we can look at eddy transports. We can calculate the total vT from the model output:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vT</span> <span class="o">=</span> <span class="p">(</span><span class="n">atmfile</span><span class="o">.</span><span class="n">V</span> <span class="o">*</span> <span class="n">atmfile</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">)</span>
+
+<span class="c1"># estimate the seasonal climatology</span>
+<span class="n">zmVT_seas</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">zmV_seas</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">zmT_seas</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">data</span> <span class="ow">in</span> <span class="n">vT</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.season&#39;</span><span class="p">):</span>
+    <span class="n">zmVT_seas</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">data</span> <span class="ow">in</span> <span class="n">atmfile</span><span class="o">.</span><span class="n">V</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.season&#39;</span><span class="p">):</span>
+    <span class="n">zmV_seas</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">data</span> <span class="ow">in</span> <span class="n">atmfile</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.season&#39;</span><span class="p">):</span>
+    <span class="n">zmT_seas</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> Now calculate and plot v<em>T</em> + v’T’ as per equation 6.13 (Hartmann) to compare with figure 6.9 (Hartmann).</p>
+<p><strong>Discussion point:</strong> <em>How does the CESM model eddy transport compare to the “observed” values shown in Fig. 6.9? Think about the time resolution of the CESM model output (you may need to print/explore atmfields to remind yourself of this), and why this method of calculating vT could underestimate meridional heat transport.</em></p>
+<p>Models such as CESM actually have variables such as <span class="math notranslate nohighlight">\(\overline{vT}\)</span> as an output. This is an average over each timestep of vT and therefore provides a more accurate estimate of true vT than calculating it “offline” (i.e. after the model has run) without having to output variables on every timestep, which would take up too much space.</p>
+<p><strong>Exercise</strong> <em>Find the vT field in atmfile, and then calculate and plot v’T’ + v<em>T</em> using vT directly from the model. Compare to the observations and our previous plot.</em></p>
+<p><strong>Exercise</strong> <em>Explore the model and plot some other meridional transports, comparing the model calculated values with those calcualted offline</em></p>
+</section>
+<section id="vertical-levels">
+<h3><span class="section-number">23.2.3. </span>Vertical levels<a class="headerlink" href="#vertical-levels" title="Permalink to this headline">#</a></h3>
+<p>Look at the y-axis in our first plot of zonal mean zonal wind. Notice that the variable is not ‘pressure’, it’s ‘hybrid level at midpoints’. If you explore the dimension ‘lev’ in atmfile you find the units are ‘level’ and the standard name is: ‘atmosphere_hybrid_sigma_pressure_coordinate’.  The CESM model default outputs are on model levels, which are not isobaric surfaces. This version of the CESM uses what’s known as a hybrid vertical co-ordinate: near the surface, the levels follow the terrain, often known as a ‘sigma’ co-ordinate; this makes calculation of the dynamics near the surface simpler. At the top of the model, the levels are isobaric surfaces; in between they are a hybrid, or “sigma-pressure’. This is illustrated in the schematic below.</p>
+<img alt="../../_images/Fig_hyb_coord.jpg" src="../../_images/Fig_hyb_coord.jpg" />
+<blockquote>
+<div><p>Figure | The hybrid sigma-pressure co-ordinates in this version of the CESM model.</p>
+</div></blockquote>
+<p>For more accurate plotting we need to convert the data from these model co-ordinates onto pressure levels, by using the identity p(t,k,j,i) = a(k)*p0 + b(k)*ps(t,j,i), where a and b are parameters (functions of level only). Handily NCAR (the developers of the CESM model) have built functions to do this for us, originally in NCL (the NCAR Command Language) and now in python (https://www.pyngl.ucar.edu/Functions/Ngl.vinth2p.shtml).</p>
+<p>This can take quite some time to run, particularly if you want to convert monthly or daily data onto pressure levels. Ideally this should be written as a separate function and run outside of your notebooks, but we will do this once here as an example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the parameters hyam and hybm are parameters used to calculate the pressure from the level value</span>
+<span class="n">hyam</span> <span class="o">=</span> <span class="n">atmfile</span><span class="p">[</span><span class="s1">&#39;hyam&#39;</span><span class="p">]</span>
+<span class="n">hybm</span> <span class="o">=</span> <span class="n">atmfile</span><span class="p">[</span><span class="s1">&#39;hybm&#39;</span><span class="p">]</span>
+<span class="n">T</span>    <span class="o">=</span> <span class="n">atmfile</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">psfc</span> <span class="o">=</span> <span class="n">atmfile</span><span class="p">[</span><span class="s1">&#39;PS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">atmfile</span><span class="p">[</span><span class="s1">&#39;U&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">p0mb</span> <span class="o">=</span> <span class="n">atmfile</span><span class="p">[</span><span class="s1">&#39;P0&#39;</span><span class="p">]</span><span class="o">/</span><span class="mf">100.0</span>
+
+<span class="c1"># Selection of the pressure levels you would like the data on </span>
+<span class="c1"># if you are plotting with log pressure as the vertical coodinate it is good to space yourlevels to be at least </span>
+<span class="c1"># approximately equally space in log-pressure coordinates.</span>
+<span class="n">pnew</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1000.</span><span class="p">,</span><span class="mf">850.</span><span class="p">,</span><span class="mf">700.</span><span class="p">,</span><span class="mf">600.</span><span class="p">,</span><span class="mf">500.</span><span class="p">,</span><span class="mf">400.</span><span class="p">,</span><span class="mf">300.</span><span class="p">,</span><span class="mf">250.</span><span class="p">,</span><span class="mf">200.</span><span class="p">,</span><span class="mf">150.</span><span class="p">,</span><span class="mf">100.</span><span class="p">,</span><span class="mf">70.</span><span class="p">,</span><span class="mf">50.</span><span class="p">,</span><span class="mf">30.</span><span class="p">,</span><span class="mf">20.</span><span class="p">,</span><span class="mf">10.</span><span class="p">,</span><span class="mf">5.</span><span class="p">]</span>
+
+<span class="n">Upres</span> <span class="o">=</span> <span class="n">Ngl</span><span class="o">.</span><span class="n">vinth2p</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">hyam</span><span class="p">,</span> <span class="n">hybm</span><span class="p">,</span> <span class="n">pnew</span><span class="p">,</span> <span class="n">psfc</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p0mb</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="c1"># This has set values below the surface to 1E30. We want these to be nan:</span>
+<span class="n">Upres</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Upres</span><span class="o">&gt;=</span><span class="mf">1E30</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">Upres</span><span class="p">)</span>
+
+<span class="c1"># Create xarray from this numpy ndarray:</span>
+<span class="n">Upres_xr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">Upres</span><span class="p">,</span>
+                          <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;plev&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span>
+                          <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;plev&#39;</span><span class="p">:</span><span class="n">pnew</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">:</span><span class="n">U</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">:</span><span class="n">U</span><span class="o">.</span><span class="n">lon</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now compare this to the annual mean on hybrid levels</span>
+<span class="n">U</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">70</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="c1"># Add in black contours, also at 5m/s intervals. Note plot.contour automatically plots</span>
+<span class="c1"># negative contours as dashed</span>
+<span class="n">U</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">70</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="c1"># change the y scale to be logarithmic</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span> 
+<span class="c1"># invert the axis so it represents height, but shows pressure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="c1"># set the top and bottom pressure of the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># set the y axis tick labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">1000</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;1000&#39;</span><span class="p">,</span><span class="s1">&#39;500&#39;</span><span class="p">,</span><span class="s1">&#39;200&#39;</span><span class="p">,</span><span class="s1">&#39;100&#39;</span><span class="p">,</span><span class="s1">&#39;50&#39;</span><span class="p">,</span><span class="s1">&#39;20&#39;</span><span class="p">,</span><span class="s1">&#39;10&#39;</span><span class="p">])</span>
+
+<span class="c1"># add a title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Annual mean zonal mean zonal wind: hybrid levels&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="n">Upres_xr</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">70</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="c1"># Add in black contours, also at 5m/s intervals. Note plot.contour automatically plots</span>
+<span class="c1"># negative contours as dashed</span>
+<span class="n">Upres_xr</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">70</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="c1"># change the y scale to be logarithmic</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span> 
+<span class="c1"># invert the axis so it represents height, but shows pressure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="c1"># set the top and bottom pressure of the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># set the y axis tick labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">1000</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;1000&#39;</span><span class="p">,</span><span class="s1">&#39;500&#39;</span><span class="p">,</span><span class="s1">&#39;200&#39;</span><span class="p">,</span><span class="s1">&#39;100&#39;</span><span class="p">,</span><span class="s1">&#39;50&#39;</span><span class="p">,</span><span class="s1">&#39;20&#39;</span><span class="p">,</span><span class="s1">&#39;10&#39;</span><span class="p">])</span>
+
+<span class="c1"># add a title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Annual mean zonal mean zonal wind: pressure levels&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Differences are minor, except close to the surface, as expected as this is where the model levels are least similar to pressure levels. We can now also plot maps of the winds on pressure surfaces, such as the upper-level jets.
+It is useful to define generic functions for sets of operations you will use repeatedly, e.g.:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Allow for a range of map projections</span>
+<span class="c1"># set directory where map data is downloaded</span>
+<span class="n">cartopy</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;data_dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;../data/&#39;</span>
+
+<span class="k">def</span> <span class="nf">set_proj</span><span class="p">(</span><span class="n">projection</span><span class="p">,</span><span class="n">nrows</span><span class="p">,</span><span class="n">ncols</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">projection</span> <span class="o">==</span> <span class="s1">&#39;Ortho&#39;</span><span class="p">:</span>
+        <span class="n">proj</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Orthographic</span><span class="p">(</span><span class="n">central_latitude</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">projection</span> <span class="o">==</span> <span class="s1">&#39;Mollweide&#39;</span><span class="p">:</span>
+        <span class="n">proj</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Mollweide</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">projection</span> <span class="o">==</span> <span class="s1">&#39;NorthPole&#39;</span><span class="p">:</span>
+        <span class="n">proj</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">NorthPolarStereo</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">projection</span> <span class="o">==</span> <span class="s1">&#39;PlateCarree&#39;</span><span class="p">:</span>
+        <span class="n">proj</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">projection</span> <span class="o">==</span> <span class="s1">&#39;Robinson&#39;</span><span class="p">:</span>
+        <span class="n">proj</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">()</span>
+        
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">ncols</span><span class="p">,</span><span class="n">nrows</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">)</span>
+    <span class="c1"># Draw land map</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+    <span class="c1"># draw gridlines</span>
+    <span class="n">gl</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span><span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+
+    <span class="c1"># Define where gridlines are for some map projections:    </span>
+    <span class="k">if</span> <span class="n">projection</span> <span class="o">==</span> <span class="s1">&#39;PlateCarree&#39;</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span><span class="o">-</span><span class="mi">150</span><span class="p">,</span><span class="o">-</span><span class="mi">120</span><span class="p">,</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="o">-</span><span class="mi">60</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span> <span class="mi">180</span><span class="p">],</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">90</span><span class="p">],</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+
+
+    <span class="k">return</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">plot_map</span><span class="p">(</span><span class="n">proj</span><span class="p">,</span><span class="n">toplot</span><span class="p">,</span><span class="n">levels</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">nrows</span><span class="p">,</span><span class="n">ncols</span><span class="p">,</span><span class="n">title</span><span class="p">):</span>
+    <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="o">*</span><span class="n">ncols</span><span class="p">,</span><span class="mi">6</span><span class="o">*</span><span class="n">nrows</span><span class="p">)</span>
+    <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span><span class="mi">16</span><span class="p">})</span>
+    
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">set_proj</span><span class="p">(</span><span class="n">proj</span><span class="p">,</span><span class="n">ncols</span><span class="p">,</span><span class="n">nrows</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+    
+    <span class="c1"># Add cyclic point so there isn&#39;t a gap in the data.</span>
+    <span class="n">coord</span> <span class="o">=</span> <span class="s1">&#39;lon&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">lon_idx</span> <span class="o">=</span> <span class="n">toplot</span><span class="o">.</span><span class="n">dims</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="n">coord</span> <span class="o">=</span> <span class="s1">&#39;longitude&#39;</span>
+        <span class="n">lon_idx</span> <span class="o">=</span> <span class="n">toplot</span><span class="o">.</span><span class="n">dims</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+        
+    <span class="n">cyclic_data</span><span class="p">,</span> <span class="n">cyclic_coord</span> <span class="o">=</span> <span class="n">cartopy</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">add_cyclic_point</span><span class="p">(</span><span class="n">toplot</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                                                 <span class="n">coord</span><span class="o">=</span><span class="n">toplot</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">coord</span><span class="p">],</span>
+                                                 <span class="n">axis</span><span class="o">=</span><span class="n">lon_idx</span><span class="p">)</span>
+    
+    <span class="n">cp</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">cyclic_coord</span><span class="p">,</span><span class="n">toplot</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span><span class="n">cyclic_data</span><span class="p">,</span><span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span><span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span>
+                      <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Add colorbar</span>
+    <span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cp</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">proj</span> <span class="o">+</span> <span class="s1">&#39; projection&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can plot different projections too, as subplots on one main plot</span>
+<span class="n">plev</span><span class="o">=</span><span class="mi">250</span>
+
+<span class="n">toplot</span> <span class="o">=</span> <span class="n">Upres_xr</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">plev</span><span class="o">=</span><span class="n">plev</span><span class="p">)</span>
+
+<span class="n">n</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Annual mean zonal wind at &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">plev</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;mb;&#39;</span>
+<span class="k">for</span> <span class="n">projection</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Robinson&#39;</span><span class="p">,</span><span class="s1">&#39;Mollweide&#39;</span><span class="p">,</span><span class="s1">&#39;Ortho&#39;</span><span class="p">,</span><span class="s1">&#39;PlateCarree&#39;</span><span class="p">]:</span>
+    <span class="n">plot_map</span><span class="p">(</span><span class="n">projection</span><span class="p">,</span><span class="n">toplot</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="n">n</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">title</span><span class="p">);</span> <span class="n">n</span><span class="o">+=</span><span class="mi">1</span>                      
+
+<span class="c1"># Add in black contours, also at 5m/s intervals. Note plot.contour automatically plots</span>
+<span class="c1"># negative contours as dashed</span>
+
+<span class="c1"># add a title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="further-exploration">
+<h3><span class="section-number">23.2.4. </span>Further exploration<a class="headerlink" href="#further-exploration" title="Permalink to this headline">#</a></h3>
+<p><strong>Exercise:</strong> <em>Explore the model data and create plots to help you understand more about the atmospheric circulation. Come to class prepared to share one of these plots and discuss what it shows you.</em></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./courseware/week7"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lab22_seasonal-cycle.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Modeling the seasonal cycle of surface temperature</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lab24_numerical-diffusion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">24. </span>A peek at numerical methods for diffusion models</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-cesm">23.1. About the CESM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components-of-cesm">23.1.1. Key components of CESM:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#large-scale-circulation-in-the-cesm">23.2. Large-scale circulation in the CESM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonal-mean-circulation">23.2.1. Zonal mean circulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eddy-transport-in-cesm">23.2.2. Eddy transport in CESM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vertical-levels">23.2.3. Vertical levels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-exploration">23.2.4. Further exploration</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Rose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

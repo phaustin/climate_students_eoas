@@ -1,0 +1,1478 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>9. Grey radiation modeling with climlab &#8212; Climate Laboratory Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/week4/lab9_grey-radiation-climlab';</script>
+    <link rel="canonical" href="https://phaustin.github.io/ClimateLaboratoryBook/courseware/week4/lab9_grey-radiation-climlab.html" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="10. Modeling non-scattering radiative transfer" href="lab10_radiative-transfer.html" />
+    <link rel="prev" title="8. Advanced topic: Solving the two-layer grey gas model analytically with sympy" href="../week3/lab8_sympy-greenhouse.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../home.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Climate Laboratory Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home.html">
+                    The Climate Laboratory
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ugradsyllabus.html">Undergraduate Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gradsyllabus.html">Graduate Syllabus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../week1_topics.html">Week 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week2_topics.html">Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week3_topics.html">Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week4_topics.html">Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week7_topics.html">Week 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble.html">Preamble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About this Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../who-for.html">Who is the book for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how-to.html">How to use this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attribution.html">How to cite and reuse this material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra_reading.html">Additional resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week1/lab1_models-budgets-fun.html">1. Climate models, the global energy budget, and Fun with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab4_introducing-cesm.html">4. Introducing the Community Earth System Model (CESM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab5_climlab-intro.html">5. Building simple climate models using climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab6_radiation.html">6. A Brief Review of Radiation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab7_elementary-greenhouse.html">7. Elementary greenhouse models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab8_sympy-greenhouse.html">8. Advanced topic: Solving the two-layer grey gas model analytically with sympy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4 Labs</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Grey radiation modeling with climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab10_radiative-transfer.html">10. Modeling non-scattering radiative transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab11_spectral-bands.html">11. Who needs spectral bands? We do. Some baby steps…</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab12_radeq.html">12. Radiative Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/lab18_insolation.html">18. Insolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab21_one-dim-ebm.html">21. The one-dimensional energy balance model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab22_seasonal-cycle.html">22. Modeling the seasonal cycle of surface temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab23_cesm-atmospheric-dynamics.html">23. Atmospheric Dynamics in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab24_numerical-diffusion.html">24. A peek at numerical methods for diffusion models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab27_surface-energy-balance.html">The surface energy balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab28_land-ocean-contrast.html">Land-Ocean contrasts under climate change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab29_water-water-everywhere.html">Water, water everywhere!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../about-assignments.html">About the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment1-zero-dim-ebm.html">Assignment: Climate change in the zero-dimensional EBM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment2-cesm-control.html">Assignment: Global average budgets in the CESM pre-industrial control simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment2-cesm-control-hints.html">Additional hints and guidance for CESM budgets assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment3-simple-clouds.html">Assignment: Clouds in the Leaky Greenhouse Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment4-rcm-feedback.html">Assignment: Feedbacks in the Radiative-Convective Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment5-cesm-climate-change.html">Assignment: Climate change in the CESM simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment6-insolation-orbit.html">Assignment: Insolation and orbital parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">xarray tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../xarray/01-xarray-intro.html">Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xarray/02-computation-masking.html">Computations and Masks with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xarray/03-enso-xarray.html">Calculating ENSO with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xarray/04-dask-arrays-xarray.html">Dask Arrays with Xarray</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/feedback_notation.html">Feedback notation for worksheet 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydrostat.html">Hydrostatic balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydrostatic_balance.html">Scale heights for typical atmospheric soundings</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../multi_layer_equilibrium.html">Radiative equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bayes_lecture.html">What I wish I’d known about statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/week4/lab9_grey-radiation-climlab.md&branch=jb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/courseware/week4/lab9_grey-radiation-climlab.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/courseware/week4/lab9_grey-radiation-climlab.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Grey radiation modeling with climlab</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-climlab">9.1. 1. Introducing <code class="docutils literal notranslate"><span class="pre">climlab</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-climlab-to-implement-the-two-layer-leaky-greenhouse-model">9.2. 2. Using <code class="docutils literal notranslate"><span class="pre">climlab</span></code> to implement the two-layer leaky greenhouse model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validation">9.2.1. Validation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-a-model-in-climlab">9.2.2. Initialize a model in <code class="docutils literal notranslate"><span class="pre">climlab</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-observed-annual-global-mean-temperature-profile">9.3. 3. The observed annual, global mean temperature profile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-30-layer-model-using-the-observed-temperatures">9.4. 4. A 30-layer model using the observed temperatures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tune-absorptivity-to-get-observed-olr">9.4.1. Tune absorptivity to get observed OLR</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiative-forcing-in-the-30-layer-model">9.5. 5. Radiative forcing in the 30-layer model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiative-equilibrium-in-the-30-layer-model">9.6. 6. Radiative equilibrium in the 30-layer model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiative-convective-equilibrium-in-the-30-layer-model">9.7. 7. Radiative-Convective Equilibrium in the 30-layer model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-convective-adjustment-as-an-additional-subprocess">9.7.1. Add the convective adjustment as an additional subprocess</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-stratospheric-ozone-in-the-grey-gas-model">9.8. 8. Putting stratospheric ozone in the grey-gas model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#take-the-global-average-of-the-ozone-climatology-and-plot-it-as-a-function-of-pressure-or-height">9.8.1. Take the global average of the ozone climatology, and plot it as a function of pressure (or height)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-take-home-message">9.8.2. The take home message</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#credits">9.9. Credits</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="grey-radiation-modeling-with-climlab">
+<span id="nb-grey-radiation"></span><h1><span class="section-number">9. </span>Grey radiation modeling with climlab<a class="headerlink" href="#grey-radiation-modeling-with-climlab" title="Permalink to this headline">#</a></h1>
+<p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
+<hr class="docutils" />
+<p><a id='section1'></a></p>
+<section id="introducing-climlab">
+<h2><span class="section-number">9.1. </span>1. Introducing <code class="docutils literal notranslate"><span class="pre">climlab</span></code><a class="headerlink" href="#introducing-climlab" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">climlab</span></code> is a flexible engine for process-oriented climate modeling.
+It is based on a very general concept of a model as a collection of individual,
+interacting processes. <code class="docutils literal notranslate"><span class="pre">climlab</span></code> defines a base class called <code class="docutils literal notranslate"><span class="pre">Process</span></code>, which
+can contain an arbitrarily complex tree of sub-processes (each also some
+sub-class of <code class="docutils literal notranslate"><span class="pre">Process</span></code>). Every climate process (radiative, dynamical,
+physical, turbulent, convective, chemical, etc.) can be simulated as a stand-alone
+process model given appropriate input, or as a sub-process of a more complex model.
+New classes of model can easily be defined and run interactively by putting together an
+appropriate collection of sub-processes.</p>
+<p><code class="docutils literal notranslate"><span class="pre">climlab</span></code> is a work-in-progress, and the code base will evolve substantially over the course of this semester.
+The latest code can always be found on <code class="docutils literal notranslate"><span class="pre">github</span></code>:</p>
+<p>https://github.com/brian-rose/climlab</p>
+<p>You are strongly encouraged to clone the <code class="docutils literal notranslate"><span class="pre">climlab</span></code> repository and use <code class="docutils literal notranslate"><span class="pre">git</span></code> to keep your local copy up-to-date.</p>
+<p>Running this notebook requires that <code class="docutils literal notranslate"><span class="pre">climlab</span></code> is already installed on your system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">cos</span><span class="p">,</span> <span class="n">deg2rad</span><span class="p">,</span> <span class="n">log</span>
+<span class="kn">import</span> <span class="nn">climlab</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><a id='section2'></a></p>
+</section>
+<section id="using-climlab-to-implement-the-two-layer-leaky-greenhouse-model">
+<h2><span class="section-number">9.2. </span>2. Using <code class="docutils literal notranslate"><span class="pre">climlab</span></code> to implement the two-layer leaky greenhouse model<a class="headerlink" href="#using-climlab-to-implement-the-two-layer-leaky-greenhouse-model" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>One of the things that <code class="docutils literal notranslate"><span class="pre">climlab</span></code> is set up to do is the grey-radiation modeling we have already been discussing.</p>
+<p>Since we already derived a [complete analytical solution to the two-layer leaky greenhouse model](Lecture06 – Elementary greenhouse models.ipynb), we will use this to validate the <code class="docutils literal notranslate"><span class="pre">climlab</span></code> code.</p>
+<section id="validation">
+<h3><span class="section-number">9.2.1. </span>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">#</a></h3>
+<p>We want to verify that the model reproduces the observed OLR given observed temperatures, and the absorptivity that we tuned in the analytical model. The target numbers are:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5194a4d6-70f5-4260-ab14-31a0ea11c57a">
+<span class="eqno">(9.1)<a class="headerlink" href="#equation-5194a4d6-70f5-4260-ab14-31a0ea11c57a" title="Permalink to this equation">#</a></span>\[\begin{align}
+T_s &amp;= 288 \text{ K} \\
+T_0 &amp;= 275 \text{ K} \\
+T_1 &amp;= 230 \text{ K} \\
+\end{align}\]</div>
+<div class="math notranslate nohighlight">
+\[ \epsilon = 0.586  \]</div>
+<div class="math notranslate nohighlight">
+\[ OLR = 238.5 \text{ W m}^{-2} \]</div>
+</section>
+<section id="initialize-a-model-in-climlab">
+<h3><span class="section-number">9.2.2. </span>Initialize a model in <code class="docutils literal notranslate"><span class="pre">climlab</span></code><a class="headerlink" href="#initialize-a-model-in-climlab" title="Permalink to this headline">#</a></h3>
+<p>The first thing we do is create a new model.</p>
+<p>The following example code is sparsely commented but will hopefully orient you on the basics of defining and working with a <code class="docutils literal notranslate"><span class="pre">climlab</span> <span class="pre">Process</span></code> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Test in a 2-layer atmosphere</span>
+<span class="n">col</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">GreyRadiationModel</span><span class="p">(</span><span class="n">num_lev</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">col</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col</span><span class="o">.</span><span class="n">subprocess</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Every item in the above dictionary is itself an instance of the <code class="docutils literal notranslate"><span class="pre">climlab.Process</span></code> object:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">col</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;LW&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">state</span></code> dictionary holds the state variables of the model. In this case, temperatures:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">climlab</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Access these either through dictionary methods or as attributes of the model object:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">col</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s1">&#39;Ts&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">col</span><span class="o">.</span><span class="n">Ts</span><span class="p">)</span>
+<span class="n">col</span><span class="o">.</span><span class="n">Ts</span> <span class="ow">is</span> <span class="n">col</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s1">&#39;Ts&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we are assigning the “observed” temperatures to our model state:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col</span><span class="o">.</span><span class="n">Ts</span><span class="p">[:]</span> <span class="o">=</span> <span class="mf">288.</span>
+<span class="n">col</span><span class="o">.</span><span class="n">Tatm</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">230.</span><span class="p">,</span> <span class="mf">275.</span><span class="p">])</span>
+<span class="n">climlab</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LW</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;LW&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">LW</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LW</span><span class="o">.</span><span class="n">absorptivity</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  copying the tuned value of epsilon from Lecture 6 notes</span>
+<span class="n">LW</span><span class="o">.</span><span class="n">absorptivity</span> <span class="o">=</span> <span class="mf">0.586</span>
+<span class="n">LW</span><span class="o">.</span><span class="n">absorptivity</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  This does all the calculations that would be performed at each time step, </span>
+<span class="c1">#  but doesn&#39;t actually update the temperatures</span>
+<span class="n">col</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+<span class="c1">#  Print out the dictionary</span>
+<span class="n">col</span><span class="o">.</span><span class="n">diagnostics</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Check OLR against our analytical solution</span>
+<span class="n">col</span><span class="o">.</span><span class="n">OLR</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Like the state variables, the diagnostics can also be accessed in two different ways</span>
+<span class="n">col</span><span class="o">.</span><span class="n">diagnostics</span><span class="p">[</span><span class="s1">&#39;OLR&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col</span><span class="o">.</span><span class="n">state</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># perform a single time step</span>
+<span class="n">col</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col</span><span class="o">.</span><span class="n">state</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We just stepped forward one discreet unit in time. Because we didn’t specify a timestep when we created the model, it is set to a default value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col</span><span class="o">.</span><span class="n">timestep</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>which is 1 day (expressed in seconds).</p>
+<p>Now we will integrate the model out to equilibrium.</p>
+<p>We could easily write a loop to call the <code class="docutils literal notranslate"><span class="pre">step_forward()</span></code> method many times.</p>
+<p>Or use a handy shortcut that allows us to specify the integration length in physical time units:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># integrate out to radiative equilibrium</span>
+<span class="n">col</span><span class="o">.</span><span class="n">integrate_years</span><span class="p">(</span><span class="mf">2.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check for equilibrium</span>
+<span class="n">col</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">col</span><span class="o">.</span><span class="n">OLR</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  The temperatures at radiative equilibrium</span>
+<span class="n">col</span><span class="o">.</span><span class="n">state</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Compare these to the analytical solutions for radiative equilibrium with <span class="math notranslate nohighlight">\(\epsilon = 0.58\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7c4aa41d-a750-4388-af41-d6d602a7dbf6">
+<span class="eqno">(9.2)<a class="headerlink" href="#equation-7c4aa41d-a750-4388-af41-d6d602a7dbf6" title="Permalink to this equation">#</a></span>\[\begin{align}
+T_s &amp;= 296.4 \text{ K} \\
+T_0 &amp;= 262.3 \text{ K} \\
+T_1 &amp;= 233.8 \text{ K} \\
+\end{align}\]</div>
+<p>So it looks like <code class="docutils literal notranslate"><span class="pre">climlab</span></code> agrees with our analytical results to within 0.1 K. That’s good.</p>
+<hr class="docutils" />
+<p><a id='section3'></a></p>
+</section>
+</section>
+<section id="the-observed-annual-global-mean-temperature-profile">
+<h2><span class="section-number">9.3. </span>3. The observed annual, global mean temperature profile<a class="headerlink" href="#the-observed-annual-global-mean-temperature-profile" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>We want to model the OLR in a column whose temperatures match observations. As we’ve done before, we’ll calculate the global, annual mean air temperature from the NCEP Reanalysis data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## The NOAA ESRL server is shutdown! January 2019</span>
+<span class="c1">## This will try to read the data over the internet.</span>
+<span class="n">ncep_filename</span> <span class="o">=</span> <span class="s1">&#39;air.mon.1981-2010.ltm.nc&#39;</span>
+<span class="c1">##  to read over internet</span>
+<span class="n">ncep_url</span> <span class="o">=</span> <span class="s2">&quot;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/pressure/&quot;</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">ncep_url</span>
+<span class="c1">##  Open handle to data</span>
+<span class="n">ncep_air</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span> <span class="n">path</span> <span class="o">+</span> <span class="n">ncep_filename</span><span class="p">,</span> <span class="n">decode_times</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+
+<span class="c1">#url = &#39;http://apdrc.soest.hawaii.edu:80/dods/public_data/Reanalysis_Data/NCEP/NCEP/clima/pressure/air&#39;</span>
+<span class="c1">#air = xr.open_dataset(url)</span>
+<span class="c1"># The name of the vertical axis is different than the NOAA ESRL version..</span>
+<span class="c1">#ncep_air = air.rename({&#39;lev&#39;: &#39;level&#39;})</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">ncep_air</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Take global, annual average and convert to Kelvin</span>
+<span class="n">weight</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">ncep_air</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span> <span class="o">/</span> <span class="n">cos</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">ncep_air</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span>
+<span class="n">Tglobal</span> <span class="o">=</span> <span class="p">(</span><span class="n">ncep_air</span><span class="o">.</span><span class="n">air</span> <span class="o">*</span> <span class="n">weight</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="s1">&#39;time&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">Tglobal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’re going to convert this to degrees Kelvin, using a handy list of pre-defined constants in <code class="docutils literal notranslate"><span class="pre">climlab.constants</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">climlab</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">tempCtoK</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Tglobal</span> <span class="o">+=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">tempCtoK</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Tglobal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  A handy re-usable routine for making a plot of the temperature profiles</span>
+<span class="c1">#  We will plot temperatures with respect to log(pressure) to get a height-like coordinate</span>
+
+<span class="k">def</span> <span class="nf">zstar</span><span class="p">(</span><span class="n">lev</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">lev</span> <span class="o">/</span> <span class="n">climlab</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">ps</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">plot_soundings</span><span class="p">(</span><span class="n">result_list</span><span class="p">,</span> <span class="n">name_list</span><span class="p">,</span> <span class="n">plot_obs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fixed_range</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">color_cycle</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]</span>
+    <span class="c1"># col is either a column model object or a list of column model objects</span>
+    <span class="c1">#if isinstance(state_list, climlab.Process):</span>
+    <span class="c1">#    # make a list with a single item</span>
+    <span class="c1">#    collist = [collist]</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">plot_obs</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tglobal</span><span class="p">,</span> <span class="n">zstar</span><span class="p">(</span><span class="n">Tglobal</span><span class="o">.</span><span class="n">level</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Observed&#39;</span><span class="p">)</span>    
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">state</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">result_list</span><span class="p">):</span>
+        <span class="n">Tatm</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s1">&#39;Tatm&#39;</span><span class="p">]</span>
+        <span class="n">lev</span> <span class="o">=</span> <span class="n">Tatm</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="s1">&#39;lev&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">points</span>
+        <span class="n">Ts</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s1">&#39;Ts&#39;</span><span class="p">]</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tatm</span><span class="p">,</span> <span class="n">zstar</span><span class="p">(</span><span class="n">lev</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">color_cycle</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">name_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Ts</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color_cycle</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="c1">#ax.invert_yaxis()</span>
+    <span class="n">yticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1000.</span><span class="p">,</span> <span class="mf">750.</span><span class="p">,</span> <span class="mf">500.</span><span class="p">,</span> <span class="mf">250.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">,</span> <span class="mf">50.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">yticks</span><span class="o">/</span><span class="mf">1000.</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">yticks</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature (K)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure (hPa)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">fixed_range</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">zstar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1000.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">])))</span>
+    <span class="c1">#ax2 = ax.twinx()</span>
+    
+    <span class="k">return</span> <span class="n">ax</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_soundings</span><span class="p">([],[]</span> <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><a id='section4'></a></p>
+</section>
+<section id="a-30-layer-model-using-the-observed-temperatures">
+<h2><span class="section-number">9.4. </span>4. A 30-layer model using the observed temperatures<a class="headerlink" href="#a-30-layer-model-using-the-observed-temperatures" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  initialize a grey radiation model with 30 levels</span>
+<span class="n">col</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">GreyRadiationModel</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col</span><span class="o">.</span><span class="n">lev</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col</span><span class="o">.</span><span class="n">lev_bounds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># interpolate to 30 evenly spaced pressure levels</span>
+<span class="n">lev</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">lev</span>
+<span class="n">Tinterp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">lev</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">Tglobal</span><span class="o">.</span><span class="n">level</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">Tglobal</span><span class="p">))</span>
+<span class="n">Tinterp</span>
+<span class="c1">#  Need to &#39;flipud&#39; because the interpolation routine </span>
+<span class="c1">#  needs the pressure data to be in increasing order</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize model with observed temperatures</span>
+<span class="n">col</span><span class="o">.</span><span class="n">Ts</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">Tglobal</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">col</span><span class="o">.</span><span class="n">Tatm</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">Tinterp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This should look just like the observations</span>
+<span class="n">result_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">state</span><span class="p">]</span>
+<span class="n">name_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Observed, interpolated&#39;</span><span class="p">]</span>
+<span class="n">plot_soundings</span><span class="p">(</span><span class="n">result_list</span><span class="p">,</span> <span class="n">name_list</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="tune-absorptivity-to-get-observed-olr">
+<h3><span class="section-number">9.4.1. </span>Tune absorptivity to get observed OLR<a class="headerlink" href="#tune-absorptivity-to-get-observed-olr" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+<span class="n">col</span><span class="o">.</span><span class="n">OLR</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Need to tune absorptivity to get OLR = 238.5</span>
+<span class="n">epsarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">OLRarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">epsarray</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epsarray</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+    <span class="n">col</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;LW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">absorptivity</span> <span class="o">=</span> <span class="n">epsarray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">col</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+    <span class="n">OLRarray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">OLR</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epsarray</span><span class="p">,</span> <span class="n">OLRarray</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;epsilon&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;OLR&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The necessary value seems to lie near 0.055 or so.</p>
+<p>We can be more precise with a numerical root-finder.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">OLRanom</span><span class="p">(</span><span class="n">eps</span><span class="p">):</span>
+    <span class="n">col</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;LW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">absorptivity</span> <span class="o">=</span> <span class="n">eps</span>
+    <span class="n">col</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">col</span><span class="o">.</span><span class="n">OLR</span> <span class="o">-</span> <span class="mf">238.5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use numerical root-finding to get the equilibria</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">brentq</span>
+<span class="c1"># brentq is a root-finding function</span>
+<span class="c1">#  Need to give it a function and two end-points</span>
+<span class="c1">#  It will look for a zero of the function between those end-points</span>
+<span class="n">eps</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">OLRanom</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">eps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col</span><span class="o">.</span><span class="n">subprocess</span><span class="o">.</span><span class="n">LW</span><span class="o">.</span><span class="n">absorptivity</span> <span class="o">=</span> <span class="n">eps</span>
+<span class="n">col</span><span class="o">.</span><span class="n">subprocess</span><span class="o">.</span><span class="n">LW</span><span class="o">.</span><span class="n">absorptivity</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+<span class="n">col</span><span class="o">.</span><span class="n">OLR</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><a id='section5'></a></p>
+</section>
+</section>
+<section id="radiative-forcing-in-the-30-layer-model">
+<h2><span class="section-number">9.5. </span>5. Radiative forcing in the 30-layer model<a class="headerlink" href="#radiative-forcing-in-the-30-layer-model" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>Let’s compute radiative forcing for a <strong>2% increase in absorptivity</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  clone our model using a built-in climlab function</span>
+<span class="n">col2</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">col2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col2</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;LW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">absorptivity</span> <span class="o">*=</span> <span class="mf">1.02</span>
+<span class="n">col2</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;LW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">absorptivity</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Radiative forcing by definition is the change in TOA radiative flux,</span>
+<span class="c1"># HOLDING THE TEMPERATURES FIXED.</span>
+<span class="n">col2</span><span class="o">.</span><span class="n">Ts</span> <span class="o">-</span> <span class="n">col</span><span class="o">.</span><span class="n">Ts</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col2</span><span class="o">.</span><span class="n">Tatm</span> <span class="o">-</span> <span class="n">col</span><span class="o">.</span><span class="n">Tatm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col2</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+<span class="n">col2</span><span class="o">.</span><span class="n">OLR</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The OLR decreased after we added the extra absorbers, as we expect. Now we can calculate the Radiative Forcing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RF</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">col2</span><span class="o">.</span><span class="n">OLR</span> <span class="o">-</span> <span class="n">col</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;The radiative forcing is </span><span class="si">%.2f</span><span class="s1"> W/m2.&#39;</span> <span class="o">%</span><span class="n">RF</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><a id='section6'></a></p>
+</section>
+<section id="radiative-equilibrium-in-the-30-layer-model">
+<h2><span class="section-number">9.6. </span>6. Radiative equilibrium in the 30-layer model<a class="headerlink" href="#radiative-equilibrium-in-the-30-layer-model" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">re</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  To get to equilibrium, we just time-step the model forward long enough</span>
+<span class="n">re</span><span class="o">.</span><span class="n">integrate_years</span><span class="p">(</span><span class="mf">1.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Check for energy balance</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;The net downward radiative flux at TOA is </span><span class="si">%.4f</span><span class="s1"> W/m2.&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">re</span><span class="o">.</span><span class="n">OLR</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
+<span class="n">name_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Radiative equilibrium (grey gas)&#39;</span><span class="p">)</span>
+<span class="n">plot_soundings</span><span class="p">(</span><span class="n">result_list</span><span class="p">,</span> <span class="n">name_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some properties of the <strong>radiative equilibrium</strong> temperature profile:</p>
+<ul class="simple">
+<li><p>The surface is warmer than observed.</p></li>
+<li><p>The lower troposphere is colder than observed.</p></li>
+<li><p>Very cold air is sitting immediately above the warm surface.</p></li>
+<li><p>There is no tropopause, no stratosphere.</p></li>
+</ul>
+<hr class="docutils" />
+<p><a id='section7'></a></p>
+</section>
+<section id="radiative-convective-equilibrium-in-the-30-layer-model">
+<h2><span class="section-number">9.7. </span>7. Radiative-Convective Equilibrium in the 30-layer model<a class="headerlink" href="#radiative-convective-equilibrium-in-the-30-layer-model" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>We recognize that the large drop in temperature just above the surface is unphysical. Parcels of air in direct contact with the ground will be warmed by mechansisms other than radiative transfer.</p>
+<p>These warm air parcels will then become buoyant, and will convect upward, mixing their heat content with the environment.</p>
+<p>We <strong>parameterize</strong> the statistical effects of this mixing through a <strong>convective adjustment</strong>.</p>
+<p>At each timestep, our model checks for any locations at which the <strong>lapse rate</strong> exceeds some threshold. Unstable layers are removed through an energy-conserving mixing formula.</p>
+<p>This process is assumed to be fast relative to radiative heating. In the model, it is instantaneous.</p>
+<section id="add-the-convective-adjustment-as-an-additional-subprocess">
+<h3><span class="section-number">9.7.1. </span>Add the convective adjustment as an additional subprocess<a class="headerlink" href="#add-the-convective-adjustment-as-an-additional-subprocess" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Here is the existing model</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  First we make a new clone</span>
+<span class="n">rce</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">re</span><span class="p">)</span>
+<span class="c1">#  Then create a new ConvectiveAdjustment process</span>
+<span class="n">conv</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">convection</span><span class="o">.</span><span class="n">ConvectiveAdjustment</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">rce</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> 
+                                               <span class="n">adj_lapse_rate</span><span class="o">=</span><span class="mf">6.</span><span class="p">)</span>
+<span class="c1">#  And add it to our model</span>
+<span class="n">rce</span><span class="o">.</span><span class="n">add_subprocess</span><span class="p">(</span><span class="s1">&#39;Convective Adjustment&#39;</span><span class="p">,</span> <span class="n">conv</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">rce</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This model is exactly like our previous models, except for one additional subprocess called <code class="docutils literal notranslate"><span class="pre">Convective</span> <span class="pre">Adjustment</span></code>.</p>
+<p>We passed a parameter <code class="docutils literal notranslate"><span class="pre">adj_lapse_rate</span></code> (in K / km) that sets the neutrally stable lapse rate – in this case, 6 K / km.</p>
+<p>This number is chosed to very loosely represent the net effect of <strong>moist convection</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Run out to equilibrium</span>
+<span class="n">rce</span><span class="o">.</span><span class="n">integrate_years</span><span class="p">(</span><span class="mf">1.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Check for energy balance</span>
+<span class="n">rce</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rce</span><span class="o">.</span><span class="n">OLR</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rce</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
+<span class="n">name_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Radiatve-Convective equilibrium (grey gas)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_soundings</span><span class="p">(</span><span class="n">result_list</span><span class="p">,</span> <span class="n">name_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Introducing convective adjustment into the model cools the surface quite a bit (compared to Radiative Equilibrium, in green here) – and warms the lower troposphere. It gives us a MUCH better fit to observations.</p>
+<p>But of course we still have no stratosphere.</p>
+<hr class="docutils" />
+<p><a id='section8'></a></p>
+</section>
+</section>
+<section id="putting-stratospheric-ozone-in-the-grey-gas-model">
+<h2><span class="section-number">9.8. </span>8. Putting stratospheric ozone in the grey-gas model<a class="headerlink" href="#putting-stratospheric-ozone-in-the-grey-gas-model" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>Our model has no equivalent of the stratosphere, where temperature increases with height. That’s because our model has been completely transparent to shortwave radiation up until now.</p>
+<p>We can load the observed ozone climatology from the input files for the CESM model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datapath</span> <span class="o">=</span> <span class="s2">&quot;http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/&quot;</span>
+<span class="n">ozone</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s2">&quot;som_input/ozone_1.9x2.5_L26_2000clim_c091112.nc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ozone</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The pressure levels in this dataset are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ozone</span><span class="o">.</span><span class="n">lev</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="take-the-global-average-of-the-ozone-climatology-and-plot-it-as-a-function-of-pressure-or-height">
+<h3><span class="section-number">9.8.1. </span>Take the global average of the ozone climatology, and plot it as a function of pressure (or height)<a class="headerlink" href="#take-the-global-average-of-the-ozone-climatology-and-plot-it-as-a-function-of-pressure-or-height" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Take global, annual average and convert to Kelvin</span>
+<span class="n">weight_ozone</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">ozone</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span> <span class="o">/</span> <span class="n">cos</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">ozone</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span>
+<span class="n">O3_global</span> <span class="o">=</span> <span class="p">(</span><span class="n">ozone</span><span class="o">.</span><span class="n">O3</span> <span class="o">*</span> <span class="n">weight_ozone</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="s1">&#39;time&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">O3_global</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">O3_global</span> <span class="o">*</span> <span class="mf">1.E6</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ozone</span><span class="o">.</span><span class="n">lev</span><span class="o">/</span><span class="n">climlab</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">ps</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Ozone (ppm)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure (hPa)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span> <span class="p">)</span>
+<span class="n">yticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1000.</span><span class="p">,</span> <span class="mf">750.</span><span class="p">,</span> <span class="mf">500.</span><span class="p">,</span> <span class="mf">250.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">,</span> <span class="mf">50.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">yticks</span><span class="o">/</span><span class="mf">1000.</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">yticks</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Global, annual mean ozone concentration&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">24</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This shows that most of the ozone is indeed in the stratosphere, and peaks near the top of the stratosphere.</p>
+<p>Now create a new column model object <strong>on the same pressure levels as the ozone data</strong>.  We are also going set an adjusted lapse rate of 6 K / km.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the RadiativeConvectiveModel is pre-defined in climlab</span>
+<span class="c1">#  It contains the same components are our previous model</span>
+<span class="c1">#   But here we are specifying a different set of vertical levels.</span>
+<span class="n">oz_col</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">RadiativeConvectiveModel</span><span class="p">(</span><span class="n">lev</span> <span class="o">=</span> <span class="n">ozone</span><span class="o">.</span><span class="n">lev</span><span class="p">,</span> <span class="n">adj_lapse_rate</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">oz_col</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we will do something new: let the column absorb some shortwave radiation. We will assume that the shortwave absorptivity is proportional to the ozone concentration we plotted above.</p>
+<p>Now we need to weight the absorptivity by the pressure (mass) of each layer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This number is an arbitrary parameter that scales how absorptive we are making the ozone</span>
+<span class="c1"># in our grey gas model</span>
+<span class="n">ozonefactor</span> <span class="o">=</span> <span class="mi">75</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="n">oz_col</span><span class="o">.</span><span class="n">Tatm</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">lev</span><span class="o">.</span><span class="n">delta</span>
+<span class="n">epsSW</span> <span class="o">=</span> <span class="n">O3_global</span><span class="o">.</span><span class="n">values</span> <span class="o">*</span> <span class="n">dp</span> <span class="o">*</span> <span class="n">ozonefactor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We want to use the field <code class="docutils literal notranslate"><span class="pre">epsSW</span></code> as the absorptivity for our SW radiation model.</p>
+<p>Let’s see what the absorptivity is current set to:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">oz_col</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;SW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">absorptivity</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It defaults to zero.</p>
+<p>Before changing this (putting in the ozone), let’s take a look at the shortwave absorption in the column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">oz_col</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">oz_col</span><span class="o">.</span><span class="n">diagnostics</span><span class="p">[</span><span class="s1">&#39;SW_absorbed_atm&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s now put in the ozone:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">oz_col</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;SW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">absorptivity</span> <span class="o">=</span> <span class="n">epsSW</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">oz_col</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;SW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">absorptivity</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check how this changes the SW absorption:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">oz_col</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+<span class="n">oz_col</span><span class="o">.</span><span class="n">SW_absorbed_atm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is now non-zero, and largest near the top of the column (also top of the array) where the ozone concentration is highest.</p>
+<p>Now it’s time to run the model out to radiative-convective equilibrium</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">oz_col</span><span class="o">.</span><span class="n">integrate_years</span><span class="p">(</span><span class="mf">1.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">oz_col</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">oz_col</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And let’s now see what we got!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">oz_col</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
+<span class="n">name_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Radiative-Convective equilibrium with O3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Make a plot to compare observations, Radiative Equilibrium, Radiative-Convective Equilibrium, and RCE with ozone!</span>
+<span class="n">plot_soundings</span><span class="p">(</span><span class="n">result_list</span><span class="p">,</span> <span class="n">name_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And we finally have something that looks looks like the tropopause, with temperature increasing above at approximately the correct rate.</p>
+<p>There are still plenty of discrepancies between this model solution and the observations, including:</p>
+<ul class="simple">
+<li><p>Tropopause temperature is too warm, by about 15 degrees.</p></li>
+<li><p>Surface temperature is too cold</p></li>
+</ul>
+<p>There are a number of parameters we might adjust if we wanted to improve the fit, including:</p>
+<ul class="simple">
+<li><p>Longwave absorptivity</p></li>
+<li><p>Surface albedo</p></li>
+</ul>
+<p>Feel free to experiment! (That’s what models are for, after all).</p>
+</section>
+<section id="the-take-home-message">
+<h3><span class="section-number">9.8.2. </span>The take home message<a class="headerlink" href="#the-take-home-message" title="Permalink to this headline">#</a></h3>
+<p>The dominant effect of stratospheric ozone is to vastly increase the radiative equilibrium temperature in the ozone layer. The temperature needs to be higher so that the longwave emission can balance the shortwave absorption.</p>
+<p>Without ozone to absorb incoming solar radiation, the <strong>temperature does not increase with height</strong>.</p>
+<p>This simple grey-gas model illustrates this principle very clearly.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="credits">
+<h2><span class="section-number">9.9. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">#</a></h2>
+<p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a>, an open-source textbook developed and maintained by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
+<p>It is licensed for free and open consumption under the
+<a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license.</p>
+<p>Development of these notes and the <a class="reference external" href="https://github.com/brian-rose/climlab">climlab software</a> is partially supported by the National Science Foundation under award AGS-1455071 to Brian Rose. Any opinions, findings, conclusions or recommendations expressed here are mine and do not necessarily reflect the views of the National Science Foundation.</p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./courseware/week4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../week3/lab8_sympy-greenhouse.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Advanced topic: Solving the two-layer grey gas model analytically with sympy</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lab10_radiative-transfer.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Modeling non-scattering radiative transfer</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-climlab">9.1. 1. Introducing <code class="docutils literal notranslate"><span class="pre">climlab</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-climlab-to-implement-the-two-layer-leaky-greenhouse-model">9.2. 2. Using <code class="docutils literal notranslate"><span class="pre">climlab</span></code> to implement the two-layer leaky greenhouse model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validation">9.2.1. Validation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-a-model-in-climlab">9.2.2. Initialize a model in <code class="docutils literal notranslate"><span class="pre">climlab</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-observed-annual-global-mean-temperature-profile">9.3. 3. The observed annual, global mean temperature profile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-30-layer-model-using-the-observed-temperatures">9.4. 4. A 30-layer model using the observed temperatures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tune-absorptivity-to-get-observed-olr">9.4.1. Tune absorptivity to get observed OLR</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiative-forcing-in-the-30-layer-model">9.5. 5. Radiative forcing in the 30-layer model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiative-equilibrium-in-the-30-layer-model">9.6. 6. Radiative equilibrium in the 30-layer model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiative-convective-equilibrium-in-the-30-layer-model">9.7. 7. Radiative-Convective Equilibrium in the 30-layer model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-convective-adjustment-as-an-additional-subprocess">9.7.1. Add the convective adjustment as an additional subprocess</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-stratospheric-ozone-in-the-grey-gas-model">9.8. 8. Putting stratospheric ozone in the grey-gas model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#take-the-global-average-of-the-ozone-climatology-and-plot-it-as-a-function-of-pressure-or-height">9.8.1. Take the global average of the ozone climatology, and plot it as a function of pressure (or height)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-take-home-message">9.8.2. The take home message</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#credits">9.9. Credits</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Rose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

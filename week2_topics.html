@@ -1,0 +1,636 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Week 2 &#8212; Climate Laboratory Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week2_topics';</script>
+    <link rel="canonical" href="https://phaustin.github.io/ClimateLaboratoryBook/week2_topics.html" />
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Week 3" href="week3_topics.html" />
+    <link rel="prev" title="Week 1" href="week1_topics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="home.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Climate Laboratory Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="home.html">
+                    The Climate Laboratory
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ugradsyllabus.html">Undergraduate Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gradsyllabus.html">Graduate Syllabus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="week1_topics.html">Week 1</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week3_topics.html">Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week4_topics.html">Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week7_topics.html">Week 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="preamble.html">Preamble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About this Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="who-for.html">Who is the book for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to.html">How to use this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="attribution.html">How to cite and reuse this material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra_reading.html">Additional resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="courseware/week1/lab1_models-budgets-fun.html">1. Climate models, the global energy budget, and Fun with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="courseware/week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="courseware/week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="courseware/week3/lab4_introducing-cesm.html">4. Introducing the Community Earth System Model (CESM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week3/lab5_climlab-intro.html">5. Building simple climate models using climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week3/lab6_radiation.html">6. A Brief Review of Radiation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week3/lab7_elementary-greenhouse.html">7. Elementary greenhouse models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week3/lab8_sympy-greenhouse.html">8. Advanced topic: Solving the two-layer grey gas model analytically with sympy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="courseware/week4/lab9_grey-radiation-climlab.html">9. Grey radiation modeling with climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week4/lab10_radiative-transfer.html">10. Modeling non-scattering radiative transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week4/lab11_spectral-bands.html">11. Who needs spectral bands? We do. Some baby steps…</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="courseware/week5/lab12_radeq.html">12. Radiative Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week5/lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="courseware/week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="courseware/week5/lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="courseware/week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week6/lab18_insolation.html">18. Insolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="courseware/week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="courseware/week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="courseware/week7/lab21_one-dim-ebm.html">21. The one-dimensional energy balance model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week7/lab22_seasonal-cycle.html">22. Modeling the seasonal cycle of surface temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week7/lab23_cesm-atmospheric-dynamics.html">23. Atmospheric Dynamics in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week7/lab24_numerical-diffusion.html">24. A peek at numerical methods for diffusion models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="courseware/week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="courseware/week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="courseware/week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="courseware/week9/lab27_surface-energy-balance.html">The surface energy balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week9/lab28_land-ocean-contrast.html">Land-Ocean contrasts under climate change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/week9/lab29_water-water-everywhere.html">Water, water everywhere!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="about-assignments.html">About the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/assignments/assignment1-zero-dim-ebm.html">Assignment: Climate change in the zero-dimensional EBM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/assignments/assignment2-cesm-control.html">Assignment: Global average budgets in the CESM pre-industrial control simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/assignments/assignment2-cesm-control-hints.html">Additional hints and guidance for CESM budgets assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/assignments/assignment3-simple-clouds.html">Assignment: Clouds in the Leaky Greenhouse Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/assignments/assignment4-rcm-feedback.html">Assignment: Feedbacks in the Radiative-Convective Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/assignments/assignment5-cesm-climate-change.html">Assignment: Climate change in the CESM simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/assignments/assignment6-insolation-orbit.html">Assignment: Insolation and orbital parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">xarray tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="courseware/xarray/01-xarray-intro.html">Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/xarray/02-computation-masking.html">Computations and Masks with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/xarray/03-enso-xarray.html">Calculating ENSO with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/xarray/04-dask-arrays-xarray.html">Dask Arrays with Xarray</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="resources/resource_links.html">Project resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="docs/feedback_notation.html">Feedback notation for worksheet 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/hydrostat.html">Hydrostatic balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/hydrostatic_balance.html">Scale heights for typical atmospheric soundings</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="courseware/multi_layer_equilibrium.html">Radiative equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courseware/bayes_lecture.html">What I wish I’d known about statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/week2_topics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Week 2</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-your-notebooks-to-the-current-github-commit">Syncing your notebooks to the current github commit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-links">Important links</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-references">General references</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="week-2">
+<h1>Week 2<a class="headerlink" href="#week-2" title="Permalink to this headline">#</a></h1>
+<p>Class: Friday Jan 20
+<a class="reference external" href="https://nextcloud.eoas.ubc.ca/s/4EB9NyebRNBCejX">pdf of class slides here</a></p>
+<p>Pre-class Reading:
+Chapters 1 &amp; 2 of Global Physical Climatology</p>
+<p>Worksheet:<a class="reference external" href="https://github.com/phaustin/climate_students_eoas/blob/student_branch/worksheets/Worksheet1_students.pdf">Worksheet 1</a></p>
+<p>Due:
+Pre-class quiz 1</p>
+<p>Learning Goals</p>
+<ul class="simple">
+<li><p>Understand how to update your notebooks from github and practice getting latest updates for notebooks 2, 3 and 4.</p></li>
+<li><p>Describe the main features of the global climate system: the atmosphere, ocean, cryosphere and land surface</p></li>
+<li><p>Describe the key fluxes in the global energy budget, and explain what variables affect surface temperatures, and why</p></li>
+<li><p>Explain what parameterizations are for climate models, why they are necessary, and what their limitations are</p></li>
+<li><p>Be able to create a simple 0D climate model in python that solves the energy budget equation to find equilibrium surface temperature for different initial conditions</p></li>
+</ul>
+<p>Labs:</p>
+<ul class="simple">
+<li><p>Lab 2 (zero-dim-ebm)</p>
+<ul>
+<li><p>optional Lab 2.1 (analytical-efolding)</p></li>
+</ul>
+</li>
+<li><p>Lab 3 (climate-system-models)</p></li>
+</ul>
+<section id="syncing-your-notebooks-to-the-current-github-commit">
+<h2>Syncing your notebooks to the current github commit<a class="headerlink" href="#syncing-your-notebooks-to-the-current-github-commit" title="Permalink to this headline">#</a></h2>
+<ul>
+<li><p>Don’t change the files within your climate_students_eoas repo - any changes will get overwritten in this process.
+To run the notebooks, first make a copy of the notebook. We suggest making a new ‘working’ directory with all of these copies, and then
+you can make changes to anything within that directory. When you follow the steps below, this will update all of the notebooks within your repo, but
+won’t change anything in your working directory.</p></li>
+<li><p>As we make changes to the notebooks, we’ll push them to the github repository
+at https://github.com/phaustin/climate_students_eoas</p></li>
+<li><p>You can see the commit history: https://github.com/phaustin/climate_students_eoas/commits/student_branch</p></li>
+<li><p>To bring those commits into your local repository, do the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    cd ~/repos/climate_students_eoas
+    git status
+</pre></div>
+</div>
+<p>You should see the following line:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    nothing to commit, working tree clean
+</pre></div>
+</div>
+<p>If not, then you need to move the files you’ve changed out of this repository into your work folder
+because all changes will be overwritten in the next step. Now fetch the changes</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    git fetch
+</pre></div>
+</div>
+<p>Then reset to include the changes (note there are two dashes in front of hard)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    git reset --hard origin/student_branch
+</pre></div>
+</div>
+<p>You should see the commit message from my last commit – to print the last three commits</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    git log -3
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="important-links">
+<h2>Important links<a class="headerlink" href="#important-links" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://phaustin.org/climate_2022">Course home</a></p></li>
+<li><p><a class="reference external" href="https://github.com/phaustin/climate_students_eoas.git">github repository</a></p></li>
+</ul>
+</section>
+<section id="general-references">
+<h2>General references<a class="headerlink" href="#general-references" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&amp;SS_jc=TC0001767901&amp;title=Global%20physical%20climatology">Global Physical Climatology, Dennis Hartmann</a></p></li>
+<li><p><a class="reference external" href="https://www.eoas.ubc.ca/books/Practical_Meteorology">Practical Meteorology</a></p></li>
+<li><p><a class="reference external" href="https://phaustin.github.io/Problem-Solving-with-Python/">Problem Solving with Python</a></p></li>
+<li><p><a class="reference external" href="https://jakevdp.github.io/WhirlwindTourOfPython">A Whirlwind Tour of Python</a></p></li>
+<li><p><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/">Python Data Science Handbook</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="week1_topics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 1</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="week3_topics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 3</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-your-notebooks-to-the-current-github-commit">Syncing your notebooks to the current github commit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-links">Important links</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-references">General references</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Rose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

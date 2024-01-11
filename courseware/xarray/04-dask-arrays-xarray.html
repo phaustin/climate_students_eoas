@@ -1,0 +1,1048 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Dask Arrays with Xarray &#8212; Climate Laboratory Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/xarray/04-dask-arrays-xarray';</script>
+    <link rel="canonical" href="https://phaustin.github.io/ClimateLaboratoryBook/courseware/xarray/04-dask-arrays-xarray.html" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Project resources" href="../../resources/resource_links.html" />
+    <link rel="prev" title="Calculating ENSO with Xarray" href="03-enso-xarray.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../home.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Climate Laboratory Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home.html">
+                    The Climate Laboratory
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ugradsyllabus.html">Undergraduate Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gradsyllabus.html">Graduate Syllabus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../week1_topics.html">Week 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week2_topics.html">Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week3_topics.html">Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week4_topics.html">Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week7_topics.html">Week 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble.html">Preamble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About this Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../who-for.html">Who is the book for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how-to.html">How to use this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attribution.html">How to cite and reuse this material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra_reading.html">Additional resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week1/lab1_models-budgets-fun.html">1. Climate models, the global energy budget, and Fun with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab4_introducing-cesm.html">4. Introducing the Community Earth System Model (CESM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab5_climlab-intro.html">5. Building simple climate models using climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab6_radiation.html">6. A Brief Review of Radiation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab7_elementary-greenhouse.html">7. Elementary greenhouse models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab8_sympy-greenhouse.html">8. Advanced topic: Solving the two-layer grey gas model analytically with sympy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week4/lab9_grey-radiation-climlab.html">9. Grey radiation modeling with climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/lab10_radiative-transfer.html">10. Modeling non-scattering radiative transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/lab11_spectral-bands.html">11. Who needs spectral bands? We do. Some baby steps…</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab12_radeq.html">12. Radiative Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/lab18_insolation.html">18. Insolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab21_one-dim-ebm.html">21. The one-dimensional energy balance model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab22_seasonal-cycle.html">22. Modeling the seasonal cycle of surface temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab23_cesm-atmospheric-dynamics.html">23. Atmospheric Dynamics in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab24_numerical-diffusion.html">24. A peek at numerical methods for diffusion models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab27_surface-energy-balance.html">The surface energy balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab28_land-ocean-contrast.html">Land-Ocean contrasts under climate change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab29_water-water-everywhere.html">Water, water everywhere!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../about-assignments.html">About the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment1-zero-dim-ebm.html">Assignment: Climate change in the zero-dimensional EBM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment2-cesm-control.html">Assignment: Global average budgets in the CESM pre-industrial control simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment2-cesm-control-hints.html">Additional hints and guidance for CESM budgets assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment3-simple-clouds.html">Assignment: Clouds in the Leaky Greenhouse Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment4-rcm-feedback.html">Assignment: Feedbacks in the Radiative-Convective Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment5-cesm-climate-change.html">Assignment: Climate change in the CESM simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment6-insolation-orbit.html">Assignment: Insolation and orbital parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">xarray tutorial</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-xarray-intro.html">Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-computation-masking.html">Computations and Masks with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-enso-xarray.html">Calculating ENSO with Xarray</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Dask Arrays with Xarray</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/feedback_notation.html">Feedback notation for worksheet 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydrostat.html">Hydrostatic balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydrostatic_balance.html">Scale heights for typical atmospheric soundings</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../multi_layer_equilibrium.html">Radiative equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bayes_lecture.html">What I wish I’d known about statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/xarray/04-dask-arrays-xarray.md&branch=jb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/courseware/xarray/04-dask-arrays-xarray.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/courseware/xarray/04-dask-arrays-xarray.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dask Arrays with Xarray</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blocked-algorithms">Blocked algorithms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dask-array-contains-these-algorithms"><code class="docutils literal notranslate"><span class="pre">dask.array</span></code> contains these algorithms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dask-array-object">Create a <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulate-a-dask-array-object-as-you-would-a-numpy-array">Manipulate a <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> object as you would a numpy array</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-the-difference">What’s the difference?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-difference">Why the difference?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-result">Compute the result</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-with-dask-arrays">Exercise with <code class="docutils literal notranslate"><span class="pre">dask.arrays</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-a-bigger-calculation">Testing a bigger calculation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Dask Arrays with Xarray</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-with-dask-and-xarray">Reading data with <code class="docutils literal notranslate"><span class="pre">Dask</span></code> and <code class="docutils literal notranslate"><span class="pre">Xarray</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xarray-data-structures-are-first-class-dask-collections">Xarray data structures are first-class dask collections</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-and-lazy-computation-using-dask-array-with-xarray">Parallel and lazy computation using <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> with Xarray</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dask-shortcomings">Dask Shortcomings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more">Learn More</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-references">Resources and references</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <a class="reference internal image-reference" href="../../_images/dask_horizontal.svg"><img alt="../../_images/dask_horizontal.svg" class="align-left" src="../../_images/dask_horizontal.svg" width="30%" /></a>
+<section class="tex2jax_ignore mathjax_ignore" id="dask-arrays-with-xarray">
+<h1>Dask Arrays with Xarray<a class="headerlink" href="#dask-arrays-with-xarray" title="Permalink to this headline">#</a></h1>
+<p>Dask Array provides a parallel, larger-than-memory, n-dimensional array using blocked algorithms. Simply put: distributed Numpy.</p>
+<ul class="simple">
+<li><p><strong>Parallel</strong>: Uses all of the cores on your computer</p></li>
+<li><p><strong>Larger-than-memory</strong>:  Lets you work on datasets that are larger than your available memory by breaking up your array into many small pieces, operating on those pieces in an order that minimizes the memory footprint of your computation, and effectively streaming data from disk.</p></li>
+<li><p><strong>Blocked Algorithms</strong>:  Perform large computations by performing many smaller computations</p></li>
+</ul>
+<p>This notebook demonstrates one of Xarray’s most powerful features: the ability to wrap dask arrays and allow users to seamlessly execute analysis code in parallel.</p>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Learn the distinction between <em>eager</em> and <em>lazy</em> execution, and how Xarray can work either way</p></li>
+<li><p>Understand key features of dask arrays</p></li>
+<li><p>Work with Dask Arrays in much the same way you would work with a NumPy array</p></li>
+<li><p>Learn that xarray DataArrays and Datasets are “dask collections” i.e. you can execute top-level dask functions such as dask.visualize(xarray_object)</p></li>
+<li><p>Learn that all xarray built-in operations can transparently use dask</p></li>
+</ul>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concepts</p></th>
+<th class="head"><p>Importance</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="xref myst">Introduction to NumPy</span></p></td>
+<td><p>Necessary</p></td>
+<td><p>Familiarity with Data Arrays</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="xref myst">Introduction to Xarray</span></p></td>
+<td><p>Necessary</p></td>
+<td><p>Familiarity with Xarray Data Structures</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Time to learn</strong>: <em>30-40 minutes</em></p></li>
+</ul>
+</section>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask</span>
+<span class="kn">import</span> <span class="nn">dask.array</span> <span class="k">as</span> <span class="nn">da</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span> <span class="nn">dask.diagnostics</span> <span class="kn">import</span> <span class="n">ProgressBar</span>
+<span class="kn">from</span> <span class="nn">dask.utils</span> <span class="kn">import</span> <span class="n">format_bytes</span>
+<span class="kn">from</span> <span class="nn">pythia_datasets</span> <span class="kn">import</span> <span class="n">DATASETS</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="blocked-algorithms">
+<h2>Blocked algorithms<a class="headerlink" href="#blocked-algorithms" title="Permalink to this headline">#</a></h2>
+<p>A <em>blocked algorithm</em> executes on a large dataset by breaking it up into many small blocks.</p>
+<p>For example, consider taking the sum of a billion numbers, in a single computation. This would take a while. We might instead break up the array into 1,000 chunks, each of size 1,000,000, take the sum of each chunk, and then take the sum of the intermediate sums.</p>
+<p>We achieve the intended result (one sum on one billion numbers) by performing many smaller results (one thousand sums on one million numbers each, followed by another sum of a thousand numbers.)</p>
+<section id="dask-array-contains-these-algorithms">
+<h3><code class="docutils literal notranslate"><span class="pre">dask.array</span></code> contains these algorithms<a class="headerlink" href="#dask-array-contains-these-algorithms" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">dask.array</span></code> implements a subset of the NumPy ndarray interface using blocked algorithms, cutting up the large array into many small arrays. This lets us compute on arrays larger than memory using multiple cores. Dask coordinates these blocked algorithms using Dask graphs. Dask Arrays are also <strong>lazy</strong>, meaning that they do not evaluate until you explicitly ask for a result using the compute method.</p>
+</section>
+<section id="create-a-dask-array-object">
+<h3>Create a <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> object<a class="headerlink" href="#create-a-dask-array-object" title="Permalink to this headline">#</a></h3>
+<p>If we want to create a 3D NumPy array of random values, we do it like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">arr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">format_bytes</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">nbytes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This array contains <code class="docutils literal notranslate"><span class="pre">~183</span> <span class="pre">MB</span></code> of data</p>
+<p>Now let’s create the same array using Dask’s array interface.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">darr</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A chunk size to tell us how to block up our array, like <code class="docutils literal notranslate"><span class="pre">(300,</span> <span class="pre">100,</span> <span class="pre">200)</span></code>.</p>
+<div class="admonition alert alert-info">
+<p class="admonition-title">Specifying Chunks</p>
+<p>There are <a href="https://docs.dask.org/en/latest/array-chunks.html">several ways to specify chunks</a>. In this tutorial, we will use a block shape.</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">darr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that we just see a symbolic representation of the array, including its <code class="docutils literal notranslate"><span class="pre">shape</span></code>, <code class="docutils literal notranslate"><span class="pre">dtype</span></code>, and <code class="docutils literal notranslate"><span class="pre">chunksize</span></code>. No data has been generated yet. Let’s visualize the constructed task graph.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">darr</span><span class="o">.</span><span class="n">visualize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our array has four chunks. To generate it, Dask calls <code class="docutils literal notranslate"><span class="pre">np.random.random</span></code> four times and then concatenates this together into one array.</p>
+</section>
+<section id="manipulate-a-dask-array-object-as-you-would-a-numpy-array">
+<h3>Manipulate a <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> object as you would a numpy array<a class="headerlink" href="#manipulate-a-dask-array-object-as-you-would-a-numpy-array" title="Permalink to this headline">#</a></h3>
+<p>Now that we have an <code class="docutils literal notranslate"><span class="pre">Array</span></code> we perform standard numpy-style computations like arithmetic, mathematics, slicing, reductions, etc..</p>
+<p>The interface is familiar, but the actual work is different. <code class="docutils literal notranslate"><span class="pre">dask_array.sum()</span></code> does not do the same thing as <code class="docutils literal notranslate"><span class="pre">numpy_array.sum()</span></code>.</p>
+<section id="what-s-the-difference">
+<h4>What’s the difference?<a class="headerlink" href="#what-s-the-difference" title="Permalink to this headline">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">dask_array.sum()</span></code> builds an expression of the computation. It does not do the computation yet, also known as <strong>lazy execution</strong>. <code class="docutils literal notranslate"><span class="pre">numpy_array.sum()</span></code> computes the sum immediately (<strong>eager execution</strong>).</p>
+</section>
+<section id="why-the-difference">
+<h4>Why the difference?<a class="headerlink" href="#why-the-difference" title="Permalink to this headline">#</a></h4>
+<p>A <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> is split into chunks. Each chunk must have computations run on that chunk explicitly. If the desired answer comes from a small slice of the entire dataset, running the computation over all data would be wasteful of CPU and memory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="n">darr</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">total</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span><span class="o">.</span><span class="n">visualize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="compute-the-result">
+<h4>Compute the result<a class="headerlink" href="#compute-the-result" title="Permalink to this headline">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">dask.array</span></code> objects are lazily evaluated.  Operations like <code class="docutils literal notranslate"><span class="pre">.sum</span></code> build up a graph of blocked tasks to execute.</p>
+<p>We ask for the final result with a call to <code class="docutils literal notranslate"><span class="pre">.compute()</span></code>.  This triggers the actual computation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+<span class="n">total</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-with-dask-arrays">
+<h3>Exercise with <code class="docutils literal notranslate"><span class="pre">dask.arrays</span></code><a class="headerlink" href="#exercise-with-dask-arrays" title="Permalink to this headline">#</a></h3>
+<p>Modify the chunk size (or shape) in the random dask array, call <code class="docutils literal notranslate"><span class="pre">.sum()</span></code> on the new array, and visualize how the task graph changes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">visualize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we see Dask’s strategy for finding the sum. This simple example illustrates the beauty of Dask: it automatically designs an algorithm appropriate for custom operations with big data.</p>
+<p>If we make our operation more complex, the graph gets more complex:</p>
+<p>For an example, we use an arbitrarily complex calculation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">darr</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">darr</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[::</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">z</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="o">.</span><span class="n">visualize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="testing-a-bigger-calculation">
+<h3>Testing a bigger calculation<a class="headerlink" href="#testing-a-bigger-calculation" title="Permalink to this headline">#</a></h3>
+<p>The examples above were toy examples; the data (180 MB) is probably not big enough to warrant the use of Dask.</p>
+<p>We can make it a lot bigger! Let’s create a new, big array</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">darr</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">4000</span><span class="p">),</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+<span class="n">darr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This dataset is <code class="docutils literal notranslate"><span class="pre">~6</span> <span class="pre">GB</span></code>, rather than 32 MB! This is probably close to or greater than the amount of available RAM than you have in your computer. Nevertheless, Dask has no problem working on it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">darr</span> <span class="o">+</span> <span class="n">darr</span><span class="o">.</span><span class="n">T</span><span class="p">)[::</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="o">.</span><span class="n">visualize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">ProgressBar</span><span class="p">():</span>
+    <span class="n">computed_ds</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id1">
+<h2>Dask Arrays with Xarray<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>Often times, you won’t be directly interacting with <code class="docutils literal notranslate"><span class="pre">dask.arrays</span></code> directly; odds are you will be interacting with them via <a class="reference external" href="http://xarray.pydata.org/en/stable/"><code class="docutils literal notranslate"><span class="pre">Xarray</span></code>!</a> Xarray wraps NumPy arrays similar to how we showed in the previous section, helping the user jump right into the dask array interface!</p>
+<section id="reading-data-with-dask-and-xarray">
+<h3>Reading data with <code class="docutils literal notranslate"><span class="pre">Dask</span></code> and <code class="docutils literal notranslate"><span class="pre">Xarray</span></code><a class="headerlink" href="#reading-data-with-dask-and-xarray" title="Permalink to this headline">#</a></h3>
+<p>Recall that a Dask’s array consists of many chunked arrays:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">darr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To read data as Dask arrays with Xarray, we need to specify the <code class="docutils literal notranslate"><span class="pre">chunks</span></code> argument to <code class="docutils literal notranslate"><span class="pre">open_dataset()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">DATASETS</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;CESM2_sst_data.nc&#39;</span><span class="p">),</span> <span class="n">chunks</span><span class="o">=</span><span class="p">{})</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">tos</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Passing <code class="docutils literal notranslate"><span class="pre">chunks={}</span></code> to <code class="docutils literal notranslate"><span class="pre">open_dataset()</span></code> works, but since we didn’t tell dask how to split up (or chunk) the array, Dask will create a single chunk for our array.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">chunks</span></code> here indicate how values should go into each chunk - for example, <code class="docutils literal notranslate"><span class="pre">chunks={'time':90}</span></code> will tell <code class="docutils literal notranslate"><span class="pre">Xarray</span></code> + <code class="docutils literal notranslate"><span class="pre">Dask</span></code> to place 90 time slices into a single chunk.</p>
+<p>Notice how <code class="docutils literal notranslate"><span class="pre">tos</span></code> (sea surface temperature) is now split in the time dimension, with two chunks (since there are a total of 180 time slices in this dataset).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+    <span class="n">DATASETS</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;CESM2_sst_data.nc&#39;</span><span class="p">),</span>
+    <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;netcdf4&quot;</span><span class="p">,</span>
+    <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mi">180</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mi">360</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">tos</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calling <code class="docutils literal notranslate"><span class="pre">.chunks</span></code> on the <code class="docutils literal notranslate"><span class="pre">tos</span></code> <code class="docutils literal notranslate"><span class="pre">xarray.DataArray</span></code> displays the number of slices in each dimension within each chunk, with (<code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">lat</span></code>, <code class="docutils literal notranslate"><span class="pre">lon</span></code>). Notice how there are now <strong>two</strong> chunks each with 90 time slices for the time dimension.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">tos</span><span class="o">.</span><span class="n">chunks</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="xarray-data-structures-are-first-class-dask-collections">
+<h3>Xarray data structures are first-class dask collections<a class="headerlink" href="#xarray-data-structures-are-first-class-dask-collections" title="Permalink to this headline">#</a></h3>
+<p>This means you can call the following functions</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dask.visualize(...)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dask.compute(...)</span></code></p></li>
+</ul>
+<p>on both <code class="docutils literal notranslate"><span class="pre">xarray.DataArray</span></code> and <code class="docutils literal notranslate"><span class="pre">xarray.Dataset</span></code> objects backed by <code class="docutils literal notranslate"><span class="pre">dask.array</span></code>.</p>
+<p>Let’s visualize our dataset using Dask!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dask</span><span class="o">.</span><span class="n">visualize</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="parallel-and-lazy-computation-using-dask-array-with-xarray">
+<h3>Parallel and lazy computation using <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> with Xarray<a class="headerlink" href="#parallel-and-lazy-computation-using-dask-array-with-xarray" title="Permalink to this headline">#</a></h3>
+<p>Xarray seamlessly wraps Dask so all computation is deferred until explicitly requested.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">tos</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">tos</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="n">z</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, <code class="docutils literal notranslate"><span class="pre">z</span></code> contains a Dask array. This is true for all Xarray built-in operations including subsetting</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can visualize this subset too!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dask</span><span class="o">.</span><span class="n">visualize</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have prepared our calculation, we can go ahead and call <code class="docutils literal notranslate"><span class="pre">.compute()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">ProgressBar</span><span class="p">():</span>
+    <span class="n">computed_ds</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<p>We saw that we can use <code class="docutils literal notranslate"><span class="pre">Xarray</span></code> to access <code class="docutils literal notranslate"><span class="pre">dask.arrays</span></code>, which required passing a <code class="docutils literal notranslate"><span class="pre">chunks</span></code> argument to upon opening the dataset. Once the data were loaded into Xarray, we could interact with the <code class="docutils literal notranslate"><span class="pre">xarray.Datasets</span></code> and <code class="docutils literal notranslate"><span class="pre">xarray.DataArrays</span></code> as we would if we were working with <code class="docutils literal notranslate"><span class="pre">dask.arrays</span></code>. This can be a powerful tool for working with larger-than-memory datasets!</p>
+<section id="dask-shortcomings">
+<h3>Dask Shortcomings<a class="headerlink" href="#dask-shortcomings" title="Permalink to this headline">#</a></h3>
+<p>Dask Array does not implement the entire Numpy interface.  Users expecting this
+will be disappointed.  Notably Dask Array has the following failings:</p>
+<ol class="arabic simple">
+<li><p>Dask Array does not support some operations where the resulting shape
+depends on the values of the array. For those that it does support
+(for example, masking one Dask Array with another boolean mask),
+the chunk sizes will be unknown, which may cause issues with other
+operations that need to know the chunk sizes.</p></li>
+<li><p>Dask Array does not attempt operations like <code class="docutils literal notranslate"><span class="pre">sort</span></code> which are notoriously
+difficult to do in parallel and are of somewhat diminished value on very
+large data (you rarely actually need a full sort).
+Often we include parallel-friendly alternatives like <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.topk.html"><code class="docutils literal notranslate"><span class="pre">topk</span></code></a>.</p></li>
+<li><p>Dask development is driven by immediate need, and so many lesser used
+functions, like <code class="docutils literal notranslate"><span class="pre">np.sometrue</span></code> have simply not been implemented yet.  These would make excellent community contributions.</p></li>
+</ol>
+</section>
+</section>
+<section id="learn-more">
+<h2>Learn More<a class="headerlink" href="#learn-more" title="Permalink to this headline">#</a></h2>
+<p>Visit the <a class="reference external" href="https://docs.dask.org/en/latest/array.html">Dask Array documentation</a>. In particular, this <a class="reference external" href="https://youtu.be/9h_61hXCDuI">array screencast</a> will reinforce the concepts you learned here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;9h_61hXCDuI&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="resources-and-references">
+<h2>Resources and references<a class="headerlink" href="#resources-and-references" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Reference</p>
+<ul>
+<li><p><a class="reference external" href="https://dask.org/">Dask Docs</a></p></li>
+<li><p><a class="reference external" href="https://examples.dask.org/">Dask Examples</a></p></li>
+<li><p><a class="reference external" href="https://github.com/dask/dask/">Dask Code</a></p></li>
+<li><p><a class="reference external" href="https://blog.dask.org/">Dask Blog</a></p></li>
+<li><p><a class="reference external" href="https://xarray.pydata.org/">Xarray Docs</a></p></li>
+</ul>
+</li>
+<li><p>Ask for help</p>
+<ul>
+<li><p><a class="reference external" href="http://stackoverflow.com/questions/tagged/dask"><code class="docutils literal notranslate"><span class="pre">dask</span></code></a> tag on Stack Overflow, for usage questions</p></li>
+<li><p><a class="reference external" href="https://github.com/dask/dask/discussions">github discussions: dask</a> for general, non-bug, discussion, and usage questions</p></li>
+<li><p><a class="reference external" href="https://github.com/dask/dask/issues/new">github issues: dask</a> for bug reports and feature requests</p></li>
+<li><p><a class="reference external" href="https://github.com/pydata/xarray/discussions">github discussions: xarray</a> for general, non-bug, discussion, and usage questions</p></li>
+<li><p><a class="reference external" href="https://github.com/pydata/xarray/issues/new">github issues: xarray</a> for bug reports and feature requests</p></li>
+</ul>
+</li>
+<li><p>Pieces of this notebook are adapted from the following sources</p>
+<ul>
+<li><p><a class="reference external" href="https://tutorial.dask.org/02_array.html">Dask Array Tutorial</a></p></li>
+<li><p><a class="reference external" href="https://tutorial.xarray.dev/intermediate/xarray_and_dask.html">Parallel Computing with Xarray and Dask</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./courseware/xarray"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03-enso-xarray.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Calculating ENSO with Xarray</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../resources/resource_links.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Project resources</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blocked-algorithms">Blocked algorithms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dask-array-contains-these-algorithms"><code class="docutils literal notranslate"><span class="pre">dask.array</span></code> contains these algorithms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dask-array-object">Create a <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulate-a-dask-array-object-as-you-would-a-numpy-array">Manipulate a <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> object as you would a numpy array</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-the-difference">What’s the difference?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-difference">Why the difference?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-result">Compute the result</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-with-dask-arrays">Exercise with <code class="docutils literal notranslate"><span class="pre">dask.arrays</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-a-bigger-calculation">Testing a bigger calculation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Dask Arrays with Xarray</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-with-dask-and-xarray">Reading data with <code class="docutils literal notranslate"><span class="pre">Dask</span></code> and <code class="docutils literal notranslate"><span class="pre">Xarray</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xarray-data-structures-are-first-class-dask-collections">Xarray data structures are first-class dask collections</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-and-lazy-computation-using-dask-array-with-xarray">Parallel and lazy computation using <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> with Xarray</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dask-shortcomings">Dask Shortcomings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more">Learn More</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-references">Resources and references</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Rose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

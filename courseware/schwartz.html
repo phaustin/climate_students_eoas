@@ -1,0 +1,795 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>The Schwartzchild Equation &#8212; Climate Laboratory Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/schwartz';</script>
+    <link rel="canonical" href="https://phaustin.github.io/ClimateLaboratoryBook/courseware/schwartz.html" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Climate Laboratory Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    The Climate Laboratory
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ugradsyllabus.html">Undergraduate Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gradsyllabus.html">Graduate Syllabus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week1_topics.html">Week 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2_topics.html">Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3_topics.html">Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4_topics.html">Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7_topics.html">Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9_topics.html">Week 9</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preamble.html">Preamble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About this Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../who-for.html">Who is the book for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to.html">How to use this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../attribution.html">How to cite and reuse this material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra_reading.html">Additional resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/resource_links.html">Project links and notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/loading-cmip6-data.html">Accessing CMIP6 data with intake-esm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/loading-CESM-LENS-data.html">Accessing CESM LENS (and LENS2) data with intake-esm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/hot_cold_models.html">Worksheet: Comparing total cloud fraction in hot and cold models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="week1/lab1_models-budgets-fun.html">1. Climate models, the global energy budget, and Fun with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="week3/lab4_introducing-cesm.html">4. Introducing the Community Earth System Model (CESM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week3/lab5_climlab-intro.html">5. Building simple climate models using climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week3/lab6_radiation.html">6. A Brief Review of Radiation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week3/lab7_elementary-greenhouse.html">7. Elementary greenhouse models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week3/lab8_sympy-greenhouse.html">8. Advanced topic: Solving the two-layer grey gas model analytically with sympy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="week4/lab9_grey-radiation-climlab.html">9. Grey radiation modeling with climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week4/lab10_radiative-transfer.html">10. Modeling non-scattering radiative transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week4/lab11_spectral-bands.html">11. Who needs spectral bands? We do. Some baby steps…</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="week5/lab12_radeq.html">12. Radiative Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week5/lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week5/lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week6/lab18_insolation.html">18. Insolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="week7/lab21_one-dim-ebm.html">21. The one-dimensional energy balance model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week7/lab22_seasonal-cycle.html">22. Modeling the seasonal cycle of surface temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week7/lab23_cesm-atmospheric-dynamics.html">23. Atmospheric Dynamics in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week7/lab24_numerical-diffusion.html">24. A peek at numerical methods for diffusion models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="week9/lab27_surface-energy-balance.html">The surface energy balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week9/lab28_land-ocean-contrast.html">Land-Ocean contrasts under climate change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week9/lab29_water-water-everywhere.html">Water, water everywhere!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../about-assignments.html">About the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/assignment1-zero-dim-ebm.html">Assignment: Climate change in the zero-dimensional EBM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/assignment2-cesm-control.html">Assignment: Global average budgets in the CESM pre-industrial control simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/assignment2-cesm-control-hints.html">Additional hints and guidance for CESM budgets assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/assignment3-simple-clouds.html">Assignment: Clouds in the Leaky Greenhouse Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/assignment4-rcm-feedback.html">Assignment: Feedbacks in the Radiative-Convective Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/assignment5-cesm-climate-change.html">Assignment: Climate change in the CESM simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/assignment6-insolation-orbit.html">Assignment: Insolation and orbital parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">xarray tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="xarray/01-xarray-intro.html">Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xarray/02-computation-masking.html">Computations and Masks with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xarray/03-enso-xarray.html">Calculating ENSO with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xarray/04-dask-arrays-xarray.html">Dask Arrays with Xarray</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/feedback_notation.html">Feedback notation for worksheet 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hydrostat.html">Hydrostatic balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hydrostatic_balance.html">Scale heights for typical atmospheric soundings</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="multi_layer_equilibrium.html">Radiative equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bayes_lecture.html">What I wish I’d known about statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/courseware/schwartz.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The Schwartzchild Equation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kirchoff-s-law">Kirchoff’s Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-emission-to-beer-s-law">Adding emission to Beer’s law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature-changing-with-height">Temperature changing with height</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-stull-8-3">Getting to Stull 8.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-stull-8-4">Getting to Stull 8.4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-care">Why do we care?</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="the-schwartzchild-equation">
+<span id="schwartz"></span><h1>The Schwartzchild Equation<a class="headerlink" href="#the-schwartzchild-equation" title="Permalink to this headline">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p>This is Stull equation 8.3, which is known formally as the the “Schwartzchild equation” for
+wavelengths in which thermal emission, but not scattering, is occurring:</p>
+<div class="math notranslate nohighlight" id="equation-stull1">
+<span class="eqno">()<a class="headerlink" href="#equation-stull1" title="Permalink to this equation">#</a></span>\[   \begin{gathered}
+         L_\lambda = \underbrace{B_\lambda(T_{skin} ) \hat{t}_{tot}}_{\text{surface contribution}} + \underbrace{\sum_{j=1}^n e_{\lambda,j} B_\lambda(T_j) \hat{t}_{\lambda,j}}_{\text{atmospheric contribution}}
+   \end{gathered}\]</div>
+<p>If you go back to Stull Chapter 2 you can see that it involves:</p>
+<ol class="arabic simple">
+<li><p>the transmissivity <span class="math notranslate nohighlight">\(\hat{t}\)</span> (note that I”ve changed the Stull’s notation to
+use <em>t</em> instead of <span class="math notranslate nohighlight">\(\tau\)</span>)</p></li>
+<li><p>the emissivity <em>e</em></p></li>
+</ol>
+<p>How does this equation relate to Beer’s law, and how would we use it to calculate <span class="math notranslate nohighlight">\(L_\lambda\)</span> reaching a satellite for a particular set of surface/atmosphere conditions?</p>
+<p>Where does <a class="reference internal" href="#equation-stull1">()</a> come from?  To derive this from the Beer’s law we need to include the fact that the atmosphere is emitting as well as absorbing radiation.</p>
+<p>Our previous form of Beer’s law looks like this <a class="reference external" href="../week2/beers_law.html#diffbeers">(see beers)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-diffbeers">
+<span class="eqno">()<a class="headerlink" href="#equation-diffbeers" title="Permalink to this equation">#</a></span>\[\frac{dE^\prime}{E^\prime} = \frac{dL^\prime \Delta \omega}{L^\prime \Delta \omega} = d \ln L^\prime = -d (n\,b\,s) = -d \tau^\prime\]</div>
+<p>where <span class="math notranslate nohighlight">\(s\ (m)\)</span> is the distance travelled (the path length),
+<span class="math notranslate nohighlight">\(n\ (\#/m^3)\)</span> is the number denstiy of reflecting/absorbing
+particles and <span class="math notranslate nohighlight">\(b\ (m^2)\)</span> is the extinction cross section due to
+absorption only.</p>
+<p>Integrating from the surface where <span class="math notranslate nohighlight">\(\tau^\prime=0,\ L^\prime=L_{skin}\)</span> to
+a vertical height <em>z</em> where <span class="math notranslate nohighlight">\(\tau^\prime = \tau,L^\prime = L\)</span> gives:</p>
+<div class="math notranslate nohighlight">
+\[\int_{L_{skin}}^L  d \ln L^\prime = -\int_0^\tau d\tau^\prime\]</div>
+<div class="math notranslate nohighlight">
+\[\ln \left ( \frac{L}{L_{skin}} \right ) = - \tau\]</div>
+<p>Doing the integral</p>
+<div class="math notranslate nohighlight">
+\[L = L_{skin} \exp (-\tau)  = L_{skin} \hat{t}_{tot} = B_\lambda(T_{skin}) \hat{t}_{tot}\]</div>
+<p>where the total transmissivity is:</p>
+<div class="math notranslate nohighlight">
+\[\hat{t}_{tot} = \exp (-\tau)\]</div>
+<p>This is the surface term in <a class="reference internal" href="#equation-stull1">()</a> above, assuming that the surface is radiating like a blackbody at temperature <span class="math notranslate nohighlight">\(T_{skin}\)</span>.</p>
+</section>
+<section id="kirchoff-s-law">
+<h2>Kirchoff’s Law<a class="headerlink" href="#kirchoff-s-law" title="Permalink to this headline">#</a></h2>
+<p>The atmosphere isn’t a blackbody, because it’s absorptivity <span class="math notranslate nohighlight">\(a = 1 - \hat{t}\)</span> (no reflection) is not equal to 1 at most wavelengths.  Stull p. 41 defines the emissivity <em>e</em> as the fraction of the actual emitted radiance of an object/layer over the radiance a blackbody would emit at the same temperature:</p>
+<div class="math notranslate nohighlight">
+\[e_\lambda = L_{emitted}/B_\lambda(T)\]</div>
+<p>He also says that</p>
+<div class="math notranslate nohighlight">
+\[a_\lambda = e_\lambda\]</div>
+<p>i.e. “good absorbers are good emitters” or Kirchoff’s Law.</p>
+<p>To see why this has to be true, consider <code class="xref std std-numref docutils literal notranslate"><span class="pre">kirchoff</span></code>, where a blackbody (surface A) is facing a surface B at the same temperature, with absorptivity and emissivity that violate Kirchoff’s law (there is a vacuum between the two plates).  Neither surface is transmitting, so surface B is absorbing <span class="math notranslate nohighlight">\(0.6 B_\lambda(T)\)</span> emitted by surface A and emitting <span class="math notranslate nohighlight">\(0.7 B_\lambda(T)\)</span> on its own.  Because it is emitting more than it’s absorbed, it has to be cooling, but according to the second law of thermodynamics,  objects at the same temperature can’t spontaneously change their temperature without doing work.   So we know that <span class="math notranslate nohighlight">\(a_\lambda = e_\lambda\)</span>.</p>
+<figure class="align-default" id="kirchoff">
+<a class="reference internal image-reference" href="courseware/figures/kirchoff.png"><img alt="courseware/figures/kirchoff.png" src="courseware/figures/kirchoff.png" /></a>
+<figcaption>
+<p><span class="caption-text">Demonstration of Kirchoff’s law</span><a class="headerlink" href="#kirchoff" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="adding-emission-to-beer-s-law">
+<h2>Adding emission to Beer’s law<a class="headerlink" href="#adding-emission-to-beer-s-law" title="Permalink to this headline">#</a></h2>
+<p>Now include the relationship between <span class="math notranslate nohighlight">\(\hat{t}\)</span>, <span class="math notranslate nohighlight">\(\tau\)</span>, <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(e\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\hat{t}_\lambda = \frac{L_{\lambda}}{L_{\lambda 0}} = \exp ( - \tau_\lambda)\]</div>
+<p>Differentiate this:</p>
+<div class="math notranslate nohighlight" id="equation-diffthat">
+<span class="eqno">()<a class="headerlink" href="#equation-diffthat" title="Permalink to this equation">#</a></span>\[ d \hat{t}_\lambda = d \exp(-\tau_\lambda) = - \exp(-\tau_\lambda)\, d\tau_\lambda = -d\tau_\lambda\]</div>
+<p>where we have used the fact that for a thin layer we are expanding about <span class="math notranslate nohighlight">\(\tau = 0\)</span>.</p>
+<p>Now what about the absorption?  Repeat this procedure:</p>
+<div class="math notranslate nohighlight">
+\[a_\lambda = (1 - \hat{t}_\lambda)\]</div>
+<p>Kirchoff says:</p>
+<div class="math notranslate nohighlight">
+\[e_\lambda = a_\lambda = (1 - \hat{t}_\lambda)\]</div>
+<p>So we can use <a class="reference internal" href="#equation-diffthat">()</a> to get</p>
+<div class="math notranslate nohighlight">
+\[de_\lambda = da_\lambda = d(1 - \hat{t}_\lambda) = -d\hat{t}_\lambda  = d\tau_\lambda\]</div>
+<p>Suppose the layer has constant temperature <span class="math notranslate nohighlight">\(T_{layer}\)</span>, then as usual</p>
+<div class="math notranslate nohighlight">
+\[L_{emission} = e_\lambda B_{\lambda} (T_{layer})\]</div>
+<p>How do we combine this emission with Beer’s law to get the total radiance coming through the top of the layer?</p>
+<p>The figure below shows the radiance emitted from the surface and from the thin layer, with their combine contribution to the top of the atmosphere radiance at optical depth <span class="math notranslate nohighlight">\(\tau_T\)</span>:</p>
+<figure class="align-default" id="schwartzchild">
+<a class="reference internal image-reference" href="courseware/figures/schwartzchild.png"><img alt="courseware/figures/schwartzchild.png" src="courseware/figures/schwartzchild.png" /></a>
+<figcaption>
+<p><span class="caption-text">Radiance from an isolated layer and the surface</span><a class="headerlink" href="#schwartzchild" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Before we integrate the entire atmosphere (with temperature changing with height) let’s just integrate the radiance across a layer that is thin enough so we can assume roughly constant temperature.</p>
+<ol class="arabic">
+<li><p>We know the emission from an infinitesimally thin layer:</p>
+<div class="math notranslate nohighlight" id="equation-dlemit">
+<span class="eqno">()<a class="headerlink" href="#equation-dlemit" title="Permalink to this equation">#</a></span>\[dL_{emission} = B_{\lambda} (T_{layer}) de_\lambda = B_{\lambda} (T_{layer}) d\tau_\lambda\]</div>
+</li>
+<li><p>Add the gain from <span class="math notranslate nohighlight">\(dL_{emission}\)</span> to the loss from <span class="math notranslate nohighlight">\(dL_{absorption}\)</span> to get
+the <strong>Schwartzchild equation</strong> without scattering:</p>
+<div class="math notranslate nohighlight" id="equation-schwart1">
+<span class="eqno">()<a class="headerlink" href="#equation-schwart1" title="Permalink to this equation">#</a></span>\[dL_{\lambda,absorption} + dL_{\lambda,emission}  = -L_\lambda\, d\tau_\lambda + B_\lambda (T_{layer})\, d\tau_\lambda\]</div>
+</li>
+<li><p>We can rewrite <a class="reference internal" href="#equation-schwart1">()</a> as:</p>
+<div class="math notranslate nohighlight" id="equation-schwart2">
+<span class="eqno">()<a class="headerlink" href="#equation-schwart2" title="Permalink to this equation">#</a></span>\[\frac{dL_\lambda}{d\tau_\lambda} = -L_\lambda + B_\lambda (T_{layer})\]</div>
+</li>
+<li><p>In class I used change of variables to derived the following: if the temperature <span class="math notranslate nohighlight">\(T_{layer}\)</span>  (and hence <span class="math notranslate nohighlight">\(B_\lambda(T_{layer})\)</span>) is constant with height and the radiance arriving at the base of the layer is <span class="math notranslate nohighlight">\(L_{\lambda 0} = B_{\lambda} T_{skin}\)</span> for a black surface with <span class="math notranslate nohighlight">\(e_\lambda = 1\)</span>, then the total radiance exiting the top of the layer is <span class="math notranslate nohighlight">\(L_{\lambda}\)</span> where:</p>
+<div class="math notranslate nohighlight" id="equation-consttb">
+<span class="eqno">()<a class="headerlink" href="#equation-consttb" title="Permalink to this equation">#</a></span>\[      \int_{L_{\lambda 0}}^{L_\lambda} \frac{dL^\prime_\lambda}{L^\prime_\lambda -
+      B_\lambda} = - \int_{0}^{\tau_{T}} d\tau^\prime\]</div>
+<p>Where the limits of integration run from just above the black surface (where the radiance from
+the surface is <span class="math notranslate nohighlight">\(L_{\lambda 0}\)</span>) and <span class="math notranslate nohighlight">\(\tau=0\)</span> to the top of the layer, (where the radiance is <span class="math notranslate nohighlight">\(L_\lambda\)</span>) and the optical thickness is <span class="math notranslate nohighlight">\(\tau_{\lambda T}\)</span>.</p>
+<p>To integrate this, make the change of variables:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+U^\prime &amp;= L^\prime_\lambda - B_\lambda \\
+dU^\prime &amp;= dL^\prime_\lambda\\
+\frac{dL^\prime_\lambda}{L^\prime_\lambda -
+     B_\lambda} &amp;= \frac{dU^\prime}{U^\prime} = d\ln U^\prime
+\end{align}\end{split}\]</div>
+<p>where I have made use of the fact that <span class="math notranslate nohighlight">\(dB_\lambda = 0\)</span> since the temperature is constant.</p>
+<p>This means that we can now solve this by integrating a perfect differential:</p>
+<div class="math notranslate nohighlight" id="equation-consttc">
+<span class="eqno">()<a class="headerlink" href="#equation-consttc" title="Permalink to this equation">#</a></span>\[\int_{U_0}^U d\ln U^\prime = \ln \left (\frac{U}{U_0} \right ) =  \ln \left (\frac{L_\lambda - B_\lambda}{L_{\lambda 0} - B_\lambda}
+      \right ) = - \tau_{\lambda T}\]</div>
+<p>Taking the <span class="math notranslate nohighlight">\(\exp\)</span> of both sides:</p>
+<div class="math notranslate nohighlight" id="equation-consttd">
+<span class="eqno">()<a class="headerlink" href="#equation-consttd" title="Permalink to this equation">#</a></span>\[L_\lambda - B_\lambda = (L_{\lambda 0} - B_\lambda) \exp (-\tau_{\lambda T})\]</div>
+<p>or rearranging and recognizing that the transmittance is <span class="math notranslate nohighlight">\(\hat{t_\lambda} = \exp(-\tau_{\lambda T} )\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-rad-constant">
+<span class="eqno">()<a class="headerlink" href="#equation-rad-constant" title="Permalink to this equation">#</a></span>\[ L_\lambda = L_{\lambda 0} \exp( -\tau_{\lambda T}  ) + B_\lambda (T_{layer})(1- \exp( -\tau_{\lambda T} ))\]</div>
+<div class="math notranslate nohighlight">
+\[L_\lambda = L_{\lambda 0} \hat{t}_{\lambda}  + B_\lambda (T_{layer})(1- \hat{t}_{\lambda})\]</div>
+<div class="math notranslate nohighlight">
+\[L_\lambda = L_{\lambda 0}  \hat{t}_{\lambda} + B_\lambda (T_{layer})a_\lambda\]</div>
+</li>
+<li><p>so bringing in Kirchoff’s law, the radiance exiting the top of the isothermal layer of thickness <span class="math notranslate nohighlight">\(\Delta \tau\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[L_\lambda = L_{\lambda 0}  \hat{t}_{\lambda} + e_\lambda B_\lambda\]</div>
+</li>
+</ol>
+</section>
+<section id="temperature-changing-with-height">
+<span id="temp-height"></span><h2>Temperature changing with height<a class="headerlink" href="#temperature-changing-with-height" title="Permalink to this headline">#</a></h2>
+<section id="getting-to-stull-8-3">
+<h3>Getting to Stull 8.3<a class="headerlink" href="#getting-to-stull-8-3" title="Permalink to this headline">#</a></h3>
+<p>To get Stull’s eq. 8.3 (our <a class="reference internal" href="#equation-stull1">()</a>),  we need integrate <a class="reference internal" href="#equation-schwart2">()</a> when temperature and therefor  <span class="math notranslate nohighlight">\(B_\lambda(T)\)</span>  is changing with height.</p>
+<ul class="simple">
+<li><p>Here’s the Schwartzchild equation again:</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-schwartza">
+<span class="eqno">()<a class="headerlink" href="#equation-schwartza" title="Permalink to this equation">#</a></span>\[ \frac{dL_\lambda}{d\tau_\lambda}= - L_{\lambda} + B_\lambda\]</div>
+<ul class="simple">
+<li><p>Now with <span class="math notranslate nohighlight">\(T\)</span> changing with height, we need to use an
+integrating factor to solve this.  Essentially this means  multiplying both sides
+by <span class="math notranslate nohighlight">\(exp(\tau)\)</span> so that we’re in the position to integrate a perfect differential:</p></li>
+<li><p>Specifically, look at how the chain rule works for the product <span class="math notranslate nohighlight">\(L\exp(\tau)\)</span>   :</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-chain">
+<span class="eqno">()<a class="headerlink" href="#equation-chain" title="Permalink to this equation">#</a></span>\[d(L\exp(\tau))=\exp(\tau)dL + L\exp(\tau)d\tau\]</div>
+<ul class="simple">
+<li><p>Now multiply both sides of <a class="reference internal" href="#equation-schwartza">()</a> by  <span class="math notranslate nohighlight">\(exp(\tau)\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-integ1">
+<span class="eqno">()<a class="headerlink" href="#equation-integ1" title="Permalink to this equation">#</a></span>\[\exp(\tau) dL_\lambda +
+L_\lambda \exp(\tau)\,d\tau=\exp(\tau)B_\lambda(T) \,d\tau\]</div>
+<ul>
+<li><p>Next use use the chain rule in reverse to combine the two terms on the
+left, and integrate:</p>
+<div class="math notranslate nohighlight">
+\[d\left( L_\lambda\exp(\tau)\right )=\exp(\tau)B_\lambda d\tau\]</div>
+<div class="math notranslate nohighlight" id="equation-chain2">
+<span class="eqno">()<a class="headerlink" href="#equation-chain2" title="Permalink to this equation">#</a></span>\[ \int_0^{\tau}d(L^\prime_\lambda\exp(\tau^\prime))=\int_0^{\tau}
+ \exp(\tau^\prime)B^\prime_\lambda d\tau^\prime\]</div>
+</li>
+<li><p>Impose the boundary condition that at <span class="math notranslate nohighlight">\(\tau^\prime=0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{gathered}
+ L^\prime_\lambda=B_\lambda(T_{skin})\\
+ \hat{t}_\lambda=\exp(0)=1
+\end{gathered}\end{split}\]</div>
+</li>
+<li><p>Which means that when we integrate <a class="reference internal" href="#equation-chain2">()</a> we get:</p>
+<div class="math notranslate nohighlight">
+\[L_\lambda\exp(\tau) - B_\lambda(T_{skin}) = \int_0^{\tau} \exp(\tau^\prime)B_\lambda(T^\prime) d\tau^\prime\nonumber\]</div>
+</li>
+<li><p>Dividing through by <span class="math notranslate nohighlight">\(\exp(\tau)\)</span> we get:</p>
+<div class="math notranslate nohighlight" id="equation-calc1">
+<span class="eqno">()<a class="headerlink" href="#equation-calc1" title="Permalink to this equation">#</a></span>\[L_\lambda(\tau)= B_\lambda(T_{skin})( \exp(-\tau) +    \int_0^{\tau} \exp\left(  - (\tau -\tau^\prime) \right )
+B_\lambda(T)\, d\tau^\prime\]</div>
+</li>
+<li><p>Equation <a class="reference internal" href="#equation-calc1">()</a> works for any height in the atmosphere. For the particular case at the top of the atmosphere where <span class="math notranslate nohighlight">\(\tau = \tau_{\lambda T}\)</span>  we have</p>
+<div class="math notranslate nohighlight" id="equation-calc2">
+<span class="eqno">()<a class="headerlink" href="#equation-calc2" title="Permalink to this equation">#</a></span>\[L_\lambda(\tau_{\lambda T})= B_\lambda(T_{skin})( \exp(-\tau_{\lambda T}) +    \int_0^{\tau} \exp\left(  - (\tau_{\lambda T} -\tau^\prime) \right )
+B_\lambda(T)\, d\tau^\prime\]</div>
+</li>
+<li><p><strong>Compare</strong> <a class="reference internal" href="#equation-calc2">()</a> <strong>to Stull 8.3, which is:</strong></p>
+<div class="math notranslate nohighlight" id="equation-stull2">
+<span class="eqno">()<a class="headerlink" href="#equation-stull2" title="Permalink to this equation">#</a></span>\[        \begin{gathered}
+        L_\lambda = B_\lambda(T_{skin} ) \hat{t}_{tot} + \sum_{j=1}^n e_\lambda B_\lambda(T_j) \hat{t}_{\lambda,j}
+        \end{gathered}\]</div>
+<p>We can connect <a class="reference internal" href="#equation-stull2">()</a> and <a class="reference internal" href="#equation-calc2">()</a> if we recognize that</p>
+<div class="math notranslate nohighlight">
+\[\hat{t}_{\lambda,j} =  \exp\left( -(\tau_{\lambda T} -\tau_j) \right )\]</div>
+<p>i.e. <span class="math notranslate nohighlight">\(\hat{t}\)</span> is the transmission from layer j to the top of the atmosphere and also that
+the layers are thin enough so that we can make the approximation that:</p>
+<div class="math notranslate nohighlight">
+\[e_\lambda = de_\lambda = d\tau^\prime\]</div>
+</li>
+</ul>
+</section>
+<section id="getting-to-stull-8-4">
+<span id="weightfuns"></span><h3>Getting to Stull 8.4<a class="headerlink" href="#getting-to-stull-8-4" title="Permalink to this headline">#</a></h3>
+<ul>
+<li><p>Equation 8.4 on p. 225 says:</p>
+<div class="math notranslate nohighlight" id="equation-stull3">
+<span class="eqno">()<a class="headerlink" href="#equation-stull3" title="Permalink to this equation">#</a></span>\[   \begin{gathered}
+     L_\lambda = B_\lambda(T_{skin}) \hat{t}_{\lambda,tot} + \sum_{j=1}^n
+     B_\lambda(T_j) \Delta \hat{t}_{\lambda,j}
+   \end{gathered}\]</div>
+</li>
+<li><p>What happened to <span class="math notranslate nohighlight">\(e_\lambda(z_j)\)</span> and <span class="math notranslate nohighlight">\(\hat{t}_{\lambda,j}\)</span> from <a class="reference internal" href="#equation-stull2">()</a>?  To see why this works, go back to the exact solution <a class="reference internal" href="#equation-calc2">()</a> and  use the definition <span class="math notranslate nohighlight">\(\hat{t} =   \exp\left( -(\tau_{\lambda T} -\tau^\prime) \right )\)</span></p>
+<div class="math notranslate nohighlight" id="equation-calc3">
+<span class="eqno">()<a class="headerlink" href="#equation-calc3" title="Permalink to this equation">#</a></span>\[     L_\lambda(\tau_{\lambda T})= B_\lambda(T_{skin})( \exp(-\tau_{\lambda T}) +    \int_0^{\tau} B(T)\, \hat{t} \, d\tau^\prime\]</div>
+<p>Now recognize that you can do the following differential:</p>
+<div class="math notranslate nohighlight" id="equation-transdiff">
+<span class="eqno">()<a class="headerlink" href="#equation-transdiff" title="Permalink to this equation">#</a></span>\[      d\hat{t} = \frac{ d\hat{t}_{j} }{d\tau^\prime}\, d \tau^\prime  =
+     \exp\left( -(\tau_{\lambda T} -\tau^\prime)\right ) d \tau^\prime = \hat{t}\, d\tau^\prime\]</div>
+<p>So insert <a class="reference internal" href="#equation-transdiff">()</a> into <a class="reference internal" href="#equation-calc3">()</a> to get</p>
+<div class="math notranslate nohighlight" id="equation-calc4">
+<span class="eqno">()<a class="headerlink" href="#equation-calc4" title="Permalink to this equation">#</a></span>\[      L_\lambda(\tau_{\lambda T})= B_\lambda(T_{skin}) \exp(-\tau_{\lambda T}) +    \int_0^{\tau_{\lambda T}} B_\lambda(T)\, d\hat{t}\]</div>
+<p>Which is just the calculus version of <a class="reference internal" href="#equation-stull3">()</a>.  The <span class="math notranslate nohighlight">\(\Delta \hat{t}\)</span> term in <a class="reference internal" href="#equation-stull3">()</a> is called the “weighting function”, defined by</p>
+<div class="math notranslate nohighlight" id="equation-weights">
+<span class="eqno">()<a class="headerlink" href="#equation-weights" title="Permalink to this equation">#</a></span>\[        \Delta \hat{t} = \exp\left( -(\tau_{\lambda T} -\tau^\prime) \right )  \Delta \tau^\prime\]</div>
+<ul class="simple">
+<li><p><strong>Question</strong>: notice that as we make <span class="math notranslate nohighlight">\(\Delta \tau^\prime\)</span> thicker in <a class="reference internal" href="#equation-weights">()</a> the transmissivity <span class="math notranslate nohighlight">\(\Delta \hat{t}\)</span> becomes larger – why does this make sense?</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="why-do-we-care">
+<h2>Why do we care?<a class="headerlink" href="#why-do-we-care" title="Permalink to this headline">#</a></h2>
+<p>We care because if we know  <em>T(z)</em> and <span class="math notranslate nohighlight">\(\tau(z)\)</span> as a function of height we can use  <a class="reference internal" href="#equation-weights">()</a> to calculate the weighting function <span class="math notranslate nohighlight">\(\Delta \hat{t}_\lambda\)</span> and find the radiance <span class="math notranslate nohighlight">\(L_\lambda\)</span> at the satellite using <a class="reference internal" href="#equation-stull3">()</a>.  Alternatively, if we measure <span class="math notranslate nohighlight">\(L_\lambda\)</span> from satellites we can say something about <em>T(z)</em> and <span class="math notranslate nohighlight">\(\tau(z)\)</span></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./courseware"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kirchoff-s-law">Kirchoff’s Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-emission-to-beer-s-law">Adding emission to Beer’s law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature-changing-with-height">Temperature changing with height</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-stull-8-3">Getting to Stull 8.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-stull-8-4">Getting to Stull 8.4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-care">Why do we care?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Rose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

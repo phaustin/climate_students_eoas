@@ -1,0 +1,1042 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>17. Clouds and cloud feedback &#8212; Climate Laboratory Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/week6/lab17_clouds';</script>
+    <link rel="canonical" href="https://phaustin.github.io/ClimateLaboratoryBook/courseware/week6/lab17_clouds.html" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="18. Insolation" href="lab18_insolation.html" />
+    <link rel="prev" title="16. Toy models of transient warming" href="../week5/lab16_transient-toy.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../home.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Climate Laboratory Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home.html">
+                    The Climate Laboratory
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ugradsyllabus.html">Undergraduate Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gradsyllabus.html">Graduate Syllabus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../week1_topics.html">Week 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week2_topics.html">Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week3_topics.html">Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week4_topics.html">Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week7_topics.html">Week 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble.html">Preamble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About this Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../who-for.html">Who is the book for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how-to.html">How to use this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attribution.html">How to cite and reuse this material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra_reading.html">Additional resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week1/lab1_models-budgets-fun.html">1. Climate models, the global energy budget, and Fun with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab4_introducing-cesm.html">4. Introducing the Community Earth System Model (CESM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab5_climlab-intro.html">5. Building simple climate models using climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab6_radiation.html">6. A Brief Review of Radiation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab7_elementary-greenhouse.html">7. Elementary greenhouse models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab8_sympy-greenhouse.html">8. Advanced topic: Solving the two-layer grey gas model analytically with sympy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week4/lab9_grey-radiation-climlab.html">9. Grey radiation modeling with climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/lab10_radiative-transfer.html">10. Modeling non-scattering radiative transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/lab11_spectral-bands.html">11. Who needs spectral bands? We do. Some baby steps…</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab12_radeq.html">12. Radiative Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6 Labs</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Clouds and cloud feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab18_insolation.html">18. Insolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab21_one-dim-ebm.html">21. The one-dimensional energy balance model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab22_seasonal-cycle.html">22. Modeling the seasonal cycle of surface temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab23_cesm-atmospheric-dynamics.html">23. Atmospheric Dynamics in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab24_numerical-diffusion.html">24. A peek at numerical methods for diffusion models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab27_surface-energy-balance.html">The surface energy balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab28_land-ocean-contrast.html">Land-Ocean contrasts under climate change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab29_water-water-everywhere.html">Water, water everywhere!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../about-assignments.html">About the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment1-zero-dim-ebm.html">Assignment: Climate change in the zero-dimensional EBM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment2-cesm-control.html">Assignment: Global average budgets in the CESM pre-industrial control simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment2-cesm-control-hints.html">Additional hints and guidance for CESM budgets assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment3-simple-clouds.html">Assignment: Clouds in the Leaky Greenhouse Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment4-rcm-feedback.html">Assignment: Feedbacks in the Radiative-Convective Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment5-cesm-climate-change.html">Assignment: Climate change in the CESM simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment6-insolation-orbit.html">Assignment: Insolation and orbital parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">xarray tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../xarray/01-xarray-intro.html">Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xarray/02-computation-masking.html">Computations and Masks with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xarray/03-enso-xarray.html">Calculating ENSO with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xarray/04-dask-arrays-xarray.html">Dask Arrays with Xarray</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/feedback_notation.html">Feedback notation for worksheet 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydrostat.html">Hydrostatic balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydrostatic_balance.html">Scale heights for typical atmospheric soundings</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../multi_layer_equilibrium.html">Radiative equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bayes_lecture.html">What I wish I’d known about statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/week6/lab17_clouds.md&branch=jb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/courseware/week6/lab17_clouds.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/courseware/week6/lab17_clouds.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Clouds and cloud feedback</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optical-properties-of-individual-clouds-depend-on-the-cloud-liquid-water-path">17.1. 1. Optical properties of individual clouds depend on the Cloud Liquid Water Path</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#longwave-effects-of-clouds">17.1.1. Longwave effects of clouds</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shortwave-effects-of-clouds">17.1.2. Shortwave effects of clouds</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloudy-sky-versus-clear-sky-radiation">17.2. 2. Cloudy sky versus clear sky radiation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#high-thin-cirrus">17.2.1. High thin cirrus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#low-stratus">17.2.2. Low stratus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-convective-cumulonimbus">17.2.3. Deep convective cumulonimbus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-radiative-effect-cre">17.3. 3. Cloud Radiative Effect (CRE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-the-dependence-of-cre-on-cloud-height">17.4. 4. Modeling the dependence of CRE on cloud height</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-average-observed-temperature-and-specific-humidity">17.4.1. Global average observed temperature and specific humidity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-feedback">17.5. 5. Cloud Feedback</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-sky-and-cloud-feedbacks">17.5.1. Clear-sky and cloud feedbacks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-feedback-vs-cre">17.5.2. Cloud feedback vs. CRE</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#so-how-do-we-compute-lambda-cloud">17.5.2.1. So how do we compute <span class="math notranslate nohighlight">\(\lambda_{cloud}\)</span>?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback-measured-in-comprehensive-gcms">17.6. 6. Feedback measured in comprehensive GCMs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-lambda-clear-with-radiative-kernels">17.7. 7. Measuring <span class="math notranslate nohighlight">\(\lambda_{clear}\)</span> with radiative kernels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#credits">17.8. Credits</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="clouds-and-cloud-feedback">
+<span id="nb-clouds"></span><h1><span class="section-number">17. </span>Clouds and cloud feedback<a class="headerlink" href="#clouds-and-cloud-feedback" title="Permalink to this headline">#</a></h1>
+<p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
+<hr class="docutils" />
+<p><a id='section1'></a></p>
+<section id="optical-properties-of-individual-clouds-depend-on-the-cloud-liquid-water-path">
+<h2><span class="section-number">17.1. </span>1. Optical properties of individual clouds depend on the Cloud Liquid Water Path<a class="headerlink" href="#optical-properties-of-individual-clouds-depend-on-the-cloud-liquid-water-path" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>Let <span class="math notranslate nohighlight">\(w\)</span> represent the liquid water content of a unit volume of cloudy air, in units of g m<span class="math notranslate nohighlight">\(^{-3}\)</span>.</p>
+<p>Then the Liquid Water Path of the cloud is</p>
+<div class="math notranslate nohighlight">
+\[LWP = w ~ \Delta z\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta z\)</span> is the depth of the cloudy layer in meters.  <span class="math notranslate nohighlight">\(LWP\)</span> has units of g m<span class="math notranslate nohighlight">\(^{-2}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(LWP\)</span> determines the key optical properties of the cloud, both in the longwave and shortwave:</p>
+<img alt="../../_images/CloudOpticalProperties_Webster1994.png" src="../../_images/CloudOpticalProperties_Webster1994.png" />
+<p>A key point about the optical properties of water clouds:</p>
+<ul class="simple">
+<li><p>longwave emissivity / absorptivity increases rapidly with <span class="math notranslate nohighlight">\(LWP\)</span></p></li>
+<li><p>cloud albedo increases slowly with <span class="math notranslate nohighlight">\(LWP\)</span></p></li>
+</ul>
+<section id="longwave-effects-of-clouds">
+<h3><span class="section-number">17.1.1. </span>Longwave effects of clouds<a class="headerlink" href="#longwave-effects-of-clouds" title="Permalink to this headline">#</a></h3>
+<p>Because the emissivity saturates for moderately thin clouds, thick clouds behave very much like blackbody absorbers at every level. Emissions from below and within the cloud will be absorbed by the upper part of the cloud.</p>
+<p>Emissions to space are therefore <strong>governed by the top of the cloud</strong>.</p>
+<p>The longwave effects of a thick cloud thus depend strongly on the <strong>temperature at the top of the cloud</strong>. This temperature is determined primarily by the <strong>height of the cloud top</strong>.</p>
+<p>A high-top cloud will exert a strong greenhouse effect because it absorbs upwelling longwave radiation and re-emits radiation at its cold temperature.</p>
+<p>The longwave effects of clouds tend to warm the surface.</p>
+</section>
+<section id="shortwave-effects-of-clouds">
+<h3><span class="section-number">17.1.2. </span>Shortwave effects of clouds<a class="headerlink" href="#shortwave-effects-of-clouds" title="Permalink to this headline">#</a></h3>
+<p>Because clouds increase the planetary albedo, the shortwave effects of clouds tend to cool the surface.</p>
+<p>The same cloud therefore pushes the planetary energy budget in two directions simultaneously. Which effect dominates depends on</p>
+<ul class="simple">
+<li><p>the temperature at the cloud top relative to the surface temperature</p></li>
+<li><p>the cloud liquid water path (cloud depth)</p></li>
+</ul>
+<p>Thin clouds are relatively transparent to solar radiation. Thick clouds are effective reflectors.</p>
+<p>A thin cirrus cloud, for example, has a negligible albedo but exerts a substantial greenhouse effect because it is near the cold tropopause. These clouds have a net warming effect.</p>
+<p>A relatively thick stratus cloud at the top of the planetary boundary layer reflects significant incoming solar radiation. But the temperature at cloud top is not much different from the surface temperature, so the greenhouse effect is negligible (even though the cloud is a very strong longwave absorber!)</p>
+<hr class="docutils" />
+<p><a id='section2'></a></p>
+</section>
+</section>
+<section id="cloudy-sky-versus-clear-sky-radiation">
+<h2><span class="section-number">17.2. </span>2. Cloudy sky versus clear sky radiation<a class="headerlink" href="#cloudy-sky-versus-clear-sky-radiation" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>Let <span class="math notranslate nohighlight">\(F = ASR - OLR\)</span> be the net incoming radiation at TOA.</p>
+<p>Suppose that the average flux in the portion of the sky <strong>without clouds</strong> is <span class="math notranslate nohighlight">\(F_{clear}\)</span>.</p>
+<p>We’ll call the flux in the cloudy portion of the sky <span class="math notranslate nohighlight">\(F_{cloudy}\)</span>.</p>
+<p>Then the total flux is a weighted sum</p>
+<div class="math notranslate nohighlight">
+\[ F = (1-c) F_{clear} + c F_{cloudy} \]</div>
+<p>where <span class="math notranslate nohighlight">\(0 \le c \le 1\)</span> is the <strong>cloud fraction</strong>, i.e. the fraction of the sky covered by cloud.</p>
+<p>We can of course break this up into long- and shortwave components:</p>
+<div class="math notranslate nohighlight">
+\[ F = F_{LW} + F_{SW} \]</div>
+<div class="math notranslate nohighlight">
+\[ F_{LW} = - \big((1-c)~OLR_{clear} + c ~ OLR_{cloudy} \big)\]</div>
+<div class="math notranslate nohighlight">
+\[ F_{SW} = + \big((1-c)~ASR_{clear} + c ~ ASR_{cloudy} \big)\]</div>
+<p>The clouds will act to warm this surface if <span class="math notranslate nohighlight">\(F_{cloudy} &gt; F_{clear}\)</span>, in which case the net flux <span class="math notranslate nohighlight">\(F\)</span> will increase with the cloud fraction <span class="math notranslate nohighlight">\(c\)</span>.</p>
+<p>In our examples above we surmised the following:</p>
+<section id="high-thin-cirrus">
+<h3><span class="section-number">17.2.1. </span>High thin cirrus<a class="headerlink" href="#high-thin-cirrus" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(ASR_{cloudy} \approx ASR_{clear} \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(OLR_{cloudy} &lt; OLR_{clear}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F\)</span> increases with <span class="math notranslate nohighlight">\(c\)</span> (these clouds warm the surface)</p></li>
+</ul>
+</section>
+<section id="low-stratus">
+<h3><span class="section-number">17.2.2. </span>Low stratus<a class="headerlink" href="#low-stratus" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(ASR_{cloudy} &lt; ASR_{clear} \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(OLR_{cloudy} \approx OLR_{clear}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F\)</span> decreases with <span class="math notranslate nohighlight">\(c\)</span> (these clouds cool the surface)</p></li>
+</ul>
+<p>Many other cloud types are ambiguous. For example:</p>
+</section>
+<section id="deep-convective-cumulonimbus">
+<h3><span class="section-number">17.2.3. </span>Deep convective cumulonimbus<a class="headerlink" href="#deep-convective-cumulonimbus" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(ASR_{cloudy} &lt; ASR_{clear} \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(OLR_{cloudy} &lt; OLR_{clear}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F\)</span> might either increase or decrease with <span class="math notranslate nohighlight">\(c\)</span></p></li>
+</ul>
+<p>We need a model to work out the details!</p>
+<hr class="docutils" />
+<p><a id='section3'></a></p>
+</section>
+</section>
+<section id="cloud-radiative-effect-cre">
+<h2><span class="section-number">17.3. </span>3. Cloud Radiative Effect (CRE)<a class="headerlink" href="#cloud-radiative-effect-cre" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>Typically there is not just one cloud type but many to deal with simultaneously, whether in nature (satellite observations) or in a GCM.</p>
+<p>In practice we rarely calculate <span class="math notranslate nohighlight">\(F_{cloudy}\)</span> explicitly.</p>
+<p>Instead we define the <strong>Cloud Radiative Effect</strong> as</p>
+<div class="math notranslate nohighlight">
+\[ CRE =  F - F_{clear} \]</div>
+<p>which we can write in terms of cloud fraction:</p>
+<div class="math notranslate nohighlight">
+\[ CRE = c \big( F_{cloudy} - F_{clear} \big) \]</div>
+<p>In our above examples, <span class="math notranslate nohighlight">\(CRE\)</span> is positive for cirrus, negative for low stratus, and unknown for cumulonimbus.</p>
+<p>We calculated CRE (including both longwave and shortwave components) in the CESM simulations back in Assignment 4.</p>
+<hr class="docutils" />
+<p><a id='section4'></a></p>
+</section>
+<section id="modeling-the-dependence-of-cre-on-cloud-height">
+<h2><span class="section-number">17.4. </span>4. Modeling the dependence of CRE on cloud height<a class="headerlink" href="#modeling-the-dependence-of-cre-on-cloud-height" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>We are now going to use the <code class="docutils literal notranslate"><span class="pre">RRTMG</span></code> radiation model to compute the cloud radiative effect in a single column, and look at how the CRE depends on cloud properties and the height of the cloud layer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">climlab</span>
+<span class="kn">from</span> <span class="nn">climlab.radiation</span> <span class="kn">import</span> <span class="n">RRTMG</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="global-average-observed-temperature-and-specific-humidity">
+<h3><span class="section-number">17.4.1. </span>Global average observed temperature and specific humidity<a class="headerlink" href="#global-average-observed-temperature-and-specific-humidity" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Get temperature and humidity data from NCEP Reanalysis</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="n">ncep_url</span> <span class="o">=</span> <span class="s2">&quot;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/pressure/&quot;</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">ncep_url</span>
+<span class="n">ncep_air</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;air.mon.1981-2010.ltm.nc&#39;</span><span class="p">,</span> <span class="n">decode_times</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ncep_shum</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;shum.mon.1981-2010.ltm.nc&#39;</span><span class="p">,</span> <span class="n">decode_times</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1">## The NOAA ESRL server is shutdown! January 2019</span>
+<span class="c1">#url = &#39;http://apdrc.soest.hawaii.edu:80/dods/public_data/Reanalysis_Data/NCEP/NCEP/clima/pressure/&#39;</span>
+<span class="c1">#air = xr.open_dataset(url + &#39;air&#39;)</span>
+<span class="c1">#shum = xr.open_dataset(url + &#39;shum&#39;)</span>
+<span class="c1">#ncep_air = air.rename({&#39;lev&#39;: &#39;level&#39;})</span>
+<span class="c1">#ncep_shum = shum.rename({&#39;lev&#39;: &#39;level&#39;})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Take global, annual average and convert to correct units (Kelvin and kg/kg)</span>
+<span class="n">weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">ncep_air</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">ncep_air</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span>
+<span class="n">Tglobal</span> <span class="o">=</span> <span class="p">(</span><span class="n">ncep_air</span><span class="o">.</span><span class="n">air</span> <span class="o">*</span> <span class="n">weight</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="s1">&#39;time&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="n">climlab</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">tempCtoK</span>
+<span class="n">SHglobal</span> <span class="o">=</span> <span class="p">(</span><span class="n">ncep_shum</span><span class="o">.</span><span class="n">shum</span> <span class="o">*</span> <span class="n">weight</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="s1">&#39;time&#39;</span><span class="p">))</span> <span class="o">*</span> <span class="mf">1E-3</span>  <span class="c1"># kg/kg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since we will be creating a radiative model with a different set of pressure levels than the data, we will need to do some interpolating.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Create a state dictionary with 50 levels</span>
+<span class="n">state</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">column_state</span><span class="p">(</span><span class="n">num_lev</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">lev</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">Tatm</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="s1">&#39;lev&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">points</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># interpolate to model pressure levels</span>
+<span class="n">Tinterp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">lev</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">Tglobal</span><span class="o">.</span><span class="n">level</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">Tglobal</span><span class="p">))</span>
+<span class="n">SHinterp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">lev</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">SHglobal</span><span class="o">.</span><span class="n">level</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">SHglobal</span><span class="p">))</span>
+<span class="c1">#  Need to &#39;flipud&#39; because the interpolation routine </span>
+<span class="c1">#  needs the pressure data to be in increasing order</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Plot the temperature and humidity profiles</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">Tcolor</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span>
+<span class="n">SHcolor</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tinterp</span><span class="p">,</span> <span class="n">lev</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Tcolor</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature (K)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Tcolor</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">Tcolor</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure (hPa)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twiny</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">SHinterp</span><span class="o">*</span><span class="mf">1E3</span><span class="p">,</span> <span class="n">lev</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">SHcolor</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Specific Humidity (g/kg)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">SHcolor</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">SHcolor</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Global mean air temperature and specific humidity&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.03</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Set the temperature to the observed values</span>
+<span class="n">state</span><span class="o">.</span><span class="n">Tatm</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">Tinterp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Define some local cloud characteristics</span>
+<span class="c1">#  We are going to repeat the calculation </span>
+<span class="c1">#   for three different types of clouds:</span>
+<span class="c1">#   thin, medium, and thick</span>
+<span class="n">cldfrac</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># layer cloud fraction</span>
+<span class="n">r_liq</span> <span class="o">=</span> <span class="mf">14.</span>  <span class="c1"># Cloud water drop effective radius (microns)</span>
+<span class="c1"># in-cloud liquid water path (g/m2)</span>
+<span class="n">clwp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;thin&#39;</span><span class="p">:</span> <span class="mf">20.</span><span class="p">,</span>
+        <span class="s1">&#39;med&#39;</span><span class="p">:</span> <span class="mf">60.</span><span class="p">,</span>
+        <span class="s1">&#39;thick&#39;</span><span class="p">:</span> <span class="mf">200.</span><span class="p">,}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Loop through three types of cloud</span>
+<span class="c1">#  for each type, loop through all pressure levels</span>
+<span class="c1">#  Set up a radiation model with the cloud layer at the current pressure level</span>
+<span class="c1">#  Compute CRE and store the results</span>
+<span class="n">CRE_LW</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">CRE_SW</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">thickness</span> <span class="ow">in</span> <span class="n">clwp</span><span class="p">:</span>
+    <span class="n">OLR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">lev</span><span class="p">)</span>
+    <span class="n">ASR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">lev</span><span class="p">)</span>
+    <span class="n">OLRclr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">lev</span><span class="p">)</span>
+    <span class="n">ASRclr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">lev</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lev</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+        <span class="c1"># Whole-column cloud characteristics</span>
+        <span class="c1">#  The cloud fraction is a Gaussian bump centered at the current level        </span>
+        <span class="n">mycloud</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cldfrac&#39;</span><span class="p">:</span> <span class="n">cldfrac</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">lev</span><span class="o">-</span><span class="n">lev</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">25.</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span>
+                   <span class="s1">&#39;clwp&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">Tatm</span><span class="p">)</span> <span class="o">+</span> <span class="n">clwp</span><span class="p">[</span><span class="n">thickness</span><span class="p">],</span>
+                   <span class="s1">&#39;r_liq&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">Tatm</span><span class="p">)</span> <span class="o">+</span> <span class="n">r_liq</span><span class="p">,}</span>
+        <span class="n">rad</span> <span class="o">=</span> <span class="n">RRTMG</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">,</span> 
+                    <span class="n">albedo</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                    <span class="n">specific_humidity</span><span class="o">=</span><span class="n">SHinterp</span><span class="p">,</span>
+                    <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="o">**</span><span class="n">mycloud</span><span class="p">)</span>
+        <span class="n">rad</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+        <span class="n">OLR</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rad</span><span class="o">.</span><span class="n">OLR</span>
+        <span class="n">OLRclr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rad</span><span class="o">.</span><span class="n">OLRclr</span>
+        <span class="n">ASR</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rad</span><span class="o">.</span><span class="n">ASR</span>
+        <span class="n">ASRclr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rad</span><span class="o">.</span><span class="n">ASRclr</span>
+    <span class="n">CRE_LW</span><span class="p">[</span><span class="n">thickness</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">OLR</span> <span class="o">-</span> <span class="n">OLRclr</span><span class="p">)</span>
+    <span class="n">CRE_SW</span><span class="p">[</span><span class="n">thickness</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">ASRclr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Make some plots of the CRE dependence on cloud height</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">thickness</span> <span class="ow">in</span> <span class="n">clwp</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">CRE_LW</span><span class="p">[</span><span class="n">thickness</span><span class="p">],</span> <span class="n">lev</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">thickness</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure (hPa)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;LW cloud radiative effect (W/m2)&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">thickness</span> <span class="ow">in</span> <span class="n">clwp</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">CRE_SW</span><span class="p">[</span><span class="n">thickness</span><span class="p">],</span> <span class="n">lev</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">thickness</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;SW cloud radiative effect (W/m2)&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">thickness</span> <span class="ow">in</span> <span class="n">clwp</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">CRE_SW</span><span class="p">[</span><span class="n">thickness</span><span class="p">]</span> <span class="o">+</span> <span class="n">CRE_LW</span><span class="p">[</span><span class="n">thickness</span><span class="p">],</span> <span class="n">lev</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">thickness</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Net cloud radiative effect (W/m2)&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Cloud Radiative Effect as a function of the vertical height of the cloud layer&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What do you see here? Look carefully at how the LW and SW effects of the cloud depend on cloud properties and cloud height.</p>
+<hr class="docutils" />
+<p><a id='section5'></a></p>
+</section>
+</section>
+<section id="cloud-feedback">
+<h2><span class="section-number">17.5. </span>5. Cloud Feedback<a class="headerlink" href="#cloud-feedback" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(CRE\)</span> (the radiative effects of clouds) depends on two cloud properties:</p>
+<ul class="simple">
+<li><p>cloud fraction <span class="math notranslate nohighlight">\(c\)</span></p></li>
+<li><p>cloud LWP, which determines <span class="math notranslate nohighlight">\(F_{cloudy}\)</span></p></li>
+</ul>
+<p>If either or both of these things change as the climate changes and the surface warms, then there is an additional TOA energy source that will help determine the final equilibrium warming –  a feedback!</p>
+<p>The cloud feedback thus depends on changes in the frequency of occurrence and the optical properties of all the different cloud types. It’s an enormously complex problem.</p>
+<p>Following the notation in <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook/courseware/sensitivity-feedback.html">the lecture on climate sensitivity and feedback</a>, we can write the change in the top-of-atmosphere energy budget after the response to a radiative forcing <span class="math notranslate nohighlight">\(\Delta R\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[ \Delta F = \Delta R - \Delta T \left( \lambda_0 - \sum_{i=1}^N \lambda_i \right)  \]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda_0\)</span> is the “Planck feedback”, or, more precisely, the no-feedback response parameter, while the <span class="math notranslate nohighlight">\(\lambda_i\)</span> are all the additive feedback parameters.</p>
+<p>Now using</p>
+<div class="math notranslate nohighlight">
+\[ F = (1-c) F_{clear} + c F_{cloudy} \]</div>
+<p>we can break up the change in <span class="math notranslate nohighlight">\(F\)</span> into components due to changes in cloud fraction, clear-sky flux, and cloud optical properties:</p>
+<div class="math notranslate nohighlight">
+\[ \Delta F = (1-c)\Delta F_{clear}  + c \Delta F_{cloudy}  +\left( F_{cloudy} - F_{clear} \right) \Delta c \]</div>
+<p>where <span class="math notranslate nohighlight">\(c, F_{cloudy}, F_{clear}\)</span> here would be evaluated from the reference (control) climate, and we assume the changes are small so that the linearization is sensible.</p>
+<section id="clear-sky-and-cloud-feedbacks">
+<h3><span class="section-number">17.5.1. </span>Clear-sky and cloud feedbacks<a class="headerlink" href="#clear-sky-and-cloud-feedbacks" title="Permalink to this headline">#</a></h3>
+<p>Equating our two expressions for the TOA change <span class="math notranslate nohighlight">\(\Delta F\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[ (1-c)\Delta F_{clear}  + c \Delta F_{cloudy}  +\left( F_{cloudy} - F_{clear} \right) \Delta c = \Delta R - \Delta T \left( \lambda_0 - \sum_{i=1}^N \lambda_i \right) \]</div>
+<p>We can break down the net feedback in many different ways, but here we will just conceptually separate clear-sky and cloud feedbacks:</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{i=1}^N \lambda_i = \lambda_{clear} + \lambda_{cloud} \]</div>
+<p>A sensible definition of <span class="math notranslate nohighlight">\(\lambda_{cloud}\)</span> would be involve <strong>only changes in cloud fraction and properties</strong>. We thus formally define</p>
+<div class="math notranslate nohighlight">
+\[ \lambda_{cloud} = c \frac{\Delta F_{cloudy}}{\Delta T}  +\left( F_{cloudy} - F_{clear} \right) \frac{\Delta c}{\Delta T} \]</div>
+<p>which we subtract from the net top-of-atmosphere budget to get</p>
+<div class="math notranslate nohighlight">
+\[ (1-c)\Delta F_{clear}  = \Delta R - \Delta T \left( \lambda_0 - \lambda_{clear} \right) \]</div>
+<p>which suggests that we can estimate the <strong>clear-sky feedback</strong> from</p>
+<div class="math notranslate nohighlight">
+\[ \lambda_{clear} = \lambda_0 - \frac{\Delta R}{\Delta T} + (1-c) \frac{\Delta F_{clear}}{\Delta T}\]</div>
+<p>This includes processes such as lapse rate feedback, water vapor feedback, and surface albedo feedback.</p>
+<p>Remember that all of these expressions can be (and frequently are) decomposed into longwave and shortwave components.</p>
+</section>
+<section id="cloud-feedback-vs-cre">
+<h3><span class="section-number">17.5.2. </span>Cloud feedback vs. CRE<a class="headerlink" href="#cloud-feedback-vs-cre" title="Permalink to this headline">#</a></h3>
+<p>GCM diagnostics usually provide <span class="math notranslate nohighlight">\(CRE\)</span> (which are computed by making second passes through the radiation code with the cloud fractions set to zero).</p>
+<p>As we did in Assignment 4, we can compute the <strong>change in <span class="math notranslate nohighlight">\(CRE\)</span></strong> between a control and perturbation climate.</p>
+<p>One key point here is that <strong>the change in <span class="math notranslate nohighlight">\(CRE\)</span> is not equivalent to a cloud feedback</strong>.</p>
+<p>To see this, first note that
+$<span class="math notranslate nohighlight">\( \Delta CRE = \Delta F - \Delta F_{clear} \)</span>$</p>
+<p>Using the above definitions we can write this as</p>
+<div class="math notranslate nohighlight">
+\[ \Delta CRE = -c \Delta F_{clear}  + \Delta T \lambda_{cloud} \]</div>
+<p>The <strong>clear sky feedback</strong> affects the change in <span class="math notranslate nohighlight">\(CRE\)</span> we can measure in a GCM, or observations.</p>
+<p>Suppose there is <strong>no change in cloud fraction or cloud optical properties</strong>. By definition then <span class="math notranslate nohighlight">\(\lambda_{cloud} = 0\)</span>. But we would still measure a non-zero change in <span class="math notranslate nohighlight">\(CRE\)</span>.</p>
+<p>Why?</p>
+<p>Because the flux in the clear-sky fraction is changing!</p>
+<section id="so-how-do-we-compute-lambda-cloud">
+<h4><span class="section-number">17.5.2.1. </span>So how do we compute <span class="math notranslate nohighlight">\(\lambda_{cloud}\)</span>?<a class="headerlink" href="#so-how-do-we-compute-lambda-cloud" title="Permalink to this headline">#</a></h4>
+<p>So long as <span class="math notranslate nohighlight">\(\lambda_{clear}\)</span> is known, it’s easy:</p>
+<p>Just measure  <span class="math notranslate nohighlight">\(\frac{\Delta CRE}{\Delta T}\)</span> and the cloud fraction <span class="math notranslate nohighlight">\(c\)</span> from the model, and solve the above formula to get</p>
+<div class="math notranslate nohighlight">
+\[ \lambda_{cloud}  = \frac{\Delta CRE}{\Delta T} + \frac{\Delta F_{clear}}{\Delta T} + \lambda_{0} - \lambda_{clear} - \frac{\Delta R}{\Delta T}\]</div>
+<p>This is how we can “correct” the change in <span class="math notranslate nohighlight">\(CRE\)</span> to get the actual cloud feedback.</p>
+<hr class="docutils" />
+<p><a id='section6'></a></p>
+</section>
+</section>
+</section>
+<section id="feedback-measured-in-comprehensive-gcms">
+<h2><span class="section-number">17.6. </span>6. Feedback measured in comprehensive GCMs<a class="headerlink" href="#feedback-measured-in-comprehensive-gcms" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<img alt="https://www.climatechange2013.org/images/figures/WGI_AR5_Fig9-43.jpg" src="https://www.climatechange2013.org/images/figures/WGI_AR5_Fig9-43.jpg" />
+<blockquote>
+<div><p><strong>Figure 9.43</strong> | (a) Strengths of individual feedbacks for CMIP3 and CMIP5 models (left and right columns of symbols) for Planck (P), water vapour (WV), clouds (C), albedo (A), lapse rate (LR), combination of water vapour and lapse rate (WV+LR) and sum of all feedbacks except Planck (ALL), from Soden and Held (2006) and Vial et al. (2013), following Soden et al. (2008). CMIP5 feedbacks are derived from CMIP5 simulations for abrupt fourfold increases in CO2 concentrations (4 × CO2). (b) ECS obtained using regression techniques by Andrews et al. (2012) against ECS estimated from the ratio of CO2 ERF to the sum of all feedbacks. The CO2 ERF is one-half the 4 × CO2 forcings from Andrews et al. (2012), and the total feedback (ALL + Planck) is from Vial et al. (2013).</p>
+</div></blockquote>
+<p><em>Figure caption reproduced from the AR5 WG1 report</em></p>
+<hr class="docutils" />
+<p><a id='section7'></a></p>
+</section>
+<section id="measuring-lambda-clear-with-radiative-kernels">
+<h2><span class="section-number">17.7. </span>7. Measuring <span class="math notranslate nohighlight">\(\lambda_{clear}\)</span> with radiative kernels<a class="headerlink" href="#measuring-lambda-clear-with-radiative-kernels" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>So how are the clear-sky feedbacks (P, WV, LR, A) actually calculated?</p>
+<p>Presently, the most popular technique the method of <strong>radiative kernels</strong>.</p>
+<p>You have been building a (primitive) kernel for the water vapor feedback in the last homework.</p>
+<img alt="../../_images/Kernels_Held&amp;Soden2000.png" src="../../_images/Kernels_Held&amp;Soden2000.png" />
+<blockquote>
+<div><p>Held, I. M. and Soden, B. J. (2000). Water vapor feedback and global warming. Ann. Rev. Energy Environ., 25:441–475.</p>
+</div></blockquote>
+<p><strong>These notes are unfinished.</strong></p>
+</section>
+<hr class="docutils" />
+<section id="credits">
+<h2><span class="section-number">17.8. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">#</a></h2>
+<p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a>, an open-source textbook developed and maintained by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
+<p>It is licensed for free and open consumption under the
+<a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license.</p>
+<p>Development of these notes and the <a class="reference external" href="https://github.com/brian-rose/climlab">climlab software</a> is partially supported by the National Science Foundation under award AGS-1455071 to Brian Rose. Any opinions, findings, conclusions or recommendations expressed here are mine and do not necessarily reflect the views of the National Science Foundation.</p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./courseware/week6"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../week5/lab16_transient-toy.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Toy models of transient warming</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lab18_insolation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Insolation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optical-properties-of-individual-clouds-depend-on-the-cloud-liquid-water-path">17.1. 1. Optical properties of individual clouds depend on the Cloud Liquid Water Path</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#longwave-effects-of-clouds">17.1.1. Longwave effects of clouds</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shortwave-effects-of-clouds">17.1.2. Shortwave effects of clouds</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloudy-sky-versus-clear-sky-radiation">17.2. 2. Cloudy sky versus clear sky radiation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#high-thin-cirrus">17.2.1. High thin cirrus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#low-stratus">17.2.2. Low stratus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-convective-cumulonimbus">17.2.3. Deep convective cumulonimbus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-radiative-effect-cre">17.3. 3. Cloud Radiative Effect (CRE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-the-dependence-of-cre-on-cloud-height">17.4. 4. Modeling the dependence of CRE on cloud height</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-average-observed-temperature-and-specific-humidity">17.4.1. Global average observed temperature and specific humidity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-feedback">17.5. 5. Cloud Feedback</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-sky-and-cloud-feedbacks">17.5.1. Clear-sky and cloud feedbacks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-feedback-vs-cre">17.5.2. Cloud feedback vs. CRE</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#so-how-do-we-compute-lambda-cloud">17.5.2.1. So how do we compute <span class="math notranslate nohighlight">\(\lambda_{cloud}\)</span>?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback-measured-in-comprehensive-gcms">17.6. 6. Feedback measured in comprehensive GCMs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-lambda-clear-with-radiative-kernels">17.7. 7. Measuring <span class="math notranslate nohighlight">\(\lambda_{clear}\)</span> with radiative kernels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#credits">17.8. Credits</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Rose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

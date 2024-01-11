@@ -1,0 +1,1314 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>22. Modeling the seasonal cycle of surface temperature &#8212; Climate Laboratory Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/week7/lab22_seasonal-cycle';</script>
+    <link rel="canonical" href="https://phaustin.github.io/ClimateLaboratoryBook/courseware/week7/lab22_seasonal-cycle.html" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="23. Atmospheric Dynamics in the CESM" href="lab23_cesm-atmospheric-dynamics.html" />
+    <link rel="prev" title="21. The one-dimensional energy balance model" href="lab21_one-dim-ebm.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../home.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Climate Laboratory Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home.html">
+                    The Climate Laboratory
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ugradsyllabus.html">Undergraduate Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gradsyllabus.html">Graduate Syllabus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../week1_topics.html">Week 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week2_topics.html">Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week3_topics.html">Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week4_topics.html">Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week7_topics.html">Week 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble.html">Preamble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About this Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../who-for.html">Who is the book for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how-to.html">How to use this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attribution.html">How to cite and reuse this material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra_reading.html">Additional resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week1/lab1_models-budgets-fun.html">1. Climate models, the global energy budget, and Fun with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab4_introducing-cesm.html">4. Introducing the Community Earth System Model (CESM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab5_climlab-intro.html">5. Building simple climate models using climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab6_radiation.html">6. A Brief Review of Radiation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab7_elementary-greenhouse.html">7. Elementary greenhouse models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab8_sympy-greenhouse.html">8. Advanced topic: Solving the two-layer grey gas model analytically with sympy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week4/lab9_grey-radiation-climlab.html">9. Grey radiation modeling with climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/lab10_radiative-transfer.html">10. Modeling non-scattering radiative transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/lab11_spectral-bands.html">11. Who needs spectral bands? We do. Some baby steps…</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab12_radeq.html">12. Radiative Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/lab18_insolation.html">18. Insolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lab21_one-dim-ebm.html">21. The one-dimensional energy balance model</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">22. Modeling the seasonal cycle of surface temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab23_cesm-atmospheric-dynamics.html">23. Atmospheric Dynamics in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab24_numerical-diffusion.html">24. A peek at numerical methods for diffusion models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab27_surface-energy-balance.html">The surface energy balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab28_land-ocean-contrast.html">Land-Ocean contrasts under climate change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab29_water-water-everywhere.html">Water, water everywhere!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../about-assignments.html">About the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment1-zero-dim-ebm.html">Assignment: Climate change in the zero-dimensional EBM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment2-cesm-control.html">Assignment: Global average budgets in the CESM pre-industrial control simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment2-cesm-control-hints.html">Additional hints and guidance for CESM budgets assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment3-simple-clouds.html">Assignment: Clouds in the Leaky Greenhouse Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment4-rcm-feedback.html">Assignment: Feedbacks in the Radiative-Convective Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment5-cesm-climate-change.html">Assignment: Climate change in the CESM simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment6-insolation-orbit.html">Assignment: Insolation and orbital parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">xarray tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../xarray/01-xarray-intro.html">Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xarray/02-computation-masking.html">Computations and Masks with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xarray/03-enso-xarray.html">Calculating ENSO with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xarray/04-dask-arrays-xarray.html">Dask Arrays with Xarray</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/feedback_notation.html">Feedback notation for worksheet 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydrostat.html">Hydrostatic balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydrostatic_balance.html">Scale heights for typical atmospheric soundings</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../multi_layer_equilibrium.html">Radiative equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bayes_lecture.html">What I wish I’d known about statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/week7/lab22_seasonal-cycle.md&branch=jb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/courseware/week7/lab22_seasonal-cycle.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/courseware/week7/lab22_seasonal-cycle.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Modeling the seasonal cycle of surface temperature</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-observed-seasonal-cycle-from-ncep-reanalysis-data">22.1. 1. The observed seasonal cycle from NCEP Reanalysis data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-toy-model-of-the-seasonal-cycle">22.2. 2. Analytical toy model of the seasonal cycle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-annual-mean">22.2.1. The annual mean:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-seasonal-problem">22.2.2. The seasonal problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-heat-capacity-the-radiative-equilibrium-solution">22.2.3. Zero heat capacity: the radiative equilibrium solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-dimensional-heat-capacity-parameter">22.2.4. Non-dimensional heat capacity parameter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-for-the-phase-shift">22.2.5. Solving for the phase shift</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-for-the-amplitude">22.2.6. Solving for the amplitude</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-water-limit">22.2.7. Shallow water limit:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-water-limit">22.2.8. Deep water limit:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-values-of-tilde-c-are-realistic">22.2.9. What values of <span class="math notranslate nohighlight">\(\tilde{C}\)</span> are realistic?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-capacity-of-the-atmosphere">22.2.9.1. Heat capacity of the atmosphere</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-capacity-of-a-water-surface">22.2.9.2. Heat capacity of a water surface</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tilde-c-for-a-dry-land-surface">22.2.9.3. <span class="math notranslate nohighlight">\(\tilde{C}\)</span> for a dry land surface</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tilde-c-for-a-100-meter-ocean-mixed-layer">22.2.9.4. <span class="math notranslate nohighlight">\(\tilde{C}\)</span> for a 100 meter ocean mixed layer</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-upshot-tilde-c-is-closer-to-the-deep-water-limit">22.2.10. The upshot: <span class="math notranslate nohighlight">\(\tilde{C}\)</span> is closer to the deep water limit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-full-solution-for-a-range-of-water-depths">22.2.11. Plot the full solution for a range of water depths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-seasonal-phase-shift">22.2.12. The seasonal phase shift</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-amplitude-of-the-seasonal-cycle-with-an-ebm">22.3. 3. Exploring the amplitude of the seasonal cycle with an EBM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-an-animation-of-the-ebm-solutions">22.3.1. Making an animation of the EBM solutions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-seasonal-cycle-for-a-planet-with-90o-obliquity">22.4. 4. The seasonal cycle for a planet with 90º obliquity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#credits">22.5. Credits</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="modeling-the-seasonal-cycle-of-surface-temperature">
+<span id="nb-tas-seas"></span><h1><span class="section-number">22. </span>Modeling the seasonal cycle of surface temperature<a class="headerlink" href="#modeling-the-seasonal-cycle-of-surface-temperature" title="Permalink to this headline">#</a></h1>
+<p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
+<hr class="docutils" />
+<p><a id='section1'></a></p>
+<section id="the-observed-seasonal-cycle-from-ncep-reanalysis-data">
+<h2><span class="section-number">22.1. </span>1. The observed seasonal cycle from NCEP Reanalysis data<a class="headerlink" href="#the-observed-seasonal-cycle-from-ncep-reanalysis-data" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>Look at the observed seasonal cycle in the NCEP reanalysis data.</p>
+<p>Read in the necessary data from the online server.</p>
+<p>The catalog is here: <a class="reference external" href="https://psl.noaa.gov/thredds/catalog/Datasets/ncep.reanalysis.derived/catalog.html">https://psl.noaa.gov/thredds/catalog/Datasets/ncep.reanalysis.derived/catalog.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">climlab</span>
+<span class="kn">from</span> <span class="nn">climlab</span> <span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">const</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>  <span class="c1"># use cartopy to make some maps</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## The NOAA ESRL server is shutdown! January 2019</span>
+<span class="n">ncep_url</span> <span class="o">=</span> <span class="s2">&quot;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/&quot;</span>
+<span class="n">ncep_Ts</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">ncep_url</span> <span class="o">+</span> <span class="s2">&quot;surface_gauss/skt.sfc.mon.1981-2010.ltm.nc&quot;</span><span class="p">,</span> <span class="n">decode_times</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1">#url = &quot;http://apdrc.soest.hawaii.edu:80/dods/public_data/Reanalysis_Data/NCEP/NCEP/clima/&quot;</span>
+<span class="c1">#ncep_Ts = xr.open_dataset(url + &#39;surface_gauss/skt&#39;)</span>
+<span class="n">lat_ncep</span> <span class="o">=</span> <span class="n">ncep_Ts</span><span class="o">.</span><span class="n">lat</span><span class="p">;</span> <span class="n">lon_ncep</span> <span class="o">=</span> <span class="n">ncep_Ts</span><span class="o">.</span><span class="n">lon</span>
+<span class="n">Ts_ncep</span> <span class="o">=</span> <span class="n">ncep_Ts</span><span class="o">.</span><span class="n">skt</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">Ts_ncep</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make two maps: one of annual mean surface temperature, another of the seasonal range (max minus min).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">maxTs</span> <span class="o">=</span> <span class="n">Ts_ncep</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">minTs</span> <span class="o">=</span> <span class="n">Ts_ncep</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">meanTs</span> <span class="o">=</span> <span class="n">Ts_ncep</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">())</span>
+<span class="n">cax1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">lon_ncep</span><span class="p">,</span> <span class="n">lat_ncep</span><span class="p">,</span> <span class="n">meanTs</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">seismic</span> <span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="n">cbar1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Annual mean surface temperature ($^\circ$C)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span> <span class="p">)</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">())</span>
+<span class="n">cax2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">lon_ncep</span><span class="p">,</span> <span class="n">lat_ncep</span><span class="p">,</span> <span class="n">maxTs</span> <span class="o">-</span> <span class="n">minTs</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span> <span class="p">)</span>
+<span class="n">cbar2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Seasonal temperature range ($^\circ$C)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">]:</span>
+    <span class="c1">#ax.contour( lon_cesm, lat_cesm, topo.variables[&#39;LANDFRAC&#39;][:], [0.5], colors=&#39;k&#39;);</span>
+    <span class="c1">#ax.set_xlabel(&#39;Longitude&#39;, fontsize=14 ); ax.set_ylabel(&#39;Latitude&#39;, fontsize=14 )</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make a contour plot of the zonal mean temperature as a function of time</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Tmax</span> <span class="o">=</span> <span class="mi">65</span><span class="p">;</span> <span class="n">Tmin</span> <span class="o">=</span> <span class="o">-</span><span class="n">Tmax</span><span class="p">;</span> <span class="n">delT</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">clevels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Tmin</span><span class="p">,</span><span class="n">Tmax</span><span class="o">+</span><span class="n">delT</span><span class="p">,</span><span class="n">delT</span><span class="p">)</span>
+<span class="n">fig_zonobs</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lat_ncep</span><span class="p">,</span> 
+                  <span class="n">Ts_ncep</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span> <span class="n">levels</span><span class="o">=</span><span class="n">clevels</span><span class="p">,</span> 
+                  <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">seismic</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">Tmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">Tmax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Latitude&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span> <span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Zonal mean surface temperature (degC)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><a id='section2'></a></p>
+</section>
+<section id="analytical-toy-model-of-the-seasonal-cycle">
+<h2><span class="section-number">22.2. </span>2. Analytical toy model of the seasonal cycle<a class="headerlink" href="#analytical-toy-model-of-the-seasonal-cycle" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>What factors determine the above pattern of seasonal temperatures? How large is the winter-to-summer variation in temperature? What is its phasing relative to the seasonal variations in insolation?</p>
+<p>We will start to examine this in a very simple zero-dimensional EBM.</p>
+<p>Suppose the seasonal cycle of insolation at a point is</p>
+<div class="math notranslate nohighlight">
+\[ Q = Q^* \sin\omega t + Q_0\]</div>
+<p>where <span class="math notranslate nohighlight">\(\omega = 2\pi ~ \text{year}^{-1}\)</span>, <span class="math notranslate nohighlight">\(Q_0\)</span> is the annual mean insolation, and <span class="math notranslate nohighlight">\(Q^*\)</span> is the amplitude of the seasonal variations.</p>
+<p>Here <span class="math notranslate nohighlight">\(\omega ~ t=0\)</span> is spring equinox, <span class="math notranslate nohighlight">\(\omega~t = \pi/2\)</span> is summer solstice, <span class="math notranslate nohighlight">\(\omega~t = \pi\)</span> is fall equinox, and <span class="math notranslate nohighlight">\( \omega ~t = 3 \pi/2\)</span> is winter solstice.</p>
+<p>Now suppose the temperature is governed by</p>
+<div class="math notranslate nohighlight">
+\[ C \frac{d T}{d t} = Q - (A + B~T) \]</div>
+<p>so that we have a simple model</p>
+<div class="math notranslate nohighlight">
+\[ C \frac{d T}{d t} = Q^* \sin\omega t + Q_0 - (A + B~T) \]</div>
+<p>We want to ask two questions:</p>
+<ol class="arabic simple">
+<li><p><strong>What is the amplitude of the seasonal temperature variation?</strong></p></li>
+<li><p><strong>When does the temperature maximum occur?</strong></p></li>
+</ol>
+<p>We will look for an oscillating solution</p>
+<div class="math notranslate nohighlight">
+\[  T(t) = T_0 + T^* \sin(\omega t - \Phi) \]</div>
+<p>where <span class="math notranslate nohighlight">\(\Phi\)</span> is an unknown phase shift and <span class="math notranslate nohighlight">\(T^*\)</span> is the unknown amplitude of seasonal temperature variations.</p>
+<section id="the-annual-mean">
+<h3><span class="section-number">22.2.1. </span>The annual mean:<a class="headerlink" href="#the-annual-mean" title="Permalink to this headline">#</a></h3>
+<p>Integrate over one year to find</p>
+<div class="math notranslate nohighlight">
+\[ \overline{T} = T_0 \]</div>
+<div class="math notranslate nohighlight">
+\[ Q_0 = A + B ~ \overline{T} \]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[T_0 = \frac{Q_0 - A}{B} \]</div>
+</section>
+<section id="the-seasonal-problem">
+<h3><span class="section-number">22.2.2. </span>The seasonal problem<a class="headerlink" href="#the-seasonal-problem" title="Permalink to this headline">#</a></h3>
+<p>Now we need to solve for <span class="math notranslate nohighlight">\(T^*\)</span> and <span class="math notranslate nohighlight">\(\Phi\)</span>.</p>
+<p>Take the derivative</p>
+<div class="math notranslate nohighlight">
+\[  \frac{d T}{dt} = T^* \omega \cos(\omega t - \Phi) \]</div>
+<p>and plug into the model equation to get</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+C~ T^* \omega \cos(\omega t - \Phi) &amp;=  Q^* \sin\omega t + Q_0  \\
+                                    &amp; - \left( A + B~(T_0 + T^* \sin(\omega t - \Phi) )\right)
+\end{align*}\]</div>
+<p>Subtracting out the annual mean leaves us with</p>
+<div class="math notranslate nohighlight">
+\[ C~ T^* \omega \cos(\omega t - \Phi) =  Q^* \sin\omega t  - B ~ T^* \sin(\omega t - \Phi)  \]</div>
+</section>
+<section id="zero-heat-capacity-the-radiative-equilibrium-solution">
+<h3><span class="section-number">22.2.3. </span>Zero heat capacity: the radiative equilibrium solution<a class="headerlink" href="#zero-heat-capacity-the-radiative-equilibrium-solution" title="Permalink to this headline">#</a></h3>
+<p>It’s instructive to first look at the case with <span class="math notranslate nohighlight">\(C=0\)</span>, which means that the system is not capable of storing heat, and the temperature must always be in radiative equilibrium with the insolation.</p>
+<p>In this case we would have</p>
+<div class="math notranslate nohighlight">
+\[ Q^* \sin\omega t  = B ~ T^* \sin(\omega t - \Phi)  \]</div>
+<p>which requires that the phase shift is</p>
+<div class="math notranslate nohighlight">
+\[ \Phi = 0 \]</div>
+<p>and the amplitude is</p>
+<div class="math notranslate nohighlight">
+\[ T^* = \frac{Q^*}{B} \]</div>
+<p>With no heat capacity, there can be no phase shift!  The temperature goes up and does in lockstep with the insolation.
+As we will see, the amplitude of the temperature variations is maximum in this limit.</p>
+<p>As a practical example:  at 45ºN the amplitude of the seasonal insolation cycle is about 180 W m<span class="math notranslate nohighlight">\(^{-2}\)</span>  (see the [Insolation notes](Lecture11 – Insolation.ipynb) – the difference between insolation at summer and winter solstice is about 360 W m<span class="math notranslate nohighlight">\(^{-2}\)</span> which we divide by two to get the amplitude of seasonal variations).</p>
+<p>We will follow our previous EBM work and take <span class="math notranslate nohighlight">\(B = 2\)</span> W m<span class="math notranslate nohighlight">\(^{-2}\)</span> K<span class="math notranslate nohighlight">\(^{-1}\)</span>. This would give a seasonal temperature amplitude of 90ºC!</p>
+<p>This highlights to important role for heat capacity to buffer the seasonal variations in sunlight.</p>
+</section>
+<section id="non-dimensional-heat-capacity-parameter">
+<h3><span class="section-number">22.2.4. </span>Non-dimensional heat capacity parameter<a class="headerlink" href="#non-dimensional-heat-capacity-parameter" title="Permalink to this headline">#</a></h3>
+<p>We can rearrange the seasonal equation to give</p>
+<div class="math notranslate nohighlight">
+\[ \frac{C~\omega}{B} \cos(\omega t - \Phi) + \sin(\omega t - \Phi) = \frac{Q^*}{B~T^*} \sin\omega t   \]</div>
+<p>The heat capacity appears in our equation through the non-dimensional ratio</p>
+<div class="math notranslate nohighlight">
+\[ \tilde{C} = \frac{C~\omega}{B} \]</div>
+<p>This parameter measures the efficiency of heat storage versus damping of energy anomalies through longwave radiation to space in our system.</p>
+<p>We will now use trigonometric identities</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\cos(\omega t - \Phi) &amp;= \cos\omega t \cos\Phi + \sin\omega t \sin\Phi  \\
+\sin(\omega t - \Phi) &amp;= \sin\omega t \cos\Phi - \cos\omega t \sin\Phi
+\end{align*}\]</div>
+<p>to express our equation as</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\frac{Q^*}{B~T^*} \sin\omega t = &amp;\tilde{C} \cos\omega t \cos\Phi \\
+                                + &amp;\tilde{C} \sin\omega t \sin\Phi \\
+                                + &amp;\sin\omega t \cos\Phi  \\
+                                - &amp;\cos\omega t \sin\Phi
+\end{align*}\]</div>
+<p>Now gathering together all terms in <span class="math notranslate nohighlight">\(\cos\omega t\)</span> and <span class="math notranslate nohighlight">\(\sin\omega t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \cos\omega t \left( \tilde{C} \cos\Phi - \sin\Phi \right) = \sin\omega t \left( \frac{Q^*}{B~T^*} - \tilde{C} \sin\Phi - \cos\Phi \right) \]</div>
+</section>
+<section id="solving-for-the-phase-shift">
+<h3><span class="section-number">22.2.5. </span>Solving for the phase shift<a class="headerlink" href="#solving-for-the-phase-shift" title="Permalink to this headline">#</a></h3>
+<p>The equation above must be true for all <span class="math notranslate nohighlight">\(t\)</span>, which means that sum of terms in each set of parentheses must be zero.</p>
+<p>We therefore have an equation for the phase shift</p>
+<div class="math notranslate nohighlight">
+\[ \tilde{C} \cos\Phi - \sin\Phi = 0 \]</div>
+<p>which means that the phase shift is</p>
+<div class="math notranslate nohighlight">
+\[ \Phi = \arctan \tilde{C} \]</div>
+</section>
+<section id="solving-for-the-amplitude">
+<h3><span class="section-number">22.2.6. </span>Solving for the amplitude<a class="headerlink" href="#solving-for-the-amplitude" title="Permalink to this headline">#</a></h3>
+<p>The other equation is</p>
+<div class="math notranslate nohighlight">
+\[ \frac{Q^*}{B~T^*} - \tilde{C} \sin\Phi - \cos\Phi = 0 \]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[ \frac{Q^*}{B~T^*} - \cos\Phi \left( 1+ \tilde{C}^2 \right)  = 0 \]</div>
+<p>which we solve for <span class="math notranslate nohighlight">\(T^*\)</span> to get</p>
+<div class="math notranslate nohighlight">
+\[ T^* = \frac{Q^*}{B} \frac{1}{\left( 1+ \tilde{C}^2 \right) \cos\left(\arctan \tilde{C} \right) } \]</div>
+</section>
+<section id="shallow-water-limit">
+<h3><span class="section-number">22.2.7. </span>Shallow water limit:<a class="headerlink" href="#shallow-water-limit" title="Permalink to this headline">#</a></h3>
+<p>In low heat capacity limit,</p>
+<div class="math notranslate nohighlight">
+\[ \tilde{C} &lt;&lt; 1 \]</div>
+<p>the phase shift is</p>
+<div class="math notranslate nohighlight">
+\[ \Phi \approx \tilde{C} \]</div>
+<p>and the amplitude is</p>
+<div class="math notranslate nohighlight">
+\[ T^* = \frac{Q^*}{B} \left( 1 - \tilde{C} \right) \]</div>
+<p>Notice that for a system with very little heat capacity, the <strong>phase shift approaches zero</strong> and the <strong>amplitude approaches its maximum value</strong> <span class="math notranslate nohighlight">\(T^* = \frac{Q^*}{B}\)</span>.</p>
+<p>In the shallow water limit the temperature maximum will occur just slightly after the insolation maximum, and the seasonal temperature variations will be large.</p>
+</section>
+<section id="deep-water-limit">
+<h3><span class="section-number">22.2.8. </span>Deep water limit:<a class="headerlink" href="#deep-water-limit" title="Permalink to this headline">#</a></h3>
+<p>Suppose instead we have an infinitely large heat reservoir (e.g. very deep ocean mixed layer).</p>
+<p>In the limit <span class="math notranslate nohighlight">\(\tilde{C} \rightarrow \infty\)</span>, the phase shift tends toward</p>
+<div class="math notranslate nohighlight">
+\[ \Phi \rightarrow \frac{\pi}{2} \]</div>
+<p>so the warming is nearly perfectly out of phase with the insolation – peak temperature would occur at fall equinox.</p>
+<p>But the amplitude in this limit is very small!</p>
+<div class="math notranslate nohighlight">
+\[ T^* \rightarrow 0 \]</div>
+</section>
+<section id="what-values-of-tilde-c-are-realistic">
+<h3><span class="section-number">22.2.9. </span>What values of <span class="math notranslate nohighlight">\(\tilde{C}\)</span> are realistic?<a class="headerlink" href="#what-values-of-tilde-c-are-realistic" title="Permalink to this headline">#</a></h3>
+<p>We need to evaluate</p>
+<div class="math notranslate nohighlight">
+\[ \tilde{C} = \frac{C~\omega}{B} \]</div>
+<p>for reasonable values of <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(B\)</span> is the longwave radiative feedback in our system: a measure of how efficiently a warm anomaly is radiated away to space. We have previously chosen <span class="math notranslate nohighlight">\(B = 2\)</span> W m<span class="math notranslate nohighlight">\(^{-2}\)</span> K<span class="math notranslate nohighlight">\(^{-1}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(C\)</span> is the heat capacity of the whole column, a number in J m<span class="math notranslate nohighlight">\(^{-2}\)</span> K<span class="math notranslate nohighlight">\(^{-1}\)</span>.</p>
+<section id="heat-capacity-of-the-atmosphere">
+<h4><span class="section-number">22.2.9.1. </span>Heat capacity of the atmosphere<a class="headerlink" href="#heat-capacity-of-the-atmosphere" title="Permalink to this headline">#</a></h4>
+<p>Integrating from the surface to the top of the atmosphere, we can write</p>
+<div class="math notranslate nohighlight">
+\[ C_a = \int_0^{p_s} c_p \frac{dp}{g} \]</div>
+<p>where <span class="math notranslate nohighlight">\(c_p = 10^3\)</span> J kg<span class="math notranslate nohighlight">\(^{-1}\)</span> K<span class="math notranslate nohighlight">\(^{-1}\)</span> is the specific heat at constant pressure for a unit mass of air, and <span class="math notranslate nohighlight">\(dp/g\)</span> is a mass element.</p>
+<p>This gives <span class="math notranslate nohighlight">\(C_a \approx 10^7\)</span> J m<span class="math notranslate nohighlight">\(^{-2}\)</span> K<span class="math notranslate nohighlight">\(^{-1}\)</span>.</p>
+</section>
+<section id="heat-capacity-of-a-water-surface">
+<h4><span class="section-number">22.2.9.2. </span>Heat capacity of a water surface<a class="headerlink" href="#heat-capacity-of-a-water-surface" title="Permalink to this headline">#</a></h4>
+<p>As we wrote [back in Lecture 2](./Lecture02 – Solving the zero-dimensional EBM.ipynb), the heat capacity for a well-mixed column of water is</p>
+<div class="math notranslate nohighlight">
+\[C_w = c_w \rho_w H_w \]</div>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(c_w = 4 \times 10^3\)</span> J kg<span class="math notranslate nohighlight">\(^{-1}\)</span> <span class="math notranslate nohighlight">\(^\circ\)</span>C<span class="math notranslate nohighlight">\(^{-1}\)</span> is the specific heat of water,</p>
+<p><span class="math notranslate nohighlight">\(\rho_w = 10^3\)</span> kg m<span class="math notranslate nohighlight">\(^{-3}\)</span> is the density of water, and</p>
+<p><span class="math notranslate nohighlight">\(H_w \)</span> is the depth of the water column</p>
+<p><strong>The heat capacity of the entire atmosphere is thus equivalent to 2.5 meters of water.</strong></p>
+</section>
+<section id="tilde-c-for-a-dry-land-surface">
+<h4><span class="section-number">22.2.9.3. </span><span class="math notranslate nohighlight">\(\tilde{C}\)</span> for a dry land surface<a class="headerlink" href="#tilde-c-for-a-dry-land-surface" title="Permalink to this headline">#</a></h4>
+<p>A dry land surface has very little heat capacity and <span class="math notranslate nohighlight">\(C\)</span> is actually dominated by the atmosphere. So we can take <span class="math notranslate nohighlight">\(C = C_a = 10^7\)</span> J m<span class="math notranslate nohighlight">\(^{-2}\)</span> K<span class="math notranslate nohighlight">\(^{-1}\)</span> as a reasonable lower bound.</p>
+<p>So our lower bound on <span class="math notranslate nohighlight">\(\tilde{C}\)</span> is thus, taking <span class="math notranslate nohighlight">\(B = 2\)</span> W m<span class="math notranslate nohighlight">\(^{-2}\)</span> K<span class="math notranslate nohighlight">\(^{-1}\)</span> and <span class="math notranslate nohighlight">\(\omega = 2\pi ~ \text{year}^{-1} = 2 \times 10^{-7} \text{ s}^{-1}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \tilde{C} = 1 \]</div>
+</section>
+<section id="tilde-c-for-a-100-meter-ocean-mixed-layer">
+<h4><span class="section-number">22.2.9.4. </span><span class="math notranslate nohighlight">\(\tilde{C}\)</span> for a 100 meter ocean mixed layer<a class="headerlink" href="#tilde-c-for-a-100-meter-ocean-mixed-layer" title="Permalink to this headline">#</a></h4>
+<p>Setting <span class="math notranslate nohighlight">\(H_w = 100\)</span> m gives <span class="math notranslate nohighlight">\(C_w = 4 \times 10^8\)</span> J m<span class="math notranslate nohighlight">\(^{-2}\)</span> K<span class="math notranslate nohighlight">\(^{-1}\)</span>. Then our non-dimensional parameter is</p>
+<div class="math notranslate nohighlight">
+\[ \tilde{C} = 40 \]</div>
+</section>
+</section>
+<section id="the-upshot-tilde-c-is-closer-to-the-deep-water-limit">
+<h3><span class="section-number">22.2.10. </span>The upshot: <span class="math notranslate nohighlight">\(\tilde{C}\)</span> is closer to the deep water limit<a class="headerlink" href="#the-upshot-tilde-c-is-closer-to-the-deep-water-limit" title="Permalink to this headline">#</a></h3>
+<p>Even for a dry land surface, <span class="math notranslate nohighlight">\(\tilde{C}\)</span> is not small. This means that there is always going to be a substantial phase shift in the timing of the peak temperatures, and a reduction in the seasonal amplitude.</p>
+</section>
+<section id="plot-the-full-solution-for-a-range-of-water-depths">
+<h3><span class="section-number">22.2.11. </span>Plot the full solution for a range of water depths<a class="headerlink" href="#plot-the-full-solution-for-a-range-of-water-depths" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">omega</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">const</span><span class="o">.</span><span class="n">seconds_per_year</span>
+<span class="n">omega</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="mf">2.</span>
+<span class="n">Hw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">)</span>
+<span class="n">Ctilde</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">cw</span> <span class="o">*</span> <span class="n">const</span><span class="o">.</span><span class="n">rho_w</span> <span class="o">*</span> <span class="n">Hw</span> <span class="o">*</span> <span class="n">omega</span> <span class="o">/</span> <span class="n">B</span>
+<span class="n">amp</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">((</span><span class="n">Ctilde</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">Ctilde</span><span class="p">)))</span>
+<span class="n">Phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">Ctilde</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">color1</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span>
+<span class="n">color2</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Hw</span><span class="p">,</span> <span class="n">amp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;water depth (m)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Seasonal amplitude ($Q^* / B$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="n">color1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">tl</span> <span class="ow">in</span> <span class="n">ax1</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">():</span>
+    <span class="n">tl</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">color1</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Hw</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">Phi</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">color2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Seasonal phase shift (degrees)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">tl</span> <span class="ow">in</span> <span class="n">ax2</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">():</span>
+    <span class="n">tl</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">color2</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Dependence of seasonal cycle phase and amplitude on water depth&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;k-&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The blue line shows the amplitude of the seasonal cycle of temperature, expressed as a fraction of its maximum value <span class="math notranslate nohighlight">\(\frac{Q^*}{B}\)</span> (the value that would occur if the system had zero heat capacity so that temperatures were always in radiative equilibrium with the instantaneous insolation).</p>
+<p>The red line shows the phase lag (in degrees) of the temperature cycle relative to the insolation cycle.</p>
+<p>The vertical black line indicates 2.5 meters of water, which is the heat capacity of the atmosphere and thus our effective lower bound on total column heat capacity.</p>
+</section>
+<section id="the-seasonal-phase-shift">
+<h3><span class="section-number">22.2.12. </span>The seasonal phase shift<a class="headerlink" href="#the-seasonal-phase-shift" title="Permalink to this headline">#</a></h3>
+<p>Even for the driest surfaces the phase shift is about 45º and the amplitude is half of its theoretical maximum. For most wet surfaces the cycle is damped out and delayed further.</p>
+<p>Of course we are already familiar with this phase shift from our day-to-day experience. Our calendar says that summer “begins” at the solstice and last until the equinox.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">years</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Harray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">50.</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">Hw</span> <span class="ow">in</span> <span class="n">Harray</span><span class="p">:</span>
+    <span class="n">Ctilde</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">cw</span> <span class="o">*</span> <span class="n">const</span><span class="o">.</span><span class="n">rho_w</span> <span class="o">*</span> <span class="n">Hw</span> <span class="o">*</span> <span class="n">omega</span> <span class="o">/</span> <span class="n">B</span>
+    <span class="n">Phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">Ctilde</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">years</span> <span class="o">-</span> <span class="n">Phi</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">Phi</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">Ctilde</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="n">Hw</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Years&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Seasonal amplitude ($Q^* / B$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Solution of toy seasonal model for several different water depths&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The blue curve in this figure is in phase with the insolation.</p>
+<hr class="docutils" />
+<p><a id='section3'></a></p>
+</section>
+</section>
+<section id="exploring-the-amplitude-of-the-seasonal-cycle-with-an-ebm">
+<h2><span class="section-number">22.3. </span>3. Exploring the amplitude of the seasonal cycle with an EBM<a class="headerlink" href="#exploring-the-amplitude-of-the-seasonal-cycle-with-an-ebm" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>Something important is missing from this toy model: heat transport!</p>
+<p>The amplitude of the seasonal cycle of insolation increases toward the poles, but the seasonal temperature variations are partly mitigated by heat transport from lower, warmer latitudes.</p>
+<p>Our 1D diffusive EBM is the appropriate tool for exploring this further.</p>
+<p>We are looking at the 1D (zonally averaged) energy balance model with diffusive heat transport. The equation is</p>
+<div class="math notranslate nohighlight">
+\[ C \frac{\partial T_s}{\partial t} = (1-\alpha) ~ Q - \left( A + B~T_s \right) + \frac{D}{\cos⁡\phi } \frac{\partial }{\partial \phi} \left(   \cos⁡\phi  ~ \frac{\partial T_s}{\partial \phi} \right) \]</div>
+<p>with the albedo given by</p>
+<div class="math notranslate nohighlight">
+\[ \alpha(\phi) = \alpha_0 + \alpha_2 P_2(\sin\phi) \]</div>
+<p>and we will use</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">climlab</span><span class="o">.</span><span class="n">EBM_seasonal</span>
+</pre></div>
+</div>
+<p>to solve this model numerically.</p>
+<p>One handy feature of <code class="docutils literal notranslate"><span class="pre">climlab</span></code> process code: the function <code class="docutils literal notranslate"><span class="pre">integrate_years()</span></code> automatically calculates the time averaged temperature. So if we run it for exactly one year, we get the annual mean temperature (and many other diagnostics) saved in the dictionary <code class="docutils literal notranslate"><span class="pre">timeave</span></code>.</p>
+<p>We will look at the seasonal cycle of temperature in three different models with different heat capacities (which we express through an equivalent depth of water in meters).</p>
+<p>All other parameters will be [as chosen in Lecture 16](./Lecture16 – Diffusive energy balance model.ipynb) (which focussed on tuning the EBM to the annual mean energy budget).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  for convenience, set up a dictionary with our reference parameters</span>
+<span class="n">param</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span><span class="mi">210</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;a0&#39;</span><span class="p">:</span><span class="mf">0.354</span><span class="p">,</span> <span class="s1">&#39;a2&#39;</span><span class="p">:</span><span class="mf">0.25</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span><span class="mf">0.6</span><span class="p">}</span>
+<span class="n">param</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  We can pass the entire dictionary as keyword arguments using the ** notation</span>
+<span class="n">model1</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">EBM_seasonal</span><span class="p">(</span><span class="o">**</span><span class="n">param</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Seasonal EBM&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">model1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that this model has an insolation subprocess called <code class="docutils literal notranslate"><span class="pre">DailyInsolation</span></code>, rather than <code class="docutils literal notranslate"><span class="pre">AnnualMeanInsolation</span></code>. These should be fairly self-explanatory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  We will try three different water depths</span>
+<span class="n">water_depths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">50.</span><span class="p">])</span>
+
+<span class="n">num_depths</span> <span class="o">=</span> <span class="n">water_depths</span><span class="o">.</span><span class="n">size</span>
+<span class="n">Tann</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span> <span class="p">[</span><span class="n">model1</span><span class="o">.</span><span class="n">lat</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">num_depths</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">models</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_depths</span><span class="p">):</span>
+    <span class="n">ebm</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">EBM_seasonal</span><span class="p">(</span><span class="n">water_depth</span><span class="o">=</span><span class="n">water_depths</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="o">**</span><span class="n">param</span><span class="p">)</span>
+    <span class="n">models</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ebm</span><span class="p">)</span>
+    <span class="n">models</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">integrate_years</span><span class="p">(</span><span class="mf">20.</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+    <span class="n">models</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">integrate_years</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">Tann</span><span class="p">[:,</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">timeave</span><span class="p">[</span><span class="s1">&#39;Ts&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>All models should have the same annual mean temperature:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lat</span> <span class="o">=</span> <span class="n">model1</span><span class="o">.</span><span class="n">lat</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">Tann</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Latitude&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature (degC)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Annual mean temperature in the EBM&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span> <span class="n">water_depths</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is no automatic function in the <code class="docutils literal notranslate"><span class="pre">climlab</span></code> code to keep track of minimum and maximum temperatures (though we might add that in the future!)</p>
+<p>Instead we’ll step through one year “by hand” and save all the temperatures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_steps_per_year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">model1</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s1">&#39;num_steps_per_year&#39;</span><span class="p">])</span>
+<span class="n">Tyear</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">lat</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">num_steps_per_year</span><span class="p">,</span> <span class="n">num_depths</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_depths</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps_per_year</span><span class="p">):</span>
+        <span class="n">models</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+        <span class="n">Tyear</span><span class="p">[:,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">Ts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make a figure to compare the observed zonal mean seasonal temperature cycle to what we get from the EBM with different heat capacities:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">num_depths</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lat_ncep</span><span class="p">,</span> 
+                  <span class="n">Ts_ncep</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span> 
+                  <span class="n">levels</span><span class="o">=</span><span class="n">clevels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">seismic</span><span class="p">,</span> 
+                  <span class="n">vmin</span><span class="o">=</span><span class="n">Tmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">Tmax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Latitude&#39;</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Zonal mean surface temperature - observed (degC)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_depths</span><span class="p">):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">num_depths</span><span class="p">,</span><span class="n">num_depths</span><span class="o">+</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_steps_per_year</span><span class="p">),</span>
+                      <span class="n">lat</span><span class="p">,</span> <span class="n">Tyear</span><span class="p">[:,:,</span><span class="n">n</span><span class="p">],</span> <span class="n">levels</span><span class="o">=</span><span class="n">clevels</span><span class="p">,</span> 
+                      <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">seismic</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">Tmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">Tmax</span><span class="p">)</span>
+    <span class="n">cbar1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;water depth = </span><span class="si">%.0f</span><span class="s1"> m&#39;</span> <span class="o">%</span><span class="n">models</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="s1">&#39;water_depth&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span> <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Days of year&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span> <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Latitude&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Which one looks more realistic? Depends a bit on where you look. But overall, the observed seasonal cycle matches the 10 meter case best. The effective heat capacity governing the seasonal cycle of the zonal mean temperature is closer to 10 meters of water than to either 2 or 50 meters.</p>
+<section id="making-an-animation-of-the-ebm-solutions">
+<h3><span class="section-number">22.3.1. </span>Making an animation of the EBM solutions<a class="headerlink" href="#making-an-animation-of-the-ebm-solutions" title="Permalink to this headline">#</a></h3>
+<p>Let’s animate the seasonal cycle of insolation and temperature in our models with the three different water depths</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">initial_figure</span><span class="p">(</span><span class="n">models</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">models</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">models</span><span class="p">)):</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+        <span class="n">c1</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span>
+        <span class="n">Tsline</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">models</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">Ts</span><span class="p">,</span> <span class="n">c1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;water depth = </span><span class="si">%.0f</span><span class="s1"> m&#39;</span> <span class="o">%</span><span class="n">models</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="s1">&#39;water_depth&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span> <span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Latitude&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c1</span> <span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">60</span><span class="p">,</span><span class="mi">60</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">tl</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">():</span>
+            <span class="n">tl</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+        <span class="n">c2</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span>
+        <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+        <span class="n">Qline</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">models</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">insolation</span><span class="p">,</span> <span class="n">c2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Insolation (W m$^{-2}$)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">tl</span> <span class="ow">in</span> <span class="n">ax2</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">():</span>
+            <span class="n">tl</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">])</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">600</span><span class="p">])</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">Tsline</span><span class="p">,</span> <span class="n">Qline</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">lines</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">ebm</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">models</span><span class="p">):</span>
+        <span class="n">ebm</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+        <span class="c1">#  The rest of this is just updating the plot</span>
+        <span class="n">lines</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">(</span><span class="n">ebm</span><span class="o">.</span><span class="n">Ts</span><span class="p">)</span>
+        <span class="n">lines</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">(</span><span class="n">ebm</span><span class="o">.</span><span class="n">insolation</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lines</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Plot initial data</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">lines</span> <span class="o">=</span> <span class="n">initial_figure</span><span class="p">(</span><span class="n">models</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Some imports needed to make and display animations</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
+
+<span class="n">num_steps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s1">&#39;num_steps_per_year&#39;</span><span class="p">])</span>
+<span class="n">ani</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> 
+        <span class="n">frames</span><span class="o">=</span><span class="n">num_steps</span><span class="p">,</span>
+        <span class="n">interval</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+        <span class="n">fargs</span><span class="o">=</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">lines</span><span class="p">),</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_html5_video</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><a id='section4'></a></p>
+</section>
+</section>
+<section id="the-seasonal-cycle-for-a-planet-with-90o-obliquity">
+<h2><span class="section-number">22.4. </span>4. The seasonal cycle for a planet with 90º obliquity<a class="headerlink" href="#the-seasonal-cycle-for-a-planet-with-90o-obliquity" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>The EBM code uses our familiar <code class="docutils literal notranslate"><span class="pre">insolation.py</span></code> code to calculate insolation, and therefore it’s easy to set up a model with different orbital parameters. Here is an example with <strong>very</strong> different orbital parameters: 90º obliquity. We looked at the distribution of insolation by latitude and season for this type of planet in the last homework.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">orb_highobl</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ecc&#39;</span><span class="p">:</span><span class="mf">0.</span><span class="p">,</span> 
+               <span class="s1">&#39;obliquity&#39;</span><span class="p">:</span><span class="mf">90.</span><span class="p">,</span> 
+               <span class="s1">&#39;long_peri&#39;</span><span class="p">:</span><span class="mf">0.</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">orb_highobl</span><span class="p">)</span>
+<span class="n">model_highobl</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">EBM_seasonal</span><span class="p">(</span><span class="n">orb</span><span class="o">=</span><span class="n">orb_highobl</span><span class="p">,</span> <span class="o">**</span><span class="n">param</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">model_highobl</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="s1">&#39;orb&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Repeat the same procedure to calculate and store temperature throughout one year, after letting the models run out to equilibrium.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Tann_highobl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span> <span class="p">[</span><span class="n">lat</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">num_depths</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">models_highobl</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_depths</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">EBM_seasonal</span><span class="p">(</span><span class="n">water_depth</span><span class="o">=</span><span class="n">water_depths</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> 
+                                 <span class="n">orb</span><span class="o">=</span><span class="n">orb_highobl</span><span class="p">,</span> 
+                                 <span class="o">**</span><span class="n">param</span><span class="p">)</span>
+    <span class="n">models_highobl</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    <span class="n">models_highobl</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">integrate_years</span><span class="p">(</span><span class="mf">40.</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+    <span class="n">models_highobl</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">integrate_years</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">Tann_highobl</span><span class="p">[:,</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">models_highobl</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">timeave</span><span class="p">[</span><span class="s1">&#39;Ts&#39;</span><span class="p">])</span>
+
+<span class="n">Tyear_highobl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">lat</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">num_steps_per_year</span><span class="p">,</span> <span class="n">num_depths</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_depths</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps_per_year</span><span class="p">):</span>
+        <span class="n">models_highobl</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+        <span class="n">Tyear_highobl</span><span class="p">[:,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">models_highobl</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">Ts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And plot the seasonal temperature cycle same as we did above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">Tmax_highobl</span> <span class="o">=</span> <span class="mi">125</span><span class="p">;</span> <span class="n">Tmin_highobl</span> <span class="o">=</span> <span class="o">-</span><span class="n">Tmax_highobl</span><span class="p">;</span> <span class="n">delT_highobl</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">clevels_highobl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Tmin_highobl</span><span class="p">,</span> <span class="n">Tmax_highobl</span><span class="o">+</span><span class="n">delT_highobl</span><span class="p">,</span> <span class="n">delT_highobl</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_depths</span><span class="p">):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">num_depths</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span> <span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_steps_per_year</span><span class="p">),</span> <span class="n">lat</span><span class="p">,</span> <span class="n">Tyear_highobl</span><span class="p">[:,:,</span><span class="n">n</span><span class="p">],</span> 
+        <span class="n">levels</span><span class="o">=</span><span class="n">clevels_highobl</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">seismic</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">Tmin_highobl</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">Tmax_highobl</span> <span class="p">)</span>
+    <span class="n">cbar1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;water depth = </span><span class="si">%.0f</span><span class="s1"> m&#39;</span> <span class="o">%</span><span class="n">models</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="s1">&#39;water_depth&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span> <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Days of year&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span> <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Latitude&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the temperature range is much larger than for the Earth-like case above (but same contour interval, 10 degC).</p>
+<p>Why is the temperature so uniform in the north-south direction with 50 meters of water?</p>
+<p>To see the reason, let’s plot the annual mean insolation at 90º obliquity, alongside the present-day annual mean insolation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lat2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">181</span><span class="p">)</span>
+<span class="n">days</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span><span class="mf">50.</span><span class="p">)</span><span class="o">/</span><span class="mi">50</span> <span class="o">*</span> <span class="n">const</span><span class="o">.</span><span class="n">days_per_year</span>
+<span class="n">Q_present</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">solar</span><span class="o">.</span><span class="n">insolation</span><span class="o">.</span><span class="n">daily_insolation</span><span class="p">(</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">days</span> <span class="p">)</span>
+<span class="n">Q_highobl</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">solar</span><span class="o">.</span><span class="n">insolation</span><span class="o">.</span><span class="n">daily_insolation</span><span class="p">(</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">days</span><span class="p">,</span> <span class="n">orb_highobl</span> <span class="p">)</span>
+<span class="n">Q_present_ann</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span> <span class="n">Q_present</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+<span class="n">Q_highobl_ann</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span> <span class="n">Q_highobl</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">Q_present_ann</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Earth&#39;</span> <span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">Q_highobl_ann</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;90deg obliquity&#39;</span> <span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Latitude&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span> <span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;W m$^{-2}$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span> <span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Annual mean insolation for two different obliquities&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Though this is a bit misleading, because our model prescribes an increase in albedo from the equator to the pole. So the absorbed shortwave gradients look even more different.</p>
+<p>If you are interested in how ice-albedo feedback might work on a high-obliquity planet with a cold equator, then I suggest you take a look at this paper:</p>
+<p><a class="reference external" href="https://iopscience.iop.org/article/10.3847/1538-4357/aa8306/meta">Rose, Cronin and Bitz (2017): Ice Caps and Ice Belts: The Effects of Obliquity on Ice−Albedo Feedback, The Astrophysical Journal 846, doi:10.3847/1538-4357/aa8306</a></p>
+</section>
+<hr class="docutils" />
+<section id="credits">
+<h2><span class="section-number">22.5. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">#</a></h2>
+<p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a>, an open-source textbook developed and maintained by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
+<p>It is licensed for free and open consumption under the
+<a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license.</p>
+<p>Development of these notes and the <a class="reference external" href="https://github.com/brian-rose/climlab">climlab software</a> is partially supported by the National Science Foundation under award AGS-1455071 to Brian Rose. Any opinions, findings, conclusions or recommendations expressed here are mine and do not necessarily reflect the views of the National Science Foundation.</p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./courseware/week7"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lab21_one-dim-ebm.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>The one-dimensional energy balance model</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lab23_cesm-atmospheric-dynamics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>Atmospheric Dynamics in the CESM</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-observed-seasonal-cycle-from-ncep-reanalysis-data">22.1. 1. The observed seasonal cycle from NCEP Reanalysis data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-toy-model-of-the-seasonal-cycle">22.2. 2. Analytical toy model of the seasonal cycle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-annual-mean">22.2.1. The annual mean:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-seasonal-problem">22.2.2. The seasonal problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-heat-capacity-the-radiative-equilibrium-solution">22.2.3. Zero heat capacity: the radiative equilibrium solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-dimensional-heat-capacity-parameter">22.2.4. Non-dimensional heat capacity parameter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-for-the-phase-shift">22.2.5. Solving for the phase shift</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-for-the-amplitude">22.2.6. Solving for the amplitude</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-water-limit">22.2.7. Shallow water limit:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-water-limit">22.2.8. Deep water limit:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-values-of-tilde-c-are-realistic">22.2.9. What values of <span class="math notranslate nohighlight">\(\tilde{C}\)</span> are realistic?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-capacity-of-the-atmosphere">22.2.9.1. Heat capacity of the atmosphere</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-capacity-of-a-water-surface">22.2.9.2. Heat capacity of a water surface</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tilde-c-for-a-dry-land-surface">22.2.9.3. <span class="math notranslate nohighlight">\(\tilde{C}\)</span> for a dry land surface</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tilde-c-for-a-100-meter-ocean-mixed-layer">22.2.9.4. <span class="math notranslate nohighlight">\(\tilde{C}\)</span> for a 100 meter ocean mixed layer</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-upshot-tilde-c-is-closer-to-the-deep-water-limit">22.2.10. The upshot: <span class="math notranslate nohighlight">\(\tilde{C}\)</span> is closer to the deep water limit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-full-solution-for-a-range-of-water-depths">22.2.11. Plot the full solution for a range of water depths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-seasonal-phase-shift">22.2.12. The seasonal phase shift</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-amplitude-of-the-seasonal-cycle-with-an-ebm">22.3. 3. Exploring the amplitude of the seasonal cycle with an EBM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-an-animation-of-the-ebm-solutions">22.3.1. Making an animation of the EBM solutions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-seasonal-cycle-for-a-planet-with-90o-obliquity">22.4. 4. The seasonal cycle for a planet with 90º obliquity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#credits">22.5. Credits</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Rose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

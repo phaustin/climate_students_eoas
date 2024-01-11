@@ -1,0 +1,1151 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>26. Coupled Dynamics in the CESM &#8212; Climate Laboratory Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/week8/lab26_cesm-coupled-dynamics';</script>
+    <link rel="canonical" href="https://phaustin.github.io/ClimateLaboratoryBook/courseware/week8/lab26_cesm-coupled-dynamics.html" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The surface energy balance" href="../week9/lab27_surface-energy-balance.html" />
+    <link rel="prev" title="25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM" href="lab25_3_advanced-snowball-earth.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../home.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Climate Laboratory Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home.html">
+                    The Climate Laboratory
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ugradsyllabus.html">Undergraduate Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gradsyllabus.html">Graduate Syllabus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../week1_topics.html">Week 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week2_topics.html">Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week3_topics.html">Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week4_topics.html">Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week7_topics.html">Week 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble.html">Preamble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About this Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../who-for.html">Who is the book for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how-to.html">How to use this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attribution.html">How to cite and reuse this material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra_reading.html">Additional resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week1/lab1_models-budgets-fun.html">1. Climate models, the global energy budget, and Fun with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab4_introducing-cesm.html">4. Introducing the Community Earth System Model (CESM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab5_climlab-intro.html">5. Building simple climate models using climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab6_radiation.html">6. A Brief Review of Radiation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab7_elementary-greenhouse.html">7. Elementary greenhouse models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/lab8_sympy-greenhouse.html">8. Advanced topic: Solving the two-layer grey gas model analytically with sympy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week4/lab9_grey-radiation-climlab.html">9. Grey radiation modeling with climlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/lab10_radiative-transfer.html">10. Modeling non-scattering radiative transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/lab11_spectral-bands.html">11. Who needs spectral bands? We do. Some baby steps…</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab12_radeq.html">12. Radiative Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/lab18_insolation.html">18. Insolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab21_one-dim-ebm.html">21. The one-dimensional energy balance model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab22_seasonal-cycle.html">22. Modeling the seasonal cycle of surface temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab23_cesm-atmospheric-dynamics.html">23. Atmospheric Dynamics in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab24_numerical-diffusion.html">24. A peek at numerical methods for diffusion models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">26. Coupled Dynamics in the CESM</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab27_surface-energy-balance.html">The surface energy balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab28_land-ocean-contrast.html">Land-Ocean contrasts under climate change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/lab29_water-water-everywhere.html">Water, water everywhere!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../about-assignments.html">About the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment1-zero-dim-ebm.html">Assignment: Climate change in the zero-dimensional EBM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment2-cesm-control.html">Assignment: Global average budgets in the CESM pre-industrial control simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment2-cesm-control-hints.html">Additional hints and guidance for CESM budgets assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment3-simple-clouds.html">Assignment: Clouds in the Leaky Greenhouse Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment4-rcm-feedback.html">Assignment: Feedbacks in the Radiative-Convective Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment5-cesm-climate-change.html">Assignment: Climate change in the CESM simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment6-insolation-orbit.html">Assignment: Insolation and orbital parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">xarray tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../xarray/01-xarray-intro.html">Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xarray/02-computation-masking.html">Computations and Masks with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xarray/03-enso-xarray.html">Calculating ENSO with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xarray/04-dask-arrays-xarray.html">Dask Arrays with Xarray</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/feedback_notation.html">Feedback notation for worksheet 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydrostat.html">Hydrostatic balance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydrostatic_balance.html">Scale heights for typical atmospheric soundings</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../multi_layer_equilibrium.html">Radiative equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bayes_lecture.html">What I wish I’d known about statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/week8/lab26_cesm-coupled-dynamics.md&branch=jb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/courseware/week8/lab26_cesm-coupled-dynamics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/courseware/week8/lab26_cesm-coupled-dynamics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Coupled Dynamics in the CESM</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#low-frequency-variability-in-the-cesm">26.1. Low frequency variability in the CESM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slab-ocean-and-coupled-ocean-low-frequency-variability">26.2. Slab ocean and coupled ocean low frequency variability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-el-nino-southern-oscillation">26.3. The El Nino Southern Oscillation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enso-and-the-pdo">26.4. ENSO and the PDO</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-exploration">26.4.1. Further Exploration</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="coupled-dynamics-in-the-cesm">
+<span id="nb-coupdyn"></span><h1><span class="section-number">26. </span>Coupled Dynamics in the CESM<a class="headerlink" href="#coupled-dynamics-in-the-cesm" title="Permalink to this headline">#</a></h1>
+<p>This notebook is an extension of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany. Notebook by Rachel H. White, University of British Columbia (https://www.eoas.ubc.ca/people/rachelwhite)</p>
+<p>There are ‘Discussion points’ and ‘Exercises’ throughout these notebooks. You should come to class prepared to discuss your thoughts on the Discussion points.</p>
+<p>Learning goals:</p>
+<ul class="simple">
+<li><p>Be able to analyse coupled (atmosphere-ocean) dynamics in the CESM climate model data</p></li>
+<li><p>Understand how the coupled system produces low-frequency climate variability, and consider the implications of this for understanding climate change</p></li>
+<li><p>Evaluate differences in low-frequency climate variability between slab-ocean and fully coupled simulations</p></li>
+</ul>
+<p><strong>You need to be connected to the internet to run the code in this notebook</strong></p>
+<p>You can browse the available data through a web interface here:</p>
+<p>http://thredds.atmos.albany.edu:8080/thredds/catalog.html</p>
+<p>Within this folder called <code class="docutils literal notranslate"><span class="pre">CESM</span> <span class="pre">archive</span></code>, you will find another folder called <code class="docutils literal notranslate"><span class="pre">som_input</span></code> which contains all the input files.</p>
+<hr class="docutils" />
+<section id="low-frequency-variability-in-the-cesm">
+<h2><span class="section-number">26.1. </span>Low frequency variability in the CESM<a class="headerlink" href="#low-frequency-variability-in-the-cesm" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">Ngl</span>
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">cartopy.util</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="k">as</span> <span class="nn">cfeature</span>
+<span class="kn">from</span> <span class="nn">eofs.standard</span> <span class="kn">import</span> <span class="n">Eof</span>
+
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cesm_data_path</span> <span class="o">=</span> <span class="s2">&quot;http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in slab ocean data</span>
+<span class="n">atmfile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span> <span class="n">cesm_data_path</span> <span class="o">+</span> <span class="s1">&#39;som_1850_f19/concatenated/&#39;</span> <span class="o">+</span> <span class="s1">&#39;som_1850_f19.cam.h0.nc&#39;</span><span class="p">)</span>
+<span class="c1">#atmfile = xr.open_dataset( cesm_data_path + &quot;cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc&quot;)</span>
+<span class="n">atmfile</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This data is a concatenated dataset of monthly data - we expect that it’s monthly data because of the file name - with the CESM model the ‘h0’ in the file name is short for ‘history file 0’. The default is for ‘history file 0’ to be monthly data. You can change the CESM model to output additional history files (h1, h2, h3…) at a different time resolution. The default for ‘h1’ is daily data. If you are interested in looking at storm tracks, and their influence on heat transport and surface weather, you might have h1 be outputting daily data for just a few variables of interest to eddy dynamics (winds, geopotential height), and h2 to be outputting 6-hourly data for a few 2D fields such as precipitation, surface temperature and surface pressure (outputting 6-hourly data on 3D fields will take up a lot of space very quickly).</p>
+<p>We can confirm that it is monthly data by looking at the times in the file above. Compare this to the h1 files that are also available from this thredds directory:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">atmfileh1_0001</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">cesm_data_path</span> <span class="o">+</span> <span class="s1">&#39;som_1850_f19/atm/hist/&#39;</span> <span class="o">+</span> 
+                                 <span class="s1">&#39;som_1850_f19.cam.h1.0001-01-01-00000.nc&#39;</span><span class="p">)</span>
+<span class="c1">#atmfile = xr.open_dataset( cesm_data_path + &quot;cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc&quot;)</span>
+<span class="n">atmfileh1_0001</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Discussion:</strong> <em>What is the time resolution of the h1 files?</em></p>
+<p>As discussed in Hartmann chapter 8, single point correlation maps are one way of looking at the variability - these show how values of a variables at places all around the globe vary together with that variable at a particular point; that is, they show spatial patterns of variability. Let’s try to reproduce figure 8.4b.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># First calculate new arrays that hold seasonal data</span>
+<span class="n">Z3_seas</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">data</span> <span class="ow">in</span> <span class="n">atmfile</span><span class="o">.</span><span class="n">Z3</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.season&#39;</span><span class="p">):</span>
+    <span class="n">Z3_seas</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+    
+<span class="n">PS_seas</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">data</span> <span class="ow">in</span> <span class="n">atmfile</span><span class="o">.</span><span class="n">PS</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.season&#39;</span><span class="p">):</span>
+    <span class="n">PS_seas</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># First we want to convert to pressure levels </span>
+<span class="k">def</span> <span class="nf">hybrid2pres</span><span class="p">(</span><span class="n">filein</span><span class="p">,</span><span class="n">varin</span><span class="p">,</span><span class="n">PSin</span><span class="p">,</span><span class="n">plevels</span><span class="p">,</span><span class="n">timedim</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="c1"># the parameters hyam and hybm are parameters used to calculate the pressure from the level value</span>
+    <span class="n">hyam</span> <span class="o">=</span> <span class="n">filein</span><span class="p">[</span><span class="s1">&#39;hyam&#39;</span><span class="p">]</span>
+    <span class="n">hybm</span> <span class="o">=</span> <span class="n">filein</span><span class="p">[</span><span class="s1">&#39;hybm&#39;</span><span class="p">]</span>
+    <span class="n">p0mb</span> <span class="o">=</span> <span class="n">filein</span><span class="p">[</span><span class="s1">&#39;P0&#39;</span><span class="p">]</span><span class="o">/</span><span class="mf">100.0</span>
+    
+    <span class="n">varpres</span> <span class="o">=</span> <span class="n">Ngl</span><span class="o">.</span><span class="n">vinth2p</span><span class="p">(</span><span class="n">varin</span><span class="p">,</span> <span class="n">hyam</span><span class="p">,</span> <span class="n">hybm</span><span class="p">,</span> <span class="n">plevels</span><span class="p">,</span> <span class="n">PSin</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p0mb</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="c1"># This has set values below the surface to 1E30. We want these to be nan:</span>
+    <span class="n">varpres</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">varpres</span><span class="o">&gt;=</span><span class="mf">1E30</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">varpres</span><span class="p">)</span>
+
+    <span class="c1"># Create xarray from this numpy ndarray:</span>
+    <span class="k">if</span> <span class="n">timedim</span><span class="p">:</span>
+        <span class="n">varpres_xr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">varpres</span><span class="p">,</span>
+                              <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;plev&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span>
+                              <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="n">varin</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="s1">&#39;plev&#39;</span><span class="p">:</span><span class="n">plevels</span><span class="p">,</span>
+                                      <span class="s1">&#39;lat&#39;</span><span class="p">:</span><span class="n">varin</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">:</span><span class="n">varin</span><span class="o">.</span><span class="n">lon</span><span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">varpres_xr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">varpres</span><span class="p">,</span>
+                              <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;plev&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span>
+                              <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;plev&#39;</span><span class="p">:</span><span class="n">plevels</span><span class="p">,</span>
+                                      <span class="s1">&#39;lat&#39;</span><span class="p">:</span><span class="n">varin</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">:</span><span class="n">varin</span><span class="o">.</span><span class="n">lon</span><span class="p">})</span>
+        
+    <span class="k">return</span><span class="p">(</span><span class="n">varpres_xr</span><span class="p">)</span>
+
+<span class="c1"># we&#39;re interested in the 500mb level, so we can just select that level </span>
+<span class="c1"># For DJF:</span>
+<span class="n">Z500_DJF</span> <span class="o">=</span> <span class="n">hybrid2pres</span><span class="p">(</span><span class="n">atmfile</span><span class="p">,</span><span class="n">Z3_seas</span><span class="p">[</span><span class="s1">&#39;DJF&#39;</span><span class="p">],</span><span class="n">PS_seas</span><span class="p">[</span><span class="s1">&#39;DJF&#39;</span><span class="p">],[</span><span class="mi">500</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the point that we want to calculate correlations from: (fig. 8.4c)</span>
+<span class="c1"># Estimate that P is at: 45N, 200E (</span>
+<span class="c1"># Warning - when using new datasets you should always check whether the</span>
+<span class="c1"># longitudes are 0-360, not -180 to 180)</span>
+
+<span class="c1"># Because the latitudes are not spaced such that there is a grid box centred on 45N, if</span>
+<span class="c1"># we use .sel(lat=45) it will fail:</span>
+
+<span class="c1"># pointvals = Z500_DJF.sel(lat=45).sel(lon=200)</span>
+
+<span class="c1"># We can either look at the data and select a latitude value that does exist,</span>
+<span class="c1"># or ask xarray to just pick the nearest point to the value we have asked for:</span>
+<span class="n">pointvals</span> <span class="o">=</span> <span class="n">Z500_DJF</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now correlate this timeseries with that from a nearby gridpoint:</span>
+<span class="n">tocorr</span> <span class="o">=</span> <span class="n">Z500_DJF</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mi">210</span><span class="p">)</span>
+<span class="c1">#print(pointvals.squeeze())</span>
+<span class="n">corr</span><span class="p">,</span><span class="n">r</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">pointvals</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span><span class="n">tocorr</span><span class="o">.</span><span class="n">squeeze</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+
+<span class="c1"># We can see there is a very strong correlation, that has a very low p-value (r; note</span>
+<span class="c1"># this assumes your data are normally distrubuted which may not be the case!)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># To build the 1-point correlation maps we can repeat this for every point</span>
+<span class="n">nlats</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Z500_DJF</span><span class="o">.</span><span class="n">lat</span><span class="p">)</span>
+<span class="n">nlons</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Z500_DJF</span><span class="o">.</span><span class="n">lon</span><span class="p">)</span>
+
+<span class="n">corrarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">nlats</span><span class="p">,</span><span class="n">nlons</span><span class="p">],</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">rarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">nlats</span><span class="p">,</span><span class="n">nlons</span><span class="p">],</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">ilat</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nlats</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">ilon</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nlons</span><span class="p">):</span>
+        <span class="c1"># if we use isel instead of sel, we select on indices, instead of values:</span>
+        <span class="n">tocorr</span> <span class="o">=</span> <span class="n">Z500_DJF</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="n">ilat</span><span class="p">)</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="n">ilon</span><span class="p">)</span>
+        <span class="n">corrarray</span><span class="p">[</span><span class="n">ilat</span><span class="p">,</span><span class="n">ilon</span><span class="p">],</span><span class="n">rarray</span><span class="p">[</span><span class="n">ilat</span><span class="p">,</span><span class="n">ilon</span><span class="p">]</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">pointvals</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span><span class="n">tocorr</span><span class="o">.</span><span class="n">squeeze</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can now plot this 1-point correlation array for comparison with fig. 8.4c in Hartmann</span>
+<span class="n">toplot</span> <span class="o">=</span> <span class="n">corrarray</span>
+<span class="n">ncols</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">nrows</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">n</span><span class="o">=</span><span class="mi">1</span>
+
+<span class="n">title</span><span class="o">=</span><span class="s1">&#39;DJF 1-point correlation map Z500 monthly data&#39;</span>
+
+<span class="n">proj</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Orthographic</span><span class="p">(</span><span class="n">central_latitude</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">ncols</span><span class="p">,</span><span class="n">nrows</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+<span class="n">gl</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span><span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+
+<span class="n">cp</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">Z500_DJF</span><span class="o">.</span><span class="n">lon</span><span class="p">,</span><span class="n">Z500_DJF</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">toplot</span><span class="p">,</span><span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.01</span><span class="p">,</span><span class="mf">0.2</span><span class="p">),</span><span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span>
+                  <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add colorbar</span>
+<span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cp</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is often useful to mask your data for statistical significance, and this can be done fairly easily with python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can now plot this 1-point correlation array for comparison with fig. 8.4c in Hartmann</span>
+
+<span class="c1"># Set the p-value for which we want to show the data:</span>
+<span class="n">p</span><span class="o">=</span><span class="mf">0.05</span>
+
+<span class="n">toplot</span> <span class="o">=</span> <span class="n">corrarray</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">rarray</span><span class="o">&lt;</span><span class="n">p</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+
+<span class="n">ncols</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">nrows</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">n</span><span class="o">=</span><span class="mi">1</span>
+
+<span class="n">title</span><span class="o">=</span><span class="s1">&#39;DJF 1-point correlation map Z500 monthly data&#39;</span>
+
+<span class="n">proj</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Orthographic</span><span class="p">(</span><span class="n">central_latitude</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">nrows</span><span class="p">,</span><span class="n">ncols</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+<span class="n">gl</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span><span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+
+<span class="n">cp</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">Z500_DJF</span><span class="o">.</span><span class="n">lon</span><span class="p">,</span><span class="n">Z500_DJF</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">toplot</span><span class="p">,</span><span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.01</span><span class="p">,</span><span class="mf">0.2</span><span class="p">),</span><span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span>
+                  <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">)</span>
+<span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cp</span><span class="p">)</span>
+
+<span class="c1"># Choose to hatch where the data is NOT statistically significant at our chosen level</span>
+<span class="n">cp</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">Z500_DJF</span><span class="o">.</span><span class="n">lon</span><span class="p">,</span><span class="n">Z500_DJF</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">mask</span><span class="p">,</span><span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.99</span><span class="p">],</span><span class="n">hatches</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">],</span>
+                  <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span> <span class="o">+</span> <span class="s1">&#39;; p&lt;&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> <em>Repeat this analysis for a 1-point correlation for point A on Figure 8.4d. Add the letters A and P onto
+these figures in the correct places to illustrate the point used for the correlations.</em>
+##Discussion:** _Why are we only looking at figure 8.4c and 8.4d. What are the additional steps required to reproduce
+figures 8.4a and b?</p>
+</section>
+<section id="slab-ocean-and-coupled-ocean-low-frequency-variability">
+<h2><span class="section-number">26.2. </span>Slab ocean and coupled ocean low frequency variability<a class="headerlink" href="#slab-ocean-and-coupled-ocean-low-frequency-variability" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in fully coupled ocean data</span>
+<span class="n">atmfile_cpl</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span> <span class="n">cesm_data_path</span> <span class="o">+</span> <span class="s1">&#39;cpl_1850_f19/concatenated/&#39;</span> <span class="o">+</span> <span class="s1">&#39;cpl_1850_f19.cam.h0.nc&#39;</span><span class="p">)</span>
+<span class="c1">#atmfile = xr.open_dataset( cesm_data_path + &quot;cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc&quot;)</span>
+<span class="n">atmfile_cpl</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> <em>Calculate the single point correlation maps for the coupled data, and compare to the slab ocean plots.</em>
+<strong>Discussion:</strong> <em>Are these plots significantly different? Is this what you would expect? Why/why not?</em></p>
+</section>
+<section id="the-el-nino-southern-oscillation">
+<h2><span class="section-number">26.3. </span>The El Nino Southern Oscillation<a class="headerlink" href="#the-el-nino-southern-oscillation" title="Permalink to this headline">#</a></h2>
+<p>If you are not familiar with the El Nino Southern Oscillation (ENSO) I suggest you read through section 8.3 of the Hartmann book before attempting this section.</p>
+<p>First, let’s check that the model correctly simulates the average zonally asymmetric circulation patterns in the tropics (for comparison with figure 8.9).</p>
+<p>OMEGA is the variable containing the vertical (pressure) velocity, in Pa/s</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Because there isn&#39;t a grid box centred on 0, we take an average across the equator. We first check that</span>
+<span class="c1"># this is symmetrical about the equator:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">atmfile</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">lat</span><span class="p">)</span>
+
+<span class="n">omega</span> <span class="o">=</span> <span class="n">atmfile</span><span class="o">.</span><span class="n">OMEGA</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">PS</span> <span class="o">=</span> <span class="n">atmfile</span><span class="o">.</span><span class="n">PS</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">omega_cpl</span> <span class="o">=</span> <span class="n">atmfile_cpl</span><span class="o">.</span><span class="n">OMEGA</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">PS_cpl</span> <span class="o">=</span> <span class="n">atmfile_cpl</span><span class="o">.</span><span class="n">PS</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="c1"># convert to pressure levels</span>
+<span class="n">pnew</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1000.</span><span class="p">,</span><span class="mf">850.</span><span class="p">,</span><span class="mf">700.</span><span class="p">,</span><span class="mf">600.</span><span class="p">,</span><span class="mf">500.</span><span class="p">,</span><span class="mf">400.</span><span class="p">,</span><span class="mf">300.</span><span class="p">,</span><span class="mf">250.</span><span class="p">,</span><span class="mf">200.</span><span class="p">,</span><span class="mf">150.</span><span class="p">,</span><span class="mf">100.</span><span class="p">,</span><span class="mf">70.</span><span class="p">,</span><span class="mf">50.</span><span class="p">,</span><span class="mf">30.</span><span class="p">,</span><span class="mf">20.</span><span class="p">,</span><span class="mf">10.</span><span class="p">,</span><span class="mf">5.</span><span class="p">]</span>
+
+<span class="n">omega_pres</span> <span class="o">=</span> <span class="n">hybrid2pres</span><span class="p">(</span><span class="n">atmfile</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">PS</span><span class="p">,</span><span class="n">pnew</span><span class="p">,</span><span class="n">timedim</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span>
+<span class="n">omega_cpl_pres</span> <span class="o">=</span> <span class="n">hybrid2pres</span><span class="p">(</span><span class="n">atmfile_cpl</span><span class="p">,</span><span class="n">omega_cpl</span><span class="p">,</span><span class="n">PS_cpl</span><span class="p">,</span><span class="n">pnew</span><span class="p">,</span><span class="n">timedim</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the equatorial cross-section</span>
+<span class="n">omega_pres</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.02</span><span class="p">),</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">omega_pres</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.02</span><span class="p">),</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="c1"># invert the axis so it represents height, but shows pressure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="c1"># set the top and bottom pressure of the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Slab ocean equatorial vertical pressure velocity, annual mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">omega_cpl_pres</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.02</span><span class="p">),</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">omega_cpl_pres</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.02</span><span class="p">),</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="c1"># invert the axis so it represents height, but shows pressure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="c1"># set the top and bottom pressure of the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Coupled ocean equatorial vertical pressure velocity, annual mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Discussion:</strong> <em>Compare the model results to the observations shown in the Hartmann textbook and to each other.</em></p>
+<p>Now let’s calculate indices of the ENSO.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can calculate the Nino3 index in these models and compare the variability.</span>
+<span class="c1"># Convert from K to C on the way</span>
+<span class="n">Nino3</span> <span class="o">=</span> <span class="n">atmfile</span><span class="o">.</span><span class="n">TS</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">lon</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">210</span><span class="p">,</span><span class="mi">270</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="mf">273.15</span>
+<span class="n">Nino3_cpl</span> <span class="o">=</span> <span class="n">atmfile_cpl</span><span class="o">.</span><span class="n">TS</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">lon</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">210</span><span class="p">,</span><span class="mi">270</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="mf">273.15</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate climatologies and compare</span>
+<span class="k">def</span> <span class="nf">create_clim</span><span class="p">(</span><span class="n">indata</span><span class="p">):</span>
+    <span class="n">nyears</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">indata</span><span class="o">.</span><span class="n">time</span><span class="p">)</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span>
+    <span class="c1"># reshape data</span>
+    <span class="n">indata_years</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">indata</span><span class="o">.</span><span class="n">values</span><span class="p">,(</span><span class="n">nyears</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+    <span class="n">clim</span> <span class="o">=</span> <span class="n">indata_years</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">clim</span><span class="p">)</span>
+
+<span class="n">Nino3_clim</span> <span class="o">=</span> <span class="n">create_clim</span><span class="p">(</span><span class="n">Nino3</span><span class="p">)</span>
+<span class="n">Nino3_cpl_clim</span> <span class="o">=</span> <span class="n">create_clim</span><span class="p">(</span><span class="n">Nino3_cpl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot to compare the Nino3 climatologies of the two models.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">),</span><span class="n">Nino3_clim</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;slab ocean&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">),</span><span class="n">Nino3_cpl_clim</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;coupled ocean&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;month of year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature (C)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Nino3 climatology&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that both models follow a similar climatology in the Nino3 index, which is largely driven by the seasonal cycle. It makes sense that both oceans reproduce the seasonal cycle in surface temperature as this is, at least in tropics, strongly forced by incoming solar radiation. Note that this seasonal cycle shows two peaks (Dec/Jan and May) and two troughs (Feb and Sep) per year.</p>
+<p><strong>Discussion:</strong> <em>Why does the climatology of tropical SSTs show two peaks per year? Is that what you would expect to see in observations, or do you think there is something wrong with this model?</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now calculate the anomalies from this climatology:</span>
+<span class="c1"># need to repeat the climatology for each year in order to subtract arrays</span>
+<span class="n">nyears</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">nyears_cpl</span><span class="o">=</span><span class="mi">20</span>
+<span class="n">Nino3_clim_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">Nino3_clim</span><span class="p">,</span><span class="n">nyears</span><span class="p">)</span>
+<span class="n">Nino3_anoms</span> <span class="o">=</span> <span class="n">Nino3</span> <span class="o">-</span> <span class="n">Nino3_clim_all</span>
+
+<span class="n">Nino3_cpl_clim_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">Nino3_cpl_clim</span><span class="p">,</span><span class="n">nyears_cpl</span><span class="p">)</span>
+<span class="n">Nino3_cpl_anoms</span> <span class="o">=</span> <span class="n">Nino3_cpl</span> <span class="o">-</span> <span class="n">Nino3_cpl_clim_all</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> <em>Create a plot to compare the anomalies in the slab ocean and fully coupled ocean experiments. Note that the coupled ocean has only 20 years, while the slab ocean has 30.</em></p>
+<p><strong>Discussion:</strong> <em>Which model has more variability? Is this what you would expect? Which model has more low frequency variability? What does this tell you about variability of ocean surface tempertures in the Nino3 region?</em></p>
+<p>Rather than estimating the variability, we can calculate the power specturm using fast fourier transforms.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a simple (non-normalized) power density spectrum using Fourier analysis</span>
+<span class="n">Nino3_fft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">Nino3_anoms</span><span class="p">)</span>
+
+<span class="n">Nino3_powerspec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Nino3_fft</span><span class="p">))</span>
+<span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">12</span> <span class="c1"># cycles per year</span>
+<span class="n">frequency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Nino3_powerspec</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frequency</span><span class="p">,</span><span class="n">Nino3_powerspec</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;slab ocean&#39;</span><span class="p">)</span>
+
+<span class="c1"># Repeat for coupled experiment</span>
+<span class="n">Nino3_cpl_fft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">Nino3_cpl_anoms</span><span class="p">)</span>
+
+<span class="n">Nino3_cpl_powerspec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Nino3_cpl_fft</span><span class="p">))</span>
+<span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">12</span> <span class="c1"># cycles per year</span>
+<span class="n">frequency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Nino3_cpl_powerspec</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frequency</span><span class="p">,</span><span class="n">Nino3_cpl_powerspec</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;coupled ocean&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Discussion:</strong> <em>Do the two models simulate any realistic ENSO variance? What are the differences between the 2 spectra shown above and between that shown in Fig. 8.12 in the Hartmann book for the observations? Think about why these differences might come about, and what they tell us about the models?</em></p>
+<p>If we want a more detailed spectra for the coupled ocean we need more than 20 years. You can find a simulation of 80 years with CO2 ramping here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">atmfile_cpl_ramp</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span> <span class="n">cesm_data_path</span> <span class="o">+</span> 
+                    <span class="s1">&#39;cpl_CO2ramp_f19/concatenated/&#39;</span> <span class="o">+</span> <span class="s1">&#39;cpl_CO2ramp_f19.cam.h0.nc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This starts off at year 20 of the cpl_1850_f19 simulation, and ramps up CO2, similar to the real World, which gives us a test of climate change as well. This means we also need to remove a linear trend from the TS data before calculating the power spectrum.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Nino3_cpl_ramp</span> <span class="o">=</span> <span class="p">(</span><span class="n">atmfile_cpl_ramp</span><span class="o">.</span><span class="n">TS</span>
+                      <span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">lon</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">210</span><span class="p">,</span><span class="mi">270</span><span class="p">))</span>
+                      <span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="mf">273.15</span><span class="p">)</span>
+<span class="n">Nino3_cpl_ramp_clim</span> <span class="o">=</span> <span class="n">create_clim</span><span class="p">(</span><span class="n">Nino3_cpl_ramp</span><span class="p">)</span>
+
+<span class="n">nyears_cpl_ramp</span><span class="o">=</span><span class="mi">80</span>
+<span class="n">Nino3_cpl_anoms</span> <span class="o">=</span> <span class="n">Nino3_cpl_ramp</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">Nino3_cpl_ramp_clim</span><span class="p">,</span><span class="n">nyears_cpl_ramp</span><span class="p">)</span>
+
+<span class="c1"># Calculate the linear slope using regression:</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">regress</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Nino3_cpl_anoms</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot anomalies and linear regression</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Nino3_cpl_anoms</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">regress</span><span class="o">.</span><span class="n">slope</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">regress</span><span class="o">.</span><span class="n">intercept</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Now remove this linear slope</span>
+<span class="n">Nino3_cpl_anoms_detrend</span> <span class="o">=</span> <span class="n">Nino3_cpl_anoms</span> <span class="o">-</span> <span class="n">regress</span><span class="o">.</span><span class="n">slope</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">regress</span><span class="o">.</span><span class="n">intercept</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Nino3_cpl_anoms_detrend</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> <em>Calculate and plot the power spectrum for these de-trended data for comparison with the 20 year dataset and the observations in the Hartmann book.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a simple (non-normalized) power density spectrum using Fourier analysis</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="enso-and-the-pdo">
+<h2><span class="section-number">26.4. </span>ENSO and the PDO<a class="headerlink" href="#enso-and-the-pdo" title="Permalink to this headline">#</a></h2>
+<p>We can now look at the spatial signal of the ENSO using Empirical Orthogonal Functions (EOFs), a form of Principal Component Analysis. This webpage: https://climatedataguide.ucar.edu/climate-data-tools-and-analysis/empirical-orthogonal-function-eof-analysis-and-rotated-eof-analysis provides a brief overview of EOFs for those not familiar with them. For those who are familiar with them, there is a key sentence here:
+<strong>EOF analysis is <em>not</em> based on physical principles</strong>. This means that just because you find an EOF pattern in your data does NOT mean there is necessarily a physical process that pattern represents. EOFs are a useful tool, but need to be combined with physical understanding.
+For a more in-depth review, see: https://rmets.onlinelibrary.wiley.com/doi/epdf/10.1002/joc.1499</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">indata</span><span class="o">=</span><span class="n">atmfile_cpl_ramp</span><span class="o">.</span><span class="n">TS</span> <span class="o">-</span> <span class="mf">273.15</span>
+
+<span class="c1"># Mask over land values</span>
+<span class="n">landmask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">atmfile_cpl_ramp</span><span class="o">.</span><span class="n">LANDFRAC</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">SST</span> <span class="o">=</span> <span class="n">indata</span> <span class="o">*</span> <span class="n">landmask</span>
+
+<span class="n">nlons</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">SST</span><span class="o">.</span><span class="n">lon</span><span class="p">)</span>
+<span class="n">nlats</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">SST</span><span class="o">.</span><span class="n">lat</span><span class="p">)</span>
+<span class="n">nyears_cpl_ramp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">SST</span><span class="o">.</span><span class="n">time</span><span class="p">)</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">monthly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">indata</span><span class="o">.</span><span class="n">values</span><span class="p">,(</span><span class="n">nyears_cpl_ramp</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="n">nlats</span><span class="p">,</span><span class="n">nlons</span><span class="p">))</span>
+<span class="n">clim</span> <span class="o">=</span> <span class="n">monthly</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clim</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">global_SST_anoms</span> <span class="o">=</span> <span class="n">SST</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">clim</span><span class="p">,[</span><span class="n">nyears_cpl_ramp</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Note: we are using surface temperature from the atmospheric files, rather than the surface temperature from the ocean files: this is because the ocean data are on a different grid, that would require more complex re-gridding</strong></p>
+<p>We are going to calculate EOFs using the EOF package written by Andrew Dawson: https://github.com/ajdawson/eofs</p>
+<p>I recommend trying to follow the example here: https://github.com/ajdawson/eofs/blob/master/examples/standard/sst_example.py to find the ENSO signal in our temperature anomalies. You will have to make some changes due to changes in syntax from older version of python.</p>
+<p>If you get stuck, have a look at the code below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an EOF solver to do the EOF analysis. Square-root of cosine of</span>
+<span class="c1"># latitude weights are applied before the computation of EOFs.</span>
+<span class="n">coslat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">global_SST_anoms</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span>
+<span class="n">wgts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">coslat</span><span class="p">)</span>
+<span class="n">wgts_tile</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">wgts</span><span class="p">,(</span><span class="n">nlons</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+
+<span class="c1"># Check weights:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">global_SST_anoms</span><span class="o">.</span><span class="n">lon</span><span class="p">,</span><span class="n">global_SST_anoms</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">wgts_tile</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="c1"># Calculate EOFs</span>
+<span class="n">solver</span> <span class="o">=</span> <span class="n">Eof</span><span class="p">(</span><span class="n">global_SST_anoms</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">wgts_tile</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">eof1</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">eofsAsCorrelation</span><span class="p">(</span><span class="n">neofs</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pc1</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">pcs</span><span class="p">(</span><span class="n">npcs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pcscaling</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Plot the leading EOF expressed as correlation in the Pacific domain.</span>
+<span class="n">clevs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=</span><span class="mi">190</span><span class="p">))</span>
+<span class="n">fill</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">global_SST_anoms</span><span class="o">.</span><span class="n">lon</span><span class="p">,</span> <span class="n">global_SST_anoms</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">eof1</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">clevs</span><span class="p">,</span>
+                   <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">RdBu_r</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">LAND</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">fill</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">)</span>
+<span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;correlation coefficient&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;EOF1 expressed as correlation&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># Plot the leading PC time series.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">months</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="o">*</span><span class="mi">80</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">pc1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;PC1 Time Series&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Normalized Units&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Discussion:</strong> <em>What is the main pattern that we see in the first EOF? Is this the ENSO signal? If not, what is it?</em></p>
+<p><strong>Exercise:</strong> <em>Repeat the analysis above with the extra step required to get the ENSO signal as the first EOF</em></p>
+<p><strong>Exercise:</strong> <em>We have already seen that the power spectrum of the Nino3 variability in the slab ocean model does not match observations. Have a look at the first EOF of SST in the slab ocean model. What does this tell you about the spatial distribution of variability in the slab ocean model?</em></p>
+<section id="further-exploration">
+<h3><span class="section-number">26.4.1. </span>Further Exploration<a class="headerlink" href="#further-exploration" title="Permalink to this headline">#</a></h3>
+<p><strong>Open-ended exercise:</strong> <em>Read section 8.4 of the Hartmann book. Use the tools provided in this notebook to create one or two more plots exploring the variability in the CESM data. You could:</em></p>
+<ul class="simple">
+<li><p>look at the effect of CO2 on the ENSO spectra and spatial distribution by comparing the first and last years of the cpl_CO2_ramp experiment. You could also look at the CO2 rampdown experiment in the Thredds catalogue</p></li>
+<li><p>Look at variability in different regions, investigating, for example, the PDO, or the AMO.</p></li>
+<li><p>Look at differences between in ENSO, PDO, AMO characteristics for different 30 year chunks of the 80 year simulations - what can this teach you about our confidence of low frequency variability from relatively short observation records?</p></li>
+</ul>
+<p>To better understand low-frequency variability, particularly multi-decadal variability, we need more data than we have from observations. One way to get these data is by running ensembles of climate models. This is the theme of the next notebook, which will introduce you to the CESM Large Ensemble.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./courseware/week8"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lab25_3_advanced-snowball-earth.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">25.11. </span>Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../week9/lab27_surface-energy-balance.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The surface energy balance</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#low-frequency-variability-in-the-cesm">26.1. Low frequency variability in the CESM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slab-ocean-and-coupled-ocean-low-frequency-variability">26.2. Slab ocean and coupled ocean low frequency variability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-el-nino-southern-oscillation">26.3. The El Nino Southern Oscillation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enso-and-the-pdo">26.4. ENSO and the PDO</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-exploration">26.4.1. Further Exploration</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Rose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
