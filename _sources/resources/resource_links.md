@@ -13,6 +13,8 @@ kernelspec:
 
 #  Project links and notebooks
 
+Link to [slides about project presentations](https://owncloud.eoas.ubc.ca/s/sxjAdbCzSbE65k8)
+
 ## Working with model datasets
 
 ### CMIP6

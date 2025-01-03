@@ -165,6 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../week3_topics.html">Week 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../week4_topics.html">Week 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../week7_topics.html">Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week9_topics.html">Week 9</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
 <ul class="nav bd-sidenav">
@@ -174,6 +175,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../how-to.html">How to use this book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../attribution.html">How to cite and reuse this material</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extra_reading.html">Additional resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project links and notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/loading-cmip6-data.html">Accessing CMIP6 data with intake-esm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/loading-CESM-LENS-data.html">Accessing CESM LENS (and LENS2) data with intake-esm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/hot_cold_models.html">Worksheet: Comparing total cloud fraction in hot and cold models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1 Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -261,10 +269,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../xarray/02-computation-masking.html">Computations and Masks with Xarray</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../xarray/03-enso-xarray.html">Calculating ENSO with Xarray</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../xarray/04-dask-arrays-xarray.html">Dask Arrays with Xarray</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project resources</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra notebooks</span></p>
 <ul class="nav bd-sidenav">
@@ -473,7 +477,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-functions">plotting functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-averages-of-temperature-and-specific-humidity">global averages of temperature and specific humidity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions-based-on-water-vapor-levels">initial conditions, based on water vapor levels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-radiative-convective-control-model-to-equilibrium">run radiative-convective control model to equilibrium</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-combined-lapse-rate-and-water-vapor-feedback-in-the-rcm">Question 2: combined lapse rate and water vapor feedback in the RCM</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specific-questions">Specific questions:</a></li>
@@ -511,14 +521,331 @@ document.write(`
 <p><em>This exercise just repeats what we did in the lecture notes. You want to ensure that you can reproduce the same results before starting the next question, because you will need these results below.</em></p>
 <p>Following the lecture notes on climate sensitivity, do the following:</p>
 <ul class="simple">
-<li><p>set up a single-column radiative-convective model with specific humidity taken from the CESM control simulation</p></li>
-<li><p>Run this control model out to equilibrium</p></li>
-<li><p>Using a clone of the control model, calculate the stratosphere-adjusted radiative forcing <span class="math notranslate nohighlight">\(\Delta R\)</span>.</p></li>
-<li><p>Using another model clone, timestep the model out to equilibrium <strong>with fixed specific humidity</strong></p></li>
-<li><p>Calculate the no-feedback Equilibrium Climate Sensitivity (ECS)</p></li>
-<li><p>Also calculate the no-feedback climate response parameter <span class="math notranslate nohighlight">\(\lambda_0\)</span></p></li>
+<li><p>set up a single-column radiative-convective model with specific humidity taken from the CESM control simulation</p>
+<ul>
+<li><p>done</p></li>
+</ul>
+</li>
+<li><p>Run this control model out to equilibrium</p>
+<ul>
+<li><p>done</p></li>
+</ul>
+</li>
+<li><p>Using a clone of the control model, calculate the stratosphere-adjusted radiative forcing <span class="math notranslate nohighlight">\(\Delta R\)</span>.</p>
+<ul>
+<li><p>done</p></li>
+</ul>
+</li>
+<li><p>Using another model clone, timestep the model out to equilibrium <strong>with fixed specific humidity</strong></p>
+<ul>
+<li><p>done</p></li>
+</ul>
+</li>
+<li><p>Calculate the no-feedback Equilibrium Climate Sensitivity (ECS)</p>
+<ul>
+<li><p>done</p></li>
+</ul>
+</li>
+<li><p>Also calculate the no-feedback climate response parameter <span class="math notranslate nohighlight">\(\lambda_0\)</span></p>
+<ul>
+<li><p>done</p></li>
+</ul>
+</li>
 </ul>
 <p>Verify and show that you get the same results as we did in the lecture notes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">climlab</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">metpy.plots</span> <span class="kn">import</span> <span class="n">SkewT</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="plotting-functions">
+<h3>plotting functions<a class="headerlink" href="#plotting-functions" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Resuable function to plot the temperature data on a Skew-T chart</span>
+<span class="k">def</span> <span class="nf">make_skewT</span><span class="p">():</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+    <span class="n">skew</span> <span class="o">=</span> <span class="n">SkewT</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tglobal</span><span class="o">.</span><span class="n">level</span><span class="p">,</span> <span class="n">Tglobal</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Observations&#39;</span><span class="p">)</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">1050</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+    <span class="c1"># Add the relevant special lines</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">plot_dry_adiabats</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">plot_moist_adiabats</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="c1"># skew.plot_mixing_lines()</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature (degC)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure (hPa)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">skew</span>
+
+
+<span class="c1">#  and a function to add extra profiles to this chart</span>
+<span class="k">def</span> <span class="nf">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">lev</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">Tatm</span> <span class="o">-</span> <span class="n">climlab</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">tempCtoK</span><span class="p">,</span>
+             <span class="n">label</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">Ts</span> <span class="o">-</span> <span class="n">climlab</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">tempCtoK</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> 
+              <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">line</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="global-averages-of-temperature-and-specific-humidity">
+<h3>global averages of temperature and specific humidity<a class="headerlink" href="#global-averages-of-temperature-and-specific-humidity" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># air temperature</span>
+<span class="n">ncep_url</span> <span class="o">=</span> <span class="s2">&quot;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/&quot;</span>
+<span class="n">ncep_air</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span> <span class="n">ncep_url</span> <span class="o">+</span> <span class="s2">&quot;pressure/air.mon.1981-2010.ltm.nc&quot;</span><span class="p">,</span> <span class="n">use_cftime</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#  Take global, annual average </span>
+<span class="n">coslat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">ncep_air</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span>
+<span class="n">weight</span> <span class="o">=</span> <span class="n">coslat</span> <span class="o">/</span> <span class="n">coslat</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span>
+<span class="n">Tglobal</span> <span class="o">=</span> <span class="p">(</span><span class="n">ncep_air</span><span class="o">.</span><span class="n">air</span> <span class="o">*</span> <span class="n">weight</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="s1">&#39;time&#39;</span><span class="p">))</span>
+
+<span class="c1"># Get the water vapor data from CESM output</span>
+<span class="n">cesm_data_path</span> <span class="o">=</span> <span class="s2">&quot;http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/&quot;</span>
+<span class="n">atm_control</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+    <span class="n">cesm_data_path</span> <span class="o">+</span> <span class="s2">&quot;cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc&quot;</span>
+<span class="p">)</span>
+<span class="c1"># Take global, annual average of the specific humidity</span>
+<span class="n">weight_factor</span> <span class="o">=</span> <span class="n">atm_control</span><span class="o">.</span><span class="n">gw</span> <span class="o">/</span> <span class="n">atm_control</span><span class="o">.</span><span class="n">gw</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span>
+<span class="n">Qglobal</span> <span class="o">=</span> <span class="p">(</span><span class="n">atm_control</span><span class="o">.</span><span class="n">Q</span> <span class="o">*</span> <span class="n">weight_factor</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="s1">&#39;time&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="initial-conditions-based-on-water-vapor-levels">
+<h3>initial conditions, based on water vapor levels<a class="headerlink" href="#initial-conditions-based-on-water-vapor-levels" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># model domain</span>
+<span class="n">mystate</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">column_state</span><span class="p">(</span><span class="n">lev</span><span class="o">=</span><span class="n">Qglobal</span><span class="o">.</span><span class="n">lev</span><span class="p">,</span> <span class="n">water_depth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># #  Fixed relative humidity</span>
+<span class="c1"># h2o = climlab.radiation.ManabeWaterVapor(name=&#39;WaterVapor&#39;, state=mystate)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create the model: we want to combine radiative and convective</span>
+<span class="n">albedo</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">rad</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">radiation</span><span class="o">.</span><span class="n">RRTMG</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Radiation&#39;</span><span class="p">,</span>
+                              <span class="n">state</span><span class="o">=</span><span class="n">mystate</span><span class="p">,</span> 
+                              <span class="n">specific_humidity</span><span class="o">=</span><span class="n">Qglobal</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                              <span class="n">timestep</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">seconds_per_day</span><span class="p">,</span>
+                              <span class="n">albedo</span> <span class="o">=</span> <span class="n">albedo</span><span class="p">,</span>  <span class="c1"># surface albedo, tuned to give reasonable ASR for reference cloud-free model</span>
+                             <span class="p">)</span>
+<span class="c1">#  Now create the convection model</span>
+<span class="n">conv</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">convection</span><span class="o">.</span><span class="n">ConvectiveAdjustment</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Convection&#39;</span><span class="p">,</span>
+                                               <span class="n">state</span><span class="o">=</span><span class="n">mystate</span><span class="p">,</span>
+                                               <span class="n">adj_lapse_rate</span><span class="o">=</span><span class="mf">6.5</span><span class="p">,</span> <span class="c1"># this is the key parameter! We&#39;ll discuss below</span>
+                                               <span class="n">timestep</span><span class="o">=</span><span class="n">rad</span><span class="o">.</span><span class="n">timestep</span><span class="p">,</span>  <span class="c1"># same timestep!</span>
+                                              <span class="p">)</span>
+<span class="c1">#  Here is where we build the model by coupling together the two components</span>
+<span class="n">rcm</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">couple</span><span class="p">([</span><span class="n">rad</span><span class="p">,</span> <span class="n">conv</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Radiative-Convective Model&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rcm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-radiative-convective-control-model-to-equilibrium">
+<h3>run radiative-convective control model to equilibrium<a class="headerlink" href="#run-radiative-convective-control-model-to-equilibrium" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># # rcm.integrate_years(0.11)</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">rcm</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">ASR</span><span class="o">-</span><span class="n">rcm</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.01</span><span class="p">):</span>
+    <span class="n">rcm</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+    
+<span class="n">rcm</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">OLR</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># rcm.subprocess[&#39;Radiation (net)&#39;].absorber_vmr[&#39;CO2&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an exact clone with same temperatures</span>
+<span class="n">rcm_2xCO2</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">rcm</span><span class="p">)</span>
+<span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Radiative-Convective Model (2xCO2 initial)&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Now double it!</span>
+<span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">absorber_vmr</span><span class="p">[</span><span class="s1">&#39;CO2&#39;</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
+<span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">absorber_vmr</span><span class="p">[</span><span class="s1">&#39;CO2&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># compare with control rcm</span>
+<span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+<span class="n">DeltaR_2xCO2</span> <span class="o">=</span> <span class="p">(</span><span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span>
+<span class="n">DeltaR_2xCO2</span>  <span class="c1"># this is the radiative forcing</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># stratospheric-adjustment model</span>
+<span class="n">rcm_2xCO2_strat</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">rcm_2xCO2</span><span class="p">)</span>
+<span class="n">rcm_2xCO2_strat</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Radiative-Convective Model (2xCO2 stratosphere-adjusted)&#39;</span>
+<span class="c1"># compute the adjustment</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">rcm_2xCO2_strat</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+    <span class="c1"># hold tropospheric and surface temperatures fixed</span>
+    <span class="n">rcm_2xCO2_strat</span><span class="o">.</span><span class="n">Tatm</span><span class="p">[</span><span class="mi">13</span><span class="p">:]</span> <span class="o">=</span> <span class="n">rcm</span><span class="o">.</span><span class="n">Tatm</span><span class="p">[</span><span class="mi">13</span><span class="p">:]</span>
+    <span class="n">rcm_2xCO2_strat</span><span class="o">.</span><span class="n">Ts</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">rcm</span><span class="o">.</span><span class="n">Ts</span><span class="p">[:]</span>
+<span class="n">rcm_2xCO2_strat</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+<span class="n">DeltaR_strat</span> <span class="o">=</span> <span class="p">(</span><span class="n">rcm_2xCO2_strat</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm_2xCO2_strat</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span>
+<span class="n">DeltaR_strat</span>  <span class="c1"># this is the radiative forcing</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DeltaR_strat</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># strat run to equilibrium</span>
+<span class="n">rcm_2xCO2_eq</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">rcm_2xCO2_strat</span><span class="p">)</span>
+<span class="n">rcm_2xCO2_eq</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Radiative-Convective Model (2xCO2 equilibrium)&#39;</span>
+<span class="n">rcm_2xCO2_eq</span><span class="o">.</span><span class="n">integrate_years</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1"># are we close to equilibrium?</span>
+<span class="n">rcm_2xCO2_eq</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm_2xCO2_eq</span><span class="o">.</span><span class="n">OLR</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  actual specific humidity</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">rcm</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">specific_humidity</span>
+<span class="c1">#  saturation specific humidity (a function of temperature and pressure)</span>
+<span class="n">qsat</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">qsat</span><span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">Tatm</span><span class="p">,</span> <span class="n">rcm</span><span class="o">.</span><span class="n">lev</span><span class="p">)</span>
+<span class="c1">#  Relative humidity</span>
+<span class="n">rh</span> <span class="o">=</span> <span class="n">q</span><span class="o">/</span><span class="n">qsat</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rcm_2xCO2_h2o</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">rcm_2xCO2</span><span class="p">)</span>
+<span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Radiative-Convective Model (2xCO2 equilibrium with H2O feedback)&#39;</span>
+<span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+<span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># compare with control rcm</span>
+<span class="n">DeltaR_wv</span> <span class="o">=</span> <span class="p">(</span><span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span>
+<span class="n">DeltaR_wv</span>  <span class="c1"># this is the radiative forcing</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>
+    <span class="c1"># At every timestep</span>
+    <span class="c1"># we calculate the new saturation specific humidity for the new temperature</span>
+    <span class="c1">#  and change the water vapor in the radiation model</span>
+    <span class="c1">#  so that relative humidity is always the same</span>
+    <span class="n">qsat</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">qsat</span><span class="p">(</span><span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">Tatm</span><span class="p">,</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">lev</span><span class="p">)</span>
+    <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">specific_humidity</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">rh</span> <span class="o">*</span> <span class="n">qsat</span>
+    <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check for energy balance</span>
+<span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">OLR</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot all the results</span>
+<span class="n">skew</span> <span class="o">=</span> <span class="n">make_skewT</span><span class="p">()</span>
+<span class="c1"># for model in rad_models:</span>
+<span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm</span><span class="p">)</span>
+<span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm_2xCO2</span><span class="p">)</span>
+<span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm_2xCO2_strat</span><span class="p">)</span>
+<span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm_2xCO2_eq</span><span class="p">)</span>
+<span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm_2xCO2_h2o</span><span class="p">)</span>
+<span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;radiative-convective equilibrium&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ECS_no_feedback</span> <span class="o">=</span> <span class="n">rcm_2xCO2_eq</span><span class="o">.</span><span class="n">Ts</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">Ts</span>
+<span class="n">ECS_no_feedback</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ECS_wv</span> <span class="o">=</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">Ts</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">Ts</span>
+<span class="n">ECS_wv</span>  <span class="c1"># include water vapor feedback</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lambda0</span> <span class="o">=</span> <span class="n">DeltaR_strat</span> <span class="o">/</span> <span class="n">ECS_no_feedback</span>
+<span class="n">lambda0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="question-2-combined-lapse-rate-and-water-vapor-feedback-in-the-rcm">
 <h2>Question 2: combined lapse rate and water vapor feedback in the RCM<a class="headerlink" href="#question-2-combined-lapse-rate-and-water-vapor-feedback-in-the-rcm" title="Permalink to this headline">#</a></h2>
@@ -529,7 +856,11 @@ document.write(`
 <p>Here you will suppose that other physical processes modify this lapse rate as the climate warms.</p>
 <p><strong>Repeat the RCM global warming calculation, but implement two different feedbacks:</strong></p>
 <ul class="simple">
-<li><p>a water vapor feedback using <strong>fixed relative humidity</strong></p></li>
+<li><p>a water vapor feedback using <strong>fixed relative humidity</strong></p>
+<ul>
+<li><p>done</p></li>
+</ul>
+</li>
 <li><p>a <strong>lapse rate feedback</strong> using this formula:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
@@ -554,16 +885,128 @@ document.write(`
 <ul class="simple">
 <li><p>RCM control</p></li>
 <li><p>RCM, equilibrium after doubling CO<span class="math notranslate nohighlight">\(_2\)</span> without feedback</p></li>
-<li><p>RCM, equilibrium after doubling CO<span class="math notranslate nohighlight">\(_2\)</span> with combined water vapor and lapse rate feedback</p></li>
+<li><p>RCM, equilibrium after doubling CO<span class="math notranslate nohighlight">\(_2\)</span> with combined water vapor and lapse rate feedback</p>
+<ul>
+<li><p>done</p></li>
 </ul>
 </li>
-<li><p>Based on your plot, where in the column do you find the greatest warming?</p></li>
-<li><p>Calculate the ECS of the new version of the model with combined water vapor and lapse rate feedback</p></li>
-<li><p>Is this sensitivity larger or smaller than the “no feedback” ECS? Is it larger or smaller than the ECS with water vapor feedback alone (which we calculated in the lecture notes)?</p></li>
-<li><p>Calculate the combined feedback parameter for (water vapor plus lapse rate).</p></li>
-<li><p>Compare this result to the IPCC figure with feedback results from comprehensive models in our lecture notes (labeled “WV+LR”). Do you find a similar number?</p></li>
-<li><p>Would you describe the <strong>lapse rate feedback</strong> as positive or negative?</p></li>
+</ul>
+</li>
+<li><p>Based on your plot, where in the column do you find the greatest warming?</p>
+<ul class="simple">
+<li><p>We find the greatest warming in the troposphere up to the tropopause</p></li>
+</ul>
+</li>
+<li><p>Calculate the ECS of the new version of the model with combined water vapor and lapse rate feedback</p>
+<ul class="simple">
+<li><p>done</p></li>
+</ul>
+</li>
+<li><p>Is this sensitivity larger or smaller than the “no feedback” ECS? Is it larger or smaller than the ECS with water vapor feedback alone (which we calculated in the lecture notes)?</p>
+<ul class="simple">
+<li><p>this ECS sits between the ECS_no_feedback and ECS_wv</p></li>
+</ul>
+</li>
+<li><p>Calculate the combined feedback parameter for (water vapor plus lapse rate).</p>
+<ul class="simple">
+<li><p>done</p></li>
+</ul>
+</li>
+<li><p>Compare this result to the IPCC figure with feedback results from comprehensive models in our lecture notes (labeled “WV+LR”). Do you find a similar number?</p>
+<ul class="simple">
+<li><p>fairly similar – both close to positive and close to 1</p></li>
+</ul>
+</li>
+<li><p>Would you describe the <strong>lapse rate feedback</strong> as positive or negative?</p>
+<ul class="simple">
+<li><p>I would describe the lapse rate feedback as negative. In this averaged model, we are warming higher in the troposphere, which will result in a larger release of energy to space. The ECS was smaller with both feedbacks, indicating that the lapse rate feedback is working against the (positive) water vapor feedback.</p></li>
+</ul>
+</li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gamma_ref</span> <span class="o">=</span> <span class="mf">6.5</span>  <span class="c1"># K / km</span>
+<span class="n">slope</span> <span class="o">=</span> <span class="mf">0.3</span>  <span class="c1"># 1/km</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  actual specific humidity</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">rcm</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">specific_humidity</span>
+<span class="c1">#  saturation specific humidity (a function of temperature and pressure)</span>
+<span class="n">qsat</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">qsat</span><span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">Tatm</span><span class="p">,</span> <span class="n">rcm</span><span class="o">.</span><span class="n">lev</span><span class="p">)</span>
+<span class="c1">#  Relative humidity</span>
+<span class="n">rh</span> <span class="o">=</span> <span class="n">q</span><span class="o">/</span><span class="n">qsat</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rcm_2xCO2_lr_h2o</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">rcm_2xCO2</span><span class="p">)</span>
+<span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Radiative-Convective Model (2xCO2 equilibrium</span><span class="se">\n</span><span class="s1">with H2O and lapse rate feedback)&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+<span class="n">DeltaR_lr_wv</span> <span class="o">=</span> <span class="p">(</span><span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span>
+<span class="n">DeltaR_lr_wv</span>  <span class="c1"># this is the radiative forcing (compute before running to equilibrium!)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>
+    <span class="c1"># At every timestep</span>
+    <span class="c1"># we calculate the new saturation specific humidity for the new temperature</span>
+    <span class="c1">#  and change the water vapor in the radiation model</span>
+    <span class="c1">#  so that relative humidity is always the same</span>
+    <span class="n">qsat</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">qsat</span><span class="p">(</span><span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">Tatm</span><span class="p">,</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">lev</span><span class="p">)</span>
+    <span class="c1"># water vapor feedback (fixed relative humidity)</span>
+    <span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">specific_humidity</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">rh</span> <span class="o">*</span> <span class="n">qsat</span>
+    <span class="c1"># lapse rate feedback</span>
+    <span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Convection&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">adj_lapse_rate</span> <span class="o">=</span> <span class="n">gamma_ref</span> <span class="o">-</span> <span class="n">slope</span> <span class="o">*</span> <span class="p">(</span><span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">Ts</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">Ts</span><span class="p">)</span>
+    <span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot all the results</span>
+<span class="n">skew</span> <span class="o">=</span> <span class="n">make_skewT</span><span class="p">()</span>
+<span class="c1"># for model in rad_models:</span>
+<span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm</span><span class="p">)</span>
+<span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm_2xCO2_eq</span><span class="p">)</span>
+<span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm_2xCO2_lr_h2o</span><span class="p">)</span>
+
+<span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;radiative-convective equilibria&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ECS_lr_wv</span> <span class="o">=</span> <span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">Ts</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">Ts</span>
+<span class="n">ECS_lr_wv</span>  <span class="c1"># include lapse rate and water vapor feedbacks</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lambda_lr_wv</span> <span class="o">=</span> <span class="n">DeltaR_lr_wv</span> <span class="o">/</span> <span class="n">ECS_lr_wv</span>
+<span class="n">lambda_lr_wv</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <hr class="docutils" />
@@ -639,7 +1082,13 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-functions">plotting functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-averages-of-temperature-and-specific-humidity">global averages of temperature and specific humidity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions-based-on-water-vapor-levels">initial conditions, based on water vapor levels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-radiative-convective-control-model-to-equilibrium">run radiative-convective control model to equilibrium</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-combined-lapse-rate-and-water-vapor-feedback-in-the-rcm">Question 2: combined lapse rate and water vapor feedback in the RCM</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specific-questions">Specific questions:</a></li>

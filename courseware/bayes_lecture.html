@@ -165,6 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../week3_topics.html">Week 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week4_topics.html">Week 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week7_topics.html">Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9_topics.html">Week 9</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
 <ul class="nav bd-sidenav">
@@ -174,6 +175,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../how-to.html">How to use this book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../attribution.html">How to cite and reuse this material</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extra_reading.html">Additional resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/resource_links.html">Project links and notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/loading-cmip6-data.html">Accessing CMIP6 data with intake-esm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/loading-CESM-LENS-data.html">Accessing CESM LENS (and LENS2) data with intake-esm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/hot_cold_models.html">Worksheet: Comparing total cloud fraction in hot and cold models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1 Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -261,10 +269,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="xarray/02-computation-masking.html">Computations and Masks with Xarray</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xarray/03-enso-xarray.html">Calculating ENSO with Xarray</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xarray/04-dask-arrays-xarray.html">Dask Arrays with Xarray</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../resources/resource_links.html">Project resources</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra notebooks</span></p>
 <ul class="current nav bd-sidenav">
@@ -767,8 +771,8 @@ l_{X}\left(\theta_{0}, \theta_{1}, \sigma^{2}\right)=\log \left[\frac{1}{\sqrt{2
 <section id="take-2-the-bayesian-version">
 <h2>Take 2: The Bayesian version<a class="headerlink" href="#take-2-the-bayesian-version" title="Permalink to this headline">#</a></h2>
 <p>Start with Bayes theorem, given the logical/subjective definition of probability:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0826425b-30e7-4629-9576-d6e3f38febb9">
-<span class="eqno">(6)<a class="headerlink" href="#equation-0826425b-30e7-4629-9576-d6e3f38febb9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b50dd80b-0f35-4217-aaf0-56247f0bfffc">
+<span class="eqno">(6)<a class="headerlink" href="#equation-b50dd80b-0f35-4217-aaf0-56247f0bfffc" title="Permalink to this equation">#</a></span>\[\begin{align}
 \underbrace{p(\text{proposition} | data)}_{\text{posterior probability}} &amp; \propto 
   \underbrace{p(data | \text{proposition} )}_{likelihood} \times
   \underbrace{p(\text{proposition})}_{\text{prior probability}}

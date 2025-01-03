@@ -1,7 +1,7 @@
 Undergraduate Syllabus
 =======================================================================================
 
-Climate Modelling: ATSC 448B (directed studies, Jan 2023)
+Physical Climate Modelling: EOSC 440, Winter term 2
 --------------
 Python-based introduction to climate modelling and the underlying physics of climate models, 
 including a focus on radiation and single-column models as well as atmosphere and ocean
@@ -19,7 +19,7 @@ Instructors
 -----------
 
 | Rachel White, rwhite@eoas.ubc.ca, Rm 4019 ESB
-| Phil Austin, paustin@eoas.ubc.ca
+| Phil Austin, paustin@eoas.ubc.ca, Rm 157 EOS-South
 
 Textbook
 -------------
@@ -60,7 +60,7 @@ for each week.
 You can use a web-browser to examine the course exercises. Point your
 browser to:
 
-https://phaustin.org/climate_book/home.html
+https://phaustin.github.io/climate_students_eoas
 
 Grades
 ------
@@ -103,13 +103,13 @@ time. Late ones will be marked and then the mark will be multiplied by
 Meeting Times
 -------------
 
-?? TBA - this will be decided during the first week of class. 
+Monday 2pm-4pm in SWNG 305
 
 
 Tentative schedule, including assignment deadlines
 --------
 
-Week 1 (9-15 Jan) Introduction (PA)
+Week 1 (6-10 Jan) Introduction (PA)
    - Introductory Meeting: set class time, introduce jupyter notebooks, github, and the structure of the course
 
    - Pre-class reading: syllabus
@@ -118,7 +118,7 @@ Week 1 (9-15 Jan) Introduction (PA)
       - Notebook 1: Climate models, the global energy budget and Fun with Python
 
 
-Week 2 (16-22 Jan) - Introduction to Climate Models and the Global Energy Budget (RHW)
+Week 2 (13-17 Jan) - Introduction to Climate Models and the Global Energy Budget (RHW)
    - Pre-class reading: Chapters 1 & 2 of Global Physical Climatology
    
    - Pre-class Quiz #1
@@ -129,7 +129,7 @@ Week 2 (16-22 Jan) - Introduction to Climate Models and the Global Energy Budget
 
   - Assignment 1 - Climate change in the zero-dimensional EBM - due 9pm Jan 27th - all problems (1 & 2)
 
-Week 3 (23-30 Jan) - Radiative Transfer (PA)
+Week 3 (20-24 Jan) - Radiative Transfer (PA)
    - Pre-class reading: Chapters 3 & 4 of Global Physical Climatology
 
    - Pre-class Quiz #2
@@ -144,7 +144,7 @@ Week 3 (23-30 Jan) - Radiative Transfer (PA)
 
   - Assignment 2 - Global average budgets in the CESM pre-industrial control simulation - due 9pm Feb 3rd - all problems (1 & 2)
 
-Week 4 (30 Jan - 5 Feb) - Radiative Equilibrium and Climate Change (PA)
+Week 4 (27-31 Jan) - Radiative Equilibrium and Climate Change (PA)
    - Pre-class reading: Chapter 13 of Global Physical Climatology (and re-cap chapter 3)
    
    - Pre-class Quiz #3
@@ -156,7 +156,7 @@ Week 4 (30 Jan - 5 Feb) - Radiative Equilibrium and Climate Change (PA)
 
    - Assignment 3 - Clouds in the Leaky Greenhouse Model - due 9pm Feb 10th - problems (1, 2, 3, 4, and 5)
 
-Week 5 (6-12 Feb) - Modelling feedbacks and transient warming (PA)
+Week 5 (3-7 Feb) - Modelling feedbacks and transient warming (PA)
    - Pre-class reading: Chapters 10 of Global Physical Climatology
 
    - Pre-class Quiz #4
@@ -170,7 +170,7 @@ Week 5 (6-12 Feb) - Modelling feedbacks and transient warming (PA)
 
   - Assignment 4 - Feedbacks in the Radiative-Convective Model - due 9pm Feb 17th - all problems (1, 2, 3, 4, and 5)
 
-Week 6 (13-19 Feb) - Modelling climate change (RHW)
+Week 6 (10-14 Feb) - Modelling climate change (RHW)
    - Pre-class reading: Chapters 11 and 12 of Global Physical Climatology
 
    - Pre-class Quiz #5
@@ -183,10 +183,10 @@ Week 6 (13-19 Feb) - Modelling climate change (RHW)
    
    - Assignment 5 - Climate change in the CESM simulations - due 9pm Mar 3rd - all parts
 
--- Mid-term break: 20-26 Feb -- 
+-- Mid-term break: 17-21 Feb -- 
       
 
-Week 7 (27 Feb - 5 Mar) - Modelling atmospheric general circulation (RHW)
+Week 7 (24-28 Feb) - Modelling atmospheric general circulation (RHW)
    - Pre-class reading: Chapter 6 of Global Physical Climatology
 
    - Pre-class Quiz #6
@@ -199,7 +199,7 @@ Week 7 (27 Feb - 5 Mar) - Modelling atmospheric general circulation (RHW)
 
    - Students choose final project topic from a selection in discussion with instructors
 
-Week 8 (6 - 12 Mar) - Modelling coupled atmosphere-ocean circulation and internal variability (RHW)
+Week 8 (3-7 Mar) - Modelling coupled atmosphere-ocean circulation and internal variability (RHW)
    - Pre-class reading: Chapter 7 and 8 of Global Physical Climatology
 
    - Pre-class Quiz #7
@@ -213,7 +213,7 @@ Week 8 (6 - 12 Mar) - Modelling coupled atmosphere-ocean circulation and interna
 
    - Project proposal - due 9pm Mar 10th
 
-Week 9 (13 - 19 Mar) - Climate model hierachy and uses (RHW)
+Week 9 (10-14 Mar) - Climate model hierachy and uses (RHW)
    - Pre-class reading: Chapter 9 and re-cap chapters 12 and 13 of Global Physical Climatology (Paleoclimate, Natural Climate Change and Anthropogenic Climate Change)
 
    - Pre-class Quiz #8
@@ -223,7 +223,7 @@ Week 9 (13 - 19 Mar) - Climate model hierachy and uses (RHW)
       - Notebook 28: Land-Ocean contrasts under climate change
       - Notebook 29: Water, water everywhere!
 
-Weeks 10-13 (20 Mar - 13 Apr) - Work on projects
+Weeks 10-13 (17-Mar- 7 Apr) - Work on projects
    -  Project Components:
          -  Proposal
          -  10-20 minute presentation to the class

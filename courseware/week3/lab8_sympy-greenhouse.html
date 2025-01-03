@@ -165,6 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../week3_topics.html">Week 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../week4_topics.html">Week 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../week7_topics.html">Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week9_topics.html">Week 9</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
 <ul class="nav bd-sidenav">
@@ -174,6 +175,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../how-to.html">How to use this book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../attribution.html">How to cite and reuse this material</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extra_reading.html">Additional resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project links and notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/loading-cmip6-data.html">Accessing CMIP6 data with intake-esm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/loading-CESM-LENS-data.html">Accessing CESM LENS (and LENS2) data with intake-esm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/hot_cold_models.html">Worksheet: Comparing total cloud fraction in hot and cold models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1 Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -261,10 +269,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../xarray/02-computation-masking.html">Computations and Masks with Xarray</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../xarray/03-enso-xarray.html">Calculating ENSO with Xarray</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../xarray/04-dask-arrays-xarray.html">Dask Arrays with Xarray</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project resources</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra notebooks</span></p>
 <ul class="nav bd-sidenav">
@@ -577,8 +581,8 @@ document.write(`
 <section id="longwave-emissions">
 <h3><span class="section-number">8.2.1. </span>Longwave emissions<a class="headerlink" href="#longwave-emissions" title="Permalink to this headline">#</a></h3>
 <p>Let’s denote the emissions from each layer as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3cc0f12f-3792-4e91-85af-6929328457db">
-<span class="eqno">(8.1)<a class="headerlink" href="#equation-3cc0f12f-3792-4e91-85af-6929328457db" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4314f76e-b0f4-4e20-9123-7cf73fb11266">
+<span class="eqno">(8.1)<a class="headerlink" href="#equation-4314f76e-b0f4-4e20-9123-7cf73fb11266" title="Permalink to this equation">#</a></span>\[\begin{align}
 E_s &amp;= \sigma T_s^4 \\
 E_0 &amp;= \epsilon \sigma T_0^4 \\
 E_1 &amp;= \epsilon \sigma T_1^4 
@@ -1103,8 +1107,8 @@ $<span class="math notranslate nohighlight">\(T_s = 288 \text{ K}  \)</span>$</p
 </div>
 </div>
 <p>In more familiar notation, the radiative equilibrium solution is thus</p>
-<div class="amsmath math notranslate nohighlight" id="equation-55bad879-d4d5-4429-a819-8bd93f9d82ec">
-<span class="eqno">(8.2)<a class="headerlink" href="#equation-55bad879-d4d5-4429-a819-8bd93f9d82ec" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<div class="amsmath math notranslate nohighlight" id="equation-c253d89a-dd1c-441a-9b88-2de414812fee">
+<span class="eqno">(8.2)<a class="headerlink" href="#equation-c253d89a-dd1c-441a-9b88-2de414812fee" title="Permalink to this equation">#</a></span>\[\begin{align} 
 T_s &amp;= T_e \left( \frac{2+\epsilon}{2-\epsilon} \right)^{1/4} \\
 T_0 &amp;= T_e \left( \frac{1+\epsilon}{2-\epsilon} \right)^{1/4} \\
 T_1 &amp;= T_e \left( \frac{ 1}{2 - \epsilon} \right)^{1/4}

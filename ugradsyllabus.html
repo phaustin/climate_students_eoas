@@ -165,6 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="week3_topics.html">Week 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week4_topics.html">Week 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week7_topics.html">Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week9_topics.html">Week 9</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
 <ul class="nav bd-sidenav">
@@ -174,6 +175,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="how-to.html">How to use this book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="attribution.html">How to cite and reuse this material</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extra_reading.html">Additional resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="resources/resource_links.html">Project links and notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources/loading-cmip6-data.html">Accessing CMIP6 data with intake-esm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources/loading-CESM-LENS-data.html">Accessing CESM LENS (and LENS2) data with intake-esm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources/hot_cold_models.html">Worksheet: Comparing total cloud fraction in hot and cold models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1 Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -261,10 +269,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="courseware/xarray/02-computation-masking.html">Computations and Masks with Xarray</a></li>
 <li class="toctree-l1"><a class="reference internal" href="courseware/xarray/03-enso-xarray.html">Calculating ENSO with Xarray</a></li>
 <li class="toctree-l1"><a class="reference internal" href="courseware/xarray/04-dask-arrays-xarray.html">Dask Arrays with Xarray</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="resources/resource_links.html">Project resources</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra notebooks</span></p>
 <ul class="nav bd-sidenav">
@@ -424,7 +428,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#climate-modelling-atsc-448b-directed-studies-jan-2023">Climate Modelling: ATSC 448B (directed studies, Jan 2023)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-climate-modelling-eosc-440-winter-term-2">Physical Climate Modelling: EOSC 440, Winter term 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-purpose">Course Purpose</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructors">Instructors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textbook">Textbook</a></li>
@@ -449,8 +453,8 @@ document.write(`
                   
   <section id="undergraduate-syllabus">
 <h1>Undergraduate Syllabus<a class="headerlink" href="#undergraduate-syllabus" title="Permalink to this headline">#</a></h1>
-<section id="climate-modelling-atsc-448b-directed-studies-jan-2023">
-<h2>Climate Modelling: ATSC 448B (directed studies, Jan 2023)<a class="headerlink" href="#climate-modelling-atsc-448b-directed-studies-jan-2023" title="Permalink to this headline">#</a></h2>
+<section id="physical-climate-modelling-eosc-440-winter-term-2">
+<h2>Physical Climate Modelling: EOSC 440, Winter term 2<a class="headerlink" href="#physical-climate-modelling-eosc-440-winter-term-2" title="Permalink to this headline">#</a></h2>
 <p>Python-based introduction to climate modelling and the underlying physics of climate models,
 including a focus on radiation and single-column models as well as atmosphere and ocean
 circulation and full general circulation models (GCMs).</p>
@@ -466,7 +470,7 @@ Circulation Models (GCMs).</p>
 <h2>Instructors<a class="headerlink" href="#instructors" title="Permalink to this headline">#</a></h2>
 <div class="line-block">
 <div class="line">Rachel White, <a class="reference external" href="mailto:rwhite&#37;&#52;&#48;eoas&#46;ubc&#46;ca">rwhite<span>&#64;</span>eoas<span>&#46;</span>ubc<span>&#46;</span>ca</a>, Rm 4019 ESB</div>
-<div class="line">Phil Austin, <a class="reference external" href="mailto:paustin&#37;&#52;&#48;eoas&#46;ubc&#46;ca">paustin<span>&#64;</span>eoas<span>&#46;</span>ubc<span>&#46;</span>ca</a></div>
+<div class="line">Phil Austin, <a class="reference external" href="mailto:paustin&#37;&#52;&#48;eoas&#46;ubc&#46;ca">paustin<span>&#64;</span>eoas<span>&#46;</span>ubc<span>&#46;</span>ca</a>, Rm 157 EOS-South</div>
 </div>
 </section>
 <section id="textbook">
@@ -499,7 +503,7 @@ worksheets.  To encourage good practices there are quizzes on canvas
 for each week.</p>
 <p>You can use a web-browser to examine the course exercises. Point your
 browser to:</p>
-<p><a class="reference external" href="https://phaustin.org/climate_book/home.html">https://phaustin.org/climate_book/home.html</a></p>
+<p><a class="reference external" href="https://phaustin.github.io/climate_students_eoas">https://phaustin.github.io/climate_students_eoas</a></p>
 </section>
 <section id="grades">
 <h2>Grades<a class="headerlink" href="#grades" title="Permalink to this headline">#</a></h2>
@@ -539,12 +543,12 @@ time. Late ones will be marked and then the mark will be multiplied by
 </section>
 <section id="meeting-times">
 <h2>Meeting Times<a class="headerlink" href="#meeting-times" title="Permalink to this headline">#</a></h2>
-<p>?? TBA - this will be decided during the first week of class.</p>
+<p>Monday 2pm-4pm in SWNG 305</p>
 </section>
 <section id="tentative-schedule-including-assignment-deadlines">
 <h2>Tentative schedule, including assignment deadlines<a class="headerlink" href="#tentative-schedule-including-assignment-deadlines" title="Permalink to this headline">#</a></h2>
 <dl>
-<dt>Week 1 (9-15 Jan) Introduction (PA)</dt><dd><ul class="simple">
+<dt>Week 1 (6-10 Jan) Introduction (PA)</dt><dd><ul class="simple">
 <li><p>Introductory Meeting: set class time, introduce jupyter notebooks, github, and the structure of the course</p></li>
 <li><p>Pre-class reading: syllabus</p></li>
 <li><dl class="simple">
@@ -556,7 +560,7 @@ time. Late ones will be marked and then the mark will be multiplied by
 </li>
 </ul>
 </dd>
-<dt>Week 2 (16-22 Jan) - Introduction to Climate Models and the Global Energy Budget (RHW)</dt><dd><blockquote>
+<dt>Week 2 (13-17 Jan) - Introduction to Climate Models and the Global Energy Budget (RHW)</dt><dd><blockquote>
 <div><ul class="simple">
 <li><p>Pre-class reading: Chapters 1 &amp; 2 of Global Physical Climatology</p></li>
 <li><p>Pre-class Quiz #1</p></li>
@@ -574,7 +578,7 @@ time. Late ones will be marked and then the mark will be multiplied by
 <li><p>Assignment 1 - Climate change in the zero-dimensional EBM - due 9pm Jan 27th - all problems (1 &amp; 2)</p></li>
 </ul>
 </dd>
-<dt>Week 3 (23-30 Jan) - Radiative Transfer (PA)</dt><dd><blockquote>
+<dt>Week 3 (20-24 Jan) - Radiative Transfer (PA)</dt><dd><blockquote>
 <div><ul class="simple">
 <li><p>Pre-class reading: Chapters 3 &amp; 4 of Global Physical Climatology</p></li>
 <li><p>Pre-class Quiz #2</p></li>
@@ -595,7 +599,7 @@ time. Late ones will be marked and then the mark will be multiplied by
 <li><p>Assignment 2 - Global average budgets in the CESM pre-industrial control simulation - due 9pm Feb 3rd - all problems (1 &amp; 2)</p></li>
 </ul>
 </dd>
-<dt>Week 4 (30 Jan - 5 Feb) - Radiative Equilibrium and Climate Change (PA)</dt><dd><ul class="simple">
+<dt>Week 4 (27-31 Jan) - Radiative Equilibrium and Climate Change (PA)</dt><dd><ul class="simple">
 <li><p>Pre-class reading: Chapter 13 of Global Physical Climatology (and re-cap chapter 3)</p></li>
 <li><p>Pre-class Quiz #3</p></li>
 <li><dl class="simple">
@@ -610,7 +614,7 @@ time. Late ones will be marked and then the mark will be multiplied by
 <li><p>Assignment 3 - Clouds in the Leaky Greenhouse Model - due 9pm Feb 10th - problems (1, 2, 3, 4, and 5)</p></li>
 </ul>
 </dd>
-<dt>Week 5 (6-12 Feb) - Modelling feedbacks and transient warming (PA)</dt><dd><blockquote>
+<dt>Week 5 (3-7 Feb) - Modelling feedbacks and transient warming (PA)</dt><dd><blockquote>
 <div><ul class="simple">
 <li><p>Pre-class reading: Chapters 10 of Global Physical Climatology</p></li>
 <li><p>Pre-class Quiz #4</p></li>
@@ -631,7 +635,7 @@ time. Late ones will be marked and then the mark will be multiplied by
 <li><p>Assignment 4 - Feedbacks in the Radiative-Convective Model - due 9pm Feb 17th - all problems (1, 2, 3, 4, and 5)</p></li>
 </ul>
 </dd>
-<dt>Week 6 (13-19 Feb) - Modelling climate change (RHW)</dt><dd><ul class="simple">
+<dt>Week 6 (10-14 Feb) - Modelling climate change (RHW)</dt><dd><ul class="simple">
 <li><p>Pre-class reading: Chapters 11 and 12 of Global Physical Climatology</p></li>
 <li><p>Pre-class Quiz #5</p></li>
 <li><dl class="simple">
@@ -648,9 +652,9 @@ time. Late ones will be marked and then the mark will be multiplied by
 </ul>
 </dd>
 </dl>
-<p>– Mid-term break: 20-26 Feb –</p>
+<p>– Mid-term break: 17-21 Feb –</p>
 <dl class="simple">
-<dt>Week 7 (27 Feb - 5 Mar) - Modelling atmospheric general circulation (RHW)</dt><dd><ul class="simple">
+<dt>Week 7 (24-28 Feb) - Modelling atmospheric general circulation (RHW)</dt><dd><ul class="simple">
 <li><p>Pre-class reading: Chapter 6 of Global Physical Climatology</p></li>
 <li><p>Pre-class Quiz #6</p></li>
 <li><dl class="simple">
@@ -666,7 +670,7 @@ time. Late ones will be marked and then the mark will be multiplied by
 <li><p>Students choose final project topic from a selection in discussion with instructors</p></li>
 </ul>
 </dd>
-<dt>Week 8 (6 - 12 Mar) - Modelling coupled atmosphere-ocean circulation and internal variability (RHW)</dt><dd><ul class="simple">
+<dt>Week 8 (3-7 Mar) - Modelling coupled atmosphere-ocean circulation and internal variability (RHW)</dt><dd><ul class="simple">
 <li><p>Pre-class reading: Chapter 7 and 8 of Global Physical Climatology</p></li>
 <li><p>Pre-class Quiz #7</p></li>
 <li><dl class="simple">
@@ -683,7 +687,7 @@ large ensemble dataset without having to download it. Login with github (you can
 <li><p>Project proposal - due 9pm Mar 10th</p></li>
 </ul>
 </dd>
-<dt>Week 9 (13 - 19 Mar) - Climate model hierachy and uses (RHW)</dt><dd><ul class="simple">
+<dt>Week 9 (10-14 Mar) - Climate model hierachy and uses (RHW)</dt><dd><ul class="simple">
 <li><p>Pre-class reading: Chapter 9 and re-cap chapters 12 and 13 of Global Physical Climatology (Paleoclimate, Natural Climate Change and Anthropogenic Climate Change)</p></li>
 <li><p>Pre-class Quiz #8</p></li>
 <li><dl class="simple">
@@ -697,7 +701,7 @@ large ensemble dataset without having to download it. Login with github (you can
 </li>
 </ul>
 </dd>
-<dt>Weeks 10-13 (20 Mar - 13 Apr) - Work on projects</dt><dd><ul class="simple">
+<dt>Weeks 10-13 (17-Mar- 7 Apr) - Work on projects</dt><dd><ul class="simple">
 <li><dl class="simple">
 <dt>Project Components:</dt><dd><ul>
 <li><p>Proposal</p></li>
@@ -828,7 +832,7 @@ assignment to failing the course.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#climate-modelling-atsc-448b-directed-studies-jan-2023">Climate Modelling: ATSC 448B (directed studies, Jan 2023)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-climate-modelling-eosc-440-winter-term-2">Physical Climate Modelling: EOSC 440, Winter term 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-purpose">Course Purpose</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructors">Instructors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textbook">Textbook</a></li>

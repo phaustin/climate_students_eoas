@@ -1,10 +1,11 @@
 ---
 jupytext:
+  formats: md:myst,ipynb
   text_representation:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.16.6
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -93,9 +94,14 @@ We will look at many of these processes in detail throughout the course.
 
 +++
 
-<img src="../../images/GlobalEnergyBudget.png"  width="80%">
-
-Observed global energy flows from Trenberth and Fasullo (2012)
+```{figure} ./GlobalEnergyBudget.png
+---
+width: 80%
+name: directive-fig
+alt: pha
+---
+Global Energy Budget
+```
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
