@@ -4,7 +4,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.10
+  - python
   - numpy
   - matplotlib
   - xarray
@@ -15,7 +15,6 @@ dependencies:
   - sympy
   - scipy
   - ffmpeg
-  - jupyterhub=3.1
   - jupyterlab
   - jupyterlab-myst
   - jupytext
