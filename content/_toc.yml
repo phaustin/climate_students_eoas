@@ -7,12 +7,7 @@ parts:
   - file: gradsyllabus.rst
 - caption: Weekly topics
   chapters:
-  - file: week1_topics.md
-  - file: week2_topics.md
-  - file: week3_topics.md
-  - file: week4_topics.md
-  - file: week7_topics.md
-  - file: week9_topics.md
+  - file: week_topics.md
 
 - caption: Front matter
   chapters:
@@ -33,7 +28,7 @@ parts:
 - caption: Week 1 Labs
   numbered: True
   chapters:
-  - file: courseware/week1/lab1_models-budgets-fun.md
+  - file: courseware/week1/lab1_models-budgets-fun.ipynb
 - caption: Week 2 Labs
   numbered: True
   chapters:
