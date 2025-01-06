@@ -39,3 +39,9 @@
 * Download the ipynb file and the png image from this folder
 
 * [Week1 Jupyter notebook folder](https://www.dropbox.com/scl/fo/0npqmlwc2ni291i3g1oyf/AFSkoOIsBUWingbXV8RDnLg?rlkey=fv212zgn30hle15eltp7fhkxq&st=wmi2u9ty&dl=0)
+
+## Week 2
+
+### In-class labs
+* Download the ipynb files and the png images from this folder:
+* [Week2 Jupyter notebook folder](https://www.dropbox.com/scl/fo/xhx2dfuo44tvym0dkiskc/AChXV1dukMjn4_7NqSsXBsY?rlkey=qzihkh9dvtykwvguxo3nfu3v5&st=f9eaga2s&dl=0)
