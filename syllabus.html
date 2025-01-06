@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Course structure and Outline &#8212; Climate Laboratory Book</title>
   
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -66,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -74,19 +76,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -108,12 +114,22 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -128,9 +144,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="home.html">
+  
   
   
   
@@ -180,10 +200,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="courseware/week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="courseware/week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="courseware/week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="courseware/week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
@@ -204,10 +224,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="courseware/week5/lab12_radeq.html">12. Radiative Equilibrium</a></li>
 <li class="toctree-l1"><a class="reference internal" href="courseware/week5/lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="courseware/week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="courseware/week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="courseware/week5/lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="courseware/week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="courseware/week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
 </ul>
@@ -216,10 +236,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="courseware/week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
 <li class="toctree-l1"><a class="reference internal" href="courseware/week6/lab18_insolation.html">18. Insolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="courseware/week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="courseware/week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="courseware/week6/lab20_heat-transport.html">20. Heat transport</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="courseware/week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -230,11 +250,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="courseware/week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="courseware/week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="courseware/week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="courseware/week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="courseware/week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
@@ -288,7 +308,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -297,7 +317,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -379,20 +399,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -483,16 +505,16 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="course-structure-and-outline">
-<h1>Course structure and Outline<a class="headerlink" href="#course-structure-and-outline" title="Permalink to this headline">#</a></h1>
+<h1>Course structure and Outline<a class="headerlink" href="#course-structure-and-outline" title="Permalink to this heading">#</a></h1>
 <p><strong>All these items are provisional, expect some iteration as we test this out</strong></p>
 <section id="python-coding-resources">
-<h2>Python/coding resources<a class="headerlink" href="#python-coding-resources" title="Permalink to this headline">#</a></h2>
+<h2>Python/coding resources<a class="headerlink" href="#python-coding-resources" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="week-1-11-17th-jan-introduction-phil-rachel">
-<h2>Week 1 (11-17th Jan): Introduction <em>(Phil/Rachel)</em><a class="headerlink" href="#week-1-11-17th-jan-introduction-phil-rachel" title="Permalink to this headline">#</a></h2>
+<h2>Week 1 (11-17th Jan): Introduction <em>(Phil/Rachel)</em><a class="headerlink" href="#week-1-11-17th-jan-introduction-phil-rachel" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Introduction to course</p></li>
 <li><p>Set class times</p></li>
@@ -503,37 +525,37 @@ document.write(`
 </ul>
 </section>
 <section id="week-2-18-24th-jan-intro-to-climate-models-and-the-global-energy-budget-phil">
-<h2>Week 2 (18-24th Jan): Intro to climate models and the Global Energy Budget <em>(Phil)</em><a class="headerlink" href="#week-2-18-24th-jan-intro-to-climate-models-and-the-global-energy-budget-phil" title="Permalink to this headline">#</a></h2>
+<h2>Week 2 (18-24th Jan): Intro to climate models and the Global Energy Budget <em>(Phil)</em><a class="headerlink" href="#week-2-18-24th-jan-intro-to-climate-models-and-the-global-energy-budget-phil" title="Permalink to this heading">#</a></h2>
 <section id="reading">
-<h3>Reading:<a class="headerlink" href="#reading" title="Permalink to this headline">#</a></h3>
+<h3>Reading:<a class="headerlink" href="#reading" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Hartmann Chapters 1 (Introduction to the Climate System) and 2 (Global Energy Balance) of Hartmann</p></li>
 </ul>
 </section>
 <section id="notebooks">
-<h3>Notebooks:<a class="headerlink" href="#notebooks" title="Permalink to this headline">#</a></h3>
+<h3>Notebooks:<a class="headerlink" href="#notebooks" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Notebook 2: <a class="reference internal" href="courseware/week2/lab2_zero-dim-ebm.html#nb-modeling"><span class="std std-ref">Modeling the global energy budget</span></a></p></li>
 <li><p>Notebook 3: <a class="reference internal" href="courseware/week2/lab3_climate-system-models.html#nb-system"><span class="std std-ref">The climate system and climate models</span></a></p></li>
 </ul>
 </section>
 <section id="assignments">
-<h3>Assignments:<a class="headerlink" href="#assignments" title="Permalink to this headline">#</a></h3>
+<h3>Assignments:<a class="headerlink" href="#assignments" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Assignment 1: <a class="reference internal" href="courseware/assignments/assignment1-zero-dim-ebm.html#nb-assignment-zero"><span class="std std-ref">Assignment: Climate change in the zero-dimensional EBM</span></a></p></li>
 </ul>
 </section>
 </section>
 <section id="week-3-25-31st-jan-radiative-transfer-phil">
-<h2>Week 3 (25-31st Jan): Radiative Transfer <em>(Phil)</em><a class="headerlink" href="#week-3-25-31st-jan-radiative-transfer-phil" title="Permalink to this headline">#</a></h2>
+<h2>Week 3 (25-31st Jan): Radiative Transfer <em>(Phil)</em><a class="headerlink" href="#week-3-25-31st-jan-radiative-transfer-phil" title="Permalink to this heading">#</a></h2>
 <section id="id1">
-<h3>Reading:<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3>Reading:<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Hartmann chapters 3 (Atmospheric Radiative Transfer and Climate) and 4 (Energy Balance of the Surface)</p></li>
 </ul>
 </section>
 <section id="id2">
-<h3>Notebooks<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<h3>Notebooks<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Notebook 5: <a class="reference internal" href="courseware/week3/lab5_climlab-intro.html#nb-climlab"><span class="std std-ref">Building simple climate models using climlab</span></a></p></li>
 <li><p>Notebook 6: <a class="reference internal" href="courseware/week3/lab6_radiation.html#nb-radiation"><span class="std std-ref">A Brief Review of Radiation</span></a></p></li>
@@ -541,25 +563,25 @@ document.write(`
 </ul>
 </section>
 <section id="id3">
-<h3>Assignments:<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<h3>Assignments:<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Assignment 2: <a class="reference internal" href="courseware/assignments/assignment2-cesm-control.html#nb-assignment-cesm-control"><span class="std std-ref">Assignment: Global average budgets in the CESM pre-industrial control simulation</span></a></p></li>
 </ul>
 </section>
 </section>
 <section id="week-4-1-7th-feb-radiative-equilibrium-and-climate-change-phil">
-<h2>Week 4 (1-7th Feb): Radiative equilibrium and Climate Change <em>(Phil)</em><a class="headerlink" href="#week-4-1-7th-feb-radiative-equilibrium-and-climate-change-phil" title="Permalink to this headline">#</a></h2>
+<h2>Week 4 (1-7th Feb): Radiative equilibrium and Climate Change <em>(Phil)</em><a class="headerlink" href="#week-4-1-7th-feb-radiative-equilibrium-and-climate-change-phil" title="Permalink to this heading">#</a></h2>
 <section id="id4">
-<h3>Reading:<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<h3>Reading:<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Hartmann chapers 3 (Atmospheric Radiative Transfer and Climate) and 13 (Anthropogenic Climate Change)</p></li>
 </ul>
 </section>
 <section id="id5">
-<h3>Assignments:<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<h3>Assignments:<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="id6">
-<h3>Notebooks:<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<h3>Notebooks:<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Notebook 9: <a class="reference internal" href="courseware/week4/lab9_grey-radiation-climlab.html#nb-grey-radiation"><span class="std std-ref">Grey radiation modeling with climlab</span></a></p></li>
 <li><p>Notebook 10: <a class="reference internal" href="courseware/week4/lab10_radiative-transfer.html#nb-radiative-transfer"><span class="std std-ref">Modeling non-scattering radiative transfer</span></a></p></li>
@@ -568,22 +590,22 @@ document.write(`
 </ul>
 </section>
 <section id="id7">
-<h3>Assignments:<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<h3>Assignments:<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Assignment 3: <a class="reference internal" href="courseware/assignments/assignment3-simple-clouds.html#nb-simple-clouds"><span class="std std-ref">Assignment: Clouds in the Leaky Greenhouse Model</span></a></p></li>
 </ul>
 </section>
 <section id="week-5-8-14th-feb-modelling-feedbacks-and-transient-warming-phil">
-<h3>Week 5: 8-14th Feb: Modelling feedbacks and transient warming <em>(Phil)</em><a class="headerlink" href="#week-5-8-14th-feb-modelling-feedbacks-and-transient-warming-phil" title="Permalink to this headline">#</a></h3>
+<h3>Week 5: 8-14th Feb: Modelling feedbacks and transient warming <em>(Phil)</em><a class="headerlink" href="#week-5-8-14th-feb-modelling-feedbacks-and-transient-warming-phil" title="Permalink to this heading">#</a></h3>
 <section id="id8">
-<h4>Reading:<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
+<h4>Reading:<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Hartmann chapters 10 (Climate sensitivity) and 11 (Global Climate Models)</p></li>
 <li><p><a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019GL085782">Causes of Higher Climate Sensitivity in CMIP6 Models</a></p></li>
 </ul>
 </section>
 <section id="id9">
-<h4>Notebooks:<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h4>
+<h4>Notebooks:<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Notebook 12: <a class="reference internal" href="courseware/week5/lab12_radeq.html#nb-radeq"><span class="std std-ref">Radiative Equilibrium</span></a></p></li>
 <li><p>Notebook 13: <a class="reference internal" href="courseware/week5/lab13_rce.html#nb-rce"><span class="std std-ref">Radiative-Convective Equilibrium</span></a></p></li>
@@ -593,27 +615,27 @@ document.write(`
 </ul>
 </section>
 <section id="id10">
-<h4>Assignments:<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h4>
+<h4>Assignments:<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Assignment 4: <a class="reference internal" href="courseware/assignments/assignment4-rcm-feedback.html#nb-rcm-feedback"><span class="std std-ref">Assignment: Feedbacks in the Radiative-Convective Model</span></a></p></li>
 </ul>
 </section>
 </section>
 <section id="st-feb">
-<h3>15-21st Feb<a class="headerlink" href="#st-feb" title="Permalink to this headline">#</a></h3>
+<h3>15-21st Feb<a class="headerlink" href="#st-feb" title="Permalink to this heading">#</a></h3>
 <p>—MID-TERM BREAK—</p>
 </section>
 <section id="week-6-22-28th-feb-modelling-climate-change-rachel">
-<h3>Week 6: 22-28th Feb: Modelling climate change <em>(Rachel)</em><a class="headerlink" href="#week-6-22-28th-feb-modelling-climate-change-rachel" title="Permalink to this headline">#</a></h3>
+<h3>Week 6: 22-28th Feb: Modelling climate change <em>(Rachel)</em><a class="headerlink" href="#week-6-22-28th-feb-modelling-climate-change-rachel" title="Permalink to this heading">#</a></h3>
 <section id="id11">
-<h4>Reading:<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h4>
+<h4>Reading:<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Hartmann chapter 13 (Anthropogenic Climate Change)</p></li>
 <li><p><a class="reference external" href="https://advances.sciencemag.org/content/6/26/eaba1981">Context for interpreting equilibrium climate sensitivity and transient climate response from the CMIP6 Earth system models</a></p></li>
 </ul>
 </section>
 <section id="id12">
-<h4>Notebooks:<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h4>
+<h4>Notebooks:<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Notebook 17: <a class="reference internal" href="courseware/week6/lab17_clouds.html#nb-clouds"><span class="std std-ref">Clouds and cloud feedback</span></a></p></li>
 <li><p>Notebook 18: <a class="reference internal" href="courseware/week6/lab18_insolation.html#nb-insolation"><span class="std std-ref">Insolation</span></a></p></li>
@@ -622,21 +644,21 @@ document.write(`
 </ul>
 </section>
 <section id="id13">
-<h4>Assignments:<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h4>
+<h4>Assignments:<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h4>
 <p>Assignment 5: <a class="reference internal" href="courseware/assignments/assignment5-cesm-climate-change.html#nb-aclimchange"><span class="std std-ref">Assignment: Climate change in the CESM simulations</span></a></p>
 </section>
 </section>
 <section id="week-7-1-7th-mar-modelling-atmospheric-general-circulation-rachel">
-<h3>Week 7: (1-7th Mar) Modelling atmospheric general circulation <em>(Rachel)</em><a class="headerlink" href="#week-7-1-7th-mar-modelling-atmospheric-general-circulation-rachel" title="Permalink to this headline">#</a></h3>
+<h3>Week 7: (1-7th Mar) Modelling atmospheric general circulation <em>(Rachel)</em><a class="headerlink" href="#week-7-1-7th-mar-modelling-atmospheric-general-circulation-rachel" title="Permalink to this heading">#</a></h3>
 <section id="id14">
-<h4>Reading:<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h4>
+<h4>Reading:<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Hartmann chapter 6 (Atmosphere General Circulation and Climate)</p></li>
 <li><p><a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018RG000607">Model Hierarchies for Understanding Atmospheric Circulation</a></p></li>
 </ul>
 </section>
 <section id="id15">
-<h4>Notebooks:<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h4>
+<h4>Notebooks:<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Notebook 21: <a class="reference internal" href="courseware/week7/lab21_one-dim-ebm.html#nb-1debm"><span class="std std-ref">The one-dimensional energy balance model</span></a></p></li>
 <li><p>Notebook 22: <a class="reference internal" href="courseware/week7/lab22_seasonal-cycle.html#nb-tas-seas"><span class="std std-ref">Modeling the seasonal cycle of surface temperature</span></a></p></li>
@@ -645,19 +667,19 @@ document.write(`
 </ul>
 </section>
 <section id="id16">
-<h4>Assignments:<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h4>
+<h4>Assignments:<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h4>
 <p>Students choose and summarize final project (we will give each student resources over next few weeks to help them individually with their projects)</p>
 </section>
 </section>
 <section id="week-8-8-14th-mar-modelling-coupled-atmosphere-ocean-circulation-and-internal-variability-rachel">
-<h3>Week 8 (8-14th Mar) Modelling coupled atmosphere-ocean circulation and internal variability <em>(Rachel)</em><a class="headerlink" href="#week-8-8-14th-mar-modelling-coupled-atmosphere-ocean-circulation-and-internal-variability-rachel" title="Permalink to this headline">#</a></h3>
+<h3>Week 8 (8-14th Mar) Modelling coupled atmosphere-ocean circulation and internal variability <em>(Rachel)</em><a class="headerlink" href="#week-8-8-14th-mar-modelling-coupled-atmosphere-ocean-circulation-and-internal-variability-rachel" title="Permalink to this heading">#</a></h3>
 <section id="id17">
-<h4>Reading:<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h4>
+<h4>Reading:<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h4>
 <p>Hartmann chapters 7 (Ocean General Circulation and Climate) and 8 (Intraseasonal and Interannual variability)
 <a class="reference external" href="https://journals.ametsoc.org/view/journals/bams/96/8/bams-d-13-00255.1.xml">The Community Earth System Model (CESM) Large Ensemble Project: A Community Resource for Studying Climate Change in the Presence of Internal Climate Variability</a></p>
 </section>
 <section id="id18">
-<h4>Notebooks:<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h4>
+<h4>Notebooks:<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Notebook 24: <a class="reference internal" href="courseware/week8/lab25_albedo-snowball.html#nb-snowball"><span class="std std-ref">Ice-albedo feedback and Snowball Earth in the EBM</span></a></p></li>
 <li><p>Notebook 25: <a class="reference internal" href="courseware/week8/lab26_cesm-coupled-dynamics.html#nb-coupdyn"><span class="std std-ref">Coupled Dynamics in the CESM</span></a></p></li>
@@ -669,21 +691,21 @@ document.write(`
 </ul>
 </section>
 <section id="id19">
-<h4>Assignments:<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h4>
+<h4>Assignments:<a class="headerlink" href="#id19" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Proof of concept for projects: download/read in data; get basic model setup running etc - time to troubleshoot.</p></li>
 </ul>
 </section>
 </section>
 <section id="week-9-15-21th-mar-climate-model-hierachy-and-uses-rachel">
-<h3>Week 9 (15-21th Mar): Climate model hierachy and uses <em>(Rachel)</em><a class="headerlink" href="#week-9-15-21th-mar-climate-model-hierachy-and-uses-rachel" title="Permalink to this headline">#</a></h3>
+<h3>Week 9 (15-21th Mar): Climate model hierachy and uses <em>(Rachel)</em><a class="headerlink" href="#week-9-15-21th-mar-climate-model-hierachy-and-uses-rachel" title="Permalink to this heading">#</a></h3>
 <section id="id20">
-<h4>Reading:<a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h4>
+<h4>Reading:<a class="headerlink" href="#id20" title="Permalink to this heading">#</a></h4>
 <p>Hartmann chapters 9 (Paleoclimate), 12 (Natural Climate Change) and 13 (Anthropogenic Climate Change)
 <a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017MS001038">A perspective on climate model hierarchies</a></p>
 </section>
 <section id="id21">
-<h4>Notebooks:<a class="headerlink" href="#id21" title="Permalink to this headline">#</a></h4>
+<h4>Notebooks:<a class="headerlink" href="#id21" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Notebook 27: <a class="reference internal" href="courseware/week9/lab27_surface-energy-balance.html#nb-surfeb"><span class="std std-ref">The surface energy balance</span></a></p></li>
 <li><p>Notebook 28: <a class="reference internal" href="courseware/week9/lab28_land-ocean-contrast.html#nb-landocean"><span class="std std-ref">Land-Ocean contrasts under climate change</span></a></p></li>
@@ -692,16 +714,16 @@ document.write(`
 </section>
 </section>
 <section id="week-10-22-28th-mar-course-summary-and-work-on-individual-projects-phil-rachel">
-<h3>Week 10 (22-28th Mar): Course summary and work on individual projects <em>(Phil/Rachel)</em><a class="headerlink" href="#week-10-22-28th-mar-course-summary-and-work-on-individual-projects-phil-rachel" title="Permalink to this headline">#</a></h3>
+<h3>Week 10 (22-28th Mar): Course summary and work on individual projects <em>(Phil/Rachel)</em><a class="headerlink" href="#week-10-22-28th-mar-course-summary-and-work-on-individual-projects-phil-rachel" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="week-11-29th-mar-4th-apr-work-on-individual-projects-phil-rachel">
-<h3>Week 11 (29th Mar - 4th Apr): Work on individual projects <em>(Phil/Rachel)</em><a class="headerlink" href="#week-11-29th-mar-4th-apr-work-on-individual-projects-phil-rachel" title="Permalink to this headline">#</a></h3>
+<h3>Week 11 (29th Mar - 4th Apr): Work on individual projects <em>(Phil/Rachel)</em><a class="headerlink" href="#week-11-29th-mar-4th-apr-work-on-individual-projects-phil-rachel" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="week-12-5th-11th-apr-work-on-individual-projects-phil-rachel">
-<h3>Week 12 (5th - 11th Apr): Work on individual projects <em>(Phil/Rachel)</em><a class="headerlink" href="#week-12-5th-11th-apr-work-on-individual-projects-phil-rachel" title="Permalink to this headline">#</a></h3>
+<h3>Week 12 (5th - 11th Apr): Work on individual projects <em>(Phil/Rachel)</em><a class="headerlink" href="#week-12-5th-11th-apr-work-on-individual-projects-phil-rachel" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="week-13-12-14th-apr-work-on-individual-projects-phil-rachel">
-<h3>Week 13 (12-14th Apr): Work on individual projects <em>(Phil/Rachel)</em><a class="headerlink" href="#week-13-12-14th-apr-work-on-individual-projects-phil-rachel" title="Permalink to this headline">#</a></h3>
+<h3>Week 13 (12-14th Apr): Work on individual projects <em>(Phil/Rachel)</em><a class="headerlink" href="#week-13-12-14th-apr-work-on-individual-projects-phil-rachel" title="Permalink to this heading">#</a></h3>
 <p>Term finishes: April 14th</p>
 <p>Exams finish: April 29th</p>
 </section>
@@ -733,8 +755,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
 </div>
                 </footer>
@@ -744,6 +768,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -814,7 +839,7 @@ document.write(`
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -827,6 +852,7 @@ By Brian Rose
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -844,7 +870,7 @@ By Brian Rose
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -853,8 +879,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

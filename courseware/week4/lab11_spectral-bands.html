@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>11. Who needs spectral bands? We do. Some baby steps… &#8212; Climate Laboratory Book</title>
   
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -70,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="12. Radiative Equilibrium" href="../week5/lab12_radeq.html" />
     <link rel="prev" title="10. Modeling non-scattering radiative transfer" href="lab10_radiative-transfer.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -78,19 +80,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -112,12 +118,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -132,9 +146,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../home.html">
+  
   
   
   
@@ -184,10 +202,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
@@ -208,10 +226,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab12_radeq.html">12. Radiative Equilibrium</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week5/lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
 </ul>
@@ -220,10 +238,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab18_insolation.html">18. Insolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -234,11 +252,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
@@ -292,7 +310,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -301,7 +319,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -431,20 +449,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -513,15 +533,15 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="who-needs-spectral-bands-we-do-some-baby-steps">
-<span id="nb-spectral-bands"></span><h1><span class="section-number">11. </span>Who needs spectral bands? We do. Some baby steps…<a class="headerlink" href="#who-needs-spectral-bands-we-do-some-baby-steps" title="Permalink to this headline">#</a></h1>
+<span id="nb-spectral-bands"></span><h1><span class="section-number">11. </span>Who needs spectral bands? We do. Some baby steps…<a class="headerlink" href="#who-needs-spectral-bands-we-do-some-baby-steps" title="Permalink to this heading">#</a></h1>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <hr class="docutils" />
 <p><a id='section1'></a></p>
 <section id="what-if-co-2-actually-behaved-like-a-grey-gas">
-<h2><span class="section-number">11.1. </span>1. What if CO<span class="math notranslate nohighlight">\(_2\)</span> actually behaved like a Grey Gas?<a class="headerlink" href="#what-if-co-2-actually-behaved-like-a-grey-gas" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.1. </span>1. What if CO<span class="math notranslate nohighlight">\(_2\)</span> actually behaved like a Grey Gas?<a class="headerlink" href="#what-if-co-2-actually-behaved-like-a-grey-gas" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Suppose that CO<span class="math notranslate nohighlight">\(_2\)</span> actually behaved as a grey gas. In other words, no spectral dependence in absorptivity.</p>
 <p>If we then <strong>double the CO2 concentration</strong> in the atmosphere, we double the number of absorbers. This should imply that we also <strong>double the absorption cross-section</strong> <span class="math notranslate nohighlight">\(\kappa\)</span>. Following the notation from our <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook/courseware/radiative-transfer.html#2.-The-Grey-Gas-Model">lecture on grey-gas radiative transfer</a>, we have:</p>
@@ -540,7 +560,7 @@ document.write(`
 $<span class="math notranslate nohighlight">\( \epsilon^\prime = 2 \epsilon  - \epsilon^2 \)</span>$</p>
 <p>(Note that <span class="math notranslate nohighlight">\(\epsilon^\prime = 2 \epsilon\)</span> for very thin layers, for which <span class="math notranslate nohighlight">\(\epsilon\)</span> is small).</p>
 <section id="what-does-our-2-layer-analytical-model-then-say-about-the-radiative-forcing">
-<h3><span class="section-number">11.1.1. </span>What does our 2-layer analytical model then say about the radiative forcing?<a class="headerlink" href="#what-does-our-2-layer-analytical-model-then-say-about-the-radiative-forcing" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.1.1. </span>What does our 2-layer analytical model then say about the radiative forcing?<a class="headerlink" href="#what-does-our-2-layer-analytical-model-then-say-about-the-radiative-forcing" title="Permalink to this heading">#</a></h3>
 <p>Recall that <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook/courseware/elementary-greenhouse.html#4.-Tuning-the-grey-gas-model-to-observations">we tuned the two-layer grey gas model</a> with</p>
 <div class="math notranslate nohighlight">
 \[ \epsilon = 0.586 \]</div>
@@ -555,7 +575,7 @@ $<span class="math notranslate nohighlight">\( \epsilon^\prime = 2 \epsilon  - \
 </div>
 </div>
 <p><strong>If CO2 behaved like a grey gas</strong>, doubling it would cause a huge increase in the absorptivity of each layer!</p>
-<p><a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook/courseware/elementary-greenhouse.html#The-radiative-forcing-(change-in-OLR)-depends-on-the-lapse-rate%21">We previously worked out that the radiative forcing in this model</a> (with the observed lapse rate) is about +2.6 W m<span class="math notranslate nohighlight">\(^{-2}\)</span> for a 2% increase in <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
+<p><a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook/courseware/elementary-greenhouse.html#The-radiative-forcing-(change-in-OLR)-depends-on-the-lapse-rate!">We previously worked out that the radiative forcing in this model</a> (with the observed lapse rate) is about +2.6 W m<span class="math notranslate nohighlight">\(^{-2}\)</span> for a 2% increase in <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">forcing_rate</span> <span class="o">=</span> <span class="mf">2.6</span> <span class="o">/</span> <span class="mf">0.02</span>   <span class="c1"># W/m2 forcing per fractional increase in epsilon</span>
@@ -594,7 +614,7 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
 </div>
 </section>
 <section id="conclusions">
-<h3><span class="section-number">11.1.2. </span>Conclusions:<a class="headerlink" href="#conclusions" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.1.2. </span>Conclusions:<a class="headerlink" href="#conclusions" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p><strong>If CO2 did behave like a grey gas, we would be toast*!</strong></p></li>
 <li><p>The Grey Gas model is insufficient for understanding radiative forcing and feedback.</p></li>
@@ -605,11 +625,11 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
 </section>
 </section>
 <section id="another-look-at-observed-spectra">
-<h2><span class="section-number">11.2. </span>2. Another look at observed spectra<a class="headerlink" href="#another-look-at-observed-spectra" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.2. </span>2. Another look at observed spectra<a class="headerlink" href="#another-look-at-observed-spectra" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>It’s time to move away from the Grey Gas approximation and look more carefully at the actual observed spectra of solar and terrestrial radiation.</p>
 <section id="observed-solar-spectra">
-<h3><span class="section-number">11.2.1. </span>Observed solar spectra<a class="headerlink" href="#observed-solar-spectra" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.2.1. </span>Observed solar spectra<a class="headerlink" href="#observed-solar-spectra" title="Permalink to this heading">#</a></h3>
 <p>The following figure shows observed spectra of solar radiation at TOA and at the surface, along with the theoretical Planck function for a blackbody at 5525 K.</p>
 <img alt="https://upload.wikimedia.org/wikipedia/commons/e/e7/Solar_spectrum_en.svg" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Solar_spectrum_en.svg" /><blockquote>
 <div><p>This figure shows the solar radiation spectrum for direct light at both the top of the Earth’s atmosphere and at sea level. The sun produces light with a distribution similar to what would be expected from a 5525 K (5250 °C) blackbody, which is approximately the sun’s surface temperature. As light passes through the atmosphere, some is absorbed by gases with specific absorption bands. Additional light is redistributed by Raleigh scattering, which is responsible for the atmosphere’s blue color. These curves are based on the American Society for Testing and Materials (ASTM) Terrestrial Reference Spectra, which are standards adopted by the photovoltaics industry to ensure consistent test conditions and are similar to the light that could be expected in North America. Regions for ultraviolet, visible and infrared light are indicated.</p>
@@ -624,7 +644,7 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
 </ul>
 </section>
 <section id="observed-terrestrial-spectra">
-<h3><span class="section-number">11.2.2. </span>Observed terrestrial spectra<a class="headerlink" href="#observed-terrestrial-spectra" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.2.2. </span>Observed terrestrial spectra<a class="headerlink" href="#observed-terrestrial-spectra" title="Permalink to this heading">#</a></h3>
 <p>This figure shows the Planck function for Earth’s surface temperature compared with the spectrum observed from space.</p>
 <img alt="../../_images/Terrestrial_spectrum.png" src="../../_images/Terrestrial_spectrum.png" />
 <p>Source: https://www.e-education.psu.edu/earth103/node/671</p>
@@ -633,7 +653,7 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
 <p>However there is a spectral band centered on 10 <span class="math notranslate nohighlight">\(\mu\)</span>m in which the greenhouse effect is very weak. This is the so-called <strong>window region</strong> in the spectrum.</p>
 <p>Since absorption is so strong across most of the rest of the infrared spectrum, this window region is a key determinant of the overall greenhouse effect.</p>
 <section id="one-very-big-shortcoming-of-the-grey-gas-model-it-ignores-the-window-region">
-<h4><span class="section-number">11.2.2.1. </span>One very big shortcoming of the Grey Gas model: it ignores the window region<a class="headerlink" href="#one-very-big-shortcoming-of-the-grey-gas-model-it-ignores-the-window-region" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">11.2.2.1. </span>One very big shortcoming of the Grey Gas model: it ignores the window region<a class="headerlink" href="#one-very-big-shortcoming-of-the-grey-gas-model-it-ignores-the-window-region" title="Permalink to this heading">#</a></h4>
 <p>We would therefore like to start using a model that includes enough spectral information that it represents</p>
 <ul class="simple">
 <li><p>the mostly strong CO2 absorption outside the window region</p></li>
@@ -645,13 +665,13 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
 </section>
 </section>
 <section id="water-vapor-changes-under-global-warming">
-<h2><span class="section-number">11.3. </span>3. Water vapor changes under global warming<a class="headerlink" href="#water-vapor-changes-under-global-warming" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.3. </span>3. Water vapor changes under global warming<a class="headerlink" href="#water-vapor-changes-under-global-warming" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Another big shortcoming of the Grey Gas model is that it cannot represent the <strong>water vapor feedback</strong>.</p>
 <p>We have seen above that H<span class="math notranslate nohighlight">\(_2\)</span>O is an important absorber in both longwave and shortwave spectra.</p>
 <p>We also know that the water vapor load in the atmosphere increases as the climate warms. The primary reason is that the <strong>saturation vapor pressure</strong> increases strongly with temperature.</p>
 <section id="evidence-from-cesm-simulations">
-<h3><span class="section-number">11.3.1. </span>Evidence from CESM simulations<a class="headerlink" href="#evidence-from-cesm-simulations" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.3.1. </span>Evidence from CESM simulations<a class="headerlink" href="#evidence-from-cesm-simulations" title="Permalink to this heading">#</a></h3>
 <p>Let’s take at changes in the mean water vapor fields in the CESM model after a doubling of CO<span class="math notranslate nohighlight">\(_2\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -715,7 +735,7 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
 </div>
 </section>
 <section id="what-do-you-see-here">
-<h3><span class="section-number">11.3.2. </span>What do you see here?<a class="headerlink" href="#what-do-you-see-here" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.3.2. </span>What do you see here?<a class="headerlink" href="#what-do-you-see-here" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Where does the largest warming occur?</p></li>
 <li><p>Where does the largest moistening occur?</p></li>
@@ -733,10 +753,10 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
 </section>
 </section>
 <section id="a-simple-water-vapor-parameterization">
-<h2><span class="section-number">11.4. </span>4. A simple water vapor parameterization<a class="headerlink" href="#a-simple-water-vapor-parameterization" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.4. </span>4. A simple water vapor parameterization<a class="headerlink" href="#a-simple-water-vapor-parameterization" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="a-credible-climate-model-needs-a-water-vapor-feedback">
-<h3><span class="section-number">11.4.1. </span>A credible climate model needs a water vapor feedback<a class="headerlink" href="#a-credible-climate-model-needs-a-water-vapor-feedback" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.4.1. </span>A credible climate model needs a water vapor feedback<a class="headerlink" href="#a-credible-climate-model-needs-a-water-vapor-feedback" title="Permalink to this heading">#</a></h3>
 <p>If relative humidity is nearly constant under global warming, and water vapor is a greenhouse gas, this implies a positive feedback that will amplify the warming for a given radiative forcing.</p>
 <p>Thus far our simple models have ignored this process, and we have not been able to use them to assess the climate sensitivity.</p>
 <p>To proceed towards more realistic models, we have two options:</p>
@@ -747,7 +767,7 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
 <p>We will now explore this second option, so that we can continue to think of the global energy budget under climate change as a process occurring in a single column.</p>
 </section>
 <section id="manabe-s-constant-relative-humidity-parameterization">
-<h3><span class="section-number">11.4.2. </span>Manabe’s constant relative humidity parameterization<a class="headerlink" href="#manabe-s-constant-relative-humidity-parameterization" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.4.2. </span>Manabe’s constant relative humidity parameterization<a class="headerlink" href="#manabe-s-constant-relative-humidity-parameterization" title="Permalink to this heading">#</a></h3>
 <p>We are going to adopt a parameterization first used in a very famous paper:</p>
 <blockquote>
 <div><p>Manabe, S. and Wetherald, R. T. (1967). Thermal equilibrium of the atmosphere with a given distribution of relative humidity. J. Atmos. Sci., 24(3):241–259.</p>
@@ -766,16 +786,16 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
 </section>
 </section>
 <section id="modeling-spectral-bands-with-the-climlab-bandrcmodel-process">
-<h2><span class="section-number">11.5. </span>5. Modeling spectral bands with the <code class="docutils literal notranslate"><span class="pre">climlab.BandRCModel</span></code> process<a class="headerlink" href="#modeling-spectral-bands-with-the-climlab-bandrcmodel-process" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.5. </span>5. Modeling spectral bands with the <code class="docutils literal notranslate"><span class="pre">climlab.BandRCModel</span></code> process<a class="headerlink" href="#modeling-spectral-bands-with-the-climlab-bandrcmodel-process" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Here is a brief introduction to the <code class="docutils literal notranslate"><span class="pre">climlab.BandRCModel</span></code> process.</p>
 <p>This is a model that divides the spectrum into 7 distinct bands: three shortwave and four longwave.</p>
 <p>As we will see, the process works much like the familiar <code class="docutils literal notranslate"><span class="pre">climlab.RadiativeConvectiveModel</span></code>.</p>
 </section>
 <section id="about-the-spectra">
-<h2><span class="section-number">11.6. </span>About the spectra<a class="headerlink" href="#about-the-spectra" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.6. </span>About the spectra<a class="headerlink" href="#about-the-spectra" title="Permalink to this heading">#</a></h2>
 <section id="shortwave">
-<h3><span class="section-number">11.6.1. </span>Shortwave<a class="headerlink" href="#shortwave" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.6.1. </span>Shortwave<a class="headerlink" href="#shortwave" title="Permalink to this heading">#</a></h3>
 <p>The shortwave is divided into three channels:</p>
 <ul class="simple">
 <li><p>Channel 0 is the Hartley and Huggins band (extreme UV, 200 - 340 nm, 1% of total flux, strong ozone absorption)</p></li>
@@ -784,7 +804,7 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
 </ul>
 </section>
 <section id="longwave">
-<h3><span class="section-number">11.6.2. </span>Longwave<a class="headerlink" href="#longwave" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.6.2. </span>Longwave<a class="headerlink" href="#longwave" title="Permalink to this heading">#</a></h3>
 <p>The longwave is divided into four bands:</p>
 <ul class="simple">
 <li><p>Band 0 is the <strong>window region</strong> (between 8.5 and 11 <span class="math notranslate nohighlight">\(\mu\)</span>m), 17% of total flux.</p></li>
@@ -795,7 +815,7 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
 <p>The longwave decomposition is not as easily related to specific wavelengths, as in reality there is a lot of overlap between H<span class="math notranslate nohighlight">\(_2\)</span>O and CO<span class="math notranslate nohighlight">\(_2\)</span> absorption features (as well as absorption by other greenhouse gases such as CH<span class="math notranslate nohighlight">\(_4\)</span> and N<span class="math notranslate nohighlight">\(_2\)</span>O that we are not representing).</p>
 </section>
 <section id="example-usage-of-the-spectral-model">
-<h3><span class="section-number">11.6.3. </span>Example usage of the spectral model<a class="headerlink" href="#example-usage-of-the-spectral-model" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.6.3. </span>Example usage of the spectral model<a class="headerlink" href="#example-usage-of-the-spectral-model" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">climlab</span>
@@ -865,7 +885,7 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
 <p>The model currently has no ozone (so there is no stratosphere). Not very realistic!</p>
 </section>
 <section id="about-the-radiatively-active-gases">
-<h3><span class="section-number">11.6.4. </span>About the radiatively active gases<a class="headerlink" href="#about-the-radiatively-active-gases" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.6.4. </span>About the radiatively active gases<a class="headerlink" href="#about-the-radiatively-active-gases" title="Permalink to this heading">#</a></h3>
 <p>The Band model is aware of three different absorbing gases: O3 (ozone), CO2, and H2O (water vapor). The abundances of these gases are stored in a dictionary of arrays as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -884,7 +904,7 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
 </section>
 </section>
 <section id="putting-in-some-ozone">
-<h2><span class="section-number">11.7. </span>Putting in some ozone<a class="headerlink" href="#putting-in-some-ozone" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.7. </span>Putting in some ozone<a class="headerlink" href="#putting-in-some-ozone" title="Permalink to this heading">#</a></h2>
 <p>We need to provide some ozone data to the model in order to simulate a stratosphere. We will read in some ozone data just as we did in <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook/courseware/grey-radiation-climlab.html#8.-Putting-stratospheric-ozone-in-the-grey-gas-model">the previous lecture on grey-gas modeling in climlab</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1048,7 +1068,7 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
 </section>
 <hr class="docutils" />
 <section id="credits">
-<h2><span class="section-number">11.8. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.8. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this heading">#</a></h2>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a>, an open-source textbook developed and maintained by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <p>It is licensed for free and open consumption under the
 <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license.</p>
@@ -1082,8 +1102,10 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="lab10_radiative-transfer.html"
@@ -1111,6 +1133,7 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1159,7 +1182,7 @@ would then give us a truly astronomical <strong>equilibrium climate sensitivity 
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1172,6 +1195,7 @@ By Brian Rose
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -1189,7 +1213,7 @@ By Brian Rose
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1198,8 +1222,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

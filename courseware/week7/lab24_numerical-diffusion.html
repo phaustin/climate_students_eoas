@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>24. A peek at numerical methods for diffusion models &#8212; Climate Laboratory Book</title>
   
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -70,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="25. Ice-albedo feedback and Snowball Earth in the EBM" href="../week8/lab25_albedo-snowball.html" />
     <link rel="prev" title="23. Atmospheric Dynamics in the CESM" href="lab23_cesm-atmospheric-dynamics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -78,19 +80,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -112,12 +118,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -132,9 +146,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../home.html">
+  
   
   
   
@@ -184,10 +202,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
@@ -208,10 +226,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab12_radeq.html">12. Radiative Equilibrium</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week5/lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
 </ul>
@@ -220,10 +238,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab18_insolation.html">18. Insolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
 <ul class="current nav bd-sidenav">
@@ -234,11 +252,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
@@ -292,7 +310,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -301,7 +319,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -431,20 +449,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -515,15 +535,15 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="a-peek-at-numerical-methods-for-diffusion-models">
-<span id="nb-nummeth"></span><h1><span class="section-number">24. </span>A peek at numerical methods for diffusion models<a class="headerlink" href="#a-peek-at-numerical-methods-for-diffusion-models" title="Permalink to this headline">#</a></h1>
+<span id="nb-nummeth"></span><h1><span class="section-number">24. </span>A peek at numerical methods for diffusion models<a class="headerlink" href="#a-peek-at-numerical-methods-for-diffusion-models" title="Permalink to this heading">#</a></h1>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <hr class="docutils" />
 <p><a id='section1'></a></p>
 <section id="the-one-dimensional-diffusion-equation">
-<h2><span class="section-number">24.1. </span>1. The one-dimensional diffusion equation<a class="headerlink" href="#the-one-dimensional-diffusion-equation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">24.1. </span>1. The one-dimensional diffusion equation<a class="headerlink" href="#the-one-dimensional-diffusion-equation" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Suppose that a quantity <span class="math notranslate nohighlight">\(u(x)\)</span> is mixed down-gradient by a diffusive process.</p>
 <p>The diffusive flux is</p>
@@ -544,12 +564,12 @@ document.write(`
 <p><a id='section2'></a></p>
 </section>
 <section id="discretizing-the-diffusion-operator-in-space">
-<h2><span class="section-number">24.2. </span>2. Discretizing the diffusion operator in space<a class="headerlink" href="#discretizing-the-diffusion-operator-in-space" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">24.2. </span>2. Discretizing the diffusion operator in space<a class="headerlink" href="#discretizing-the-diffusion-operator-in-space" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Solving a differential equation on a computer always requires some approximation to represent the continuous function <span class="math notranslate nohighlight">\(u(x,t)\)</span> and its derivatives in terms of discrete quantities (arrays of numbers).</p>
 <p>We have already dealt with simple discretization of the time derivative back in [Lecture 2](./Lecture02 – Solving the zero-dimensional EBM.ipynb). We used the <strong>forward Euler</strong> method to step all our of radiation models forward in time so far.</p>
 <section id="some-notation-for-discretization-of-u-x-t">
-<h3><span class="section-number">24.2.1. </span>Some notation for discretization of <span class="math notranslate nohighlight">\(u(x,t)\)</span><a class="headerlink" href="#some-notation-for-discretization-of-u-x-t" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">24.2.1. </span>Some notation for discretization of <span class="math notranslate nohighlight">\(u(x,t)\)</span><a class="headerlink" href="#some-notation-for-discretization-of-u-x-t" title="Permalink to this heading">#</a></h3>
 <p>We will discretize time and space on grids</p>
 <div class="math notranslate nohighlight">
 \[ x_j , ~~~ t^n \]</div>
@@ -558,7 +578,7 @@ document.write(`
 \[ u_j^n = u(x_j, ~t^n) \]</div>
 </section>
 <section id="discretizing-the-diffusive-flux">
-<h3><span class="section-number">24.2.2. </span>Discretizing the diffusive flux<a class="headerlink" href="#discretizing-the-diffusive-flux" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">24.2.2. </span>Discretizing the diffusive flux<a class="headerlink" href="#discretizing-the-diffusive-flux" title="Permalink to this heading">#</a></h3>
 <p>The governing equation can be written in terms of the convergence of the diffusive flux:</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\partial u}{\partial t} = - \frac{\partial F}{\partial x} \]</div>
@@ -588,7 +608,7 @@ document.write(`
 \[ \frac{\partial u}{\partial t} \bigg|_j  \approx K \frac{ u_{j+1} - 2 u_{j} + u_{j-1}}{\Delta x^2} \]</div>
 </section>
 <section id="no-flux-boundary-conditions">
-<h3><span class="section-number">24.2.3. </span>No-flux boundary conditions<a class="headerlink" href="#no-flux-boundary-conditions" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">24.2.3. </span>No-flux boundary conditions<a class="headerlink" href="#no-flux-boundary-conditions" title="Permalink to this heading">#</a></h3>
 <p>Suppose the domain is <span class="math notranslate nohighlight">\(0 \le x \le 1\)</span>, with solid walls at <span class="math notranslate nohighlight">\(x=0, 1\)</span>.</p>
 <p>The physical boundary condition at the walls is that there can be no flux in or out of the walls:</p>
 <div class="math notranslate nohighlight">
@@ -598,7 +618,7 @@ document.write(`
 \[ \frac{\partial u}{\partial x} = 0 ~~~ \text{at} ~~~ x=0,1 \]</div>
 </section>
 <section id="the-staggered-grid">
-<h3><span class="section-number">24.2.4. </span>The staggered grid<a class="headerlink" href="#the-staggered-grid" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">24.2.4. </span>The staggered grid<a class="headerlink" href="#the-staggered-grid" title="Permalink to this heading">#</a></h3>
 <p>Suppose we have a grid of <span class="math notranslate nohighlight">\(J+1\)</span> total points between <span class="math notranslate nohighlight">\(x=0\)</span> and <span class="math notranslate nohighlight">\(x=1\)</span>, <strong>including the boundaries</strong>:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(x^*_0 = 0 \)</span></p></li>
@@ -627,7 +647,7 @@ document.write(`
 </ul>
 </section>
 <section id="implementing-the-boundary-condition-on-the-staggered-grid">
-<h3><span class="section-number">24.2.5. </span>Implementing the boundary condition on the staggered grid<a class="headerlink" href="#implementing-the-boundary-condition-on-the-staggered-grid" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">24.2.5. </span>Implementing the boundary condition on the staggered grid<a class="headerlink" href="#implementing-the-boundary-condition-on-the-staggered-grid" title="Permalink to this heading">#</a></h3>
 <p>At <span class="math notranslate nohighlight">\(x_0\)</span> we have</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\partial u}{\partial t} \bigg|_0  \approx -\frac{ F_1 - F_0}{\Delta x} \]</div>
@@ -649,7 +669,7 @@ document.write(`
 </section>
 </section>
 <section id="coding-the-discretized-diffusion-operator-in-numpy">
-<h2><span class="section-number">24.3. </span>3. Coding the discretized diffusion operator in <code class="docutils literal notranslate"><span class="pre">numpy</span></code><a class="headerlink" href="#coding-the-discretized-diffusion-operator-in-numpy" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">24.3. </span>3. Coding the discretized diffusion operator in <code class="docutils literal notranslate"><span class="pre">numpy</span></code><a class="headerlink" href="#coding-the-discretized-diffusion-operator-in-numpy" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -757,7 +777,7 @@ document.write(`
 </div>
 </div>
 <section id="a-smooth-example">
-<h3><span class="section-number">24.3.1. </span>A smooth example<a class="headerlink" href="#a-smooth-example" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">24.3.1. </span>A smooth example<a class="headerlink" href="#a-smooth-example" title="Permalink to this heading">#</a></h3>
 <p>Suppose we have an initial <span class="math notranslate nohighlight">\(u\)</span> field that has a local maximum in the interior.</p>
 <p>The gaussian (bell curve) function is a convenient way to create such a field.</p>
 <div class="cell docutils container">
@@ -784,7 +804,7 @@ document.write(`
 <p>Hopefully this makes sense. The diffusion is acting to smooth out <span class="math notranslate nohighlight">\(u\)</span> by reducing the peak and increasing <span class="math notranslate nohighlight">\(u\)</span> on the flanks of the gaussian bump.</p>
 </section>
 <section id="some-non-smooth-examples">
-<h3><span class="section-number">24.3.2. </span>Some non-smooth examples<a class="headerlink" href="#some-non-smooth-examples" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">24.3.2. </span>Some non-smooth examples<a class="headerlink" href="#some-non-smooth-examples" title="Permalink to this heading">#</a></h3>
 <p>Use a random number generator to create some noisy initial conditions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -804,7 +824,7 @@ document.write(`
 </section>
 </section>
 <section id="discretizing-the-time-derivative">
-<h2><span class="section-number">24.4. </span>4. Discretizing the time derivative<a class="headerlink" href="#discretizing-the-time-derivative" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">24.4. </span>4. Discretizing the time derivative<a class="headerlink" href="#discretizing-the-time-derivative" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>The simplest way to discretize the time derivative is the <strong>forward Euler</strong> method:</p>
 <div class="math notranslate nohighlight">
@@ -870,7 +890,7 @@ document.write(`
 </div>
 <p>The numerics were easy to implement, and the scheme seems to work very well! The results are physically sensible.</p>
 <section id="now-suppose-that-you-wanted-to-double-the-spatial-resolution">
-<h3><span class="section-number">24.4.1. </span>Now, suppose that you wanted to <strong>double</strong> the spatial resolution<a class="headerlink" href="#now-suppose-that-you-wanted-to-double-the-spatial-resolution" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">24.4.1. </span>Now, suppose that you wanted to <strong>double</strong> the spatial resolution<a class="headerlink" href="#now-suppose-that-you-wanted-to-double-the-spatial-resolution" title="Permalink to this heading">#</a></h3>
 <p>Try setting <span class="math notranslate nohighlight">\(J=40\)</span> and repeat the above procedure.</p>
 <p>What happens?</p>
 <div class="cell docutils container">
@@ -904,7 +924,7 @@ document.write(`
 </section>
 </section>
 <section id="stability-analysis-of-the-ftcs-scheme">
-<h2><span class="section-number">24.5. </span>5. Stability analysis of the FTCS scheme<a class="headerlink" href="#stability-analysis-of-the-ftcs-scheme" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">24.5. </span>5. Stability analysis of the FTCS scheme<a class="headerlink" href="#stability-analysis-of-the-ftcs-scheme" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Following Press et al. (1988), “Numerical Recipes in C: The Art of Scientific Computing”, Cambridge University Press.</p>
 <p>This is an example of the so-called <strong>von Neumann Stability Analysis</strong>. It is a form of <em>normal mode</em> analysis for a discrete system.</p>
@@ -929,7 +949,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[ \frac{\xi^{n+1}}{\xi^n} = 1 - \frac{4 K \Delta t}{\Delta x^2} \sin^2 \left( \frac{k~\Delta x}{2} \right)  \]</div>
 <section id="the-wavy-solution-must-not-grow-with-time">
-<h3><span class="section-number">24.5.1. </span>The wavy solution must not grow with time<a class="headerlink" href="#the-wavy-solution-must-not-grow-with-time" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">24.5.1. </span>The wavy solution must not grow with time<a class="headerlink" href="#the-wavy-solution-must-not-grow-with-time" title="Permalink to this heading">#</a></h3>
 <p>We need to prevent growing normal modes. So successive amplitudes should be</p>
 <div class="math notranslate nohighlight">
 \[ \bigg| \frac{\xi^{n+1}}{\xi^n} \bigg| \le 1 \]</div>
@@ -945,7 +965,7 @@ document.write(`
 \[ \Delta t \le \frac{\Delta x^2}{2 K} \]</div>
 </section>
 <section id="we-have-just-discovered-an-important-constraint-on-the-allowable-timestep">
-<h3><span class="section-number">24.5.2. </span>We have just discovered an important constraint on the allowable timestep<a class="headerlink" href="#we-have-just-discovered-an-important-constraint-on-the-allowable-timestep" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">24.5.2. </span>We have just discovered an important constraint on the allowable timestep<a class="headerlink" href="#we-have-just-discovered-an-important-constraint-on-the-allowable-timestep" title="Permalink to this heading">#</a></h3>
 <p>The maximum timestep we can use with the FTCS scheme for the diffusion equation is proportional to <span class="math notranslate nohighlight">\(\Delta x^2\)</span>.</p>
 <p><strong>A doubling of the spatial resolution would require a 4x shorter timestep to preserve numerical stability.</strong></p>
 <p>Physically, the restriction is that the maximum allowable timestep is approximately the diffusion time across a grid cell of width <span class="math notranslate nohighlight">\(\Delta x\)</span>.</p>
@@ -954,7 +974,7 @@ document.write(`
 </section>
 </section>
 <section id="numerical-tests-with-a-shorter-timestep">
-<h2><span class="section-number">24.6. </span>6. Numerical tests with a shorter timestep<a class="headerlink" href="#numerical-tests-with-a-shorter-timestep" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">24.6. </span>6. Numerical tests with a shorter timestep<a class="headerlink" href="#numerical-tests-with-a-shorter-timestep" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Going back to our Gaussian example, let’s double the resolution but shorten the timestep by a factor of 4.</p>
 <div class="cell docutils container">
@@ -1000,7 +1020,7 @@ document.write(`
 <p><a id='section7'></a></p>
 </section>
 <section id="the-need-for-a-more-efficient-method">
-<h2><span class="section-number">24.7. </span>7. The need for a more efficient method<a class="headerlink" href="#the-need-for-a-more-efficient-method" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">24.7. </span>7. The need for a more efficient method<a class="headerlink" href="#the-need-for-a-more-efficient-method" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>In practice the condition</p>
 <div class="math notranslate nohighlight">
@@ -1026,7 +1046,7 @@ document.write(`
 <p><a id='section8'></a></p>
 </section>
 <section id="implicit-time-method">
-<h2><span class="section-number">24.8. </span>8. Implicit time method<a class="headerlink" href="#implicit-time-method" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">24.8. </span>8. Implicit time method<a class="headerlink" href="#implicit-time-method" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>With numerical methods for partial differential equations, it often turns out that a small change in the discretization can make an enormous difference in the results.</p>
 <p>The <strong>implicit time</strong> scheme applies exactly the same centered difference scheme to the spatial derivatives in the diffusion operator.</p>
@@ -1052,7 +1072,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[ K^* = \frac{K \Delta t}{\Delta x^2} \]</div>
 <section id="the-implicit-scheme-as-a-matrix-problem">
-<h3><span class="section-number">24.8.1. </span>The implicit scheme as a matrix problem<a class="headerlink" href="#the-implicit-scheme-as-a-matrix-problem" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">24.8.1. </span>The implicit scheme as a matrix problem<a class="headerlink" href="#the-implicit-scheme-as-a-matrix-problem" title="Permalink to this heading">#</a></h3>
 <p>We can write this as a matrix equation</p>
 <div class="math notranslate nohighlight">
 \[ \mathbf{A} ~ \mathbf{U}^{n+1} = \mathbf{U}^n \]</div>
@@ -1087,7 +1107,7 @@ u^n_{J-1} \\
 <p>Solving a tridiagonal matrix problem like this is a very common operation in computer science, and efficient numerical routines are available in many languages (including Python / <code class="docutils literal notranslate"><span class="pre">numpy</span></code>!)</p>
 </section>
 <section id="stability-analysis-of-the-implicit-scheme">
-<h3><span class="section-number">24.8.2. </span>Stability analysis of the implicit scheme<a class="headerlink" href="#stability-analysis-of-the-implicit-scheme" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">24.8.2. </span>Stability analysis of the implicit scheme<a class="headerlink" href="#stability-analysis-of-the-implicit-scheme" title="Permalink to this heading">#</a></h3>
 <p>We’ll skip the details, but the amplification factor for this scheme is (see <em>Numerical Recipes</em> book or other text on numerical methods):</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\xi^{n+1}}{\xi^n} = \frac{1}{1+4 K^* \sin^2 \left( \frac{k \Delta x}{2} \right) } \]</div>
@@ -1099,11 +1119,11 @@ u^n_{J-1} \\
 </section>
 </section>
 <section id="your-homework-assignment">
-<h2><span class="section-number">24.9. </span>9. Your homework assignment<a class="headerlink" href="#your-homework-assignment" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">24.9. </span>9. Your homework assignment<a class="headerlink" href="#your-homework-assignment" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Write Python code to solve the diffusion equation using this implicit time method. Demonstrate that it is numerically stable for much larger timesteps than we were able to use with the forward-time method. One way to do this is to use a much higher spatial resolution.</p>
 <section id="some-final-thoughts">
-<h3><span class="section-number">24.9.1. </span>Some final thoughts:<a class="headerlink" href="#some-final-thoughts" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">24.9.1. </span>Some final thoughts:<a class="headerlink" href="#some-final-thoughts" title="Permalink to this heading">#</a></h3>
 <p>We have just scratched the surface of the wonders and sorrows of numerical methods here. The implicit method is very <strong>stable</strong> but is not the most <strong>accurate</strong> method for a diffusion problem, particularly when you are interested in some of the faster dynamics of the system (as opposed to just getting the system quickly to its equilibrium state).</p>
 <p>There are always trade-offs in the choice of a numerical method.</p>
 <p>The equations for most climate models are sufficiently complex that more than one numerical method is necessary. Even in the simple diffusive EBM, the radiation terms are handled by a forward-time method while the diffusion term is solved implicitly.</p>
@@ -1112,7 +1132,7 @@ u^n_{J-1} \\
 </section>
 <hr class="docutils" />
 <section id="credits">
-<h2><span class="section-number">24.10. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">24.10. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this heading">#</a></h2>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a>, an open-source textbook developed and maintained by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <p>It is licensed for free and open consumption under the
 <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license.</p>
@@ -1146,8 +1166,10 @@ u^n_{J-1} \\
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="lab23_cesm-atmospheric-dynamics.html"
@@ -1175,6 +1197,7 @@ u^n_{J-1} \\
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1225,7 +1248,7 @@ u^n_{J-1} \\
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1238,6 +1261,7 @@ By Brian Rose
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -1255,7 +1279,7 @@ By Brian Rose
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1264,8 +1288,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

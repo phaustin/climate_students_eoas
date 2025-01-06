@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>16. Toy models of transient warming &#8212; Climate Laboratory Book</title>
   
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -70,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="17. Clouds and cloud feedback" href="../week6/lab17_clouds.html" />
     <link rel="prev" title="15. Examing the transient and equilibrium CO\(_2\) response in the CESM" href="lab15_transient-cesm.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -78,19 +80,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -112,12 +118,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -132,9 +146,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../home.html">
+  
   
   
   
@@ -184,10 +202,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
@@ -208,10 +226,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="lab12_radeq.html">12. Radiative Equilibrium</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Toy models of transient warming</a></li>
 </ul>
@@ -220,10 +238,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab18_insolation.html">18. Insolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -234,11 +252,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
@@ -292,7 +310,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -301,7 +319,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -431,20 +449,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -492,18 +512,18 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="toy-models-of-transient-warming">
-<span id="nb-transtoy"></span><h1><span class="section-number">16. </span>Toy models of transient warming<a class="headerlink" href="#toy-models-of-transient-warming" title="Permalink to this headline">#</a></h1>
+<span id="nb-transtoy"></span><h1><span class="section-number">16. </span>Toy models of transient warming<a class="headerlink" href="#toy-models-of-transient-warming" title="Permalink to this heading">#</a></h1>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <section id="exploring-the-rate-of-climate-change">
-<h2><span class="section-number">16.1. </span>Exploring the rate of climate change<a class="headerlink" href="#exploring-the-rate-of-climate-change" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">16.1. </span>Exploring the rate of climate change<a class="headerlink" href="#exploring-the-rate-of-climate-change" title="Permalink to this heading">#</a></h2>
 <p>In the last set of notes and homework we discussed differences between <strong>equilibrium warming</strong> and <strong>transient warming</strong> due to the slowly-evolving effects of ocean heat uptake.</p>
 <p>Here we are going to look at some toy climate models and think about relationships between climate sensitivity, ocean heat uptake, and timescales.</p>
 </section>
 <section id="two-versions-of-radiative-convective-equilibrium-with-different-climate-sensitivities">
-<h2><span class="section-number">16.2. </span>Two versions of Radiative-Convective Equilibrium with different climate sensitivities<a class="headerlink" href="#two-versions-of-radiative-convective-equilibrium-with-different-climate-sensitivities" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">16.2. </span>Two versions of Radiative-Convective Equilibrium with different climate sensitivities<a class="headerlink" href="#two-versions-of-radiative-convective-equilibrium-with-different-climate-sensitivities" title="Permalink to this heading">#</a></h2>
 <p>We are going set up two different single-column model with different lapse rate feedbacks.</p>
 <p>We begin by repeating the same setup we have done several times before, building a single-column RCM with prescribed water vapor profile.</p>
 <div class="cell docutils container">
@@ -644,7 +664,7 @@ document.write(`
 <p>Although this is not the main topic of today’s lesson, it’s still interesting to think about why the lapse rates affect the climate sensivitity in this way…</p>
 </section>
 <section id="time-to-reach-equilibrium">
-<h2><span class="section-number">16.3. </span>Time to reach equilibrium<a class="headerlink" href="#time-to-reach-equilibrium" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">16.3. </span>Time to reach equilibrium<a class="headerlink" href="#time-to-reach-equilibrium" title="Permalink to this heading">#</a></h2>
 <p>These models reached their new equilibria in just a few years. Why is that? Because they have very little heat capacity:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -658,7 +678,7 @@ document.write(`
 <p>For this, we need a deep ocean that can <strong>exchange heat with the surface</strong>.</p>
 </section>
 <section id="transient-warming-scenarios-in-column-models-with-ocean-heat-uptake">
-<h2><span class="section-number">16.4. </span>Transient warming scenarios in column models with ocean heat uptake<a class="headerlink" href="#transient-warming-scenarios-in-column-models-with-ocean-heat-uptake" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">16.4. </span>Transient warming scenarios in column models with ocean heat uptake<a class="headerlink" href="#transient-warming-scenarios-in-column-models-with-ocean-heat-uptake" title="Permalink to this heading">#</a></h2>
 <p>We are now going to build two new models. The atmosphere (radiative-convective model) will be identical to the two “slab” models we just used. But these will be coupled to a <strong>column of ocean water</strong> 2000 m deep!</p>
 <p>We will <strong>parameterize the ocean heat uptake</strong> as a diffusive mixing process. Much like when we discussed the diffusive parameterization for atmospheric heat transport – we are assuming that ocean dynamics result in a vertical mixing of heat from warm to cold temperatures.</p>
 <p>The following code will set this up for us.</p>
@@ -721,7 +741,7 @@ document.write(`
 </div>
 </section>
 <section id="an-idealized-transient-global-warming-scenario-co2-increases-by-1-year-to-doubling">
-<h2><span class="section-number">16.5. </span>An idealized transient global warming scenario: CO2 increases by 1%/year to doubling.<a class="headerlink" href="#an-idealized-transient-global-warming-scenario-co2-increases-by-1-year-to-doubling" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">16.5. </span>An idealized transient global warming scenario: CO2 increases by 1%/year to doubling.<a class="headerlink" href="#an-idealized-transient-global-warming-scenario-co2-increases-by-1-year-to-doubling" title="Permalink to this heading">#</a></h2>
 <p>Now consider the CO2 increase. In the real world, CO2 has been increasing every year since the beginning of industrialization. Future CO2 concentrations depend on collective choices made by human societies about how much fossil fuel to extract and burn.</p>
 <p>We will set up a simple scenario. Suppose that CO2 increases by 1% of its existing concentration every year <strong>until it reaches 2x its initial concentration</strong>. This takes about 70 years.</p>
 <p>After 70 years, we assume that all anthropogenic emissions, and CO2 concentration is <strong>stabilized</strong> at the 2x level.</p>
@@ -841,7 +861,7 @@ This code will take a long time to run! While it's running, we'll think about wh
 </div>
 </section>
 <section id="transient-vs-equilibrium-warming-key-points">
-<h2><span class="section-number">16.6. </span>Transient vs. equilibrium warming: key points<a class="headerlink" href="#transient-vs-equilibrium-warming-key-points" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">16.6. </span>Transient vs. equilibrium warming: key points<a class="headerlink" href="#transient-vs-equilibrium-warming-key-points" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>During the first 70 years, the radiative forcing goes up every year</p></li>
 <li><p>The warming in the two models is almost identical during this phase</p></li>
@@ -856,9 +876,9 @@ This code will take a long time to run! While it's running, we'll think about wh
 </ul>
 </section>
 <section id="results-from-comprehensive-coupled-gcms">
-<h2><span class="section-number">16.7. </span>Results from comprehensive coupled GCMs<a class="headerlink" href="#results-from-comprehensive-coupled-gcms" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">16.7. </span>Results from comprehensive coupled GCMs<a class="headerlink" href="#results-from-comprehensive-coupled-gcms" title="Permalink to this heading">#</a></h2>
 <section id="fast-and-slow-components-of-the-warming">
-<h3><span class="section-number">16.7.1. </span>Fast and slow components of the warming<a class="headerlink" href="#fast-and-slow-components-of-the-warming" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">16.7.1. </span>Fast and slow components of the warming<a class="headerlink" href="#fast-and-slow-components-of-the-warming" title="Permalink to this heading">#</a></h3>
 <p>This figure shows how a comprehensive coupled GCM responds to the same kind of idealized CO2 increase we have looked at above: CO2 increases at 1%/year for 70 years and is then held constant at twice the pre-industrial level (blue curve), or at 4x the pre-industrial level (red curve).</p>
 <p>The dashed curve show the <strong>ocean heat content</strong> continuing to rise slowly over thousands of years.</p>
 <a class="reference internal image-reference" href="http://www.atmos.albany.edu/facstaff/brose/classes/ENV415_Spring2018/images/Yoshimori_transientwarming.png"><img alt="http://www.atmos.albany.edu/facstaff/brose/classes/ENV415_Spring2018/images/Yoshimori_transientwarming.png" src="http://www.atmos.albany.edu/facstaff/brose/classes/ENV415_Spring2018/images/Yoshimori_transientwarming.png" style="width: 400px;" /></a>
@@ -867,7 +887,7 @@ This code will take a long time to run! While it's running, we'll think about wh
 </div></blockquote>
 </section>
 <section id="what-happens-if-co2-levels-are-abruptly-returned-to-pre-industrial-levels">
-<h3><span class="section-number">16.7.2. </span>What happens if CO2 levels are abruptly returned to pre-industrial levels?<a class="headerlink" href="#what-happens-if-co2-levels-are-abruptly-returned-to-pre-industrial-levels" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">16.7.2. </span>What happens if CO2 levels are abruptly returned to pre-industrial levels?<a class="headerlink" href="#what-happens-if-co2-levels-are-abruptly-returned-to-pre-industrial-levels" title="Permalink to this heading">#</a></h3>
 <p>Here, in a different model, we see the surface temperature change through the historical period (black) followed by a typical future global warming scenario (blue).</p>
 <p>The red curves show the effects of suddenly returning greenhouse gases to their preindustrial levels at various times in the future.</p>
 <p>The temperatures very quickly drop, but <strong>not back to the preindustrial values</strong>. Over time, the build-up of heat content in the deep ocean means that, even if CO2 levels revert to what they used to be, the climate remain quite a bit warmer for thousands of years.</p>
@@ -880,7 +900,7 @@ This code will take a long time to run! While it's running, we'll think about wh
 </section>
 <hr class="docutils" />
 <section id="credits">
-<h2><span class="section-number">16.8. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">16.8. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this heading">#</a></h2>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a>, an open-source textbook developed and maintained by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <p>It is licensed for free and open consumption under the
 <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license.</p>
@@ -914,8 +934,10 @@ This code will take a long time to run! While it's running, we'll think about wh
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="lab15_transient-cesm.html"
@@ -944,6 +966,7 @@ This code will take a long time to run! While it's running, we'll think about wh
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -970,7 +993,7 @@ This code will take a long time to run! While it's running, we'll think about wh
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -983,6 +1006,7 @@ By Brian Rose
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -1000,7 +1024,7 @@ By Brian Rose
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1009,8 +1033,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

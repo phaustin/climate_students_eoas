@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Worksheet: Comparing total cloud fraction in hot and cold models &#8212; Climate Laboratory Book</title>
   
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -68,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="1. Climate models, the global energy budget, and Fun with Python" href="../courseware/week1/lab1_models-budgets-fun.html" />
     <link rel="prev" title="Accessing CESM LENS (and LENS2) data with intake-esm" href="loading-CESM-LENS-data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -76,19 +78,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -110,12 +116,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -130,9 +144,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../home.html">
+  
   
   
   
@@ -182,10 +200,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../courseware/week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../courseware/week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
@@ -206,10 +224,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../courseware/week5/lab12_radeq.html">12. Radiative Equilibrium</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../courseware/week5/lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../courseware/week5/lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../courseware/week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../courseware/week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
 </ul>
@@ -218,10 +236,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../courseware/week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../courseware/week6/lab18_insolation.html">18. Insolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../courseware/week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week6/lab20_heat-transport.html">20. Heat transport</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../courseware/week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -232,11 +250,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../courseware/week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../courseware/week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../courseware/week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
@@ -290,7 +308,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -299,7 +317,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -429,20 +447,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -503,10 +523,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="worksheet-comparing-total-cloud-fraction-in-hot-and-cold-models">
-<span id="resource-hot-cold"></span><h1>Worksheet: Comparing total cloud fraction in hot and cold models<a class="headerlink" href="#worksheet-comparing-total-cloud-fraction-in-hot-and-cold-models" title="Permalink to this headline">#</a></h1>
+<span id="resource-hot-cold"></span><h1>Worksheet: Comparing total cloud fraction in hot and cold models<a class="headerlink" href="#worksheet-comparing-total-cloud-fraction-in-hot-and-cold-models" title="Permalink to this heading">#</a></h1>
 <p>This notebook is motivated by  <a class="reference external" href="https://www.dropbox.com/s/2mbf87tdviosdki/Geophysical%20Research%20Letters%20-%202020%20-%20Zelinka%20-%20Causes%20of%20Higher%20Climate%20Sensitivity%20in%20CMIP6%20Models.pdf?dl=0">Zelinka et al., 2020</a> which includes
 a  supplementary <a class="reference external" href="https://www.dropbox.com/s/5l7kmf2rxhflgpc/zelinka_grl_supplement.pdf?dl=0">table S1</a> that
 lists the equilibrium climate senitivity for 27 CMIP6 models.</p>
@@ -532,7 +552,7 @@ for CESM2 (NCAR) and MIROC6 (Japan)</p>
 </div>
 </div>
 <section id="load-the-catalog">
-<h2>Load the catalog<a class="headerlink" href="#load-the-catalog" title="Permalink to this headline">#</a></h2>
+<h2>Load the catalog<a class="headerlink" href="#load-the-catalog" title="Permalink to this heading">#</a></h2>
 <p>At import time, intake-esm plugin is available in intake’s registry as
 <code class="docutils literal notranslate"><span class="pre">esm_datastore</span></code> and can be accessed with <code class="docutils literal notranslate"><span class="pre">intake.open_esm_datastore()</span></code> function.
 Use the <code class="docutils literal notranslate"><span class="pre">intake_esm.tutorial.get_url()</span></code> method to access smaller subsetted catalogs for tutorial purposes.</p>
@@ -574,7 +594,7 @@ catalog by looking at the underlying pandas dataframe created when we load the c
 <p>And is located in Google Cloud Storage at ‘gs://cmip6/CMIP6/HighResMIP/CMCC/CMCC-CM2-HR4/highresSST-present/r1i1p1f1/Amon/ps/gn/v20170706/”</p>
 </section>
 <section id="finding-unique-entries">
-<h2>Finding unique entries<a class="headerlink" href="#finding-unique-entries" title="Permalink to this headline">#</a></h2>
+<h2>Finding unique entries<a class="headerlink" href="#finding-unique-entries" title="Permalink to this heading">#</a></h2>
 <p>To get unique values for given columns in the catalog, intake-esm provides a
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">unique()</span></code> method:</p>
 <p>Let’s query the data catalog to see what models(<code class="docutils literal notranslate"><span class="pre">source_id</span></code>), experiments
@@ -619,18 +639,18 @@ catalog by looking at the underlying pandas dataframe created when we load the c
 </div>
 </section>
 <section id="q1-find-a-low-and-a-high-climate-sensitivity-model">
-<h2>Q1: find a low and a high climate sensitivity model<a class="headerlink" href="#q1-find-a-low-and-a-high-climate-sensitivity-model" title="Permalink to this headline">#</a></h2>
+<h2>Q1: find a low and a high climate sensitivity model<a class="headerlink" href="#q1-find-a-low-and-a-high-climate-sensitivity-model" title="Permalink to this heading">#</a></h2>
 <p>For the low sensitivity, I’ll use MIROC6, ECS = 2.6 K/doubling, for the high sensitivity,  CESM2, ECS = 5.15 K/doubling</p>
 </section>
 <section id="q2-cloud-fraction">
-<h2>Q2: cloud fraction<a class="headerlink" href="#q2-cloud-fraction" title="Permalink to this headline">#</a></h2>
+<h2>Q2: cloud fraction<a class="headerlink" href="#q2-cloud-fraction" title="Permalink to this heading">#</a></h2>
 <p>Check the variable list at <a class="reference external" href="https://pcmdi.llnl.gov/mips/cmip3/variableList.html#overview">https://pcmdi.llnl.gov/mips/cmip3/variableList.html#overview</a></p>
 <p>What is the difference between <strong>cl</strong> and <strong>clt</strong>?  What table do they belong to?</p>
 <p>These are both monthly averaged atmospheric variables in the table Amon – clt is averaged over height and is 3 dimensional
 (time, lon, lat) while cl is four dimensional (time, height, lon, lat)</p>
 </section>
 <section id="q3-grab-one-realization-from-each-of-your-two-models-for-two-scenarios-historical-and-ssp585">
-<h2>Q3 Grab one realization from each of your two models for two scenarios: historical and ssp585<a class="headerlink" href="#q3-grab-one-realization-from-each-of-your-two-models-for-two-scenarios-historical-and-ssp585" title="Permalink to this headline">#</a></h2>
+<h2>Q3 Grab one realization from each of your two models for two scenarios: historical and ssp585<a class="headerlink" href="#q3-grab-one-realization-from-each-of-your-two-models-for-two-scenarios-historical-and-ssp585" title="Permalink to this heading">#</a></h2>
 <p>First we need to find the available realizations.  To do this, get every realization by
 leaving “member_id” unspecified. Note that there are 50 realization for the historical runs</p>
 <div class="cell docutils container">
@@ -671,7 +691,7 @@ leaving “member_id” unspecified. Note that there are 50 realization for the 
 </div>
 </section>
 <section id="lazy-loading-datasets-by-row">
-<span id="sec-lazy"></span><h2>lazy-loading datasets by row<a class="headerlink" href="#lazy-loading-datasets-by-row" title="Permalink to this headline">#</a></h2>
+<span id="sec-lazy"></span><h2>lazy-loading datasets by row<a class="headerlink" href="#lazy-loading-datasets-by-row" title="Permalink to this heading">#</a></h2>
 <p>We can use <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.open_dataset.html">xarray.open_dataset</a> to read in the metadata from a google store zstore url.  This can take a few seconds, but it’s “lazy” in the
 sense that no data is read until some calculation (a plot, average, etc.) is conducted.  If you want to force a data read,
 use <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.load_dataset.html">xarray.load_dataset</a></p>
@@ -686,7 +706,7 @@ use <a class="reference external" href="https://docs.xarray.dev/en/stable/genera
 </div>
 </section>
 <section id="load-datasets-using-to-dataset-dict">
-<h2>Load datasets using <code class="docutils literal notranslate"><span class="pre">to_dataset_dict()</span></code><a class="headerlink" href="#load-datasets-using-to-dataset-dict" title="Permalink to this headline">#</a></h2>
+<h2>Load datasets using <code class="docutils literal notranslate"><span class="pre">to_dataset_dict()</span></code><a class="headerlink" href="#load-datasets-using-to-dataset-dict" title="Permalink to this heading">#</a></h2>
 <p>Intake-esm implements convenience utilities for loading the query results into
 higher level xarray datasets. The logic for merging/concatenating the query
 results into higher level xarray datasets is provided in the input JSON file and
@@ -700,7 +720,7 @@ is available under <code class="docutils literal notranslate"><span class="pre">
 </div>
 <p>The purpose of aggregation control is to combine variable datasets from the same table_id into a single dataset if possible.</p>
 <section id="get-the-8-datasets-this-is-a-lazy-operation">
-<h3>Get the 8 datasets (this is a lazy operation)<a class="headerlink" href="#get-the-8-datasets-this-is-a-lazy-operation" title="Permalink to this headline">#</a></h3>
+<h3>Get the 8 datasets (this is a lazy operation)<a class="headerlink" href="#get-the-8-datasets-this-is-a-lazy-operation" title="Permalink to this heading">#</a></h3>
 <p>The following command reads in the consolidated metadata, but doesn’t grab any actual data.
 The data reads will occur later when  you make select operations.</p>
 <p>The advantage of using <code class="docutils literal notranslate"><span class="pre">to_dataset_dict</span></code> over the raw <code class="docutils literal notranslate"><span class="pre">open_zarr</span></code> is that this this produces a dictionary with
@@ -724,7 +744,7 @@ keys that mark the institution, model, scenario, table an grid.</p>
 </section>
 </section>
 <section id="keep-track-of-the-areacella-for-each-dataset">
-<h2>Keep track of the <code class="docutils literal notranslate"><span class="pre">areacella</span></code> for each dataset<a class="headerlink" href="#keep-track-of-the-areacella-for-each-dataset" title="Permalink to this headline">#</a></h2>
+<h2>Keep track of the <code class="docutils literal notranslate"><span class="pre">areacella</span></code> for each dataset<a class="headerlink" href="#keep-track-of-the-areacella-for-each-dataset" title="Permalink to this heading">#</a></h2>
 <p>To keep track of the variables and weights, it helps to have the keys in two sorted lists</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -739,7 +759,7 @@ keys that mark the institution, model, scenario, table an grid.</p>
 </div>
 </section>
 <section id="limiting-the-dataset-to-the-sourthern-ocean-without-reading-the-data">
-<span id="sec-isel"></span><h2>limiting the dataset to the Sourthern Ocean without reading the data<a class="headerlink" href="#limiting-the-dataset-to-the-sourthern-ocean-without-reading-the-data" title="Permalink to this headline">#</a></h2>
+<span id="sec-isel"></span><h2>limiting the dataset to the Sourthern Ocean without reading the data<a class="headerlink" href="#limiting-the-dataset-to-the-sourthern-ocean-without-reading-the-data" title="Permalink to this heading">#</a></h2>
 <p>To fetch the minimum amount of data, you can use <a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/indexing.html#vectorized-indexing">xarray.isel</a> to
 describe a slice that will be applied when a calculation is done.</p>
 <div class="cell docutils container">
@@ -769,7 +789,7 @@ describe a slice that will be applied when a calculation is done.</p>
 </div>
 </section>
 <section id="saving-a-checkpoint">
-<span id="sec-checkpoint"></span><h2>saving a checkpoint<a class="headerlink" href="#saving-a-checkpoint" title="Permalink to this headline">#</a></h2>
+<span id="sec-checkpoint"></span><h2>saving a checkpoint<a class="headerlink" href="#saving-a-checkpoint" title="Permalink to this heading">#</a></h2>
 <p>You might want to load the dataset into memory (be careful) and save to disk for future acesss.  You
 can preview how much space you’ll need with <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.nbytes.html">xarray.dataset.nbytes</a></p>
 <p>The cell below shows how to checkpoint the datasets to disk and restore from disk back to a dictionary</p>
@@ -804,7 +824,7 @@ can preview how much space you’ll need with <a class="reference external" href
 </div>
 </section>
 <section id="find-the-area-weighted-cloud-fraction-for-1-dataset-over-the-southern-ocean">
-<span id="sec-weighted"></span><h2>Find the area weighted cloud fraction for 1 dataset over the southern ocean<a class="headerlink" href="#find-the-area-weighted-cloud-fraction-for-1-dataset-over-the-southern-ocean" title="Permalink to this headline">#</a></h2>
+<span id="sec-weighted"></span><h2>Find the area weighted cloud fraction for 1 dataset over the southern ocean<a class="headerlink" href="#find-the-area-weighted-cloud-fraction-for-1-dataset-over-the-southern-ocean" title="Permalink to this heading">#</a></h2>
 <p>Note that I don’t need a long variable name that includes all the metadata,
 I can get that information at any point from the variable itself</p>
 <div class="cell docutils container">
@@ -818,7 +838,7 @@ I can get that information at any point from the variable itself</p>
 </div>
 </div>
 <section id="the-areacella-weights">
-<h3>The areacella weights<a class="headerlink" href="#the-areacella-weights" title="Permalink to this headline">#</a></h3>
+<h3>The areacella weights<a class="headerlink" href="#the-areacella-weights" title="Permalink to this heading">#</a></h3>
 <p>We’re on a sphere, so every latitude band is going to have grid cells with different areas.  The grid size
 will vary between models, so it’s important to do weighted averages.</p>
 <div class="cell docutils container">
@@ -830,7 +850,7 @@ will vary between models, so it’s important to do weighted averages.</p>
 </div>
 </section>
 <section id="squeeze-out-the-unit-dimensions">
-<h3>squeeze out the unit dimensions<a class="headerlink" href="#squeeze-out-the-unit-dimensions" title="Permalink to this headline">#</a></h3>
+<h3>squeeze out the unit dimensions<a class="headerlink" href="#squeeze-out-the-unit-dimensions" title="Permalink to this heading">#</a></h3>
 <p>Our variables come indexed over member id and starting year, but since we only have 1 member_id and 1 starting year, we
 can squeeze those out</p>
 <div class="cell docutils container">
@@ -850,12 +870,12 @@ can squeeze those out</p>
 </div>
 </section>
 <section id="use-the-weighted-method-to-apply-weights-to-the-average">
-<h3>use the weighted method to apply weights to the average<a class="headerlink" href="#use-the-weighted-method-to-apply-weights-to-the-average" title="Permalink to this headline">#</a></h3>
+<h3>use the weighted method to apply weights to the average<a class="headerlink" href="#use-the-weighted-method-to-apply-weights-to-the-average" title="Permalink to this heading">#</a></h3>
 <p>The <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.DataArray.weighted.html">dataArray.weighted</a> method makes a dataArray “weight aware”.
 You want to make sure you copy this weighted dataArray to a new variable, because it wipes out all of the dataArray metadata</p>
 </section>
 <section id="add-weights-to-the-dataarray">
-<h3>Add weights to the dataArray<a class="headerlink" href="#add-weights-to-the-dataarray" title="Permalink to this headline">#</a></h3>
+<h3>Add weights to the dataArray<a class="headerlink" href="#add-weights-to-the-dataarray" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clt_so</span>  <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;clt&#39;</span><span class="p">]</span>
@@ -867,7 +887,7 @@ You want to make sure you copy this weighted dataArray to a new variable, becaus
 </div>
 </section>
 <section id="take-the-zonal-mean">
-<h3>Take the zonal mean<a class="headerlink" href="#take-the-zonal-mean" title="Permalink to this headline">#</a></h3>
+<h3>Take the zonal mean<a class="headerlink" href="#take-the-zonal-mean" title="Permalink to this heading">#</a></h3>
 <p>Note that this is the first statement that actually fetches variable values from google</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -879,7 +899,7 @@ You want to make sure you copy this weighted dataArray to a new variable, becaus
 </div>
 </section>
 <section id="smooth-the-data-with-a-rolling-window">
-<h3>Smooth the data with a rolling window<a class="headerlink" href="#smooth-the-data-with-a-rolling-window" title="Permalink to this headline">#</a></h3>
+<h3>Smooth the data with a rolling window<a class="headerlink" href="#smooth-the-data-with-a-rolling-window" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/computation.html#rolling-window-operations">https://docs.xarray.dev/en/stable/user-guide/computation.html#rolling-window-operations</a></p>
 <p>In the cell below I use a 5-year running mean to remove shorter-timescale flucuations. Note how
 I include the metadata in the title for a legend entry.</p>
@@ -901,7 +921,7 @@ I include the metadata in the title for a legend entry.</p>
 </section>
 </section>
 <section id="now-add-miroc6">
-<h2>now add miroc6<a class="headerlink" href="#now-add-miroc6" title="Permalink to this headline">#</a></h2>
+<h2>now add miroc6<a class="headerlink" href="#now-add-miroc6" title="Permalink to this heading">#</a></h2>
 <p>Make a function so we don’t need to copy/paste sells</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -919,7 +939,7 @@ I include the metadata in the title for a legend entry.</p>
 </div>
 </section>
 <section id="add-the-miroc-5-year-rolling-mean-to-the-plot">
-<h2>add the miroc 5 year rolling mean to the plot<a class="headerlink" href="#add-the-miroc-5-year-rolling-mean-to-the-plot" title="Permalink to this headline">#</a></h2>
+<h2>add the miroc 5 year rolling mean to the plot<a class="headerlink" href="#add-the-miroc-5-year-rolling-mean-to-the-plot" title="Permalink to this heading">#</a></h2>
 <p>looks like, for these realizations, there’s a pretty dramatic difference between the hot and cold models</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -939,7 +959,7 @@ I include the metadata in the title for a legend entry.</p>
 </div>
 </section>
 <section id="historical-runs">
-<h2>Historical runs<a class="headerlink" href="#historical-runs" title="Permalink to this headline">#</a></h2>
+<h2>Historical runs<a class="headerlink" href="#historical-runs" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dset_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -995,8 +1015,10 @@ I include the metadata in the title for a legend entry.</p>
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="loading-CESM-LENS-data.html"
@@ -1024,6 +1046,7 @@ I include the metadata in the title for a legend entry.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1064,7 +1087,7 @@ I include the metadata in the title for a legend entry.</p>
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1077,6 +1100,7 @@ By Brian Rose
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -1094,7 +1118,7 @@ By Brian Rose
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1103,8 +1127,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

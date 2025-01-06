@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>12. Radiative Equilibrium &#8212; Climate Laboratory Book</title>
   
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -70,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="13. Radiative-Convective Equilibrium" href="lab13_rce.html" />
     <link rel="prev" title="11. Who needs spectral bands? We do. Some baby steps…" href="../week4/lab11_spectral-bands.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -78,19 +80,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -112,12 +118,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -132,9 +146,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../home.html">
+  
   
   
   
@@ -184,10 +202,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
@@ -208,10 +226,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Radiative Equilibrium</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab16_transient-toy.html">16. Toy models of transient warming</a></li>
 </ul>
@@ -220,10 +238,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab18_insolation.html">18. Insolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -234,11 +252,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
@@ -292,7 +310,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -301,7 +319,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -431,20 +449,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -505,15 +525,15 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="radiative-equilibrium">
-<span id="nb-radeq"></span><h1><span class="section-number">12. </span>Radiative Equilibrium<a class="headerlink" href="#radiative-equilibrium" title="Permalink to this headline">#</a></h1>
+<span id="nb-radeq"></span><h1><span class="section-number">12. </span>Radiative Equilibrium<a class="headerlink" href="#radiative-equilibrium" title="Permalink to this heading">#</a></h1>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <hr class="docutils" />
 <p><a id='section1'></a></p>
 <section id="the-observed-annual-global-mean-temperature-profile">
-<h2><span class="section-number">12.1. </span>1. The observed annual, global mean temperature profile<a class="headerlink" href="#the-observed-annual-global-mean-temperature-profile" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.1. </span>1. The observed annual, global mean temperature profile<a class="headerlink" href="#the-observed-annual-global-mean-temperature-profile" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Let’s look again the observations of air temperature from the NCEP Reanalysis data we first encountered in the <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook/courseware/radiation.html">Radiation notes</a>.</p>
 <p>In this notebook  we’ll define a function to create the Skew-T diagram, because later we are going to reuse it several times.</p>
@@ -573,7 +593,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="radiative-equilibrium-the-concept">
-<h2><span class="section-number">12.2. </span>2. Radiative equilibrium – the concept<a class="headerlink" href="#radiative-equilibrium-the-concept" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.2. </span>2. Radiative equilibrium – the concept<a class="headerlink" href="#radiative-equilibrium-the-concept" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Models of radiative transfer slice up the atmospheric air column into a series of layer, and calculate the <strong>emission</strong> and <strong>absorption</strong> of radiation within each layer.</p>
 <p>It’s really just a generalization of the model we already looked at:</p>
@@ -586,10 +606,10 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="setting-up-a-single-column-radiation-model-in-climlab">
-<h2><span class="section-number">12.3. </span>3. Setting up a single-column radiation model in climlab<a class="headerlink" href="#setting-up-a-single-column-radiation-model-in-climlab" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.3. </span>3. Setting up a single-column radiation model in climlab<a class="headerlink" href="#setting-up-a-single-column-radiation-model-in-climlab" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="radiation-models-in-climlab">
-<h3><span class="section-number">12.3.1. </span>Radiation models in climlab<a class="headerlink" href="#radiation-models-in-climlab" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.3.1. </span>Radiation models in climlab<a class="headerlink" href="#radiation-models-in-climlab" title="Permalink to this heading">#</a></h3>
 <p>We’re now going to use <strong>climlab</strong> to run a <strong>complex radiation model</strong>, one that accounts for the spectral absorption properties of different gases.</p>
 <p>climlab actually provides two different “GCM-level” <a class="reference external" href="https://climlab.readthedocs.io/en/latest/api/climlab.radiation.Radiation.html">radiation codes</a>:</p>
 <ul class="simple">
@@ -601,7 +621,7 @@ document.write(`
 <p>climlab provides an easy-to-use Python wrapper for the RRTMG code.</p>
 </section>
 <section id="water-vapor-data">
-<h3><span class="section-number">12.3.2. </span>Water vapor data<a class="headerlink" href="#water-vapor-data" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.3.2. </span>Water vapor data<a class="headerlink" href="#water-vapor-data" title="Permalink to this heading">#</a></h3>
 <p>Before setting up the model, we need some water vapor data. Why? Because our model needs to know how much water vapor exists at each vertical level, since water vapor is a radiatively important gas.</p>
 <p>We’re actually going to use the specific humidity field from our CESM control simulation. We’ll just take the global, time average of this data, and plot its vertical profile.</p>
 <div class="cell docutils container">
@@ -645,7 +665,7 @@ document.write(`
 <p>Based on this figure, where is most of the water vapor?</p>
 </section>
 <section id="create-a-single-column-model-on-the-same-grid-as-this-water-vapor-data">
-<h3><span class="section-number">12.3.3. </span>Create a single-column model on the same grid as this water vapor data:<a class="headerlink" href="#create-a-single-column-model-on-the-same-grid-as-this-water-vapor-data" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.3.3. </span>Create a single-column model on the same grid as this water vapor data:<a class="headerlink" href="#create-a-single-column-model-on-the-same-grid-as-this-water-vapor-data" title="Permalink to this heading">#</a></h3>
 <p>Here we will create the grid and state variables (air and surface temperature) for our single-column model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -672,7 +692,7 @@ document.write(`
 </div>
 </section>
 <section id="explore-the-single-column-model-object">
-<h3><span class="section-number">12.3.4. </span>Explore the single-column model object<a class="headerlink" href="#explore-the-single-column-model-object" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.3.4. </span>Explore the single-column model object<a class="headerlink" href="#explore-the-single-column-model-object" title="Permalink to this heading">#</a></h3>
 <p>Look at a few interesting properties of the model we just created:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -710,7 +730,7 @@ document.write(`
 </div>
 </section>
 <section id="python-exercise-plot-the-ozone-profile">
-<h3><span class="section-number">12.3.5. </span>Python exercise: plot the ozone profile<a class="headerlink" href="#python-exercise-plot-the-ozone-profile" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.3.5. </span>Python exercise: plot the ozone profile<a class="headerlink" href="#python-exercise-plot-the-ozone-profile" title="Permalink to this heading">#</a></h3>
 <p>Make a simple plot showing the vertical structure of ozone, similar to the specific humidity plot we just made above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -732,7 +752,7 @@ document.write(`
 </div>
 </section>
 <section id="the-rrtmg-radiation-model-has-lots-of-different-input-parameters">
-<h3><span class="section-number">12.3.6. </span>The RRTMG radiation model has lots of different input parameters<a class="headerlink" href="#the-rrtmg-radiation-model-has-lots-of-different-input-parameters" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.3.6. </span>The RRTMG radiation model has lots of different input parameters<a class="headerlink" href="#the-rrtmg-radiation-model-has-lots-of-different-input-parameters" title="Permalink to this heading">#</a></h3>
 <p>For details you can look at the <a class="reference external" href="http://climlab.readthedocs.io/en/latest/api/climlab.radiation.radiation.html">documentation</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -756,10 +776,10 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="radiative-equilibrium-in-the-single-column-model">
-<h2><span class="section-number">12.4. </span>4. Radiative equilibrium in the single-column model<a class="headerlink" href="#radiative-equilibrium-in-the-single-column-model" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.4. </span>4. Radiative equilibrium in the single-column model<a class="headerlink" href="#radiative-equilibrium-in-the-single-column-model" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="step-the-model-forward-in-time">
-<h3><span class="section-number">12.4.1. </span>Step the model forward in time!<a class="headerlink" href="#step-the-model-forward-in-time" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.4.1. </span>Step the model forward in time!<a class="headerlink" href="#step-the-model-forward-in-time" title="Permalink to this heading">#</a></h3>
 <p>Here are the current temperatures (initial condition):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -794,7 +814,7 @@ document.write(`
 <p>Let’s take a look at all the diagnostic information that was generated during that timestep:</p>
 </section>
 <section id="diagnostic-variables-in-our-single-column-model">
-<h3><span class="section-number">12.4.2. </span>Diagnostic variables in our single-column model<a class="headerlink" href="#diagnostic-variables-in-our-single-column-model" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.4.2. </span>Diagnostic variables in our single-column model<a class="headerlink" href="#diagnostic-variables-in-our-single-column-model" title="Permalink to this heading">#</a></h3>
 <p>Every climlab model has a <code class="docutils literal notranslate"><span class="pre">diagnostics</span></code> dictionary. Here we are going to check it out as an <code class="docutils literal notranslate"><span class="pre">xarray</span></code> dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -875,7 +895,7 @@ document.write(`
 <p><em><strong>Is the model gaining or losing energy?</strong></em></p>
 </section>
 <section id="integrate-out-to-equilibrium">
-<h3><span class="section-number">12.4.3. </span>Integrate out to equilibrium<a class="headerlink" href="#integrate-out-to-equilibrium" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.4.3. </span>Integrate out to equilibrium<a class="headerlink" href="#integrate-out-to-equilibrium" title="Permalink to this heading">#</a></h3>
 <p>Here I want to step forward in time until the model is very close to energy balance.</p>
 <p>We can use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, conditional on the top-of-atmosphere imbalance:</p>
 <div class="cell docutils container">
@@ -898,7 +918,7 @@ document.write(`
 <p>Indeed, the imbalance is now small.</p>
 </section>
 <section id="compare-the-radiative-equilibrium-temperature-to-observations">
-<h3><span class="section-number">12.4.4. </span>Compare the radiative equilibrium temperature to observations<a class="headerlink" href="#compare-the-radiative-equilibrium-temperature-to-observations" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.4.4. </span>Compare the radiative equilibrium temperature to observations<a class="headerlink" href="#compare-the-radiative-equilibrium-temperature-to-observations" title="Permalink to this heading">#</a></h3>
 <p>Here’s a helper function we’ll use to add model temperature profiles to our skew-T plot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -926,12 +946,12 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="effects-of-different-gases-on-the-radiative-equilibrium-profile">
-<h2><span class="section-number">12.5. </span>5. Effects of different gases on the radiative equilibrium profile<a class="headerlink" href="#effects-of-different-gases-on-the-radiative-equilibrium-profile" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.5. </span>5. Effects of different gases on the radiative equilibrium profile<a class="headerlink" href="#effects-of-different-gases-on-the-radiative-equilibrium-profile" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p><strong>Models are for experimenting and playing with!</strong></p>
 <p>We have just built a single-column radiation model with several different absorbing gases. <em>We can learn about their effects by taking them away.</em></p>
 <section id="radiative-equilibrium-without-water-vapor">
-<h3><span class="section-number">12.5.1. </span>Radiative equilibrium without water vapor<a class="headerlink" href="#radiative-equilibrium-without-water-vapor" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.5.1. </span>Radiative equilibrium without water vapor<a class="headerlink" href="#radiative-equilibrium-without-water-vapor" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an exact clone of our existing model</span>
@@ -998,7 +1018,7 @@ document.write(`
 <p>What do you think you can learn from this about the radiative role of water vapor?</p>
 </section>
 <section id="exercise-radiative-equilibrium-without-ozone">
-<h3><span class="section-number">12.5.2. </span>Exercise: radiative equilibrium without ozone<a class="headerlink" href="#exercise-radiative-equilibrium-without-ozone" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.5.2. </span>Exercise: radiative equilibrium without ozone<a class="headerlink" href="#exercise-radiative-equilibrium-without-ozone" title="Permalink to this heading">#</a></h3>
 <p>Following the steps above, make another model, but this time instead of removing the water vapor, remove the ozone!</p>
 <p>Make another skew-T plot comparing all three model results.</p>
 <p>If you have time, try a third case in which you remove both the water vapor and the ozone!</p>
@@ -1006,7 +1026,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="summary-of-radiative-equilibrium-results">
-<h2><span class="section-number">12.6. </span>6. Summary of radiative equilibrium results<a class="headerlink" href="#summary-of-radiative-equilibrium-results" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.6. </span>6. Summary of radiative equilibrium results<a class="headerlink" href="#summary-of-radiative-equilibrium-results" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <ul class="simple">
 <li><p>We used the <code class="docutils literal notranslate"><span class="pre">RRTMG</span></code> radiation model with prescribed profiles of absorbing gases to calculate <strong>pure radiative equilibrium</strong> temperature profiles.</p></li>
@@ -1026,7 +1046,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="credits">
-<h2><span class="section-number">12.7. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.7. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this heading">#</a></h2>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a>, an open-source textbook developed and maintained by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <p>It is licensed for free and open consumption under the
 <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license.</p>
@@ -1060,8 +1080,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="../week4/lab11_spectral-bands.html"
@@ -1089,6 +1111,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1129,7 +1152,7 @@ document.write(`
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1142,6 +1165,7 @@ By Brian Rose
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -1159,7 +1183,7 @@ By Brian Rose
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1168,8 +1192,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

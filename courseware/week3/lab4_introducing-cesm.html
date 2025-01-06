@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>4. Introducing the Community Earth System Model (CESM) &#8212; Climate Laboratory Book</title>
   
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -70,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="5. Building simple climate models using climlab" href="lab5_climlab-intro.html" />
     <link rel="prev" title="3. The climate system and climate models" href="../week2/lab3_climate-system-models.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -78,19 +80,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -112,12 +118,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -132,9 +146,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../home.html">
+  
   
   
   
@@ -184,10 +202,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
@@ -208,10 +226,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab12_radeq.html">12. Radiative Equilibrium</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week5/lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
 </ul>
@@ -220,10 +238,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab18_insolation.html">18. Insolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -234,11 +252,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
@@ -292,7 +310,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -301,7 +319,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -431,20 +449,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -519,17 +539,17 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introducing-the-community-earth-system-model-cesm">
-<h1><span class="section-number">4. </span>Introducing the Community Earth System Model (CESM)<a class="headerlink" href="#introducing-the-community-earth-system-model-cesm" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">4. </span>Introducing the Community Earth System Model (CESM)<a class="headerlink" href="#introducing-the-community-earth-system-model-cesm" title="Permalink to this heading">#</a></h1>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <hr class="docutils" />
 <section id="about-the-cesm">
-<h2><span class="section-number">4.1. </span>About the CESM<a class="headerlink" href="#about-the-cesm" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.1. </span>About the CESM<a class="headerlink" href="#about-the-cesm" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="what-is-it">
-<h3><span class="section-number">4.1.1. </span>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.1.1. </span>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>CESM is one of a handful of complex coupled GCMs that are used as part of the IPCC process.</p></li>
 <li><p>Developed and maintained at NCAR (Boulder CO) by a group of climate scientists and software engineers.</p></li>
@@ -539,7 +559,7 @@ document.write(`
 <p>http://www.cesm.ucar.edu/models/</p>
 </section>
 <section id="key-components-of-cesm">
-<h3><span class="section-number">4.1.2. </span>Key components of CESM:<a class="headerlink" href="#key-components-of-cesm" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.1.2. </span>Key components of CESM:<a class="headerlink" href="#key-components-of-cesm" title="Permalink to this heading">#</a></h3>
 <p>see http://www.cesm.ucar.edu/models/cesm1.2/ for more info</p>
 <ul class="simple">
 <li><p>Atmospheric model (AGCM)</p>
@@ -570,10 +590,10 @@ document.write(`
 </section>
 </section>
 <section id="our-numerical-experiments-with-cesm">
-<h2><span class="section-number">4.2. </span>Our numerical experiments with CESM<a class="headerlink" href="#our-numerical-experiments-with-cesm" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.2. </span>Our numerical experiments with CESM<a class="headerlink" href="#our-numerical-experiments-with-cesm" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="atmosphere">
-<h3><span class="section-number">4.2.1. </span>Atmosphere<a class="headerlink" href="#atmosphere" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.2.1. </span>Atmosphere<a class="headerlink" href="#atmosphere" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Horizontal resolution about 2º lat/lon</p></li>
 <li><p>AGCM solves the fundamental equations:</p>
@@ -601,7 +621,7 @@ document.write(`
 </ul>
 </section>
 <section id="sea-ice">
-<h3><span class="section-number">4.2.2. </span>Sea ice<a class="headerlink" href="#sea-ice" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.2.2. </span>Sea ice<a class="headerlink" href="#sea-ice" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Resolution of 1º.</p></li>
 <li><p>Thermodynamics (conservation of energy, water and salt)</p>
@@ -618,7 +638,7 @@ document.write(`
 </ul>
 </section>
 <section id="land-surface-model">
-<h3><span class="section-number">4.2.3. </span>Land surface model<a class="headerlink" href="#land-surface-model" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.2.3. </span>Land surface model<a class="headerlink" href="#land-surface-model" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Same resolution as atmosphere.</p></li>
 <li><p>Determines surface fluxes of heat, water, momentum (friction) based on prescribed vegetation types.</p></li>
@@ -627,7 +647,7 @@ document.write(`
 </ul>
 </section>
 <section id="ocean">
-<h3><span class="section-number">4.2.4. </span>Ocean<a class="headerlink" href="#ocean" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.2.4. </span>Ocean<a class="headerlink" href="#ocean" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Same grid as sea ice, 1º.</p></li>
 <li><p>Exchanges heat, water, and momentum with the atmosphere and sea ice</p></li>
@@ -636,7 +656,7 @@ document.write(`
 </ul>
 </section>
 <section id="experimental-setup">
-<h3><span class="section-number">4.2.5. </span>Experimental setup<a class="headerlink" href="#experimental-setup" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.2.5. </span>Experimental setup<a class="headerlink" href="#experimental-setup" title="Permalink to this heading">#</a></h3>
 <p>Model is given realistic atmospheric composition, realistic solar radiation, etc.</p>
 <p>We perform a <strong>preindustrial control run</strong> to get a baseline simulation, and take <strong>averages of several years</strong> (because the model has internal variability – every year is a little bit different)</p>
 <p>We then (later) we will change something, e.g. double the atmospheric <span class="math notranslate nohighlight">\(CO_2\)</span>!</p>
@@ -644,10 +664,10 @@ document.write(`
 </section>
 </section>
 <section id="browsing-input-data-with-xarray">
-<h2><span class="section-number">4.3. </span>Browsing input data with xarray<a class="headerlink" href="#browsing-input-data-with-xarray" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.3. </span>Browsing input data with xarray<a class="headerlink" href="#browsing-input-data-with-xarray" title="Permalink to this heading">#</a></h2>
 <p>First, let’s take a look at some of the ingredients that go into the control run. <strong>All of the necessary data will be served up by a special data server sitting in the department</strong>, so you should be able to run this code to interact with the data on any computer that is connected to the internet.</p>
 <section id="you-need-to-be-connected-to-the-internet-to-run-the-code-in-this-notebook">
-<h3><span class="section-number">4.3.1. </span>You need to be connected to the internet to run the code in this notebook<a class="headerlink" href="#you-need-to-be-connected-to-the-internet-to-run-the-code-in-this-notebook" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.3.1. </span>You need to be connected to the internet to run the code in this notebook<a class="headerlink" href="#you-need-to-be-connected-to-the-internet-to-run-the-code-in-this-notebook" title="Permalink to this heading">#</a></h3>
 <p>You can browse the available data through a web interface here:</p>
 <p>http://thredds.atmos.albany.edu:8080/thredds/catalog.html</p>
 <p>Within this folder called <code class="docutils literal notranslate"><span class="pre">CESM</span> <span class="pre">archive</span></code>, you will find another folder called <code class="docutils literal notranslate"><span class="pre">som_input</span></code> which contains all the input files.</p>
@@ -665,7 +685,7 @@ document.write(`
 <p>We are going to use a package called <a class="reference external" href="http://xarray.pydata.org">xarray</a> (abbreviated here as <code class="docutils literal notranslate"><span class="pre">xr</span></code>) to work with the datasets.</p>
 </section>
 <section id="boundary-conditions-continents-and-topography">
-<h3><span class="section-number">4.3.2. </span>Boundary conditions: continents and topography<a class="headerlink" href="#boundary-conditions-continents-and-topography" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.3.2. </span>Boundary conditions: continents and topography<a class="headerlink" href="#boundary-conditions-continents-and-topography" title="Permalink to this heading">#</a></h3>
 <p>Here we are going to load the input topography file and take a look at what’s inside.</p>
 <p>In this case we are passing it a URL to our online dataserver. We’ll put the URL in a string variable called <code class="docutils literal notranslate"><span class="pre">datapath</span></code> to simplify things later on.</p>
 <div class="cell docutils container">
@@ -699,7 +719,7 @@ document.write(`
 </div>
 </section>
 <section id="plotting-the-topography">
-<h3><span class="section-number">4.3.3. </span>Plotting the topography<a class="headerlink" href="#plotting-the-topography" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.3.3. </span>Plotting the topography<a class="headerlink" href="#plotting-the-topography" title="Permalink to this heading">#</a></h3>
 <p>We will now read the geopotential and make a plot of the topography of the Earth’s surface as represented on the 2º grid. The code below makes a colorful plot of the topography. We also use the land-sea mask in order to plot nothing at grid points that are entirely ocean-covered.</p>
 <p>Execute this code exactly as written first, and then play around with it to see how you might customize the graph.</p>
 <div class="cell docutils container">
@@ -756,14 +776,14 @@ document.write(`
 </div>
 </section>
 <section id="making-nicer-maps">
-<h3><span class="section-number">4.3.4. </span>Making nicer maps<a class="headerlink" href="#making-nicer-maps" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.3.4. </span>Making nicer maps<a class="headerlink" href="#making-nicer-maps" title="Permalink to this heading">#</a></h3>
 <p>Notice that to make these plots we’ve just plotted the lat-lon array without using any map projection.</p>
 <p>There are nice tools available to make better maps. We’ll leave that as a topic for another day. But if you’re keen to read ahead, check out:</p>
 <p><a class="reference external" href="http://scitools.org.uk/cartopy/">http://scitools.org.uk/cartopy/</a></p>
 </section>
 </section>
 <section id="ocean-boundary-conditions">
-<h2><span class="section-number">4.4. </span>Ocean boundary conditions<a class="headerlink" href="#ocean-boundary-conditions" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.4. </span>Ocean boundary conditions<a class="headerlink" href="#ocean-boundary-conditions" title="Permalink to this heading">#</a></h2>
 <p>Let’s load another file that contains some information about the ocean and its interaction with the atmosphere.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -862,7 +882,7 @@ document.write(`
 <p>http://xarray.pydata.org</p>
 </section>
 <section id="the-pre-industrial-control-run">
-<h2><span class="section-number">4.5. </span>The “pre-industrial” control run<a class="headerlink" href="#the-pre-industrial-control-run" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.5. </span>The “pre-industrial” control run<a class="headerlink" href="#the-pre-industrial-control-run" title="Permalink to this heading">#</a></h2>
 <p>Our control run is set up to simulate the climate of the “pre-industrial era”, meaning before significant human-induced changes to the composition of the atmosphere, nominally the year 1850.</p>
 <p>Output from the control run is available on the same data server as above. Look in the folder called <code class="docutils literal notranslate"><span class="pre">cpl_1850_f19</span></code> (Here <code class="docutils literal notranslate"><span class="pre">cpl</span></code> stands for “coupled model” with interactive ocean, 1850 indicated pre-industrial conditions, and <code class="docutils literal notranslate"><span class="pre">f19</span></code> is a code for 2º the horizontal grid resolution).</p>
 <p>There are output files for each active model component:</p>
@@ -914,7 +934,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="exercise-taking-a-time-average">
-<h2><span class="section-number">4.6. </span>Exercise: Taking a time average<a class="headerlink" href="#exercise-taking-a-time-average" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.6. </span>Exercise: Taking a time average<a class="headerlink" href="#exercise-taking-a-time-average" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <ul class="simple">
 <li><p>Take the <strong>time average</strong> of the <code class="docutils literal notranslate"><span class="pre">SOLIN</span></code> field. Store the result as a new variable.</p></li>
@@ -930,7 +950,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="exercise-plotting-the-time-average-insolation">
-<h2><span class="section-number">4.7. </span>Exercise: Plotting the time average insolation<a class="headerlink" href="#exercise-plotting-the-time-average-insolation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.7. </span>Exercise: Plotting the time average insolation<a class="headerlink" href="#exercise-plotting-the-time-average-insolation" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <ol class="arabic simple">
 <li><p>Make a well-labeled plot of the time-averaged insolation (using the variable you stored above).</p></li>
@@ -939,20 +959,20 @@ document.write(`
 <p>Remember that you can apply the <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> operation across any number of named dimensions in a data array.</p>
 </section>
 <section id="comparing-the-control-run-with-the-observed-energy-budget">
-<h2><span class="section-number">4.8. </span>Comparing the control run with the observed energy budget<a class="headerlink" href="#comparing-the-control-run-with-the-observed-energy-budget" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.8. </span>Comparing the control run with the observed energy budget<a class="headerlink" href="#comparing-the-control-run-with-the-observed-energy-budget" title="Permalink to this heading">#</a></h2>
 <p>Recall that our investigations so far have been guided by this figure of the observed <strong>annual, global mean energy budget</strong>:</p>
 <p><img alt="Observed global energy budget" src="http://www.atmos.albany.edu/facstaff/brose/classes/ENV415_Spring2018/images/GlobalEnergyBudget.png" /></p>
 </section>
 <hr class="docutils" />
 <section id="exercise-thinking-about-how-to-compute-a-global-average">
-<h2><span class="section-number">4.9. </span>Exercise: Thinking about how to compute a global average<a class="headerlink" href="#exercise-thinking-about-how-to-compute-a-global-average" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.9. </span>Exercise: Thinking about how to compute a global average<a class="headerlink" href="#exercise-thinking-about-how-to-compute-a-global-average" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>In order to compare these numbers with the control run, <strong>we need to take global averages</strong> of the data. What do we mean by <strong>global average</strong>?</p>
 <p>Before proceeding with these notes, try to answer the following question:</p>
 <p><strong>Why does it not make sense to simply average over each data point on a latitude-longitude grid?</strong></p>
 </section>
 <section id="weighting-for-global-average">
-<h2><span class="section-number">4.10. </span>Weighting for global average<a class="headerlink" href="#weighting-for-global-average" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.10. </span>Weighting for global average<a class="headerlink" href="#weighting-for-global-average" title="Permalink to this heading">#</a></h2>
 <p>The global average needs to weighted by the area of each grid cell, which is proportional to the <strong>cosine of latitude</strong> (do you understand why?)</p>
 <p>We can implement this in xarray as follows:</p>
 <div class="cell docutils container">
@@ -975,7 +995,7 @@ document.write(`
 </div>
 </div>
 <section id="an-alternative-use-weights-already-provided-in-the-dataset">
-<h3><span class="section-number">4.10.1. </span>An alternative: use weights already provided in the dataset<a class="headerlink" href="#an-alternative-use-weights-already-provided-in-the-dataset" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.10.1. </span>An alternative: use weights already provided in the dataset<a class="headerlink" href="#an-alternative-use-weights-already-provided-in-the-dataset" title="Permalink to this heading">#</a></h3>
 <p>You will find that many gridded datasets already provide a field that gives accurate area weighting.</p>
 <p>In the case of the CESM output, the field is called <code class="docutils literal notranslate"><span class="pre">gw</span></code></p>
 <div class="cell docutils container">
@@ -994,7 +1014,7 @@ document.write(`
 </div>
 </section>
 <section id="compute-the-global-time-average-insolation">
-<h3><span class="section-number">4.10.2. </span>Compute the global, time average insolation<a class="headerlink" href="#compute-the-global-time-average-insolation" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.10.2. </span>Compute the global, time average insolation<a class="headerlink" href="#compute-the-global-time-average-insolation" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Compute the global, time average insolation using our two different weight factors</span>
@@ -1011,7 +1031,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="exercise-plotting-a-global-average-timeseries">
-<h2><span class="section-number">4.11. </span>Exercise: plotting a global average timeseries<a class="headerlink" href="#exercise-plotting-a-global-average-timeseries" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.11. </span>Exercise: plotting a global average timeseries<a class="headerlink" href="#exercise-plotting-a-global-average-timeseries" title="Permalink to this heading">#</a></h2>
 <p>Plot a <strong>timeseries</strong> of the <strong>global average surface temperature</strong> in the control simulation.</p>
 <p>Surface temperature is called <code class="docutils literal notranslate"><span class="pre">'TS'</span></code> in the dataset.</p>
 <p>Make a plot of the global average <code class="docutils literal notranslate"><span class="pre">TS</span></code> with time on the x axis. <em>Make sure your global average is properly weighted as discussed above.</em></p>
@@ -1032,7 +1052,7 @@ document.write(`
 </div>
 </div>
 <section id="discussion-point">
-<h3><span class="section-number">4.11.1. </span>Discussion point<a class="headerlink" href="#discussion-point" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.11.1. </span>Discussion point<a class="headerlink" href="#discussion-point" title="Permalink to this heading">#</a></h3>
 <p>What do you see in this graph? Do you have any ideas about why the global average temperature looks like this?</p>
 <p>Also, what is the <strong>time average</strong> global-average surface temperature in this simulation?</p>
 <div class="cell docutils container">
@@ -1044,7 +1064,7 @@ document.write(`
 </div>
 </section>
 <section id="finding-the-radiative-fluxes-in-the-model-output">
-<h3><span class="section-number">4.11.2. </span>Finding the radiative fluxes in the model output<a class="headerlink" href="#finding-the-radiative-fluxes-in-the-model-output" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.11.2. </span>Finding the radiative fluxes in the model output<a class="headerlink" href="#finding-the-radiative-fluxes-in-the-model-output" title="Permalink to this heading">#</a></h3>
 <p>Now that you can take global averages and time averages, we can compare some energy budget values against observations.</p>
 <p>The model output contains lots of diagnostics about the radiative fluxes. Here are some CESM naming conventions to help you find the appropriate output fields:</p>
 <ul class="simple">
@@ -1079,7 +1099,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="exercise-compute-terms-in-the-planetary-energy-budget">
-<h2><span class="section-number">4.12. </span>Exercise: compute terms in the planetary energy budget<a class="headerlink" href="#exercise-compute-terms-in-the-planetary-energy-budget" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.12. </span>Exercise: compute terms in the planetary energy budget<a class="headerlink" href="#exercise-compute-terms-in-the-planetary-energy-budget" title="Permalink to this heading">#</a></h2>
 <p>Compute annual, global averages of the following four quantities.</p>
 <ol class="arabic simple">
 <li><p>Incoming solar radiation (or insolation)</p></li>
@@ -1091,7 +1111,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="a-few-more-tidbits">
-<h2><span class="section-number">4.13. </span>A few more tidbits<a class="headerlink" href="#a-few-more-tidbits" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.13. </span>A few more tidbits<a class="headerlink" href="#a-few-more-tidbits" title="Permalink to this heading">#</a></h2>
 <p>Feel free to keep exploring the data!</p>
 <p>Many other fields are four-dimensional (time, level, latitude, longitude).</p>
 <p>For example, here the <strong>air temperature</strong> at every point and every month:</p>
@@ -1133,7 +1153,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="credits">
-<h2><span class="section-number">4.14. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.14. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this heading">#</a></h2>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a>, an open-source textbook developed and maintained by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <p>It is licensed for free and open consumption under the
 <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license.</p>
@@ -1167,8 +1187,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="../week2/lab3_climate-system-models.html"
@@ -1196,6 +1218,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1250,7 +1273,7 @@ document.write(`
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1263,6 +1286,7 @@ By Brian Rose
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -1280,7 +1304,7 @@ By Brian Rose
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1289,8 +1313,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

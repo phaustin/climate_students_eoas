@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>14.9. Advanced topic: Climate sensitivity and feedback &#8212; Climate Laboratory Book</title>
   
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -70,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="15. Examing the transient and equilibrium CO\(_2\) response in the CESM" href="lab15_transient-cesm.html" />
     <link rel="prev" title="14. Climate sensitivity and feedback" href="lab14_sensitivity-feedback.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -78,19 +80,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -112,12 +118,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -132,9 +146,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../home.html">
+  
   
   
   
@@ -184,10 +202,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
@@ -208,10 +226,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="lab12_radeq.html">12. Radiative Equilibrium</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab16_transient-toy.html">16. Toy models of transient warming</a></li>
 </ul>
@@ -220,10 +238,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab18_insolation.html">18. Insolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -234,11 +252,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
@@ -292,7 +310,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -301,7 +319,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -431,20 +449,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -511,15 +531,15 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="advanced-topic-climate-sensitivity-and-feedback">
-<h1><span class="section-number">14.9. </span>Advanced topic: Climate sensitivity and feedback<a class="headerlink" href="#advanced-topic-climate-sensitivity-and-feedback" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">14.9. </span>Advanced topic: Climate sensitivity and feedback<a class="headerlink" href="#advanced-topic-climate-sensitivity-and-feedback" title="Permalink to this heading">#</a></h1>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <hr class="docutils" />
 <p><a id='section1'></a></p>
 <section id="radiative-forcing">
-<h2><span class="section-number">14.9.1. </span>1. Radiative forcing<a class="headerlink" href="#radiative-forcing" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.9.1. </span>1. Radiative forcing<a class="headerlink" href="#radiative-forcing" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Let’s say we instantaneously double atmospheric CO<span class="math notranslate nohighlight">\(_2\)</span>. What happens?</p>
 <ul class="simple">
@@ -536,7 +556,7 @@ document.write(`
 <p><a id='section2'></a></p>
 </section>
 <section id="climate-sensitivity-without-feedback">
-<h2><span class="section-number">14.9.2. </span>2. Climate sensitivity (without feedback)<a class="headerlink" href="#climate-sensitivity-without-feedback" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.9.2. </span>2. Climate sensitivity (without feedback)<a class="headerlink" href="#climate-sensitivity-without-feedback" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Let’s use our simple zero-dimensional EBM to calculate the resulting change in <strong>equilibrium temperature</strong>.</p>
 <p>How much warming will we get once the climate system has adjusted to the radiative forcing?</p>
@@ -551,7 +571,7 @@ $<span class="math notranslate nohighlight">\( OLR_f = OLR_i \)</span>$</p>
 <p>The new equilibrium will have <strong>exactly the same OLR</strong> as the old equilibrium, but a <strong>different surface temperature</strong>.</p>
 <p>The climate system must warm up by a certain amount to get the OLR back up to its original value! The question is, <strong>how much warming is necessary</strong>? In other words, <strong>what is the new equilibrium temperature</strong>?</p>
 <section id="equilibrium-climate-sensitivity-ecs">
-<h3><span class="section-number">14.9.2.1. </span>Equilibrium Climate Sensitivity (ECS)<a class="headerlink" href="#equilibrium-climate-sensitivity-ecs" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.9.2.1. </span>Equilibrium Climate Sensitivity (ECS)<a class="headerlink" href="#equilibrium-climate-sensitivity-ecs" title="Permalink to this heading">#</a></h3>
 <p>We now define the Equilibrium Climate Sensitivity (denoted ECS or <span class="math notranslate nohighlight">\(\Delta T_{2xCO2}\)</span>):</p>
 <p><em>The global mean surface warming necessary to balance the planetary energy budget after a doubling of atmospheric CO<span class="math notranslate nohighlight">\(_2\)</span>.</em></p>
 <p>The temperature must increase so that the increase in OLR is exactly equal to the radiative forcing:</p>
@@ -600,7 +620,7 @@ $<span class="math notranslate nohighlight">\( OLR_f = OLR_i \)</span>$</p>
 </section>
 </section>
 <section id="the-feedback-concept">
-<h2><span class="section-number">14.9.3. </span>3. The feedback concept<a class="headerlink" href="#the-feedback-concept" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.9.3. </span>3. The feedback concept<a class="headerlink" href="#the-feedback-concept" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>A concept borrowed from electrical engineering. You have all heard or used the term before, but we’ll try take a more precise approach today.</p>
 <p>A feedback occurs when a portion of the output from the action of a system is added to the input and subsequently alters the output:</p>
@@ -609,12 +629,12 @@ $<span class="math notranslate nohighlight">\( OLR_f = OLR_i \)</span>$</p>
 <p>We will call amplifying feedbacks <strong>positive</strong> (<span class="math notranslate nohighlight">\(f&gt;0\)</span>) and damping feedbacks <strong>negative</strong> (<span class="math notranslate nohighlight">\(f&lt;0\)</span>).</p>
 <p>We can think of the “process” here as the entire climate system, which contains many examples of both positive and negative feedback.</p>
 <section id="example-the-water-vapor-feedback">
-<h3><span class="section-number">14.9.3.1. </span>Example: the water vapor feedback<a class="headerlink" href="#example-the-water-vapor-feedback" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.9.3.1. </span>Example: the water vapor feedback<a class="headerlink" href="#example-the-water-vapor-feedback" title="Permalink to this heading">#</a></h3>
 <p>The capacity of the atmosphere to hold water vapor (saturation specific humidity) increases exponentially with temperature. Warming is thus accompanied by moistening (more water vapor), which leads to more warming due to the enhanced water vapor greenhouse effect.</p>
 <p><strong>Positive or negative feedback?</strong></p>
 </section>
 <section id="example-the-ice-albedo-feedback">
-<h3><span class="section-number">14.9.3.2. </span>Example: the ice-albedo feedback<a class="headerlink" href="#example-the-ice-albedo-feedback" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.9.3.2. </span>Example: the ice-albedo feedback<a class="headerlink" href="#example-the-ice-albedo-feedback" title="Permalink to this heading">#</a></h3>
 <p>Colder temperatures lead to expansion of the areas covered by ice and snow, which tend to be more reflective than water and vegetation. This causes a reduction in the absorbed solar radiation, which leads to more cooling.</p>
 <p><strong>Positive or negative feedback?</strong></p>
 <p><em>Make sure it’s clear that the sign of the feedback is the same whether we are talking about warming or cooling.</em></p>
@@ -623,7 +643,7 @@ $<span class="math notranslate nohighlight">\( OLR_f = OLR_i \)</span>$</p>
 </section>
 </section>
 <section id="climate-feedback-some-definitions">
-<h2><span class="section-number">14.9.4. </span>4. Climate feedback: some definitions<a class="headerlink" href="#climate-feedback-some-definitions" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.9.4. </span>4. Climate feedback: some definitions<a class="headerlink" href="#climate-feedback-some-definitions" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>We start with an initial radiative forcing , and get a response
 $<span class="math notranslate nohighlight">\( \Delta T_0 = \frac{\Delta R}{\lambda_0} \)</span>$</p>
@@ -659,7 +679,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 <p><a id='section5'></a></p>
 </section>
 <section id="climate-sensitivity-with-feedback">
-<h2><span class="section-number">14.9.5. </span>5. Climate sensitivity with feedback<a class="headerlink" href="#climate-sensitivity-with-feedback" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.9.5. </span>5. Climate sensitivity with feedback<a class="headerlink" href="#climate-sensitivity-with-feedback" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>ECS is an important number. A major goal of climate modeling is to provide better estimates of ECS and its uncertainty.</p>
 <p>Latest IPCC report AR5 gives a likely range of 1.5 to 4.5 K. (There is lots of uncertainty in these numbers – we will definitely come back to this question)</p>
@@ -681,7 +701,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 <p><a id='section6'></a></p>
 </section>
 <section id="contribution-of-individual-feedback-processes-to-equilibrium-climate-sensitivity">
-<h2><span class="section-number">14.9.6. </span>6. Contribution of individual feedback processes to Equilibrium Climate Sensitivity<a class="headerlink" href="#contribution-of-individual-feedback-processes-to-equilibrium-climate-sensitivity" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.9.6. </span>6. Contribution of individual feedback processes to Equilibrium Climate Sensitivity<a class="headerlink" href="#contribution-of-individual-feedback-processes-to-equilibrium-climate-sensitivity" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Now what if we have several individual feedback processes occurring simultaneously?</p>
 <p>We can think of individual feedback amounts <span class="math notranslate nohighlight">\(f_1, f_2, f_3, ...\)</span>, with each  representing a physically distinct mechanism, e.g. water vapor, surface snow and ice, cloud changes, etc.</p>
@@ -694,7 +714,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 \[ \Delta T_{2xCO2} = \frac{1}{1- \sum_{i=0}^N f_i } \Delta T_0 \]</div>
 <p>The climate sensitivity is thus <strong>increased by positive feedback processes</strong>, and <strong>decreased by negative feedback processes</strong>.</p>
 <section id="climate-feedback-parameters">
-<h3><span class="section-number">14.9.6.1. </span>Climate feedback parameters<a class="headerlink" href="#climate-feedback-parameters" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.9.6.1. </span>Climate feedback parameters<a class="headerlink" href="#climate-feedback-parameters" title="Permalink to this heading">#</a></h3>
 <p>We can also write this in terms of the original radiative forcing as</p>
 <div class="math notranslate nohighlight">
 \[ \Delta T_{2xCO2} = \frac{\Delta R}{\lambda_0 - \sum_{i=1}^{N} \lambda_i} \]</div>
@@ -715,7 +735,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 <p>These individual feedback processes may be positive or negative. This is very powerful, because we can <strong>measure the relative importance of different feedback processes</strong> simply by comparing their <span class="math notranslate nohighlight">\(\lambda_i\)</span> values.</p>
 </section>
 <section id="every-climate-model-has-a-planck-feedback">
-<h3><span class="section-number">14.9.6.2. </span>Every climate model has a Planck feedback<a class="headerlink" href="#every-climate-model-has-a-planck-feedback" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.9.6.2. </span>Every climate model has a Planck feedback<a class="headerlink" href="#every-climate-model-has-a-planck-feedback" title="Permalink to this heading">#</a></h3>
 <p>The “Planck feedback” represented by our reference parameter <span class="math notranslate nohighlight">\(\lambda_0\)</span> is not really a feedback at all.</p>
 <p>It is the most basic and universal climate process, and is present in every climate model. It is simply an expression of the fact that a warm planet radiates more to space than a cold planet.</p>
 <p>As we will see, our estimate of <span class="math notranslate nohighlight">\(\lambda_0 = -3.3 ~\text{W} ~\text{m}^{-2} ~\text{K}^{-1} \)</span> is essentially the same as the Planck feedback diagnosed from complex GCMs. Unlike our simple zero-dimensional EBM, however, most other climate models (and the real climate system) have other radiative feedback processes, such that</p>
@@ -726,10 +746,10 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 </section>
 </section>
 <section id="feedbacks-diagnosed-from-complex-climate-models">
-<h2><span class="section-number">14.9.7. </span>7. Feedbacks diagnosed from complex climate models<a class="headerlink" href="#feedbacks-diagnosed-from-complex-climate-models" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.9.7. </span>7. Feedbacks diagnosed from complex climate models<a class="headerlink" href="#feedbacks-diagnosed-from-complex-climate-models" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="data-from-the-ipcc-ar5">
-<h3><span class="section-number">14.9.7.1. </span>Data from the IPCC AR5<a class="headerlink" href="#data-from-the-ipcc-ar5" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.9.7.1. </span>Data from the IPCC AR5<a class="headerlink" href="#data-from-the-ipcc-ar5" title="Permalink to this heading">#</a></h3>
 <p>This figure is reproduced from the recent IPCC AR5 report. It shows the feedbacks diagnosed from the various models that contributed to the assessment.</p>
 <p>(Later in the term we will discuss how the feedback diagnosis is actually done)</p>
 <p>See below for complete citation information.</p>
@@ -765,7 +785,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 </ul>
 </section>
 <section id="citation">
-<h3><span class="section-number">14.9.7.2. </span>Citation<a class="headerlink" href="#citation" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.9.7.2. </span>Citation<a class="headerlink" href="#citation" title="Permalink to this heading">#</a></h3>
 <p>This is Figure 9.43 from Chapter 9 of the IPCC AR5 Working Group 1 report.</p>
 <p>The report and images can be found online at
 <a class="reference external" href="http://www.climatechange2013.org/report/full-report/">http://www.climatechange2013.org/report/full-report/</a></p>
@@ -776,10 +796,10 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 </section>
 </section>
 <section id="the-zero-dimensional-model-with-variable-albedo">
-<h2><span class="section-number">14.9.8. </span>8. The zero-dimensional model with variable albedo<a class="headerlink" href="#the-zero-dimensional-model-with-variable-albedo" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.9.8. </span>8. The zero-dimensional model with variable albedo<a class="headerlink" href="#the-zero-dimensional-model-with-variable-albedo" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="the-model">
-<h3><span class="section-number">14.9.8.1. </span>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.9.8.1. </span>The model<a class="headerlink" href="#the-model" title="Permalink to this heading">#</a></h3>
 <p>In homework you will be asked to include a new process in the zero-dimensional EBM: a temperature-dependent albedo.</p>
 <p>We use the following formula:</p>
 <div class="math notranslate nohighlight">
@@ -797,7 +817,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 <p>For intermediate temperature, this formula gives a smooth variation in albedo with global mean temperature. It is tuned to reproduce the observed albedo <span class="math notranslate nohighlight">\(\alpha = 0.299\)</span> for <span class="math notranslate nohighlight">\(T = 288\)</span> K.</p>
 </section>
 <section id="coding-up-the-model-in-python">
-<h3><span class="section-number">14.9.8.2. </span>Coding up the model in Python<a class="headerlink" href="#coding-up-the-model-in-python" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.9.8.2. </span>Coding up the model in Python<a class="headerlink" href="#coding-up-the-model-in-python" title="Permalink to this heading">#</a></h3>
 <p>This largely repeats what I asked you to do in your homework.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -849,7 +869,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 </div>
 </section>
 <section id="graphical-solution-toa-fluxes-as-functions-of-temperature">
-<h3><span class="section-number">14.9.8.3. </span>Graphical solution: TOA fluxes as functions of temperature<a class="headerlink" href="#graphical-solution-toa-fluxes-as-functions-of-temperature" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.9.8.3. </span>Graphical solution: TOA fluxes as functions of temperature<a class="headerlink" href="#graphical-solution-toa-fluxes-as-functions-of-temperature" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">OLR</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;OLR&#39;</span><span class="p">)</span>
@@ -866,7 +886,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 <p>The graphs meet at three different points! That means there are actually three different possible equilibrium temperatures in this model.</p>
 </section>
 <section id="numerical-solution-to-get-the-three-equilibrium-temperatures">
-<h3><span class="section-number">14.9.8.4. </span>Numerical solution to get the three equilibrium temperatures<a class="headerlink" href="#numerical-solution-to-get-the-three-equilibrium-temperatures" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.9.8.4. </span>Numerical solution to get the three equilibrium temperatures<a class="headerlink" href="#numerical-solution-to-get-the-three-equilibrium-temperatures" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use numerical root-finding to get the equilibria</span>
@@ -885,14 +905,14 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 </div>
 </section>
 <section id="bonus-exercise">
-<h3><span class="section-number">14.9.8.5. </span>Bonus exercise<a class="headerlink" href="#bonus-exercise" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">14.9.8.5. </span>Bonus exercise<a class="headerlink" href="#bonus-exercise" title="Permalink to this heading">#</a></h3>
 <p>Using numerical timestepping and different initial temperatures, can you get the model to converge on all three equilibria, or only some of them?</p>
 <p>What do you think this means?</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="credits">
-<h2><span class="section-number">14.9.9. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.9.9. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this heading">#</a></h2>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a>, an open-source textbook developed and maintained by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <p>It is licensed for free and open consumption under the
 <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license.</p>
@@ -926,8 +946,10 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="lab14_sensitivity-feedback.html"
@@ -955,6 +977,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1001,7 +1024,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1014,6 +1037,7 @@ By Brian Rose
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -1031,7 +1055,7 @@ By Brian Rose
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1040,8 +1064,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

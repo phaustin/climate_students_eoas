@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>20.8. Advanced topic: Heat transport decomposition &#8212; Climate Laboratory Book</title>
   
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -70,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="21. The one-dimensional energy balance model" href="../week7/lab21_one-dim-ebm.html" />
     <link rel="prev" title="20. Heat transport" href="lab20_heat-transport.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -78,19 +80,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -112,12 +118,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -132,9 +146,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../home.html">
+  
   
   
   
@@ -184,10 +202,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week2/lab2_zero-dim-ebm.html">2. Modeling the global energy budget</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week2/lab2_1_analytical-efolding.html">2.11. Advanced topic: Analytical solution of the global Energy Balance Model</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week2/lab3_climate-system-models.html">3. The climate system and climate models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 Labs</span></p>
@@ -208,10 +226,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab12_radeq.html">12. Radiative Equilibrium</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab13_rce.html">13. Radiative-Convective Equilibrium</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week5/lab14_sensitivity-feedback.html">14. Climate sensitivity and feedback</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week5/lab14_2_advanced-sensitivity-feedback.html">14.9. Advanced topic: Climate sensitivity and feedback</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
 </ul>
@@ -220,10 +238,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="lab17_clouds.html">17. Clouds and cloud feedback</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab18_insolation.html">18. Insolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="lab20_heat-transport.html">20. Heat transport</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="lab20_heat-transport.html">20. Heat transport</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">20.8. Advanced topic: Heat transport decomposition</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -234,11 +252,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
@@ -292,7 +310,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -301,7 +319,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -431,20 +449,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -518,16 +538,16 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="advanced-topic-heat-transport-decomposition">
-<h1><span class="section-number">20.8. </span>Advanced topic: Heat transport decomposition<a class="headerlink" href="#advanced-topic-heat-transport-decomposition" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">20.8. </span>Advanced topic: Heat transport decomposition<a class="headerlink" href="#advanced-topic-heat-transport-decomposition" title="Permalink to this heading">#</a></h1>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <p><em>This notebook is an extension of the <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook/courseware/heat-transport.html">Heat transport notes</a> containing some additional advanced material on the decomposition of total heat transport in components. The advanced notes are unfinished but may be useful.</em></p>
 <hr class="docutils" />
 <p><a id='section1'></a></p>
 <section id="spatial-patterns-of-insolation-and-surface-temperature">
-<h2><span class="section-number">20.8.1. </span>1. Spatial patterns of insolation and surface temperature<a class="headerlink" href="#spatial-patterns-of-insolation-and-surface-temperature" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.8.1. </span>1. Spatial patterns of insolation and surface temperature<a class="headerlink" href="#spatial-patterns-of-insolation-and-surface-temperature" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Let’s take a look at seasonal and spatial pattern of insolation and compare this to the zonal average surface temperatures.</p>
 <div class="cell docutils container">
@@ -607,12 +627,12 @@ document.write(`
 <p><a id='section2'></a></p>
 </section>
 <section id="calculating-radiative-convective-equilibrium-as-a-function-of-latitude">
-<h2><span class="section-number">20.8.2. </span>2. Calculating Radiative-Convective Equilibrium as a function of latitude<a class="headerlink" href="#calculating-radiative-convective-equilibrium-as-a-function-of-latitude" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.8.2. </span>2. Calculating Radiative-Convective Equilibrium as a function of latitude<a class="headerlink" href="#calculating-radiative-convective-equilibrium-as-a-function-of-latitude" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>As a first step to understanding the effects of <strong>heat transport by fluid motions</strong> in the atmosphere and ocean, we can calculate <strong>what the surface temperature would be without any motion</strong>.</p>
 <p>Let’s calculate a <strong>radiative-convective equilibrium</strong> state for every latitude band.</p>
 <section id="putting-realistic-insolation-into-an-rcm">
-<h3><span class="section-number">20.8.2.1. </span>Putting realistic insolation into an RCM<a class="headerlink" href="#putting-realistic-insolation-into-an-rcm" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.2.1. </span>Putting realistic insolation into an RCM<a class="headerlink" href="#putting-realistic-insolation-into-an-rcm" title="Permalink to this heading">#</a></h3>
 <p>This code demonstrates how to create a model with both latitude and vertical dimensions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -702,7 +722,7 @@ document.write(`
 <p>Note that we could also pass different orbital parameters to this subprocess. They default to present-day values, which is what we are using here.</p>
 </section>
 <section id="find-the-steady-seasonal-cycle-of-temperature-in-radiative-convective-equilibrium">
-<h3><span class="section-number">20.8.2.2. </span>Find the steady seasonal cycle of temperature in radiative-convective equilibrium<a class="headerlink" href="#find-the-steady-seasonal-cycle-of-temperature-in-radiative-convective-equilibrium" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.2.2. </span>Find the steady seasonal cycle of temperature in radiative-convective equilibrium<a class="headerlink" href="#find-the-steady-seasonal-cycle-of-temperature-in-radiative-convective-equilibrium" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">integrate_years</span><span class="p">(</span><span class="mf">4.</span><span class="p">)</span>
@@ -740,7 +760,7 @@ document.write(`
 </div>
 </section>
 <section id="compare-annual-average-temperature-in-rce-to-the-zonal-annual-mean-observations">
-<h3><span class="section-number">20.8.2.3. </span>Compare annual average temperature in RCE to the zonal-, annual mean observations.<a class="headerlink" href="#compare-annual-average-temperature-in-rce-to-the-zonal-annual-mean-observations" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.2.3. </span>Compare annual average temperature in RCE to the zonal-, annual mean observations.<a class="headerlink" href="#compare-annual-average-temperature-in-rce-to-the-zonal-annual-mean-observations" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot annual mean surface temperature in the model,</span>
@@ -757,7 +777,7 @@ document.write(`
 <p>Our modeled RCE state is <strong>far too warm in the tropics</strong>, and <strong>too cold in the mid- to high latitudes.</strong></p>
 </section>
 <section id="vertical-structure-of-temperature-comparing-rce-to-observations">
-<h3><span class="section-number">20.8.2.4. </span>Vertical structure of temperature: comparing RCE to observations<a class="headerlink" href="#vertical-structure-of-temperature-comparing-rce-to-observations" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.2.4. </span>Vertical structure of temperature: comparing RCE to observations<a class="headerlink" href="#vertical-structure-of-temperature-comparing-rce-to-observations" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Observed air temperature from NCEP reanalysis</span>
@@ -802,7 +822,7 @@ document.write(`
 <p>We have (as yet) no parameterization for the <strong>horizontal</strong> redistribution of energy in the climate system.</p>
 </section>
 <section id="toa-energy-budget-in-rce-equilibrium">
-<h3><span class="section-number">20.8.2.5. </span>TOA energy budget in RCE equilibrium<a class="headerlink" href="#toa-energy-budget-in-rce-equilibrium" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.2.5. </span>TOA energy budget in RCE equilibrium<a class="headerlink" href="#toa-energy-budget-in-rce-equilibrium" title="Permalink to this heading">#</a></h3>
 <p>Because there is no horizontal energy transport in this model, the TOA radiation budget should be closed (net flux is zero) at all latitudes.</p>
 <p>Let’s check this by plotting time-averaged shortwave and longwave radiation:</p>
 <div class="cell docutils container">
@@ -823,13 +843,13 @@ document.write(`
 </section>
 </section>
 <section id="observed-and-modeled-toa-radiation-budget">
-<h2><span class="section-number">20.8.3. </span>3. Observed and modeled TOA radiation budget<a class="headerlink" href="#observed-and-modeled-toa-radiation-budget" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.8.3. </span>3. Observed and modeled TOA radiation budget<a class="headerlink" href="#observed-and-modeled-toa-radiation-budget" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>We are going to look at the (time average) TOA budget as a function of latitude to see how it differs from the RCE state we just plotted.</p>
 <p>Ideally we would look at actual satellite observations of SW and LW fluxes. Instead, here we will use the NCEP Reanalysis for convenience.</p>
 <p>But bear in mind that the radiative fluxes in the reanalysis are a model-generated product, they are not really observations.</p>
 <section id="toa-budget-from-ncep-reanalysis">
-<h3><span class="section-number">20.8.3.1. </span>TOA budget from NCEP Reanalysis<a class="headerlink" href="#toa-budget-from-ncep-reanalysis" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.3.1. </span>TOA budget from NCEP Reanalysis<a class="headerlink" href="#toa-budget-from-ncep-reanalysis" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get TOA radiative flux data from NCEP reanalysis</span>
@@ -883,7 +903,7 @@ document.write(`
 <p>The opposite is true in mid- to high latitudes: <strong>the Earth is losing energy by net radiation to space</strong> at these latitudes.</p>
 </section>
 <section id="toa-budget-from-the-control-cesm-simulation">
-<h3><span class="section-number">20.8.3.2. </span>TOA budget from the control CESM simulation<a class="headerlink" href="#toa-budget-from-the-control-cesm-simulation" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.3.2. </span>TOA budget from the control CESM simulation<a class="headerlink" href="#toa-budget-from-the-control-cesm-simulation" title="Permalink to this heading">#</a></h3>
 <p>Load data from the fully coupled CESM control simulation that we’ve used before.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -958,22 +978,22 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="the-energy-budget-for-a-zonal-band">
-<h2><span class="section-number">20.8.4. </span>4. The energy budget for a zonal band<a class="headerlink" href="#the-energy-budget-for-a-zonal-band" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.8.4. </span>4. The energy budget for a zonal band<a class="headerlink" href="#the-energy-budget-for-a-zonal-band" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="the-basic-idea">
-<h3><span class="section-number">20.8.4.1. </span>The basic idea<a class="headerlink" href="#the-basic-idea" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.4.1. </span>The basic idea<a class="headerlink" href="#the-basic-idea" title="Permalink to this heading">#</a></h3>
 <p>Through most of the previous notes we have been thinking about <strong>global averages</strong>.</p>
 <p>We’ve been working with an energy budget that looks something like this:</p>
-<p><img alt="column sketch" src="courseware/week6/%27../column_sketch.pdf%27" /></p>
+<p><img alt="column sketch" src="courseware/week6/'../column_sketch.pdf'" /></p>
 <p>When we start thinking about regional climates, we need to modify our budget to account for the <strong>additional heating or cooling</strong> due to <strong>transport</strong> in and out of the column:</p>
-<p><img alt="column sketch 2" src="courseware/week6/%27../column_sketch2.pdf%27" /></p>
+<p><img alt="column sketch 2" src="courseware/week6/'../column_sketch2.pdf'" /></p>
 <p>Conceptually, the additional energy source is the difference between what’s coming in and what’s going out:</p>
 <div class="math notranslate nohighlight">
 \[ h = \mathcal{H}_{in}  - \mathcal{H}_{out} \]</div>
 <p>where <span class="math notranslate nohighlight">\(h\)</span> is a <strong>dynamic heating rate</strong> in W m<span class="math notranslate nohighlight">\(^{-2}\)</span>.</p>
 </section>
 <section id="a-more-careful-budget">
-<h3><span class="section-number">20.8.4.2. </span>A more careful budget<a class="headerlink" href="#a-more-careful-budget" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.4.2. </span>A more careful budget<a class="headerlink" href="#a-more-careful-budget" title="Permalink to this heading">#</a></h3>
 <p>Let’s now consider a thin band of the climate system, of width <span class="math notranslate nohighlight">\(\delta \phi\)</span> , and write down a careful energy budget for it.</p>
 <a class="reference internal image-reference" href="../../_images/ZonalEnergyBudget_sketch.png"><img alt="../../_images/ZonalEnergyBudget_sketch.png" src="../../_images/ZonalEnergyBudget_sketch.png" style="width: 400px;" /></a>
 <p>Let <span class="math notranslate nohighlight">\(\mathcal{H}(\phi)\)</span> be the total rate of northward energy transport across the latitude line <span class="math notranslate nohighlight">\(\phi\)</span>, measured in Watts (usually PW).</p>
@@ -1016,7 +1036,7 @@ Radiation and dynamics (horizontal transport)</p>
 <p>which is the <strong>convergence of energy transport</strong> into this latitude band: the difference between what’s coming in and what’s going out.</p>
 </section>
 <section id="calculating-heat-transport-from-the-steady-state-energy-budget">
-<h3><span class="section-number">20.8.4.3. </span>Calculating heat transport from the steady-state energy budget<a class="headerlink" href="#calculating-heat-transport-from-the-steady-state-energy-budget" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.4.3. </span>Calculating heat transport from the steady-state energy budget<a class="headerlink" href="#calculating-heat-transport-from-the-steady-state-energy-budget" title="Permalink to this heading">#</a></h3>
 <p>Notice that if the above budget is in <strong>equilibrium</strong> then <span class="math notranslate nohighlight">\(\partial E/ \partial t = 0\)</span> and the budget says that <strong>divergence of heat transport balances the net radiative heating</strong> at every latitude.</p>
 <p>If we can <strong>assume that the budget is balanced</strong>, i.e. assume that the system is at equilibrium and there is negligible heat storage, then we can use the budget to infer <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> from a measured (or modeled) TOA radiation imbalance.</p>
 <p>Setting <span class="math notranslate nohighlight">\(\partial E/ \partial t = 0\)</span> and rearranging:</p>
@@ -1042,7 +1062,7 @@ Radiation and dynamics (horizontal transport)</p>
 </section>
 </section>
 <section id="observed-and-modeled-poleward-heat-transport">
-<h2><span class="section-number">20.8.5. </span>5. Observed and modeled poleward heat transport<a class="headerlink" href="#observed-and-modeled-poleward-heat-transport" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.8.5. </span>5. Observed and modeled poleward heat transport<a class="headerlink" href="#observed-and-modeled-poleward-heat-transport" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Here we will code up a function that performs the above integration.</p>
 <div class="cell docutils container">
@@ -1162,7 +1182,7 @@ Radiation and dynamics (horizontal transport)</p>
 <p>It turns out that our result here is <strong>very sensitive to the details</strong> of how we balance the radiation data.</p>
 <p>As an exercise, you might try applying different corrections other than the globally uniform correction we used above. E.g. try weighting the tropics or the mid-latitudes more strongly.</p>
 <section id="an-example-of-a-recently-published-observational-estimate-of-meridional-heat-transport">
-<h3><span class="section-number">20.8.5.1. </span>An example of a recently published observational estimate of meridional heat transport<a class="headerlink" href="#an-example-of-a-recently-published-observational-estimate-of-meridional-heat-transport" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.5.1. </span>An example of a recently published observational estimate of meridional heat transport<a class="headerlink" href="#an-example-of-a-recently-published-observational-estimate-of-meridional-heat-transport" title="Permalink to this heading">#</a></h3>
 <img alt="../../_images/Fasullo_Trenberth_2008b_Fig7.jpg" src="../../_images/Fasullo_Trenberth_2008b_Fig7.jpg" />
 <blockquote>
 <div><p>The ERBE period zonal mean annual cycle of the meridional energy transport in PW by (a) the atmosphere and ocean as inferred from ERBE <span class="math notranslate nohighlight">\(R_T\)</span>, NRA <span class="math notranslate nohighlight">\(\delta\)</span>A_E/<span class="math notranslate nohighlight">\(\delta\)</span>t, and GODAS <span class="math notranslate nohighlight">\(\delta\)</span>O_E/<span class="math notranslate nohighlight">\(\delta\)</span>t; (b) the atmosphere based on NRA; and (c) by the ocean as implied by ERBE + NRA <span class="math notranslate nohighlight">\(F_S\)</span> and GODAS <span class="math notranslate nohighlight">\(\delta\)</span>O_E/<span class="math notranslate nohighlight">\(\delta\)</span>t. Stippling and hatching in (a)–(c) represent regions and times of year in which the standard deviation of the monthly mean values among estimates, some of which include the CERES period (see text), exceeds 0.5 and 1.0 PW, respectively. (d) The median annual mean transport by latitude for the total (gray), atmosphere (red), and ocean (blue) accompanied with the associated <span class="math notranslate nohighlight">\(\pm2\sigma\)</span> range (shaded).</p>
@@ -1175,7 +1195,7 @@ Radiation and dynamics (horizontal transport)</p>
 </section>
 </section>
 <section id="energy-budgets-for-the-atmosphere-and-ocean">
-<h2><span class="section-number">20.8.6. </span>6. Energy budgets for the atmosphere and ocean<a class="headerlink" href="#energy-budgets-for-the-atmosphere-and-ocean" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.8.6. </span>6. Energy budgets for the atmosphere and ocean<a class="headerlink" href="#energy-budgets-for-the-atmosphere-and-ocean" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>The total transport (which we have been inferring from the TOA radiation imbalance) includes contributions from both the <strong>atmosphere</strong> and the <strong>ocean</strong>:</p>
 <div class="math notranslate nohighlight">
@@ -1184,7 +1204,7 @@ Radiation and dynamics (horizontal transport)</p>
 <p>However, if we want to study (or model) the individual contributions from the atmosphere and ocean, we need to consider the energy budgets for <strong>each individual domain</strong>.</p>
 <p>We will therefore need to broaden our discussion to include the <strong>net surface heat flux</strong>, i.e. the total flux of energy between the surface and the atmosphere.</p>
 <section id="surface-fluxes">
-<h3><span class="section-number">20.8.6.1. </span>Surface fluxes<a class="headerlink" href="#surface-fluxes" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.6.1. </span>Surface fluxes<a class="headerlink" href="#surface-fluxes" title="Permalink to this heading">#</a></h3>
 <p>Let’s denote the <strong>net upward energy flux at the surface</strong> as <span class="math notranslate nohighlight">\(F_S\)</span>.</p>
 <p>There are four principal contributions to <span class="math notranslate nohighlight">\(F_S\)</span>:</p>
 <ol class="arabic simple">
@@ -1237,7 +1257,7 @@ Radiation and dynamics (horizontal transport)</p>
 <p>Discuss…  Large net fluxes over ocean, not over land.</p>
 </section>
 <section id="energy-budget-for-the-ocean">
-<h3><span class="section-number">20.8.6.2. </span>Energy budget for the ocean<a class="headerlink" href="#energy-budget-for-the-ocean" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.6.2. </span>Energy budget for the ocean<a class="headerlink" href="#energy-budget-for-the-ocean" title="Permalink to this heading">#</a></h3>
 <p>Using exactly the same reasoning we used for the whole climate system, we can write a budget for the OCEAN ONLY:</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\partial E_o}{\partial t} = -F_S - \frac{1}{2 \pi a^2  \cos⁡\phi } \frac{\partial \mathcal{H_o}}{\partial \phi} \]</div>
@@ -1253,7 +1273,7 @@ Radiation and dynamics (horizontal transport)</p>
 <p>where the minus sign account for the fact that we defined <span class="math notranslate nohighlight">\(F_S\)</span> as <strong>positive up</strong> (out of the ocean).</p>
 </section>
 <section id="energy-budget-for-the-atmosphere">
-<h3><span class="section-number">20.8.6.3. </span>Energy budget for the atmosphere<a class="headerlink" href="#energy-budget-for-the-atmosphere" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.6.3. </span>Energy budget for the atmosphere<a class="headerlink" href="#energy-budget-for-the-atmosphere" title="Permalink to this heading">#</a></h3>
 <p>The net energy source to the atmosphere is the sum of the TOA flux and the surface flux. Thus we can write</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\partial E_a}{\partial t} = R_{TOA} + F_S - \frac{1}{2 \pi a^2  \cos⁡\phi } \frac{\partial \mathcal{H_a}}{\partial \phi} \]</div>
@@ -1263,7 +1283,7 @@ Radiation and dynamics (horizontal transport)</p>
 <p>Note that these formulas ensure that <span class="math notranslate nohighlight">\(\mathcal{H} = \mathcal{H}_a + \mathcal{H}_o\)</span>.</p>
 </section>
 <section id="atmospheric-water-budget-and-latent-heat-transport">
-<h3><span class="section-number">20.8.6.4. </span>Atmospheric water budget and latent heat transport<a class="headerlink" href="#atmospheric-water-budget-and-latent-heat-transport" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.6.4. </span>Atmospheric water budget and latent heat transport<a class="headerlink" href="#atmospheric-water-budget-and-latent-heat-transport" title="Permalink to this heading">#</a></h3>
 <p>Water vapor contributes to the atmopsheric energy transport because <strong>energy consumed through evaporation</strong> is converted back to <strong>sensible heat</strong> wherever the vapor subsequently condenses.</p>
 <p>If the evaporation and the condensation occur at different latitudes then there is a net transport of energy due to the <strong>movement of water vapor</strong>.</p>
 <p>We can use the same kind of budget reasoning to compute this <strong>latent heat transport</strong>. But this time we will make a budget for water vapor only.</p>
@@ -1289,7 +1309,7 @@ Radiation and dynamics (horizontal transport)</p>
 </section>
 </section>
 <section id="calculating-the-partitioning-of-poleward-energy-transport-into-different-components">
-<h2><span class="section-number">20.8.7. </span>7. Calculating the partitioning of poleward energy transport into different components<a class="headerlink" href="#calculating-the-partitioning-of-poleward-energy-transport-into-different-components" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.8.7. </span>7. Calculating the partitioning of poleward energy transport into different components<a class="headerlink" href="#calculating-the-partitioning-of-poleward-energy-transport-into-different-components" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>This function implements the above formulas to calculate the following quantities from CESM simulation output:</p>
 <ul class="simple">
@@ -1376,7 +1396,7 @@ Radiation and dynamics (horizontal transport)</p>
 <p><a id='section8'></a></p>
 </section>
 <section id="mechanisms-of-heat-transport">
-<h2><span class="section-number">20.8.8. </span>8. Mechanisms of heat transport<a class="headerlink" href="#mechanisms-of-heat-transport" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.8.8. </span>8. Mechanisms of heat transport<a class="headerlink" href="#mechanisms-of-heat-transport" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Energy is transported across latitude lines whenever there is an exchange of fluids with different energy content: e.g. warm fluid moving northward while colder fluid moves southward.</p>
 <p>Thus energy transport always involves <strong>correlations between northward component of velocity <span class="math notranslate nohighlight">\(v\)</span> and energy <span class="math notranslate nohighlight">\(e\)</span></strong></p>
@@ -1405,7 +1425,7 @@ Radiation and dynamics (horizontal transport)</p>
 <p>In practice it is a very small component of the total energy content of the fluid and is usually neglected in analyses of poleward energy transport.</p>
 <p>As we have seen, we can further divide the atmospheric transport into transports due to the movement of <strong>dry air</strong> (the tranport of <strong>dry static energy</strong>) and transport associated with evaporation and condensation of <strong>water vapor</strong> (the <strong>latent heat transport</strong>)</p>
 <section id="mechanisms-of-energy-transport-in-the-ocean">
-<h3><span class="section-number">20.8.8.1. </span>Mechanisms of energy transport in the ocean<a class="headerlink" href="#mechanisms-of-energy-transport-in-the-ocean" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.8.1. </span>Mechanisms of energy transport in the ocean<a class="headerlink" href="#mechanisms-of-energy-transport-in-the-ocean" title="Permalink to this heading">#</a></h3>
 <p>Assuming the ocean extends from <span class="math notranslate nohighlight">\(z=-H\)</span> to <span class="math notranslate nohighlight">\(z=0\)</span> we can then write</p>
 <div class="math notranslate nohighlight">
 \[ \mathcal{H}_o \approx a \cos\phi \int_0^{2\pi} \int_{-H}^{0}  c_w ~\rho ~ v ~ T ~ dz  ~ d\lambda\]</div>
@@ -1419,12 +1439,12 @@ Radiation and dynamics (horizontal transport)</p>
 <p>Again, equal exchange of water but net transport of energy.</p>
 </section>
 <section id="these-notes-are-not-really-finished">
-<h3><span class="section-number">20.8.8.2. </span><em>These notes are not really finished…</em><a class="headerlink" href="#these-notes-are-not-really-finished" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">20.8.8.2. </span><em>These notes are not really finished…</em><a class="headerlink" href="#these-notes-are-not-really-finished" title="Permalink to this heading">#</a></h3>
 </section>
 </section>
 <hr class="docutils" />
 <section id="credits">
-<h2><span class="section-number">20.8.9. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">20.8.9. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this heading">#</a></h2>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a>, an open-source textbook developed and maintained by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <p>It is licensed for free and open consumption under the
 <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license.</p>
@@ -1458,8 +1478,10 @@ Radiation and dynamics (horizontal transport)</p>
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="lab20_heat-transport.html"
@@ -1487,6 +1509,7 @@ Radiation and dynamics (horizontal transport)</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1540,7 +1563,7 @@ Radiation and dynamics (horizontal transport)</p>
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1553,6 +1576,7 @@ By Brian Rose
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -1570,7 +1594,7 @@ By Brian Rose
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1579,8 +1603,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
