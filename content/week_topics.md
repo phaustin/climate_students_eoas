@@ -8,7 +8,7 @@
 
 * [E440 canvas page](https://canvas.ubc.ca/courses/152022)
 
-* [Course piazza page](https://piazza.com/ubc.ca/winterterm22024/eosc440)
+* [Course piazza page](https://piazza.com/ubc.ca/winterterm22025/eosc_v4402012024w2)
 
 * [Textbook: Global Physical Climatology](https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&SS_jc=TC0001767901&title=Global%20physical%20climatology)
 
