@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Pandas Cheatsheet &#8212; Climate Laboratory Book</title>
   
@@ -17,51 +16,50 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/pandas-cheatsheet';</script>
     <link rel="canonical" href="https://phaustin.github.io/ClimateLaboratoryBook/courseware/pandas-cheatsheet.html" />
     <link rel="author" title="About these documents" href="../about.html" />
@@ -69,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -84,19 +83,8 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -104,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -112,8 +99,8 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -131,7 +118,8 @@ const thebe_selector_output = ".output, .cell_output"
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -159,7 +147,14 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Climate Laboratory Book</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -189,7 +184,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../resources/resource_links.html">Project links and notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/resource_links.html">Project resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../resources/loading-cmip6-data.html">Accessing CMIP6 data with intake-esm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../resources/loading-CESM-LENS-data.html">Accessing CESM LENS (and LENS2) data with intake-esm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../resources/hot_cold_models.html">Worksheet: Comparing total cloud fraction in hot and cold models</a></li>
@@ -301,9 +296,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -322,9 +322,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -349,14 +349,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/pandas-cheatsheet.md&branch=jb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onJupyterHub"
+   title="Launch on JupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_jupyterhub.svg">
+    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -448,27 +448,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -525,10 +517,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pandas-cheatsheet">
-<span id="id1"></span><h1>Pandas Cheatsheet<a class="headerlink" href="#pandas-cheatsheet" title="Permalink to this heading">#</a></h1>
+<span id="id1"></span><h1>Pandas Cheatsheet<a class="headerlink" href="#pandas-cheatsheet" title="Link to this heading">#</a></h1>
 <section id="importing-pandas-library">
-<h2>Importing <code class="docutils literal notranslate"><span class="pre">pandas</span></code> Library<a class="headerlink" href="#importing-pandas-library" title="Permalink to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<h2>Importing <code class="docutils literal notranslate"><span class="pre">pandas</span></code> Library<a class="headerlink" href="#importing-pandas-library" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span>
 </pre></div>
 </div>
 <blockquote>
@@ -536,7 +528,7 @@ document.write(`
 </div></blockquote>
 </section>
 <section id="dataframes-and-series">
-<h2>DataFrames and Series<a class="headerlink" href="#dataframes-and-series" title="Permalink to this heading">#</a></h2>
+<h2>DataFrames and Series<a class="headerlink" href="#dataframes-and-series" title="Link to this heading">#</a></h2>
 <p>Data in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is organized into DataFrames and Series.</p>
 <ul class="simple">
 <li><p><strong>DataFrame:</strong> 2-dimensional array, like a table in a spreadsheet</p>
@@ -553,7 +545,7 @@ document.write(`
 </ul>
 </section>
 <section id="reading-a-csv-file">
-<h2>Reading a CSV File<a class="headerlink" href="#reading-a-csv-file" title="Permalink to this heading">#</a></h2>
+<h2>Reading a CSV File<a class="headerlink" href="#reading-a-csv-file" title="Link to this heading">#</a></h2>
 <p>To read a CSV file and store it as a DataFrame variable:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;some_cool_data.csv&#39;</span><span class="p">)</span>
 </pre></div>
@@ -561,7 +553,7 @@ document.write(`
 <p>Missing data in a DataFrame or Series is represented as <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (“not a number”).</p>
 </section>
 <section id="saving-to-a-csv-file">
-<h2>Saving to a CSV File<a class="headerlink" href="#saving-to-a-csv-file" title="Permalink to this heading">#</a></h2>
+<h2>Saving to a CSV File<a class="headerlink" href="#saving-to-a-csv-file" title="Link to this heading">#</a></h2>
 <p>To save a DataFrame to a CSV file:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;cool_output.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -571,7 +563,7 @@ document.write(`
 </ul>
 </section>
 <section id="quick-and-easy-summaries-of-a-dataframe">
-<h2>Quick and Easy Summaries of a DataFrame<a class="headerlink" href="#quick-and-easy-summaries-of-a-dataframe" title="Permalink to this heading">#</a></h2>
+<h2>Quick and Easy Summaries of a DataFrame<a class="headerlink" href="#quick-and-easy-summaries-of-a-dataframe" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>feature</strong></p></th>
@@ -608,7 +600,7 @@ document.write(`
 </div>
 </section>
 <section id="summary-statistics">
-<h2>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this heading">#</a></h2>
+<h2>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Link to this heading">#</a></h2>
 <p>Full set of summary statistics (min, max, mean, standard deviation, etc.) for each numerical column of a DataFrame:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
@@ -620,9 +612,9 @@ document.write(`
 <p>And similarly for other summary statistics: <code class="docutils literal notranslate"><span class="pre">df.min()</span></code>, <code class="docutils literal notranslate"><span class="pre">df.max()</span></code>, <code class="docutils literal notranslate"><span class="pre">df.median()</span></code>, <code class="docutils literal notranslate"><span class="pre">df.std()</span></code></p>
 </section>
 <section id="working-with-dataframe-columns">
-<h2>Working with DataFrame Columns<a class="headerlink" href="#working-with-dataframe-columns" title="Permalink to this heading">#</a></h2>
+<h2>Working with DataFrame Columns<a class="headerlink" href="#working-with-dataframe-columns" title="Link to this heading">#</a></h2>
 <section id="single-columns">
-<h3>Single Columns<a class="headerlink" href="#single-columns" title="Permalink to this heading">#</a></h3>
+<h3>Single Columns<a class="headerlink" href="#single-columns" title="Link to this heading">#</a></h3>
 <p>Each column of a DataFrame is a Series.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">series_X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span>
 </pre></div>
@@ -638,14 +630,14 @@ document.write(`
 </div>
 </section>
 <section id="multiple-columns">
-<h3>Multiple Columns<a class="headerlink" href="#multiple-columns" title="Permalink to this heading">#</a></h3>
+<h3>Multiple Columns<a class="headerlink" href="#multiple-columns" title="Link to this heading">#</a></h3>
 <p>Use a list of column names to select several columns of a DataFrame, in a specified order:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_subset</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </section>
 <section id="plots">
-<h3>Plots<a class="headerlink" href="#plots" title="Permalink to this heading">#</a></h3>
+<h3>Plots<a class="headerlink" href="#plots" title="Link to this heading">#</a></h3>
 <p>Create quick and easy plots of Series and DataFrames with the <code class="docutils literal notranslate"><span class="pre">plot</span></code> method, for example:</p>
 <ul class="simple">
 <li><p>Line plot of one column of a DataFrame:</p></li>
@@ -686,7 +678,7 @@ document.write(`
 </div>
 </section>
 <section id="unique-values-counting">
-<h3>Unique Values &amp; Counting<a class="headerlink" href="#unique-values-counting" title="Permalink to this heading">#</a></h3>
+<h3>Unique Values &amp; Counting<a class="headerlink" href="#unique-values-counting" title="Link to this heading">#</a></h3>
 <p>For a column <code class="docutils literal notranslate"><span class="pre">df['A']</span></code> which contains many repeated values (such as categories), some useful summary methods are:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -712,7 +704,7 @@ document.write(`
 </div></blockquote>
 </section>
 <section id="sorting">
-<h3>Sorting<a class="headerlink" href="#sorting" title="Permalink to this heading">#</a></h3>
+<h3>Sorting<a class="headerlink" href="#sorting" title="Link to this heading">#</a></h3>
 <p>Sorting a DataFrame based on the values in the column <code class="docutils literal notranslate"><span class="pre">'B'</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
 </pre></div>
@@ -724,7 +716,7 @@ document.write(`
 </div>
 </section>
 <section id="filtering">
-<h3>Filtering<a class="headerlink" href="#filtering" title="Permalink to this heading">#</a></h3>
+<h3>Filtering<a class="headerlink" href="#filtering" title="Link to this heading">#</a></h3>
 <p>To select a subset of rows with a filter:</p>
 <ul class="simple">
 <li><p>Create a filter (Boolean Series) using a comparison operator or other functions (such as the <code class="docutils literal notranslate"><span class="pre">isnull</span></code> method)</p></li>
@@ -738,7 +730,7 @@ document.write(`
 <p>You can also use Boolean Series and DataFrames to count occurrences of specified criteria, for example: count the missing values in each column of a DataFrame with <code class="docutils literal notranslate"><span class="pre">df.isnull().sum()</span></code></p>
 </section>
 <section id="aggregation">
-<h3>Aggregation<a class="headerlink" href="#aggregation" title="Permalink to this heading">#</a></h3>
+<h3>Aggregation<a class="headerlink" href="#aggregation" title="Link to this heading">#</a></h3>
 <p>For basic aggregation operations, use the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> method chained with an aggregation method (e.g., <code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code>, etc.).</p>
 <p>For example, to find the sum totals of column <code class="docutils literal notranslate"><span class="pre">'population'</span></code> grouped by column <code class="docutils literal notranslate"><span class="pre">'region'</span></code>: `</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">world</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;region&#39;</span><span class="p">)[</span><span class="s1">&#39;population&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -766,14 +758,14 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="setting-the-index-of-a-dataframe">
-<h3>Setting the Index of a DataFrame<a class="headerlink" href="#setting-the-index-of-a-dataframe" title="Permalink to this heading">#</a></h3>
+<h3>Setting the Index of a DataFrame<a class="headerlink" href="#setting-the-index-of-a-dataframe" title="Link to this heading">#</a></h3>
 <p>The index of a DataFrame can be set with the <code class="docutils literal notranslate"><span class="pre">set_index</span></code> method. For example, to set the column <code class="docutils literal notranslate"><span class="pre">'country'</span></code> as the index of DataFrame <code class="docutils literal notranslate"><span class="pre">world</span></code> and save the output as a new DataFrame:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">world_new</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="anatomy-of-a-dataframe">
-<h3>Anatomy of a DataFrame<a class="headerlink" href="#anatomy-of-a-dataframe" title="Permalink to this heading">#</a></h3>
+<h3>Anatomy of a DataFrame<a class="headerlink" href="#anatomy-of-a-dataframe" title="Link to this heading">#</a></h3>
 <p><img alt="dataframe3" src="courseware/figures/dataframe3.png" /></p>
 <ul class="simple">
 <li><p>Each cell in a DataFrame is associated with:</p>
@@ -792,7 +784,7 @@ document.write(`
 </ul>
 </section>
 <section id="selection-methods">
-<h3>Selection Methods<a class="headerlink" href="#selection-methods" title="Permalink to this heading">#</a></h3>
+<h3>Selection Methods<a class="headerlink" href="#selection-methods" title="Link to this heading">#</a></h3>
 <p>There are three main ways of selecting subsets of a DataFrame (or Series):</p>
 <ol>
     <li>Using only square brackets `[]`</li>
@@ -800,7 +792,7 @@ document.write(`
     <li>Label-based indexing with `.loc[]`</li>
 </ol>
 <section id="using-only-square-brackets">
-<h4>1. Using only square brackets<a class="headerlink" href="#using-only-square-brackets" title="Permalink to this heading">#</a></h4>
+<h4>1. Using only square brackets<a class="headerlink" href="#using-only-square-brackets" title="Link to this heading">#</a></h4>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
@@ -825,7 +817,7 @@ document.write(`
 </div>
 </section>
 <section id="positional-indexing-with-iloc">
-<h4>2. Positional indexing with <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#positional-indexing-with-iloc" title="Permalink to this heading">#</a></h4>
+<h4>2. Positional indexing with <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#positional-indexing-with-iloc" title="Link to this heading">#</a></h4>
 <p>With <code class="docutils literal notranslate"><span class="pre">iloc</span></code>, we specify the row selection first, followed by column selection, separated by a comma. For example, selecting a single cell at row 2, column 4:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 </pre></div>
@@ -849,7 +841,7 @@ document.write(`
 </div>
 </section>
 <section id="label-based-indexing-with-loc">
-<h4>3. Label-based indexing with <code class="docutils literal notranslate"><span class="pre">loc</span></code><a class="headerlink" href="#label-based-indexing-with-loc" title="Permalink to this heading">#</a></h4>
+<h4>3. Label-based indexing with <code class="docutils literal notranslate"><span class="pre">loc</span></code><a class="headerlink" href="#label-based-indexing-with-loc" title="Link to this heading">#</a></h4>
 <p>As with <code class="docutils literal notranslate"><span class="pre">iloc</span></code>, we specify the row selection first, followed by column selection, separated by a comma, but using the row and column labels instead of their positions. For example, selecting a single cell at a row labelled <code class="docutils literal notranslate"><span class="pre">'Algeria'</span></code> and a column labelled <code class="docutils literal notranslate"><span class="pre">'life_expectancy'</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">world_new</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Algeria&#39;</span><span class="p">,</span> <span class="s1">&#39;life_expectancy&#39;</span><span class="p">]</span>
 </pre></div>
@@ -918,7 +910,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -975,7 +968,7 @@ By Brian Rose
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -999,8 +992,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

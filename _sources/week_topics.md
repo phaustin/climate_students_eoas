@@ -8,7 +8,7 @@
 
 * [E440 canvas page](https://canvas.ubc.ca/courses/152022)
 
-* [Course piazza page](https://piazza.com/ubc.ca/winterterm22024/eosc440)
+* [Course piazza page](https://piazza.com/ubc.ca/winterterm22025/eosc_v4402012024w2)
 
 * [Textbook: Global Physical Climatology](https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&SS_jc=TC0001767901&title=Global%20physical%20climatology)
 
@@ -45,3 +45,29 @@
 ### In-class labs
 * Download the ipynb files and the png images from this folder:
 * [Week2 Jupyter notebook folder](https://www.dropbox.com/scl/fo/xhx2dfuo44tvym0dkiskc/AChXV1dukMjn4_7NqSsXBsY?rlkey=qzihkh9dvtykwvguxo3nfu3v5&st=f9eaga2s&dl=0)
+
+## Week 3
+
+
+Pre-class Reading:
+Chapters 3 & 4 of Global Physical Climatology
+
+Due:
+Pre-class quiz 2
+
+### In-class labs
+
+Worksheet2 and the week 3 notebooks plus figures can be downloaded from the week3 folder
+on the [google drive](https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=sharing)
+
+## Matching Hartmann with the notebooks
+
+### In-class discusion
+
+- Relating Hartmann Chapter 3 to the week 3 notebooks: the importance of optical depth
+
+- Two articles that could form the basis of a course project (download from google drive in the articles folder):
+
+  - Climate sensitivity from radiative-convective equilibrium: A chalkboard approach
+  - Effects of greenhouse gasses on Earth, Venus and Mars
+

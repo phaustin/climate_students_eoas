@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>20. Heat transport &#8212; Climate Laboratory Book</title>
   
@@ -17,51 +16,50 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/week6/lab20_heat-transport';</script>
@@ -73,6 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="19. Orbital variations, insolation, and the ice ages" href="lab19_orbital.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -88,19 +87,8 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -108,7 +96,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -116,8 +103,8 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -133,7 +120,8 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -161,7 +149,14 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Climate Laboratory Book</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -191,7 +186,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project links and notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/loading-cmip6-data.html">Accessing CMIP6 data with intake-esm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/loading-CESM-LENS-data.html">Accessing CESM LENS (and LENS2) data with intake-esm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/hot_cold_models.html">Worksheet: Comparing total cloud fraction in hot and cold models</a></li>
@@ -303,9 +298,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -324,9 +324,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -351,14 +351,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/week6/lab20_heat-transport.md&branch=jb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onJupyterHub"
+   title="Launch on JupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../../_static/images/logo_jupyterhub.svg">
+    <img alt="JupyterHub logo" src="../../_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -450,27 +450,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -528,22 +520,22 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="heat-transport">
-<span id="nb-heat-transport"></span><h1><span class="section-number">20. </span>Heat transport<a class="headerlink" href="#heat-transport" title="Permalink to this heading">#</a></h1>
+<span id="nb-heat-transport"></span><h1><span class="section-number">20. </span>Heat transport<a class="headerlink" href="#heat-transport" title="Link to this heading">#</a></h1>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <hr class="docutils" />
 <p><a id='section1'></a></p>
 <section id="spatial-patterns-of-insolation-and-surface-temperature">
-<h2><span class="section-number">20.1. </span>1. Spatial patterns of insolation and surface temperature<a class="headerlink" href="#spatial-patterns-of-insolation-and-surface-temperature" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">20.1. </span>1. Spatial patterns of insolation and surface temperature<a class="headerlink" href="#spatial-patterns-of-insolation-and-surface-temperature" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Let’s take a look at seasonal and spatial pattern of insolation and compare this to the zonal average surface temperatures.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">import</span> <span class="nn">climlab</span>
-<span class="kn">from</span> <span class="nn">climlab</span> <span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">const</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">climlab</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">climlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">const</span>
 </pre></div>
 </div>
 </div>
@@ -613,12 +605,12 @@ document.write(`
 <p><a id='section2'></a></p>
 </section>
 <section id="calculating-radiative-convective-equilibrium-as-a-function-of-latitude">
-<h2><span class="section-number">20.2. </span>2. Calculating Radiative-Convective Equilibrium as a function of latitude<a class="headerlink" href="#calculating-radiative-convective-equilibrium-as-a-function-of-latitude" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">20.2. </span>2. Calculating Radiative-Convective Equilibrium as a function of latitude<a class="headerlink" href="#calculating-radiative-convective-equilibrium-as-a-function-of-latitude" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>As a first step to understanding the effects of <strong>heat transport by fluid motions</strong> in the atmosphere and ocean, we can calculate <strong>what the surface temperature would be without any motion</strong>.</p>
 <p>Let’s calculate a <strong>radiative-convective equilibrium</strong> state for every latitude band.</p>
 <section id="putting-realistic-insolation-into-an-rcm">
-<h3><span class="section-number">20.2.1. </span>Putting realistic insolation into an RCM<a class="headerlink" href="#putting-realistic-insolation-into-an-rcm" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.2.1. </span>Putting realistic insolation into an RCM<a class="headerlink" href="#putting-realistic-insolation-into-an-rcm" title="Link to this heading">#</a></h3>
 <p>This code demonstrates how to create a model with both latitude and vertical dimensions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -708,7 +700,7 @@ document.write(`
 <p>Note that we could also pass different orbital parameters to this subprocess. They default to present-day values, which is what we are using here.</p>
 </section>
 <section id="find-the-steady-seasonal-cycle-of-temperature-in-radiative-convective-equilibrium">
-<h3><span class="section-number">20.2.2. </span>Find the steady seasonal cycle of temperature in radiative-convective equilibrium<a class="headerlink" href="#find-the-steady-seasonal-cycle-of-temperature-in-radiative-convective-equilibrium" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.2.2. </span>Find the steady seasonal cycle of temperature in radiative-convective equilibrium<a class="headerlink" href="#find-the-steady-seasonal-cycle-of-temperature-in-radiative-convective-equilibrium" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">integrate_years</span><span class="p">(</span><span class="mf">4.</span><span class="p">)</span>
@@ -746,7 +738,7 @@ document.write(`
 </div>
 </section>
 <section id="compare-annual-average-temperature-in-rce-to-the-zonal-annual-mean-observations">
-<h3><span class="section-number">20.2.3. </span>Compare annual average temperature in RCE to the zonal-, annual mean observations.<a class="headerlink" href="#compare-annual-average-temperature-in-rce-to-the-zonal-annual-mean-observations" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.2.3. </span>Compare annual average temperature in RCE to the zonal-, annual mean observations.<a class="headerlink" href="#compare-annual-average-temperature-in-rce-to-the-zonal-annual-mean-observations" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot annual mean surface temperature in the model,</span>
@@ -763,7 +755,7 @@ document.write(`
 <p>Our modeled RCE state is <strong>far too warm in the tropics</strong>, and <strong>too cold in the mid- to high latitudes.</strong></p>
 </section>
 <section id="vertical-structure-of-temperature-comparing-rce-to-observations">
-<h3><span class="section-number">20.2.4. </span>Vertical structure of temperature: comparing RCE to observations<a class="headerlink" href="#vertical-structure-of-temperature-comparing-rce-to-observations" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.2.4. </span>Vertical structure of temperature: comparing RCE to observations<a class="headerlink" href="#vertical-structure-of-temperature-comparing-rce-to-observations" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Observed air temperature from NCEP reanalysis</span>
@@ -808,7 +800,7 @@ document.write(`
 <p>We have (as yet) no parameterization for the <strong>horizontal</strong> redistribution of energy in the climate system.</p>
 </section>
 <section id="toa-energy-budget-in-rce-equilibrium">
-<h3><span class="section-number">20.2.5. </span>TOA energy budget in RCE equilibrium<a class="headerlink" href="#toa-energy-budget-in-rce-equilibrium" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.2.5. </span>TOA energy budget in RCE equilibrium<a class="headerlink" href="#toa-energy-budget-in-rce-equilibrium" title="Link to this heading">#</a></h3>
 <p>Because there is no horizontal energy transport in this model, the TOA radiation budget should be closed (net flux is zero) at all latitudes.</p>
 <p>Let’s check this by plotting time-averaged shortwave and longwave radiation:</p>
 <div class="cell docutils container">
@@ -829,13 +821,13 @@ document.write(`
 </section>
 </section>
 <section id="observed-and-modeled-toa-radiation-budget">
-<h2><span class="section-number">20.3. </span>3. Observed and modeled TOA radiation budget<a class="headerlink" href="#observed-and-modeled-toa-radiation-budget" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">20.3. </span>3. Observed and modeled TOA radiation budget<a class="headerlink" href="#observed-and-modeled-toa-radiation-budget" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>We are going to look at the (time average) TOA budget as a function of latitude to see how it differs from the RCE state we just plotted.</p>
 <p>Ideally we would look at actual satellite observations of SW and LW fluxes. Instead, here we will use the NCEP Reanalysis for convenience.</p>
 <p>But bear in mind that the radiative fluxes in the reanalysis are a model-generated product, they are not really observations.</p>
 <section id="toa-budget-from-ncep-reanalysis">
-<h3><span class="section-number">20.3.1. </span>TOA budget from NCEP Reanalysis<a class="headerlink" href="#toa-budget-from-ncep-reanalysis" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.3.1. </span>TOA budget from NCEP Reanalysis<a class="headerlink" href="#toa-budget-from-ncep-reanalysis" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get TOA radiative flux data from NCEP reanalysis</span>
@@ -889,7 +881,7 @@ document.write(`
 <p>The opposite is true in mid- to high latitudes: <strong>the Earth is losing energy by net radiation to space</strong> at these latitudes.</p>
 </section>
 <section id="toa-budget-from-the-control-cesm-simulation">
-<h3><span class="section-number">20.3.2. </span>TOA budget from the control CESM simulation<a class="headerlink" href="#toa-budget-from-the-control-cesm-simulation" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.3.2. </span>TOA budget from the control CESM simulation<a class="headerlink" href="#toa-budget-from-the-control-cesm-simulation" title="Link to this heading">#</a></h3>
 <p>Load data from the fully coupled CESM control simulation that we’ve used before.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -964,10 +956,10 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="the-energy-budget-for-a-zonal-band">
-<h2><span class="section-number">20.4. </span>4. The energy budget for a zonal band<a class="headerlink" href="#the-energy-budget-for-a-zonal-band" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">20.4. </span>4. The energy budget for a zonal band<a class="headerlink" href="#the-energy-budget-for-a-zonal-band" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="the-basic-idea">
-<h3><span class="section-number">20.4.1. </span>The basic idea<a class="headerlink" href="#the-basic-idea" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.4.1. </span>The basic idea<a class="headerlink" href="#the-basic-idea" title="Link to this heading">#</a></h3>
 <p>Through most of the previous notes we have been thinking about <strong>global averages</strong>.</p>
 <p>We’ve been working with an energy budget that looks something like this:</p>
 <a class="reference internal image-reference" href="../../_images/column_sketch.pdf"><img alt="../../_images/column_sketch.pdf" src="../../_images/column_sketch.pdf" style="width: 200px;" /></a>
@@ -979,7 +971,7 @@ document.write(`
 <p>where <span class="math notranslate nohighlight">\(h\)</span> is a <strong>dynamic heating rate</strong> in W m<span class="math notranslate nohighlight">\(^{-2}\)</span>.</p>
 </section>
 <section id="a-more-careful-budget">
-<h3><span class="section-number">20.4.2. </span>A more careful budget<a class="headerlink" href="#a-more-careful-budget" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.4.2. </span>A more careful budget<a class="headerlink" href="#a-more-careful-budget" title="Link to this heading">#</a></h3>
 <p>Let’s now consider a thin band of the climate system, of width <span class="math notranslate nohighlight">\(\delta \phi\)</span> , and write down a careful energy budget for it.</p>
 <a class="reference internal image-reference" href="../../_images/ZonalEnergyBudget_sketch.png"><img alt="../../_images/ZonalEnergyBudget_sketch.png" src="../../_images/ZonalEnergyBudget_sketch.png" style="width: 400px;" /></a>
 <p>Let <span class="math notranslate nohighlight">\(\mathcal{H}(\phi)\)</span> be the total rate of northward energy transport across the latitude line <span class="math notranslate nohighlight">\(\phi\)</span>, measured in Watts (usually PW).</p>
@@ -1009,7 +1001,7 @@ h &amp;= \frac{\mathcal{H}(\phi) - \mathcal{H}(\phi+\delta\phi)}{2 \pi a^2  \cos
 </section>
 <hr class="docutils" />
 <section id="calculating-heat-transport-from-the-steady-state-energy-budget">
-<h2><span class="section-number">20.5. </span>5. Calculating heat transport from the steady-state energy budget<a class="headerlink" href="#calculating-heat-transport-from-the-steady-state-energy-budget" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">20.5. </span>5. Calculating heat transport from the steady-state energy budget<a class="headerlink" href="#calculating-heat-transport-from-the-steady-state-energy-budget" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>If we can <strong>assume that the budget is balanced</strong>, i.e. assume that the system is at equilibrium and there is negligible heat storage, then we can use the energy budget to infer <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> from a measured (or modeled) TOA radiation imbalance:</p>
 <p>The balanced budget is</p>
@@ -1038,12 +1030,12 @@ h &amp;= \frac{\mathcal{H}(\phi) - \mathcal{H}(\phi+\delta\phi)}{2 \pi a^2  \cos
 </section>
 <hr class="docutils" />
 <section id="poleward-heat-transport-in-the-cesm">
-<h2><span class="section-number">20.6. </span>6. Poleward heat transport in the CESM<a class="headerlink" href="#poleward-heat-transport-in-the-cesm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">20.6. </span>6. Poleward heat transport in the CESM<a class="headerlink" href="#poleward-heat-transport-in-the-cesm" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Here we will code up a function that performs the above integration.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inferred_heat_transport</span><span class="p">(</span><span class="n">energy_in</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">latax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inferred_heat_transport</span><span class="p">(</span><span class="n">energy_in</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">latax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;Compute heat transport as integral of local energy imbalance.</span>
 <span class="sd">    Required input:</span>
 <span class="sd">        energy_in: energy imbalance in W/m2, positive in to domain</span>
@@ -1055,8 +1047,8 @@ h &amp;= \frac{\mathcal{H}(\phi) - \mathcal{H}(\phi+\delta\phi)}{2 \pi a^2  \cos
 <span class="sd">    returns the heat transport in PW.</span>
 <span class="sd">    Will attempt to return data in xarray.DataArray if possible.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
-    <span class="kn">from</span> <span class="nn">climlab</span> <span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">const</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">integrate</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">climlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">const</span>
     <span class="k">if</span> <span class="n">lat</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span> <span class="n">lat</span> <span class="o">=</span> <span class="n">energy_in</span><span class="o">.</span><span class="n">lat</span>
         <span class="k">except</span><span class="p">:</span>
@@ -1098,7 +1090,7 @@ h &amp;= \frac{\mathcal{H}(\phi) - \mathcal{H}(\phi+\delta\phi)}{2 \pi a^2  \cos
 <p>The transport peaks in magnitude near 35º latitude, the same latitude where we found that ASR = OLR. This is no coincidence!</p>
 <p>Equatorward of 35º (across the tropics) there is <strong>net heating by radiation</strong> and <strong>net cooling by dynamics</strong>. The opposite is true poleward of 35º.</p>
 <section id="an-example-of-a-recently-published-observational-estimate-of-meridional-heat-transport">
-<h3><span class="section-number">20.6.1. </span>An example of a recently published observational estimate of meridional heat transport<a class="headerlink" href="#an-example-of-a-recently-published-observational-estimate-of-meridional-heat-transport" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.6.1. </span>An example of a recently published observational estimate of meridional heat transport<a class="headerlink" href="#an-example-of-a-recently-published-observational-estimate-of-meridional-heat-transport" title="Link to this heading">#</a></h3>
 <img alt="../../_images/Fasullo_Trenberth_2008b_Fig7.jpg" src="../../_images/Fasullo_Trenberth_2008b_Fig7.jpg" />
 <blockquote>
 <div><p>The ERBE period zonal mean annual cycle of the meridional energy transport in PW by (a) the atmosphere and ocean as inferred from ERBE <span class="math notranslate nohighlight">\(R_T\)</span>, NRA <span class="math notranslate nohighlight">\(\delta\)</span>A_E/<span class="math notranslate nohighlight">\(\delta\)</span>t, and GODAS <span class="math notranslate nohighlight">\(\delta\)</span>O_E/<span class="math notranslate nohighlight">\(\delta\)</span>t; (b) the atmosphere based on NRA; and (c) by the ocean as implied by ERBE + NRA <span class="math notranslate nohighlight">\(F_S\)</span> and GODAS <span class="math notranslate nohighlight">\(\delta\)</span>O_E/<span class="math notranslate nohighlight">\(\delta\)</span>t. Stippling and hatching in (a)–(c) represent regions and times of year in which the standard deviation of the monthly mean values among estimates, some of which include the CERES period (see text), exceeds 0.5 and 1.0 PW, respectively. (d) The median annual mean transport by latitude for the total (gray), atmosphere (red), and ocean (blue) accompanied with the associated <span class="math notranslate nohighlight">\(\pm2\sigma\)</span> range (shaded).</p>
@@ -1110,7 +1102,7 @@ h &amp;= \frac{\mathcal{H}(\phi) - \mathcal{H}(\phi+\delta\phi)}{2 \pi a^2  \cos
 </section>
 <hr class="docutils" />
 <section id="credits">
-<h2><span class="section-number">20.7. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">20.7. </span>Credits<a class="headerlink" href="#credits" title="Link to this heading">#</a></h2>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a>, an open-source textbook developed and maintained by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <p>It is licensed for free and open consumption under the
 <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license.</p>
@@ -1176,7 +1168,8 @@ h &amp;= \frac{\mathcal{H}(\phi) - \mathcal{H}(\phi+\delta\phi)}{2 \pi a^2  \cos
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1234,7 +1227,7 @@ By Brian Rose
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1258,8 +1251,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Dask Arrays with Xarray &#8212; Climate Laboratory Book</title>
   
@@ -17,51 +16,50 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/xarray/04-dask-arrays-xarray';</script>
     <link rel="canonical" href="https://phaustin.github.io/ClimateLaboratoryBook/courseware/xarray/04-dask-arrays-xarray.html" />
     <link rel="author" title="About these documents" href="../../about.html" />
@@ -71,6 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Calculating ENSO with Xarray" href="03-enso-xarray.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -86,19 +85,8 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -106,7 +94,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -114,8 +101,8 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -131,7 +118,8 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -159,7 +147,14 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Climate Laboratory Book</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -176,7 +171,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../week_topics.html">Week notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week1_topics.html">Week 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week2_topics.html">Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week3_topics.html">Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week4_topics.html">Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week7_topics.html">Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week9_topics.html">Week 9</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
 <ul class="nav bd-sidenav">
@@ -189,7 +189,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project links and notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/loading-cmip6-data.html">Accessing CMIP6 data with intake-esm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/loading-CESM-LENS-data.html">Accessing CESM LENS (and LENS2) data with intake-esm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/hot_cold_models.html">Worksheet: Comparing total cloud fraction in hot and cold models</a></li>
@@ -301,9 +301,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -322,9 +327,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -349,14 +354,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/xarray/04-dask-arrays-xarray.md&branch=jb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onJupyterHub"
+   title="Launch on JupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../../_static/images/logo_jupyterhub.svg">
+    <img alt="JupyterHub logo" src="../../_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -448,27 +453,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -528,9 +525,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <a class="reference internal image-reference" href="../../_images/dask_horizontal.svg"><img alt="../../_images/dask_horizontal.svg" class="align-left" src="../../_images/dask_horizontal.svg" width="30%" /></a>
+  <a class="reference internal image-reference" href="../../_images/dask_horizontal.svg"><img alt="../../_images/dask_horizontal.svg" class="align-left" src="../../_images/dask_horizontal.svg" style="width: 30%;" /></a>
 <section class="tex2jax_ignore mathjax_ignore" id="dask-arrays-with-xarray">
-<h1>Dask Arrays with Xarray<a class="headerlink" href="#dask-arrays-with-xarray" title="Permalink to this heading">#</a></h1>
+<h1>Dask Arrays with Xarray<a class="headerlink" href="#dask-arrays-with-xarray" title="Link to this heading">#</a></h1>
 <p>Dask Array provides a parallel, larger-than-memory, n-dimensional array using blocked algorithms. Simply put: distributed Numpy.</p>
 <ul class="simple">
 <li><p><strong>Parallel</strong>: Uses all of the cores on your computer</p></li>
@@ -539,7 +536,7 @@ document.write(`
 </ul>
 <p>This notebook demonstrates one of Xarray’s most powerful features: the ability to wrap dask arrays and allow users to seamlessly execute analysis code in parallel.</p>
 <section id="learning-objectives">
-<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Learn the distinction between <em>eager</em> and <em>lazy</em> execution, and how Xarray can work either way</p></li>
 <li><p>Understand key features of dask arrays</p></li>
@@ -549,7 +546,7 @@ document.write(`
 </ul>
 </section>
 <section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h2>
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Concepts</p></th>
@@ -558,11 +555,11 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="xref myst">Introduction to NumPy</span></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#../numpy/numpy-basics"><span class="xref myst">Introduction to NumPy</span></a></p></td>
 <td><p>Necessary</p></td>
 <td><p>Familiarity with Data Arrays</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="xref myst">Introduction to Xarray</span></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#xarray-intro"><span class="xref myst">Introduction to Xarray</span></a></p></td>
 <td><p>Necessary</p></td>
 <td><p>Familiarity with Xarray Data Structures</p></td>
 </tr>
@@ -574,32 +571,32 @@ document.write(`
 </ul>
 </section>
 <section id="imports">
-<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this heading">#</a></h2>
+<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask</span>
-<span class="kn">import</span> <span class="nn">dask.array</span> <span class="k">as</span> <span class="nn">da</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">from</span> <span class="nn">dask.diagnostics</span> <span class="kn">import</span> <span class="n">ProgressBar</span>
-<span class="kn">from</span> <span class="nn">dask.utils</span> <span class="kn">import</span> <span class="n">format_bytes</span>
-<span class="kn">from</span> <span class="nn">pythia_datasets</span> <span class="kn">import</span> <span class="n">DATASETS</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">dask</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dask.array</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">da</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dask.diagnostics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProgressBar</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dask.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">format_bytes</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythia_datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">DATASETS</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="blocked-algorithms">
-<h2>Blocked algorithms<a class="headerlink" href="#blocked-algorithms" title="Permalink to this heading">#</a></h2>
+<h2>Blocked algorithms<a class="headerlink" href="#blocked-algorithms" title="Link to this heading">#</a></h2>
 <p>A <em>blocked algorithm</em> executes on a large dataset by breaking it up into many small blocks.</p>
 <p>For example, consider taking the sum of a billion numbers, in a single computation. This would take a while. We might instead break up the array into 1,000 chunks, each of size 1,000,000, take the sum of each chunk, and then take the sum of the intermediate sums.</p>
 <p>We achieve the intended result (one sum on one billion numbers) by performing many smaller results (one thousand sums on one million numbers each, followed by another sum of a thousand numbers.)</p>
 <section id="dask-array-contains-these-algorithms">
-<h3><code class="docutils literal notranslate"><span class="pre">dask.array</span></code> contains these algorithms<a class="headerlink" href="#dask-array-contains-these-algorithms" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">dask.array</span></code> contains these algorithms<a class="headerlink" href="#dask-array-contains-these-algorithms" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">dask.array</span></code> implements a subset of the NumPy ndarray interface using blocked algorithms, cutting up the large array into many small arrays. This lets us compute on arrays larger than memory using multiple cores. Dask coordinates these blocked algorithms using Dask graphs. Dask Arrays are also <strong>lazy</strong>, meaning that they do not evaluate until you explicitly ask for a result using the compute method.</p>
 </section>
 <section id="create-a-dask-array-object">
-<h3>Create a <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> object<a class="headerlink" href="#create-a-dask-array-object" title="Permalink to this heading">#</a></h3>
+<h3>Create a <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> object<a class="headerlink" href="#create-a-dask-array-object" title="Link to this heading">#</a></h3>
 <p>If we want to create a 3D NumPy array of random values, we do it like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -649,15 +646,15 @@ document.write(`
 <p>Our array has four chunks. To generate it, Dask calls <code class="docutils literal notranslate"><span class="pre">np.random.random</span></code> four times and then concatenates this together into one array.</p>
 </section>
 <section id="manipulate-a-dask-array-object-as-you-would-a-numpy-array">
-<h3>Manipulate a <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> object as you would a numpy array<a class="headerlink" href="#manipulate-a-dask-array-object-as-you-would-a-numpy-array" title="Permalink to this heading">#</a></h3>
+<h3>Manipulate a <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> object as you would a numpy array<a class="headerlink" href="#manipulate-a-dask-array-object-as-you-would-a-numpy-array" title="Link to this heading">#</a></h3>
 <p>Now that we have an <code class="docutils literal notranslate"><span class="pre">Array</span></code> we perform standard numpy-style computations like arithmetic, mathematics, slicing, reductions, etc..</p>
 <p>The interface is familiar, but the actual work is different. <code class="docutils literal notranslate"><span class="pre">dask_array.sum()</span></code> does not do the same thing as <code class="docutils literal notranslate"><span class="pre">numpy_array.sum()</span></code>.</p>
 <section id="what-s-the-difference">
-<h4>What’s the difference?<a class="headerlink" href="#what-s-the-difference" title="Permalink to this heading">#</a></h4>
+<h4>What’s the difference?<a class="headerlink" href="#what-s-the-difference" title="Link to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">dask_array.sum()</span></code> builds an expression of the computation. It does not do the computation yet, also known as <strong>lazy execution</strong>. <code class="docutils literal notranslate"><span class="pre">numpy_array.sum()</span></code> computes the sum immediately (<strong>eager execution</strong>).</p>
 </section>
 <section id="why-the-difference">
-<h4>Why the difference?<a class="headerlink" href="#why-the-difference" title="Permalink to this heading">#</a></h4>
+<h4>Why the difference?<a class="headerlink" href="#why-the-difference" title="Link to this heading">#</a></h4>
 <p>A <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> is split into chunks. Each chunk must have computations run on that chunk explicitly. If the desired answer comes from a small slice of the entire dataset, running the computation over all data would be wasteful of CPU and memory.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -676,7 +673,7 @@ document.write(`
 </div>
 </section>
 <section id="compute-the-result">
-<h4>Compute the result<a class="headerlink" href="#compute-the-result" title="Permalink to this heading">#</a></h4>
+<h4>Compute the result<a class="headerlink" href="#compute-the-result" title="Link to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">dask.array</span></code> objects are lazily evaluated.  Operations like <code class="docutils literal notranslate"><span class="pre">.sum</span></code> build up a graph of blocked tasks to execute.</p>
 <p>We ask for the final result with a call to <code class="docutils literal notranslate"><span class="pre">.compute()</span></code>.  This triggers the actual computation.</p>
 <div class="cell docutils container">
@@ -690,7 +687,7 @@ document.write(`
 </section>
 </section>
 <section id="exercise-with-dask-arrays">
-<h3>Exercise with <code class="docutils literal notranslate"><span class="pre">dask.arrays</span></code><a class="headerlink" href="#exercise-with-dask-arrays" title="Permalink to this heading">#</a></h3>
+<h3>Exercise with <code class="docutils literal notranslate"><span class="pre">dask.arrays</span></code><a class="headerlink" href="#exercise-with-dask-arrays" title="Link to this heading">#</a></h3>
 <p>Modify the chunk size (or shape) in the random dask array, call <code class="docutils literal notranslate"><span class="pre">.sum()</span></code> on the new array, and visualize how the task graph changes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -719,7 +716,7 @@ document.write(`
 </div>
 </section>
 <section id="testing-a-bigger-calculation">
-<h3>Testing a bigger calculation<a class="headerlink" href="#testing-a-bigger-calculation" title="Permalink to this heading">#</a></h3>
+<h3>Testing a bigger calculation<a class="headerlink" href="#testing-a-bigger-calculation" title="Link to this heading">#</a></h3>
 <p>The examples above were toy examples; the data (180 MB) is probably not big enough to warrant the use of Dask.</p>
 <p>We can make it a lot bigger! Let’s create a new, big array</p>
 <div class="cell docutils container">
@@ -756,10 +753,10 @@ document.write(`
 </section>
 </section>
 <section id="id1">
-<h2>Dask Arrays with Xarray<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2>Dask Arrays with Xarray<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>Often times, you won’t be directly interacting with <code class="docutils literal notranslate"><span class="pre">dask.arrays</span></code> directly; odds are you will be interacting with them via <a class="reference external" href="http://xarray.pydata.org/en/stable/"><code class="docutils literal notranslate"><span class="pre">Xarray</span></code>!</a> Xarray wraps NumPy arrays similar to how we showed in the previous section, helping the user jump right into the dask array interface!</p>
 <section id="reading-data-with-dask-and-xarray">
-<h3>Reading data with <code class="docutils literal notranslate"><span class="pre">Dask</span></code> and <code class="docutils literal notranslate"><span class="pre">Xarray</span></code><a class="headerlink" href="#reading-data-with-dask-and-xarray" title="Permalink to this heading">#</a></h3>
+<h3>Reading data with <code class="docutils literal notranslate"><span class="pre">Dask</span></code> and <code class="docutils literal notranslate"><span class="pre">Xarray</span></code><a class="headerlink" href="#reading-data-with-dask-and-xarray" title="Link to this heading">#</a></h3>
 <p>Recall that a Dask’s array consists of many chunked arrays:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -802,7 +799,7 @@ document.write(`
 </div>
 </section>
 <section id="xarray-data-structures-are-first-class-dask-collections">
-<h3>Xarray data structures are first-class dask collections<a class="headerlink" href="#xarray-data-structures-are-first-class-dask-collections" title="Permalink to this heading">#</a></h3>
+<h3>Xarray data structures are first-class dask collections<a class="headerlink" href="#xarray-data-structures-are-first-class-dask-collections" title="Link to this heading">#</a></h3>
 <p>This means you can call the following functions</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">dask.visualize(...)</span></code></p></li>
@@ -819,7 +816,7 @@ document.write(`
 </div>
 </section>
 <section id="parallel-and-lazy-computation-using-dask-array-with-xarray">
-<h3>Parallel and lazy computation using <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> with Xarray<a class="headerlink" href="#parallel-and-lazy-computation-using-dask-array-with-xarray" title="Permalink to this heading">#</a></h3>
+<h3>Parallel and lazy computation using <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> with Xarray<a class="headerlink" href="#parallel-and-lazy-computation-using-dask-array-with-xarray" title="Link to this heading">#</a></h3>
 <p>Xarray seamlessly wraps Dask so all computation is deferred until explicitly requested.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -858,10 +855,10 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>We saw that we can use <code class="docutils literal notranslate"><span class="pre">Xarray</span></code> to access <code class="docutils literal notranslate"><span class="pre">dask.arrays</span></code>, which required passing a <code class="docutils literal notranslate"><span class="pre">chunks</span></code> argument to upon opening the dataset. Once the data were loaded into Xarray, we could interact with the <code class="docutils literal notranslate"><span class="pre">xarray.Datasets</span></code> and <code class="docutils literal notranslate"><span class="pre">xarray.DataArrays</span></code> as we would if we were working with <code class="docutils literal notranslate"><span class="pre">dask.arrays</span></code>. This can be a powerful tool for working with larger-than-memory datasets!</p>
 <section id="dask-shortcomings">
-<h3>Dask Shortcomings<a class="headerlink" href="#dask-shortcomings" title="Permalink to this heading">#</a></h3>
+<h3>Dask Shortcomings<a class="headerlink" href="#dask-shortcomings" title="Link to this heading">#</a></h3>
 <p>Dask Array does not implement the entire Numpy interface.  Users expecting this
 will be disappointed.  Notably Dask Array has the following failings:</p>
 <ol class="arabic simple">
@@ -880,11 +877,11 @@ functions, like <code class="docutils literal notranslate"><span class="pre">np.
 </section>
 </section>
 <section id="learn-more">
-<h2>Learn More<a class="headerlink" href="#learn-more" title="Permalink to this heading">#</a></h2>
+<h2>Learn More<a class="headerlink" href="#learn-more" title="Link to this heading">#</a></h2>
 <p>Visit the <a class="reference external" href="https://docs.dask.org/en/latest/array.html">Dask Array documentation</a>. In particular, this <a class="reference external" href="https://youtu.be/9h_61hXCDuI">array screencast</a> will reinforce the concepts you learned here.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
 
 <span class="n">YouTubeVideo</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;9h_61hXCDuI&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
@@ -893,7 +890,7 @@ functions, like <code class="docutils literal notranslate"><span class="pre">np.
 </div>
 </section>
 <section id="resources-and-references">
-<h2>Resources and references<a class="headerlink" href="#resources-and-references" title="Permalink to this heading">#</a></h2>
+<h2>Resources and references<a class="headerlink" href="#resources-and-references" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Reference</p>
 <ul>
@@ -978,7 +975,8 @@ functions, like <code class="docutils literal notranslate"><span class="pre">np.
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1039,7 +1037,7 @@ By Brian Rose
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1063,8 +1061,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
