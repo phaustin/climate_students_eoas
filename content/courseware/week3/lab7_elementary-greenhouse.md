@@ -1,10 +1,11 @@
 ---
 jupytext:
+  formats: md:myst,ipynb
   text_representation:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.16.6
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -30,7 +31,12 @@ We will make our first attempt at quantifying the greenhouse effect in the simpl
 
 +++
 
-<img src="../../images/1layerAtm_sketch.png">
+::: {figure} ./images/1layerAtm_sketch.png
+:width: 70%
+:name: costheta
+:alt: pha
+
+:::
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -182,7 +188,12 @@ both up and down.
 
 +++
 
-<img src='../../images/2layerAtm_sketch.png'>
+::: {figure} ./images/2layerAtm_sketch.png
+:width: 70%
+:name: costheta
+:alt: pha
+
+:::
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
