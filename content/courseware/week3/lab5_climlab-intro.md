@@ -1,12 +1,13 @@
 ---
 jupytext:
+  formats: md:myst,ipynb
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.16.6
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -68,7 +69,7 @@ ____________
 
 Recall that we have worked with a zero-dimensional Energy Balance Model
 
-$$ C \frac{dT_s}{dt} = (1-\alpha) Q - \tau \sigma T_s^4 $$ 
+$$ C \frac{dT_s}{dt} = (1-\alpha) Q - \tau \sigma T_s^4 $$
 
 +++
 

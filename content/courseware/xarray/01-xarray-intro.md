@@ -1,17 +1,17 @@
 ---
 jupytext:
+  formats: md:myst,ipynb
   text_representation:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.16.6
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
 
-![xarray Logo](http://xarray.pydata.org/en/stable/_static/dataset-diagram-logo.png "xarray Logo")
 
 # Introduction to Xarray
 
@@ -49,6 +49,16 @@ We'll cover these topics:
 | [Understanding of NetCDF](some-link-to-external-resource) | Helpful | Familiarity with metadata structure |
 
 - **Time to learn**: 40 minutes
+
++++
+
+### Install the pythia_dataset module
+
+In the e440 environment do:
+
+```
+conda install pythia-datasets
+```
 
 +++
 
