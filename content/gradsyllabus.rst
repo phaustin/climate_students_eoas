@@ -194,7 +194,7 @@ Week 5 (3-7 Feb) - Modelling feedbacks and transient warming (PA)
 
    - Assignment 4 - Feedbacks in the Radiative-Convective Model - due 9pm Feb 17th
 
-Week 6 (10-14 Feb) - Modelling climate change (RHW)
+Week 6 (10-14 Feb) - Modelling natural and forced climate changes (RHW)
    - Pre-class reading: Chapters 12 and 13 of Global Physical Climatology
 
    - Pre-class Quiz #5
