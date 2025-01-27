@@ -1,12 +1,13 @@
 ---
 jupytext:
+  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.16.6
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -38,7 +39,7 @@ $$ \kappa^\prime = 2 ~ \kappa $$
 
 This would imply that we **double the optical thickness of every layer**:
 
-$$ \Delta \tau^\prime  = 2 \left( -\frac{\kappa}{g} \Delta p \right) = 2 ~ \Delta \tau$$ 
+$$ \Delta \tau^\prime  = 2 \left( -\frac{\kappa}{g} \Delta p \right) = 2 ~ \Delta \tau$$
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -161,7 +162,11 @@ This figure shows the Planck function for Earth's surface temperature compared w
 
 +++
 
-<img src='../../images/Terrestrial_spectrum.png'>
+:::{figure} images/Terrestrial_spectrum.png
+:name: terrestrial
+:scale: 100
+
+:::
 
 +++
 
@@ -369,8 +374,6 @@ The shortwave is divided into three channels:
 - Channel 0 is the Hartley and Huggins band (extreme UV, 200 - 340 nm, 1% of total flux, strong ozone absorption)
 - Channel 1 is Chappuis band (450 - 800 nm, 27% of total flux, moderate ozone absorption)
 - Channel 2 is remaining radiation (72% of total flux, largely in the visible range, no ozone absorption)
-
-
 
 +++ {"slideshow": {"slide_type": "slide"}}
 

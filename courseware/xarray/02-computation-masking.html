@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Computations and Masks with Xarray &#8212; Climate Laboratory Book</title>
   
@@ -16,50 +17,51 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/xarray/02-computation-masking';</script>
     <link rel="canonical" href="https://phaustin.github.io/ClimateLaboratoryBook/courseware/xarray/02-computation-masking.html" />
     <link rel="author" title="About these documents" href="../../about.html" />
@@ -69,7 +71,6 @@
     <link rel="prev" title="Introduction to Xarray" href="01-xarray-intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +86,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -94,6 +106,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -101,8 +114,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +131,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -147,14 +159,7 @@
     <p class="title logo__title">Climate Laboratory Book</p>
   
 </a></div>
-        <div class="sidebar-primary-item">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -189,7 +194,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project links and notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/loading-cmip6-data.html">Accessing CMIP6 data with intake-esm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/loading-CESM-LENS-data.html">Accessing CESM LENS (and LENS2) data with intake-esm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/hot_cold_models.html">Worksheet: Comparing total cloud fraction in hot and cold models</a></li>
@@ -301,14 +306,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -327,9 +327,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -354,14 +354,14 @@
       
       <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/xarray/02-computation-masking.md&branch=jb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on JupyterHub"
+   title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="JupyterHub logo" src="../../_static/images/logo_jupyterhub.svg">
+    <img src="../../_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -453,19 +453,27 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -524,10 +532,10 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="computations-and-masks-with-xarray">
-<h1>Computations and Masks with Xarray<a class="headerlink" href="#computations-and-masks-with-xarray" title="Link to this heading">#</a></h1>
+<h1>Computations and Masks with Xarray<a class="headerlink" href="#computations-and-masks-with-xarray" title="Permalink to this heading">#</a></h1>
 <hr class="docutils" />
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>In this notebook, we will:</p>
 <ol class="arabic simple">
 <li><p>Do basic arithmetic with DataArrays and Datasets</p></li>
@@ -539,7 +547,7 @@
 </ol>
 </section>
 <section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Concepts</p></th>
@@ -548,7 +556,7 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="#xarray-intro"><span class="xref myst">Introduction to Xarray</span></a></p></td>
+<tr class="row-even"><td><p><span class="xref myst">Introduction to Xarray</span></p></td>
 <td><p>Necessary</p></td>
 <td><p></p></td>
 </tr>
@@ -561,13 +569,13 @@
 </section>
 <hr class="docutils" />
 <section id="imports">
-<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pythia_datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">DATASETS</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span> <span class="nn">pythia_datasets</span> <span class="kn">import</span> <span class="n">DATASETS</span>
 </pre></div>
 </div>
 </div>
@@ -584,7 +592,7 @@
 </div>
 </section>
 <section id="arithmetic-operations">
-<h2>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Link to this heading">#</a></h2>
+<h2>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this heading">#</a></h2>
 <p>Arithmetic operations with a single DataArray automatically apply over all array values (like NumPy). This process is called vectorization.  Let’s convert the air temperature from degrees Celsius to kelvins:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -603,7 +611,7 @@
 </div>
 </section>
 <section id="aggregation-methods">
-<h2>Aggregation Methods<a class="headerlink" href="#aggregation-methods" title="Link to this heading">#</a></h2>
+<h2>Aggregation Methods<a class="headerlink" href="#aggregation-methods" title="Permalink to this heading">#</a></h2>
 <p>A very common step during data analysis is to summarize the data in question by computing aggregations like <code class="docutils literal notranslate"><span class="pre">sum()</span></code>, <code class="docutils literal notranslate"><span class="pre">mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">median()</span></code>, <code class="docutils literal notranslate"><span class="pre">min()</span></code>, <code class="docutils literal notranslate"><span class="pre">max()</span></code> in which reduced data provide insight into the nature of large dataset. Let’s explore some of these aggregation methods.</p>
 <p>Compute the mean:</p>
 <div class="cell docutils container">
@@ -679,7 +687,7 @@
 </div>
 </section>
 <section id="groupby-split-apply-combine">
-<h2>GroupBy: Split, Apply, Combine<a class="headerlink" href="#groupby-split-apply-combine" title="Link to this heading">#</a></h2>
+<h2>GroupBy: Split, Apply, Combine<a class="headerlink" href="#groupby-split-apply-combine" title="Permalink to this heading">#</a></h2>
 <p>Simple aggregations can give useful summary of our dataset, but often we would prefer to aggregate conditionally on some coordinate labels or groups. Xarray provides the so-called <code class="docutils literal notranslate"><span class="pre">groupby</span></code> operation which enables the <strong>split-apply-combine</strong> workflow on xarray DataArrays and Datasets. The split-apply-combine operation is illustrated in this figure</p>
 <img alt="../../_images/xarray-split-apply-combine.jpeg" src="../../_images/xarray-split-apply-combine.jpeg" />
 <p>This makes clear what the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> accomplishes:</p>
@@ -698,7 +706,7 @@
 </div>
 </div>
 <section id="split">
-<h3>Split<a class="headerlink" href="#split" title="Link to this heading">#</a></h3>
+<h3>Split<a class="headerlink" href="#split" title="Permalink to this heading">#</a></h3>
 <p>Let’s group data by month, i.e. all Januaries in one group, all Februaries in one group, etc.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -718,7 +726,7 @@
 </div>
 </section>
 <section id="apply-combine">
-<h3>Apply &amp; Combine<a class="headerlink" href="#apply-combine" title="Link to this heading">#</a></h3>
+<h3>Apply &amp; Combine<a class="headerlink" href="#apply-combine" title="Permalink to this heading">#</a></h3>
 <p>Now that we have groups defined, it’s time to “apply” a calculation to the group. These calculations can either be:</p>
 <ul class="simple">
 <li><p>aggregation: reduces the size of the group</p></li>
@@ -726,7 +734,7 @@
 </ul>
 <p>At then end of the apply step, xarray will automatically combine the aggregated/transformed groups back into a single object.</p>
 <section id="compute-climatology">
-<h4>Compute climatology<a class="headerlink" href="#compute-climatology" title="Link to this heading">#</a></h4>
+<h4>Compute climatology<a class="headerlink" href="#compute-climatology" title="Permalink to this heading">#</a></h4>
 <p>Let’s calculate the climatology at every point in the dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -762,7 +770,7 @@
 </div>
 </section>
 <section id="compute-anomaly">
-<h4>Compute anomaly<a class="headerlink" href="#compute-anomaly" title="Link to this heading">#</a></h4>
+<h4>Compute anomaly<a class="headerlink" href="#compute-anomaly" title="Permalink to this heading">#</a></h4>
 <p>Now let’s combine the previous steps to compute climatology and use xarray’s <code class="docutils literal notranslate"><span class="pre">groupby</span></code> arithmetic to remove this climatology from our original data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -822,7 +830,7 @@
 </section>
 </section>
 <section id="other-high-level-computation-functionality">
-<h2>Other high level computation functionality<a class="headerlink" href="#other-high-level-computation-functionality" title="Link to this heading">#</a></h2>
+<h2>Other high level computation functionality<a class="headerlink" href="#other-high-level-computation-functionality" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">resample</span></code>: <a class="reference external" href="https://xarray.pydata.org/en/stable/user-guide/time-series.html#resampling-and-grouped-operations">Groupby-like functionality specifialized for time dimensions. Can be used for temporal upsampling and downsampling</a></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rolling</span></code>: <a class="reference external" href="https://xarray.pydata.org/en/stable/user-guide/computation.html#rolling-window-operations">Useful for computing aggregations on moving windows of your dataset e.g. computing moving averages</a></p></li>
@@ -867,7 +875,7 @@
 </div>
 </section>
 <section id="masking-data">
-<h2>Masking Data<a class="headerlink" href="#masking-data" title="Link to this heading">#</a></h2>
+<h2>Masking Data<a class="headerlink" href="#masking-data" title="Permalink to this heading">#</a></h2>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">xr.where()</span></code> or <code class="docutils literal notranslate"><span class="pre">.where()</span></code> method, elements of an xarray Dataset or xarray DataArray that satisfy a given condition or multiple conditions can be replaced/masked. To demonstrate this, we are going to use the <code class="docutils literal notranslate"><span class="pre">.where()</span></code> method on the <code class="docutils literal notranslate"><span class="pre">tos</span></code> DataArray.</p>
 <p>We will use the same sea surface temperature dataset:</p>
 <div class="cell docutils container">
@@ -878,7 +886,7 @@
 </div>
 </div>
 <section id="using-where-with-one-condition">
-<h3>Using <code class="docutils literal notranslate"><span class="pre">where</span></code> with one condition<a class="headerlink" href="#using-where-with-one-condition" title="Link to this heading">#</a></h3>
+<h3>Using <code class="docutils literal notranslate"><span class="pre">where</span></code> with one condition<a class="headerlink" href="#using-where-with-one-condition" title="Permalink to this heading">#</a></h3>
 <p>Imagine we wish to analyze just the last time in the dataset. We could of course use <code class="docutils literal notranslate"><span class="pre">.isel()</span></code> for this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -916,7 +924,7 @@
 </div>
 </section>
 <section id="using-where-with-multiple-conditions">
-<h3>Using <code class="docutils literal notranslate"><span class="pre">where</span></code> with multiple conditions<a class="headerlink" href="#using-where-with-multiple-conditions" title="Link to this heading">#</a></h3>
+<h3>Using <code class="docutils literal notranslate"><span class="pre">where</span></code> with multiple conditions<a class="headerlink" href="#using-where-with-multiple-conditions" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">.where()</span></code> allows providing multiple conditions. To do this, we need to make sure each conditional expression is enclosed in <code class="docutils literal notranslate"><span class="pre">()</span></code>. To combine conditions, we use the <code class="docutils literal notranslate"><span class="pre">bit-wise</span> <span class="pre">and</span></code> (<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>) operator and/or the <code class="docutils literal notranslate"><span class="pre">bit-wise</span> <span class="pre">or</span></code> (<code class="docutils literal notranslate"><span class="pre">|</span></code>). Let’s use <code class="docutils literal notranslate"><span class="pre">.where()</span></code> to mask locations with temperature values less than 25 and greater than 30:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -938,7 +946,7 @@
 </div>
 </section>
 <section id="using-where-with-a-custom-fill-value">
-<h3>Using <code class="docutils literal notranslate"><span class="pre">where</span></code> with a custom fill value<a class="headerlink" href="#using-where-with-a-custom-fill-value" title="Link to this heading">#</a></h3>
+<h3>Using <code class="docutils literal notranslate"><span class="pre">where</span></code> with a custom fill value<a class="headerlink" href="#using-where-with-a-custom-fill-value" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">.where()</span></code> can take a second argument, which, if supplied, defines a fill value for the masked region. Below we fill masked regions with a constant <code class="docutils literal notranslate"><span class="pre">0</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -951,7 +959,7 @@
 </section>
 <hr class="docutils" />
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Similar to NumPy, arithmetic operations are vectorized over a DataArray</p></li>
 <li><p>Xarray provides aggregation methods like <code class="docutils literal notranslate"><span class="pre">sum()</span></code> and <code class="docutils literal notranslate"><span class="pre">mean()</span></code>, with the option to specify which dimension over which the operation will be done</p></li>
@@ -959,12 +967,12 @@
 <li><p>The <code class="docutils literal notranslate"><span class="pre">.where()</span></code> method allows for filtering or replacing of data based on one or more provided conditions</p></li>
 </ul>
 <section id="what-s-next">
-<h3>What’s next?<a class="headerlink" href="#what-s-next" title="Link to this heading">#</a></h3>
+<h3>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this heading">#</a></h3>
 <p>In the next notebook, we will work through an example of plotting the <a class="reference external" href="https://climatedataguide.ucar.edu/climate-data/nino-sst-indices-nino-12-3-34-4-oni-and-tni">Niño 3.4 Index</a>.</p>
 </section>
 </section>
 <section id="resources-and-references">
-<h2>Resources and References<a class="headerlink" href="#resources-and-references" title="Link to this heading">#</a></h2>
+<h2>Resources and References<a class="headerlink" href="#resources-and-references" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">groupby</span></code>: <a class="reference external" href="https://xarray.pydata.org/en/stable/user-guide/groupby.html">Useful for binning/grouping data and applying reductions and/or transformations on those groups</a></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">resample</span></code>: <a class="reference external" href="https://xarray.pydata.org/en/stable/user-guide/time-series.html#resampling-and-grouped-operations">Groupby-like functionality specifialized for time dimensions. Can be used for temporal upsampling and downsampling</a></p></li>
@@ -1032,8 +1040,7 @@
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1092,7 +1099,7 @@ By Brian Rose
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>
@@ -1116,8 +1123,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

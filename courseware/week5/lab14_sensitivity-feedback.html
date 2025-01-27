@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>14. Climate sensitivity and feedback &#8212; Climate Laboratory Book</title>
   
@@ -16,50 +17,51 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/week5/lab14_sensitivity-feedback';</script>
@@ -71,7 +73,6 @@
     <link rel="prev" title="13. Radiative-Convective Equilibrium" href="lab13_rce.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -87,8 +88,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -96,6 +108,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -103,8 +116,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -120,8 +133,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -149,14 +161,7 @@
     <p class="title logo__title">Climate Laboratory Book</p>
   
 </a></div>
-        <div class="sidebar-primary-item">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -174,6 +179,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../week_topics.html">Week notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=sharing">Course download folder</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
 <ul class="nav bd-sidenav">
@@ -186,7 +192,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project links and notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/loading-cmip6-data.html">Accessing CMIP6 data with intake-esm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/loading-CESM-LENS-data.html">Accessing CESM LENS (and LENS2) data with intake-esm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/hot_cold_models.html">Worksheet: Comparing total cloud fraction in hot and cold models</a></li>
@@ -298,14 +304,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -324,9 +325,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -351,14 +352,14 @@
       
       <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/week5/lab14_sensitivity-feedback.md&branch=jb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on JupyterHub"
+   title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="JupyterHub logo" src="../../_static/images/logo_jupyterhub.svg">
+    <img src="../../_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -450,19 +451,27 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -532,14 +541,14 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="climate-sensitivity-and-feedback">
-<span id="nb-sens"></span><h1><span class="section-number">14. </span>Climate sensitivity and feedback<a class="headerlink" href="#climate-sensitivity-and-feedback" title="Link to this heading">#</a></h1>
+<span id="nb-sens"></span><h1><span class="section-number">14. </span>Climate sensitivity and feedback<a class="headerlink" href="#climate-sensitivity-and-feedback" title="Permalink to this heading">#</a></h1>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <hr class="docutils" />
 <section id="radiative-forcing">
-<h2><span class="section-number">14.1. </span>1. Radiative forcing<a class="headerlink" href="#radiative-forcing" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.1. </span>1. Radiative forcing<a class="headerlink" href="#radiative-forcing" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="the-concept">
-<h3><span class="section-number">14.1.1. </span>The concept<a class="headerlink" href="#the-concept" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.1.1. </span>The concept<a class="headerlink" href="#the-concept" title="Permalink to this heading">#</a></h3>
 <p>We’ve seen the concept of Radiative Forcing before. It is the short-term change in the TOA energy budget when we add a forcing agent to the climate system, <strong>before the surface has a chance to warm up</strong>.</p>
 <p>The standard reference forcing is a <strong>doubling of atmospheric CO<span class="math notranslate nohighlight">\(_2\)</span></strong>.</p>
 <p>The <strong>radiative forcing</strong> is a number in W m<span class="math notranslate nohighlight">\(^{-2}\)</span>, defined so that it is <strong>positive if the system is gaining energy</strong>:</p>
@@ -548,16 +557,16 @@
 <p><span class="math notranslate nohighlight">\(\Delta R\)</span> is a measure of the rate at which energy begins to accumulate in the climate system after an abrupt increase in greenhouse gases, but <em>before any change in climate</em> (i.e. temperature).</p>
 </section>
 <section id="setting-up-a-single-column-radiative-convective-model">
-<h3><span class="section-number">14.1.2. </span>Setting up a single-column Radiative-Convective model<a class="headerlink" href="#setting-up-a-single-column-radiative-convective-model" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.1.2. </span>Setting up a single-column Radiative-Convective model<a class="headerlink" href="#setting-up-a-single-column-radiative-convective-model" title="Permalink to this heading">#</a></h3>
 <p>Let’s set up a single-column Radiative-Convective model and look carefully at what happens when we add extra CO<span class="math notranslate nohighlight">\(_2\)</span> to the column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">metpy.plots</span><span class="w"> </span><span class="kn">import</span> <span class="n">SkewT</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">climlab</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span> <span class="nn">metpy.plots</span> <span class="kn">import</span> <span class="n">SkewT</span>
+<span class="kn">import</span> <span class="nn">climlab</span>
 </pre></div>
 </div>
 </div>
@@ -573,7 +582,7 @@
 <span class="n">Tglobal</span> <span class="o">=</span> <span class="p">(</span><span class="n">ncep_air</span><span class="o">.</span><span class="n">air</span> <span class="o">*</span> <span class="n">weight</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="s1">&#39;time&#39;</span><span class="p">))</span>
 
 <span class="c1">#  Resuable function to plot the temperature data on a Skew-T chart</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">make_skewT</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">make_skewT</span><span class="p">():</span>
     <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
     <span class="n">skew</span> <span class="o">=</span> <span class="n">SkewT</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
     <span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tglobal</span><span class="o">.</span><span class="n">level</span><span class="p">,</span> <span class="n">Tglobal</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Observations&#39;</span><span class="p">)</span>
@@ -589,7 +598,7 @@
     <span class="k">return</span> <span class="n">skew</span>
 
 <span class="c1">#  and a function to add extra profiles to this chart</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">line</span> <span class="o">=</span> <span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">lev</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">Tatm</span> <span class="o">-</span> <span class="n">climlab</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">tempCtoK</span><span class="p">,</span>
              <span class="n">label</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">Ts</span> <span class="o">-</span> <span class="n">climlab</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">tempCtoK</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> 
@@ -663,7 +672,7 @@
 </div>
 </section>
 <section id="a-perturbed-co2-calculation-in-the-rcm">
-<h3><span class="section-number">14.1.3. </span>A perturbed CO2 calculation in the RCM<a class="headerlink" href="#a-perturbed-co2-calculation-in-the-rcm" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.1.3. </span>A perturbed CO2 calculation in the RCM<a class="headerlink" href="#a-perturbed-co2-calculation-in-the-rcm" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an exact clone with same temperatures</span>
@@ -699,7 +708,7 @@
 </div>
 </section>
 <section id="calculate-instantaneous-radiative-forcing">
-<h3><span class="section-number">14.1.4. </span>Calculate instantaneous radiative forcing<a class="headerlink" href="#calculate-instantaneous-radiative-forcing" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.1.4. </span>Calculate instantaneous radiative forcing<a class="headerlink" href="#calculate-instantaneous-radiative-forcing" title="Permalink to this heading">#</a></h3>
 <p>The simplest measure of radiative forcing is <strong>the instantaneous change</strong> in the energy budget <strong>before the temperature have a chance to adjust</strong>.</p>
 <p>To get this we need to call the <code class="docutils literal notranslate"><span class="pre">compute_diagnostics</span></code> method, but not any forward timestep.</p>
 <div class="cell docutils container">
@@ -738,7 +747,7 @@
 <p>Think about this the same way we increased the absorptivity / emissivity parameter <span class="math notranslate nohighlight">\(\epsilon\)</span> in the simple grey-gas model.</p>
 </section>
 <section id="statosphere-adjusted-radiative-forcing">
-<h3><span class="section-number">14.1.5. </span>Statosphere-adjusted radiative forcing<a class="headerlink" href="#statosphere-adjusted-radiative-forcing" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.1.5. </span>Statosphere-adjusted radiative forcing<a class="headerlink" href="#statosphere-adjusted-radiative-forcing" title="Permalink to this heading">#</a></h3>
 <p>The point of measuring radiative forcing is that it should give us some information about how much global warming we should expect from a particular forcing agent.</p>
 <p>We will need to use our model to quantify the <strong>eventual</strong> temperature change associated with this forcing.</p>
 <p>It turns out, for reasons we won’t get into here, that a more useful measure of the global warming impact of a forcing agent comes from thinking about <strong>changes in radiative flux at the tropopause</strong> rather than the Top of Atmosphere.</p>
@@ -780,16 +789,16 @@
 </section>
 </section>
 <section id="equilibrium-climate-sensitivity-without-feedback">
-<h2><span class="section-number">14.2. </span>2. Equilibrium climate sensitivity (without feedback)<a class="headerlink" href="#equilibrium-climate-sensitivity-without-feedback" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.2. </span>2. Equilibrium climate sensitivity (without feedback)<a class="headerlink" href="#equilibrium-climate-sensitivity-without-feedback" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>We now ask the question: How much warming will we get (eventually) in response to this positive radiative forcing?</p>
 <section id="definition">
-<h3><span class="section-number">14.2.1. </span>Definition<a class="headerlink" href="#definition" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.2.1. </span>Definition<a class="headerlink" href="#definition" title="Permalink to this heading">#</a></h3>
 <p>We define the <strong>Equilibrium Climate Sensitivity</strong> (denoted <strong>ECS</strong> or <span class="math notranslate nohighlight">\(\Delta T_{2xCO2}\)</span>):</p>
 <p><em>The global mean surface warming necessary to balance the planetary energy budget after a doubling of atmospheric CO<span class="math notranslate nohighlight">\(_2\)</span>.</em></p>
 </section>
 <section id="climate-change-in-the-single-column-rcm">
-<h3><span class="section-number">14.2.2. </span>Climate change in the single-column RCM<a class="headerlink" href="#climate-change-in-the-single-column-rcm" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.2.2. </span>Climate change in the single-column RCM<a class="headerlink" href="#climate-change-in-the-single-column-rcm" title="Permalink to this heading">#</a></h3>
 <p>We can go ahead and calculate ECS in our single-column model:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -822,7 +831,7 @@
 <p>What do you see here? What has changed?</p>
 </section>
 <section id="calculate-the-ecs">
-<h3><span class="section-number">14.2.3. </span>Calculate the ECS<a class="headerlink" href="#calculate-the-ecs" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.2.3. </span>Calculate the ECS<a class="headerlink" href="#calculate-the-ecs" title="Permalink to this heading">#</a></h3>
 <p>It is just the difference in surface temperature:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -853,7 +862,7 @@
 <p>The 1.3 K sensitivity we’ve just calculated is the warming that we would have <em>if there were no other changes (feedbacks) in response to the CO<span class="math notranslate nohighlight">\(_2\)</span> induced warming!</em></p>
 </section>
 <section id="the-no-feedback-response">
-<h3><span class="section-number">14.2.4. </span>The no-feedback response<a class="headerlink" href="#the-no-feedback-response" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.2.4. </span>The no-feedback response<a class="headerlink" href="#the-no-feedback-response" title="Permalink to this heading">#</a></h3>
 <p>We have just calculated an equilibrium warming <span class="math notranslate nohighlight">\(\Delta T_0\)</span> (in K) resulting from a radiative forcing <span class="math notranslate nohighlight">\(\Delta R\)</span> (in W m<span class="math notranslate nohighlight">\(^{-2}\)</span>) for a model without feedback.</p>
 <p>Let’s define the <strong>no-feedback climate response parameter</strong> <span class="math notranslate nohighlight">\(\lambda_0\)</span> as</p>
 <div class="math notranslate nohighlight">
@@ -874,7 +883,7 @@
 </section>
 </section>
 <section id="the-feedback-concept">
-<h2><span class="section-number">14.3. </span>3. The feedback concept<a class="headerlink" href="#the-feedback-concept" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.3. </span>3. The feedback concept<a class="headerlink" href="#the-feedback-concept" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>A concept borrowed from electrical engineering. You have all heard or used the term before, but we’ll try take a more precise approach today.</p>
 <p>A feedback occurs when a portion of the output from the action of a system is added to the input and subsequently alters the output:</p>
@@ -883,12 +892,12 @@
 <p>We will call amplifying feedbacks <strong>positive</strong> (<span class="math notranslate nohighlight">\(f&gt;0\)</span>) and damping feedbacks <strong>negative</strong> (<span class="math notranslate nohighlight">\(f&lt;0\)</span>).</p>
 <p>We can think of the “process” here as the entire climate system, which contains many examples of both positive and negative feedback.</p>
 <section id="example-the-water-vapor-feedback">
-<h3><span class="section-number">14.3.1. </span>Example: the water vapor feedback<a class="headerlink" href="#example-the-water-vapor-feedback" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.3.1. </span>Example: the water vapor feedback<a class="headerlink" href="#example-the-water-vapor-feedback" title="Permalink to this heading">#</a></h3>
 <p>The capacity of the atmosphere to hold water vapor (saturation specific humidity) increases exponentially with temperature. Warming is thus accompanied by moistening (more water vapor), which leads to more warming due to the enhanced water vapor greenhouse effect.</p>
 <p><strong>Positive or negative feedback?</strong></p>
 </section>
 <section id="example-the-ice-albedo-feedback">
-<h3><span class="section-number">14.3.2. </span>Example: the ice-albedo feedback<a class="headerlink" href="#example-the-ice-albedo-feedback" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.3.2. </span>Example: the ice-albedo feedback<a class="headerlink" href="#example-the-ice-albedo-feedback" title="Permalink to this heading">#</a></h3>
 <p>Colder temperatures lead to expansion of the areas covered by ice and snow, which tend to be more reflective than water and vegetation. This causes a reduction in the absorbed solar radiation, which leads to more cooling.</p>
 <p><strong>Positive or negative feedback?</strong></p>
 <p><em>Make sure it’s clear that the sign of the feedback is the same whether we are talking about warming or cooling.</em></p>
@@ -897,7 +906,7 @@
 </section>
 </section>
 <section id="climate-feedback-some-definitions">
-<h2><span class="section-number">14.4. </span>4. Climate feedback: some definitions<a class="headerlink" href="#climate-feedback-some-definitions" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.4. </span>4. Climate feedback: some definitions<a class="headerlink" href="#climate-feedback-some-definitions" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>We start with an initial radiative forcing , and get a response
 $<span class="math notranslate nohighlight">\( \Delta T_0 = \frac{\Delta R}{\lambda_0} \)</span>$</p>
@@ -936,7 +945,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 </section>
 <hr class="docutils" />
 <section id="water-vapor-feedback-in-the-radiative-convective-model">
-<h2><span class="section-number">14.5. </span>5. Water vapor feedback in the radiative-convective model<a class="headerlink" href="#water-vapor-feedback-in-the-radiative-convective-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.5. </span>5. Water vapor feedback in the radiative-convective model<a class="headerlink" href="#water-vapor-feedback-in-the-radiative-convective-model" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>In nature, as in a complex GCM, water vapor tends to increase as the air temperature warms.</p>
 <p>The main reason for this is that <strong>the saturation specific humidity</strong> (i.e. how much water vapor the air can hold) <strong>increases strongly with temperature</strong>.</p>
@@ -972,7 +981,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 </div>
 </div>
 <section id="a-radiative-convective-model-with-fixed-relative-humidity">
-<h3><span class="section-number">14.5.1. </span>A radiative-convective model with fixed relative humidity<a class="headerlink" href="#a-radiative-convective-model-with-fixed-relative-humidity" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.5.1. </span>A radiative-convective model with fixed relative humidity<a class="headerlink" href="#a-radiative-convective-model-with-fixed-relative-humidity" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rcm_2xCO2_h2o</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">rcm_2xCO2</span><span class="p">)</span>
@@ -1040,10 +1049,10 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 </section>
 </section>
 <section id="contribution-of-individual-feedback-processes-to-equilibrium-climate-sensitivity">
-<h2><span class="section-number">14.6. </span>6. Contribution of individual feedback processes to Equilibrium Climate Sensitivity<a class="headerlink" href="#contribution-of-individual-feedback-processes-to-equilibrium-climate-sensitivity" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.6. </span>6. Contribution of individual feedback processes to Equilibrium Climate Sensitivity<a class="headerlink" href="#contribution-of-individual-feedback-processes-to-equilibrium-climate-sensitivity" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="adding-up-the-effects-of-different-feedbacks">
-<h3><span class="section-number">14.6.1. </span>Adding up the effects of different feedbacks<a class="headerlink" href="#adding-up-the-effects-of-different-feedbacks" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.6.1. </span>Adding up the effects of different feedbacks<a class="headerlink" href="#adding-up-the-effects-of-different-feedbacks" title="Permalink to this heading">#</a></h3>
 <p>Now what if we have several individual feedback processes occurring simultaneously?</p>
 <p>We can think of individual feedback amounts <span class="math notranslate nohighlight">\(f_1, f_2, f_3, ...\)</span>, with each  representing a physically distinct mechanism, e.g. water vapor, surface snow and ice, cloud changes, lapse rate effects, etc.</p>
 <p>Each individual process takes a fraction <span class="math notranslate nohighlight">\(f_i\)</span> of the output and adds to the input. So the feedback amounts are additive,</p>
@@ -1056,7 +1065,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 <p>The climate sensitivity is thus <strong>increased by positive feedback processes</strong>, and <strong>decreased by negative feedback processes</strong>.</p>
 </section>
 <section id="climate-feedback-parameters">
-<h3><span class="section-number">14.6.2. </span>Climate feedback parameters<a class="headerlink" href="#climate-feedback-parameters" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.6.2. </span>Climate feedback parameters<a class="headerlink" href="#climate-feedback-parameters" title="Permalink to this heading">#</a></h3>
 <p>We can also write this in terms of the original radiative forcing as</p>
 <div class="math notranslate nohighlight">
 \[ \Delta T_{2xCO2} = \frac{\Delta R}{\lambda_0 - \sum_{i=1}^{N} \lambda_i} \]</div>
@@ -1074,7 +1083,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 <p>These individual feedback processes may be positive or negative. This is very powerful, because we can <strong>measure the relative importance of different feedback processes</strong> simply by comparing their <span class="math notranslate nohighlight">\(\lambda_i\)</span> values.</p>
 </section>
 <section id="every-climate-model-has-a-planck-feedback">
-<h3><span class="section-number">14.6.3. </span>Every climate model has a Planck feedback<a class="headerlink" href="#every-climate-model-has-a-planck-feedback" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.6.3. </span>Every climate model has a Planck feedback<a class="headerlink" href="#every-climate-model-has-a-planck-feedback" title="Permalink to this heading">#</a></h3>
 <p>Our no-feedback response parameter <span class="math notranslate nohighlight">\(\lambda_0\)</span> is often called the <strong>Planck feedback</strong>.</p>
 <p>It is not really a feedback at all.  It is the most basic and universal climate process, and is present in every climate model. It is simply an expression of the fact that a warm planet radiates more to space than a cold planet.</p>
 <p>As we will see, our estimate of <span class="math notranslate nohighlight">\(\lambda_0 = 3.3 ~\text{W} ~\text{m}^{-2} ~\text{K}^{-1} \)</span> is essentially the same as the Planck feedback diagnosed from complex GCMs. Most climate models (and the real climate system) have other radiative feedback processes, such that</p>
@@ -1082,7 +1091,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 \[\lambda = \lambda_0 - \sum_{i=1}^{N} \lambda_i \ne \lambda_0 \]</div>
 </section>
 <section id="calculate-the-feedback-parameters-in-our-single-column-model">
-<h3><span class="section-number">14.6.4. </span>Calculate the feedback parameters in our single-column model<a class="headerlink" href="#calculate-the-feedback-parameters-in-our-single-column-model" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.6.4. </span>Calculate the feedback parameters in our single-column model<a class="headerlink" href="#calculate-the-feedback-parameters-in-our-single-column-model" title="Permalink to this heading">#</a></h3>
 <p>We can easily calculate the feedback parameter in our model with water vapor feedback.</p>
 <p>This is just the ratio of the radiative forcing <span class="math notranslate nohighlight">\(\Delta R\)</span> to the climate sensitivity:</p>
 <div class="cell docutils container">
@@ -1114,10 +1123,10 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 </section>
 </section>
 <section id="feedbacks-diagnosed-from-complex-climate-models">
-<h2><span class="section-number">14.7. </span>7. Feedbacks diagnosed from complex climate models<a class="headerlink" href="#feedbacks-diagnosed-from-complex-climate-models" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.7. </span>7. Feedbacks diagnosed from complex climate models<a class="headerlink" href="#feedbacks-diagnosed-from-complex-climate-models" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="data-from-the-ipcc-ar5">
-<h3><span class="section-number">14.7.1. </span>Data from the IPCC AR5<a class="headerlink" href="#data-from-the-ipcc-ar5" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.7.1. </span>Data from the IPCC AR5<a class="headerlink" href="#data-from-the-ipcc-ar5" title="Permalink to this heading">#</a></h3>
 <p>This figure is reproduced from the IPCC AR5 report. It shows the feedbacks diagnosed from the various models that contributed to the assessment.</p>
 <p>(Later in the term we will discuss how the feedback diagnosis is actually done)</p>
 <p>See below for complete citation information.</p>
@@ -1155,7 +1164,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 </section>
 <hr class="docutils" />
 <section id="credits">
-<h2><span class="section-number">14.8. </span>Credits<a class="headerlink" href="#credits" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.8. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this heading">#</a></h2>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a>, an open-source textbook developed and maintained by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <p>It is licensed for free and open consumption under the
 <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license.</p>
@@ -1221,8 +1230,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1292,7 +1300,7 @@ By Brian Rose
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>
@@ -1316,8 +1324,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

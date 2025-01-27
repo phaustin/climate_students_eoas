@@ -1,12 +1,13 @@
 ---
 jupytext:
+  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.16.6
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -61,7 +62,6 @@ ____________
 One of the things that ``climlab`` is set up to do is the grey-radiation modeling we have already been discussing.
 
 Since we already derived a [complete analytical solution to the two-layer leaky greenhouse model](Lecture06 -- Elementary greenhouse models.ipynb), we will use this to validate the `climlab` code.
-
 
 +++
 
@@ -305,7 +305,6 @@ ____________
 
 ## 4. A 30-layer model using the observed temperatures
 ____________
-
 
 ```{code-cell} ipython3
 #  initialize a grey radiation model with 30 levels
@@ -600,7 +599,7 @@ oz_col = climlab.RadiativeConvectiveModel(lev = ozone.lev, adj_lapse_rate=6)
 print(oz_col)
 ```
 
-Now we will do something new: let the column absorb some shortwave radiation. We will assume that the shortwave absorptivity is proportional to the ozone concentration we plotted above. 
+Now we will do something new: let the column absorb some shortwave radiation. We will assume that the shortwave absorptivity is proportional to the ozone concentration we plotted above.
 
 +++
 

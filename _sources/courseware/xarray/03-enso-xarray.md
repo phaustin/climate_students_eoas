@@ -1,17 +1,16 @@
 ---
 jupytext:
+  formats: md:myst,ipynb
   text_representation:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.16.6
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
-
-+++ {"tags": []}
 
 # Calculating ENSO with Xarray
 
@@ -49,7 +48,7 @@ In this notebook, we will:
 
 ---
 
-+++ {"tags": []}
++++
 
 ## Imports
 
@@ -59,8 +58,6 @@ import matplotlib.pyplot as plt
 import xarray as xr
 from pythia_datasets import DATASETS
 ```
-
-+++ {"tags": []}
 
 ## The Niño 3.4 Index
 
@@ -78,7 +75,7 @@ At the end of this notebook, you should be able to produce a plot that looks sim
 
 ![ONI index plot from NCAR Climate Data Guide](https://climatedataguide.ucar.edu/sites/default/files/styles/extra_large/public/2022-03/indices_oni_2_2_lg.png)
 
-+++ {"tags": []}
++++
 
 Open the SST and areacello datasets, and use Xarray's `merge` method to combine them into a single dataset:
 
