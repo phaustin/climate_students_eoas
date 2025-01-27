@@ -50,7 +50,7 @@
 
 
 Pre-class Reading:
-Chapters 3 & 4 of Global Physical Climatology
+Chapter 3 of Global Physical Climatology
 
 Due:
 Pre-class quiz 2
@@ -70,4 +70,32 @@ on the [google drive](https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd
 
   - Climate sensitivity from radiative-convective equilibrium: A chalkboard approach
   - Effects of greenhouse gasses on Earth, Venus and Mars
+
+## Week 4
+
+
+Pre-class Reading:
+Chapter 4 of Global Physical Climatology
+
+Due:
+Pre-class quiz 3
+
+### In-class labs
+
+Worksheet3 and the week 4 notebooks plus figures can be downloaded from the week4 folder
+on the [google drive](https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=sharing)
+
+## Matching Hartmann with the notebooks
+
+### In-class discusion
+
+More on radiation – the [importance of tau = 1](href="https://phaustin.github.io/a301_eoas/notebooks/week4/optical_depth2.html" (See also Hartmann p. 65 eq. 3.22)
+
+Why are boundary layer fluxes challenging for climate models?  Focus on Hartman figures 4.6 and 4.7
+
+Today’s boundary layer structure at [Port Hardy](https://weather.uwyo.edu/upperair/sounding.html)
+
+Possible project – The physics of heat waves: [Zeppetello et al. 2022](https://journals.ametsoc.org/view/journals/clim/35/7/JCLI-D-21-0236.1.xml)
+
+
 
