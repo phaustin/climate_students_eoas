@@ -89,7 +89,7 @@ on the [google drive](https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd
 
 ### In-class discusion
 
-More on radiation – the [importance of tau = 1](href="https://phaustin.github.io/a301_eoas/notebooks/week4/optical_depth2.html" (See also Hartmann p. 65 eq. 3.22)
+More on radiation – the [importance of tau = 1](https://phaustin.github.io/a301_eoas/notebooks/week4/optical_depth2.html) (See also Hartmann p. 65 eq. 3.22)
 
 Why are boundary layer fluxes challenging for climate models?  Focus on Hartman figures 4.6 and 4.7
 
