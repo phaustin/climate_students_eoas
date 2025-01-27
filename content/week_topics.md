@@ -60,9 +60,7 @@ Pre-class quiz 2
 Worksheet2 and the week 3 notebooks plus figures can be downloaded from the week3 folder
 on the [google drive](https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=sharing)
 
-## Matching Hartmann with the notebooks
-
-### In-class discusion
+### In-class discussion - matching Hartmann with the notebooks
 
 - Relating Hartmann Chapter 3 to the week 3 notebooks: the importance of optical depth
 
@@ -85,9 +83,7 @@ Pre-class quiz 3
 Worksheet3 and the week 4 notebooks plus figures can be downloaded from the week4 folder
 on the [google drive](https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=sharing)
 
-## Matching Hartmann with the notebooks
-
-### In-class discusion
+### In-class discussion - matching Hartmann with the notebooks
 
 More on radiation – the [importance of tau = 1](https://phaustin.github.io/a301_eoas/notebooks/week4/optical_depth2.html) (See also Hartmann p. 65 eq. 3.22)
 
