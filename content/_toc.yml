@@ -8,8 +8,8 @@ parts:
 - caption: Weekly topics
   chapters:
   - file: week_topics.md
-  - url: https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=sharing
-  title: Course download folder
+  - url: https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=sharing 
+    title: Course download folder
 
 - caption: Front matter
   chapters:
