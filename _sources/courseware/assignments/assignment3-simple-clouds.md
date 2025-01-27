@@ -1,13 +1,12 @@
 ---
 jupytext:
-  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.6
+    format_version: 0.12
+    jupytext_version: 1.6.0
 kernelspec:
-  display_name: Python 3 (ipykernel)
+  display_name: Python 3
   language: python
   name: python3
 ---
@@ -107,7 +106,6 @@ How would your answer change if the atmosphere were **isothermal**, i.e. $T_s = 
 ```{code-cell} ipython3
 
 ```
-
 ## Question 6
 
 Under what circumstances (structure of atmospheric temperature, i.e. relative values of $T_s$, $T_0$ and $T_1$) would you answer to question 4 be the opposite, and why?

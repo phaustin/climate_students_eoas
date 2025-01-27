@@ -1,13 +1,12 @@
 ---
 jupytext:
-  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.6
+    format_version: 0.12
+    jupytext_version: 1.6.0
 kernelspec:
-  display_name: Python 3 (ipykernel)
+  display_name: Python 3
   language: python
   name: python3
 ---
@@ -65,7 +64,7 @@ $$ \kappa(\nu, p, T) = \sum_{k=1}^n \kappa_k\big(\nu, p, T \big) q_k(p) $$
 
 For a well-mixed greenhouse gas, $q_k$ is a constant; for a non-well-mixed gas like water vapor we need to account for the vertical distribution of the gas through $q_k(p)$.
 
-The dependence of $\kappa_k$ on temperature and pressure arises from certain aspects of the physics of molecular absorption.
+The dependence of $\kappa_k$ on temperature and pressure arises from certain aspects of the physics of molecular absorption. 
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -84,7 +83,7 @@ Let $U_\nu$ be the upward beam, and $D_\nu$ be the downward beam. The governing 
 \frac{d D_\nu}{d \tau_\nu} &= D_\nu - E\big( \nu, T(\tau_\nu) \big) 
 \end{align}
 
-where $E$ is the **blackbody emission** (both up and down), which in general depends on both **frequency** and **temperature**. We have written temperature as a function of the vertical coordinate (optical depth).
+where $E$ is the **blackbody emission** (both up and down), which in general depends on both **frequency** and **temperature**. We have written temperature as a function of the vertical coordinate (optical depth). 
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -432,7 +431,7 @@ Suppose we break up the spectrum into a discrete number $M$ of **spectral bands*
 
 $$ \kappa_{kj} \big(p, T \big) = \frac{\int_{\nu_j} \kappa_j \big(\nu, p, T \big) d \nu }{  \int_{\nu_j} d \nu } $$
 
-where we integrate over whatever part of the spectrum we have chosen to define band $j$.
+where we integrate over whatever part of the spectrum we have chosen to define band $j$. 
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
