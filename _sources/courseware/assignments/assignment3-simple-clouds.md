@@ -1,12 +1,13 @@
 ---
 jupytext:
+  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.16.6
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -36,7 +37,7 @@ For answers presented in the notebook, follow the usual procedures to ensure tha
 
 +++
 
-## Introduction
+## Introduction 
 
 Consider the two-layer "leaky greenhouse" (or grey radiation) model from [these lecture notes](https://brian-rose.github.io/ClimateLaboratoryBook/courseware/elementary-greenhouse.html).
 
@@ -106,6 +107,7 @@ How would your answer change if the atmosphere were **isothermal**, i.e. $T_s = 
 ```{code-cell} ipython3
 
 ```
+
 ## Question 6
 
 Under what circumstances (structure of atmospheric temperature, i.e. relative values of $T_s$, $T_0$ and $T_1$) would you answer to question 4 be the opposite, and why?

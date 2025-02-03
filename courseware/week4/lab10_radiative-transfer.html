@@ -179,6 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../week_topics.html">Week notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=sharing">Course download folder</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
 <ul class="nav bd-sidenav">
@@ -349,7 +350,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/week4/lab10_radiative-transfer.md&branch=jb" target="_blank"
+      <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/week4/lab10_radiative-transfer.ipynb&branch=jb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -569,15 +570,15 @@ document.write(`
 <p>For climate modeling we almost always seperate the total flux into two beams: <strong>upward</strong> and <strong>downward</strong>.</p>
 <p>This involves taking integrals of the full angular dependence of the flux. We’ll skip the details here.</p>
 <p>Let <span class="math notranslate nohighlight">\(U_\nu\)</span> be the upward beam, and <span class="math notranslate nohighlight">\(D_\nu\)</span> be the downward beam. The governing equations for these beams are the <em>Schwarzschild equations</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5122a5cc-b93f-4a1f-ab1f-ac4da207ce3b">
-<span class="eqno">(10.1)<a class="headerlink" href="#equation-5122a5cc-b93f-4a1f-ab1f-ac4da207ce3b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a226b2fe-cd86-4ac5-b95b-37979899a44d">
+<span class="eqno">(10.1)<a class="headerlink" href="#equation-a226b2fe-cd86-4ac5-b95b-37979899a44d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d U_\nu}{d \tau_\nu} &amp;= -U_\nu + E\big( \nu, T(\tau_\nu) \big) \\
 \frac{d D_\nu}{d \tau_\nu} &amp;= D_\nu - E\big( \nu, T(\tau_\nu) \big) 
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(E\)</span> is the <strong>blackbody emission</strong> (both up and down), which in general depends on both <strong>frequency</strong> and <strong>temperature</strong>. We have written temperature as a function of the vertical coordinate (optical depth).</p>
 <p>The emissions are governed by the <strong>Planck function</strong>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4d58266c-69f3-4622-8c7f-9397448f803a">
-<span class="eqno">(10.2)<a class="headerlink" href="#equation-4d58266c-69f3-4622-8c7f-9397448f803a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b3dc629a-80a7-4c7d-834d-569e39ecc949">
+<span class="eqno">(10.2)<a class="headerlink" href="#equation-b3dc629a-80a7-4c7d-834d-569e39ecc949" title="Permalink to this equation">#</a></span>\[\begin{align}
 E &amp;= \pi~ B\big( \nu, T \big) \\
 B\big( \nu, T \big) &amp;= \frac{2 h \nu^3}{c^2} \frac{1}{\exp \left( \frac{h \nu}{k T} \right) -1} 
 \end{align}\]</div>
@@ -635,8 +636,8 @@ B\big( \nu, T \big) &amp;= \frac{2 h \nu^3}{c^2} \frac{1}{\exp \left( \frac{h \n
 <section id="the-grey-gas-equations">
 <h3><span class="section-number">10.3.2. </span>The grey gas equations<a class="headerlink" href="#the-grey-gas-equations" title="Permalink to this heading">#</a></h3>
 <p>This gives the governing equations for the grey gas model:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8d5f7c77-fb11-4361-be95-72ee5198dfc4">
-<span class="eqno">(10.3)<a class="headerlink" href="#equation-8d5f7c77-fb11-4361-be95-72ee5198dfc4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-74def82f-d1bd-4ca8-a437-5be0e82586e9">
+<span class="eqno">(10.3)<a class="headerlink" href="#equation-74def82f-d1bd-4ca8-a437-5be0e82586e9" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d U}{d \tau} &amp;= -U + \sigma T(\tau)^4 \\
 \frac{d D}{d \tau} &amp;= D - \sigma T(\tau)^4 
 \end{align}\]</div>
@@ -664,16 +665,16 @@ B\big( \nu, T \big) &amp;= \frac{2 h \nu^3}{c^2} \frac{1}{\exp \left( \frac{h \n
 <p>One particularly important reason to think about these changes over finite layers is that we will typically solve the radiative transfer equations in a numerical model where the temperature is represented on a discrete grid (often using pressure coordinates).</p>
 <p>If we assume that <strong>temperature is uniform everywhere in our layer</strong> then the blackbody emission <span class="math notranslate nohighlight">\(E\)</span> is also a constant across the layer, which we will denote <span class="math notranslate nohighlight">\(E_{0}\)</span>.</p>
 <p>It can come out the integral and the expressions simplify to</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e75b77f9-bd6d-4220-97d4-1a3a317990b1">
-<span class="eqno">(10.4)<a class="headerlink" href="#equation-e75b77f9-bd6d-4220-97d4-1a3a317990b1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-33e65477-38ad-4676-9022-3ace14f985cf">
+<span class="eqno">(10.4)<a class="headerlink" href="#equation-33e65477-38ad-4676-9022-3ace14f985cf" title="Permalink to this equation">#</a></span>\[\begin{align}
 U_1 &amp;= U_0 ~ \exp(-\Delta \tau )  + E_{0} ~\Big( 1 - \exp(-\Delta \tau) \Big)  \\
 D_0 &amp;= D_1 ~ \exp(-\Delta \tau )  + E_{0} ~\Big( 1 - \exp(-\Delta \tau) \Big)
 \end{align}\]</div>
 <section id="transmissitivity">
 <h3><span class="section-number">10.4.1. </span>Transmissitivity<a class="headerlink" href="#transmissitivity" title="Permalink to this heading">#</a></h3>
 <p>The first term is the <strong>transmission</strong> of radition from the bottom to the top of the layer (or vice-versa). We can define the <strong>transmissivity</strong> of the layer (denoted <span class="math notranslate nohighlight">\(t_{0}\)</span>) as the fraction of the incident beam that is passed on to the next layer:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f996fcb8-21c3-49e0-935c-e685a7e46abe">
-<span class="eqno">(10.5)<a class="headerlink" href="#equation-f996fcb8-21c3-49e0-935c-e685a7e46abe" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2738ac81-0550-4d03-8488-d682be2249f5">
+<span class="eqno">(10.5)<a class="headerlink" href="#equation-2738ac81-0550-4d03-8488-d682be2249f5" title="Permalink to this equation">#</a></span>\[\begin{align}
 t_{0} &amp;= \frac{U_{0} \exp(-\Delta \tau)}{U_{0}}  \\
  &amp;= \exp(-\Delta \tau)\\
 \end{align}\]</div>
@@ -682,8 +683,8 @@ t_{0} &amp;= \frac{U_{0} \exp(-\Delta \tau)}{U_{0}}  \\
 <h3><span class="section-number">10.4.2. </span>Emissivity<a class="headerlink" href="#emissivity" title="Permalink to this heading">#</a></h3>
 <p>The second term is the net change in the beam due to <strong>emissions</strong> in the layer.</p>
 <p>We can the define the <strong>emissivity</strong> <span class="math notranslate nohighlight">\(\epsilon_0\)</span> of the layer analogously</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e51b1bf5-9aa0-4e73-b7e0-638b8e4cc2d5">
-<span class="eqno">(10.6)<a class="headerlink" href="#equation-e51b1bf5-9aa0-4e73-b7e0-638b8e4cc2d5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d2969ba4-491e-4d7e-8640-4231f06d580e">
+<span class="eqno">(10.6)<a class="headerlink" href="#equation-d2969ba4-491e-4d7e-8640-4231f06d580e" title="Permalink to this equation">#</a></span>\[\begin{align}
 \epsilon_{0} &amp;=  1 - \exp(-\Delta \tau) \\
   &amp;= 1 - t_{0} 
 \end{align}\]</div>
@@ -691,8 +692,8 @@ t_{0} &amp;= \frac{U_{0} \exp(-\Delta \tau)}{U_{0}}  \\
 <section id="the-discrete-two-stream-equations-on-a-finite-pressure-grid">
 <h3><span class="section-number">10.4.3. </span>The discrete two-stream equations on a finite pressure grid<a class="headerlink" href="#the-discrete-two-stream-equations-on-a-finite-pressure-grid" title="Permalink to this heading">#</a></h3>
 <p>Putting this all together gives us two simple equations that govern changes in the upwelling and downwelling beams across a discrete layer of optical depth <span class="math notranslate nohighlight">\(\Delta \tau\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4ebb87bc-40ad-4ff5-8881-562acd39a795">
-<span class="eqno">(10.7)<a class="headerlink" href="#equation-4ebb87bc-40ad-4ff5-8881-562acd39a795" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5825529d-e86d-4bca-9df0-86b77bac95bf">
+<span class="eqno">(10.7)<a class="headerlink" href="#equation-5825529d-e86d-4bca-9df0-86b77bac95bf" title="Permalink to this equation">#</a></span>\[\begin{align}
 U_{1} &amp;= t_0 ~ U_{0} + \epsilon_{0} ~ E_{0}  \\
 D_{0} &amp;= t_0 ~ D_{1} + \epsilon_{0} ~ E_{0}  \\
 \end{align}\]</div>
@@ -833,8 +834,8 @@ D_{0} &amp;= t_0 ~ D_{1} + \epsilon_{0} ~ E_{0}  \\
 \[ \sum_0^{M-1} b_j = 1 \]</div>
 <p>Once we’ve figured out this division of the total flux into multiple bands, and we know the absorption cross-sections of each band, we can calculate the upwelling and downwelling fluxes independently for each band, <strong>using the same formulas (same code!) as we use in the grey gas model</strong>.</p>
 <p>To get the total flux, we just need to sum the beams over all bands:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ba55d9cf-66ed-4482-9b8f-6c9f181efdf4">
-<span class="eqno">(10.8)<a class="headerlink" href="#equation-ba55d9cf-66ed-4482-9b8f-6c9f181efdf4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-19a712ac-6e24-4135-a265-046a64df94a0">
+<span class="eqno">(10.8)<a class="headerlink" href="#equation-19a712ac-6e24-4135-a265-046a64df94a0" title="Permalink to this equation">#</a></span>\[\begin{align}
 U &amp;= \sum_0^{M-1} U_j  \\
 D &amp;= \sum_0^{M-1} D_j  
 \end{align}\]</div>

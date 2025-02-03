@@ -179,6 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../week_topics.html">Week notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=sharing">Course download folder</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front matter</span></p>
 <ul class="nav bd-sidenav">
@@ -349,7 +350,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/week4/lab9_grey-radiation-climlab.md&branch=jb" target="_blank"
+      <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/week4/lab9_grey-radiation-climlab.ipynb&branch=jb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -528,8 +529,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="grey-radiation-modeling-with-climlab">
 <span id="nb-grey-radiation"></span><h1><span class="section-number">9. </span>Grey radiation modeling with climlab<a class="headerlink" href="#grey-radiation-modeling-with-climlab" title="Permalink to this heading">#</a></h1>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
-<hr class="docutils" />
-<p><a id='section1'></a></p>
+<p><strong>Bug fix Jan 27, 2025</strong> – make the number of levels adjustable with variable num_lev in cell 2</p>
 <section id="introducing-climlab">
 <h2><span class="section-number">9.1. </span>1. Introducing <code class="docutils literal notranslate"><span class="pre">climlab</span></code><a class="headerlink" href="#introducing-climlab" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
@@ -570,8 +570,8 @@ The latest code can always be found on <code class="docutils literal notranslate
 <section id="validation">
 <h3><span class="section-number">9.2.1. </span>Validation<a class="headerlink" href="#validation" title="Permalink to this heading">#</a></h3>
 <p>We want to verify that the model reproduces the observed OLR given observed temperatures, and the absorptivity that we tuned in the analytical model. The target numbers are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d1a67311-fa56-4952-b2d7-e347bf717c24">
-<span class="eqno">(9.1)<a class="headerlink" href="#equation-d1a67311-fa56-4952-b2d7-e347bf717c24" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5cde05cf-cda5-4378-b2ad-ff221a0d8965">
+<span class="eqno">(9.1)<a class="headerlink" href="#equation-5cde05cf-cda5-4378-b2ad-ff221a0d8965" title="Permalink to this equation">#</a></span>\[\begin{align}
 T_s &amp;= 288 \text{ K} \\
 T_0 &amp;= 275 \text{ K} \\
 T_1 &amp;= 230 \text{ K} \\
@@ -587,8 +587,9 @@ T_1 &amp;= 230 \text{ K} \\
 <p>The following example code is sparsely commented but will hopefully orient you on the basics of defining and working with a <code class="docutils literal notranslate"><span class="pre">climlab</span> <span class="pre">Process</span></code> object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Test in a 2-layer atmosphere</span>
-<span class="n">col</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">GreyRadiationModel</span><span class="p">(</span><span class="n">num_lev</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Test in a 2-layer atmosphere  -  change the levels here</span>
+<span class="n">num_lev</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">col</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">GreyRadiationModel</span><span class="p">(</span><span class="n">num_lev</span><span class="o">=</span><span class="n">num_lev</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span> <span class="n">col</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -631,7 +632,7 @@ T_1 &amp;= 230 \text{ K} \\
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col</span><span class="o">.</span><span class="n">Ts</span><span class="p">[:]</span> <span class="o">=</span> <span class="mf">288.</span>
-<span class="n">col</span><span class="o">.</span><span class="n">Tatm</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">230.</span><span class="p">,</span> <span class="mf">275.</span><span class="p">])</span>
+<span class="n">col</span><span class="o">.</span><span class="n">Tatm</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">230.</span><span class="p">,</span> <span class="mf">275.</span><span class="p">,</span><span class="n">num_lev</span><span class="p">)</span>
 <span class="n">climlab</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -747,8 +748,8 @@ T_1 &amp;= 230 \text{ K} \\
 </div>
 </div>
 <p>Compare these to the analytical solutions for radiative equilibrium with <span class="math notranslate nohighlight">\(\epsilon = 0.58\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-025f82d9-5733-4549-b94e-2dd6e8dc11b1">
-<span class="eqno">(9.2)<a class="headerlink" href="#equation-025f82d9-5733-4549-b94e-2dd6e8dc11b1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0afb748a-525b-4462-b39f-8122455898e0">
+<span class="eqno">(9.2)<a class="headerlink" href="#equation-0afb748a-525b-4462-b39f-8122455898e0" title="Permalink to this equation">#</a></span>\[\begin{align}
 T_s &amp;= 296.4 \text{ K} \\
 T_0 &amp;= 262.3 \text{ K} \\
 T_1 &amp;= 233.8 \text{ K} \\

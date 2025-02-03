@@ -350,7 +350,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/week5/lab14_sensitivity-feedback.md&branch=jb" target="_blank"
+      <li><a href="https://climhub.phaustin.org/hub/user-redirect/git-pull?repo=https%3A//github.com/phaustin/ClimateLaboratoryBook&urlpath=tree/ClimateLaboratoryBook/content/courseware/week5/lab14_sensitivity-feedback.ipynb&branch=jb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -525,7 +525,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedbacks-diagnosed-from-complex-climate-models">14.7. 7. Feedbacks diagnosed from complex climate models</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-from-the-ipcc-ar5">14.7.1. Data from the IPCC AR5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-from-the-ipcc-ar6">14.7.1. Data from the IPCC AR6</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#credits">14.8. Credits</a></li>
@@ -1118,38 +1118,26 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 <p>This is a <strong>positive number</strong> consistent with the <strong>amplifying effect</strong> of the water vapor feedback.</p>
 <p>The physical meaning of this number:</p>
 <p><strong>For every 1 degree of surface warming, the increased water vapor greenhouse effect provides an additional 1.86 W m<span class="math notranslate nohighlight">\(^{-2}\)</span> of radiative forcing.</strong></p>
-<hr class="docutils" />
-<p><a id='section7'></a></p>
 </section>
 </section>
 <section id="feedbacks-diagnosed-from-complex-climate-models">
 <h2><span class="section-number">14.7. </span>7. Feedbacks diagnosed from complex climate models<a class="headerlink" href="#feedbacks-diagnosed-from-complex-climate-models" title="Permalink to this heading">#</a></h2>
-<hr class="docutils" />
-<section id="data-from-the-ipcc-ar5">
-<h3><span class="section-number">14.7.1. </span>Data from the IPCC AR5<a class="headerlink" href="#data-from-the-ipcc-ar5" title="Permalink to this heading">#</a></h3>
-<p>This figure is reproduced from the IPCC AR5 report. It shows the feedbacks diagnosed from the various models that contributed to the assessment.</p>
-<p>(Later in the term we will discuss how the feedback diagnosis is actually done)</p>
-<p>See below for complete citation information.</p>
-<a class="reference internal image-reference" href="../../_images/ar6_feedbacks.png"><img alt="../../_images/ar6_feedbacks.png" src="../../_images/ar6_feedbacks.png" style="width: 110%;" /></a>
-<p><strong>See Roe for 2013 figure. Figure 9.43</strong> | (a) Strengths of individual feedbacks for CMIP3 and CMIP5 models (left and right columns of symbols) for Planck (P), water vapour (WV), clouds (C), albedo (A), lapse rate (LR), combination of water vapour and lapse rate (WV+LR) and sum of all feedbacks except Planck (ALL), from Soden and Held (2006) and Vial et al. (2013), following Soden et al. (2008). CMIP5 feedbacks are derived from CMIP5 simulations for abrupt fourfold increases in CO2 concentrations (4 × CO2). (b) ECS obtained using regression techniques by Andrews et al. (2012) against ECS estimated from the ratio of CO2 ERF to the sum of all feedbacks. The CO2 ERF is one-half the 4 × CO2 forcings from Andrews et al. (2012), and the total feedback (ALL + Planck) is from Vial et al. (2013).</p>
-<p><em>Figure caption reproduced from the AR5 WG1 report</em></p>
-<p>Legend:</p>
-<ul class="simple">
-<li><p>P: Planck feedback</p></li>
-<li><p>WV: Water vapor feedback</p></li>
-<li><p>LR: Lapse rate feedback</p></li>
-<li><p>WV+LR: combined water vapor plus lapse rate feedback</p></li>
-<li><p>C: cloud feedback</p></li>
-<li><p>A: surface albedo feedback</p></li>
-<li><p>ALL: sum of all feedback except Plank, i.e. ALL = WV+LR+C+A</p></li>
-</ul>
+<section id="data-from-the-ipcc-ar6">
+<h3><span class="section-number">14.7.1. </span>Data from the IPCC AR6<a class="headerlink" href="#data-from-the-ipcc-ar6" title="Permalink to this heading">#</a></h3>
+<p>This figure is reproduced from the IPCC AR6 report. It shows the feedbacks diagnosed from the various models that contributed to the assessment.</p>
+<figure class="align-default" id="kirchoff">
+<a class="reference internal image-reference" href="../../_images/ar6_feedbacks.png"><img alt="../../_images/ar6_feedbacks.png" src="../../_images/ar6_feedbacks.png" style="width: 1346.0px; height: 816.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 14.1 </span><span class="caption-text">AR6 feedbacks</span><a class="headerlink" href="#kirchoff" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Things to note:</p>
 <ul class="simple">
 <li><p>The models all agree strongly on the Planck feedback.</p></li>
 <li><p>The Planck feedback is about <span class="math notranslate nohighlight">\(-3.3 ~\text{W} ~\text{m}^{-2} ~\text{K}^{-1} \)</span> just like our above estimate of <span class="math notranslate nohighlight">\(\lambda_0\)</span> (but with opposite sign convention – watch carefully for that in the literature)</p></li>
-<li><p>The water vapor feedback is strongly positive in every model.</p></li>
+<li><p>The water vapor feedback + lapse rate feedback is strongly positive in every model.</p></li>
 <li><p>The lapse rate feedback is something we will study later. It is slightly negative.</p></li>
-<li><p>For reasons we will discuss later, the best way to measure the water vapor feedback is to combine it with lapse rate feedback.</p></li>
+<li><p>For reasons we will discuss later, the best way to measure the water vapor feedback is to combine it with lapse rate feedback.  This is discussed in Hartmann, Figure 10.6, p. 303</p></li>
 <li><p>Models agree strongly on the combined water vapor plus lapse rate feedback.</p></li>
 </ul>
 <ul class="simple">
@@ -1272,7 +1260,7 @@ $<span class="math notranslate nohighlight">\( \Delta T = g \Delta T_0 \)</span>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedbacks-diagnosed-from-complex-climate-models">14.7. 7. Feedbacks diagnosed from complex climate models</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-from-the-ipcc-ar5">14.7.1. Data from the IPCC AR5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-from-the-ipcc-ar6">14.7.1. Data from the IPCC AR6</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#credits">14.8. Credits</a></li>

@@ -1,12 +1,13 @@
 ---
 jupytext:
+  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.16.6
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -18,8 +19,7 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 
 +++
 
-____________
-<a id='section1'></a>
+**Bug fix Jan 27, 2025** -- make the number of levels adjustable with variable num_lev in cell 2
 
 ## 1. Introducing `climlab`
 ____________
@@ -62,7 +62,6 @@ One of the things that ``climlab`` is set up to do is the grey-radiation modelin
 
 Since we already derived a [complete analytical solution to the two-layer leaky greenhouse model](Lecture06 -- Elementary greenhouse models.ipynb), we will use this to validate the `climlab` code.
 
-
 +++
 
 ### Validation
@@ -87,8 +86,9 @@ The first thing we do is create a new model.
 The following example code is sparsely commented but will hopefully orient you on the basics of defining and working with a `climlab Process` object.
 
 ```{code-cell} ipython3
-#  Test in a 2-layer atmosphere
-col = climlab.GreyRadiationModel(num_lev=2)
+#  Test in a 2-layer atmosphere  -  change the levels here
+num_lev=2
+col = climlab.GreyRadiationModel(num_lev=num_lev)
 print( col)
 ```
 
@@ -120,7 +120,7 @@ Now we are assigning the "observed" temperatures to our model state:
 
 ```{code-cell} ipython3
 col.Ts[:] = 288.
-col.Tatm[:] = np.array([230., 275.])
+col.Tatm[:] = np.linspace(230., 275.,num_lev)
 climlab.to_xarray(col.state)
 ```
 
@@ -305,7 +305,6 @@ ____________
 
 ## 4. A 30-layer model using the observed temperatures
 ____________
-
 
 ```{code-cell} ipython3
 #  initialize a grey radiation model with 30 levels
@@ -600,7 +599,7 @@ oz_col = climlab.RadiativeConvectiveModel(lev = ozone.lev, adj_lapse_rate=6)
 print(oz_col)
 ```
 
-Now we will do something new: let the column absorb some shortwave radiation. We will assume that the shortwave absorptivity is proportional to the ozone concentration we plotted above. 
+Now we will do something new: let the column absorb some shortwave radiation. We will assume that the shortwave absorptivity is proportional to the ozone concentration we plotted above.
 
 +++
 
