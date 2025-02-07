@@ -1,5 +1,5 @@
 # Week 3
-Class: Friday Jan 27
+Class: Monday, Jan 20
 
 
 Pre-class Reading:
@@ -8,41 +8,18 @@ Chapters 3 & 4 of Global Physical Climatology
 Due:
 Pre-class quiz 2
 
-Worksheet:[Worksheet 2]( https://github.com/phaustin/climate_students_eoas/blob/student_branch/worksheets/Worksheet2_students.pdf)
+Worksheet2 and the week 3 notebooks plus figures can be downloaded from the week3 folder
+on the [google drive](https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=sharing)
 
-Learning Goals
+## Matching Hartmann with the notebooks
 
-- Understanding the Schwartzchild equation:
+### In-class discusion
 
-  - Build some intuition about how  a climate model converts
-    profiles of gas concentrations, cloud thickness and fraction,
-    temperature and pressure into radiative fluxes.
+- Relating Hartmann Chapter 3 to the week 3 notebooks: the importance of optical depth
 
-  - Hartman pages 67-68
+- Two articles that could form the basis of a course project (download from google drive in the articles folder):
 
-  - [A301 Schwartzchild 1](https://eoasubc.xyz/a301_2022/notebooks/week4/schwartz.html#schwartz)
+  - Climate sensitivity from radiative-convective equilibrium: A chalkboard approach
+  - Effects of greenhouse gasses on Earth, Venus and Mars
 
-  - [A301 Schwartzchild 2](https://eoasubc.xyz/a301_2022/notebooks/week6/flux_schwartzchild.html)
 
-- Introduce python's xarray library using the Project Pythia xarray tutorials
-
-- Work with xarray in the 04-cesm notebook to do data reductions on model fields.
-
-## Important links
-
-* [Course home](https://phaustin.org/climate_2022)
-
-* [github repository](https://github.com/phaustin/climate_students_eoas.git)
-
-## General references
-
-* [Global Physical Climatology, Dennis Hartmann](https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&SS_jc=TC0001767901&title=Global%20physical%20climatology)
- 
-
-* [Practical Meteorology](https://www.eoas.ubc.ca/books/Practical_Meteorology)
-
-* [Problem Solving with Python](https://phaustin.github.io/Problem-Solving-with-Python/)
-
-* [A Whirlwind Tour of Python](https://jakevdp.github.io/WhirlwindTourOfPython)
-
-* [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)

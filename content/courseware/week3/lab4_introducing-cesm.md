@@ -1,10 +1,11 @@
 ---
 jupytext:
+  formats: md:myst,ipynb
   text_representation:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.16.6
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -169,6 +170,12 @@ print( fullURL)
 #  Now we actually open the dataset
 topo = xr.open_dataset( fullURL )
 print(topo)
+```
+
+### save it for future use
+
+```{code-cell} ipython3
+topo.to_netcdf('USGS-gtopo30_10min_c050419.nc')
 ```
 
 The `Dataset` object has several important attributes. Much of this should look familiar if you have worked with `netCDF` data before. The `xarray` package gives a very powerful and easy to use interface to the data.

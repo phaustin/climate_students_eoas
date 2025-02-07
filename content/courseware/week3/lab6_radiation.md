@@ -1,12 +1,13 @@
 ---
 jupytext:
+  formats: md:myst,ipynb
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.9.1
+    format_version: 0.13
+    jupytext_version: 1.16.6
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -327,7 +328,12 @@ Now look at the atmospheric **absorption spectra**.
 
 +++
 
-<img src='../../images/MarshallPlumbFig2.5.png'>
+::: {figure} ./images/MarshallPlumbFig2.5.png
+:width: 80%
+:name: costheta
+:alt: pha
+
+:::
 
 +++ {"slideshow": {"slide_type": "skip"}}
 

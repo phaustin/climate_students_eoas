@@ -45,3 +45,53 @@
 ### In-class labs
 * Download the ipynb files and the png images from this folder:
 * [Week2 Jupyter notebook folder](https://www.dropbox.com/scl/fo/xhx2dfuo44tvym0dkiskc/AChXV1dukMjn4_7NqSsXBsY?rlkey=qzihkh9dvtykwvguxo3nfu3v5&st=f9eaga2s&dl=0)
+
+## Week 3
+
+
+Pre-class Reading:
+Chapter 3 of Global Physical Climatology
+
+Due:
+Pre-class quiz 2
+
+### In-class labs
+
+Worksheet2 and the week 3 notebooks plus figures can be downloaded from the week3 folder
+on the [google drive](https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=sharing)
+
+### In-class discussion - matching Hartmann with the notebooks
+
+- Relating Hartmann Chapter 3 to the week 3 notebooks: the importance of optical depth
+
+- Two articles that could form the basis of a course project (download from google drive in the articles folder):
+
+  - Climate sensitivity from radiative-convective equilibrium: A chalkboard approach
+  - Effects of greenhouse gasses on Earth, Venus and Mars
+
+## Week 4
+
+
+Pre-class Reading:
+Chapter 4 of Global Physical Climatology
+
+Due:
+Pre-class quiz 3
+
+### In-class labs
+
+Worksheet3 and the week 4 notebooks plus figures can be downloaded from the week4 folder
+on the [google drive](https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=sharing)
+
+### In-class discussion - matching Hartmann with the notebooks
+
+More on radiation – the [importance of tau = 1](https://phaustin.github.io/a301_eoas/notebooks/week4/optical_depth2.html) (See also Hartmann p. 65 eq. 3.22)
+
+Why are boundary layer fluxes challenging for climate models?  Focus on Hartman figures 4.6 and 4.7
+
+Today’s boundary layer structure at [Port Hardy](https://weather.uwyo.edu/upperair/sounding.html)
+
+Possible project – The physics of heat waves: [Zeppetello et al. 2022](https://journals.ametsoc.org/view/journals/clim/35/7/JCLI-D-21-0236.1.xml)
+
+
+
