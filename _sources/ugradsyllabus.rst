@@ -214,7 +214,7 @@ Week 8 (3-7 Mar) - Modelling coupled atmosphere-ocean circulation and internal v
    - Project proposal - due 9pm Mar 10th
 
 Week 9 (10-14 Mar) - Climate model hierachy and uses (RHW)
-   - Pre-class reading: Chapter 9 and re-cap chapters 12 and 13 of Global Physical Climatology (Paleoclimate, Natural Climate Change and Anthropogenic Climate Change)
+   - Pre-class reading: Chapter 9 of Global Physical Climatology
 
    - Pre-class Quiz #8
 

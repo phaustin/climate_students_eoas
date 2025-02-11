@@ -239,7 +239,7 @@ Week 8 (3-7 Mar) - Modelling coupled atmosphere-ocean circulation and internal v
         large ensemble dataset without having to download it. Login with github (you can create an account for free if you don’t already have one)
 
 Week 9 (10-14 Mar) - Climate model hierachy and uses (RHW)
-   - Pre-class reading: Chapter 9 and re-cap chapters 12 and 13 of Global Physical Climatology (Paleoclimate, Natural Climate Change and Anthropogenic Climate Change)
+   - Pre-class reading: Chapter 9 of Global Physical Climatology
 
    - Labs: 
       - Notebook 27: The surface energy balance

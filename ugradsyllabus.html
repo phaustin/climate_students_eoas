@@ -1,9 +1,8 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ugradsyllabus';</script>
@@ -161,7 +156,18 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Climate Laboratory Book</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -325,9 +331,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -421,9 +427,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -468,40 +474,40 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="undergraduate-syllabus">
-<h1>Undergraduate Syllabus<a class="headerlink" href="#undergraduate-syllabus" title="Permalink to this heading">#</a></h1>
+<h1>Undergraduate Syllabus<a class="headerlink" href="#undergraduate-syllabus" title="Link to this heading">#</a></h1>
 <section id="physical-climate-modelling-eosc-440-winter-term-2">
-<h2>Physical Climate Modelling: EOSC 440, Winter term 2<a class="headerlink" href="#physical-climate-modelling-eosc-440-winter-term-2" title="Permalink to this heading">#</a></h2>
+<h2>Physical Climate Modelling: EOSC 440, Winter term 2<a class="headerlink" href="#physical-climate-modelling-eosc-440-winter-term-2" title="Link to this heading">#</a></h2>
 <p>Python-based introduction to climate modelling and the underlying physics of climate models,
 including a focus on radiation and single-column models as well as atmosphere and ocean
 circulation and full general circulation models (GCMs).</p>
 </section>
 <section id="course-purpose">
-<h2>Course Purpose<a class="headerlink" href="#course-purpose" title="Permalink to this heading">#</a></h2>
+<h2>Course Purpose<a class="headerlink" href="#course-purpose" title="Link to this heading">#</a></h2>
 <p>Students completing this course will be able to describe the different types of climate
 models that exist and choose an appropriate model for a given problem. They will be able to
 run simple 1D models using jupyter notebooks, and analyse the output from complex General
 Circulation Models (GCMs).</p>
 </section>
 <section id="instructors">
-<h2>Instructors<a class="headerlink" href="#instructors" title="Permalink to this heading">#</a></h2>
+<h2>Instructors<a class="headerlink" href="#instructors" title="Link to this heading">#</a></h2>
 <div class="line-block">
 <div class="line">Rachel White, <a class="reference external" href="mailto:rwhite&#37;&#52;&#48;eoas&#46;ubc&#46;ca">rwhite<span>&#64;</span>eoas<span>&#46;</span>ubc<span>&#46;</span>ca</a>, Rm 4019 ESB</div>
 <div class="line">Phil Austin, <a class="reference external" href="mailto:paustin&#37;&#52;&#48;eoas&#46;ubc&#46;ca">paustin<span>&#64;</span>eoas<span>&#46;</span>ubc<span>&#46;</span>ca</a>, Rm 157 EOS-South</div>
 </div>
 </section>
 <section id="textbook">
-<h2>Textbook<a class="headerlink" href="#textbook" title="Permalink to this heading">#</a></h2>
+<h2>Textbook<a class="headerlink" href="#textbook" title="Link to this heading">#</a></h2>
 <p>Global Physical Climatology, Dennis Hartmann <a class="reference external" href="https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&amp;SS_jc=TC0001767901&amp;title=Global%20physical%20climatology">available online through the
 UBC library</a></p>
 </section>
 <section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h2>
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
 <p>One of PHYS 102, PHYS 108, PHYS 118, PHYS 158, PHYS 102, MATH 211, MATH 215, MATH 255, MATH 256, MATH 265.</p>
 <p>Familiarity with python, or strong coding skills in another language (the course is taught in python).</p>
 <p>Familiarity with the basics of global climate science is recommended but not required.</p>
 </section>
 <section id="course-structure">
-<h2>Course Structure<a class="headerlink" href="#course-structure" title="Permalink to this heading">#</a></h2>
+<h2>Course Structure<a class="headerlink" href="#course-structure" title="Link to this heading">#</a></h2>
 <p>This course is not lecture based. The course is an interactive, computer
 based laboratory course. The computer will lead you through the
 laboratory (like a set of lab notes) and you will answer problems most
@@ -522,7 +528,7 @@ browser to:</p>
 <p><a class="reference external" href="https://phaustin.github.io/climate_students_eoas">https://phaustin.github.io/climate_students_eoas</a></p>
 </section>
 <section id="grades">
-<h2>Grades<a class="headerlink" href="#grades" title="Permalink to this heading">#</a></h2>
+<h2>Grades<a class="headerlink" href="#grades" title="Link to this heading">#</a></h2>
 <blockquote>
 <div><ul class="simple">
 <li><p>Assignments 50% (individual with collaboration)</p></li>
@@ -558,11 +564,11 @@ time. Late ones will be marked and then the mark will be multiplied by
 <span class="math notranslate nohighlight">\((0.9)^{\rm (number\ of\ days\ or\ part\ days\ late)}\)</span>.</p>
 </section>
 <section id="meeting-times">
-<h2>Meeting Times<a class="headerlink" href="#meeting-times" title="Permalink to this heading">#</a></h2>
+<h2>Meeting Times<a class="headerlink" href="#meeting-times" title="Link to this heading">#</a></h2>
 <p>Monday 2pm-4pm in SWNG 305</p>
 </section>
 <section id="tentative-schedule-including-assignment-deadlines">
-<h2>Tentative schedule, including assignment deadlines<a class="headerlink" href="#tentative-schedule-including-assignment-deadlines" title="Permalink to this heading">#</a></h2>
+<h2>Tentative schedule, including assignment deadlines<a class="headerlink" href="#tentative-schedule-including-assignment-deadlines" title="Link to this heading">#</a></h2>
 <dl>
 <dt>Week 1 (6-10 Jan) Introduction (PA)</dt><dd><ul class="simple">
 <li><p>Introductory Meeting: set class time, introduce jupyter notebooks, github, and the structure of the course</p></li>
@@ -704,7 +710,7 @@ large ensemble dataset without having to download it. Login with github (you can
 </ul>
 </dd>
 <dt>Week 9 (10-14 Mar) - Climate model hierachy and uses (RHW)</dt><dd><ul class="simple">
-<li><p>Pre-class reading: Chapter 9 and re-cap chapters 12 and 13 of Global Physical Climatology (Paleoclimate, Natural Climate Change and Anthropogenic Climate Change)</p></li>
+<li><p>Pre-class reading: Chapter 9 of Global Physical Climatology</p></li>
 <li><p>Pre-class Quiz #8</p></li>
 <li><dl class="simple">
 <dt>Labs:</dt><dd><ul>
@@ -732,7 +738,7 @@ large ensemble dataset without having to download it. Login with github (you can
 </dl>
 </section>
 <section id="university-statement-on-values-and-policies">
-<h2>University Statement on Values and Policies<a class="headerlink" href="#university-statement-on-values-and-policies" title="Permalink to this heading">#</a></h2>
+<h2>University Statement on Values and Policies<a class="headerlink" href="#university-statement-on-values-and-policies" title="Link to this heading">#</a></h2>
 <p>UBC provides resources to support student learning and to maintain
 healthy lifestyles but recognizes that sometimes crises arise and so
 there are additional resources to access including those for survivors
@@ -748,7 +754,7 @@ available here</p>
 <p><a class="reference external" href="https://senate.ubc.ca/policies-resources-support-student-success">https://senate.ubc.ca/policies-resources-support-student-success</a>.</p>
 </section>
 <section id="supporting-diversity-and-inclusion">
-<h2>Supporting Diversity and Inclusion<a class="headerlink" href="#supporting-diversity-and-inclusion" title="Permalink to this heading">#</a></h2>
+<h2>Supporting Diversity and Inclusion<a class="headerlink" href="#supporting-diversity-and-inclusion" title="Link to this heading">#</a></h2>
 <p>Atmospheric Science, Oceanography and the Earth Sciences have been
 historically dominated by a small subset of
 privileged people who are predominantly male and white, missing out on
@@ -766,7 +772,7 @@ and experiences, and honours your identities. To help accomplish this:</p>
 </div></blockquote>
 </section>
 <section id="academic-integrity">
-<h2>Academic Integrity<a class="headerlink" href="#academic-integrity" title="Permalink to this heading">#</a></h2>
+<h2>Academic Integrity<a class="headerlink" href="#academic-integrity" title="Link to this heading">#</a></h2>
 <p>Students are expected to learn material with honesty, integrity, and responsibility.</p>
 <blockquote>
 <div><ul class="simple">
@@ -887,7 +893,7 @@ By Brian Rose
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

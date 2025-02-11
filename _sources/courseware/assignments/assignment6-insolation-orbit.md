@@ -3,10 +3,10 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.16.6
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -72,7 +72,6 @@ $$T_{eq} = \left( \frac{(1-\alpha) ~ Q}{\tau~ \sigma} \right)^{\frac{1}{4}}$$
 **Suppose that this model applies independently at every latitude, where $Q$ is the annual average insolation at that latitude** (i.e. ignore exchanges of energy between adjacent latitude bands). 
 
 Using the annual mean $Q$ you computed in Part 3, make a graph of $T_{eq}$ as a function of latitude. Make sure to state clearly any assumptions you make about the parameter values $\alpha, \tau$.
-
 
 ```{code-cell} ipython3
 
