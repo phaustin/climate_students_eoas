@@ -1,10 +1,11 @@
 ---
 jupytext:
+  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.16.6
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -15,6 +16,13 @@ kernelspec:
 # Assignment: Feedbacks in the Radiative-Convective Model
 
 This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](http://www.atmos.albany.edu/facstaff/brose/index.html), University at Albany.
+
+Modified: 2025/Feb/10 -- optional varialble read from netcdf files
+
+The file download time for reference temperature and humidity files in question 1 can be significant.  If  you'd
+like to skip that download, get the files `Tglobal.nc` and `Qglobal.nc` from the assignments folder at
+[e440 google drive](https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=drive_link)
+and set `download_file=False`.  This will read in two dataArrays from the two datasets I've written to netcdf.
 
 +++
 
@@ -95,21 +103,32 @@ def add_profile(skew, model, linestyle='-', color=None):
 
 ```{code-cell} ipython3
 # air temperature
-ncep_url = "http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/"
-ncep_air = xr.open_dataset( ncep_url + "pressure/air.mon.1981-2010.ltm.nc", use_cftime=True)
-#  Take global, annual average 
-coslat = np.cos(np.deg2rad(ncep_air.lat))
-weight = coslat / coslat.mean(dim='lat')
-Tglobal = (ncep_air.air * weight).mean(dim=('lat','lon','time'))
+download_file = False
+if download_file:
+    ncep_url = "http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/"
+    ncep_air = xr.open_dataset( ncep_url + "pressure/air.mon.1981-2010.ltm.nc", use_cftime=True)
+    #  Take global, annual average 
+    coslat = np.cos(np.deg2rad(ncep_air.lat))
+    weight = coslat / coslat.mean(dim='lat')
+    Tglobal = (ncep_air.air * weight).mean(dim=('lat','lon','time'))
+else:
+    Tglobal = xr.open_dataset("Tglobal.nc")
+    Tglobal = Tglobal.Tglobal
 
-# Get the water vapor data from CESM output
-cesm_data_path = "http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/"
-atm_control = xr.open_dataset(
-    cesm_data_path + "cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc"
-)
-# Take global, annual average of the specific humidity
-weight_factor = atm_control.gw / atm_control.gw.mean(dim='lat')
-Qglobal = (atm_control.Q * weight_factor).mean(dim=('lat','lon','time'))
+
+if download_file:
+    # Get the water vapor data from CESM output
+    cesm_data_path = "http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/"
+    atm_control = xr.open_dataset(
+        cesm_data_path + "cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc"
+    )
+    # Take global, annual average of the specific humidity
+    weight_factor = atm_control.gw / atm_control.gw.mean(dim='lat')
+    Qglobal = (atm_control.Q * weight_factor).mean(dim=('lat','lon','time'))
+else:
+    Qglobal = xr.open_dataset("Qglobal.nc")
+    Qglobal = Qglobal.Qglobal
+    
 ```
 
 ### initial conditions, based on water vapor levels
