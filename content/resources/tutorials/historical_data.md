@@ -12,7 +12,7 @@ kernelspec:
   name: python3
 ---
 
-# Loading CMIP historical data 
+# Tutorial: Loading CMIP historical data 
 
 Author: Ben Farris
 
@@ -42,7 +42,6 @@ In order to avoid repeatedly downloading the data, each model download is wrappe
 
 These same files are in the `tutorials/tutorial_data` folder on our google drive if you want to skip all downloads and just
 copy them into the tutorial_data folder
-
 
 ```{code-cell} ipython3
 # Import statements
@@ -198,7 +197,7 @@ precip_data2010.pr.plot(ax=ax,cmap='coolwarm')
 ax.title.set_text("Precipitation total for 2010")
 ```
 
-# HadGEM3
+### HadGEM3
 
 Repeat the same steps as for the CanESM
 
@@ -206,7 +205,7 @@ Repeat the same steps as for the CanESM
 var_key = 'CMIP.MOHC.HadGEM3-GC31-MM.historical.Amon.gn'
 filename = "had_bc_dset.nc"
 full_path = out_folder / filename
-write_file = True
+write_file = False
 if write_file:
     had_subset = col.search(table_id="Amon", variable_id = "pr", source_id = "HadGEM3-GC31-MM", experiment_id = 'historical')
     dset_dict = had_subset.to_dataset_dict(zarr_kwargs={'consolidated':True})
@@ -271,15 +270,16 @@ had_precip_data2010.pr.plot(ax=ax2,cmap='coolwarm')
 ax.title.set_text("Precipitation total for 2010")
 ```
 
-# GISS
+### GISS
 
 Repeat the same steps as for CanESM and HadGEM
 
 ```{code-cell} ipython3
 var_key = 'CMIP.NASA-GISS.GISS-E2-1-H.historical.Amon.gn'
-full_path = out_folder / filename
 filename = 'gis_bc_dset.nc'
-write_file = True
+full_path = out_folder / filename
+
+write_file = False
 if write_file:
     gis_subset = col.search(table_id="Amon", variable_id = "pr", source_id = "GISS-E2-1-H", experiment_id = 'historical')
     dset_dict = gis_subset.to_dataset_dict(zarr_kwargs={'consolidated':True})
@@ -290,7 +290,7 @@ if write_file:
 #
 # read the netcdffile
 #
-can_bc_dset = xr.open_dataset(full_path)
+gis_bc_dset = xr.open_dataset(full_path)
 ```
 
 ```{code-cell} ipython3
@@ -342,51 +342,6 @@ ax.add_feature(provinc_bodr, linestyle='--', linewidth=0.6, edgecolor="k", zorde
 gis_precip_data1990.pr.plot(ax=ax,cmap='coolwarm')
 ```
 
-```{code-cell} ipython3
-filename = "cru_ts4.02.2001.2010.pre.dat.nc"
-cru_xr = xr.open_dataset(filename)
-```
-
-```{code-cell} ipython3
-cru_2010 = cru_xr.pre.sel(time='2010', lon = slice(-134.75, -115.25), lat = slice(49.25, 59.75))
-cru_plot = cru_2010.sum('time')
-
-fig = plt.figure(1, figsize=[30,13])
-
-ax = plt.subplot(1, 1, 1, projection=ccrs.PlateCarree())
-ax.coastlines()
-ax.add_feature(cartopy.feature.BORDERS, linestyle='-', alpha=1)
-ax.set_extent([-140, -110, 40, 60])
-
-resol = '50m'
-
-provinc_bodr = cartopy.feature.NaturalEarthFeature(category='cultural', 
-    name='admin_1_states_provinces_lines', scale=resol, facecolor='none', edgecolor='k')
-ax.add_feature(provinc_bodr, linestyle='--', linewidth=0.6, edgecolor="k", zorder=10)
-
-
-
-cru_plot.plot(ax=ax,cmap='coolwarm')
-```
-
-```{code-cell} ipython3
-if False:
-    filename= "cru_ts4.02.1901.2017.pre.dat.nc"
-    cru_xr_hist = xr.open_dataset(filename)
-    cru_9010 = cru_xr_hist.sel(time = slice('1960', '2010'), lon = slice(-134.75, -115.25), lat = slice(49.25, 59.75))
-    cru_9010.load().to_netcdf('cru_6010.nc')
-
-cru_6010 = xr.open_dataset('cru_6010.nc')
-cru_6010 = cru_6010.groupby('time.year').sum('time').mean(['lon', 'lat'])
-plt.figure()
-cru_6010.pre.plot()
-plt.title("Averaged Yearly precipitation for the CRU data")
-plt.xlabel('Year')
-plt.ylabel('Precipitation total (mm)')
-# test = cru_6010.sel(time='2010').groupby('time.year').mean('time')
-# test.dropna(dim='lat', how='any')
-```
-
 ### Creating plots with all 3 models
 
 ```{code-cell} ipython3
@@ -395,7 +350,6 @@ fig, axs = plt.subplots(1, 1, figsize=(30, 13))
 axs.plot(time,mean_precip_gis.mean('member_id').pr)
 axs.plot(time, mean_precip_had.mean('member_id').pr)
 axs.plot(time, mean_precip.mean('member_id').pr)
-axs.plot(time, cru_6010.pre)
 ```
 
 ```{code-cell} ipython3

@@ -13,7 +13,7 @@ parts:
 
 - caption: Project resources
   chapters:
-  - file: resources/tutorials/index.md 
+  - file: resources/tutorials/historical_data.md
   - file: resources/resource_links.md
   - file: resources/loading-cmip6-data.md
   - file: resources/loading-CESM-LENS-data.md
