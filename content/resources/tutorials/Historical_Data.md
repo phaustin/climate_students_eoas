@@ -16,7 +16,8 @@ kernelspec:
 
 Author: Ben Farris
 
-In this notebook, we focus on loading in the data from the CMIP6 site for British Columbia. We can then work on histogramming the data in order to understand the variability within the models.
+In this notebook, we focus on loading in the data from the CMIP6 site for British Columbia and
+saving it to netcdf. We can then work on histogramming the data in order to understand the variability within the models.  The models are the Canadian CanESM, the British Hadley model and the US GISS model
 
 Based on [project pythia](https://projectpythia.org/cmip6-cookbook/notebooks/foundations/intake-esm.html)
 
@@ -202,21 +203,25 @@ ax.title.set_text("Precipitation total for 2010")
 Repeat the same steps as for the CanESM
 
 ```{code-cell} ipython3
-hadGEM = False
-write_it = False
-if hadGEM:
-    if write_it:
-        had_subset = col.search(table_id="Amon", variable_id = "pr", source_id = "HadGEM3-GC31-MM", experiment_id = 'historical')
-        dset_dict = had_subset.to_dataset_dict(zarr_kwargs={'consolidated':True})
-        had_dset = dset_dict['CMIP.MOHC.HadGEM3-GC31-MM.historical.Amon.gn']
-        had_bc_dset = had_dset.sel(lon = slice(225.4, 239.6), lat = slice(48.835241, 59.99702), time = slice('1960', '2010'))
-        had_bc_dset.load().to_netcdf('had_bc_dset.nc')
-    else:
-    print('done')
+var_key = 'CMIP.MOHC.HadGEM3-GC31-MM.historical.Amon.gn'
+filename = "had_bc_dset.nc"
+full_path = out_folder / filename
+write_file = True
+if write_file:
+    had_subset = col.search(table_id="Amon", variable_id = "pr", source_id = "HadGEM3-GC31-MM", experiment_id = 'historical')
+    dset_dict = had_subset.to_dataset_dict(zarr_kwargs={'consolidated':True})
+    had_dset = dset_dict[var_key]
+    had_bc_dset = had_dset.sel(lon = slice(225.4, 239.6), lat = slice(48.835241, 59.99702), time = slice('1960', '2010'))
+    had_bc_dset.load().to_netcdf('had_bc_dset.nc')
+    full_path = do_write(had_bc_dset,filename,out_folder)
+    print(f"got here for hadley, writing {full_path=}")
+#
+# read the netcdffile
+#
+had_bc_dset = xr.open_dataset(full_path)
 ```
 
 ```{code-cell} ipython3
-had_bc_dset = xr.open_dataset('had_bc_dset.nc')
 mean_precip_had = had_bc_dset.groupby('time.year').mean('time').mean(['lon', 'lat'])*86400*365
 plt.figure()
 mean_precip_had.mean('member_id').pr.plot()
@@ -271,17 +276,24 @@ ax.title.set_text("Precipitation total for 2010")
 Repeat the same steps as for CanESM and HadGEM
 
 ```{code-cell} ipython3
-GISS = False
-if GISS:
+var_key = 'CMIP.NASA-GISS.GISS-E2-1-H.historical.Amon.gn'
+full_path = out_folder / filename
+filename = 'gis_bc_dset.nc'
+write_file = True
+if write_file:
     gis_subset = col.search(table_id="Amon", variable_id = "pr", source_id = "GISS-E2-1-H", experiment_id = 'historical')
     dset_dict = gis_subset.to_dataset_dict(zarr_kwargs={'consolidated':True})
-    gis_dset = dset_dict['CMIP.NASA-GISS.GISS-E2-1-H.historical.Amon.gn']
+    gis_dset = dset_dict[var_key]
     gis_bc_dset = gis_dset.sel(lon = slice(226.25, 238.75), lat = slice(48.835241, 59.99702), time = slice('1960', '2010'))
-    gis_bc_dset.load().to_netcdf('gis_bc_dset.nc')
+    full_path = do_write(gis_bc_dset,filename,out_folder)
+    print(f"got here: giss, writing {full_path=}")
+#
+# read the netcdffile
+#
+can_bc_dset = xr.open_dataset(full_path)
 ```
 
 ```{code-cell} ipython3
-gis_bc_dset = xr.open_dataset('gis_bc_dset.nc')
 mean_precip_gis = gis_bc_dset.groupby('time.year').mean('time').mean(['lon', 'lat'])*86400*365
 plt.figure()
 mean_precip_gis.mean('member_id').pr.plot()
