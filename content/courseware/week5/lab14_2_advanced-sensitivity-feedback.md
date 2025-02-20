@@ -3,10 +3,10 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.16.6
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -30,7 +30,6 @@ Let’s say we instantaneously double atmospheric CO$_2$. What happens?
 - The atmosphere is less efficient at radiating energy away to space.
 - OLR will decrease
 - The climate system will begin gaining energy.
-
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -456,7 +455,7 @@ with parameter values:
 - $T_o = 293$ K is the threshold temperature above which our model assumes the planet is ice-free
 - $T_i = 260$ K is the threshold temperature below which our model assumes the planet is completely ice covered. 
 
-For intermediate temperature, this formula gives a smooth variation in albedo with global mean temperature. It is tuned to reproduce the observed albedo $\alpha = 0.299$ for $T = 288$ K. 
+For intermediate temperature, this formula gives a smooth variation in albedo with global mean temperature. It is tuned to reproduce the observed albedo $\alpha = 0.299$ for $T = 288$ K.
 
 +++ {"slideshow": {"slide_type": "slide"}}
 

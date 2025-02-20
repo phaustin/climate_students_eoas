@@ -1,15 +1,17 @@
 ---
 jupytext:
+  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.16.6
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
+
 (nb:sens)=
 # Climate sensitivity and feedback
 
@@ -26,7 +28,7 @@ ____________
 
 We've seen the concept of Radiative Forcing before. It is the short-term change in the TOA energy budget when we add a forcing agent to the climate system, **before the surface has a chance to warm up**.
 
-The standard reference forcing is a **doubling of atmospheric CO$_2$**. 
+The standard reference forcing is a **doubling of atmospheric CO$_2$**.
 
 +++
 
@@ -661,51 +663,31 @@ The physical meaning of this number:
 
 +++
 
-____________
-<a id='section7'></a>
 ## 7. Feedbacks diagnosed from complex climate models
-____________
 
-### Data from the IPCC AR5
 
-This figure is reproduced from the IPCC AR5 report. It shows the feedbacks diagnosed from the various models that contributed to the assessment.
+### Data from the IPCC AR6
 
-(Later in the term we will discuss how the feedback diagnosis is actually done)
-
-See below for complete citation information.
+This figure is reproduced from the IPCC AR6 report. It shows the feedbacks diagnosed from the various models that contributed to the assessment.
 
 +++
 
-<img src="./ar6_feedbacks.png" width="110%">
+:::{figure} ./ar6_feedbacks.png
+:name: kirchoff
+:scale: 100
 
-
-+++
-
-**See Roe for 2013 figure. Figure 9.43** | (a) Strengths of individual feedbacks for CMIP3 and CMIP5 models (left and right columns of symbols) for Planck (P), water vapour (WV), clouds (C), albedo (A), lapse rate (LR), combination of water vapour and lapse rate (WV+LR) and sum of all feedbacks except Planck (ALL), from Soden and Held (2006) and Vial et al. (2013), following Soden et al. (2008). CMIP5 feedbacks are derived from CMIP5 simulations for abrupt fourfold increases in CO2 concentrations (4 × CO2). (b) ECS obtained using regression techniques by Andrews et al. (2012) against ECS estimated from the ratio of CO2 ERF to the sum of all feedbacks. The CO2 ERF is one-half the 4 × CO2 forcings from Andrews et al. (2012), and the total feedback (ALL + Planck) is from Vial et al. (2013).
-
-*Figure caption reproduced from the AR5 WG1 report*
+AR6 feedbacks
+:::
 
 +++
 
-Legend:
-
-- P: Planck feedback
-- WV: Water vapor feedback
-- LR: Lapse rate feedback
-- WV+LR: combined water vapor plus lapse rate feedback
-- C: cloud feedback
-- A: surface albedo feedback
-- ALL: sum of all feedback except Plank, i.e. ALL = WV+LR+C+A
-
-+++
-
-Things to note:
+Things to note: 
 
 - The models all agree strongly on the Planck feedback. 
 - The Planck feedback is about $-3.3 ~\text{W} ~\text{m}^{-2} ~\text{K}^{-1} $ just like our above estimate of $\lambda_0$ (but with opposite sign convention -- watch carefully for that in the literature)
-- The water vapor feedback is strongly positive in every model.
+- The water vapor feedback + lapse rate feedback is strongly positive in every model.
 - The lapse rate feedback is something we will study later. It is slightly negative.
-- For reasons we will discuss later, the best way to measure the water vapor feedback is to combine it with lapse rate feedback.
+- For reasons we will discuss later, the best way to measure the water vapor feedback is to combine it with lapse rate feedback.  This is discussed in Hartmann, Figure 10.6, p. 303
 - Models agree strongly on the combined water vapor plus lapse rate feedback.
 
 +++

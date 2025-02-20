@@ -1,12 +1,13 @@
 ---
 jupytext:
+  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.16.6
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -30,7 +31,7 @@ Let's look again the observations of air temperature from the NCEP Reanalysis da
 
 In this notebook  we'll define a function to create the Skew-T diagram, because later we are going to reuse it several times.
 
-*Click to expand code cells to see Python details* 
+*Click to expand code cells to see Python details*
 
 ```{code-cell} ipython3
 :tags: [hide_input]

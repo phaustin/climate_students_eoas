@@ -37,7 +37,7 @@ For answers presented in the notebook, follow the usual procedures to ensure tha
 
 +++
 
-## Introduction
+## Introduction 
 
 Consider the two-layer "leaky greenhouse" (or grey radiation) model from [these lecture notes](https://brian-rose.github.io/ClimateLaboratoryBook/courseware/elementary-greenhouse.html).
 

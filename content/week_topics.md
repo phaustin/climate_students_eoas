@@ -95,3 +95,18 @@ Possible project – The physics of heat waves: [Zeppetello et al. 2022](https:/
 
 
 
+## Week 5
+
+- Worksheet4 and the week 5 notebooks plus figures can be downloaded from the week4 folder
+on the [google drive](https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=sharing)
+
+- The worksheet asks you to compare values and notation for feedbacks as discussed in Hartmann Chapter 10 and Rose Lab 14.  They use different notation, and a different base state, for their feeback analysis.  Rachel and I have a slightly lower level take on all this in 
+[this reading from EOSC 340](https://drive.google.com/file/d/1YLVuZkUS3uBVCpJ4Ym356jM7179zQnu5/view?usp=drive_link), where
+we introduce the idea of a *radiative kernel*
+
+- One of the originators of this approach, Mark Zelinka, has put together a tutorial on how to
+  do a feedback analysis of the CMIP6 models using a
+  [radiative kernel](https://github.com/mzelinka/cloud-radiative-kernels/blob/master/code/demonstrate_calcs.ipynb)
+  
+- This could form the basis of an possible course project, contact me if you're interested.
+  

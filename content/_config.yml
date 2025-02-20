@@ -17,8 +17,24 @@ parse:
     - html_admonition
     - html_image
     
-  
-exclude_patterns: ["*ipynb"]
+only_build_toc_files: true
+
+exclude_patterns: ["*.pixi*","*ipynb*",".jupyter_cache/*",_build, Thumbs.db, .DS_Store, "*.ipynb_checkpoints"]
+
+execute:
+  execute_notebooks: cache
+  cache: .jupyter_cache
+  allow_errors: true
+  timeout: 120
+  exclude_patterns: ['*.jupyter_cache*',"*ipynb*"]
+
+parse:
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    - amsmath
+    - colon_fence
+    - dollarmath
+    - html_admonition
+    - html_image
 
 repository:
   url: https://github.com/phaustin/ClimateLaboratoryBook
@@ -27,9 +43,9 @@ repository:
 
 launch_buttons:
   notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
-  jupyterhub_url: https://climhub.phaustin.org
+
 
 html:
   home_page_in_navbar: true
-  baseurl: https://phaustin.github.io/ClimateLaboratoryBook
-  
+  baseurl: https://phaustin.github.io/climate_students_eoas
+

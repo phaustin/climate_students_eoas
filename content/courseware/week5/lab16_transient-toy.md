@@ -3,13 +3,14 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.16.6
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
+
 (nb:transtoy)=
 # Toy models of transient warming
 
@@ -399,7 +400,7 @@ The dashed curve show the **ocean heat content** continuing to rise slowly over 
 
 +++
 
-### What happens if CO2 levels are abruptly returned to pre-industrial levels? 
+### What happens if CO2 levels are abruptly returned to pre-industrial levels?
 
 +++
 
