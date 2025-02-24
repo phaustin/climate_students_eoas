@@ -12,6 +12,7 @@ kernelspec:
   name: python3
 ---
 
+(tut:historical_data)=
 # Tutorial: Loading CMIP historical data 
 
 Author: Ben Farris
