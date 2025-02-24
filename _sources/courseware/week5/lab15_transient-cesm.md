@@ -235,7 +235,6 @@ print('The Transient Climate Response is {:.3} K.'.format(float(TCR)))
 AR5 feedbacks
 :::
 
-
 +++
 
 Comparing against the multi-model mean of the ECS and TCR, our model is apparently slightly less sensitive than the CMIP5 mean.

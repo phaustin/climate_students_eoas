@@ -3,10 +3,10 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.16.6
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -97,7 +97,6 @@ where `newvalue` is a number in K / km.
 5. Calculate the combined feedback parameter for (water vapor plus lapse rate).
 6. Compare this result to the IPCC figure with feedback results from comprehensive models in our lecture notes (labeled "WV+LR"). Do you find a similar number?
 7. Would you describe the **lapse rate feedback** as positive or negative?
-
 
 ```{code-cell} ipython3
 
