@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.16.6
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -38,7 +38,6 @@ Things to note in this notebook
 
 
 Bottom line:  These two models have very different ideas about the cloud fraction over the Southern Ocean
-
 
 ```{code-cell} ipython3
 import intake
@@ -366,7 +365,6 @@ weights = weights.squeeze()
 
 The [dataArray.weighted](https://docs.xarray.dev/en/stable/generated/xarray.DataArray.weighted.html) method makes a dataArray "weight aware".
 You want to make sure you copy this weighted dataArray to a new variable, because it wipes out all of the dataArray metadata
-
 
 +++ {"user_expressions": []}
 
