@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Accessing CESM LENS (and LENS2) data with intake-esm &#8212; Climate Laboratory Book</title>
   
@@ -16,50 +17,51 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'resources/loading-CESM-LENS-data';</script>
     <link rel="canonical" href="https://phaustin.github.io/climate_students_eoas/resources/loading-CESM-LENS-data.html" />
     <link rel="author" title="About these documents" href="../about.html" />
@@ -69,7 +71,6 @@
     <link rel="prev" title="Accessing CMIP6 data with intake-esm" href="loading-cmip6-data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +86,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -94,6 +106,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -101,8 +114,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +131,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -147,14 +159,7 @@
     <p class="title logo__title">Climate Laboratory Book</p>
   
 </a></div>
-        <div class="sidebar-primary-item">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -177,6 +182,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">tutorials and demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/historical_data.html">Tutorial: Loading CMIP historical data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resource_links.html">Project links and notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loading-cmip6-data.html">Accessing CMIP6 data with intake-esm</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Accessing CESM LENS (and LENS2) data with intake-esm</a></li>
@@ -298,14 +304,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -324,9 +325,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -402,19 +403,27 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -455,7 +464,7 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="accessing-cesm-lens-and-lens2-data-with-intake-esm">
-<span id="resource-intake-esm-lens"></span><h1>Accessing CESM LENS (and LENS2) data with intake-esm<a class="headerlink" href="#accessing-cesm-lens-and-lens2-data-with-intake-esm" title="Link to this heading">#</a></h1>
+<span id="resource-intake-esm-lens"></span><h1>Accessing CESM LENS (and LENS2) data with intake-esm<a class="headerlink" href="#accessing-cesm-lens-and-lens2-data-with-intake-esm" title="Permalink to this heading">#</a></h1>
 <p>Preliminary:  You’ll need to install <code class="docutils literal notranslate"><span class="pre">intake-esm</span></code>, <code class="docutils literal notranslate"><span class="pre">xarray-datatree</span></code>, and <code class="docutils literal notranslate"><span class="pre">s3fs</span></code> into</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mamba</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">intake</span><span class="o">-</span><span class="n">esm</span>
 <span class="n">mamba</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">xarray</span><span class="o">-</span><span class="n">datatree</span>
@@ -472,31 +481,20 @@ xarray. Intake-esm aims to facilitate:</p>
 <p>It’s basic usage is shown below. To begin, let’s import <code class="docutils literal notranslate"><span class="pre">intake</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">intake</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">intake</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;intake&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">intake</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="load-the-catalog-cesm-lens1">
-<h2>Load the catalog - CESM LENS1<a class="headerlink" href="#load-the-catalog-cesm-lens1" title="Link to this heading">#</a></h2>
+<h2>Load the catalog - CESM LENS1<a class="headerlink" href="#load-the-catalog-cesm-lens1" title="Permalink to this heading">#</a></h2>
 <p>At import time, intake-esm plugin is available in intake’s registry as
 <code class="docutils literal notranslate"><span class="pre">esm_datastore</span></code> and can be accessed with <code class="docutils literal notranslate"><span class="pre">intake.open_esm_datastore()</span></code> function.
 Use the <code class="docutils literal notranslate"><span class="pre">intake_esm.tutorial.get_url()</span></code> method to access smaller subsetted catalogs for tutorial purposes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">intake_esm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">intake_esm</span>
 <span class="c1">#url = intake_esm.tutorial.get_url(&#39;google_cmip6&#39;)</span>
 <span class="c1">#print(url)</span>
 <span class="c1"># If you want CESM LENS1:</span>
@@ -504,20 +502,6 @@ Use the <code class="docutils literal notranslate"><span class="pre">intake_esm.
 
 <span class="c1"># If you want CESM LENS2:</span>
 <span class="c1">#url = &quot;https://raw.githubusercontent.com/NCAR/cesm2-le-aws/main/intake-catalogs/aws-cesm2-le.json&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">intake_esm</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#url = intake_esm.tutorial.get_url(&#39;google_cmip6&#39;)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#print(url)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># If you want CESM LENS1:</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">url</span> <span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/NCAR/cesm-lens-aws/main/intake-catalogs/aws-cesm1-le.json&quot;</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;intake_esm&#39;
 </pre></div>
 </div>
 </div>
@@ -530,16 +514,79 @@ Use the <code class="docutils literal notranslate"><span class="pre">intake_esm.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cat</span> <span class="o">=</span> <span class="n">intake</span><span class="o">.</span><span class="n">open_esm_datastore</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">cat</span>
+<div class="output text_html"><p><strong>aws-cesm1-le catalog with 56 dataset(s) from 442 asset(s)</strong>:</p> <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;intake&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>variable</th>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>long_name</th>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>component</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>experiment</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>frequency</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>vertical_levels</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>spatial_domain</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>units</th>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>start_time</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>end_time</th>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>path</th>
+      <td>427</td>
+    </tr>
+    <tr>
+      <th>derived_variable</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>The summary above tells us that this catalog contains 442 data assets (for CESM LENS1).
 We can get more information on the individual data assets contained in the
@@ -551,15 +598,196 @@ catalog by looking at the underlying dataframe created when we load the catalog:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cat</span><span class="o">.</span><span class="n">df</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;cat&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable</th>
+      <th>long_name</th>
+      <th>component</th>
+      <th>experiment</th>
+      <th>frequency</th>
+      <th>vertical_levels</th>
+      <th>spatial_domain</th>
+      <th>units</th>
+      <th>start_time</th>
+      <th>end_time</th>
+      <th>path</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>FLNS</td>
+      <td>net longwave flux at surface</td>
+      <td>atm</td>
+      <td>20C</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1920-01-01 12:00:00</td>
+      <td>2005-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-20C-FLNS....</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>FLNSC</td>
+      <td>clearsky net longwave flux at surface</td>
+      <td>atm</td>
+      <td>20C</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1920-01-01 12:00:00</td>
+      <td>2005-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-20C-FLNSC...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>FLUT</td>
+      <td>upwelling longwave flux at top of model</td>
+      <td>atm</td>
+      <td>20C</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1920-01-01 12:00:00</td>
+      <td>2005-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-20C-FLUT....</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>FSNS</td>
+      <td>net solar flux at surface</td>
+      <td>atm</td>
+      <td>20C</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1920-01-01 12:00:00</td>
+      <td>2005-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-20C-FSNS....</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>FSNSC</td>
+      <td>clearsky net solar flux at surface</td>
+      <td>atm</td>
+      <td>20C</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1920-01-01 12:00:00</td>
+      <td>2005-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-20C-FSNSC...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>437</th>
+      <td>WVEL</td>
+      <td>vertical velocity</td>
+      <td>ocn</td>
+      <td>RCP85</td>
+      <td>monthly</td>
+      <td>60.0</td>
+      <td>global_ocean</td>
+      <td>centimeter/s</td>
+      <td>2006-01-16 12:00:00</td>
+      <td>2100-12-16 12:00:00</td>
+      <td>s3://ncar-cesm-lens/ocn/monthly/cesmLE-RCP85-W...</td>
+    </tr>
+    <tr>
+      <th>438</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ocn</td>
+      <td>CTRL</td>
+      <td>static</td>
+      <td>NaN</td>
+      <td>global_ocean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>s3://ncar-cesm-lens/ocn/static/grid.zarr</td>
+    </tr>
+    <tr>
+      <th>439</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ocn</td>
+      <td>HIST</td>
+      <td>static</td>
+      <td>NaN</td>
+      <td>global_ocean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>s3://ncar-cesm-lens/ocn/static/grid.zarr</td>
+    </tr>
+    <tr>
+      <th>440</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ocn</td>
+      <td>RCP85</td>
+      <td>static</td>
+      <td>NaN</td>
+      <td>global_ocean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>s3://ncar-cesm-lens/ocn/static/grid.zarr</td>
+    </tr>
+    <tr>
+      <th>441</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ocn</td>
+      <td>20C</td>
+      <td>static</td>
+      <td>NaN</td>
+      <td>global_ocean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>s3://ncar-cesm-lens/ocn/static/grid.zarr</td>
+    </tr>
+  </tbody>
+</table>
+<p>442 rows × 11 columns</p>
+</div></div></div>
 </div>
 <p>The first data asset listed in the catalog contains:</p>
 <ul class="simple">
@@ -567,7 +795,7 @@ catalog by looking at the underlying dataframe created when we load the catalog:
 </ul>
 </section>
 <section id="finding-unique-entries">
-<h2>Finding unique entries<a class="headerlink" href="#finding-unique-entries" title="Link to this heading">#</a></h2>
+<h2>Finding unique entries<a class="headerlink" href="#finding-unique-entries" title="Permalink to this heading">#</a></h2>
 <p>To get unique values for given columns in the catalog, intake-esm provides a
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">unique()</span></code> method:</p>
 <p>Let’s query the data catalog to see what models(<code class="docutils literal notranslate"><span class="pre">source_id</span></code>), experiments
@@ -580,13 +808,19 @@ catalog by looking at the underlying dataframe created when we load the catalog:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">unique</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">unique</span>
-
-<span class="ne">NameError</span>: name &#39;cat&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>variable            [FLNS, FLNSC, FLUT, FSNS, FSNSC, FSNTOA, ICEFR...
+long_name           [net longwave flux at surface, clearsky net lo...
+component                             [atm, ice_nh, ice_sh, lnd, ocn]
+experiment                                   [20C, CTRL, HIST, RCP85]
+frequency           [daily, hourly6-1990-2005, hourly6-2026-2035, ...
+vertical_levels                                     [1.0, 30.0, 60.0]
+spatial_domain      [global, artic_ocean, antarctica, global_land,...
+units               [W/m2, fraction, m/s, Pa, kg/kg, kg/m2, K, m, ...
+start_time          [1920-01-01 12:00:00, 0402-01-01 12:00:00, 185...
+end_time            [2005-12-31 12:00:00, 2200-12-31 12:00:00, 191...
+path                [s3://ncar-cesm-lens/atm/daily/cesmLE-20C-FLNS...
+derived_variable                                                   []
+dtype: object
 </pre></div>
 </div>
 </div>
@@ -599,13 +833,84 @@ catalog by looking at the underlying dataframe created when we load the catalog:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Let&#39;s look at the different variables that are available:</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">unique</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;unique&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;FLNS&#39;,
+ &#39;FLNSC&#39;,
+ &#39;FLUT&#39;,
+ &#39;FSNS&#39;,
+ &#39;FSNSC&#39;,
+ &#39;FSNTOA&#39;,
+ &#39;ICEFRAC&#39;,
+ &#39;LHFLX&#39;,
+ &#39;PRECL&#39;,
+ &#39;PRECSC&#39;,
+ &#39;PRECSL&#39;,
+ &#39;PRECT&#39;,
+ &#39;PRECTMX&#39;,
+ &#39;PSL&#39;,
+ &#39;Q850&#39;,
+ &#39;SHFLX&#39;,
+ &#39;TMQ&#39;,
+ &#39;TREFHT&#39;,
+ &#39;TREFHTMN&#39;,
+ &#39;TREFHTMX&#39;,
+ &#39;TS&#39;,
+ &#39;UBOT&#39;,
+ &#39;WSPDSRFAV&#39;,
+ &#39;Z500&#39;,
+ &#39;QBOT&#39;,
+ &#39;VBOT&#39;,
+ &#39;Q&#39;,
+ &#39;T&#39;,
+ &#39;U&#39;,
+ &#39;V&#39;,
+ &#39;Z3&#39;,
+ &#39;PS&#39;,
+ &#39;QREFHT&#39;,
+ &#39;PRECC&#39;,
+ &#39;aice_d&#39;,
+ &#39;hi_d&#39;,
+ &#39;aice&#39;,
+ &#39;hi&#39;,
+ &#39;FSNO&#39;,
+ &#39;H2OSNO&#39;,
+ &#39;QRUNOFF&#39;,
+ &#39;RAIN&#39;,
+ &#39;SNOW&#39;,
+ &#39;SOILWATER_10CM&#39;,
+ &#39;TREFMNAV_U&#39;,
+ &#39;TREFMXAV_U&#39;,
+ &#39;SOILLIQ&#39;,
+ &#39;DIC&#39;,
+ &#39;DOC&#39;,
+ &#39;FW&#39;,
+ &#39;HMXL&#39;,
+ &#39;O2&#39;,
+ &#39;PD&#39;,
+ &#39;QFLUX&#39;,
+ &#39;QSW_HBL&#39;,
+ &#39;QSW_HTP&#39;,
+ &#39;RESID_S&#39;,
+ &#39;SALT&#39;,
+ &#39;SFWF&#39;,
+ &#39;SFWF_WRST&#39;,
+ &#39;SHF&#39;,
+ &#39;SHF_QSW&#39;,
+ &#39;SSH&#39;,
+ &#39;SST&#39;,
+ &#39;TAUX&#39;,
+ &#39;TAUX2&#39;,
+ &#39;TAUY&#39;,
+ &#39;TAUY2&#39;,
+ &#39;TEMP&#39;,
+ &#39;UES&#39;,
+ &#39;UET&#39;,
+ &#39;UVEL&#39;,
+ &#39;VNS&#39;,
+ &#39;VNT&#39;,
+ &#39;VVEL&#39;,
+ &#39;WTS&#39;,
+ &#39;WTT&#39;,
+ &#39;WVEL&#39;]
 </pre></div>
 </div>
 </div>
@@ -619,14 +924,81 @@ catalog by looking at the underlying dataframe created when we load the catalog:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># If you don&#39;t know the shorthand for the variable you&#39;re interested in, we can look </span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># at the &quot;long_name&quot; instead, which is a more descriptive version of the variable name:</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">unique</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;unique&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;net longwave flux at surface&#39;,
+ &#39;clearsky net longwave flux at surface&#39;,
+ &#39;upwelling longwave flux at top of model&#39;,
+ &#39;net solar flux at surface&#39;,
+ &#39;clearsky net solar flux at surface&#39;,
+ &#39;net solar flux at top of atmosphere&#39;,
+ &#39;fraction of sfc area covered by sea-ice&#39;,
+ &#39;surface latent heat flux&#39;,
+ &#39;large-scale (stable) precipitation rate (liq + ice)&#39;,
+ &#39;convective snow rate (water equivalent)&#39;,
+ &#39;large-scale (stable) snow rate (water equivalent)&#39;,
+ &#39;total (convective and large-scale) precipitation rate (liq + ice)&#39;,
+ &#39;maximum (convective and large-scale) precipitation rate (liq+ice)&#39;,
+ &#39;sea level pressure&#39;,
+ &#39;specific humidity at 850 mbar pressure surface&#39;,
+ &#39;surface sensible heat flux&#39;,
+ &#39;total (vertically integrated) precipitable water&#39;,
+ &#39;reference height temperature&#39;,
+ &#39;minimum reference height temperature over output period&#39;,
+ &#39;maximum reference height temperature over output period&#39;,
+ &#39;surface temperature (radiative)&#39;,
+ &#39;lowest model level zonal wind&#39;,
+ &#39;horizontal total wind speed average at the surface&#39;,
+ &#39;geopotential z at 500 mbar pressure surface&#39;,
+ &#39;lowest model level water vapor mixing ratio&#39;,
+ &#39;lowest model level meridional wind&#39;,
+ &#39;specific humidity&#39;,
+ &#39;temperature&#39;,
+ &#39;zonal wind&#39;,
+ &#39;meridional wind&#39;,
+ &#39;geopotential height (above sea level)&#39;,
+ &#39;surface pressure&#39;,
+ &#39;reference height humidity&#39;,
+ &#39;convective precipitation rate (liq + ice)&#39;,
+ &#39;ice area  (aggregate)&#39;,
+ &#39;grid cell mean ice thickness&#39;,
+ &#39;fraction of ground covered by snow&#39;,
+ &#39;snow depth (liquid water)&#39;,
+ &#39;total liquid runoff (does not include qsnwcpice)&#39;,
+ &#39;atmospheric rain&#39;,
+ &#39;atmospheric snow&#39;,
+ &#39;soil liquid water + ice in top 10cm of soil (veg landunits only)&#39;,
+ &#39;urban daily minimum of average 2-m temperature&#39;,
+ &#39;urban daily maximum of average 2-m temperature&#39;,
+ &#39;soil liquid water (vegetated landunits only)&#39;,
+ &#39;dissolved inorganic carbon&#39;,
+ &#39;dissolved organic carbon&#39;,
+ &#39;freshwater flux&#39;,
+ &#39;mixed-layer depth&#39;,
+ &#39;dissolved oxygen&#39;,
+ &#39;potential density ref to surface&#39;,
+ &#39;internal ocean heat flux due to ice formation; heat of fusion &gt; 0 or ice-melting potential &lt; 0&#39;,
+ &#39;solar short-wave heat flux in bndry layer&#39;,
+ &#39;solar short-wave heat flux in top layer&#39;,
+ &#39;free-surface residual flux (s)&#39;,
+ &#39;salinity&#39;,
+ &#39;virtual salt flux in fw flux formulation&#39;,
+ &#39;virtual salt flux due to weak restoring&#39;,
+ &#39;total surface heat flux, including sw&#39;,
+ &#39;solar short-wave heat flux&#39;,
+ &#39;sea surface height&#39;,
+ &#39;potential temperature&#39;,
+ &#39;windstress in grid-x direction&#39;,
+ &#39;windstress**2 in grid-x direction&#39;,
+ &#39;windstress in grid-y direction&#39;,
+ &#39;windstress**2 in grid-y direction&#39;,
+ &#39;salt flux in grid-x direction&#39;,
+ &#39;flux of heat in grid-x direction&#39;,
+ &#39;velocity in grid-x direction&#39;,
+ &#39;salt flux in grid-y direction&#39;,
+ &#39;flux of heat in grid-y direction&#39;,
+ &#39;velocity in grid-y direction&#39;,
+ &#39;salt flux across top face&#39;,
+ &#39;heat flux across top face&#39;,
+ &#39;vertical velocity&#39;]
 </pre></div>
 </div>
 </div>
@@ -639,20 +1011,14 @@ catalog by looking at the underlying dataframe created when we load the catalog:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Let&#39;s look at the different experiments that are available:</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">unique</span><span class="p">[</span><span class="s1">&#39;experiment&#39;</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;unique&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;20C&#39;, &#39;CTRL&#39;, &#39;HIST&#39;, &#39;RCP85&#39;]
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="search-for-specific-datasets">
-<h2>Search for specific datasets<a class="headerlink" href="#search-for-specific-datasets" title="Link to this heading">#</a></h2>
+<h2>Search for specific datasets<a class="headerlink" href="#search-for-specific-datasets" title="Permalink to this heading">#</a></h2>
 <p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code> method allows the user to
 perform a query on a catalog using keyword arguments. The keyword argument names
 must match column names in the catalog. The search method returns a
@@ -679,19 +1045,79 @@ subset of the catalog with all the entries that match the provided query.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cat_subset</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">experiment</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CTRL&quot;</span><span class="p">,</span><span class="s2">&quot;20C&quot;</span><span class="p">,</span><span class="s2">&quot;HIST&quot;</span><span class="p">,</span> <span class="s2">&quot;RCP85&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sea level pressure&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">cat_subset</span>
+<div class="output text_html"><p><strong>aws-cesm1-le catalog with 11 dataset(s) from 11 asset(s)</strong>:</p> <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;cat&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>variable</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>long_name</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>component</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>experiment</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>frequency</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>vertical_levels</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>spatial_domain</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>units</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>start_time</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>end_time</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>path</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>derived_variable</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -700,20 +1126,200 @@ subset of the catalog with all the entries that match the provided query.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cat_subset</span><span class="o">.</span><span class="n">df</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;cat_subset&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable</th>
+      <th>long_name</th>
+      <th>component</th>
+      <th>experiment</th>
+      <th>frequency</th>
+      <th>vertical_levels</th>
+      <th>spatial_domain</th>
+      <th>units</th>
+      <th>start_time</th>
+      <th>end_time</th>
+      <th>path</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>20C</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>1920-01-01 12:00:00</td>
+      <td>2005-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-20C-PSL.zarr</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>CTRL</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>0402-01-01 12:00:00</td>
+      <td>2200-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-CTRL-PSL....</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>HIST</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>1850-01-01 12:00:00</td>
+      <td>1919-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-HIST-PSL....</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>RCP85</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>2006-01-01 12:00:00</td>
+      <td>2100-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-RCP85-PSL...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>20C</td>
+      <td>hourly6-1990-2005</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>1990-01-01 00:00:00</td>
+      <td>2006-01-01 00:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/hourly6-1990-2005/cesm...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>RCP85</td>
+      <td>hourly6-2026-2035</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>2026-01-01 00:00:00</td>
+      <td>2036-01-01 00:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/hourly6-2026-2035/cesm...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>RCP85</td>
+      <td>hourly6-2071-2080</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>2071-01-01 00:00:00</td>
+      <td>2081-01-01 00:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/hourly6-2071-2080/cesm...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>20C</td>
+      <td>monthly</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>1920-01-16 12:00:00</td>
+      <td>2005-12-16 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/monthly/cesmLE-20C-PSL...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>CTRL</td>
+      <td>monthly</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>0400-01-16 12:00:00</td>
+      <td>2200-12-16 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/monthly/cesmLE-CTRL-PS...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>HIST</td>
+      <td>monthly</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>1850-01-16 12:00:00</td>
+      <td>1919-12-16 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/monthly/cesmLE-HIST-PS...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>RCP85</td>
+      <td>monthly</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>2006-01-16 12:00:00</td>
+      <td>2100-12-16 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/monthly/cesmLE-RCP85-P...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>We can see that sea level pressure uses the variable name ‘PSL’ (‘pressure sea level’). We can also see that this variable is available on 3 different time frequencies: daily, 6-hourly (hourly6) and monthly averages</p>
 </section>
 <section id="explore-the-catalog-cesm-lens2">
-<h2>Explore the catalog - CESM LENS2<a class="headerlink" href="#explore-the-catalog-cesm-lens2" title="Link to this heading">#</a></h2>
+<h2>Explore the catalog - CESM LENS2<a class="headerlink" href="#explore-the-catalog-cesm-lens2" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url2</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/NCAR/cesm2-le-aws/main/intake-catalogs/aws-cesm2-le.json&quot;</span>
@@ -723,17 +1329,83 @@ subset of the catalog with all the entries that match the provided query.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">url2</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/NCAR/cesm2-le-aws/main/intake-catalogs/aws-cesm2-le.json&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">cat2</span> <span class="o">=</span> <span class="n">intake</span><span class="o">.</span><span class="n">open_esm_datastore</span><span class="p">(</span><span class="n">url2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">cat2</span>
+<div class="output text_html"><p><strong>aws-cesm2-le catalog with 40 dataset(s) from 322 asset(s)</strong>:</p> <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;intake&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>variable</th>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>long_name</th>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>component</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>experiment</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>forcing_variant</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>frequency</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>vertical_levels</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>spatial_domain</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>units</th>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>start_time</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>end_time</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>path</th>
+      <td>313</td>
+    </tr>
+    <tr>
+      <th>derived_variable</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -742,15 +1414,208 @@ subset of the catalog with all the entries that match the provided query.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cat2</span><span class="o">.</span><span class="n">df</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;cat2&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable</th>
+      <th>long_name</th>
+      <th>component</th>
+      <th>experiment</th>
+      <th>forcing_variant</th>
+      <th>frequency</th>
+      <th>vertical_levels</th>
+      <th>spatial_domain</th>
+      <th>units</th>
+      <th>start_time</th>
+      <th>end_time</th>
+      <th>path</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>FLNS</td>
+      <td>net longwave flux at surface</td>
+      <td>atm</td>
+      <td>historical</td>
+      <td>cmip6</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1850-01-01 12:00:00</td>
+      <td>2014-12-31 12:00:00</td>
+      <td>s3://ncar-cesm2-lens/atm/daily/cesm2LE-histori...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>FLNSC</td>
+      <td>clearsky net longwave flux at surface</td>
+      <td>atm</td>
+      <td>historical</td>
+      <td>cmip6</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1850-01-01 12:00:00</td>
+      <td>2014-12-31 12:00:00</td>
+      <td>s3://ncar-cesm2-lens/atm/daily/cesm2LE-histori...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>FLUT</td>
+      <td>upwelling longwave flux at top of model</td>
+      <td>atm</td>
+      <td>historical</td>
+      <td>cmip6</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1850-01-01 12:00:00</td>
+      <td>2014-12-31 12:00:00</td>
+      <td>s3://ncar-cesm2-lens/atm/daily/cesm2LE-histori...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>FSNS</td>
+      <td>net solar flux at surface</td>
+      <td>atm</td>
+      <td>historical</td>
+      <td>cmip6</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1850-01-01 12:00:00</td>
+      <td>2014-12-31 12:00:00</td>
+      <td>s3://ncar-cesm2-lens/atm/daily/cesm2LE-histori...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>FSNSC</td>
+      <td>clearsky net solar flux at surface</td>
+      <td>atm</td>
+      <td>historical</td>
+      <td>cmip6</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1850-01-01 12:00:00</td>
+      <td>2014-12-31 12:00:00</td>
+      <td>s3://ncar-cesm2-lens/atm/daily/cesm2LE-histori...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>317</th>
+      <td>WVEL</td>
+      <td>vertical velocity</td>
+      <td>ocn</td>
+      <td>ssp370</td>
+      <td>smbb</td>
+      <td>monthly</td>
+      <td>60.0</td>
+      <td>global_ocean</td>
+      <td>centimeter/s</td>
+      <td>2015-01-16 12:00:00</td>
+      <td>2100-12-16 12:00:00</td>
+      <td>s3://ncar-cesm2-lens/ocn/monthly/cesm2LE-ssp37...</td>
+    </tr>
+    <tr>
+      <th>318</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ocn</td>
+      <td>historical</td>
+      <td>smbb</td>
+      <td>static</td>
+      <td>NaN</td>
+      <td>global_ocean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>s3://ncar-cesm2-lens/ocn/static/grid.zarr</td>
+    </tr>
+    <tr>
+      <th>319</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ocn</td>
+      <td>historical</td>
+      <td>cmip6</td>
+      <td>static</td>
+      <td>NaN</td>
+      <td>global_ocean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>s3://ncar-cesm2-lens/ocn/static/grid.zarr</td>
+    </tr>
+    <tr>
+      <th>320</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ocn</td>
+      <td>ssp370</td>
+      <td>smbb</td>
+      <td>static</td>
+      <td>NaN</td>
+      <td>global_ocean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>s3://ncar-cesm2-lens/ocn/static/grid.zarr</td>
+    </tr>
+    <tr>
+      <th>321</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ocn</td>
+      <td>ssp370</td>
+      <td>cmip6</td>
+      <td>static</td>
+      <td>NaN</td>
+      <td>global_ocean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>s3://ncar-cesm2-lens/ocn/static/grid.zarr</td>
+    </tr>
+  </tbody>
+</table>
+<p>322 rows × 12 columns</p>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -760,13 +1625,20 @@ subset of the catalog with all the entries that match the provided query.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">unique2</span> <span class="o">=</span> <span class="n">cat2</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">unique2</span>
-
-<span class="ne">NameError</span>: name &#39;cat2&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>variable            [FLNS, FLNSC, FLUT, FSNS, FSNSC, LHFLX, PRECC,...
+long_name           [net longwave flux at surface, clearsky net lo...
+component                                        [atm, ice, lnd, ocn]
+experiment                                       [historical, ssp370]
+forcing_variant                                         [cmip6, smbb]
+frequency                                    [daily, monthly, static]
+vertical_levels                                     [1.0, 32.0, 60.0]
+spatial_domain                    [global, global_ocean, global_land]
+units               [W/m2, m/s, Pa, kg/kg, K, kg/m2, m, fraction, ...
+start_time          [1850-01-01 12:00:00, 2015-01-01 12:00:00, 185...
+end_time            [2014-12-31 12:00:00, 2015-01-01 12:00:00, 210...
+path                [s3://ncar-cesm2-lens/atm/daily/cesm2LE-histor...
+derived_variable                                                   []
+dtype: object
 </pre></div>
 </div>
 </div>
@@ -780,14 +1652,57 @@ subset of the catalog with all the entries that match the provided query.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># If you don&#39;t know the shorthand for the variable you&#39;re interested in, we can look </span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># at the &quot;long_name&quot; instead, which is a more descriptive version of the variable name:</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">unique2</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;unique2&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;net longwave flux at surface&#39;,
+ &#39;clearsky net longwave flux at surface&#39;,
+ &#39;upwelling longwave flux at top of model&#39;,
+ &#39;net solar flux at surface&#39;,
+ &#39;clearsky net solar flux at surface&#39;,
+ &#39;surface latent heat flux&#39;,
+ &#39;convective precipitation rate (liq + ice)&#39;,
+ &#39;large-scale (stable) precipitation rate (liq + ice)&#39;,
+ &#39;convective snow rate (water equivalent)&#39;,
+ &#39;large-scale (stable) snow rate (water equivalent)&#39;,
+ &#39;surface pressure&#39;,
+ &#39;sea level pressure&#39;,
+ &#39;specific humidity&#39;,
+ &#39;surface sensible heat flux&#39;,
+ &#39;temperature&#39;,
+ &#39;total (vertically integrated) precipitable water&#39;,
+ &#39;reference height temperature&#39;,
+ &#39;minimum reference height temperature over output period&#39;,
+ &#39;maximum reference height temperature over output period&#39;,
+ &#39;surface temperature (radiative)&#39;,
+ &#39;zonal wind&#39;,
+ &#39;meridional wind&#39;,
+ &#39;geopotential height (above sea level)&#39;,
+ &#39;net solar flux at top of atmosphere&#39;,
+ &#39;fraction of sfc area covered by sea-ice&#39;,
+ &#39;ice area  (aggregate)&#39;,
+ &#39;grid cell mean ice thickness&#39;,
+ &#39;fraction of ground covered by snow&#39;,
+ &#39;snow depth (liquid water)&#39;,
+ &#39;net primary production&#39;,
+ &#39;total liquid runoff not including correction for land use change&#39;,
+ &#39;atmospheric rain, after rain/snow repartitioning based on temperature&#39;,
+ &#39;atmospheric snow, after rain/snow repartitioning based on temperature&#39;,
+ &#39;soil liquid water + ice in top 10cm of soil (veg landunits only)&#39;,
+ &#39;daily maximum of average 2-m temperature&#39;,
+ &#39;soil liquid water (vegetated landunits only)&#39;,
+ &#39;dissolved inorganic carbon&#39;,
+ &#39;dissolved oxygen&#39;,
+ &#39;salinity&#39;,
+ &#39;potential temperature&#39;,
+ &#39;salt flux in grid-x direction&#39;,
+ &#39;velocity in grid-x direction&#39;,
+ &#39;salt flux in grid-y direction&#39;,
+ &#39;flux of heat in grid-y direction&#39;,
+ &#39;heat flux across top face&#39;,
+ &#39;vertical velocity&#39;,
+ &#39;dissolved organic carbon&#39;,
+ &#39;flux of heat in grid-x direction&#39;,
+ &#39;potential density ref to surface&#39;,
+ &#39;velocity in grid-y direction&#39;,
+ &#39;salt flux across top face&#39;]
 </pre></div>
 </div>
 </div>
@@ -804,23 +1719,87 @@ subset of the catalog with all the entries that match the provided query.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cat_subset2</span> <span class="o">=</span> <span class="n">cat2</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">experiment</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;historical&quot;</span><span class="p">,</span><span class="s2">&quot;ssp370&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sea level pressure&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">cat_subset2</span>
+<div class="output text_html"><p><strong>aws-cesm2-le catalog with 8 dataset(s) from 8 asset(s)</strong>:</p> <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;cat2&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>variable</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>long_name</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>component</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>experiment</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>forcing_variant</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>frequency</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>vertical_levels</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>spatial_domain</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>units</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>start_time</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>end_time</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>path</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>derived_variable</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="load-datasets-using-to-dataset-dict">
-<h2>Load datasets using <code class="docutils literal notranslate"><span class="pre">to_dataset_dict()</span></code><a class="headerlink" href="#load-datasets-using-to-dataset-dict" title="Link to this heading">#</a></h2>
+<h2>Load datasets using <code class="docutils literal notranslate"><span class="pre">to_dataset_dict()</span></code><a class="headerlink" href="#load-datasets-using-to-dataset-dict" title="Permalink to this heading">#</a></h2>
 <p>Intake-esm implements convenience utilities for loading the query results into
 higher level xarray datasets. The logic for merging/concatenating the query
 results into higher level xarray datasets is provided in the input JSON file and
@@ -832,12 +1811,7 @@ is available under <code class="docutils literal notranslate"><span class="pre">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cat</span><span class="o">.</span><span class="n">esmcat</span><span class="o">.</span><span class="n">aggregation_control</span>
-
-<span class="ne">NameError</span>: name &#39;cat&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AggregationControl(variable_column_name=&#39;variable&#39;, groupby_attrs=[&#39;component&#39;, &#39;experiment&#39;, &#39;frequency&#39;], aggregations=[Aggregation(type=&lt;AggregationType.union: &#39;union&#39;&gt;, attribute_name=&#39;variable&#39;, options={&#39;compat&#39;: &#39;override&#39;})])
 </pre></div>
 </div>
 </div>
@@ -853,13 +1827,253 @@ returns a dictionary of aggregate xarray datasets as the name hints.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># For loading CESM LENS1:</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dset_dict</span> <span class="o">=</span> <span class="n">cat_subset</span><span class="o">.</span><span class="n">to_dataset_dict</span><span class="p">(</span><span class="n">zarr_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;consolidated&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span> <span class="n">storage_options</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;anon&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--&gt; The keys in the returned dictionary of datasets are constructed as follows:
+	&#39;component.experiment.frequency&#39;
+</pre></div>
+</div>
+<div class="output text_html">
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div><div class="output text_html">
+    <div>
+      <progress value='0' class='' max='11' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      0.00% [0/11 00:00&lt;?]
+    </div>
+    </div><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+ModuleNotFoundError                       Traceback (most recent call last)
+File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/registry.py:246, in get_filesystem_class(protocol)
+    245 try:
+--&gt; 246     register_implementation(protocol, _import_class(bit[&quot;class&quot;]))
+    247 except ImportError as e:
 
-<span class="ne">NameError</span>: name &#39;cat_subset&#39; is not defined
+File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/registry.py:281, in _import_class(fqp)
+    280 is_s3 = mod == &quot;s3fs&quot;
+--&gt; 281 mod = importlib.import_module(mod)
+    282 if is_s3 and mod.__version__.split(&quot;.&quot;) &lt; [&quot;0&quot;, &quot;5&quot;]:
+
+File ~/mini310/envs/e440/lib/python3.10/importlib/__init__.py:126, in import_module(name, package)
+    125         level += 1
+--&gt; 126 return _bootstrap._gcd_import(name[level:], package, level)
+
+File &lt;frozen importlib._bootstrap&gt;:1050, in _gcd_import(name, package, level)
+
+File &lt;frozen importlib._bootstrap&gt;:1027, in _find_and_load(name, import_)
+
+File &lt;frozen importlib._bootstrap&gt;:1004, in _find_and_load_unlocked(name, import_)
+
+ModuleNotFoundError: No module named &#39;s3fs&#39;
+
+The above exception was the direct cause of the following exception:
+
+ImportError                               Traceback (most recent call last)
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:244, in ESMDataSource._open_dataset(self)
+    223 datasets = [
+    224     _open_dataset(
+    225         record[self.path_column_name],
+   (...)
+    241     for _, record in self.df.iterrows()
+    242 ]
+--&gt; 244 datasets = dask.compute(*datasets)
+    245 if len(datasets) == 1:
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/dask/base.py:660, in compute(traverse, optimize_graph, scheduler, get, *args, **kwargs)
+    659 with shorten_traceback():
+--&gt; 660     results = schedule(dsk, keys, **kwargs)
+    662 return repack([f(r, *a) for r, (f, a) in zip(results, postcomputes)])
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:77, in _open_dataset(urlpath, varname, xarray_open_kwargs, preprocess, requested_variables, additional_attrs, expand_dims, data_format, storage_options)
+     76 else:
+---&gt; 77     ds = xr.open_dataset(url, **xarray_open_kwargs)
+     78     if preprocess is not None:
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/xarray/backends/api.py:570, in open_dataset(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)
+    569 overwrite_encoded_chunks = kwargs.pop(&quot;overwrite_encoded_chunks&quot;, None)
+--&gt; 570 backend_ds = backend.open_dataset(
+    571     filename_or_obj,
+    572     drop_variables=drop_variables,
+    573     **decoders,
+    574     **kwargs,
+    575 )
+    576 ds = _dataset_from_backend_dataset(
+    577     backend_ds,
+    578     filename_or_obj,
+   (...)
+    588     **kwargs,
+    589 )
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/xarray/backends/zarr.py:934, in ZarrBackendEntrypoint.open_dataset(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, synchronizer, consolidated, chunk_store, storage_options, stacklevel, zarr_version)
+    933 filename_or_obj = _normalize_path(filename_or_obj)
+--&gt; 934 store = ZarrStore.open_group(
+    935     filename_or_obj,
+    936     group=group,
+    937     mode=mode,
+    938     synchronizer=synchronizer,
+    939     consolidated=consolidated,
+    940     consolidate_on_close=False,
+    941     chunk_store=chunk_store,
+    942     storage_options=storage_options,
+    943     stacklevel=stacklevel + 1,
+    944     zarr_version=zarr_version,
+    945 )
+    947 store_entrypoint = StoreBackendEntrypoint()
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/xarray/backends/zarr.py:450, in ZarrStore.open_group(cls, store, mode, synchronizer, group, consolidated, consolidate_on_close, chunk_store, storage_options, append_dim, write_region, safe_chunks, stacklevel, zarr_version)
+    448 elif consolidated:
+    449     # TODO: an option to pass the metadata_key keyword
+--&gt; 450     zarr_group = zarr.open_consolidated(store, **open_kwargs)
+    451 else:
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/zarr/convenience.py:1343, in open_consolidated(store, metadata_key, mode, **kwargs)
+   1342 zarr_version = kwargs.get(&quot;zarr_version&quot;)
+-&gt; 1343 store = normalize_store_arg(
+   1344     store, storage_options=kwargs.get(&quot;storage_options&quot;), mode=mode, zarr_version=zarr_version
+   1345 )
+   1346 if mode not in {&quot;r&quot;, &quot;r+&quot;}:
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/zarr/storage.py:201, in normalize_store_arg(store, storage_options, mode, zarr_version)
+    200     raise ValueError(&quot;zarr_version must be either 2 or 3&quot;)
+--&gt; 201 return normalize_store(store, storage_options, mode)
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/zarr/storage.py:171, in _normalize_store_arg_v2(store, storage_options, mode)
+    170 if &quot;://&quot; in store or &quot;::&quot; in store:
+--&gt; 171     return FSStore(store, mode=mode, **(storage_options or {}))
+    172 elif storage_options:
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/zarr/storage.py:1384, in FSStore.__init__(self, url, normalize_keys, key_separator, mode, exceptions, dimension_separator, fs, check, create, missing_exceptions, **storage_options)
+   1383     storage_options[&quot;auto_mkdir&quot;] = True
+-&gt; 1384 self.map = fsspec.get_mapper(url, **{**mapper_options, **storage_options})
+   1385 self.fs = self.map.fs  # for direct operations
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/mapping.py:249, in get_mapper(url, check, create, missing_exceptions, alternate_root, **kwargs)
+    248 # Removing protocol here - could defer to each open() on the backend
+--&gt; 249 fs, urlpath = url_to_fs(url, **kwargs)
+    250 root = alternate_root if alternate_root is not None else urlpath
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/core.py:403, in url_to_fs(url, **kwargs)
+    402 kwargs = {k: v for k, v in kwargs.items() if k not in known_kwargs}
+--&gt; 403 chain = _un_chain(url, kwargs)
+    404 inkwargs = {}
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/core.py:351, in _un_chain(path, kwargs)
+    350 protocol = kwargs.pop(&quot;protocol&quot;, None) or split_protocol(bit)[0] or &quot;file&quot;
+--&gt; 351 cls = get_filesystem_class(protocol)
+    352 extra_kwargs = cls._get_kwargs_from_urls(bit)
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/registry.py:248, in get_filesystem_class(protocol)
+    247     except ImportError as e:
+--&gt; 248         raise ImportError(bit[&quot;err&quot;]) from e
+    249 cls = registry[protocol]
+
+ImportError: Install s3fs to access S3
+
+The above exception was the direct cause of the following exception:
+
+ESMDataSourceError                        Traceback (most recent call last)
+Cell In[17], line 2
+      1 # For loading CESM LENS1:
+----&gt; 2 dset_dict = cat_subset.to_dataset_dict(zarr_kwargs={&quot;consolidated&quot;: True}, storage_options={&quot;anon&quot;: True})
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/pydantic/_internal/_validate_call.py:38, in update_wrapper_attributes.&lt;locals&gt;.wrapper_function(*args, **kwargs)
+     36 @functools.wraps(wrapped)
+     37 def wrapper_function(*args, **kwargs):
+---&gt; 38     return wrapper(*args, **kwargs)
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/pydantic/_internal/_validate_call.py:111, in ValidateCallWrapper.__call__(self, *args, **kwargs)
+    110 def __call__(self, *args: Any, **kwargs: Any) -&gt; Any:
+--&gt; 111     res = self.__pydantic_validator__.validate_python(pydantic_core.ArgsKwargs(args, kwargs))
+    112     if self.__return_pydantic_validator__:
+    113         return self.__return_pydantic_validator__(res)
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/core.py:686, in esm_datastore.to_dataset_dict(self, xarray_open_kwargs, xarray_combine_by_coords_kwargs, preprocess, storage_options, progressbar, aggregate, skip_on_error, **kwargs)
+    684         except Exception as exc:
+    685             if not skip_on_error:
+--&gt; 686                 raise exc
+    687 self.datasets = self._create_derived_variables(datasets, skip_on_error)
+    688 return self.datasets
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/core.py:682, in esm_datastore.to_dataset_dict(self, xarray_open_kwargs, xarray_combine_by_coords_kwargs, preprocess, storage_options, progressbar, aggregate, skip_on_error, **kwargs)
+    680 for task in gen:
+    681     try:
+--&gt; 682         key, ds = task.result()
+    683         datasets[key] = ds
+    684     except Exception as exc:
+
+File ~/mini310/envs/e440/lib/python3.10/concurrent/futures/_base.py:451, in Future.result(self, timeout)
+    449     raise CancelledError()
+    450 elif self._state == FINISHED:
+--&gt; 451     return self.__get_result()
+    453 self._condition.wait(timeout)
+    455 if self._state in [CANCELLED, CANCELLED_AND_NOTIFIED]:
+
+File ~/mini310/envs/e440/lib/python3.10/concurrent/futures/_base.py:403, in Future.__get_result(self)
+    401 if self._exception:
+    402     try:
+--&gt; 403         raise self._exception
+    404     finally:
+    405         # Break a reference cycle with the exception in self._exception
+    406         self = None
+
+File ~/mini310/envs/e440/lib/python3.10/concurrent/futures/thread.py:58, in _WorkItem.run(self)
+     55     return
+     57 try:
+---&gt; 58     result = self.fn(*self.args, **self.kwargs)
+     59 except BaseException as exc:
+     60     self.future.set_exception(exc)
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/core.py:833, in _load_source(key, source)
+    832 def _load_source(key, source):
+--&gt; 833     return key, source.to_dask()
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:272, in ESMDataSource.to_dask(self)
+    270 def to_dask(self):
+    271     &quot;&quot;&quot;Return xarray object (which will have chunks)&quot;&quot;&quot;
+--&gt; 272     self._load_metadata()
+    273     return self._ds
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake/source/base.py:283, in DataSourceBase._load_metadata(self)
+    281 &quot;&quot;&quot;load metadata only if needed&quot;&quot;&quot;
+    282 if self._schema is None:
+--&gt; 283     self._schema = self._get_schema()
+    284     self.dtype = self._schema.dtype
+    285     self.shape = self._schema.shape
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:208, in ESMDataSource._get_schema(self)
+    206 def _get_schema(self) -&gt; Schema:
+    207     if self._ds is None:
+--&gt; 208         self._open_dataset()
+    209         metadata: dict[str, typing.Any] = {&#39;dims&#39;: {}, &#39;data_vars&#39;: {}, &#39;coords&#39;: ()}
+    210         self._schema = Schema(
+    211             datashape=None,
+    212             dtype=None,
+   (...)
+    215             extra_metadata=metadata,
+    216         )
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:264, in ESMDataSource._open_dataset(self)
+    261     self._ds.attrs[OPTIONS[&#39;dataset_key&#39;]] = self.key
+    263 except Exception as exc:
+--&gt; 264     raise ESMDataSourceError(
+    265         f&quot;&quot;&quot;Failed to load dataset with key=&#39;{self.key}&#39;
+    266          You can use `cat[&#39;{self.key}&#39;].df` to inspect the assets/files for this key.
+    267          &quot;&quot;&quot;
+    268     ) from exc
+
+ESMDataSourceError: Failed to load dataset with key=&#39;atm.HIST.daily&#39;
+                 You can use `cat[&#39;atm.HIST.daily&#39;].df` to inspect the assets/files for this key.
+                 
 </pre></div>
 </div>
 </div>
@@ -971,7 +2185,7 @@ returns a dictionary of aggregate xarray datasets as the name hints.</p>
 </div>
 <p>There are now no separate ensemble members: this is just one long control simulation of 21612/12 = 1801 years! In this case, the forcing (approximating pre-industrial forcing) is constant over time, unlike in the 20th century simulations, where the forcing changes with time. Think about why this means that it’s reasonable to run a single 1801-year simulation for the control simulation, but necessary to have multiple ensemble members for the 20th century simulations.</p>
 <section id="for-cesm-lens2">
-<h3>For CESM LENS2<a class="headerlink" href="#for-cesm-lens2" title="Link to this heading">#</a></h3>
+<h3>For CESM LENS2<a class="headerlink" href="#for-cesm-lens2" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat2</span><span class="o">.</span><span class="n">esmcat</span><span class="o">.</span><span class="n">aggregation_control</span>
@@ -979,12 +2193,7 @@ returns a dictionary of aggregate xarray datasets as the name hints.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cat2</span><span class="o">.</span><span class="n">esmcat</span><span class="o">.</span><span class="n">aggregation_control</span>
-
-<span class="ne">NameError</span>: name &#39;cat2&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AggregationControl(variable_column_name=&#39;variable&#39;, groupby_attrs=[&#39;component&#39;, &#39;experiment&#39;, &#39;frequency&#39;, &#39;forcing_variant&#39;], aggregations=[Aggregation(type=&lt;AggregationType.union: &#39;union&#39;&gt;, attribute_name=&#39;variable&#39;, options={&#39;compat&#39;: &#39;override&#39;})])
 </pre></div>
 </div>
 </div>
@@ -999,15 +2208,255 @@ returns a dictionary of aggregate xarray datasets as the name hints.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">## For CESM LENS2:</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dset_dict2</span> <span class="o">=</span> <span class="n">cat_subset2</span><span class="o">.</span><span class="n">to_dataset_dict</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">xarray_open_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;consolidated&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;decode_times&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span> <span class="n">storage_options</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;anon&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--&gt; The keys in the returned dictionary of datasets are constructed as follows:
+	&#39;component.experiment.frequency.forcing_variant&#39;
+</pre></div>
+</div>
+<div class="output text_html">
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div><div class="output text_html">
+    <div>
+      <progress value='0' class='' max='8' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      0.00% [0/8 00:00&lt;?]
+    </div>
+    </div><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+ModuleNotFoundError                       Traceback (most recent call last)
+File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/registry.py:246, in get_filesystem_class(protocol)
+    245 try:
+--&gt; 246     register_implementation(protocol, _import_class(bit[&quot;class&quot;]))
+    247 except ImportError as e:
 
-<span class="ne">NameError</span>: name &#39;cat_subset2&#39; is not defined
+File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/registry.py:281, in _import_class(fqp)
+    280 is_s3 = mod == &quot;s3fs&quot;
+--&gt; 281 mod = importlib.import_module(mod)
+    282 if is_s3 and mod.__version__.split(&quot;.&quot;) &lt; [&quot;0&quot;, &quot;5&quot;]:
+
+File ~/mini310/envs/e440/lib/python3.10/importlib/__init__.py:126, in import_module(name, package)
+    125         level += 1
+--&gt; 126 return _bootstrap._gcd_import(name[level:], package, level)
+
+File &lt;frozen importlib._bootstrap&gt;:1050, in _gcd_import(name, package, level)
+
+File &lt;frozen importlib._bootstrap&gt;:1027, in _find_and_load(name, import_)
+
+File &lt;frozen importlib._bootstrap&gt;:1004, in _find_and_load_unlocked(name, import_)
+
+ModuleNotFoundError: No module named &#39;s3fs&#39;
+
+The above exception was the direct cause of the following exception:
+
+ImportError                               Traceback (most recent call last)
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:244, in ESMDataSource._open_dataset(self)
+    223 datasets = [
+    224     _open_dataset(
+    225         record[self.path_column_name],
+   (...)
+    241     for _, record in self.df.iterrows()
+    242 ]
+--&gt; 244 datasets = dask.compute(*datasets)
+    245 if len(datasets) == 1:
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/dask/base.py:660, in compute(traverse, optimize_graph, scheduler, get, *args, **kwargs)
+    659 with shorten_traceback():
+--&gt; 660     results = schedule(dsk, keys, **kwargs)
+    662 return repack([f(r, *a) for r, (f, a) in zip(results, postcomputes)])
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:77, in _open_dataset(urlpath, varname, xarray_open_kwargs, preprocess, requested_variables, additional_attrs, expand_dims, data_format, storage_options)
+     76 else:
+---&gt; 77     ds = xr.open_dataset(url, **xarray_open_kwargs)
+     78     if preprocess is not None:
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/xarray/backends/api.py:570, in open_dataset(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)
+    569 overwrite_encoded_chunks = kwargs.pop(&quot;overwrite_encoded_chunks&quot;, None)
+--&gt; 570 backend_ds = backend.open_dataset(
+    571     filename_or_obj,
+    572     drop_variables=drop_variables,
+    573     **decoders,
+    574     **kwargs,
+    575 )
+    576 ds = _dataset_from_backend_dataset(
+    577     backend_ds,
+    578     filename_or_obj,
+   (...)
+    588     **kwargs,
+    589 )
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/xarray/backends/zarr.py:934, in ZarrBackendEntrypoint.open_dataset(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, synchronizer, consolidated, chunk_store, storage_options, stacklevel, zarr_version)
+    933 filename_or_obj = _normalize_path(filename_or_obj)
+--&gt; 934 store = ZarrStore.open_group(
+    935     filename_or_obj,
+    936     group=group,
+    937     mode=mode,
+    938     synchronizer=synchronizer,
+    939     consolidated=consolidated,
+    940     consolidate_on_close=False,
+    941     chunk_store=chunk_store,
+    942     storage_options=storage_options,
+    943     stacklevel=stacklevel + 1,
+    944     zarr_version=zarr_version,
+    945 )
+    947 store_entrypoint = StoreBackendEntrypoint()
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/xarray/backends/zarr.py:450, in ZarrStore.open_group(cls, store, mode, synchronizer, group, consolidated, consolidate_on_close, chunk_store, storage_options, append_dim, write_region, safe_chunks, stacklevel, zarr_version)
+    448 elif consolidated:
+    449     # TODO: an option to pass the metadata_key keyword
+--&gt; 450     zarr_group = zarr.open_consolidated(store, **open_kwargs)
+    451 else:
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/zarr/convenience.py:1343, in open_consolidated(store, metadata_key, mode, **kwargs)
+   1342 zarr_version = kwargs.get(&quot;zarr_version&quot;)
+-&gt; 1343 store = normalize_store_arg(
+   1344     store, storage_options=kwargs.get(&quot;storage_options&quot;), mode=mode, zarr_version=zarr_version
+   1345 )
+   1346 if mode not in {&quot;r&quot;, &quot;r+&quot;}:
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/zarr/storage.py:201, in normalize_store_arg(store, storage_options, mode, zarr_version)
+    200     raise ValueError(&quot;zarr_version must be either 2 or 3&quot;)
+--&gt; 201 return normalize_store(store, storage_options, mode)
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/zarr/storage.py:171, in _normalize_store_arg_v2(store, storage_options, mode)
+    170 if &quot;://&quot; in store or &quot;::&quot; in store:
+--&gt; 171     return FSStore(store, mode=mode, **(storage_options or {}))
+    172 elif storage_options:
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/zarr/storage.py:1384, in FSStore.__init__(self, url, normalize_keys, key_separator, mode, exceptions, dimension_separator, fs, check, create, missing_exceptions, **storage_options)
+   1383     storage_options[&quot;auto_mkdir&quot;] = True
+-&gt; 1384 self.map = fsspec.get_mapper(url, **{**mapper_options, **storage_options})
+   1385 self.fs = self.map.fs  # for direct operations
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/mapping.py:249, in get_mapper(url, check, create, missing_exceptions, alternate_root, **kwargs)
+    248 # Removing protocol here - could defer to each open() on the backend
+--&gt; 249 fs, urlpath = url_to_fs(url, **kwargs)
+    250 root = alternate_root if alternate_root is not None else urlpath
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/core.py:403, in url_to_fs(url, **kwargs)
+    402 kwargs = {k: v for k, v in kwargs.items() if k not in known_kwargs}
+--&gt; 403 chain = _un_chain(url, kwargs)
+    404 inkwargs = {}
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/core.py:351, in _un_chain(path, kwargs)
+    350 protocol = kwargs.pop(&quot;protocol&quot;, None) or split_protocol(bit)[0] or &quot;file&quot;
+--&gt; 351 cls = get_filesystem_class(protocol)
+    352 extra_kwargs = cls._get_kwargs_from_urls(bit)
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/registry.py:248, in get_filesystem_class(protocol)
+    247     except ImportError as e:
+--&gt; 248         raise ImportError(bit[&quot;err&quot;]) from e
+    249 cls = registry[protocol]
+
+ImportError: Install s3fs to access S3
+
+The above exception was the direct cause of the following exception:
+
+ESMDataSourceError                        Traceback (most recent call last)
+Cell In[24], line 2
+      1 ## For CESM LENS2:
+----&gt; 2 dset_dict2 = cat_subset2.to_dataset_dict(
+      3     xarray_open_kwargs={&quot;consolidated&quot;: True, &quot;decode_times&quot;: True}, storage_options={&quot;anon&quot;: True}
+      4 )
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/pydantic/_internal/_validate_call.py:38, in update_wrapper_attributes.&lt;locals&gt;.wrapper_function(*args, **kwargs)
+     36 @functools.wraps(wrapped)
+     37 def wrapper_function(*args, **kwargs):
+---&gt; 38     return wrapper(*args, **kwargs)
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/pydantic/_internal/_validate_call.py:111, in ValidateCallWrapper.__call__(self, *args, **kwargs)
+    110 def __call__(self, *args: Any, **kwargs: Any) -&gt; Any:
+--&gt; 111     res = self.__pydantic_validator__.validate_python(pydantic_core.ArgsKwargs(args, kwargs))
+    112     if self.__return_pydantic_validator__:
+    113         return self.__return_pydantic_validator__(res)
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/core.py:686, in esm_datastore.to_dataset_dict(self, xarray_open_kwargs, xarray_combine_by_coords_kwargs, preprocess, storage_options, progressbar, aggregate, skip_on_error, **kwargs)
+    684         except Exception as exc:
+    685             if not skip_on_error:
+--&gt; 686                 raise exc
+    687 self.datasets = self._create_derived_variables(datasets, skip_on_error)
+    688 return self.datasets
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/core.py:682, in esm_datastore.to_dataset_dict(self, xarray_open_kwargs, xarray_combine_by_coords_kwargs, preprocess, storage_options, progressbar, aggregate, skip_on_error, **kwargs)
+    680 for task in gen:
+    681     try:
+--&gt; 682         key, ds = task.result()
+    683         datasets[key] = ds
+    684     except Exception as exc:
+
+File ~/mini310/envs/e440/lib/python3.10/concurrent/futures/_base.py:451, in Future.result(self, timeout)
+    449     raise CancelledError()
+    450 elif self._state == FINISHED:
+--&gt; 451     return self.__get_result()
+    453 self._condition.wait(timeout)
+    455 if self._state in [CANCELLED, CANCELLED_AND_NOTIFIED]:
+
+File ~/mini310/envs/e440/lib/python3.10/concurrent/futures/_base.py:403, in Future.__get_result(self)
+    401 if self._exception:
+    402     try:
+--&gt; 403         raise self._exception
+    404     finally:
+    405         # Break a reference cycle with the exception in self._exception
+    406         self = None
+
+File ~/mini310/envs/e440/lib/python3.10/concurrent/futures/thread.py:58, in _WorkItem.run(self)
+     55     return
+     57 try:
+---&gt; 58     result = self.fn(*self.args, **self.kwargs)
+     59 except BaseException as exc:
+     60     self.future.set_exception(exc)
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/core.py:833, in _load_source(key, source)
+    832 def _load_source(key, source):
+--&gt; 833     return key, source.to_dask()
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:272, in ESMDataSource.to_dask(self)
+    270 def to_dask(self):
+    271     &quot;&quot;&quot;Return xarray object (which will have chunks)&quot;&quot;&quot;
+--&gt; 272     self._load_metadata()
+    273     return self._ds
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake/source/base.py:283, in DataSourceBase._load_metadata(self)
+    281 &quot;&quot;&quot;load metadata only if needed&quot;&quot;&quot;
+    282 if self._schema is None:
+--&gt; 283     self._schema = self._get_schema()
+    284     self.dtype = self._schema.dtype
+    285     self.shape = self._schema.shape
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:208, in ESMDataSource._get_schema(self)
+    206 def _get_schema(self) -&gt; Schema:
+    207     if self._ds is None:
+--&gt; 208         self._open_dataset()
+    209         metadata: dict[str, typing.Any] = {&#39;dims&#39;: {}, &#39;data_vars&#39;: {}, &#39;coords&#39;: ()}
+    210         self._schema = Schema(
+    211             datashape=None,
+    212             dtype=None,
+   (...)
+    215             extra_metadata=metadata,
+    216         )
+
+File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:264, in ESMDataSource._open_dataset(self)
+    261     self._ds.attrs[OPTIONS[&#39;dataset_key&#39;]] = self.key
+    263 except Exception as exc:
+--&gt; 264     raise ESMDataSourceError(
+    265         f&quot;&quot;&quot;Failed to load dataset with key=&#39;{self.key}&#39;
+    266          You can use `cat[&#39;{self.key}&#39;].df` to inspect the assets/files for this key.
+    267          &quot;&quot;&quot;
+    268     ) from exc
+
+ESMDataSourceError: Failed to load dataset with key=&#39;atm.historical.daily.cmip6&#39;
+                 You can use `cat[&#39;atm.historical.daily.cmip6&#39;].df` to inspect the assets/files for this key.
+                 
 </pre></div>
 </div>
 </div>
@@ -1091,7 +2540,7 @@ returns a dictionary of aggregate xarray datasets as the name hints.</p>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">merge_ds</span><span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ds_cmip6</span><span class="p">,</span> <span class="n">ds_smbb</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;member_id&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">merge_ds</span>
 
-<span class="ne">NameError</span>: name &#39;xr&#39; is not defined
+<span class="ne">NameError</span>: name &#39;ds_cmip6&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1182,8 +2631,7 @@ returns a dictionary of aggregate xarray datasets as the name hints.</p>
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1224,7 +2672,7 @@ By Brian Rose
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>
@@ -1248,8 +2696,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

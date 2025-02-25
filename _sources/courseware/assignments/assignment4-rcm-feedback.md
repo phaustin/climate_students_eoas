@@ -1,5 +1,6 @@
 ---
 jupytext:
+  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
@@ -11,7 +12,6 @@ kernelspec:
   name: python3
 ---
 
-(nb:rcm-feedback)=
 # Assignment: Feedbacks in the Radiative-Convective Model
 
 This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](http://www.atmos.albany.edu/facstaff/brose/index.html), University at Albany.
@@ -36,14 +36,14 @@ Here you look at the effects of doubling CO$_2$ in the single-column Radiative-C
 
 *This exercise just repeats what we did in the lecture notes. You want to ensure that you can reproduce the same results before starting the next question, because you will need these results below.*
 
-Following the lecture notes on climate sensitivity, do the following:
+Following the [lecture notes on climate sensitivity](https://brian-rose.github.io/ClimateLaboratoryBook/courseware/sensitivity-feedback.html), do the following:
 
 - set up a single-column radiative-convective model with specific humidity taken from the CESM control simulation
 - Run this control model out to equilibrium
-- Using a clone of the control model, calculate the stratosphere-adjusted radiative forcing $\Delta R$.
-- Using another model clone, timestep the model out to equilibrium **with fixed specific humidity**
-- Calculate the no-feedback Equilibrium Climate Sensitivity (ECS)
-- Also calculate the no-feedback climate response parameter $\lambda_0$
+- Using a clone of the control model, double the atmospheric CO$_2$ and calculate the _stratosphere-adjusted radiative forcing_ $\Delta R$.
+- Using another model clone with doubled CO$_2$, timestep the model out to equilibrium. _For this calculation, do not modify the specific humidity as we are assuming that there is no change in the water vapor distribution as the climate warms._
+- Calculate the no-feedback Equilibrium Climate Sensitivity (ECS). _Recall that this is a number in Kelvin._
+- Also calculate the no-feedback climate response parameter $\lambda_0$ in W m$^{-2}$ K$^{-1}$.
 
 Verify and show that you get the same results as we did in the lecture notes.
 
@@ -57,7 +57,7 @@ Verify and show that you get the same results as we did in the lecture notes.
 
 A typical, expected feature of global warming is that the **upper troposphere warms more than the surface**. (Later we will see that this does occur in the CESM simulations).
 
-This feature is **not represented in our radiative-convective model**, which is forced to a single prescribed lapse rate due to our convective adjustment.
+This feature is **not represented in our standard radiative-convective model**, which is forced to a single prescribed lapse rate due to our convective adjustment.
 
 Here you will suppose that other physical processes modify this lapse rate as the climate warms. 
 
@@ -72,18 +72,21 @@ where $\Gamma_{ref}$ is the critical lapse rate you used in your control model, 
 
 So, for example if the model has warmed by 1 K at the surface, then our parameterization says that the critical lapse rate should be 6.5 - 0.3 = 6.2 K / km.
 
-Follow the example in the lecture notes where we implemented the fixed relative humidity. In addition to adjusting the `specific_humidity` at each timestep, you should also change the attribute
+Follow the example in the lecture notes where we implemented the fixed relative humidity. Remember that we needed to adjust the `specific_humidity` field of our radiation process at every timestep. Here we still need to do that, but in addition, we also need to change the attribute
 
 ```
 adj_lapse_rate
 ```
+
 of the convection process at each timestep.
 
-For example, if you have a model called `mymodel` that contains a `ConvectiveAdjustment` process called `Convection`:
+For example, if you have a model called `mymodel` that contains a `ConvectiveAdjustment` process called `Convection`, here is some code that you would need at every timestep:
 ```
 mymodel.subprocess['Convection'].adj_lapse_rate = newvalue
 ```
-where `newvalue` is a number in K / km.
+where `newvalue` is a number in K / km. 
+
+You will need to write a loop where, at every timestep, you calculate the appropriate value of `newvalue` and set the lapse rate parameter as shown above.
 
 ### Specific questions:
 
@@ -104,14 +107,14 @@ where `newvalue` is a number in K / km.
 
 ____________
 
-## Credits
+## Credits 
 
 This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook), an open-source textbook developed and maintained by [Brian E. J. Rose](http://www.atmos.albany.edu/facstaff/brose/index.html), University at Albany.
 
 It is licensed for free and open consumption under the
 [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
 
-Development of these notes and the [climlab software](https://github.com/brian-rose/climlab) is partially supported by the National Science Foundation under award AGS-1455071 to Brian Rose. Any opinions, findings, conclusions or recommendations expressed here are mine and do not necessarily reflect the views of the National Science Foundation.
+Development of these notes and the [climlab software](https://github.com/climlab/climlab) is partially supported by the National Science Foundation under award AGS-1455071 to Brian Rose. Any opinions, findings, conclusions or recommendations expressed here are mine and do not necessarily reflect the views of the National Science Foundation.
 ____________
 
 ```{code-cell} ipython3
