@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.16.6
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -18,6 +18,9 @@ Link to [slides about project presentations](https://owncloud.eoas.ubc.ca/s/sxjA
 ## Working with model datasets
 
 ### CMIP6
+
+- [xclim](https://xclim.readthedocs.io/en/stable/) -- calculate climate indicators from xarray data
+- [xcdat](https://xcdat.readthedocs.io/en/latest/)  -
 - [Lamont course on earth data](https://earth-env-data-science.github.io/lectures/models/intro_models.html)  -- 4 notebooks on CMIP6 model analysis
 
 - [CMIP6 scenarios](https://climate-scenarios.canada.ca/?page=cmip6-overview-notes) -- model forcing scenarios (shared socio-economic pathways)
@@ -51,4 +54,3 @@ Link to [slides about project presentations](https://owncloud.eoas.ubc.ca/s/sxjA
 - {ref}`resource:intake_esm`
 
 - {ref}`resource:intake_esm_LENS`
-
