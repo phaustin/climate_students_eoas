@@ -20,7 +20,7 @@ Link to [slides about project presentations](https://owncloud.eoas.ubc.ca/s/sxjA
 ### CMIP6
 
 - [xclim](https://xclim.readthedocs.io/en/stable/) -- calculate climate indicators from xarray data
-- [xcdat](https://xcdat.readthedocs.io/en/latest/)  -
+- [xcdat](https://xcdat.readthedocs.io/en/latest/) -- climate analysis toolkit
 - [Lamont course on earth data](https://earth-env-data-science.github.io/lectures/models/intro_models.html)  -- 4 notebooks on CMIP6 model analysis
 
 - [CMIP6 scenarios](https://climate-scenarios.canada.ca/?page=cmip6-overview-notes) -- model forcing scenarios (shared socio-economic pathways)
@@ -51,6 +51,12 @@ Link to [slides about project presentations](https://owncloud.eoas.ubc.ca/s/sxjA
 
 ### EOAS notebooks
 
+- {ref}`tut:historical_data`
+
 - {ref}`resource:intake_esm`
 
 - {ref}`resource:intake_esm_LENS`
+
+```{code-cell} ipython3
+
+```
