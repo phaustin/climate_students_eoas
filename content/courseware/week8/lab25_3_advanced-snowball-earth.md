@@ -5,9 +5,9 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.11.0
+    jupytext_version: 1.16.6
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -56,7 +56,7 @@ First, some information on the nomenclature for Earth history:
 
 +++
 
-<img src='../images/GeoTimeScale2009.png'>
+<img src='./GeoTimeScale2009.png'>
 
 Source: Walker, J. and Geissman, J. (2009). Geologic time scale. Technical report, Geological Society of America.
 
@@ -68,13 +68,13 @@ Evidently the climate was **very cold** at these times (635 Ma and 715 Ma)
 
 +++
 
-<img src='../images/Hoffman_Li_2009.png'>
+<img src='./Hoffman_Li_2009.png'>
 
 Source: [Hoffman, P. F. and Li, Z.-X. (2009). A palaeogeographic context for Neoproterozoic glaciation. Palaeogeogr. Palaeoclimatol. Palaeoecol., 277:158–172.](https://doi.org/10.1016/j.palaeo.2009.03.013)
 
 +++
 
-<img src='../images/Hoffman_Schrag_2002_Fig2.png'>
+<img src='./Hoffman_Schrag_2002_Fig2.png'>
 
 Source: [Hoffman, P. F. and Schrag, D. P. (2002). The snowball Earth hypothesis: testing the limits of global change. Terra Nova, 14(3):129–155.](https://doi.org/10.1046/j.1365-3121.2002.00408.x)
 
@@ -105,7 +105,7 @@ ____________
 
 +++
 
-<img src='../images/large_ice_cap_sketch.png'>
+<img src='./large_ice_cap_sketch.png'>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 

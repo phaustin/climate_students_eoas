@@ -1,18 +1,18 @@
 ---
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.9.1
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.6
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 (nb:coupdyn)=
 # Coupled Dynamics in the CESM
 
@@ -27,6 +27,10 @@ Learning goals:
      
 **You need to be connected to the internet to run the code in this notebook**
 
+You will need to install the 'eofs' package to run some code that translates from model levels to pressure levels
+
+<code>conda install -c conda-forge eofs<code>
+
 You can browse the available data through a web interface here:
 
 http://thredds.atmos.albany.edu:8080/thredds/catalog.html
@@ -36,15 +40,16 @@ Within this folder called `CESM archive`, you will find another folder called `s
 ________
 ## Low frequency variability in the CESM
 ________
+<!-- #endregion -->
 
-```{code-cell} ipython3
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 import xarray as xr
 import scipy as sp
 from scipy import stats
-import Ngl
+import xcdat
 import cartopy
 import cartopy.util
 import cartopy.crs as ccrs
@@ -54,13 +59,13 @@ from eofs.standard import Eof
 %matplotlib inline
 ```
 
-```{code-cell} ipython3
+```python
 cesm_data_path = "http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/"
 ```
 
-```{code-cell} ipython3
+```python
 # Read in slab ocean data
-atmfile = xr.open_dataset( cesm_data_path + 'som_1850_f19/concatenated/' + 'som_1850_f19.cam.h0.nc')
+atmfile = xcdat.open_dataset( cesm_data_path + 'som_1850_f19/concatenated/' + 'som_1850_f19.cam.h0.nc')
 #atmfile = xr.open_dataset( cesm_data_path + "cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc")
 atmfile
 ```
@@ -69,8 +74,8 @@ This data is a concatenated dataset of monthly data - we expect that it's monthl
 
 We can confirm that it is monthly data by looking at the times in the file above. Compare this to the h1 files that are also available from this thredds directory:
 
-```{code-cell} ipython3
-atmfileh1_0001 = xr.open_dataset(cesm_data_path + 'som_1850_f19/atm/hist/' + 
+```python
+atmfileh1_0001 = xcdat.open_dataset(cesm_data_path + 'som_1850_f19/atm/hist/' + 
                                  'som_1850_f19.cam.h1.0001-01-01-00000.nc')
 #atmfile = xr.open_dataset( cesm_data_path + "cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc")
 atmfileh1_0001
@@ -80,11 +85,11 @@ atmfileh1_0001
 
 As discussed in Hartmann chapter 8, single point correlation maps are one way of looking at the variability - these show how values of a variables at places all around the globe vary together with that variable at a particular point; that is, they show spatial patterns of variability. Let's try to reproduce figure 8.4b.
 
-```{code-cell} ipython3
+```python
 # First calculate new arrays that hold seasonal data
-Z3_seas = {}
-for label,data in atmfile.Z3.groupby('time.season'):
-    Z3_seas[label] = data
+ds_seas = {}
+for label,data in atmfile.groupby('time.season'):
+    ds_seas[label] = data
     
 PS_seas = {}
 for label,data in atmfile.PS.groupby('time.season'):
@@ -92,38 +97,52 @@ for label,data in atmfile.PS.groupby('time.season'):
     
 ```
 
-```{code-cell} ipython3
+```python
 # First we want to convert to pressure levels 
-def hybrid2pres(filein,varin,PSin,plevels,timedim=True):
+# Build hybrid pressure coordinate
+def hybrid_coordinate(p0, a, b, ps, **kwargs):
+    return a * p0 + b * ps
+# Convert
+def hybrid2pres(atmfile,ds_in,var,plevels,timedim=True):
     # the parameters hyam and hybm are parameters used to calculate the pressure from the level value
-    hyam = filein['hyam']
-    hybm = filein['hybm']
-    p0mb = filein['P0']/100.0
-    
-    varpres = Ngl.vinth2p(varin, hyam, hybm, plevels, PSin, 1, p0mb, 1, False)
-    # This has set values below the surface to 1E30. We want these to be nan:
-    varpres = np.where(varpres>=1E30,np.nan,varpres)
+    a = atmfile['hyam']
+    b = atmfile['hybm']
+    p0 = atmfile['P0']/100. # convert to hPa
 
-    # Create xarray from this numpy ndarray:
     if timedim:
-        varpres_xr = xr.DataArray(varpres,
-                              dims=['time','plev','lat','lon'],
-                              coords={'time':varin.time,'plev':plevels,
-                                      'lat':varin.lat,'lon':varin.lon})
+        ps = ds_in['PS'].mean(dim='time')/100. # convert to hPa
     else:
-        varpres_xr = xr.DataArray(varpres,
-                              dims=['plev','lat','lon'],
-                              coords={'plev':plevels,
-                                      'lat':varin.lat,'lon':varin.lon})
+        ps = ds_in['PS']/100. # convert to hPa
         
-    return(varpres_xr)
+    # Calculate pressure on hybrid coordinates for climatological surface pressure 
+    pressure = hybrid_coordinate(p0,a,b,ps)
 
-# we're interested in the 500mb level, so we can just select that level 
-# For DJF:
-Z500_DJF = hybrid2pres(atmfile,Z3_seas['DJF'],PS_seas['DJF'],[500])
+    # create grid using xcdat
+    new_pressure_grid = xcdat.create_grid(
+                        z=xcdat.create_axis("lev", plevels))
+
+    output_pres = ds_in[[var]].regridder.vertical(
+                var, new_pressure_grid, method="linear", target_data=pressure)
+    
+    return(output_pres)
+
+
 ```
 
-```{code-cell} ipython3
+```python
+# we're interested in the 500mb level, so we can just select that level 
+# For DJF:
+
+# regridder requires more than one level, so we run for two levels and then just select 500mb
+Zpres_DJF = hybrid2pres(atmfile,ds_seas['DJF'],'Z3',[850,500])
+Z500_DJF = Zpres_DJF.sel(lev=500)
+```
+
+```python
+Z500_DJF
+```
+
+```python
 # Select the point that we want to calculate correlations from: (fig. 8.4c)
 # Estimate that P is at: 45N, 200E (
 # Warning - when using new datasets you should always check whether the
@@ -139,11 +158,19 @@ Z500_DJF = hybrid2pres(atmfile,Z3_seas['DJF'],PS_seas['DJF'],[500])
 pointvals = Z500_DJF.sel(lat=45,method='nearest').sel(lon=200)
 ```
 
-```{code-cell} ipython3
+```python
+Z500_DJF
+```
+
+```python
+pointvals
+```
+
+```python
 # Now correlate this timeseries with that from a nearby gridpoint:
 tocorr = Z500_DJF.sel(lat=45,method='nearest').sel(lon=210)
 #print(pointvals.squeeze())
-corr,r = sp.stats.pearsonr(pointvals.squeeze(),tocorr.squeeze())
+corr,r = sp.stats.pearsonr(pointvals['Z3'].squeeze(),tocorr['Z3'].squeeze())
 
 print(corr,r)
 
@@ -151,7 +178,7 @@ print(corr,r)
 # this assumes your data are normally distrubuted which may not be the case!)
 ```
 
-```{code-cell} ipython3
+```python
 # To build the 1-point correlation maps we can repeat this for every point
 nlats = len(Z500_DJF.lat)
 nlons = len(Z500_DJF.lon)
@@ -163,10 +190,11 @@ for ilat in range(0,nlats):
     for ilon in range(0,nlons):
         # if we use isel instead of sel, we select on indices, instead of values:
         tocorr = Z500_DJF.isel(lat=ilat).isel(lon=ilon)
-        corrarray[ilat,ilon],rarray[ilat,ilon] = sp.stats.pearsonr(pointvals.squeeze(),tocorr.squeeze())
+        corrarray[ilat,ilon],rarray[ilat,ilon] = sp.stats.pearsonr(pointvals['Z3'].squeeze(),
+                                                                   tocorr['Z3'].squeeze())
 ```
 
-```{code-cell} ipython3
+```python
 # We can now plot this 1-point correlation array for comparison with fig. 8.4c in Hartmann
 toplot = corrarray
 ncols=1
@@ -191,7 +219,7 @@ plt.show()
 
 It is often useful to mask your data for statistical significance, and this can be done fairly easily with python:
 
-```{code-cell} ipython3
+```python
 # We can now plot this 1-point correlation array for comparison with fig. 8.4c in Hartmann
 
 # Set the p-value for which we want to show the data:
@@ -225,14 +253,15 @@ plt.show()
 
 **Exercise:** _Repeat this analysis for a 1-point correlation for point A on Figure 8.4d. Add the letters A and P onto
 these figures in the correct places to illustrate the point used for the correlations._
-##Discussion:** _Why are we only looking at figure 8.4c and 8.4d. What are the additional steps required to reproduce
-figures 8.4a and b?
+
+## Discussion:
+Why are we only looking at figure 8.4c and 8.4d. What are the additional steps required to reproduce figures 8.4a and b?
 
 ## Slab ocean and coupled ocean low frequency variability
 
-```{code-cell} ipython3
+```python
 # Read in fully coupled ocean data
-atmfile_cpl = xr.open_dataset( cesm_data_path + 'cpl_1850_f19/concatenated/' + 'cpl_1850_f19.cam.h0.nc')
+atmfile_cpl = xcdat.open_dataset( cesm_data_path + 'cpl_1850_f19/concatenated/' + 'cpl_1850_f19.cam.h0.nc')
 #atmfile = xr.open_dataset( cesm_data_path + "cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc")
 atmfile_cpl
 ```
@@ -248,27 +277,34 @@ First, let's check that the model correctly simulates the average zonally asymme
 
 OMEGA is the variable containing the vertical (pressure) velocity, in Pa/s
 
-```{code-cell} ipython3
+```python
 # Because there isn't a grid box centred on 0, we take an average across the equator. We first check that
 # this is symmetrical about the equator:
 print(atmfile.sel(lat=slice(-2,2)).lat)
 
-omega = atmfile.OMEGA.sel(lat=slice(-2,2)).mean(dim='time')
-PS = atmfile.PS.sel(lat=slice(-2,2)).mean(dim='time')
-omega_cpl = atmfile_cpl.OMEGA.sel(lat=slice(-2,2)).mean(dim='time')
-PS_cpl = atmfile_cpl.PS.sel(lat=slice(-2,2)).mean(dim='time')
+# Now we subset to this region, average over latitude, and take a climatological (time) average:
+subset = atmfile.sel(lat=slice(-2,2)).mean(dim='lat').mean(dim='time')
+subset_cpl = atmfile_cpl.sel(lat=slice(-2,2)).mean(dim='lat').mean(dim='time')
 
-# convert to pressure levels
+# define the pressure levels we want:
 pnew = [1000.,850.,700.,600.,500.,400.,300.,250.,200.,150.,100.,70.,50.,30.,20.,10.,5.]
 
-omega_pres = hybrid2pres(atmfile,omega,PS,pnew,timedim=False).mean(dim='lat')
-omega_cpl_pres = hybrid2pres(atmfile_cpl,omega_cpl,PS_cpl,pnew,timedim=False).mean(dim='lat')
+# Now convert to pressure levels:
+omega_pres = hybrid2pres(atmfile,subset,'OMEGA',pnew,timedim=False)
+print('completed for atmosphere only model')
+omega_cpl_pres = hybrid2pres(atmfile_cpl,subset_cpl,'OMEGA',pnew,timedim=False)
+print('completed for coupled model')
+
 ```
 
-```{code-cell} ipython3
+```python
+omega_pres
+```
+
+```python
 # Plot the equatorial cross-section
-omega_pres.plot.contour(levels = np.arange(0,0.1,0.02),colors='r')
-omega_pres.plot.contour(levels = np.arange(-0.1,0,0.02),colors='b',linestyles='-')
+omega_pres.OMEGA.plot.contour(levels = np.arange(0,0.1,0.02),colors='r')
+omega_pres.OMEGA.plot.contour(levels = np.arange(-0.1,0,0.02),colors='b',linestyles='-')
 plt.yscale('log')
 # invert the axis so it represents height, but shows pressure
 plt.gca().invert_yaxis()
@@ -277,8 +313,8 @@ plt.ylim(1000,100)
 plt.title('Slab ocean equatorial vertical pressure velocity, annual mean')
 plt.show()
 
-omega_cpl_pres.plot.contour(levels = np.arange(0,0.1,0.02),colors='r')
-omega_cpl_pres.plot.contour(levels = np.arange(-0.1,0,0.02),colors='b',linestyles='-')
+omega_cpl_pres.OMEGA.plot.contour(levels = np.arange(0,0.1,0.02),colors='r')
+omega_cpl_pres.OMEGA.plot.contour(levels = np.arange(-0.1,0,0.02),colors='b',linestyles='-')
 plt.yscale('log')
 # invert the axis so it represents height, but shows pressure
 plt.gca().invert_yaxis()
@@ -292,14 +328,14 @@ plt.show()
 
 Now let's calculate indices of the ENSO.
 
-```{code-cell} ipython3
+```python
 # We can calculate the Nino3 index in these models and compare the variability.
 # Convert from K to C on the way
 Nino3 = atmfile.TS.sel(lat=slice(-5,5),lon=slice(210,270)).mean(dim=['lat','lon']) - 273.15
 Nino3_cpl = atmfile_cpl.TS.sel(lat=slice(-5,5),lon=slice(210,270)).mean(dim=['lat','lon']) - 273.15
 ```
 
-```{code-cell} ipython3
+```python
 # Calculate climatologies and compare
 def create_clim(indata):
     nyears = int(len(indata.time)/12)
@@ -312,7 +348,7 @@ Nino3_clim = create_clim(Nino3)
 Nino3_cpl_clim = create_clim(Nino3_cpl)
 ```
 
-```{code-cell} ipython3
+```python
 # Plot to compare the Nino3 climatologies of the two models.
 plt.plot(np.arange(1,13),Nino3_clim,label='slab ocean',color='k')
 plt.plot(np.arange(1,13),Nino3_cpl_clim,label='coupled ocean',color='b')
@@ -323,12 +359,14 @@ plt.title('Nino3 climatology')
 plt.show()
 ```
 
+<!-- #region -->
 We can see that both models follow a similar climatology in the Nino3 index, which is largely driven by the seasonal cycle. It makes sense that both oceans reproduce the seasonal cycle in surface temperature as this is, at least in tropics, strongly forced by incoming solar radiation. Note that this seasonal cycle shows two peaks (Dec/Jan and May) and two troughs (Feb and Sep) per year.
 
 
 **Discussion:** _Why does the climatology of tropical SSTs show two peaks per year? Is that what you would expect to see in observations, or do you think there is something wrong with this model?_
+<!-- #endregion -->
 
-```{code-cell} ipython3
+```python
 # Now calculate the anomalies from this climatology:
 # need to repeat the climatology for each year in order to subtract arrays
 nyears = 30
@@ -340,6 +378,7 @@ Nino3_cpl_clim_all = np.tile(Nino3_cpl_clim,nyears_cpl)
 Nino3_cpl_anoms = Nino3_cpl - Nino3_cpl_clim_all
 ```
 
+<!-- #region -->
 **Exercise:** _Create a plot to compare the anomalies in the slab ocean and fully coupled ocean experiments. Note that the coupled ocean has only 20 years, while the slab ocean has 30._
 
 
@@ -347,8 +386,9 @@ Nino3_cpl_anoms = Nino3_cpl - Nino3_cpl_clim_all
 
 
 Rather than estimating the variability, we can calculate the power specturm using fast fourier transforms.
+<!-- #endregion -->
 
-```{code-cell} ipython3
+```python
 # Plot a simple (non-normalized) power density spectrum using Fourier analysis
 Nino3_fft = np.fft.rfft(Nino3_anoms)
 
@@ -377,14 +417,14 @@ plt.show()
 
 If we want a more detailed spectra for the coupled ocean we need more than 20 years. You can find a simulation of 80 years with CO2 ramping here:
 
-```{code-cell} ipython3
+```python
 atmfile_cpl_ramp = xr.open_dataset( cesm_data_path + 
                     'cpl_CO2ramp_f19/concatenated/' + 'cpl_CO2ramp_f19.cam.h0.nc')
 ```
 
 This starts off at year 20 of the cpl_1850_f19 simulation, and ramps up CO2, similar to the real World, which gives us a test of climate change as well. This means we also need to remove a linear trend from the TS data before calculating the power spectrum.
 
-```{code-cell} ipython3
+```python
 Nino3_cpl_ramp = (atmfile_cpl_ramp.TS
                       .sel(lat=slice(-5,5),lon=slice(210,270))
                       .mean(dim=['lat','lon']) - 273.15)
@@ -398,7 +438,7 @@ x = np.arange(0,80,1/12)
 regress = sp.stats.linregress(x,Nino3_cpl_anoms)
 ```
 
-```{code-cell} ipython3
+```python
 # Plot anomalies and linear regression
 plt.plot(x,Nino3_cpl_anoms)
 plt.plot(x,regress.slope*x + regress.intercept,color='k')
@@ -412,19 +452,18 @@ plt.show()
 
 **Exercise:** _Calculate and plot the power spectrum for these de-trended data for comparison with the 20 year dataset and the observations in the Hartmann book._
 
-```{code-cell} ipython3
+```python
 # Plot a simple (non-normalized) power density spectrum using Fourier analysis
 ```
 
 ## ENSO and the PDO
 
-+++
 
 We can now look at the spatial signal of the ENSO using Empirical Orthogonal Functions (EOFs), a form of Principal Component Analysis. This webpage: https://climatedataguide.ucar.edu/climate-data-tools-and-analysis/empirical-orthogonal-function-eof-analysis-and-rotated-eof-analysis provides a brief overview of EOFs for those not familiar with them. For those who are familiar with them, there is a key sentence here:
 **EOF analysis is _not_ based on physical principles**. This means that just because you find an EOF pattern in your data does NOT mean there is necessarily a physical process that pattern represents. EOFs are a useful tool, but need to be combined with physical understanding.
 For a more in-depth review, see: https://rmets.onlinelibrary.wiley.com/doi/epdf/10.1002/joc.1499
 
-```{code-cell} ipython3
+```python
 indata=atmfile_cpl_ramp.TS - 273.15
 
 # Mask over land values
@@ -443,6 +482,7 @@ print(clim.shape)
 global_SST_anoms = SST - np.tile(clim,[nyears_cpl_ramp,1,1])
 ```
 
+<!-- #region -->
 **Note: we are using surface temperature from the atmospheric files, rather than the surface temperature from the ocean files: this is because the ocean data are on a different grid, that would require more complex re-gridding**
 
 
@@ -451,12 +491,13 @@ We are going to calculate EOFs using the EOF package written by Andrew Dawson: h
 I recommend trying to follow the example here: https://github.com/ajdawson/eofs/blob/master/examples/standard/sst_example.py to find the ENSO signal in our temperature anomalies. You will have to make some changes due to changes in syntax from older version of python.
 
 If you get stuck, have a look at the code below.
+<!-- #endregion -->
 
-```{code-cell} ipython3
+```python
 
 ```
 
-```{code-cell} ipython3
+```python
 # Create an EOF solver to do the EOF analysis. Square-root of cosine of
 # latitude weights are applied before the computation of EOFs.
 coslat = np.cos(np.deg2rad(global_SST_anoms.lat))
@@ -470,7 +511,7 @@ plt.colorbar()
 solver = Eof(global_SST_anoms.values, weights=wgts_tile)
 ```
 
-```{code-cell} ipython3
+```python
 eof1 = solver.eofsAsCorrelation(neofs=1)
 pc1 = solver.pcs(npcs=1, pcscaling=1)
 
@@ -501,8 +542,7 @@ plt.show()
 
 **Exercise:** _Repeat the analysis above with the extra step required to get the ENSO signal as the first EOF_
 
-+++
-
+<!-- #region -->
 **Exercise:** _We have already seen that the power spectrum of the Nino3 variability in the slab ocean model does not match observations. Have a look at the first EOF of SST in the slab ocean model. What does this tell you about the spatial distribution of variability in the slab ocean model?_
 
 
@@ -515,7 +555,8 @@ plt.show()
 
 
 To better understand low-frequency variability, particularly multi-decadal variability, we need more data than we have from observations. One way to get these data is by running ensembles of climate models. This is the theme of the next notebook, which will introduce you to the CESM Large Ensemble.
+<!-- #endregion -->
 
-```{code-cell} ipython3
+```python
 
 ```
