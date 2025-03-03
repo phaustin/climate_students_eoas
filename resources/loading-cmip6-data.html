@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Accessing CMIP6 data with intake-esm &#8212; Climate Laboratory Book</title>
   
@@ -17,51 +16,50 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'resources/loading-cmip6-data';</script>
     <link rel="canonical" href="https://phaustin.github.io/climate_students_eoas/resources/loading-cmip6-data.html" />
     <link rel="author" title="About these documents" href="../about.html" />
@@ -71,6 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Project links and notebooks" href="resource_links.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -86,19 +85,8 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -106,7 +94,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -114,8 +101,8 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -131,7 +118,8 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -159,7 +147,14 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Climate Laboratory Book</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -181,8 +176,6 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">tutorials and demos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/historical_data.html">Tutorial: Loading CMIP historical data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resource_links.html">Project links and notebooks</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Accessing CMIP6 data with intake-esm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loading-CESM-LENS-data.html">Accessing CESM LENS (and LENS2) data with intake-esm</a></li>
@@ -234,31 +227,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../courseware/week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../courseware/week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6 Labs</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../courseware/week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../courseware/week6/lab18_insolation.html">18. Insolation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../courseware/week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week6/lab20_heat-transport.html">20. Heat transport</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../courseware/week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
-</ul>
-</details></li>
-</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../courseware/week7/lab21_one-dim-ebm.html">21. The one-dimensional energy balance model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../courseware/week7/lab22_seasonal-cycle.html">22. Modeling the seasonal cycle of surface temperature</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../courseware/week7/lab23_cesm-atmospheric-dynamics.html">23. Atmospheric Dynamics in the CESM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../courseware/week7/lab24_numerical-diffusion.html">24. A peek at numerical methods for diffusion models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week7/lab21_one-dim-ebm.html">17. The one-dimensional energy balance model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week7/lab22_seasonal-cycle.html">18. Modeling the seasonal cycle of surface temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week7/lab23_cesm-atmospheric-dynamics.html">19. Atmospheric Dynamics in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week7/lab24_numerical-diffusion.html">20. A peek at numerical methods for diffusion models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../courseware/week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../courseware/week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../courseware/week8/lab25_albedo-snowball.html">21. Ice-albedo feedback and Snowball Earth in the EBM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../courseware/week8/lab25_2_advanced-albedo-feedback.html">21.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../courseware/week8/lab25_3_advanced-snowball-earth.html">21.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../courseware/week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courseware/week8/lab26_cesm-coupled-dynamics.html">22. Coupled Dynamics in the CESM</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -304,9 +287,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -325,9 +313,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -403,27 +391,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -463,7 +443,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="accessing-cmip6-data-with-intake-esm">
-<span id="resource-intake-esm"></span><h1>Accessing CMIP6 data with intake-esm<a class="headerlink" href="#accessing-cmip6-data-with-intake-esm" title="Permalink to this heading">#</a></h1>
+<span id="resource-intake-esm"></span><h1>Accessing CMIP6 data with intake-esm<a class="headerlink" href="#accessing-cmip6-data-with-intake-esm" title="Link to this heading">#</a></h1>
 <p>Download this notebook</p>
 <p>This notebook demonstrates how to access Google Cloud CMIP6 data using intake-esm.</p>
 <p>Intake-esm is a data cataloging utility built on top of intake, pandas, and
@@ -475,20 +455,20 @@ xarray. Intake-esm aims to facilitate:</p>
 <p>It’s basic usage is shown below. To begin, let’s import <code class="docutils literal notranslate"><span class="pre">intake</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">intake</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">intake</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="load-the-catalog">
-<h2>Load the catalog<a class="headerlink" href="#load-the-catalog" title="Permalink to this heading">#</a></h2>
+<h2>Load the catalog<a class="headerlink" href="#load-the-catalog" title="Link to this heading">#</a></h2>
 <p>At import time, intake-esm plugin is available in intake’s registry as
 <code class="docutils literal notranslate"><span class="pre">esm_datastore</span></code> and can be accessed with <code class="docutils literal notranslate"><span class="pre">intake.open_esm_datastore()</span></code> function.
 Use the <code class="docutils literal notranslate"><span class="pre">intake_esm.tutorial.get_url()</span></code> method to access smaller subsetted catalogs for tutorial purposes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">intake_esm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">intake_esm</span>
 <span class="c1">#url = intake_esm.tutorial.get_url(&#39;google_cmip6&#39;)</span>
 <span class="c1">#print(url)</span>
 <span class="n">url</span> <span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/NCAR/intake-esm-datastore/master/catalogs/pangeo-cmip6.json&quot;</span>
@@ -790,7 +770,7 @@ catalog by looking at the underlying dataframe created when we load the catalog:
 <p>And is located in Google Cloud Storage at ‘gs://cmip6/CMIP6/HighResMIP/CMCC/CMCC-CM2-HR4/highresSST-present/r1i1p1f1/Amon/ps/gn/v20170706/”</p>
 </section>
 <section id="finding-unique-entries">
-<h2>Finding unique entries<a class="headerlink" href="#finding-unique-entries" title="Permalink to this heading">#</a></h2>
+<h2>Finding unique entries<a class="headerlink" href="#finding-unique-entries" title="Link to this heading">#</a></h2>
 <p>To get unique values for given columns in the catalog, intake-esm provides a
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">unique()</span></code> method:</p>
 <p>Let’s query the data catalog to see what models(<code class="docutils literal notranslate"><span class="pre">source_id</span></code>), experiments
@@ -1053,7 +1033,7 @@ dtype: object
 </div>
 </section>
 <section id="search-for-specific-datasets">
-<h2>Search for specific datasets<a class="headerlink" href="#search-for-specific-datasets" title="Permalink to this heading">#</a></h2>
+<h2>Search for specific datasets<a class="headerlink" href="#search-for-specific-datasets" title="Link to this heading">#</a></h2>
 <p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code> method allows the user to
 perform a query on a catalog using keyword arguments. The keyword argument names
 must match column names in the catalog. The search method returns a
@@ -1168,7 +1148,7 @@ GitHub repository.</p>
 </div>
 </section>
 <section id="load-datasets-using-to-dataset-dict">
-<h2>Load datasets using <code class="docutils literal notranslate"><span class="pre">to_dataset_dict()</span></code><a class="headerlink" href="#load-datasets-using-to-dataset-dict" title="Permalink to this heading">#</a></h2>
+<h2>Load datasets using <code class="docutils literal notranslate"><span class="pre">to_dataset_dict()</span></code><a class="headerlink" href="#load-datasets-using-to-dataset-dict" title="Link to this heading">#</a></h2>
 <p>Intake-esm implements convenience utilities for loading the query results into
 higher level xarray datasets. The logic for merging/concatenating the query
 results into higher level xarray datasets is provided in the input JSON file and
@@ -1220,7 +1200,7 @@ returns a dictionary of aggregate xarray datasets as the name hints.</p>
 </div><div class="output text_html">
     <div>
       <progress value='27' class='' max='27' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      100.00% [27/27 01:44&lt;00:00]
+      100.00% [27/27 01:10&lt;00:00]
     </div>
     </div></div>
 </div>
@@ -1231,16 +1211,16 @@ returns a dictionary of aggregate xarray datasets as the name hints.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ScenarioMIP.EC-Earth-Consortium.EC-Earth3-CC.ssp585.Oyr.gn&#39;,
- &#39;ScenarioMIP.NCC.NorESM2-LM.ssp585.Oyr.gn&#39;,
- &#39;ScenarioMIP.DKRZ.MPI-ESM1-2-HR.ssp585.Oyr.gn&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;CMIP.IPSL.IPSL-CM5A2-INCA.historical.Oyr.gn&#39;,
+ &#39;ScenarioMIP.MIROC.MIROC-ES2L.ssp585.Oyr.gn&#39;,
  &#39;ScenarioMIP.MRI.MRI-ESM2-0.ssp585.Oyr.gn&#39;,
- &#39;CMIP.EC-Earth-Consortium.EC-Earth3-CC.historical.Oyr.gn&#39;,
+ &#39;ScenarioMIP.NCC.NorESM2-LM.ssp585.Oyr.gn&#39;,
+ &#39;ScenarioMIP.EC-Earth-Consortium.EC-Earth3-CC.ssp585.Oyr.gn&#39;,
+ &#39;ScenarioMIP.NCAR.CESM2.ssp585.Oyr.gn&#39;,
  &#39;CMIP.CMCC.CMCC-ESM2.historical.Oyr.gn&#39;,
- &#39;ScenarioMIP.MPI-M.MPI-ESM1-2-LR.ssp585.Oyr.gn&#39;,
- &#39;CMIP.CCCma.CanESM5-CanOE.historical.Oyr.gn&#39;,
- &#39;CMIP.CSIRO.ACCESS-ESM1-5.historical.Oyr.gn&#39;,
- &#39;CMIP.MRI.MRI-ESM2-0.historical.Oyr.gn&#39;]
+ &#39;CMIP.NCC.NorESM2-LM.historical.Oyr.gn&#39;,
+ &#39;CMIP.MIROC.MIROC-ES2L.historical.Oyr.gn&#39;,
+ &#39;CMIP.MPI-M.MPI-ESM1-2-LR.historical.Oyr.gn&#39;]
 </pre></div>
 </div>
 </div>
@@ -1284,13 +1264,14 @@ returns a dictionary of aggregate xarray datasets as the name hints.</p>
   --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
 }
 
-html[theme=dark],
-body[data-theme=dark],
+html[theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
   --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
+  --xr-border-color: #1f1f1f;
   --xr-disabled-color: #515151;
   --xr-background-color: #111111;
   --xr-background-color-row-even: #111111;
@@ -1335,7 +1316,7 @@ body.vscode-dark {
 .xr-sections {
   padding-left: 0 !important;
   display: grid;
-  grid-template-columns: 150px auto auto 1fr 20px 20px;
+  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
 }
 
 .xr-section-item {
@@ -1343,7 +1324,9 @@ body.vscode-dark {
 }
 
 .xr-section-item input {
-  display: none;
+  display: inline-block;
+  opacity: 0;
+  height: 0;
 }
 
 .xr-section-item input + label {
@@ -1353,6 +1336,10 @@ body.vscode-dark {
 .xr-section-item input:enabled + label {
   cursor: pointer;
   color: var(--xr-font-color2);
+}
+
+.xr-section-item input:focus + label {
+  border: 2px solid var(--xr-font-color0);
 }
 
 .xr-section-item input:enabled + label:hover {
@@ -1376,7 +1363,7 @@ body.vscode-dark {
 
 .xr-section-summary-in + label:before {
   display: inline-block;
-  content: '►';
+  content: "►";
   font-size: 11px;
   width: 15px;
   text-align: center;
@@ -1387,7 +1374,7 @@ body.vscode-dark {
 }
 
 .xr-section-summary-in:checked + label:before {
-  content: '▼';
+  content: "▼";
 }
 
 .xr-section-summary-in:checked + label > span {
@@ -1459,15 +1446,15 @@ body.vscode-dark {
 }
 
 .xr-dim-list:before {
-  content: '(';
+  content: "(";
 }
 
 .xr-dim-list:after {
-  content: ')';
+  content: ")";
 }
 
 .xr-dim-list li:not(:last-child):after {
-  content: ',';
+  content: ",";
   padding-right: 5px;
 }
 
@@ -1617,25 +1604,25 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
-Dimensions:             (i: 360, j: 291, lev: 45, bnds: 2, member_id: 35,
-                         dcpp_init_year: 1, time: 165, vertices: 4)
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 109GB
+Dimensions:             (member_id: 35, dcpp_init_year: 1, time: 165, lev: 45,
+                         j: 291, i: 360, bnds: 2, vertices: 4)
 Coordinates:
-  * i                   (i) int32 0 1 2 3 4 5 6 ... 353 354 355 356 357 358 359
-  * j                   (j) int32 0 1 2 3 4 5 6 ... 284 285 286 287 288 289 290
-    latitude            (j, i) float64 dask.array&lt;chunksize=(291, 360), meta=np.ndarray&gt;
-  * lev                 (lev) float64 3.047 9.454 16.36 ... 5.375e+03 5.625e+03
-    lev_bnds            (lev, bnds) float64 dask.array&lt;chunksize=(45, 2), meta=np.ndarray&gt;
-    longitude           (j, i) float64 dask.array&lt;chunksize=(291, 360), meta=np.ndarray&gt;
-  * time                (time) object 1850-07-02 12:00:00 ... 2014-07-02 12:0...
-    time_bnds           (time, bnds) object dask.array&lt;chunksize=(165, 2), meta=np.ndarray&gt;
-    vertices_latitude   (j, i, vertices) float64 dask.array&lt;chunksize=(291, 360, 4), meta=np.ndarray&gt;
-    vertices_longitude  (j, i, vertices) float64 dask.array&lt;chunksize=(291, 360, 4), meta=np.ndarray&gt;
-  * member_id           (member_id) object &#x27;r10i1p1f1&#x27; ... &#x27;r9i1p2f1&#x27;
-  * dcpp_init_year      (dcpp_init_year) float64 nan
+  * i                   (i) int32 1kB 0 1 2 3 4 5 6 ... 354 355 356 357 358 359
+  * j                   (j) int32 1kB 0 1 2 3 4 5 6 ... 285 286 287 288 289 290
+    latitude            (j, i) float64 838kB dask.array&lt;chunksize=(291, 360), meta=np.ndarray&gt;
+  * lev                 (lev) float64 360B 3.047 9.454 ... 5.375e+03 5.625e+03
+    lev_bnds            (lev, bnds) float64 720B dask.array&lt;chunksize=(45, 2), meta=np.ndarray&gt;
+    longitude           (j, i) float64 838kB dask.array&lt;chunksize=(291, 360), meta=np.ndarray&gt;
+  * time                (time) object 1kB 1850-07-02 12:00:00 ... 2014-07-02 ...
+    time_bnds           (time, bnds) object 3kB dask.array&lt;chunksize=(165, 2), meta=np.ndarray&gt;
+    vertices_latitude   (j, i, vertices) float64 3MB dask.array&lt;chunksize=(291, 360, 4), meta=np.ndarray&gt;
+    vertices_longitude  (j, i, vertices) float64 3MB dask.array&lt;chunksize=(291, 360, 4), meta=np.ndarray&gt;
+  * member_id           (member_id) object 280B &#x27;r10i1p1f1&#x27; ... &#x27;r9i1p2f1&#x27;
+  * dcpp_init_year      (dcpp_init_year) float64 8B nan
 Dimensions without coordinates: bnds, vertices
 Data variables:
-    o2                  (member_id, dcpp_init_year, time, lev, j, i) float32 dask.array&lt;chunksize=(1, 1, 12, 45, 291, 360), meta=np.ndarray&gt;
+    o2                  (member_id, dcpp_init_year, time, lev, j, i) float32 109GB dask.array&lt;chunksize=(1, 1, 12, 45, 291, 360), meta=np.ndarray&gt;
 Attributes: (12/52)
     Conventions:                      CF-1.7 CMIP-6.2
     YMDH_branch_time_in_child:        1850:01:01:00
@@ -1649,7 +1636,7 @@ Attributes: (12/52)
     intake_esm_attrs:grid_label:      gn
     intake_esm_attrs:version:         20190429
     intake_esm_attrs:_data_format_:   zarr
-    intake_esm_dataset_key:           CMIP.CCCma.CanESM5.historical.Oyr.gn</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-9ae7b5e2-b6b1-40d5-8a1f-d63b8286d61f' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-9ae7b5e2-b6b1-40d5-8a1f-d63b8286d61f' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>i</span>: 360</li><li><span class='xr-has-index'>j</span>: 291</li><li><span class='xr-has-index'>lev</span>: 45</li><li><span>bnds</span>: 2</li><li><span class='xr-has-index'>member_id</span>: 35</li><li><span class='xr-has-index'>dcpp_init_year</span>: 1</li><li><span class='xr-has-index'>time</span>: 165</li><li><span>vertices</span>: 4</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-9ceb63d1-5292-4d62-b7b4-8d525649803a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9ceb63d1-5292-4d62-b7b4-8d525649803a' class='xr-section-summary' >Coordinates: <span>(12)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>i</span></div><div class='xr-var-dims'>(i)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 ... 355 356 357 358 359</div><input id='attrs-0bf84540-9eea-4e9a-bcd3-8d0d28f1e145' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0bf84540-9eea-4e9a-bcd3-8d0d28f1e145' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6425bdfe-15ce-440f-a0a6-b0e405b6151b' class='xr-var-data-in' type='checkbox'><label for='data-6425bdfe-15ce-440f-a0a6-b0e405b6151b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>cell index along first dimension</dd><dt><span>units :</span></dt><dd>1</dd></dl></div><div class='xr-var-data'><pre>array([  0,   1,   2, ..., 357, 358, 359], dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>j</span></div><div class='xr-var-dims'>(j)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 ... 286 287 288 289 290</div><input id='attrs-a54ae3e2-ee21-4570-a7d8-da4461750ce7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a54ae3e2-ee21-4570-a7d8-da4461750ce7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bf603def-f4dc-4c38-88c8-1af74e705784' class='xr-var-data-in' type='checkbox'><label for='data-bf603def-f4dc-4c38-88c8-1af74e705784' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>cell index along second dimension</dd><dt><span>units :</span></dt><dd>1</dd></dl></div><div class='xr-var-data'><pre>array([  0,   1,   2, ..., 288, 289, 290], dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>latitude</span></div><div class='xr-var-dims'>(j, i)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(291, 360), meta=np.ndarray&gt;</div><input id='attrs-48a8173f-4882-4612-8811-a2d56d93a005' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-48a8173f-4882-4612-8811-a2d56d93a005' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b70834c9-638e-4c52-b890-98f282ca2871' class='xr-var-data-in' type='checkbox'><label for='data-b70834c9-638e-4c52-b890-98f282ca2871' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>vertices_latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><table>
+    intake_esm_dataset_key:           CMIP.CCCma.CanESM5.historical.Oyr.gn</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-1d9006d4-7154-4bf9-81bc-31837c2dd97e' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-1d9006d4-7154-4bf9-81bc-31837c2dd97e' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>member_id</span>: 35</li><li><span class='xr-has-index'>dcpp_init_year</span>: 1</li><li><span class='xr-has-index'>time</span>: 165</li><li><span class='xr-has-index'>lev</span>: 45</li><li><span class='xr-has-index'>j</span>: 291</li><li><span class='xr-has-index'>i</span>: 360</li><li><span>bnds</span>: 2</li><li><span>vertices</span>: 4</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-cafa7f78-4758-4fbe-a278-26b795bdc8be' class='xr-section-summary-in' type='checkbox'  checked><label for='section-cafa7f78-4758-4fbe-a278-26b795bdc8be' class='xr-section-summary' >Coordinates: <span>(12)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>i</span></div><div class='xr-var-dims'>(i)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 ... 355 356 357 358 359</div><input id='attrs-5c743ebd-ced8-4c2d-9485-893621826ac0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5c743ebd-ced8-4c2d-9485-893621826ac0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e2681b57-1358-4957-b0b3-b62cf3acd842' class='xr-var-data-in' type='checkbox'><label for='data-e2681b57-1358-4957-b0b3-b62cf3acd842' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>cell index along first dimension</dd><dt><span>units :</span></dt><dd>1</dd></dl></div><div class='xr-var-data'><pre>array([  0,   1,   2, ..., 357, 358, 359], dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>j</span></div><div class='xr-var-dims'>(j)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 ... 286 287 288 289 290</div><input id='attrs-f802adba-0c42-437f-8c05-63e72373b758' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f802adba-0c42-437f-8c05-63e72373b758' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d3eb29cd-59fc-48a8-8e58-58de1865db4e' class='xr-var-data-in' type='checkbox'><label for='data-d3eb29cd-59fc-48a8-8e58-58de1865db4e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>cell index along second dimension</dd><dt><span>units :</span></dt><dd>1</dd></dl></div><div class='xr-var-data'><pre>array([  0,   1,   2, ..., 288, 289, 290], dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>latitude</span></div><div class='xr-var-dims'>(j, i)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(291, 360), meta=np.ndarray&gt;</div><input id='attrs-31038227-0f79-4a27-a7aa-356f468790a9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-31038227-0f79-4a27-a7aa-356f468790a9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ede24e22-97f5-4d8d-bd55-a6047a854d47' class='xr-var-data-in' type='checkbox'><label for='data-ede24e22-97f5-4d8d-bd55-a6047a854d47' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>vertices_latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -1704,7 +1691,7 @@ Attributes: (12/52)
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lev</span></div><div class='xr-var-dims'>(lev)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>3.047 9.454 ... 5.375e+03 5.625e+03</div><input id='attrs-bce18a76-c435-4939-ace9-b60f48977388' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bce18a76-c435-4939-ace9-b60f48977388' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-99e27a3e-5712-4673-bc71-685b1b345d7f' class='xr-var-data-in' type='checkbox'><label for='data-99e27a3e-5712-4673-bc71-685b1b345d7f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Z</dd><dt><span>bounds :</span></dt><dd>lev_bnds</dd><dt><span>long_name :</span></dt><dd>ocean depth coordinate</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>standard_name :</span></dt><dd>depth</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([3.046773e+00, 9.454049e+00, 1.636397e+01, 2.389871e+01, 3.220929e+01,
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lev</span></div><div class='xr-var-dims'>(lev)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>3.047 9.454 ... 5.375e+03 5.625e+03</div><input id='attrs-093c6650-d660-4d9a-a195-4f4526cba604' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-093c6650-d660-4d9a-a195-4f4526cba604' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bf4f2f85-e7c1-4e19-81e9-2fc3164b46f9' class='xr-var-data-in' type='checkbox'><label for='data-bf4f2f85-e7c1-4e19-81e9-2fc3164b46f9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Z</dd><dt><span>bounds :</span></dt><dd>lev_bnds</dd><dt><span>long_name :</span></dt><dd>ocean depth coordinate</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>standard_name :</span></dt><dd>depth</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([3.046773e+00, 9.454049e+00, 1.636397e+01, 2.389871e+01, 3.220929e+01,
        4.148185e+01, 5.194513e+01, 6.387905e+01, 7.762451e+01, 9.359412e+01,
        1.122835e+02, 1.342823e+02, 1.602840e+02, 1.910925e+02, 2.276233e+02,
        2.708962e+02, 3.220169e+02, 3.821444e+02, 4.524429e+02, 5.340197e+02,
@@ -1712,7 +1699,7 @@ Attributes: (12/52)
        1.297724e+03, 1.470893e+03, 1.655472e+03, 1.850365e+03, 2.054414e+03,
        2.266454e+03, 2.485371e+03, 2.710133e+03, 2.939812e+03, 3.173588e+03,
        3.410756e+03, 3.650712e+03, 3.892950e+03, 4.137047e+03, 4.382654e+03,
-       4.629485e+03, 4.877303e+03, 5.125919e+03, 5.375177e+03, 5.624952e+03])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lev_bnds</span></div><div class='xr-var-dims'>(lev, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(45, 2), meta=np.ndarray&gt;</div><input id='attrs-da6000f2-dfbb-4d50-a374-fd7f17ee0602' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-da6000f2-dfbb-4d50-a374-fd7f17ee0602' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-be4691f9-37d5-4d8c-a927-28ce28cac22f' class='xr-var-data-in' type='checkbox'><label for='data-be4691f9-37d5-4d8c-a927-28ce28cac22f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+       4.629485e+03, 4.877303e+03, 5.125919e+03, 5.375177e+03, 5.624952e+03])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lev_bnds</span></div><div class='xr-var-dims'>(lev, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(45, 2), meta=np.ndarray&gt;</div><input id='attrs-9d8efee0-94d2-419f-92f7-c2bbe09828b5' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-9d8efee0-94d2-419f-92f7-c2bbe09828b5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-abaa1af9-47f3-4c3c-bf6c-3f92cb3247cd' class='xr-var-data-in' type='checkbox'><label for='data-abaa1af9-47f3-4c3c-bf6c-3f92cb3247cd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -1767,7 +1754,7 @@ Attributes: (12/52)
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>longitude</span></div><div class='xr-var-dims'>(j, i)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(291, 360), meta=np.ndarray&gt;</div><input id='attrs-8195af36-95d9-4dc5-a955-5dee84e4e62f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8195af36-95d9-4dc5-a955-5dee84e4e62f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6eafdc4c-a7a6-4c50-9d94-212c31a49815' class='xr-var-data-in' type='checkbox'><label for='data-6eafdc4c-a7a6-4c50-9d94-212c31a49815' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>vertices_longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>longitude</span></div><div class='xr-var-dims'>(j, i)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(291, 360), meta=np.ndarray&gt;</div><input id='attrs-3a542c1e-2f5a-497d-a74f-3f045f8c3aa0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3a542c1e-2f5a-497d-a74f-3f045f8c3aa0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-296060da-8d70-4943-b376-e4fe3858e7d9' class='xr-var-data-in' type='checkbox'><label for='data-296060da-8d70-4943-b376-e4fe3858e7d9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>vertices_longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -1822,7 +1809,7 @@ Attributes: (12/52)
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1850-07-02 12:00:00 ... 2014-07-...</div><input id='attrs-76387254-4a2b-4e73-9aa9-45f23aac6d88' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-76387254-4a2b-4e73-9aa9-45f23aac6d88' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ef1ed2c6-dfb6-4e39-a470-59776d3202cf' class='xr-var-data-in' type='checkbox'><label for='data-ef1ed2c6-dfb6-4e39-a470-59776d3202cf' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>T</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1850, 7, 2, 12, 0, 0, 0, has_year_zero=True),
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1850-07-02 12:00:00 ... 2014-07-...</div><input id='attrs-12c00b74-4a91-4f4c-81b5-5981f746333c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-12c00b74-4a91-4f4c-81b5-5981f746333c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-63fd8848-3be6-4711-97aa-c422fa773afb' class='xr-var-data-in' type='checkbox'><label for='data-63fd8848-3be6-4711-97aa-c422fa773afb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>T</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1850, 7, 2, 12, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(1851, 7, 2, 12, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(1852, 7, 2, 12, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(1853, 7, 2, 12, 0, 0, 0, has_year_zero=True),
@@ -1987,7 +1974,7 @@ Attributes: (12/52)
        cftime.DatetimeNoLeap(2012, 7, 2, 12, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2013, 7, 2, 12, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2014, 7, 2, 12, 0, 0, 0, has_year_zero=True)],
-      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(time, bnds)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(165, 2), meta=np.ndarray&gt;</div><input id='attrs-8441a4fe-eaf7-4984-88b1-318a2e72dfc6' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8441a4fe-eaf7-4984-88b1-318a2e72dfc6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-001fbf1f-c6dc-4304-86ec-ead9eaff2f70' class='xr-var-data-in' type='checkbox'><label for='data-001fbf1f-c6dc-4304-86ec-ead9eaff2f70' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(time, bnds)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(165, 2), meta=np.ndarray&gt;</div><input id='attrs-4e45fbba-18d7-45ae-89ed-740df3364495' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-4e45fbba-18d7-45ae-89ed-740df3364495' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-216fa42b-2797-4127-a783-b7881d42fff6' class='xr-var-data-in' type='checkbox'><label for='data-216fa42b-2797-4127-a783-b7881d42fff6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -2042,7 +2029,7 @@ Attributes: (12/52)
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>vertices_latitude</span></div><div class='xr-var-dims'>(j, i, vertices)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(291, 360, 4), meta=np.ndarray&gt;</div><input id='attrs-545ab202-f83d-435b-b796-12ee63d7c7cb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-545ab202-f83d-435b-b796-12ee63d7c7cb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b74d2925-4c54-431a-a0f7-5d4abda8ef0e' class='xr-var-data-in' type='checkbox'><label for='data-b74d2925-4c54-431a-a0f7-5d4abda8ef0e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>vertices_latitude</span></div><div class='xr-var-dims'>(j, i, vertices)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(291, 360, 4), meta=np.ndarray&gt;</div><input id='attrs-baf29306-6c28-4cb9-aa68-5ccf60374e7e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-baf29306-6c28-4cb9-aa68-5ccf60374e7e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7a266581-1599-4dca-986a-5b0e3c256db3' class='xr-var-data-in' type='checkbox'><label for='data-7a266581-1599-4dca-986a-5b0e3c256db3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -2120,7 +2107,7 @@ Attributes: (12/52)
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>vertices_longitude</span></div><div class='xr-var-dims'>(j, i, vertices)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(291, 360, 4), meta=np.ndarray&gt;</div><input id='attrs-d59dfeaf-89ba-49a0-b738-b023a8f70d04' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d59dfeaf-89ba-49a0-b738-b023a8f70d04' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a2840c11-bb2b-4c7b-94f2-d1e4345d361d' class='xr-var-data-in' type='checkbox'><label for='data-a2840c11-bb2b-4c7b-94f2-d1e4345d361d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>vertices_longitude</span></div><div class='xr-var-dims'>(j, i, vertices)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(291, 360, 4), meta=np.ndarray&gt;</div><input id='attrs-9a6d6e18-0243-4c24-bb80-e867338e8b3d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9a6d6e18-0243-4c24-bb80-e867338e8b3d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cd97c634-73f7-4bad-9a70-1cf3c8cc3804' class='xr-var-data-in' type='checkbox'><label for='data-cd97c634-73f7-4bad-9a70-1cf3c8cc3804' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -2198,13 +2185,13 @@ Attributes: (12/52)
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>member_id</span></div><div class='xr-var-dims'>(member_id)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>&#x27;r10i1p1f1&#x27; ... &#x27;r9i1p2f1&#x27;</div><input id='attrs-6fdb532a-5e47-4cb8-a3aa-6df50aa022a0' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6fdb532a-5e47-4cb8-a3aa-6df50aa022a0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5df3d1a2-6049-433d-95a8-8ad2901b61e6' class='xr-var-data-in' type='checkbox'><label for='data-5df3d1a2-6049-433d-95a8-8ad2901b61e6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;r10i1p1f1&#x27;, &#x27;r10i1p2f1&#x27;, &#x27;r11i1p1f1&#x27;, &#x27;r12i1p1f1&#x27;, &#x27;r13i1p1f1&#x27;,
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>member_id</span></div><div class='xr-var-dims'>(member_id)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>&#x27;r10i1p1f1&#x27; ... &#x27;r9i1p2f1&#x27;</div><input id='attrs-2ce7d49b-8361-4e65-a177-478f92ff49a6' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2ce7d49b-8361-4e65-a177-478f92ff49a6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-64fde260-f3d3-49c9-8ed7-c30eed11bef6' class='xr-var-data-in' type='checkbox'><label for='data-64fde260-f3d3-49c9-8ed7-c30eed11bef6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;r10i1p1f1&#x27;, &#x27;r10i1p2f1&#x27;, &#x27;r11i1p1f1&#x27;, &#x27;r12i1p1f1&#x27;, &#x27;r13i1p1f1&#x27;,
        &#x27;r14i1p1f1&#x27;, &#x27;r15i1p1f1&#x27;, &#x27;r16i1p1f1&#x27;, &#x27;r17i1p1f1&#x27;, &#x27;r18i1p1f1&#x27;,
        &#x27;r19i1p1f1&#x27;, &#x27;r1i1p1f1&#x27;, &#x27;r1i1p2f1&#x27;, &#x27;r20i1p1f1&#x27;, &#x27;r21i1p1f1&#x27;,
        &#x27;r22i1p1f1&#x27;, &#x27;r23i1p1f1&#x27;, &#x27;r24i1p1f1&#x27;, &#x27;r25i1p1f1&#x27;, &#x27;r2i1p1f1&#x27;,
        &#x27;r2i1p2f1&#x27;, &#x27;r3i1p1f1&#x27;, &#x27;r3i1p2f1&#x27;, &#x27;r4i1p1f1&#x27;, &#x27;r4i1p2f1&#x27;, &#x27;r5i1p1f1&#x27;,
        &#x27;r5i1p2f1&#x27;, &#x27;r6i1p1f1&#x27;, &#x27;r6i1p2f1&#x27;, &#x27;r7i1p1f1&#x27;, &#x27;r7i1p2f1&#x27;, &#x27;r8i1p1f1&#x27;,
-       &#x27;r8i1p2f1&#x27;, &#x27;r9i1p1f1&#x27;, &#x27;r9i1p2f1&#x27;], dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>dcpp_init_year</span></div><div class='xr-var-dims'>(dcpp_init_year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan</div><input id='attrs-cea62ddc-6664-4354-b66d-df8bb284d3a8' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-cea62ddc-6664-4354-b66d-df8bb284d3a8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-067c63c9-4075-4cc8-88d8-b6030d2afe77' class='xr-var-data-in' type='checkbox'><label for='data-067c63c9-4075-4cc8-88d8-b6030d2afe77' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([nan])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-20b067da-14bf-4f5c-bb0c-cb5565e1716a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-20b067da-14bf-4f5c-bb0c-cb5565e1716a' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>o2</span></div><div class='xr-var-dims'>(member_id, dcpp_init_year, time, lev, j, i)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 1, 12, 45, 291, 360), meta=np.ndarray&gt;</div><input id='attrs-4d581e73-cab0-4329-b337-ef3facc86e45' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4d581e73-cab0-4329-b337-ef3facc86e45' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5dd800cd-0170-449d-adf8-6addb4f79b3d' class='xr-var-data-in' type='checkbox'><label for='data-5dd800cd-0170-449d-adf8-6addb4f79b3d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>cell_measures :</span></dt><dd>area: areacello volume: volcello</dd><dt><span>cell_methods :</span></dt><dd>area: mean where sea time: mean</dd><dt><span>comment :</span></dt><dd>&#x27;Mole concentration&#x27; means number of moles per unit volume, also called &#x27;molarity&#x27;, and is used in the construction mole_concentration_of_X_in_Y, where X is a material constituent of Y.  A chemical or biological species denoted by X may be described by a single term such as &#x27;nitrogen&#x27; or a phrase such as &#x27;nox_expressed_as_nitrogen&#x27;.</dd><dt><span>history :</span></dt><dd>meanm2y_mltby1em3</dd><dt><span>long_name :</span></dt><dd>Dissolved Oxygen Concentration</dd><dt><span>original_name :</span></dt><dd>O2</dd><dt><span>standard_name :</span></dt><dd>mole_concentration_of_dissolved_molecular_oxygen_in_sea_water</dd><dt><span>units :</span></dt><dd>mol m-3</dd></dl></div><div class='xr-var-data'><table>
+       &#x27;r8i1p2f1&#x27;, &#x27;r9i1p1f1&#x27;, &#x27;r9i1p2f1&#x27;], dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>dcpp_init_year</span></div><div class='xr-var-dims'>(dcpp_init_year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan</div><input id='attrs-5f807ba8-1e9d-4550-b3ee-28279589096d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-5f807ba8-1e9d-4550-b3ee-28279589096d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4b9d1f97-4d5d-4b72-9da9-9fea2d6317f5' class='xr-var-data-in' type='checkbox'><label for='data-4b9d1f97-4d5d-4b72-9da9-9fea2d6317f5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([nan])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-71295ac7-b5b6-48f5-bf68-b76803286900' class='xr-section-summary-in' type='checkbox'  checked><label for='section-71295ac7-b5b6-48f5-bf68-b76803286900' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>o2</span></div><div class='xr-var-dims'>(member_id, dcpp_init_year, time, lev, j, i)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 1, 12, 45, 291, 360), meta=np.ndarray&gt;</div><input id='attrs-30ec0063-b7f5-41c5-9994-db9dd7d10ed3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-30ec0063-b7f5-41c5-9994-db9dd7d10ed3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-645835d2-f8ea-42c6-8741-41ce0478440a' class='xr-var-data-in' type='checkbox'><label for='data-645835d2-f8ea-42c6-8741-41ce0478440a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>cell_measures :</span></dt><dd>area: areacello volume: volcello</dd><dt><span>cell_methods :</span></dt><dd>area: mean where sea time: mean</dd><dt><span>comment :</span></dt><dd>&#x27;Mole concentration&#x27; means number of moles per unit volume, also called &#x27;molarity&#x27;, and is used in the construction mole_concentration_of_X_in_Y, where X is a material constituent of Y.  A chemical or biological species denoted by X may be described by a single term such as &#x27;nitrogen&#x27; or a phrase such as &#x27;nox_expressed_as_nitrogen&#x27;.</dd><dt><span>history :</span></dt><dd>meanm2y_mltby1em3</dd><dt><span>long_name :</span></dt><dd>Dissolved Oxygen Concentration</dd><dt><span>original_name :</span></dt><dd>O2</dd><dt><span>standard_name :</span></dt><dd>mole_concentration_of_dissolved_molecular_oxygen_in_sea_water</dd><dt><span>units :</span></dt><dd>mol m-3</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -2409,13 +2396,13 @@ Attributes: (12/52)
 </svg>
         </td>
     </tr>
-</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-0307955d-3794-4510-a2a2-a1b35e6b700a' class='xr-section-summary-in' type='checkbox'  ><label for='section-0307955d-3794-4510-a2a2-a1b35e6b700a' class='xr-section-summary' >Indexes: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>i</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-376ce3a6-cae7-4d17-ad81-751d2d358ba8' class='xr-index-data-in' type='checkbox'/><label for='index-376ce3a6-cae7-4d17-ad81-751d2d358ba8' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0,   1,   2,   3,   4,   5,   6,   7,   8,   9,
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-ce9548c8-630b-4751-8dbe-b66cca91f12e' class='xr-section-summary-in' type='checkbox'  ><label for='section-ce9548c8-630b-4751-8dbe-b66cca91f12e' class='xr-section-summary' >Indexes: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>i</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-30128954-91ce-46d8-8670-42f28b06bcbc' class='xr-index-data-in' type='checkbox'/><label for='index-30128954-91ce-46d8-8670-42f28b06bcbc' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0,   1,   2,   3,   4,   5,   6,   7,   8,   9,
        ...
        350, 351, 352, 353, 354, 355, 356, 357, 358, 359],
-      dtype=&#x27;int32&#x27;, name=&#x27;i&#x27;, length=360))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>j</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-1f6641d4-1370-424a-9c59-cb21c2ed3663' class='xr-index-data-in' type='checkbox'/><label for='index-1f6641d4-1370-424a-9c59-cb21c2ed3663' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0,   1,   2,   3,   4,   5,   6,   7,   8,   9,
+      dtype=&#x27;int32&#x27;, name=&#x27;i&#x27;, length=360))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>j</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-1a85d72d-c931-456f-9377-0395aae2c5fe' class='xr-index-data-in' type='checkbox'/><label for='index-1a85d72d-c931-456f-9377-0395aae2c5fe' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0,   1,   2,   3,   4,   5,   6,   7,   8,   9,
        ...
        281, 282, 283, 284, 285, 286, 287, 288, 289, 290],
-      dtype=&#x27;int32&#x27;, name=&#x27;j&#x27;, length=291))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lev</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-860383a6-6950-411a-8c80-e9ec38d648bc' class='xr-index-data-in' type='checkbox'/><label for='index-860383a6-6950-411a-8c80-e9ec38d648bc' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([3.0467727184295654,  9.454049110412598,  16.36396598815918,
+      dtype=&#x27;int32&#x27;, name=&#x27;j&#x27;, length=291))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lev</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-9375e49e-b93f-4a58-98c9-8d299a85e494' class='xr-index-data-in' type='checkbox'/><label for='index-9375e49e-b93f-4a58-98c9-8d299a85e494' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([3.0467727184295654,  9.454049110412598,  16.36396598815918,
        23.898710250854492,  32.20928955078125,  41.48185348510742,
         51.94512939453125, 63.879051208496094,     77.62451171875,
         93.59412384033203, 112.28348541259766,  134.2822723388672,
@@ -2430,7 +2417,7 @@ Attributes: (12/52)
           3650.7119140625,   3892.94970703125,        4137.046875,
            4382.654296875,   4629.48486328125,   4877.30322265625,
           5125.9189453125,    5375.1767578125,   5624.95166015625],
-      dtype=&#x27;float64&#x27;, name=&#x27;lev&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-3bbe937f-8e56-4e5d-aa39-4d51fb3c5c22' class='xr-index-data-in' type='checkbox'/><label for='index-3bbe937f-8e56-4e5d-aa39-4d51fb3c5c22' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(CFTimeIndex([1850-07-02 12:00:00, 1851-07-02 12:00:00, 1852-07-02 12:00:00,
+      dtype=&#x27;float64&#x27;, name=&#x27;lev&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-63f71607-0374-45a8-a90c-2c650d6e69bd' class='xr-index-data-in' type='checkbox'/><label for='index-63f71607-0374-45a8-a90c-2c650d6e69bd' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(CFTimeIndex([1850-07-02 12:00:00, 1851-07-02 12:00:00, 1852-07-02 12:00:00,
              1853-07-02 12:00:00, 1854-07-02 12:00:00, 1855-07-02 12:00:00,
              1856-07-02 12:00:00, 1857-07-02 12:00:00, 1858-07-02 12:00:00,
              1859-07-02 12:00:00,
@@ -2439,14 +2426,14 @@ Attributes: (12/52)
              2008-07-02 12:00:00, 2009-07-02 12:00:00, 2010-07-02 12:00:00,
              2011-07-02 12:00:00, 2012-07-02 12:00:00, 2013-07-02 12:00:00,
              2014-07-02 12:00:00],
-            dtype=&#x27;object&#x27;, length=165, calendar=&#x27;noleap&#x27;, freq=&#x27;365D&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>member_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-83c52dd9-c2fe-491b-a252-03524ea36de6' class='xr-index-data-in' type='checkbox'/><label for='index-83c52dd9-c2fe-491b-a252-03524ea36de6' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([&#x27;r10i1p1f1&#x27;, &#x27;r10i1p2f1&#x27;, &#x27;r11i1p1f1&#x27;, &#x27;r12i1p1f1&#x27;, &#x27;r13i1p1f1&#x27;,
+            dtype=&#x27;object&#x27;, length=165, calendar=&#x27;noleap&#x27;, freq=&#x27;365D&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>member_id</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-d8ea337f-f788-42c9-836e-448e0751098e' class='xr-index-data-in' type='checkbox'/><label for='index-d8ea337f-f788-42c9-836e-448e0751098e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([&#x27;r10i1p1f1&#x27;, &#x27;r10i1p2f1&#x27;, &#x27;r11i1p1f1&#x27;, &#x27;r12i1p1f1&#x27;, &#x27;r13i1p1f1&#x27;,
        &#x27;r14i1p1f1&#x27;, &#x27;r15i1p1f1&#x27;, &#x27;r16i1p1f1&#x27;, &#x27;r17i1p1f1&#x27;, &#x27;r18i1p1f1&#x27;,
        &#x27;r19i1p1f1&#x27;, &#x27;r1i1p1f1&#x27;, &#x27;r1i1p2f1&#x27;, &#x27;r20i1p1f1&#x27;, &#x27;r21i1p1f1&#x27;,
        &#x27;r22i1p1f1&#x27;, &#x27;r23i1p1f1&#x27;, &#x27;r24i1p1f1&#x27;, &#x27;r25i1p1f1&#x27;, &#x27;r2i1p1f1&#x27;,
        &#x27;r2i1p2f1&#x27;, &#x27;r3i1p1f1&#x27;, &#x27;r3i1p2f1&#x27;, &#x27;r4i1p1f1&#x27;, &#x27;r4i1p2f1&#x27;, &#x27;r5i1p1f1&#x27;,
        &#x27;r5i1p2f1&#x27;, &#x27;r6i1p1f1&#x27;, &#x27;r6i1p2f1&#x27;, &#x27;r7i1p1f1&#x27;, &#x27;r7i1p2f1&#x27;, &#x27;r8i1p1f1&#x27;,
        &#x27;r8i1p2f1&#x27;, &#x27;r9i1p1f1&#x27;, &#x27;r9i1p2f1&#x27;],
-      dtype=&#x27;object&#x27;, name=&#x27;member_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>dcpp_init_year</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-5f77af95-7438-4b53-a2c7-1f9e2d0f68ad' class='xr-index-data-in' type='checkbox'/><label for='index-5f77af95-7438-4b53-a2c7-1f9e2d0f68ad' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([nan], dtype=&#x27;float64&#x27;, name=&#x27;dcpp_init_year&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-1d011500-09de-4656-954d-a76eb53a3c5b' class='xr-section-summary-in' type='checkbox'  ><label for='section-1d011500-09de-4656-954d-a76eb53a3c5b' class='xr-section-summary' >Attributes: <span>(52)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.7 CMIP-6.2</dd><dt><span>YMDH_branch_time_in_child :</span></dt><dd>1850:01:01:00</dd><dt><span>activity_id :</span></dt><dd>CMIP</dd><dt><span>branch_method :</span></dt><dd>Spin-up documentation</dd><dt><span>branch_time_in_child :</span></dt><dd>0.0</dd><dt><span>cmor_version :</span></dt><dd>3.4.0</dd><dt><span>contact :</span></dt><dd>ec.cccma.info-info.ccmac.ec@canada.ca</dd><dt><span>data_specs_version :</span></dt><dd>01.00.29</dd><dt><span>experiment :</span></dt><dd>all-forcing simulation of the recent past</dd><dt><span>experiment_id :</span></dt><dd>historical</dd><dt><span>external_variables :</span></dt><dd>areacello volcello</dd><dt><span>forcing_index :</span></dt><dd>1</dd><dt><span>frequency :</span></dt><dd>yr</dd><dt><span>grid :</span></dt><dd>ORCA1 tripolar grid, 1 deg with refinement to 1/3 deg within 20 degrees of the equator; 361 x 290 longitude/latitude; 45 vertical levels; top grid cell 0-6.19 m</dd><dt><span>grid_label :</span></dt><dd>gn</dd><dt><span>initialization_index :</span></dt><dd>1</dd><dt><span>institution :</span></dt><dd>Canadian Centre for Climate Modelling and Analysis, Environment and Climate Change Canada, Victoria, BC V8P 5C2, Canada</dd><dt><span>institution_id :</span></dt><dd>CCCma</dd><dt><span>license :</span></dt><dd>CMIP6 model data produced by The Government of Canada (Canadian Centre for Climate Modelling and Analysis, Environment and Climate Change Canada) is licensed under a Creative Commons Attribution ShareAlike 4.0 International License (https://creativecommons.org/licenses). Consult https://pcmdi.llnl.gov/CMIP6/TermsOfUse for terms of use governing CMIP6 output, including citation requirements and proper acknowledgment. Further information about this data, including some limitations, can be found via the further_info_url (recorded as a global attribute in this file) and at https:///pcmdi.llnl.gov/. The data producers and data providers make no warranty, either express or implied, including, but not limited to, warranties of merchantability and fitness for a particular purpose. All liabilities arising from the supply of the information (including any liability arising in negligence) are excluded to the fullest extent permitted by law.</dd><dt><span>mip_era :</span></dt><dd>CMIP6</dd><dt><span>nominal_resolution :</span></dt><dd>100 km</dd><dt><span>parent_activity_id :</span></dt><dd>CMIP</dd><dt><span>parent_experiment_id :</span></dt><dd>piControl</dd><dt><span>parent_mip_era :</span></dt><dd>CMIP6</dd><dt><span>parent_source_id :</span></dt><dd>CanESM5</dd><dt><span>parent_time_units :</span></dt><dd>days since 1850-01-01 0:0:0.0</dd><dt><span>product :</span></dt><dd>model-output</dd><dt><span>realm :</span></dt><dd>ocnBgchem</dd><dt><span>references :</span></dt><dd>Geophysical Model Development Special issue on CanESM5 (https://www.geosci-model-dev.net/special_issues.html)</dd><dt><span>source :</span></dt><dd>CanESM5 (2019): 
+      dtype=&#x27;object&#x27;, name=&#x27;member_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>dcpp_init_year</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-b24e72d3-a5c4-4c57-935e-66140a58fd57' class='xr-index-data-in' type='checkbox'/><label for='index-b24e72d3-a5c4-4c57-935e-66140a58fd57' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([nan], dtype=&#x27;float64&#x27;, name=&#x27;dcpp_init_year&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-93328fe1-d055-4a82-a1af-fbf85126190f' class='xr-section-summary-in' type='checkbox'  ><label for='section-93328fe1-d055-4a82-a1af-fbf85126190f' class='xr-section-summary' >Attributes: <span>(52)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.7 CMIP-6.2</dd><dt><span>YMDH_branch_time_in_child :</span></dt><dd>1850:01:01:00</dd><dt><span>activity_id :</span></dt><dd>CMIP</dd><dt><span>branch_method :</span></dt><dd>Spin-up documentation</dd><dt><span>branch_time_in_child :</span></dt><dd>0.0</dd><dt><span>cmor_version :</span></dt><dd>3.4.0</dd><dt><span>contact :</span></dt><dd>ec.cccma.info-info.ccmac.ec@canada.ca</dd><dt><span>data_specs_version :</span></dt><dd>01.00.29</dd><dt><span>experiment :</span></dt><dd>all-forcing simulation of the recent past</dd><dt><span>experiment_id :</span></dt><dd>historical</dd><dt><span>external_variables :</span></dt><dd>areacello volcello</dd><dt><span>forcing_index :</span></dt><dd>1</dd><dt><span>frequency :</span></dt><dd>yr</dd><dt><span>grid :</span></dt><dd>ORCA1 tripolar grid, 1 deg with refinement to 1/3 deg within 20 degrees of the equator; 361 x 290 longitude/latitude; 45 vertical levels; top grid cell 0-6.19 m</dd><dt><span>grid_label :</span></dt><dd>gn</dd><dt><span>initialization_index :</span></dt><dd>1</dd><dt><span>institution :</span></dt><dd>Canadian Centre for Climate Modelling and Analysis, Environment and Climate Change Canada, Victoria, BC V8P 5C2, Canada</dd><dt><span>institution_id :</span></dt><dd>CCCma</dd><dt><span>license :</span></dt><dd>CMIP6 model data produced by The Government of Canada (Canadian Centre for Climate Modelling and Analysis, Environment and Climate Change Canada) is licensed under a Creative Commons Attribution ShareAlike 4.0 International License (https://creativecommons.org/licenses). Consult https://pcmdi.llnl.gov/CMIP6/TermsOfUse for terms of use governing CMIP6 output, including citation requirements and proper acknowledgment. Further information about this data, including some limitations, can be found via the further_info_url (recorded as a global attribute in this file) and at https:///pcmdi.llnl.gov/. The data producers and data providers make no warranty, either express or implied, including, but not limited to, warranties of merchantability and fitness for a particular purpose. All liabilities arising from the supply of the information (including any liability arising in negligence) are excluded to the fullest extent permitted by law.</dd><dt><span>mip_era :</span></dt><dd>CMIP6</dd><dt><span>nominal_resolution :</span></dt><dd>100 km</dd><dt><span>parent_activity_id :</span></dt><dd>CMIP</dd><dt><span>parent_experiment_id :</span></dt><dd>piControl</dd><dt><span>parent_mip_era :</span></dt><dd>CMIP6</dd><dt><span>parent_source_id :</span></dt><dd>CanESM5</dd><dt><span>parent_time_units :</span></dt><dd>days since 1850-01-01 0:0:0.0</dd><dt><span>product :</span></dt><dd>model-output</dd><dt><span>realm :</span></dt><dd>ocnBgchem</dd><dt><span>references :</span></dt><dd>Geophysical Model Development Special issue on CanESM5 (https://www.geosci-model-dev.net/special_issues.html)</dd><dt><span>source :</span></dt><dd>CanESM5 (2019): 
 aerosol: interactive
 atmos: CanAM5 (T63L49 native atmosphere, T63 Linear Gaussian Grid; 128 x 64 longitude/latitude; 49 levels; top level 1 hPa)
 atmosChem: specified oxidants for aerosols
@@ -2464,15 +2451,15 @@ seaIce: LIM2</dd><dt><span>source_id :</span></dt><dd>CanESM5</dd><dt><span>sour
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.plot.facetgrid.FacetGrid at 0x2853e41f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.plot.facetgrid.FacetGrid at 0x2e75e6c30&gt;
 </pre></div>
 </div>
-<img alt="../_images/d0e55920e29f805baf40c7ae89c49ba1307fc272515c93a701662b5f81306834.png" src="../_images/d0e55920e29f805baf40c7ae89c49ba1307fc272515c93a701662b5f81306834.png" />
+<img alt="../_images/fb76035d90868138efd92bda085d465175eb88992803593bfe2f4d8a421ccadf.png" src="../_images/fb76035d90868138efd92bda085d465175eb88992803593bfe2f4d8a421ccadf.png" />
 </div>
 </div>
 </section>
 <section id="use-custom-preprocessing-functions">
-<h2>Use custom preprocessing functions<a class="headerlink" href="#use-custom-preprocessing-functions" title="Permalink to this heading">#</a></h2>
+<h2>Use custom preprocessing functions<a class="headerlink" href="#use-custom-preprocessing-functions" title="Link to this heading">#</a></h2>
 <p>When comparing many models it is often necessary to preprocess (e.g. rename
 certain variables) them before running some analysis step. The <code class="docutils literal notranslate"><span class="pre">preprocess</span></code>
 argument lets the user pass a function, which is executed for each loaded asset
@@ -2589,13 +2576,13 @@ before combining datasets.</p>
 </div><div class="output text_html">
     <div>
       <progress value='2' class='' max='2' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      100.00% [2/2 00:24&lt;00:00]
+      100.00% [2/2 00:18&lt;00:00]
     </div>
-    </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dataset key=CMIP.IPSL.IPSL-CM6A-LR.historical.Oyr.gn
-	dimensions=[&#39;axis_nbounds&#39;, &#39;dcpp_init_year&#39;, &#39;member_id&#39;, &#39;nvertex&#39;, &#39;olevel&#39;, &#39;time&#39;, &#39;x&#39;, &#39;y&#39;]
-
-dataset key=CMIP.CCCma.CanESM5.historical.Oyr.gn
+    </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dataset key=CMIP.CCCma.CanESM5.historical.Oyr.gn
 	dimensions=[&#39;bnds&#39;, &#39;dcpp_init_year&#39;, &#39;i&#39;, &#39;j&#39;, &#39;lev&#39;, &#39;member_id&#39;, &#39;time&#39;, &#39;vertices&#39;]
+
+dataset key=CMIP.IPSL.IPSL-CM6A-LR.historical.Oyr.gn
+	dimensions=[&#39;axis_nbounds&#39;, &#39;dcpp_init_year&#39;, &#39;member_id&#39;, &#39;nvertex&#39;, &#39;olevel&#39;, &#39;time&#39;, &#39;x&#39;, &#39;y&#39;]
 </pre></div>
 </div>
 </div>
@@ -2609,7 +2596,7 @@ called <code class="docutils literal notranslate"><span class="pre">lev</span></
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">helper_func</span><span class="p">(</span><span class="n">ds</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">helper_func</span><span class="p">(</span><span class="n">ds</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Rename `olevel` dim to `lev`&quot;&quot;&quot;</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="c1"># a short example</span>
@@ -2653,13 +2640,13 @@ called <code class="docutils literal notranslate"><span class="pre">lev</span></
 </div><div class="output text_html">
     <div>
       <progress value='2' class='' max='2' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      100.00% [2/2 00:00&lt;00:00]
+      100.00% [2/2 00:17&lt;00:00]
     </div>
-    </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dataset key=CMIP.IPSL.IPSL-CM6A-LR.historical.Oyr.gn
-	dimensions=[&#39;axis_nbounds&#39;, &#39;dcpp_init_year&#39;, &#39;lev&#39;, &#39;member_id&#39;, &#39;nvertex&#39;, &#39;time&#39;, &#39;x&#39;, &#39;y&#39;]
-
-dataset key=CMIP.CCCma.CanESM5.historical.Oyr.gn
+    </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dataset key=CMIP.CCCma.CanESM5.historical.Oyr.gn
 	dimensions=[&#39;bnds&#39;, &#39;dcpp_init_year&#39;, &#39;i&#39;, &#39;j&#39;, &#39;lev&#39;, &#39;member_id&#39;, &#39;time&#39;, &#39;vertices&#39;]
+
+dataset key=CMIP.IPSL.IPSL-CM6A-LR.historical.Oyr.gn
+	dimensions=[&#39;axis_nbounds&#39;, &#39;dcpp_init_year&#39;, &#39;lev&#39;, &#39;member_id&#39;, &#39;nvertex&#39;, &#39;time&#39;, &#39;x&#39;, &#39;y&#39;]
 </pre></div>
 </div>
 </div>
@@ -2673,7 +2660,7 @@ utilities.</p>
 </div>
 </section>
 <section id="load-datasets-into-an-xarray-datatree-using-to-datatree">
-<h2>Load datasets into an xarray-datatree using <code class="docutils literal notranslate"><span class="pre">to_datatree()</span></code><a class="headerlink" href="#load-datasets-into-an-xarray-datatree-using-to-datatree" title="Permalink to this heading">#</a></h2>
+<h2>Load datasets into an xarray-datatree using <code class="docutils literal notranslate"><span class="pre">to_datatree()</span></code><a class="headerlink" href="#load-datasets-into-an-xarray-datatree-using-to-datatree" title="Link to this heading">#</a></h2>
 <p>We can also load our data into an <a class="reference external" href="https://xarray-datatree.readthedocs.io/en/latest/">xarray-datatree</a> object using the following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2707,101 +2694,28 @@ utilities.</p>
 </div><div class="output text_html">
     <div>
       <progress value='4' class='' max='4' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      100.00% [4/4 00:00&lt;00:00]
+      100.00% [4/4 00:18&lt;00:00]
     </div>
-    </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DataTree(&#39;None&#39;, parent=None)
-├── DataTree(&#39;CMIP&#39;)
-│   ├── DataTree(&#39;IPSL&#39;)
-│   │   └── DataTree(&#39;IPSL-CM6A-LR&#39;)
-│   │       └── DataTree(&#39;historical&#39;)
-│   │           └── DataTree(&#39;Oyr&#39;)
-│   │               └── DataTree(&#39;gn&#39;)
-│   │                       Dimensions:         (y: 332, x: 362, nvertex: 4, member_id: 1,
-│   │                                            dcpp_init_year: 1, time: 165, lev: 75, axis_nbounds: 2)
-│   │                       Coordinates:
-│   │                           bounds_nav_lat  (y, x, nvertex) float32 dask.array&lt;chunksize=(332, 362, 4), meta=np.ndarray&gt;
-│   │                           bounds_nav_lon  (y, x, nvertex) float32 dask.array&lt;chunksize=(332, 362, 4), meta=np.ndarray&gt;
-│   │                           nav_lat         (y, x) float32 dask.array&lt;chunksize=(332, 362), meta=np.ndarray&gt;
-│   │                           nav_lon         (y, x) float32 dask.array&lt;chunksize=(332, 362), meta=np.ndarray&gt;
-│   │                         * lev             (lev) float32 0.5058 1.556 2.668 ... 5.698e+03 5.902e+03
-│   │                           olevel_bounds   (lev, axis_nbounds) float32 dask.array&lt;chunksize=(75, 2), meta=np.ndarray&gt;
-│   │                         * time            (time) datetime64[ns] 1850-07-02T12:00:00 ... 2014-07-02T...
-│   │                           time_bounds     (time, axis_nbounds) datetime64[ns] dask.array&lt;chunksize=(165, 2), meta=np.ndarray&gt;
-│   │                         * member_id       (member_id) object &#39;r10i1p1f1&#39;
-│   │                         * dcpp_init_year  (dcpp_init_year) float64 nan
-│   │                       Dimensions without coordinates: y, x, nvertex, axis_nbounds
-│   │                       Data variables:
-│   │                           area            (y, x) float32 dask.array&lt;chunksize=(332, 362), meta=np.ndarray&gt;
-│   │                           o2              (member_id, dcpp_init_year, time, lev, y, x) float32 dask.array&lt;chunksize=(1, 1, 9, 75, 332, 362), meta=np.ndarray&gt;
-│   │                       Attributes: (12/66)
-│   │                           CMIP6_CV_version:                 cv=6.2.3.5-2-g63b123e
-│   │                           Conventions:                      CF-1.7 CMIP-6.2
-│   │                           EXPID:                            historical
-│   │                           activity_id:                      CMIP
-│   │                           branch_method:                    standard
-│   │                           branch_time_in_child:             0.0
-│   │                           ...                               ...
-│   │                           intake_esm_attrs:variable_id:     o2
-│   │                           intake_esm_attrs:grid_label:      gn
-│   │                           intake_esm_attrs:zstore:          gs://cmip6/CMIP6/CMIP/IPSL/IPSL-CM6A-LR...
-│   │                           intake_esm_attrs:version:         20180803
-│   │                           intake_esm_attrs:_data_format_:   zarr
-│   │                           intake_esm_dataset_key:           CMIP/IPSL/IPSL-CM6A-LR/historical/Oyr/gn
-│   └── DataTree(&#39;CCCma&#39;)
-│       └── DataTree(&#39;CanESM5&#39;)
-│           └── DataTree(&#39;historical&#39;)
-│               └── DataTree(&#39;Oyr&#39;)
-│                   └── DataTree(&#39;gn&#39;)
-│                           Dimensions:             (i: 360, j: 291, lev: 45, bnds: 2, member_id: 1,
-│                                                    dcpp_init_year: 1, time: 165, vertices: 4)
-│                           Coordinates:
-│                             * i                   (i) int32 0 1 2 3 4 5 6 ... 353 354 355 356 357 358 359
-│                             * j                   (j) int32 0 1 2 3 4 5 6 ... 284 285 286 287 288 289 290
-│                               latitude            (j, i) float64 dask.array&lt;chunksize=(291, 360), meta=np.ndarray&gt;
-│                             * lev                 (lev) float64 3.047 9.454 16.36 ... 5.375e+03 5.625e+03
-│                               lev_bnds            (lev, bnds) float64 dask.array&lt;chunksize=(45, 2), meta=np.ndarray&gt;
-│                               longitude           (j, i) float64 dask.array&lt;chunksize=(291, 360), meta=np.ndarray&gt;
-│                             * time                (time) object 1850-07-02 12:00:00 ... 2014-07-02 12:0...
-│                               time_bnds           (time, bnds) object dask.array&lt;chunksize=(165, 2), meta=np.ndarray&gt;
-│                             * member_id           (member_id) object &#39;r10i1p1f1&#39;
-│                             * dcpp_init_year      (dcpp_init_year) float64 nan
-│                           Dimensions without coordinates: bnds, vertices
-│                           Data variables:
-│                               o2                  (member_id, dcpp_init_year, time, lev, j, i) float32 dask.array&lt;chunksize=(1, 1, 12, 45, 291, 360), meta=np.ndarray&gt;
-│                               vertices_latitude   (j, i, vertices) float64 dask.array&lt;chunksize=(291, 360, 4), meta=np.ndarray&gt;
-│                               vertices_longitude  (j, i, vertices) float64 dask.array&lt;chunksize=(291, 360, 4), meta=np.ndarray&gt;
-│                           Attributes: (12/69)
-│                               CCCma_model_hash:                 55f484f90aff0e32c5a8e92a42c6b9ae7ffe6224
-│                               CCCma_parent_runid:               rc3.1-pictrl
-│                               CCCma_pycmor_hash:                33c30511acc319a98240633965a04ca99c26427e
-│                               CCCma_runid:                      rc3.1-his10
-│                               Conventions:                      CF-1.7 CMIP-6.2
-│                               YMDH_branch_time_in_child:        1850:01:01:00
-│                               ...                               ...
-│                               intake_esm_attrs:variable_id:     o2
-│                               intake_esm_attrs:grid_label:      gn
-│                               intake_esm_attrs:zstore:          gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/his...
-│                               intake_esm_attrs:version:         20190429
-│                               intake_esm_attrs:_data_format_:   zarr
-│                               intake_esm_dataset_key:           CMIP/CCCma/CanESM5/historical/Oyr/gn
-├── DataTree(&#39;CMIP.IPSL.IPSL-CM6A-LR.historical.Oyr.gn&#39;)
+    </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.DataTree&gt;
+Group: /
+├── Group: /CMIP.IPSL.IPSL-CM6A-LR.historical.Oyr.gn
 │       Dimensions:         (y: 332, x: 362, nvertex: 4, member_id: 1,
 │                            dcpp_init_year: 1, time: 165, lev: 75, axis_nbounds: 2)
 │       Coordinates:
-│           bounds_nav_lat  (y, x, nvertex) float32 dask.array&lt;chunksize=(332, 362, 4), meta=np.ndarray&gt;
-│           bounds_nav_lon  (y, x, nvertex) float32 dask.array&lt;chunksize=(332, 362, 4), meta=np.ndarray&gt;
-│           nav_lat         (y, x) float32 dask.array&lt;chunksize=(332, 362), meta=np.ndarray&gt;
-│           nav_lon         (y, x) float32 dask.array&lt;chunksize=(332, 362), meta=np.ndarray&gt;
-│         * lev             (lev) float32 0.5058 1.556 2.668 ... 5.698e+03 5.902e+03
-│           olevel_bounds   (lev, axis_nbounds) float32 dask.array&lt;chunksize=(75, 2), meta=np.ndarray&gt;
-│         * time            (time) datetime64[ns] 1850-07-02T12:00:00 ... 2014-07-02T...
-│           time_bounds     (time, axis_nbounds) datetime64[ns] dask.array&lt;chunksize=(165, 2), meta=np.ndarray&gt;
-│         * member_id       (member_id) object &#39;r10i1p1f1&#39;
-│         * dcpp_init_year  (dcpp_init_year) float64 nan
+│           bounds_nav_lat  (y, x, nvertex) float32 2MB dask.array&lt;chunksize=(332, 362, 4), meta=np.ndarray&gt;
+│           bounds_nav_lon  (y, x, nvertex) float32 2MB dask.array&lt;chunksize=(332, 362, 4), meta=np.ndarray&gt;
+│           nav_lat         (y, x) float32 481kB dask.array&lt;chunksize=(332, 362), meta=np.ndarray&gt;
+│           nav_lon         (y, x) float32 481kB dask.array&lt;chunksize=(332, 362), meta=np.ndarray&gt;
+│         * lev             (lev) float32 300B 0.5058 1.556 ... 5.698e+03 5.902e+03
+│           olevel_bounds   (lev, axis_nbounds) float32 600B dask.array&lt;chunksize=(75, 2), meta=np.ndarray&gt;
+│         * time            (time) datetime64[ns] 1kB 1850-07-02T12:00:00 ... 2014-07...
+│           time_bounds     (time, axis_nbounds) datetime64[ns] 3kB dask.array&lt;chunksize=(165, 2), meta=np.ndarray&gt;
+│         * member_id       (member_id) object 8B &#39;r10i1p1f1&#39;
+│         * dcpp_init_year  (dcpp_init_year) float64 8B nan
 │       Dimensions without coordinates: y, x, nvertex, axis_nbounds
 │       Data variables:
-│           area            (y, x) float32 dask.array&lt;chunksize=(332, 362), meta=np.ndarray&gt;
-│           o2              (member_id, dcpp_init_year, time, lev, y, x) float32 dask.array&lt;chunksize=(1, 1, 9, 75, 332, 362), meta=np.ndarray&gt;
+│           area            (y, x) float32 481kB dask.array&lt;chunksize=(332, 362), meta=np.ndarray&gt;
+│           o2              (member_id, dcpp_init_year, time, lev, y, x) float32 6GB dask.array&lt;chunksize=(1, 1, 9, 75, 332, 362), meta=np.ndarray&gt;
 │       Attributes: (12/66)
 │           CMIP6_CV_version:                 cv=6.2.3.5-2-g63b123e
 │           Conventions:                      CF-1.7 CMIP-6.2
@@ -2816,46 +2730,120 @@ utilities.</p>
 │           intake_esm_attrs:version:         20180803
 │           intake_esm_attrs:_data_format_:   zarr
 │           intake_esm_dataset_key:           CMIP.IPSL.IPSL-CM6A-LR.historical.Oyr.gn
-└── DataTree(&#39;CMIP.CCCma.CanESM5.historical.Oyr.gn&#39;)
-        Dimensions:             (i: 360, j: 291, lev: 45, bnds: 2, member_id: 1,
-                                 dcpp_init_year: 1, time: 165, vertices: 4)
-        Coordinates:
-          * i                   (i) int32 0 1 2 3 4 5 6 ... 353 354 355 356 357 358 359
-          * j                   (j) int32 0 1 2 3 4 5 6 ... 284 285 286 287 288 289 290
-            latitude            (j, i) float64 dask.array&lt;chunksize=(291, 360), meta=np.ndarray&gt;
-          * lev                 (lev) float64 3.047 9.454 16.36 ... 5.375e+03 5.625e+03
-            lev_bnds            (lev, bnds) float64 dask.array&lt;chunksize=(45, 2), meta=np.ndarray&gt;
-            longitude           (j, i) float64 dask.array&lt;chunksize=(291, 360), meta=np.ndarray&gt;
-          * time                (time) object 1850-07-02 12:00:00 ... 2014-07-02 12:0...
-            time_bnds           (time, bnds) object dask.array&lt;chunksize=(165, 2), meta=np.ndarray&gt;
-          * member_id           (member_id) object &#39;r10i1p1f1&#39;
-          * dcpp_init_year      (dcpp_init_year) float64 nan
-        Dimensions without coordinates: bnds, vertices
-        Data variables:
-            o2                  (member_id, dcpp_init_year, time, lev, j, i) float32 dask.array&lt;chunksize=(1, 1, 12, 45, 291, 360), meta=np.ndarray&gt;
-            vertices_latitude   (j, i, vertices) float64 dask.array&lt;chunksize=(291, 360, 4), meta=np.ndarray&gt;
-            vertices_longitude  (j, i, vertices) float64 dask.array&lt;chunksize=(291, 360, 4), meta=np.ndarray&gt;
-        Attributes: (12/69)
-            CCCma_model_hash:                 55f484f90aff0e32c5a8e92a42c6b9ae7ffe6224
-            CCCma_parent_runid:               rc3.1-pictrl
-            CCCma_pycmor_hash:                33c30511acc319a98240633965a04ca99c26427e
-            CCCma_runid:                      rc3.1-his10
-            Conventions:                      CF-1.7 CMIP-6.2
-            YMDH_branch_time_in_child:        1850:01:01:00
-            ...                               ...
-            intake_esm_attrs:variable_id:     o2
-            intake_esm_attrs:grid_label:      gn
-            intake_esm_attrs:zstore:          gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/his...
-            intake_esm_attrs:version:         20190429
-            intake_esm_attrs:_data_format_:   zarr
-            intake_esm_dataset_key:           CMIP.CCCma.CanESM5.historical.Oyr.gn
+├── Group: /CMIP.CCCma.CanESM5.historical.Oyr.gn
+│       Dimensions:             (i: 360, j: 291, lev: 45, bnds: 2, member_id: 1,
+│                                dcpp_init_year: 1, time: 165, vertices: 4)
+│       Coordinates:
+│         * i                   (i) int32 1kB 0 1 2 3 4 5 6 ... 354 355 356 357 358 359
+│         * j                   (j) int32 1kB 0 1 2 3 4 5 6 ... 285 286 287 288 289 290
+│           latitude            (j, i) float64 838kB dask.array&lt;chunksize=(291, 360), meta=np.ndarray&gt;
+│         * lev                 (lev) float64 360B 3.047 9.454 ... 5.375e+03 5.625e+03
+│           lev_bnds            (lev, bnds) float64 720B dask.array&lt;chunksize=(45, 2), meta=np.ndarray&gt;
+│           longitude           (j, i) float64 838kB dask.array&lt;chunksize=(291, 360), meta=np.ndarray&gt;
+│         * time                (time) object 1kB 1850-07-02 12:00:00 ... 2014-07-02 ...
+│           time_bnds           (time, bnds) object 3kB dask.array&lt;chunksize=(165, 2), meta=np.ndarray&gt;
+│         * member_id           (member_id) object 8B &#39;r10i1p1f1&#39;
+│         * dcpp_init_year      (dcpp_init_year) float64 8B nan
+│       Dimensions without coordinates: bnds, vertices
+│       Data variables:
+│           o2                  (member_id, dcpp_init_year, time, lev, j, i) float32 3GB dask.array&lt;chunksize=(1, 1, 12, 45, 291, 360), meta=np.ndarray&gt;
+│           vertices_latitude   (j, i, vertices) float64 3MB dask.array&lt;chunksize=(291, 360, 4), meta=np.ndarray&gt;
+│           vertices_longitude  (j, i, vertices) float64 3MB dask.array&lt;chunksize=(291, 360, 4), meta=np.ndarray&gt;
+│       Attributes: (12/69)
+│           CCCma_model_hash:                 55f484f90aff0e32c5a8e92a42c6b9ae7ffe6224
+│           CCCma_parent_runid:               rc3.1-pictrl
+│           CCCma_pycmor_hash:                33c30511acc319a98240633965a04ca99c26427e
+│           CCCma_runid:                      rc3.1-his10
+│           Conventions:                      CF-1.7 CMIP-6.2
+│           YMDH_branch_time_in_child:        1850:01:01:00
+│           ...                               ...
+│           intake_esm_attrs:variable_id:     o2
+│           intake_esm_attrs:grid_label:      gn
+│           intake_esm_attrs:zstore:          gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/his...
+│           intake_esm_attrs:version:         20190429
+│           intake_esm_attrs:_data_format_:   zarr
+│           intake_esm_dataset_key:           CMIP.CCCma.CanESM5.historical.Oyr.gn
+└── Group: /CMIP
+    ├── Group: /CMIP/CCCma
+    │   └── Group: /CMIP/CCCma/CanESM5
+    │       └── Group: /CMIP/CCCma/CanESM5/historical
+    │           └── Group: /CMIP/CCCma/CanESM5/historical/Oyr
+    │               └── Group: /CMIP/CCCma/CanESM5/historical/Oyr/gn
+    │                       Dimensions:             (i: 360, j: 291, lev: 45, bnds: 2, member_id: 1,
+    │                                                dcpp_init_year: 1, time: 165, vertices: 4)
+    │                       Coordinates:
+    │                         * i                   (i) int32 1kB 0 1 2 3 4 5 6 ... 354 355 356 357 358 359
+    │                         * j                   (j) int32 1kB 0 1 2 3 4 5 6 ... 285 286 287 288 289 290
+    │                           latitude            (j, i) float64 838kB dask.array&lt;chunksize=(291, 360), meta=np.ndarray&gt;
+    │                         * lev                 (lev) float64 360B 3.047 9.454 ... 5.375e+03 5.625e+03
+    │                           lev_bnds            (lev, bnds) float64 720B dask.array&lt;chunksize=(45, 2), meta=np.ndarray&gt;
+    │                           longitude           (j, i) float64 838kB dask.array&lt;chunksize=(291, 360), meta=np.ndarray&gt;
+    │                         * time                (time) object 1kB 1850-07-02 12:00:00 ... 2014-07-02 ...
+    │                           time_bnds           (time, bnds) object 3kB dask.array&lt;chunksize=(165, 2), meta=np.ndarray&gt;
+    │                         * member_id           (member_id) object 8B &#39;r10i1p1f1&#39;
+    │                         * dcpp_init_year      (dcpp_init_year) float64 8B nan
+    │                       Dimensions without coordinates: bnds, vertices
+    │                       Data variables:
+    │                           o2                  (member_id, dcpp_init_year, time, lev, j, i) float32 3GB dask.array&lt;chunksize=(1, 1, 12, 45, 291, 360), meta=np.ndarray&gt;
+    │                           vertices_latitude   (j, i, vertices) float64 3MB dask.array&lt;chunksize=(291, 360, 4), meta=np.ndarray&gt;
+    │                           vertices_longitude  (j, i, vertices) float64 3MB dask.array&lt;chunksize=(291, 360, 4), meta=np.ndarray&gt;
+    │                       Attributes: (12/69)
+    │                           CCCma_model_hash:                 55f484f90aff0e32c5a8e92a42c6b9ae7ffe6224
+    │                           CCCma_parent_runid:               rc3.1-pictrl
+    │                           CCCma_pycmor_hash:                33c30511acc319a98240633965a04ca99c26427e
+    │                           CCCma_runid:                      rc3.1-his10
+    │                           Conventions:                      CF-1.7 CMIP-6.2
+    │                           YMDH_branch_time_in_child:        1850:01:01:00
+    │                           ...                               ...
+    │                           intake_esm_attrs:variable_id:     o2
+    │                           intake_esm_attrs:grid_label:      gn
+    │                           intake_esm_attrs:zstore:          gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/his...
+    │                           intake_esm_attrs:version:         20190429
+    │                           intake_esm_attrs:_data_format_:   zarr
+    │                           intake_esm_dataset_key:           CMIP/CCCma/CanESM5/historical/Oyr/gn
+    └── Group: /CMIP/IPSL
+        └── Group: /CMIP/IPSL/IPSL-CM6A-LR
+            └── Group: /CMIP/IPSL/IPSL-CM6A-LR/historical
+                └── Group: /CMIP/IPSL/IPSL-CM6A-LR/historical/Oyr
+                    └── Group: /CMIP/IPSL/IPSL-CM6A-LR/historical/Oyr/gn
+                            Dimensions:         (y: 332, x: 362, nvertex: 4, member_id: 1,
+                                                 dcpp_init_year: 1, time: 165, lev: 75, axis_nbounds: 2)
+                            Coordinates:
+                                bounds_nav_lat  (y, x, nvertex) float32 2MB dask.array&lt;chunksize=(332, 362, 4), meta=np.ndarray&gt;
+                                bounds_nav_lon  (y, x, nvertex) float32 2MB dask.array&lt;chunksize=(332, 362, 4), meta=np.ndarray&gt;
+                                nav_lat         (y, x) float32 481kB dask.array&lt;chunksize=(332, 362), meta=np.ndarray&gt;
+                                nav_lon         (y, x) float32 481kB dask.array&lt;chunksize=(332, 362), meta=np.ndarray&gt;
+                              * lev             (lev) float32 300B 0.5058 1.556 ... 5.698e+03 5.902e+03
+                                olevel_bounds   (lev, axis_nbounds) float32 600B dask.array&lt;chunksize=(75, 2), meta=np.ndarray&gt;
+                              * time            (time) datetime64[ns] 1kB 1850-07-02T12:00:00 ... 2014-07...
+                                time_bounds     (time, axis_nbounds) datetime64[ns] 3kB dask.array&lt;chunksize=(165, 2), meta=np.ndarray&gt;
+                              * member_id       (member_id) object 8B &#39;r10i1p1f1&#39;
+                              * dcpp_init_year  (dcpp_init_year) float64 8B nan
+                            Dimensions without coordinates: y, x, nvertex, axis_nbounds
+                            Data variables:
+                                area            (y, x) float32 481kB dask.array&lt;chunksize=(332, 362), meta=np.ndarray&gt;
+                                o2              (member_id, dcpp_init_year, time, lev, y, x) float32 6GB dask.array&lt;chunksize=(1, 1, 9, 75, 332, 362), meta=np.ndarray&gt;
+                            Attributes: (12/66)
+                                CMIP6_CV_version:                 cv=6.2.3.5-2-g63b123e
+                                Conventions:                      CF-1.7 CMIP-6.2
+                                EXPID:                            historical
+                                activity_id:                      CMIP
+                                branch_method:                    standard
+                                branch_time_in_child:             0.0
+                                ...                               ...
+                                intake_esm_attrs:variable_id:     o2
+                                intake_esm_attrs:grid_label:      gn
+                                intake_esm_attrs:zstore:          gs://cmip6/CMIP6/CMIP/IPSL/IPSL-CM6A-LR...
+                                intake_esm_attrs:version:         20180803
+                                intake_esm_attrs:_data_format_:   zarr
+                                intake_esm_dataset_key:           CMIP/IPSL/IPSL-CM6A-LR/historical/Oyr/gn
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="saving-a-dataset-to-disk">
-<h2>Saving a dataset to disk<a class="headerlink" href="#saving-a-dataset-to-disk" title="Permalink to this heading">#</a></h2>
+<h2>Saving a dataset to disk<a class="headerlink" href="#saving-a-dataset-to-disk" title="Link to this heading">#</a></h2>
 <p>Once you have a case you will continue to use, you’ll want to save it to a local drive for
 further work.  To save on dictionary entry to disk, use <code class="docutils literal notranslate"><span class="pre">to_netcdf</span></code>.</p>
 <div class="cell docutils container">
@@ -2865,7 +2853,7 @@ further work.  To save on dictionary entry to disk, use <code class="docutils li
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>k=&#39;CMIP.CCCma.CanESM5.historical.Oyr.gn&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>k=&#39;CMIP.IPSL.IPSL-CM6A-LR.historical.Oyr.gn&#39;
 </pre></div>
 </div>
 </div>
@@ -2888,7 +2876,7 @@ further work.  To save on dictionary entry to disk, use <code class="docutils li
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">intake_esm</span>  <span class="c1"># just to display version information</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">intake_esm</span>  <span class="c1"># just to display version information</span>
 <span class="n">intake_esm</span><span class="o">.</span><span class="n">show_versions</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -2904,18 +2892,18 @@ further work.  To save on dictionary entry to disk, use <code class="docutils li
 ------------------
 
 cftime: 1.6.4
-dask: 2024.12.1
+dask: 2025.1.0
 fastprogress: 1.0.3
-fsspec: 2024.12.0
-gcsfs: 2024.12.0
-intake: 0.7.0
-intake_esm: 2024.2.6
-netCDF4: 1.6.3
+fsspec: 2025.2.0
+gcsfs: 2025.2.0
+intake: 2.0.8
+intake_esm: 2025.2.3
+netCDF4: 1.7.2
 pandas: 2.2.3
 requests: 2.32.3
 s3fs: None
-xarray: 2023.7.0
-zarr: 2.18.3
+xarray: 2025.1.2
+zarr: 2.18.4
 </pre></div>
 </div>
 </div>
@@ -2979,7 +2967,8 @@ zarr: 2.18.3
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -3019,7 +3008,7 @@ By Brian Rose
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -3043,8 +3032,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

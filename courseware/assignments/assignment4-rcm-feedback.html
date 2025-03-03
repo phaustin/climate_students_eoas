@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Assignment: Feedbacks in the Radiative-Convective Model &#8212; Climate Laboratory Book</title>
   
@@ -17,51 +16,50 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/assignments/assignment4-rcm-feedback';</script>
@@ -73,6 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Assignment: Clouds in the Leaky Greenhouse Model" href="assignment3-simple-clouds.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -88,19 +87,8 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -108,7 +96,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -116,8 +103,8 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -133,7 +120,8 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -161,7 +149,14 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Climate Laboratory Book</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -183,8 +178,6 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../resources/index.html">tutorials and demos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../resources/tutorials/historical_data.html">Tutorial: Loading CMIP historical data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project links and notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/loading-cmip6-data.html">Accessing CMIP6 data with intake-esm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/loading-CESM-LENS-data.html">Accessing CESM LENS (and LENS2) data with intake-esm</a></li>
@@ -236,31 +229,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab15_transient-cesm.html">15. Examing the transient and equilibrium CO<span class="math notranslate nohighlight">\(_2\)</span> response in the CESM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week5/lab16_transient-toy.html">16. Toy models of transient warming</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6 Labs</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../week6/lab17_clouds.html">17. Clouds and cloud feedback</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week6/lab18_insolation.html">18. Insolation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week6/lab19_orbital.html">19. Orbital variations, insolation, and the ice ages</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week6/lab20_heat-transport.html">20. Heat transport</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../week6/lab20_2_advanced-heat-transport.html">20.8. Advanced topic: Heat transport decomposition</a></li>
-</ul>
-</details></li>
-</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../week7/lab21_one-dim-ebm.html">21. The one-dimensional energy balance model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week7/lab22_seasonal-cycle.html">22. Modeling the seasonal cycle of surface temperature</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week7/lab23_cesm-atmospheric-dynamics.html">23. Atmospheric Dynamics in the CESM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week7/lab24_numerical-diffusion.html">24. A peek at numerical methods for diffusion models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab21_one-dim-ebm.html">17. The one-dimensional energy balance model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab22_seasonal-cycle.html">18. Modeling the seasonal cycle of surface temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab23_cesm-atmospheric-dynamics.html">19. Atmospheric Dynamics in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/lab24_numerical-diffusion.html">20. A peek at numerical methods for diffusion models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8 Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">25. Ice-albedo feedback and Snowball Earth in the EBM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../week8/lab25_2_advanced-albedo-feedback.html">25.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../week8/lab25_3_advanced-snowball-earth.html">25.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week8/lab25_albedo-snowball.html">21. Ice-albedo feedback and Snowball Earth in the EBM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week8/lab25_2_advanced-albedo-feedback.html">21.10. Advanced topic: Ice albedo feedback in the EBM – test2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week8/lab25_3_advanced-snowball-earth.html">21.11. Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../week8/lab26_cesm-coupled-dynamics.html">26. Coupled Dynamics in the CESM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week8/lab26_cesm-coupled-dynamics.html">22. Coupled Dynamics in the CESM</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9 Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -306,9 +289,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -327,9 +315,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -405,27 +393,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -447,7 +427,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-functions">plotting functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-averages-of-temperature-and-specific-humidity">global averages of temperature and specific humidity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions-based-on-water-vapor-levels">initial conditions, based on water vapor levels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-radiative-convective-control-model-to-equilibrium">run radiative-convective control model to equilibrium</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-combined-lapse-rate-and-water-vapor-feedback-in-the-rcm">Question 2: combined lapse rate and water vapor feedback in the RCM</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specific-questions">Specific questions:</a></li>
@@ -466,10 +452,15 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-feedbacks-in-the-radiative-convective-model">
-<h1>Assignment: Feedbacks in the Radiative-Convective Model<a class="headerlink" href="#assignment-feedbacks-in-the-radiative-convective-model" title="Permalink to this heading">#</a></h1>
+<span id="nb-rcm-feedback"></span><h1>Assignment: Feedbacks in the Radiative-Convective Model<a class="headerlink" href="#assignment-feedbacks-in-the-radiative-convective-model" title="Link to this heading">#</a></h1>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
+<p>Modified: 2025/Feb/10 – optional varialble read from netcdf files</p>
+<p>The file download time for reference temperature and humidity files in question 1 can be significant.  If  you’d
+like to skip that download, get the files <code class="docutils literal notranslate"><span class="pre">Tglobal.nc</span></code> and <code class="docutils literal notranslate"><span class="pre">Qglobal.nc</span></code> from the assignments folder at
+<a class="reference external" href="https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=drive_link">e440 google drive</a>
+and set <code class="docutils literal notranslate"><span class="pre">download_file=False</span></code>.  This will read in two dataArrays from the two datasets I’ve written to netcdf.</p>
 <section id="learning-goals">
-<h2>Learning goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
+<h2>Learning goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
 <p>Students completing this assignment will gain the following skills and concepts:</p>
 <ul class="simple">
 <li><p>Familiarity with setting up and running a single-column Radiative-Convective Model using climlab</p></li>
@@ -480,74 +471,988 @@ document.write(`
 </ul>
 </section>
 <section id="question-1">
-<h2>Question 1<a class="headerlink" href="#question-1" title="Permalink to this heading">#</a></h2>
+<h2>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h2>
 <p>Here you look at the effects of doubling CO<span class="math notranslate nohighlight">\(_2\)</span> in the single-column Radiative-Convective model.</p>
 <p><em>This exercise just repeats what we did in the lecture notes. You want to ensure that you can reproduce the same results before starting the next question, because you will need these results below.</em></p>
-<p>Following the <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook/courseware/sensitivity-feedback.html">lecture notes on climate sensitivity</a>, do the following:</p>
+<p>Following the lecture notes on climate sensitivity, do the following:</p>
 <ul class="simple">
-<li><p>set up a single-column radiative-convective model with specific humidity taken from the CESM control simulation</p></li>
-<li><p>Run this control model out to equilibrium</p></li>
-<li><p>Using a clone of the control model, double the atmospheric CO<span class="math notranslate nohighlight">\(_2\)</span> and calculate the <em>stratosphere-adjusted radiative forcing</em> <span class="math notranslate nohighlight">\(\Delta R\)</span>.</p></li>
-<li><p>Using another model clone with doubled CO<span class="math notranslate nohighlight">\(_2\)</span>, timestep the model out to equilibrium. <em>For this calculation, do not modify the specific humidity as we are assuming that there is no change in the water vapor distribution as the climate warms.</em></p></li>
-<li><p>Calculate the no-feedback Equilibrium Climate Sensitivity (ECS). <em>Recall that this is a number in Kelvin.</em></p></li>
-<li><p>Also calculate the no-feedback climate response parameter <span class="math notranslate nohighlight">\(\lambda_0\)</span> in W m<span class="math notranslate nohighlight">\(^{-2}\)</span> K<span class="math notranslate nohighlight">\(^{-1}\)</span>.</p></li>
+<li><p>set up a single-column radiative-convective model with specific humidity taken from the CESM control simulation</p>
+<ul>
+<li><p>done</p></li>
+</ul>
+</li>
+<li><p>Run this control model out to equilibrium</p>
+<ul>
+<li><p>done</p></li>
+</ul>
+</li>
+<li><p>Using a clone of the control model, calculate the stratosphere-adjusted radiative forcing <span class="math notranslate nohighlight">\(\Delta R\)</span>.</p>
+<ul>
+<li><p>done</p></li>
+</ul>
+</li>
+<li><p>Using another model clone, timestep the model out to equilibrium <strong>with fixed specific humidity</strong></p>
+<ul>
+<li><p>done</p></li>
+</ul>
+</li>
+<li><p>Calculate the no-feedback Equilibrium Climate Sensitivity (ECS)</p>
+<ul>
+<li><p>done</p></li>
+</ul>
+</li>
+<li><p>Also calculate the no-feedback climate response parameter <span class="math notranslate nohighlight">\(\lambda_0\)</span></p>
+<ul>
+<li><p>done</p></li>
+</ul>
+</li>
 </ul>
 <p>Verify and show that you get the same results as we did in the lecture notes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">climlab</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">metpy.plots</span><span class="w"> </span><span class="kn">import</span> <span class="n">SkewT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/rwhite/miniconda3/envs/e440/lib/python3.12/site-packages/climlab/radiation/rrtm/rrtmg_lw.py:19: UserWarning: Cannot import and initialize compiled Fortran extension, RRTMG_LW module will not be functional.
+  warnings.warn(&#39;Cannot import and initialize compiled Fortran extension, RRTMG_LW module will not be functional.&#39;)
+/Users/rwhite/miniconda3/envs/e440/lib/python3.12/site-packages/climlab/radiation/rrtm/rrtmg_sw.py:19: UserWarning: Cannot import and initialize compiled Fortran extension, RRTMG_SW module will not be functional.
+  warnings.warn(&#39;Cannot import and initialize compiled Fortran extension, RRTMG_SW module will not be functional.&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="plotting-functions">
+<h3>plotting functions<a class="headerlink" href="#plotting-functions" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Resuable function to plot the temperature data on a Skew-T chart</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_skewT</span><span class="p">():</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+    <span class="n">skew</span> <span class="o">=</span> <span class="n">SkewT</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tglobal</span><span class="o">.</span><span class="n">level</span><span class="p">,</span> <span class="n">Tglobal</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Observations&#39;</span><span class="p">)</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">1050</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+    <span class="c1"># Add the relevant special lines</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">plot_dry_adiabats</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">plot_moist_adiabats</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="c1"># skew.plot_mixing_lines()</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature (degC)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure (hPa)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">skew</span>
+
+
+<span class="c1">#  and a function to add extra profiles to this chart</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">lev</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">Tatm</span> <span class="o">-</span> <span class="n">climlab</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">tempCtoK</span><span class="p">,</span>
+             <span class="n">label</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">Ts</span> <span class="o">-</span> <span class="n">climlab</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">tempCtoK</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> 
+              <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">line</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+    <span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="global-averages-of-temperature-and-specific-humidity">
+<h3>global averages of temperature and specific humidity<a class="headerlink" href="#global-averages-of-temperature-and-specific-humidity" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># air temperature</span>
+<span class="n">download_file</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">if</span> <span class="n">download_file</span><span class="p">:</span>
+    <span class="n">ncep_url</span> <span class="o">=</span> <span class="s2">&quot;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/&quot;</span>
+    <span class="n">ncep_air</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span> <span class="n">ncep_url</span> <span class="o">+</span> <span class="s2">&quot;pressure/air.mon.1981-2010.ltm.nc&quot;</span><span class="p">,</span> <span class="n">use_cftime</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1">#  Take global, annual average </span>
+    <span class="n">coslat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">ncep_air</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span>
+    <span class="n">weight</span> <span class="o">=</span> <span class="n">coslat</span> <span class="o">/</span> <span class="n">coslat</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span>
+    <span class="n">Tglobal</span> <span class="o">=</span> <span class="p">(</span><span class="n">ncep_air</span><span class="o">.</span><span class="n">air</span> <span class="o">*</span> <span class="n">weight</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="s1">&#39;time&#39;</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">Tglobal</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s2">&quot;Tglobal.nc&quot;</span><span class="p">)</span>
+    <span class="n">Tglobal</span> <span class="o">=</span> <span class="n">Tglobal</span><span class="o">.</span><span class="n">Tglobal</span>
+
+
+<span class="k">if</span> <span class="n">download_file</span><span class="p">:</span>
+    <span class="c1"># Get the water vapor data from CESM output</span>
+    <span class="n">cesm_data_path</span> <span class="o">=</span> <span class="s2">&quot;http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/&quot;</span>
+    <span class="n">atm_control</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+        <span class="n">cesm_data_path</span> <span class="o">+</span> <span class="s2">&quot;cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc&quot;</span>
+    <span class="p">)</span>
+    <span class="c1"># Take global, annual average of the specific humidity</span>
+    <span class="n">weight_factor</span> <span class="o">=</span> <span class="n">atm_control</span><span class="o">.</span><span class="n">gw</span> <span class="o">/</span> <span class="n">atm_control</span><span class="o">.</span><span class="n">gw</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span>
+    <span class="n">Qglobal</span> <span class="o">=</span> <span class="p">(</span><span class="n">atm_control</span><span class="o">.</span><span class="n">Q</span> <span class="o">*</span> <span class="n">weight_factor</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="s1">&#39;time&#39;</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">Qglobal</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s2">&quot;Qglobal.nc&quot;</span><span class="p">)</span>
+    <span class="n">Qglobal</span> <span class="o">=</span> <span class="n">Qglobal</span><span class="o">.</span><span class="n">Qglobal</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File ~/miniconda3/envs/e440/lib/python3.12/site-packages/xarray/backends/file_manager.py:211,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+
+<span class="nn">File ~/miniconda3/envs/e440/lib/python3.12/site-packages/xarray/backends/lru_cache.py:56,</span> in <span class="ni">LRUCache.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/Users/rwhite/Documents/Teaching/EOSC440/climate_students_eoas/content/courseware/assignments/Tglobal.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;90fd6e0d-024f-4032-87c1-d2c0523948e5&#39;]
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">Tglobal</span> <span class="o">=</span> <span class="p">(</span><span class="n">ncep_air</span><span class="o">.</span><span class="n">air</span> <span class="o">*</span> <span class="n">weight</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="s1">&#39;time&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">11</span>     <span class="n">Tglobal</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s2">&quot;Tglobal.nc&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">Tglobal</span> <span class="o">=</span> <span class="n">Tglobal</span><span class="o">.</span><span class="n">Tglobal</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="k">if</span> <span class="n">download_file</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="c1"># Get the water vapor data from CESM output</span>
+
+<span class="nn">File ~/miniconda3/envs/e440/lib/python3.12/site-packages/xarray/backends/api.py:686,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span> <span class="n">decoders</span> <span class="o">=</span> <span class="n">_resolve_decoders_kwargs</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">675</span>     <span class="n">decode_cf</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span>     <span class="n">open_backend_dataset_parameters</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">open_dataset_parameters</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">682</span>     <span class="n">decode_coords</span><span class="o">=</span><span class="n">decode_coords</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">683</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span> <span class="n">overwrite_encoded_chunks</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;overwrite_encoded_chunks&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">686</span> <span class="n">backend_ds</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">688</span>     <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">689</span>     <span class="o">**</span><span class="n">decoders</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">690</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">691</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">692</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_dataset_from_backend_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">693</span>     <span class="n">backend_ds</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">694</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span> <span class="k">return</span> <span class="n">ds</span>
+
+<span class="nn">File ~/miniconda3/envs/e440/lib/python3.12/site-packages/xarray/backends/netCDF4_.py:666,</span> in <span class="ni">NetCDF4BackendEntrypoint.open_dataset</span><span class="nt">(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, format, clobber, diskless, persist, auto_complex, lock, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">644</span> <span class="k">def</span><span class="w"> </span><span class="nf">open_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">645</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">646</span>     <span class="n">filename_or_obj</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">ReadBuffer</span> <span class="o">|</span> <span class="n">AbstractDataStore</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span>     <span class="n">autoclose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataset</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">665</span>     <span class="n">filename_or_obj</span> <span class="o">=</span> <span class="n">_normalize_path</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">666</span>     <span class="n">store</span> <span class="o">=</span> <span class="n">NetCDF4DataStore</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">667</span>         <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">668</span>         <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">669</span>         <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">670</span>         <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span>         <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">672</span>         <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">673</span>         <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span>         <span class="n">auto_complex</span><span class="o">=</span><span class="n">auto_complex</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">675</span>         <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span>         <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">677</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">679</span>     <span class="n">store_entrypoint</span> <span class="o">=</span> <span class="n">StoreBackendEntrypoint</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">680</span>     <span class="k">with</span> <span class="n">close_on_error</span><span class="p">(</span><span class="n">store</span><span class="p">):</span>
+
+<span class="nn">File ~/miniconda3/envs/e440/lib/python3.12/site-packages/xarray/backends/netCDF4_.py:452,</span> in <span class="ni">NetCDF4DataStore.open</span><span class="nt">(cls, filename, mode, format, group, clobber, diskless, persist, auto_complex, lock, lock_maker, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;auto_complex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">auto_complex</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">CachingFileManager</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span>     <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">452</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span> <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/e440/lib/python3.12/site-packages/xarray/backends/netCDF4_.py:393,</span> in <span class="ni">NetCDF4DataStore.__init__</span><span class="nt">(self, manager, group, mode, lock, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">391</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span> <span class="o">=</span> <span class="n">group</span>
+<span class="g g-Whitespace">    </span><span class="mi">392</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
+<span class="ne">--&gt; </span><span class="mi">393</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">data_model</span>
+<span class="g g-Whitespace">    </span><span class="mi">394</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">395</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote</span> <span class="o">=</span> <span class="n">is_remote_uri</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/e440/lib/python3.12/site-packages/xarray/backends/netCDF4_.py:461,</span> in <span class="ni">NetCDF4DataStore.ds</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">459</span> <span class="nd">@property</span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span> <span class="k">def</span><span class="w"> </span><span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">461</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire</span><span class="p">()</span>
+
+<span class="nn">File ~/miniconda3/envs/e440/lib/python3.12/site-packages/xarray/backends/netCDF4_.py:455,</span> in <span class="ni">NetCDF4DataStore._acquire</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">454</span> <span class="k">def</span><span class="w"> </span><span class="nf">_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">455</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">acquire_context</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">456</span>         <span class="n">ds</span> <span class="o">=</span> <span class="n">_nc4_require_group</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">457</span>     <span class="k">return</span> <span class="n">ds</span>
+
+<span class="nn">File ~/miniconda3/envs/e440/lib/python3.12/contextlib.py:137,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">137</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">138</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span>
+
+<span class="nn">File ~/miniconda3/envs/e440/lib/python3.12/site-packages/xarray/backends/file_manager.py:199,</span> in <span class="ni">CachingFileManager.acquire_context</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span> <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span> <span class="k">def</span><span class="w"> </span><span class="nf">acquire_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">198</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Context manager for acquiring a file.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">199</span>     <span class="n">file</span><span class="p">,</span> <span class="n">cached</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_with_cache_info</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span>         <span class="k">yield</span> <span class="n">file</span>
+
+<span class="nn">File ~/miniconda3/envs/e440/lib/python3.12/site-packages/xarray/backends/file_manager.py:217,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
+<span class="ne">--&gt; </span><span class="mi">217</span> <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opener</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="c1"># ensure file doesn&#39;t get overridden when opened again</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
+
+<span class="nn">File src/netCDF4/_netCDF4.pyx:2521,</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
+
+<span class="nn">File src/netCDF4/_netCDF4.pyx:2158,</span> in <span class="ni">netCDF4._netCDF4._ensure_nc_success</span><span class="nt">()</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/rwhite/Documents/Teaching/EOSC440/climate_students_eoas/content/courseware/assignments/Tglobal.nc&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="initial-conditions-based-on-water-vapor-levels">
+<h3>initial conditions, based on water vapor levels<a class="headerlink" href="#initial-conditions-based-on-water-vapor-levels" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># model domain</span>
+<span class="n">mystate</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">column_state</span><span class="p">(</span><span class="n">lev</span><span class="o">=</span><span class="n">Qglobal</span><span class="o">.</span><span class="n">lev</span><span class="p">,</span> <span class="n">water_depth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># model domain</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">mystate</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">column_state</span><span class="p">(</span><span class="n">lev</span><span class="o">=</span><span class="n">Qglobal</span><span class="o">.</span><span class="n">lev</span><span class="p">,</span> <span class="n">water_depth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;Qglobal&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># #  Fixed relative humidity</span>
+<span class="c1"># h2o = climlab.radiation.ManabeWaterVapor(name=&#39;WaterVapor&#39;, state=mystate)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create the model: we want to combine radiative and convective</span>
+<span class="n">albedo</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">rad</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">radiation</span><span class="o">.</span><span class="n">RRTMG</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Radiation&#39;</span><span class="p">,</span>
+                              <span class="n">state</span><span class="o">=</span><span class="n">mystate</span><span class="p">,</span> 
+                              <span class="n">specific_humidity</span><span class="o">=</span><span class="n">Qglobal</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                              <span class="n">timestep</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">seconds_per_day</span><span class="p">,</span>
+                              <span class="n">albedo</span> <span class="o">=</span> <span class="n">albedo</span><span class="p">,</span>  <span class="c1"># surface albedo, tuned to give reasonable ASR for reference cloud-free model</span>
+                             <span class="p">)</span>
+<span class="c1">#  Now create the convection model</span>
+<span class="n">conv</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">convection</span><span class="o">.</span><span class="n">ConvectiveAdjustment</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Convection&#39;</span><span class="p">,</span>
+                                               <span class="n">state</span><span class="o">=</span><span class="n">mystate</span><span class="p">,</span>
+                                               <span class="n">adj_lapse_rate</span><span class="o">=</span><span class="mf">6.5</span><span class="p">,</span> <span class="c1"># this is the key parameter! We&#39;ll discuss below</span>
+                                               <span class="n">timestep</span><span class="o">=</span><span class="n">rad</span><span class="o">.</span><span class="n">timestep</span><span class="p">,</span>  <span class="c1"># same timestep!</span>
+                                              <span class="p">)</span>
+<span class="c1">#  Here is where we build the model by coupling together the two components</span>
+<span class="n">rcm</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">couple</span><span class="p">([</span><span class="n">rad</span><span class="p">,</span> <span class="n">conv</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Radiative-Convective Model&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rcm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># create the model: we want to combine radiative and convective</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">albedo</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">rad</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">radiation</span><span class="o">.</span><span class="n">RRTMG</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Radiation&#39;</span><span class="p">,</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>                               <span class="n">state</span><span class="o">=</span><span class="n">mystate</span><span class="p">,</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span>                               <span class="n">specific_humidity</span><span class="o">=</span><span class="n">Qglobal</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>                               <span class="n">timestep</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">seconds_per_day</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>                               <span class="n">albedo</span> <span class="o">=</span> <span class="n">albedo</span><span class="p">,</span>  <span class="c1"># surface albedo, tuned to give reasonable ASR for reference cloud-free model</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>                              <span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">#  Now create the convection model</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">conv</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">convection</span><span class="o">.</span><span class="n">ConvectiveAdjustment</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Convection&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>                                                <span class="n">state</span><span class="o">=</span><span class="n">mystate</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>                                                <span class="n">adj_lapse_rate</span><span class="o">=</span><span class="mf">6.5</span><span class="p">,</span> <span class="c1"># this is the key parameter! We&#39;ll discuss below</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>                                                <span class="n">timestep</span><span class="o">=</span><span class="n">rad</span><span class="o">.</span><span class="n">timestep</span><span class="p">,</span>  <span class="c1"># same timestep!</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>                                               <span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;mystate&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-radiative-convective-control-model-to-equilibrium">
+<h3>run radiative-convective control model to equilibrium<a class="headerlink" href="#run-radiative-convective-control-model-to-equilibrium" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # rcm.integrate_years(0.11)</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">rcm</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">ASR</span><span class="o">-</span><span class="n">rcm</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.01</span><span class="p">):</span>
+    <span class="n">rcm</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+    
+<span class="n">rcm</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">OLR</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># # rcm.integrate_years(0.11)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">rcm</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">while</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">ASR</span><span class="o">-</span><span class="n">rcm</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.01</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">rcm</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;rcm&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rcm.subprocess[&#39;Radiation (net)&#39;].absorber_vmr[&#39;CO2&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an exact clone with same temperatures</span>
+<span class="n">rcm_2xCO2</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">rcm</span><span class="p">)</span>
+<span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Radiative-Convective Model (2xCO2 initial)&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Make an exact clone with same temperatures</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">rcm_2xCO2</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">rcm</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Radiative-Convective Model (2xCO2 initial)&#39;</span>
+
+<span class="ne">NameError</span>: name &#39;rcm&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Now double it!</span>
+<span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">absorber_vmr</span><span class="p">[</span><span class="s1">&#39;CO2&#39;</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
+<span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">absorber_vmr</span><span class="p">[</span><span class="s1">&#39;CO2&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#  Now double it!</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">absorber_vmr</span><span class="p">[</span><span class="s1">&#39;CO2&#39;</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">absorber_vmr</span><span class="p">[</span><span class="s1">&#39;CO2&#39;</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;rcm_2xCO2&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compare with control rcm</span>
+<span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+<span class="n">DeltaR_2xCO2</span> <span class="o">=</span> <span class="p">(</span><span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span>
+<span class="n">DeltaR_2xCO2</span>  <span class="c1"># this is the radiative forcing</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># compare with control rcm</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">DeltaR_2xCO2</span> <span class="o">=</span> <span class="p">(</span><span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm_2xCO2</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">DeltaR_2xCO2</span>  <span class="c1"># this is the radiative forcing</span>
+
+<span class="ne">NameError</span>: name &#39;rcm_2xCO2&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># stratospheric-adjustment model</span>
+<span class="n">rcm_2xCO2_strat</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">rcm_2xCO2</span><span class="p">)</span>
+<span class="n">rcm_2xCO2_strat</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Radiative-Convective Model (2xCO2 stratosphere-adjusted)&#39;</span>
+<span class="c1"># compute the adjustment</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">rcm_2xCO2_strat</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+    <span class="c1"># hold tropospheric and surface temperatures fixed</span>
+    <span class="n">rcm_2xCO2_strat</span><span class="o">.</span><span class="n">Tatm</span><span class="p">[</span><span class="mi">13</span><span class="p">:]</span> <span class="o">=</span> <span class="n">rcm</span><span class="o">.</span><span class="n">Tatm</span><span class="p">[</span><span class="mi">13</span><span class="p">:]</span>
+    <span class="n">rcm_2xCO2_strat</span><span class="o">.</span><span class="n">Ts</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">rcm</span><span class="o">.</span><span class="n">Ts</span><span class="p">[:]</span>
+<span class="n">rcm_2xCO2_strat</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+<span class="n">DeltaR_strat</span> <span class="o">=</span> <span class="p">(</span><span class="n">rcm_2xCO2_strat</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm_2xCO2_strat</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span>
+<span class="n">DeltaR_strat</span>  <span class="c1"># this is the radiative forcing</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># stratospheric-adjustment model</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">rcm_2xCO2_strat</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">rcm_2xCO2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">rcm_2xCO2_strat</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Radiative-Convective Model (2xCO2 stratosphere-adjusted)&#39;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># compute the adjustment</span>
+
+<span class="ne">NameError</span>: name &#39;rcm_2xCO2&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DeltaR_strat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">DeltaR_strat</span>
+
+<span class="ne">NameError</span>: name &#39;DeltaR_strat&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># strat run to equilibrium</span>
+<span class="n">rcm_2xCO2_eq</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">rcm_2xCO2_strat</span><span class="p">)</span>
+<span class="n">rcm_2xCO2_eq</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Radiative-Convective Model (2xCO2 equilibrium)&#39;</span>
+<span class="n">rcm_2xCO2_eq</span><span class="o">.</span><span class="n">integrate_years</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1"># are we close to equilibrium?</span>
+<span class="n">rcm_2xCO2_eq</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm_2xCO2_eq</span><span class="o">.</span><span class="n">OLR</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># strat run to equilibrium</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">rcm_2xCO2_eq</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">rcm_2xCO2_strat</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">rcm_2xCO2_eq</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Radiative-Convective Model (2xCO2 equilibrium)&#39;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">rcm_2xCO2_eq</span><span class="o">.</span><span class="n">integrate_years</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;rcm_2xCO2_strat&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#  actual specific humidity</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">rcm</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">specific_humidity</span>
+<span class="c1">#  saturation specific humidity (a function of temperature and pressure)</span>
+<span class="n">qsat</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">qsat</span><span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">Tatm</span><span class="p">,</span> <span class="n">rcm</span><span class="o">.</span><span class="n">lev</span><span class="p">)</span>
+<span class="c1">#  Relative humidity</span>
+<span class="n">rh</span> <span class="o">=</span> <span class="n">q</span><span class="o">/</span><span class="n">qsat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#  actual specific humidity</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">q</span> <span class="o">=</span> <span class="n">rcm</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">specific_humidity</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#  saturation specific humidity (a function of temperature and pressure)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">qsat</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">qsat</span><span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">Tatm</span><span class="p">,</span> <span class="n">rcm</span><span class="o">.</span><span class="n">lev</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;rcm&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rcm_2xCO2_h2o</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">rcm_2xCO2</span><span class="p">)</span>
+<span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Radiative-Convective Model (2xCO2 equilibrium with H2O feedback)&#39;</span>
+<span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+<span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">rcm_2xCO2_h2o</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">rcm_2xCO2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Radiative-Convective Model (2xCO2 equilibrium with H2O feedback)&#39;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;rcm_2xCO2&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compare with control rcm</span>
+<span class="n">DeltaR_wv</span> <span class="o">=</span> <span class="p">(</span><span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span>
+<span class="n">DeltaR_wv</span>  <span class="c1"># this is the radiative forcing</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># compare with control rcm</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">DeltaR_wv</span> <span class="o">=</span> <span class="p">(</span><span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">DeltaR_wv</span>  <span class="c1"># this is the radiative forcing</span>
+
+<span class="ne">NameError</span>: name &#39;rcm_2xCO2_h2o&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>
+    <span class="c1"># At every timestep</span>
+    <span class="c1"># we calculate the new saturation specific humidity for the new temperature</span>
+    <span class="c1">#  and change the water vapor in the radiation model</span>
+    <span class="c1">#  so that relative humidity is always the same</span>
+    <span class="n">qsat</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">qsat</span><span class="p">(</span><span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">Tatm</span><span class="p">,</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">lev</span><span class="p">)</span>
+    <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">specific_humidity</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">rh</span> <span class="o">*</span> <span class="n">qsat</span>
+    <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="c1"># At every timestep</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="c1"># we calculate the new saturation specific humidity for the new temperature</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="c1">#  and change the water vapor in the radiation model</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="c1">#  so that relative humidity is always the same</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="n">qsat</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">qsat</span><span class="p">(</span><span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">Tatm</span><span class="p">,</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">lev</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">specific_humidity</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">rh</span> <span class="o">*</span> <span class="n">qsat</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;rcm_2xCO2_h2o&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check for energy balance</span>
+<span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">OLR</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Check for energy balance</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">OLR</span>
+
+<span class="ne">NameError</span>: name &#39;rcm_2xCO2_h2o&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot all the results</span>
+<span class="n">skew</span> <span class="o">=</span> <span class="n">make_skewT</span><span class="p">()</span>
+<span class="c1"># for model in rad_models:</span>
+<span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm</span><span class="p">)</span>
+<span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm_2xCO2</span><span class="p">)</span>
+<span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm_2xCO2_strat</span><span class="p">)</span>
+<span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm_2xCO2_eq</span><span class="p">)</span>
+<span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm_2xCO2_h2o</span><span class="p">)</span>
+<span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;radiative-convective equilibrium&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Plot all the results</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">skew</span> <span class="o">=</span> <span class="n">make_skewT</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># for model in rad_models:</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm</span><span class="p">)</span>
+
+<span class="nn">Cell In[2], line 5,</span> in <span class="ni">make_skewT</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">skew</span> <span class="o">=</span> <span class="n">SkewT</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tglobal</span><span class="o">.</span><span class="n">level</span><span class="p">,</span> <span class="n">Tglobal</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Observations&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">1050</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;Tglobal&#39; is not defined
+</pre></div>
+</div>
+<img alt="../../_images/21f715db3de8388bf2d995afdef1a5536426aebe50592a43958c7b1a334b249e.png" src="../../_images/21f715db3de8388bf2d995afdef1a5536426aebe50592a43958c7b1a334b249e.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ECS_no_feedback</span> <span class="o">=</span> <span class="n">rcm_2xCO2_eq</span><span class="o">.</span><span class="n">Ts</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">Ts</span>
+<span class="n">ECS_no_feedback</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ECS_no_feedback</span> <span class="o">=</span> <span class="n">rcm_2xCO2_eq</span><span class="o">.</span><span class="n">Ts</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">Ts</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">ECS_no_feedback</span>
+
+<span class="ne">NameError</span>: name &#39;rcm_2xCO2_eq&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ECS_wv</span> <span class="o">=</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">Ts</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">Ts</span>
+<span class="n">ECS_wv</span>  <span class="c1"># include water vapor feedback</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ECS_wv</span> <span class="o">=</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">Ts</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">Ts</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">ECS_wv</span>  <span class="c1"># include water vapor feedback</span>
+
+<span class="ne">NameError</span>: name &#39;rcm_2xCO2_h2o&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lambda0</span> <span class="o">=</span> <span class="n">DeltaR_strat</span> <span class="o">/</span> <span class="n">ECS_no_feedback</span>
+<span class="n">lambda0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">lambda0</span> <span class="o">=</span> <span class="n">DeltaR_strat</span> <span class="o">/</span> <span class="n">ECS_no_feedback</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">lambda0</span>
+
+<span class="ne">NameError</span>: name &#39;DeltaR_strat&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="question-2-combined-lapse-rate-and-water-vapor-feedback-in-the-rcm">
-<h2>Question 2: combined lapse rate and water vapor feedback in the RCM<a class="headerlink" href="#question-2-combined-lapse-rate-and-water-vapor-feedback-in-the-rcm" title="Permalink to this heading">#</a></h2>
+<h2>Question 2: combined lapse rate and water vapor feedback in the RCM<a class="headerlink" href="#question-2-combined-lapse-rate-and-water-vapor-feedback-in-the-rcm" title="Link to this heading">#</a></h2>
 <section id="instructions">
-<h3>Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading">#</a></h3>
+<h3>Instructions<a class="headerlink" href="#instructions" title="Link to this heading">#</a></h3>
 <p>A typical, expected feature of global warming is that the <strong>upper troposphere warms more than the surface</strong>. (Later we will see that this does occur in the CESM simulations).</p>
-<p>This feature is <strong>not represented in our standard radiative-convective model</strong>, which is forced to a single prescribed lapse rate due to our convective adjustment.</p>
+<p>This feature is <strong>not represented in our radiative-convective model</strong>, which is forced to a single prescribed lapse rate due to our convective adjustment.</p>
 <p>Here you will suppose that other physical processes modify this lapse rate as the climate warms.</p>
 <p><strong>Repeat the RCM global warming calculation, but implement two different feedbacks:</strong></p>
 <ul class="simple">
-<li><p>a water vapor feedback using <strong>fixed relative humidity</strong></p></li>
+<li><p>a water vapor feedback using <strong>fixed relative humidity</strong></p>
+<ul>
+<li><p>done</p></li>
+</ul>
+</li>
 <li><p>a <strong>lapse rate feedback</strong> using this formula:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[ \Gamma = \Gamma_{ref} - (0.3 \text{ km}) \Delta T_s \]</div>
 <p>where <span class="math notranslate nohighlight">\(\Gamma_{ref}\)</span> is the critical lapse rate you used in your control model, probably 6.5 K / km, and <span class="math notranslate nohighlight">\(\Delta T_s\)</span> is the <strong>current value of the surface warming relative to the control</strong> in units of K.</p>
 <p>So, for example if the model has warmed by 1 K at the surface, then our parameterization says that the critical lapse rate should be 6.5 - 0.3 = 6.2 K / km.</p>
-<p>Follow the example in the lecture notes where we implemented the fixed relative humidity. Remember that we needed to adjust the <code class="docutils literal notranslate"><span class="pre">specific_humidity</span></code> field of our radiation process at every timestep. Here we still need to do that, but in addition, we also need to change the attribute</p>
+<p>Follow the example in the lecture notes where we implemented the fixed relative humidity. In addition to adjusting the <code class="docutils literal notranslate"><span class="pre">specific_humidity</span></code> at each timestep, you should also change the attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adj_lapse_rate</span>
 </pre></div>
 </div>
 <p>of the convection process at each timestep.</p>
-<p>For example, if you have a model called <code class="docutils literal notranslate"><span class="pre">mymodel</span></code> that contains a <code class="docutils literal notranslate"><span class="pre">ConvectiveAdjustment</span></code> process called <code class="docutils literal notranslate"><span class="pre">Convection</span></code>, here is some code that you would need at every timestep:</p>
+<p>For example, if you have a model called <code class="docutils literal notranslate"><span class="pre">mymodel</span></code> that contains a <code class="docutils literal notranslate"><span class="pre">ConvectiveAdjustment</span></code> process called <code class="docutils literal notranslate"><span class="pre">Convection</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mymodel</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Convection&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">adj_lapse_rate</span> <span class="o">=</span> <span class="n">newvalue</span>
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">newvalue</span></code> is a number in K / km.</p>
-<p>You will need to write a loop where, at every timestep, you calculate the appropriate value of <code class="docutils literal notranslate"><span class="pre">newvalue</span></code> and set the lapse rate parameter as shown above.</p>
 </section>
 <section id="specific-questions">
-<h3>Specific questions:<a class="headerlink" href="#specific-questions" title="Permalink to this heading">#</a></h3>
+<h3>Specific questions:<a class="headerlink" href="#specific-questions" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Make a nice skew-T plot that shows three temperature profiles:</p>
 <ul class="simple">
 <li><p>RCM control</p></li>
 <li><p>RCM, equilibrium after doubling CO<span class="math notranslate nohighlight">\(_2\)</span> without feedback</p></li>
-<li><p>RCM, equilibrium after doubling CO<span class="math notranslate nohighlight">\(_2\)</span> with combined water vapor and lapse rate feedback</p></li>
+<li><p>RCM, equilibrium after doubling CO<span class="math notranslate nohighlight">\(_2\)</span> with combined water vapor and lapse rate feedback</p>
+<ul>
+<li><p>done</p></li>
 </ul>
 </li>
-<li><p>Based on your plot, where in the column do you find the greatest warming?</p></li>
-<li><p>Calculate the ECS of the new version of the model with combined water vapor and lapse rate feedback</p></li>
-<li><p>Is this sensitivity larger or smaller than the “no feedback” ECS? Is it larger or smaller than the ECS with water vapor feedback alone (which we calculated in the lecture notes)?</p></li>
-<li><p>Calculate the combined feedback parameter for (water vapor plus lapse rate).</p></li>
-<li><p>Compare this result to the IPCC figure with feedback results from comprehensive models in our lecture notes (labeled “WV+LR”). Do you find a similar number?</p></li>
-<li><p>Would you describe the <strong>lapse rate feedback</strong> as positive or negative?</p></li>
+</ul>
+</li>
+<li><p>Based on your plot, where in the column do you find the greatest warming?</p>
+<ul class="simple">
+<li><p>We find the greatest warming in the troposphere up to the tropopause</p></li>
+</ul>
+</li>
+<li><p>Calculate the ECS of the new version of the model with combined water vapor and lapse rate feedback</p>
+<ul class="simple">
+<li><p>done</p></li>
+</ul>
+</li>
+<li><p>Is this sensitivity larger or smaller than the “no feedback” ECS? Is it larger or smaller than the ECS with water vapor feedback alone (which we calculated in the lecture notes)?</p>
+<ul class="simple">
+<li><p>this ECS sits between the ECS_no_feedback and ECS_wv</p></li>
+</ul>
+</li>
+<li><p>Calculate the combined feedback parameter for (water vapor plus lapse rate).</p>
+<ul class="simple">
+<li><p>done</p></li>
+</ul>
+</li>
+<li><p>Compare this result to the IPCC figure with feedback results from comprehensive models in our lecture notes (labeled “WV+LR”). Do you find a similar number?</p>
+<ul class="simple">
+<li><p>fairly similar – both close to positive and close to 1</p></li>
+</ul>
+</li>
+<li><p>Would you describe the <strong>lapse rate feedback</strong> as positive or negative?</p>
+<ul class="simple">
+<li><p>I would describe the lapse rate feedback as negative. In this averaged model, we are warming higher in the troposphere, which will result in a larger release of energy to space. The ECS was smaller with both feedbacks, indicating that the lapse rate feedback is working against the (positive) water vapor feedback.</p></li>
+</ul>
+</li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gamma_ref</span> <span class="o">=</span> <span class="mf">6.5</span>  <span class="c1"># K / km</span>
+<span class="n">slope</span> <span class="o">=</span> <span class="mf">0.3</span>  <span class="c1"># 1/km</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#  actual specific humidity</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">rcm</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">specific_humidity</span>
+<span class="c1">#  saturation specific humidity (a function of temperature and pressure)</span>
+<span class="n">qsat</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">qsat</span><span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">Tatm</span><span class="p">,</span> <span class="n">rcm</span><span class="o">.</span><span class="n">lev</span><span class="p">)</span>
+<span class="c1">#  Relative humidity</span>
+<span class="n">rh</span> <span class="o">=</span> <span class="n">q</span><span class="o">/</span><span class="n">qsat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#  actual specific humidity</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">q</span> <span class="o">=</span> <span class="n">rcm</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">specific_humidity</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#  saturation specific humidity (a function of temperature and pressure)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">qsat</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">qsat</span><span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">Tatm</span><span class="p">,</span> <span class="n">rcm</span><span class="o">.</span><span class="n">lev</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;rcm&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rcm_2xCO2_lr_h2o</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">rcm_2xCO2</span><span class="p">)</span>
+<span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Radiative-Convective Model (2xCO2 equilibrium</span><span class="se">\n</span><span class="s1">with H2O and lapse rate feedback)&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">rcm_2xCO2_lr_h2o</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">process_like</span><span class="p">(</span><span class="n">rcm_2xCO2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Radiative-Convective Model (2xCO2 equilibrium</span><span class="se">\n</span><span class="s1">with H2O and lapse rate feedback)&#39;</span>
+
+<span class="ne">NameError</span>: name &#39;rcm_2xCO2&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+<span class="n">DeltaR_lr_wv</span> <span class="o">=</span> <span class="p">(</span><span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span>
+<span class="n">DeltaR_lr_wv</span>  <span class="c1"># this is the radiative forcing (compute before running to equilibrium!)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">compute_diagnostics</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">DeltaR_lr_wv</span> <span class="o">=</span> <span class="p">(</span><span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rcm</span><span class="o">.</span><span class="n">ASR</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">OLR</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">DeltaR_lr_wv</span>  <span class="c1"># this is the radiative forcing (compute before running to equilibrium!)</span>
+
+<span class="ne">NameError</span>: name &#39;rcm_2xCO2_lr_h2o&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>
+    <span class="c1"># At every timestep</span>
+    <span class="c1"># we calculate the new saturation specific humidity for the new temperature</span>
+    <span class="c1">#  and change the water vapor in the radiation model</span>
+    <span class="c1">#  so that relative humidity is always the same</span>
+    <span class="n">qsat</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">qsat</span><span class="p">(</span><span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">Tatm</span><span class="p">,</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">lev</span><span class="p">)</span>
+    <span class="c1"># water vapor feedback (fixed relative humidity)</span>
+    <span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">specific_humidity</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">rh</span> <span class="o">*</span> <span class="n">qsat</span>
+    <span class="c1"># lapse rate feedback</span>
+    <span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Convection&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">adj_lapse_rate</span> <span class="o">=</span> <span class="n">gamma_ref</span> <span class="o">-</span> <span class="n">slope</span> <span class="o">*</span> <span class="p">(</span><span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">Ts</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">Ts</span><span class="p">)</span>
+    <span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">step_forward</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="c1"># At every timestep</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="c1"># we calculate the new saturation specific humidity for the new temperature</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="c1">#  and change the water vapor in the radiation model</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="c1">#  so that relative humidity is always the same</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="n">qsat</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">qsat</span><span class="p">(</span><span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">Tatm</span><span class="p">,</span> <span class="n">rcm_2xCO2_h2o</span><span class="o">.</span><span class="n">lev</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="c1"># water vapor feedback (fixed relative humidity)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">subprocess</span><span class="p">[</span><span class="s1">&#39;Radiation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">specific_humidity</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">rh</span> <span class="o">*</span> <span class="n">qsat</span>
+
+<span class="ne">NameError</span>: name &#39;rcm_2xCO2_lr_h2o&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot all the results</span>
+<span class="n">skew</span> <span class="o">=</span> <span class="n">make_skewT</span><span class="p">()</span>
+<span class="c1"># for model in rad_models:</span>
+<span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm</span><span class="p">)</span>
+<span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm_2xCO2_eq</span><span class="p">)</span>
+<span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm_2xCO2_lr_h2o</span><span class="p">)</span>
+
+<span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;radiative-convective equilibria&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Plot all the results</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">skew</span> <span class="o">=</span> <span class="n">make_skewT</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># for model in rad_models:</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">add_profile</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="n">rcm</span><span class="p">)</span>
+
+<span class="nn">Cell In[2], line 5,</span> in <span class="ni">make_skewT</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">skew</span> <span class="o">=</span> <span class="n">SkewT</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tglobal</span><span class="o">.</span><span class="n">level</span><span class="p">,</span> <span class="n">Tglobal</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Observations&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">1050</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;Tglobal&#39; is not defined
+</pre></div>
+</div>
+<img alt="../../_images/21f715db3de8388bf2d995afdef1a5536426aebe50592a43958c7b1a334b249e.png" src="../../_images/21f715db3de8388bf2d995afdef1a5536426aebe50592a43958c7b1a334b249e.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ECS_lr_wv</span> <span class="o">=</span> <span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">Ts</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">Ts</span>
+<span class="n">ECS_lr_wv</span>  <span class="c1"># include lapse rate and water vapor feedbacks</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ECS_lr_wv</span> <span class="o">=</span> <span class="n">rcm_2xCO2_lr_h2o</span><span class="o">.</span><span class="n">Ts</span> <span class="o">-</span> <span class="n">rcm</span><span class="o">.</span><span class="n">Ts</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">ECS_lr_wv</span>  <span class="c1"># include lapse rate and water vapor feedbacks</span>
+
+<span class="ne">NameError</span>: name &#39;rcm_2xCO2_lr_h2o&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lambda_lr_wv</span> <span class="o">=</span> <span class="n">DeltaR_lr_wv</span> <span class="o">/</span> <span class="n">ECS_lr_wv</span>
+<span class="n">lambda_lr_wv</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">31</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">lambda_lr_wv</span> <span class="o">=</span> <span class="n">DeltaR_lr_wv</span> <span class="o">/</span> <span class="n">ECS_lr_wv</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">lambda_lr_wv</span>
+
+<span class="ne">NameError</span>: name &#39;DeltaR_lr_wv&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <hr class="docutils" />
 <section id="credits">
-<h2>Credits<a class="headerlink" href="#credits" title="Permalink to this heading">#</a></h2>
+<h2>Credits<a class="headerlink" href="#credits" title="Link to this heading">#</a></h2>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a>, an open-source textbook developed and maintained by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <p>It is licensed for free and open consumption under the
 <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license.</p>
-<p>Development of these notes and the <a class="reference external" href="https://github.com/climlab/climlab">climlab software</a> is partially supported by the National Science Foundation under award AGS-1455071 to Brian Rose. Any opinions, findings, conclusions or recommendations expressed here are mine and do not necessarily reflect the views of the National Science Foundation.</p>
+<p>Development of these notes and the <a class="reference external" href="https://github.com/brian-rose/climlab">climlab software</a> is partially supported by the National Science Foundation under award AGS-1455071 to Brian Rose. Any opinions, findings, conclusions or recommendations expressed here are mine and do not necessarily reflect the views of the National Science Foundation.</p>
 <hr class="docutils" />
 </section>
 </section>
@@ -607,7 +1512,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -617,7 +1523,13 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-functions">plotting functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-averages-of-temperature-and-specific-humidity">global averages of temperature and specific humidity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions-based-on-water-vapor-levels">initial conditions, based on water vapor levels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-radiative-convective-control-model-to-equilibrium">run radiative-convective control model to equilibrium</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-combined-lapse-rate-and-water-vapor-feedback-in-the-rcm">Question 2: combined lapse rate and water vapor feedback in the RCM</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specific-questions">Specific questions:</a></li>
@@ -648,7 +1560,7 @@ By Brian Rose
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -672,8 +1584,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
