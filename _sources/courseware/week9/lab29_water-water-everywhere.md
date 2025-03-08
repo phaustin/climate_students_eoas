@@ -1,34 +1,35 @@
 ---
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.6
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}}
+<!-- #region slideshow={"slide_type": "slide"} -->
 (nb:water)=
 # Water, water everywhere! 
 
 ##  A brief look at the effects of evaporation on global climate
 
 This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](http://www.atmos.albany.edu/facstaff/brose/index.html), University at Albany.
+<!-- #endregion -->
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 ____________
 <a id='section1'></a>
 
 ## 1. Imagine a world with reduced efficiency of evaporation
 ____________
+<!-- #endregion -->
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 Recall from [last lecture](./Lecture21 -- The surface energy balance.ipynb) that the bulk formula for surface evaporation (latent heat flux) is 
 
 $$ \text{LE} = L ~\rho ~ C_D ~ U \left( q_s - q_a \right) $$
@@ -36,17 +37,17 @@ $$ \text{LE} = L ~\rho ~ C_D ~ U \left( q_s - q_a \right) $$
 which we approximated in terms of temperatures for a wet surface as
 
 $$ \text{LE} \approx L ~\rho ~ C_D ~ U \left( (1-r) ~ q_s^* + r \frac{\partial q^*}{\partial T} \left( T_s - T_a \right) \right)  $$
+<!-- #endregion -->
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 The drag coefficient $C_D$ determines the flux for a given set of temperatures, relative humidity, and wind speed.
 
 Now suppose that the drag coefficient is **reduced by a factor of two** (for evaporation only, not for sensible heat flux). i.e. *all else being equal, there will be half as much evaporation*.
 
 Reasoning through the effects of this perturbation (and calculating the effects in models) will give us some insight into several different roles played by water in the climate system.
+<!-- #endregion -->
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 ### In-class exercise:
 
 **What is the effect of the reduced evaporation efficiency on surface temperature?**
@@ -55,17 +56,17 @@ Reasoning through the effects of this perturbation (and calculating the effects 
 - Each group should formulate a hypothesis about how and why the surface temperature will change when $C_D$ is reduced by a factor of 2.
 - Draw a sketch of the **surface temperature anomaly** as a function of latitude.
 - Be prepared to explain your sketch and your hypothesis.
+<!-- #endregion -->
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 ____________
 <a id='section2'></a>
 
 ## 2. Reduced evaporation experiment in a simple model with `climlab`
 ____________
+<!-- #endregion -->
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 We can use `climlab` to construct a model for the zonal-average climate. The model will be on a pressure-latitude grid. It will include the following processes:
 
 - **Seasonally varying insolation** as function of latitude
@@ -75,18 +76,15 @@ We can use `climlab` to construct a model for the zonal-average climate. The mod
 - Meridional heat transport, implemented as a **horizontal down-gradient temperature diffusion** at every vertical level
 - Sensible and Latent heat fluxes at the surface using the bulk formulas
 - Convective adjustment of the **atmospheric** lapse rate (not surface)
+<!-- #endregion -->
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 This model basically draws together all the process models we have developed throughout the course, and adds the surface flux parameterizations.
 
-Note that since we are using explicit surface flux parameterizations, we will now use the convective adjustment only on the **atmospheric** air temperatures. Previous our adjustment has also modified the **surface** temperature, which was implicitly taking account of the turbulent heat fluxes. 
+Note that since we are using explicit surface flux parameterizations, we will now use the convective adjustment only on the **atmospheric** air temperatures. Previous our adjustment has also modified the **surface** temperature, which was implicitly taking account of the turbulent heat fluxes.
+<!-- #endregion -->
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
+```python slideshow={"slide_type": "slide"}
 %matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
@@ -95,35 +93,31 @@ import climlab
 from climlab import constants as const
 ```
 
-```{code-cell} ipython3
+```python
 def inferred_heat_transport( energy_in, lat_deg ):
     '''Returns the inferred heat transport (in PW) by integrating the net energy imbalance from pole to pole.'''
     from scipy import integrate
     from climlab import constants as const
     lat_rad = np.deg2rad( lat_deg )
     return ( 1E-15 * 2 * np.math.pi * const.a**2 * 
-            integrate.cumtrapz( np.cos(lat_rad)*energy_in,
+            integrate.cumulative_trapezoid( np.cos(lat_rad)*energy_in,
             x=lat_rad, initial=0. ) )
 ```
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
+```python slideshow={"slide_type": "slide"}
 # A two-dimensional domain
 num_lev = 50
 state = climlab.column_state(num_lev=num_lev, num_lat=60, water_depth=10.)
 lev = state.Tatm.domain.axes['lev'].points
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 Here we specify cloud properties. The combination of the two cloud layers defined below were found to reproduce the **global, annual mean energy balance** in a single-column model.
 
 We will specify the same clouds everywhere for simplicity. A more thorough investigation would incorporate some meridional variations in cloud properties.
+<!-- #endregion -->
 
-```{code-cell} ipython3
+```python
 #  Define two types of cloud, high and low
 cldfrac = np.zeros_like(state.Tatm)
 r_liq = np.zeros_like(state.Tatm)
@@ -149,11 +143,7 @@ mycloud = {'cldfrac': cldfrac,
           'r_liq': r_liq}
 ```
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
+```python slideshow={"slide_type": "slide"}
 plt.plot(cldfrac[0,:], lev)
 plt.gca().invert_yaxis()
 plt.ylabel('Pressure (hPa)')
@@ -162,11 +152,7 @@ plt.title('Prescribed cloud fraction in the column model')
 plt.show()
 ```
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
+```python slideshow={"slide_type": "slide"}
 #  The top-level model
 model = climlab.TimeDependentProcess(state=state, name='Radiative-Convective-Diffusive Model')
 #  Specified relative humidity distribution
@@ -192,11 +178,11 @@ model.add_subprocess('Convection', conv)
 print( model)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 Here we add a diffusive heat transport process. The `climlab` code is set up to handle meridional diffusion level-by-level with a constant coefficient.
+<!-- #endregion -->
 
-```{code-cell} ipython3
+```python
 from climlab.dynamics import MeridionalDiffusion
 
 # thermal diffusivity in W/m**2/degC
@@ -208,15 +194,15 @@ d = MeridionalDiffusion(state={'Tatm': model.state['Tatm']},
 model.add_subprocess('Diffusion', d)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 Now we will add the surface heat flux processes. We have not used these before.
 
 Note that the drag coefficient $C_D$ is passed as an input argument when we create the process. It is also stored as an attribute of the process and can be modified (see below).
 
 The bulk formulas depend on a wind speed $U$. In this model, $U$ is specified as a constant. In a model with more complete dynamics, $U$ would be interactively calculated from the equations of motion.
+<!-- #endregion -->
 
-```{code-cell} ipython3
+```python
 #  Add surface heat fluxes
 shf = climlab.surface.SensibleHeatFlux(state=model.state, Cd=0.5E-3)
 lhf = climlab.surface.LatentHeatFlux(state=model.state, Cd=0.5E-3)
@@ -226,38 +212,30 @@ model.add_subprocess('SHF', shf)
 model.add_subprocess('LHF', lhf)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 ### The complete model, ready to use!
+<!-- #endregion -->
 
-```{code-cell} ipython3
+```python
 print( model)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 <div class="alert alert-warning">
 Although this is a "simple" model, it has a 60 x 30 point grid and is **by far the most complex model** we have built so far in these notes. These runs will probably take 15 minutes or more to execute, depending on the speed of your computer.
 </div>
+<!-- #endregion -->
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
+```python slideshow={"slide_type": "slide"}
 model.integrate_years(4.)
 ```
 
-```{code-cell} ipython3
+```python
 #  One more year to get annual-mean diagnostics
 model.integrate_years(1.)
 ```
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: skip
----
+```python slideshow={"slide_type": "skip"}
 ticks = [-90, -60, -30, 0, 30, 60, 90]
 fig, axes = plt.subplots(2,2,figsize=(14,10))
 ax = axes[0,0]
@@ -291,24 +269,20 @@ for ax in axes.flatten():
     ax.set_xlabel('Latitude'); ax.grid();
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 ###  Reducing the evaporation efficiency
 
 Just need to clone our model, and modify $C_D$ in the latent heat flux subprocess.
+<!-- #endregion -->
 
-```{code-cell} ipython3
+```python
 model2 = climlab.process_like(model)
 model2.subprocess['LHF'].Cd *= 0.5
 model2.integrate_years(4.)
 model2.integrate_years(1.)
 ```
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: skip
----
+```python slideshow={"slide_type": "skip"}
 fig, axes = plt.subplots(2,2,figsize=(14,10))
 ax = axes[0,0]
 ax.plot(model.lat, model2.timeave['Ts'] - model.timeave['Ts'])
@@ -346,8 +320,7 @@ print ('The global mean surface temperature anomaly is %0.2f K.'
                    weights=np.cos(np.deg2rad(model.lat)), axis=0) )
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 This model predicts the following:
 
 - The **surface temperature** warms slightly in the tropics, and cools at high latitudes
@@ -356,16 +329,15 @@ This model predicts the following:
 - There is also a substantial **increase** in sensible heat flux. This is consistent with the cooler air temperatures and warmer surface.
 - Colder tropical atmosphere leads to a decrease in the poleward heat tranpsort. This helps explain the high-latitude cooling.
 - Notice that the heat transport responds to the **atmopsheric** temperature gradient, which changes in the opposite direction of the **surface** temperature gradient.
+<!-- #endregion -->
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 Basically, this model predicts that by inhibiting evaporation in the tropics, we force the tropical surface to warm and the tropical atmosphere to cool. This cooling signal is then communicated globally by atmospheric heat transport. The result is small positive global surface temperature anomaly.
+<!-- #endregion -->
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 ### Discussion: what is this model missing?
-
-+++
+<!-- #endregion -->
 
 We could list many things, but as we will see below, two key climate components that are not included in this model are
 
@@ -374,15 +346,13 @@ We could list many things, but as we will see below, two key climate components 
 
 We will compare this result to an analogous experiment in a GCM.
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 ____________
 <a id='section3'></a>
 
 ## 3. Reduced evaporation efficiency experiment in an aquaplanet GCM
 ____________
-
-+++
+<!-- #endregion -->
 
 The model is the familiar CESM but in simplified "aquaplanet" setup. The surface is completely covered by a shallow slab ocean.
 
@@ -390,34 +360,37 @@ This model setup (with CAM4 model physics) is described in detail in this paper:
 
 > [Rose, B. E. J., Armour, K. C., Battisti, D. S., Feldl, N., and Koll, D. D. B. (2014). The dependence of transient climate sensitivity and radiative feedbacks on the spatial pattern of ocean heat uptake. Geophys. Res. Lett., 41, doi:10.1002/2013GL058955](http://onlinelibrary.wiley.com/doi/10.1002/2013GL058955/abstract;jsessionid=D32402F77E96A1F42972A200BF6FC535.f03t01)
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 Here we will compare a control simulation with a perturbation simulation in which we have once again **reduced the drag coefficient by a factor of 2**.
+<!-- #endregion -->
 
-```{code-cell} ipython3
+```python
 # Load the climatologies from the CAM4 aquaplanet runs
-datapath = "http://ramadda.atmos.albany.edu:8080/repository/opendap/latest/Top/Users/BrianRose/CESM_runs/"
-endstr = "/entry.das"
-ctrl = xr.open_dataset(datapath + 'aquaplanet_som/QAqu_ctrl.cam.h0.clim.nc' + endstr, decode_times=False).mean(dim='time')
-halfEvap = xr.open_dataset(datapath + 'aquaplanet_som/QAqu_halfEvap.cam.h0.clim.nc' + endstr, decode_times=False).mean(dim='time')
+
+# The path to the THREDDS server, should work from anywhere
+basepath = 'http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/'
+# For better performance if you can access the roselab_rit filesystem (e.g. from JupyterHub)
+#basepath = '/roselab_rit/cesm_archive/'
+ctrl = xr.open_dataset(basepath + 'QAqu_ctrl/clim/QAqu_ctrl.cam.h0.clim.nc', decode_times=False).mean(dim='time')
+halfEvap = xr.open_dataset(basepath + 'QAqu_halfEvap/clim/QAqu_halfEvap.cam.h0.clim.nc', decode_times=False).mean(dim='time')
 ```
 
-```{code-cell} ipython3
+```python
 lat = ctrl.lat
 lon = ctrl.lon
 lev = ctrl.lev
 ```
 
-```{code-cell} ipython3
+```python
 TS_anom = halfEvap.TS - ctrl.TS
 Tatm_anom = halfEvap['T'] - ctrl['T']
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 ### Temperature anomalies
+<!-- #endregion -->
 
-```{code-cell} ipython3
+```python
 fig, (ax1,ax2) = plt.subplots(1,2,figsize=(14,5))
 ax1.plot(lat, TS_anom.mean(dim='lon')); ax1.set_title('Surface temperature anomaly')
 cax2 = ax2.contourf(lat, lev, Tatm_anom.mean(dim='lon'), levels=np.arange(-7, 8., 2.), cmap='seismic')
@@ -428,19 +401,19 @@ for ax in (ax1, ax2):
 print ('The global mean surface temperature anomaly is %0.2f K.' %((TS_anom*ctrl.gw).mean(dim=('lat','lon'))/ctrl.gw.mean(dim='lat')))
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 In this model, reducing the evaporation efficiency leads to a **much warmer climate**.  The largest warming occurs in mid-latitudes. The warming is **not** limited to the surface but in fact extends deeply through the troposphere.
 
 Both the spatial pattern and the magnitude of the warming are completely different than what our much simpler model predicted.
 
 Why?
+<!-- #endregion -->
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 ### Compute all the terms in the TOA and surface energy and water budget anomalies
+<!-- #endregion -->
 
-```{code-cell} ipython3
+```python
 energy_budget = {}
 for name, run in zip(['ctrl','halfEvap'],[ctrl,halfEvap]):
     budget = xr.Dataset()
@@ -474,11 +447,7 @@ for name, run in zip(['ctrl','halfEvap'],[ctrl,halfEvap]):
     energy_budget[name] = budget
 ```
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
+```python slideshow={"slide_type": "slide"}
 #   Here we take advantage of xarray!
 #   We can simply subtract the two xarray.Dataset objects 
 #   to get anomalies for every term
@@ -487,15 +456,11 @@ anom = energy_budget['halfEvap'] - energy_budget['ctrl']
 zonanom = anom.mean(dim='lon')
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 ### Energy budget anomalies at TOA and surface
+<!-- #endregion -->
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: skip
----
+```python slideshow={"slide_type": "skip"}
 fig, (ax1,ax2) = plt.subplots(1,2,figsize=(14,5))
 ax1.plot(lat, zonanom.ASR, color='b', label='ASR')
 ax1.plot(lat, zonanom.OLR, color='r', label='OLR')
@@ -518,8 +483,7 @@ for ax in [ax1, ax2]:
     ax.legend(); ax.grid();
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 Dashed lines are **clear-sky** radiation anomalies.
 
 Looking at the TOA budget:
@@ -529,9 +493,9 @@ Looking at the TOA budget:
 - Accompanied by a (mostly) clear-sky OLR increase, consistent with the warmer temperatures.
 
 This is very suggestive of an important role for **low-level cloud changes**.  [Why?]
+<!-- #endregion -->
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 From the **surface budget**:
 
 - Notice that the **decrease in evaporation is much weaker** than we found in the simple model.
@@ -545,12 +509,13 @@ From the **surface budget**:
 - According to bulk formula, should be driven by one or both of
     - increased wind speed
     - increased air-sea temperature difference
+<!-- #endregion -->
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 ###  Vertical structure of relative humidity and cloud changes
+<!-- #endregion -->
 
-```{code-cell} ipython3
+```python
 fig, (ax1,ax2) = plt.subplots(1,2,figsize=(12,5))
 RH = (halfEvap.RELHUM - ctrl.RELHUM).mean(dim='lon'); CLOUD = (halfEvap.CLOUD - ctrl.CLOUD).mean(dim='lon')
 contours = np.arange(-15, 16., 2.)
@@ -560,11 +525,11 @@ for ax in [ax1, ax2]:
     ax.invert_yaxis(); ax.set_xlim(-90,90); ax.set_xticks(ticks);
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 ###  Meridional heat transport anomalies
+<!-- #endregion -->
 
-```{code-cell} ipython3
+```python
 HT = {}
 HT['total'] = inferred_heat_transport(anom.Rtoa.mean(dim='lon'), lat)
 HT['atm'] = inferred_heat_transport(anom.Fatmin.mean(dim='lon'), lat)
@@ -572,11 +537,7 @@ HT['latent'] = inferred_heat_transport(anom.EminusP.mean(dim='lon') * const.Lhva
 HT['dse'] = HT['atm'] - HT['latent']
 ```
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
+```python slideshow={"slide_type": "slide"}
 fig, ax = plt.subplots()
 ax.plot(lat, HT['total'], 'k-', label='total', linewidth=2)
 ax.plot(lat, HT['dse'], 'b', label='dry')
@@ -585,38 +546,36 @@ ax.set_xlim(-90,90); ax.set_xticks(ticks); ax.grid()
 ax.legend(loc='upper left'); ax.set_ylabel('PW'); ax.set_xlabel('Latitude')
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 ____________
 <a id='section4'></a>
 
 ## 4. Conclusion
 ____________
+<!-- #endregion -->
 
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 We have forced a climate change NOT by adding any kind of radiative forcing, but just by changing the efficiency of evaporation at the sea surface.
 
-The climate system then find a new equilibrium in which the radiative fluxes, surface temperature, air-sea temperature difference, boundary layer relative humidity, and wind speeds all change simultaneously. 
+The climate system then find a new equilibrium in which the radiative fluxes, surface temperature, air-sea temperature difference, boundary layer relative humidity, and wind speeds all change simultaneously.
+<!-- #endregion -->
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 Reasoning our way through such a problem from first principles in practically impossible. This is particularly true because in this example, the dominant driver of the climate change is an increase in SW absorption due to a substantial decrease in low-level clouds across the subtropics and mid-latitudes.
 
 A comprehensive theory to explain these cloud changes does not yet exist. **Understanding changes in low-level cloudiness under climate change is enormously important** -- because these clouds, which have an unambiguous cooling effect, are a key determinant of climate sensitivity. There is lots of work left to do.
+<!-- #endregion -->
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 Water is intimately involved in just about every aspect of the planetary energy budget. Here we have highlighted the role of water in:
 
 - Cooling of the surface by evaporation
 - Water vapor greenhouse effect
 - Poleward latent heat transport
 - Cloud formation
+<!-- #endregion -->
 
-+++ {"slideshow": {"slide_type": "skip"}}
-
+<!-- #region slideshow={"slide_type": "skip"} -->
 ____________
 
 ## Credits
@@ -628,11 +587,8 @@ It is licensed for free and open consumption under the
 
 Development of these notes and the [climlab software](https://github.com/brian-rose/climlab) is partially supported by the National Science Foundation under award AGS-1455071 to Brian Rose. Any opinions, findings, conclusions or recommendations expressed here are mine and do not necessarily reflect the views of the National Science Foundation.
 ____________
+<!-- #endregion -->
 
-```{code-cell} ipython3
----
-slideshow:
-  slide_type: skip
----
+```python slideshow={"slide_type": "skip"}
 
 ```
