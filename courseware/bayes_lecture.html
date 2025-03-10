@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>What I wish I’d known about statistics &#8212; Climate Laboratory Book</title>
   
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/bayes_lecture';</script>
@@ -161,7 +156,18 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Climate Laboratory Book</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -328,9 +334,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -424,9 +430,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -488,9 +494,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="what-i-wish-i-d-known-about-statistics">
-<h1>What I wish I’d known about statistics<a class="headerlink" href="#what-i-wish-i-d-known-about-statistics" title="Permalink to this heading">#</a></h1>
+<h1>What I wish I’d known about statistics<a class="headerlink" href="#what-i-wish-i-d-known-about-statistics" title="Link to this heading">#</a></h1>
 <section id="probability-is-a-subtle-concept">
-<h2>Probability is a subtle concept<a class="headerlink" href="#probability-is-a-subtle-concept" title="Permalink to this heading">#</a></h2>
+<h2>Probability is a subtle concept<a class="headerlink" href="#probability-is-a-subtle-concept" title="Link to this heading">#</a></h2>
 <p>Money quote:  “I must premiss that we, all of us, use this word [“probability”] with a degree of laxity which corrupts and rots our reasoning to a degree that very few of us are at all awake to.” <a class="reference external" href="https://philpapers.org/rec/BURIUW">Charles S. Pierce, 1910</a></p>
 <p><a class="reference external" href="https://www.aps.org/publications/apsnews/200907/physicshistory.cfm">Fermat-Pascal letters (1654)</a></p>
 <p><a class="reference external" href="https://www.lesswrong.com/posts/RTt59BtFLqQbsSiqd/a-history-of-bayes-theorem">Laplace and Bayes (1754)</a></p>
@@ -510,19 +516,19 @@ document.write(`
  <li><a href="https://plato.stanford.edu/entries/probability-interpret/#ConFutPro">4. Conclusion: Future Prospects?</a>
 <ul></section>
 <section id="bayes-theorem">
-<h2>Bayes theorem<a class="headerlink" href="#bayes-theorem" title="Permalink to this heading">#</a></h2>
+<h2>Bayes theorem<a class="headerlink" href="#bayes-theorem" title="Link to this heading">#</a></h2>
 <p>Bayes theorem gives the formula for computing conditional probabilities.  This formula applies regardless of your definition of probability, as long as it obeys Kolmogorov’s axioms.</p>
 <p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4818954/">A famous example</a></p>
 </section>
 <section id="frank-harrell-on-bayes">
-<h2><a class="reference external" href="https://www.fharrell.com/post/journey/">Frank Harrell on Bayes</a><a class="headerlink" href="#frank-harrell-on-bayes" title="Permalink to this heading">#</a></h2>
+<h2><a class="reference external" href="https://www.fharrell.com/post/journey/">Frank Harrell on Bayes</a><a class="headerlink" href="#frank-harrell-on-bayes" title="Link to this heading">#</a></h2>
 <p>If you tossed a coin 100 times resulting in 60 heads, would you rather know the probability of getting &gt; 59 heads out of 100 tosses if the coin happened to be fair, or the probability it is fair given exactly 60 heads? The frequentist approach is alluring because of the minimal work in carrying out a test of the null hypothesis θ=½. But the Bayesian approach provides a direct answer to the second question, and requires you to think. What is an “unfair” coin? Is it θ outside of [0.49, 0.51]? What is the world view of coins, e.g., is someone likely to provide a coin that is easily detectable as unfair because its θ=0.6? Was the coin chosen at random or handed to us?</p>
 <p>and for the <a class="reference external" href="https://baezortega.github.io/2018/05/28/robust-correlation/">correlation coefficient</a> the statements would be something like:</p>
 <p><strong>Bayes</strong>: According to the model, the correlation coefficient is between -0.83 and -0.98 with 99% probability</p>
 <p><strong>Frequentist</strong>: According to the test, we are 95% confident that the correlation coefficient has a value somewhere between -0.51 and -0.99; we don’t really know if this interval contains the value, but if we could repeat this analysis on infinite different samples, we would be wrong just 5% of the time!</p>
 </section>
 <section id="what-about-probability-of-precipitation">
-<h2>What about probability of precipitation?<a class="headerlink" href="#what-about-probability-of-precipitation" title="Permalink to this heading">#</a></h2>
+<h2>What about probability of precipitation?<a class="headerlink" href="#what-about-probability-of-precipitation" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.weather.gov/media/zhu/ZHU_Training_Page/Met_Tutorials/Forecasters_Reference_Book_1997.pdf">UK Met. Office forecaster guidance (pdf p. 141)</a></p></li>
 </ul>
@@ -541,14 +547,14 @@ probability, the odds against the event are: (1/p - 1) to 1.  (Ed. note – see 
 <p><strong>So what’s a graduate student to do?</strong></p>
 </section>
 <section id="case-study-linear-regression-two-ways">
-<h2>Case study: linear regression two ways<a class="headerlink" href="#case-study-linear-regression-two-ways" title="Permalink to this heading">#</a></h2>
+<h2>Case study: linear regression two ways<a class="headerlink" href="#case-study-linear-regression-two-ways" title="Link to this heading">#</a></h2>
 <section id="frequentist-first-following-hogg-et-al-2010">
-<h3>Frequentist first, following <a class="reference external" href="https://arxiv.org/abs/1008.4686">Hogg et al., 2010</a><a class="headerlink" href="#frequentist-first-following-hogg-et-al-2010" title="Permalink to this heading">#</a></h3>
+<h3>Frequentist first, following <a class="reference external" href="https://arxiv.org/abs/1008.4686">Hogg et al., 2010</a><a class="headerlink" href="#frequentist-first-following-hogg-et-al-2010" title="Link to this heading">#</a></h3>
 <p>“It is a miracle with which we hope everyone reading this is familiar that if you have a set of two-dimensional points (x, y) that depart from a perfect, narrow, straight line y = m x + b only by the addition of Gaussian distributed noise of known amplitudes in the y direction only, then the maximum-likelihood or best-fit line for the points has a slope m and intercept b that can be obtained justifiably by a perfectly linear matrix-algebra operation known as “weighted linear least-square fitting”. This miracle deserves contemplation.”</p>
 </section>
 </section>
 <section id="the-math-following-fleshman-2019">
-<h2>The math, following: <a class="reference external" href="https://towardsdatascience.com/linear-regression-91eeae7d6a2e">Fleshman, 2019</a><a class="headerlink" href="#the-math-following-fleshman-2019" title="Permalink to this heading">#</a></h2>
+<h2>The math, following: <a class="reference external" href="https://towardsdatascience.com/linear-regression-91eeae7d6a2e">Fleshman, 2019</a><a class="headerlink" href="#the-math-following-fleshman-2019" title="Link to this heading">#</a></h2>
 <p>The generating process:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -566,7 +572,7 @@ L_{X}\left(\theta_{0}, \theta_{1}, \sigma^{2}\right)=\frac{1}{\sqrt{2 \pi \sigma
 \)</span>$</p>
 </section>
 <section id="maximum-likelihood">
-<h2>Maximum likelihood<a class="headerlink" href="#maximum-likelihood" title="Permalink to this heading">#</a></h2>
+<h2>Maximum likelihood<a class="headerlink" href="#maximum-likelihood" title="Link to this heading">#</a></h2>
 <p>Solve this for the set of parameters that give the <strong>maximum likelihood</strong> by taking the <span class="math notranslate nohighlight">\(\log\)</span> and finding the maximum by setting the derivative = 0 and solving for <span class="math notranslate nohighlight">\((\theta_0, \theta_1)\)</span>.  This gives you the usual relationship for the slope and intercept in terms of the data statistics (<span class="math notranslate nohighlight">\(\overline{x}\)</span>,<span class="math notranslate nohighlight">\(\overline{y}\)</span>).  Note that we don’t need to know <span class="math notranslate nohighlight">\(\sigma\)</span>, because we’re assuming it’s constant.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -590,7 +596,7 @@ l_{X}\left(\theta_{0}, \theta_{1}, \sigma^{2}\right)=\log \left[\frac{1}{\sqrt{2
 \]</div>
 </section>
 <section id="code-this-up">
-<h2>Code this up<a class="headerlink" href="#code-this-up" title="Permalink to this heading">#</a></h2>
+<h2>Code this up<a class="headerlink" href="#code-this-up" title="Link to this heading">#</a></h2>
 <p>A couple of lines of python</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -625,9 +631,9 @@ l_{X}\left(\theta_{0}, \theta_{1}, \sigma^{2}\right)=\log \left[\frac{1}{\sqrt{2
 </div>
 </section>
 <section id="use-it-to-find-theta-0-theta-1">
-<h2>Use it to find <span class="math notranslate nohighlight">\(\theta_0, \theta_1\)</span><a class="headerlink" href="#use-it-to-find-theta-0-theta-1" title="Permalink to this heading">#</a></h2>
+<h2>Use it to find <span class="math notranslate nohighlight">\(\theta_0, \theta_1\)</span><a class="headerlink" href="#use-it-to-find-theta-0-theta-1" title="Link to this heading">#</a></h2>
 <section id="first-create-200-simulated-measurements-using-the-model">
-<h3>First create 200 simulated measurements using the model<a class="headerlink" href="#first-create-200-simulated-measurements-using-the-model" title="Permalink to this heading">#</a></h3>
+<h3>First create 200 simulated measurements using the model<a class="headerlink" href="#first-create-200-simulated-measurements-using-the-model" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="mi">200</span>
@@ -649,7 +655,7 @@ l_{X}\left(\theta_{0}, \theta_{1}, \sigma^{2}\right)=\log \left[\frac{1}{\sqrt{2
 </section>
 </section>
 <section id="plot-the-data-with-the-true-regression-line">
-<h2>Plot the data with the true regression line<a class="headerlink" href="#plot-the-data-with-the-true-regression-line" title="Permalink to this heading">#</a></h2>
+<h2>Plot the data with the true regression line<a class="headerlink" href="#plot-the-data-with-the-true-regression-line" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
@@ -661,12 +667,12 @@ l_{X}\left(\theta_{0}, \theta_{1}, \sigma^{2}\right)=\log \left[\frac{1}{\sqrt{2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/38701c2e184df93aa39ba553fb2ab968e7b7a162669062593f7de7fa11086988.png" src="../_images/38701c2e184df93aa39ba553fb2ab968e7b7a162669062593f7de7fa11086988.png" />
+<img alt="../_images/4eac051b20767691a8e93988b2fdd0a4c5b21146c6868d132b1bb18888b182a9.png" src="../_images/4eac051b20767691a8e93988b2fdd0a4c5b21146c6868d132b1bb18888b182a9.png" />
 </div>
 </div>
 </section>
 <section id="compare-the-true-and-estimated-green-regression-lines">
-<h2>Compare the true and estimated (green) regression lines<a class="headerlink" href="#compare-the-true-and-estimated-green-regression-lines" title="Permalink to this heading">#</a></h2>
+<h2>Compare the true and estimated (green) regression lines<a class="headerlink" href="#compare-the-true-and-estimated-green-regression-lines" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span> <span class="o">=</span> <span class="n">find_line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
@@ -677,12 +683,12 @@ l_{X}\left(\theta_{0}, \theta_{1}, \sigma^{2}\right)=\log \left[\frac{1}{\sqrt{2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/710445779ab278cd49bb816160ed6624813d3febe769b84242dfa6cc86617ba6.png" src="../_images/710445779ab278cd49bb816160ed6624813d3febe769b84242dfa6cc86617ba6.png" />
+<img alt="../_images/e06d92ab56e4308c43fd6af8eceb69761fd7ad9194c9f535a24d8b579bd2e22a.png" src="../_images/e06d92ab56e4308c43fd6af8eceb69761fd7ad9194c9f535a24d8b579bd2e22a.png" />
 </div>
 </div>
 </section>
 <section id="use-bootstrap-resampling-to-estimate-confidence-intervals">
-<h2>Use bootstrap resampling to estimate confidence intervals<a class="headerlink" href="#use-bootstrap-resampling-to-estimate-confidence-intervals" title="Permalink to this heading">#</a></h2>
+<h2>Use bootstrap resampling to estimate confidence intervals<a class="headerlink" href="#use-bootstrap-resampling-to-estimate-confidence-intervals" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_bs_pairs_linreg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
@@ -711,7 +717,7 @@ l_{X}\left(\theta_{0}, \theta_{1}, \sigma^{2}\right)=\log \left[\frac{1}{\sqrt{2
 </div>
 </section>
 <section id="plot-100-different-regression-lines">
-<h2>Plot 100 different regression lines<a class="headerlink" href="#plot-100-different-regression-lines" title="Permalink to this heading">#</a></h2>
+<h2>Plot 100 different regression lines<a class="headerlink" href="#plot-100-different-regression-lines" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slopes</span><span class="p">,</span> <span class="n">intercepts</span> <span class="o">=</span> <span class="n">draw_bs_pairs_linreg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
@@ -723,12 +729,12 @@ l_{X}\left(\theta_{0}, \theta_{1}, \sigma^{2}\right)=\log \left[\frac{1}{\sqrt{2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3682b1b735c924a23deed28530baf9ba09d3a4113d3241d9024cef1d50a06c14.png" src="../_images/3682b1b735c924a23deed28530baf9ba09d3a4113d3241d9024cef1d50a06c14.png" />
+<img alt="../_images/8838c6ff414ddaa9f524fac0b0ded7fe3467f403bafaf4e64103fac806cba57a.png" src="../_images/8838c6ff414ddaa9f524fac0b0ded7fe3467f403bafaf4e64103fac806cba57a.png" />
 </div>
 </div>
 </section>
 <section id="histogram-resampled-theta-0-and-theta-1">
-<h2>Histogram resampled <span class="math notranslate nohighlight">\(\theta_0\)</span> and <span class="math notranslate nohighlight">\(\theta_1\)</span><a class="headerlink" href="#histogram-resampled-theta-0-and-theta-1" title="Permalink to this heading">#</a></h2>
+<h2>Histogram resampled <span class="math notranslate nohighlight">\(\theta_0\)</span> and <span class="math notranslate nohighlight">\(\theta_1\)</span><a class="headerlink" href="#histogram-resampled-theta-0-and-theta-1" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -738,12 +744,12 @@ l_{X}\left(\theta_{0}, \theta_{1}, \sigma^{2}\right)=\log \left[\frac{1}{\sqrt{2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8c70cc6ae2e25c935dd63077db69a922f11610b5debf4ddf04a102560c0d45fe.png" src="../_images/8c70cc6ae2e25c935dd63077db69a922f11610b5debf4ddf04a102560c0d45fe.png" />
+<img alt="../_images/4a742430b8e486993e516becd8eb2e5499d9f504712eef29a1d042069d10a2eb.png" src="../_images/4a742430b8e486993e516becd8eb2e5499d9f504712eef29a1d042069d10a2eb.png" />
 </div>
 </div>
 </section>
 <section id="what-s-wrong-with-this-workflow">
-<h2>What’s wrong with this workflow?<a class="headerlink" href="#what-s-wrong-with-this-workflow" title="Permalink to this heading">#</a></h2>
+<h2>What’s wrong with this workflow?<a class="headerlink" href="#what-s-wrong-with-this-workflow" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>No way to introduce uncertainty in x</p></li>
 <li><p>Unrealistically simple uncertainty in y (constant <span class="math notranslate nohighlight">\(\sigma\)</span>)</p></li>
@@ -752,10 +758,10 @@ l_{X}\left(\theta_{0}, \theta_{1}, \sigma^{2}\right)=\log \left[\frac{1}{\sqrt{2
 </ol>
 </section>
 <section id="take-2-the-bayesian-version">
-<h2>Take 2: The Bayesian version<a class="headerlink" href="#take-2-the-bayesian-version" title="Permalink to this heading">#</a></h2>
+<h2>Take 2: The Bayesian version<a class="headerlink" href="#take-2-the-bayesian-version" title="Link to this heading">#</a></h2>
 <p>Start with Bayes theorem, given the logical/subjective definition of probability:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-658d0878-83e1-469e-b189-b4e21e61e493">
-<span class="eqno">(6)<a class="headerlink" href="#equation-658d0878-83e1-469e-b189-b4e21e61e493" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-783f654e-108f-474b-9323-2d35dd4b5707">
+<span class="eqno">(6)<a class="headerlink" href="#equation-783f654e-108f-474b-9323-2d35dd4b5707" title="Permalink to this equation">#</a></span>\[\begin{align}
 \underbrace{p(\text{proposition} | data)}_{\text{posterior probability}} &amp; \propto 
   \underbrace{p(data | \text{proposition} )}_{likelihood} \times
   \underbrace{p(\text{proposition})}_{\text{prior probability}}
@@ -769,7 +775,7 @@ p(y | \theta_{0}, \theta_{1}, \sigma^{2} ) \propto \left[\frac{1}{\sqrt{2 \pi \s
 of generating function parameters.</p>
 </section>
 <section id="what-to-do-about-p-text-proposition-the-prior-probability">
-<h2>What to do about <span class="math notranslate nohighlight">\(p(\text{proposition})\)</span> – the prior probability<a class="headerlink" href="#what-to-do-about-p-text-proposition-the-prior-probability" title="Permalink to this heading">#</a></h2>
+<h2>What to do about <span class="math notranslate nohighlight">\(p(\text{proposition})\)</span> – the prior probability<a class="headerlink" href="#what-to-do-about-p-text-proposition-the-prior-probability" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Take <span class="math notranslate nohighlight">\(p(\theta_1)\)</span> and <span class="math notranslate nohighlight">\(p(\theta_0)\)</span> as normally distributed with mean=0 and <span class="math notranslate nohighlight">\(\sigma = 20\)</span></p></li>
 <li><p>Take <span class="math notranslate nohighlight">\(p(\sigma)\)</span> as <a class="reference external" href="https://docs.pymc.io/api/distributions/continuous.html#pymc3.distributions.continuous.HalfCauchy">Halfcauchy</a> with <span class="math notranslate nohighlight">\(\beta=10\)</span></p></li>
@@ -788,13 +794,14 @@ p(\sigma^{2}) \propto \int \int p( \theta_{0}, \theta_{1}, \sigma^{2} | y )\, d 
 \]</div>
 </section>
 <section id="how-to-solve-this-integral">
-<h2>How to solve this integral?<a class="headerlink" href="#how-to-solve-this-integral" title="Permalink to this heading">#</a></h2>
+<h2>How to solve this integral?<a class="headerlink" href="#how-to-solve-this-integral" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://arxiv.org/pdf/1206.1901.pdf">Hamiltonian Markov Chain Montecarlo</a></p>
 <p>A (very) fancy version of naive Monte Carlo integration:</p>
-<a class="reference internal image-reference" href="../_images/naive_mc_integration.png"><img alt="../_images/naive_mc_integration.png" src="../_images/naive_mc_integration.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="../_images/naive_mc_integration.png"><img alt="../_images/naive_mc_integration.png" src="../_images/naive_mc_integration.png" style="width: 80%;" />
+</a>
 </section>
 <section id="code-this-using-pymc3">
-<h2>Code this using pymc3<a class="headerlink" href="#code-this-using-pymc3" title="Permalink to this heading">#</a></h2>
+<h2>Code this using pymc3<a class="headerlink" href="#code-this-using-pymc3" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pymc3</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pm</span>
@@ -874,12 +881,12 @@ p(\sigma^{2}) \propto \int \int p( \theta_{0}, \theta_{1}, \sigma^{2} | y )\, d 
 <span class="ne">NameError</span>: name &#39;pm&#39; is not defined
 </pre></div>
 </div>
-<img alt="../_images/9c80f9adbd60c562daf162324fec51a2f2e6af3dd22fdb8e9b69128b5a87ca0d.png" src="../_images/9c80f9adbd60c562daf162324fec51a2f2e6af3dd22fdb8e9b69128b5a87ca0d.png" />
+<img alt="../_images/e54cc499ec4998d4639b348aebddb577aa17b75c36a4bed443387d816c11f194.png" src="../_images/e54cc499ec4998d4639b348aebddb577aa17b75c36a4bed443387d816c11f194.png" />
 </div>
 </div>
 </section>
 <section id="well-that-seemed-complicated-but-worth-it">
-<h2>Well, that seemed complicated – but worth it?<a class="headerlink" href="#well-that-seemed-complicated-but-worth-it" title="Permalink to this heading">#</a></h2>
+<h2>Well, that seemed complicated – but worth it?<a class="headerlink" href="#well-that-seemed-complicated-but-worth-it" title="Link to this heading">#</a></h2>
 <p>Advantages:</p>
 <ol class="arabic simple">
 <li><p>Estimate of <span class="math notranslate nohighlight">\(\sigma\)</span></p></li>
@@ -897,7 +904,7 @@ terms of distributions.</p>
 </ol>
 </section>
 <section id="bottom-line">
-<h2>Bottom line<a class="headerlink" href="#bottom-line" title="Permalink to this heading">#</a></h2>
+<h2>Bottom line<a class="headerlink" href="#bottom-line" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Frequentists – data-oriented, controlled clinical trials with preregistration, lab scientists</p>
 <ul>
@@ -914,14 +921,14 @@ Pithy summary from Gelman: <a class="reference external" href="http://www.stat.c
 </ul>
 </section>
 <section id="coda-an-example-of-the-debate-on-bayesian-model-comparison">
-<h2>Coda:  An example of the debate on Bayesian model comparison<a class="headerlink" href="#coda-an-example-of-the-debate-on-bayesian-model-comparison" title="Permalink to this heading">#</a></h2>
+<h2>Coda:  An example of the debate on Bayesian model comparison<a class="headerlink" href="#coda-an-example-of-the-debate-on-bayesian-model-comparison" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.dropbox.com/s/3vw85dkr506yxag/to_bayes_or_not.pdf?dl=0">To Bayes or not to Bayes</a> – Scales and Sneider (1997)</p></li>
 <li><p><a class="reference external" href="http://www.stat.columbia.edu/~gelman/research/published/philosophy.pdf">Gelman and Shalizi’s answer to those issues</a> – posterior predictive checking</p></li>
 </ul>
 </section>
 <section id="further-reading-all-books-available-online-through-the-ubc-library">
-<h2>Further reading – all books available online through the UBC library<a class="headerlink" href="#further-reading-all-books-available-online-through-the-ubc-library" title="Permalink to this heading">#</a></h2>
+<h2>Further reading – all books available online through the UBC library<a class="headerlink" href="#further-reading-all-books-available-online-through-the-ubc-library" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.oreilly.com/library/view/statistical-rethinking/9781482253481/?ar">Statistical rethinking</a></p>
 <ul>
@@ -940,7 +947,7 @@ Pithy summary from Gelman: <a class="reference external" href="http://www.stat.c
 </li>
 </ul>
 </li>
-<li><p><a class="reference external" href="http://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&amp;SS_jc=TC_034362911&amp;title=Bayesian%20Analysis%20with%20Python%20-%20Second%20Edition">Bayesian analysis with python</a></p>
+<li><p><a class="reference external" href="http://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&amp;amp;SS_jc=TC_034362911&amp;amp;title=Bayesian%20Analysis%20with%20Python%20-%20Second%20Edition">Bayesian analysis with python</a></p>
 <ul>
 <li><p>Best intro to pymc3</p></li>
 <li><p><a class="reference external" href="https://github.com/aloctavodia/BAP">BAP source code</a></p></li>
@@ -1072,7 +1079,7 @@ By Brian Rose
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

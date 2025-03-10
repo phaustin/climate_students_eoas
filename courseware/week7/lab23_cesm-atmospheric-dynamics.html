@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>23. Atmospheric Dynamics in the CESM &#8212; Climate Laboratory Book</title>
   
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/week7/lab23_cesm-atmospheric-dynamics';</script>
@@ -161,7 +156,18 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Climate Laboratory Book</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -328,9 +334,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -424,9 +430,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -471,7 +477,7 @@ document.write(`
                   
   <!-- #region slideshow={"slide_type": "slide"} -->
 <section class="tex2jax_ignore mathjax_ignore" id="atmospheric-dynamics-in-the-cesm">
-<span id="nb-atmdyn"></span><h1><span class="section-number">23. </span>Atmospheric Dynamics in the CESM<a class="headerlink" href="#atmospheric-dynamics-in-the-cesm" title="Permalink to this heading">#</a></h1>
+<span id="nb-atmdyn"></span><h1><span class="section-number">23. </span>Atmospheric Dynamics in the CESM<a class="headerlink" href="#atmospheric-dynamics-in-the-cesm" title="Link to this heading">#</a></h1>
 <p>This notebook is an extension of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany. Notebook by Rachel H. White, University of British Columbia (https://www.eoas.ubc.ca/people/rachelwhite)</p>
 <p>There are ‘Discussion points’ and ‘Exercises’ throughout these notebooks. You should come to class prepared to discuss your thoughts on the Discussion points.</p>
 <p>Learning goals:</p>
@@ -482,10 +488,10 @@ document.write(`
 </ul>
 <hr class="docutils" />
 <section id="about-the-cesm">
-<h2><span class="section-number">23.1. </span>About the CESM<a class="headerlink" href="#about-the-cesm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">23.1. </span>About the CESM<a class="headerlink" href="#about-the-cesm" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="key-components-of-cesm">
-<h3><span class="section-number">23.1.1. </span>Key components of CESM:<a class="headerlink" href="#key-components-of-cesm" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">23.1.1. </span>Key components of CESM:<a class="headerlink" href="#key-components-of-cesm" title="Link to this heading">#</a></h3>
 <p>see http://www.cesm.ucar.edu/models/cesm1.2/ for more info</p>
 <ul class="simple">
 <li><p>Atmospheric model (AGCM)</p>
@@ -520,7 +526,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="large-scale-circulation-in-the-cesm">
-<h2><span class="section-number">23.2. </span>Large-scale circulation in the CESM<a class="headerlink" href="#large-scale-circulation-in-the-cesm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">23.2. </span>Large-scale circulation in the CESM<a class="headerlink" href="#large-scale-circulation-in-the-cesm" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -551,7 +557,7 @@ document.write(`
 </pre></div>
 </div>
 <section id="zonal-mean-circulation">
-<h3><span class="section-number">23.2.1. </span>Zonal mean circulation<a class="headerlink" href="#zonal-mean-circulation" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">23.2.1. </span>Zonal mean circulation<a class="headerlink" href="#zonal-mean-circulation" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Let&#39;s compare the zonal mean circulation</span>
 <span class="n">atmfile</span>
 </pre></div>
@@ -748,7 +754,7 @@ For now, here’s option 2:</p></li>
 <!-- #region jp-MarkdownHeadingCollapsed=true -->
 </section>
 <section id="eddy-transport-in-cesm">
-<h3><span class="section-number">23.2.2. </span>Eddy transport in CESM<a class="headerlink" href="#eddy-transport-in-cesm" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">23.2.2. </span>Eddy transport in CESM<a class="headerlink" href="#eddy-transport-in-cesm" title="Link to this heading">#</a></h3>
 <p>Moving away from zonal means, we can look at eddy transports. We can calculate vT using the model output, by multipling v and T at each timestep:</p>
 <!-- #endregion -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vT</span> <span class="o">=</span> <span class="p">(</span><span class="n">atmfile</span><span class="o">.</span><span class="n">V</span> <span class="o">*</span> <span class="n">atmfile</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">)</span>
@@ -784,7 +790,7 @@ For now, here’s option 2:</p></li>
 </div>
 </section>
 <section id="vertical-levels">
-<h3><span class="section-number">23.2.3. </span>Vertical levels<a class="headerlink" href="#vertical-levels" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">23.2.3. </span>Vertical levels<a class="headerlink" href="#vertical-levels" title="Link to this heading">#</a></h3>
 <p>Look at the y-axis in our first plot of zonal mean zonal wind. Notice that the variable is not ‘pressure’, it’s ‘hybrid level at midpoints’. If you explore the dimension ‘lev’ in atmfile you find the units are ‘level’ and the standard name is: ‘atmosphere_hybrid_sigma_pressure_coordinate’.  The CESM model default outputs are on model levels, which are not isobaric surfaces. This version of the CESM uses what’s known as a hybrid vertical co-ordinate: near the surface, the levels follow the terrain, often known as a ‘sigma’ co-ordinate; this makes calculation of the dynamics near the surface simpler. At the top of the model, the levels are isobaric surfaces; in between they are a hybrid, or “sigma-pressure’. This is illustrated in the schematic below.</p>
 <img alt="../../_images/Fig_hyb_coord.jpg" src="../../_images/Fig_hyb_coord.jpg" />
 <blockquote>
@@ -953,7 +959,7 @@ It is useful to define generic functions for sets of operations you will use rep
 </div>
 </section>
 <section id="further-exploration">
-<h3><span class="section-number">23.2.4. </span>Further exploration<a class="headerlink" href="#further-exploration" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">23.2.4. </span>Further exploration<a class="headerlink" href="#further-exploration" title="Link to this heading">#</a></h3>
 <p><strong>Exercise:</strong> <em>Explore the model data and create plots to help you understand more about the atmospheric circulation. Come to class prepared to share one of these plots and discuss what it shows you.</em></p>
 </section>
 </section>
@@ -1058,7 +1064,7 @@ By Brian Rose
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Scale heights for typical atmospheric soundings &#8212; Climate Laboratory Book</title>
   
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/hydrostatic_balance';</script>
@@ -161,7 +156,18 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Climate Laboratory Book</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -328,9 +334,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -424,9 +430,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -477,9 +483,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="scale-heights-for-typical-atmospheric-soundings">
-<span id="scale-heights"></span><h1>Scale heights for typical atmospheric soundings<a class="headerlink" href="#scale-heights-for-typical-atmospheric-soundings" title="Permalink to this heading">#</a></h1>
+<span id="scale-heights"></span><h1>Scale heights for typical atmospheric soundings<a class="headerlink" href="#scale-heights-for-typical-atmospheric-soundings" title="Link to this heading">#</a></h1>
 <section id="plot-mcclatchey-s-us-standard-atmospheres">
-<h2>Plot McClatchey’s US Standard Atmospheres<a class="headerlink" href="#plot-mcclatchey-s-us-standard-atmospheres" title="Permalink to this heading">#</a></h2>
+<h2>Plot McClatchey’s US Standard Atmospheres<a class="headerlink" href="#plot-mcclatchey-s-us-standard-atmospheres" title="Link to this heading">#</a></h2>
 <p>There are five different average profiles for the tropics, subarctic summer, subarctic winter, midlatitude summer, midlatitude winter.  These are called the US Standard Atmospheres.  This notebook shows how to read and plot the soundings, and calculate the pressure and density scale heights.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -528,7 +534,7 @@ document.write(`
 </div>
 </div>
 <section id="reading-the-soundings-files-into-pandas">
-<h3>Reading the soundings files into pandas<a class="headerlink" href="#reading-the-soundings-files-into-pandas" title="Permalink to this heading">#</a></h3>
+<h3>Reading the soundings files into pandas<a class="headerlink" href="#reading-the-soundings-files-into-pandas" title="Link to this heading">#</a></h3>
 <p>There are five soundings.
 The soundings have six columns and 33 rows (i.e. 33 height levels).  The variables are
 z, press, temp, rmix, den, o3den – where rmix is the mixing ratio of water vapor, den is the dry air density and o3den is the ozone density.  The units are
@@ -566,7 +572,7 @@ m, pa, K, kg/kg, kg/m^3, kg/m^3</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="use-pd-dataframe-head-to-see-first-5-lines">
-<h1>Use pd.DataFrame.head to see first 5 lines<a class="headerlink" href="#use-pd-dataframe-head-to-see-first-5-lines" title="Permalink to this heading">#</a></h1>
+<h1>Use pd.DataFrame.head to see first 5 lines<a class="headerlink" href="#use-pd-dataframe-head-to-see-first-5-lines" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="n">sound_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -598,7 +604,7 @@ m, pa, K, kg/kg, kg/m^3, kg/m^3</p>
 </div>
 </div>
 <section id="plot-temp-and-vapor-mixing-ratio-rmix-rho-h2o-rho-air">
-<h2>Plot  temp and vapor mixing ratio rmix (<span class="math notranslate nohighlight">\(\rho_{H2O}/\rho_{air}\)</span>)<a class="headerlink" href="#plot-temp-and-vapor-mixing-ratio-rmix-rho-h2o-rho-air" title="Permalink to this heading">#</a></h2>
+<h2>Plot  temp and vapor mixing ratio rmix (<span class="math notranslate nohighlight">\(\rho_{H2O}/\rho_{air}\)</span>)<a class="headerlink" href="#plot-temp-and-vapor-mixing-ratio-rmix-rho-h2o-rho-air" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -619,16 +625,15 @@ m, pa, K, kg/kg, kg/m^3, kg/m^3</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/_k/0f_hlw7x2hq4vtcq0h8bvsm40000gr/T/ipykernel_81502/2006572990.py:14: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
-  ax1.legend();
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No handles with labels found to put in legend.
 </pre></div>
 </div>
-<img alt="../_images/51b6cae2f2dbd63ba68953dd3fe60f4ae04258f066806339dd618f299accdd59.png" src="../_images/51b6cae2f2dbd63ba68953dd3fe60f4ae04258f066806339dd618f299accdd59.png" />
+<img alt="../_images/54c1d4661da64a29bc5a7df3e464a9e76ac496aa195cab407498fcc63d33c4d5.png" src="../_images/54c1d4661da64a29bc5a7df3e464a9e76ac496aa195cab407498fcc63d33c4d5.png" />
 </div>
 </div>
 </section>
 <section id="calculating-scale-heights-for-temperature-and-air-density">
-<h2>Calculating scale heights for temperature and air density<a class="headerlink" href="#calculating-scale-heights-for-temperature-and-air-density" title="Permalink to this heading">#</a></h2>
+<h2>Calculating scale heights for temperature and air density<a class="headerlink" href="#calculating-scale-heights-for-temperature-and-air-density" title="Link to this heading">#</a></h2>
 <p>Here is equation 1 of the <a class="reference internal" href="hydrostat.html#hydro"><span class="std std-ref">Hydrostatic balance</span></a> notebook:</p>
 <div class="math notranslate nohighlight">
 \[\frac{ 1}{\overline{H_p}} =  \overline{ \left ( \frac{1 }{H} \right )} = \frac{\int_{0 }^{z}\!\frac{1}{H} dz^\prime  }{z-0} \]</div>
@@ -720,7 +725,7 @@ is:</p>
 </div>
 </div>
 <section id="how-do-overline-h-p-and-overline-h-rho-compare-for-the-tropical-sounding">
-<h3>How do <span class="math notranslate nohighlight">\(\overline{H_p}\)</span> and <span class="math notranslate nohighlight">\(\overline{H_\rho}\)</span> compare for the tropical sounding?<a class="headerlink" href="#how-do-overline-h-p-and-overline-h-rho-compare-for-the-tropical-sounding" title="Permalink to this heading">#</a></h3>
+<h3>How do <span class="math notranslate nohighlight">\(\overline{H_p}\)</span> and <span class="math notranslate nohighlight">\(\overline{H_\rho}\)</span> compare for the tropical sounding?<a class="headerlink" href="#how-do-overline-h-p-and-overline-h-rho-compare-for-the-tropical-sounding" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sounding</span><span class="o">=</span><span class="s1">&#39;tropics&#39;</span>
@@ -784,7 +789,7 @@ is:</p>
 </div>
 </section>
 <section id="how-well-do-these-average-values-represent-the-pressure-and-density-profiles">
-<h3>How well do these average values represent the pressure and density profiles?<a class="headerlink" href="#how-well-do-these-average-values-represent-the-pressure-and-density-profiles" title="Permalink to this heading">#</a></h3>
+<h3>How well do these average values represent the pressure and density profiles?<a class="headerlink" href="#how-well-do-these-average-values-represent-the-pressure-and-density-profiles" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theFig</span><span class="p">,</span><span class="n">theAx</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -819,7 +824,7 @@ is:</p>
 <span class="ne">NameError</span>: name &#39;Temp&#39; is not defined
 </pre></div>
 </div>
-<img alt="../_images/552c03c3b56da1f8ff167dc009f08c710923f4cf15d93d8e9fe9d7319581e149.png" src="../_images/552c03c3b56da1f8ff167dc009f08c710923f4cf15d93d8e9fe9d7319581e149.png" />
+<img alt="../_images/00cdc2106689ddc74799718bf4fce533e65ca1be6d72f5e6cec4b4391a16c6cf.png" src="../_images/00cdc2106689ddc74799718bf4fce533e65ca1be6d72f5e6cec4b4391a16c6cf.png" />
 </div>
 </div>
 <p>Now check the hydrostatic approximation by plotting the pressure column against</p>
@@ -872,14 +877,6 @@ is:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:6: SyntaxWarning: invalid escape sequence &#39;\,&#39;
-&lt;&gt;:6: SyntaxWarning: invalid escape sequence &#39;\,&#39;
-/var/folders/_k/0f_hlw7x2hq4vtcq0h8bvsm40000gr/T/ipykernel_81502/947576667.py:6: SyntaxWarning: invalid escape sequence &#39;\,&#39;
-  theAx.set_xlabel(&#39;density ($kg\,m^{-3}$)&#39;)
-/var/folders/_k/0f_hlw7x2hq4vtcq0h8bvsm40000gr/T/ipykernel_81502/947576667.py:6: SyntaxWarning: invalid escape sequence &#39;\,&#39;
-  theAx.set_xlabel(&#39;density ($kg\,m^{-3}$)&#39;)
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
@@ -891,13 +888,13 @@ is:</p>
 <span class="ne">NameError</span>: name &#39;rhoL&#39; is not defined
 </pre></div>
 </div>
-<img alt="../_images/552c03c3b56da1f8ff167dc009f08c710923f4cf15d93d8e9fe9d7319581e149.png" src="../_images/552c03c3b56da1f8ff167dc009f08c710923f4cf15d93d8e9fe9d7319581e149.png" />
+<img alt="../_images/00cdc2106689ddc74799718bf4fce533e65ca1be6d72f5e6cec4b4391a16c6cf.png" src="../_images/00cdc2106689ddc74799718bf4fce533e65ca1be6d72f5e6cec4b4391a16c6cf.png" />
 </div>
 </div>
 <p><a name="oct7assign"></a></p>
 </section>
 <section id="assignment4-preview">
-<h3>Assignment4 – (preview)<a class="headerlink" href="#assignment4-preview" title="Permalink to this heading">#</a></h3>
+<h3>Assignment4 – (preview)<a class="headerlink" href="#assignment4-preview" title="Link to this heading">#</a></h3>
 <p>Add cells to this notebook to:</p>
 <p>1.  Print out the density and pressure scale heights for each of the five soundings</p>
 <p>2.  Define a function that takes a sounding dataframe and returns the “total precipitable water”, which is defined as:</p>
@@ -1015,7 +1012,7 @@ By Brian Rose
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

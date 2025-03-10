@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Tutorial: Loading CMIP historical data &#8212; Climate Laboratory Book</title>
   
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'resources/tutorials/historical_data';</script>
     <link rel="canonical" href="https://phaustin.github.io/climate_students_eoas/resources/tutorials/historical_data.html" />
     <link rel="author" title="About these documents" href="../../about.html" />
@@ -159,7 +154,18 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Climate Laboratory Book</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -326,9 +332,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -422,9 +428,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -468,20 +474,20 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutorial-loading-cmip-historical-data">
-<span id="tut-historical-data"></span><h1>Tutorial: Loading CMIP historical data<a class="headerlink" href="#tutorial-loading-cmip-historical-data" title="Permalink to this heading">#</a></h1>
+<span id="tut-historical-data"></span><h1>Tutorial: Loading CMIP historical data<a class="headerlink" href="#tutorial-loading-cmip-historical-data" title="Link to this heading">#</a></h1>
 <p>Author: Ben Farris</p>
 <p>In this notebook, we focus on loading in the data from the CMIP6 site for British Columbia and
 saving it to netcdf. We can then work on histogramming the data in order to understand the variability within the models.  The models are the Canadian CanESM, the British Hadley model and the US GISS model</p>
 <p>Based on <a class="reference external" href="https://projectpythia.org/cmip6-cookbook/notebooks/foundations/intake-esm.html">project pythia</a></p>
 <p>This notebook and the netcdf files are in the <a class="reference external" href="https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs">tutorials</a> folder on our google drive.</p>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
 <p>To generate the Taylor diagram in the last cell you’ll need to do install the skillmetrics module into the e440 environment:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">skillmetrics</span>
 </pre></div>
 </div>
 <section id="data-download">
-<h3>Data download<a class="headerlink" href="#data-download" title="Permalink to this heading">#</a></h3>
+<h3>Data download<a class="headerlink" href="#data-download" title="Link to this heading">#</a></h3>
 <p>In order to avoid repeatedly downloading the data, each model download is wrapped in an if statement, so that if
 <code class="docutils literal notranslate"><span class="pre">writefile</span></code> is set to True, the download will be written to a folder called</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/</span><span class="n">repos</span><span class="o">/</span><span class="n">e440</span><span class="o">/</span><span class="n">tutorials</span><span class="o">/</span><span class="n">tutorial_data</span>
@@ -743,10 +749,10 @@ copy them into the tutorial_data folder</p>
 </section>
 </section>
 <section id="model-downloads">
-<h2>Model downloads<a class="headerlink" href="#model-downloads" title="Permalink to this heading">#</a></h2>
+<h2>Model downloads<a class="headerlink" href="#model-downloads" title="Link to this heading">#</a></h2>
 <p>From above, we know that we need 3 specific models/source_ids: CanESM5, HadGEM3-GC31-MM, GISS-E2-1-H. In addition to this, we know that we want monthly precipitation data, so we need variable_id = “pr” and table_id = “Amon”. Lastly, we’ll also need the historical data at this point.</p>
 <section id="canesm5">
-<h3>CanESM5<a class="headerlink" href="#canesm5" title="Permalink to this heading">#</a></h3>
+<h3>CanESM5<a class="headerlink" href="#canesm5" title="Link to this heading">#</a></h3>
 <p>We want an approximate box of 115 to 135 lon and 49 to 60 lat, and we want a slice from 1960 to 2010. So, get closest lon lat slice and get the correct time from the site. Then write to file as a netcdf.  If
 write = True this cell can take several minutes.</p>
 <div class="cell docutils container">
@@ -810,7 +816,7 @@ write = True this cell can take several minutes.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Precipitation total (mm)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/f5d31bedccc1d0ddb54d5e602b1260c01f16dd72c6fab2bcc68be84b911c7136.png" src="../../_images/f5d31bedccc1d0ddb54d5e602b1260c01f16dd72c6fab2bcc68be84b911c7136.png" />
+<img alt="../../_images/a1ada98756a52c966cc4ac4127d5c90f9d75b3f1c949a44a602e8d2da7830fa4.png" src="../../_images/a1ada98756a52c966cc4ac4127d5c90f9d75b3f1c949a44a602e8d2da7830fa4.png" />
 </div>
 </div>
 <p>Looking at what the monthly precipitation pattern looks like for 1960-2010</p>
@@ -829,7 +835,7 @@ write = True this cell can take several minutes.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Precipitation total (mm)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/9b210c6451fc552aa411603091043bafbf010b70c737282e65fce348eb98b944.png" src="../../_images/9b210c6451fc552aa411603091043bafbf010b70c737282e65fce348eb98b944.png" />
+<img alt="../../_images/eb59b679608164dc07f911935b1a831d4620345d1e6ee2628e0416a8dea773e3.png" src="../../_images/eb59b679608164dc07f911935b1a831d4620345d1e6ee2628e0416a8dea773e3.png" />
 </div>
 </div>
 <p>Plotting standard deviation as a timeseries</p>
@@ -847,7 +853,7 @@ write = True this cell can take several minutes.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Precipitation total (mm)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/0910c498ec78829db72af5d7e6893f6467ae77e4b5ba6eca856c21a9d2c602b0.png" src="../../_images/0910c498ec78829db72af5d7e6893f6467ae77e4b5ba6eca856c21a9d2c602b0.png" />
+<img alt="../../_images/2056f605715f24bdadf9754ebf88843465df73f5ae7ddddd8a392a0a33b13cdd.png" src="../../_images/2056f605715f24bdadf9754ebf88843465df73f5ae7ddddd8a392a0a33b13cdd.png" />
 </div>
 </div>
 <p>Getting an idea of the model member distribution via a histogram</p>
@@ -866,7 +872,7 @@ write = True this cell can take several minutes.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Number&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/974c627fdd07cedbd104c38d2a9de97a06a7827a4327d75c931f79078fb96df5.png" src="../../_images/974c627fdd07cedbd104c38d2a9de97a06a7827a4327d75c931f79078fb96df5.png" />
+<img alt="../../_images/fdd1a3519488e9005f68a4470ba6dc92a7e81f10c9d4200fcfbfe99f1bfd2d41.png" src="../../_images/fdd1a3519488e9005f68a4470ba6dc92a7e81f10c9d4200fcfbfe99f1bfd2d41.png" />
 </div>
 </div>
 <p>Try plotting on a map to see what data looks like</p>
@@ -899,12 +905,18 @@ write = True this cell can take several minutes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f61dd364a4f5e4010bc29e955967c08f416446b746dab352d10ddefd0dee3469.png" src="../../_images/f61dd364a4f5e4010bc29e955967c08f416446b746dab352d10ddefd0dee3469.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/phil/mini310/envs/e440/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/phil/mini310/envs/e440/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+</pre></div>
+</div>
+<img alt="../../_images/6293b70d730e17ba612ccbeab1855d727780e9f15a08ad37c9e36934d574e64f.png" src="../../_images/6293b70d730e17ba612ccbeab1855d727780e9f15a08ad37c9e36934d574e64f.png" />
 </div>
 </div>
 </section>
 <section id="hadgem3">
-<h3>HadGEM3<a class="headerlink" href="#hadgem3" title="Permalink to this heading">#</a></h3>
+<h3>HadGEM3<a class="headerlink" href="#hadgem3" title="Link to this heading">#</a></h3>
 <p>Repeat the same steps as for the CanESM</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -943,7 +955,7 @@ write = True this cell can take several minutes.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Precipitation total (mm)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/5c308aa07fb74c93b5b79fc6754a0dc56a7ca55b4107bac1a78f8a6f85d17cf0.png" src="../../_images/5c308aa07fb74c93b5b79fc6754a0dc56a7ca55b4107bac1a78f8a6f85d17cf0.png" />
+<img alt="../../_images/b4b445a4fc1ecc0884abfc3644c7964e940a9a40ddb1e8869a6ce18949e72067.png" src="../../_images/b4b445a4fc1ecc0884abfc3644c7964e940a9a40ddb1e8869a6ce18949e72067.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -960,7 +972,7 @@ write = True this cell can take several minutes.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Precipitation total (mm)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/b9fc20587a64039af8aa8f7bee30f6642f59876f6cc8a321d67aa0aef02fdd5c.png" src="../../_images/b9fc20587a64039af8aa8f7bee30f6642f59876f6cc8a321d67aa0aef02fdd5c.png" />
+<img alt="../../_images/d7dc2c98382eb22483fd91139a2ecc07e2518d39a5992fa41652883d24d9febb.png" src="../../_images/d7dc2c98382eb22483fd91139a2ecc07e2518d39a5992fa41652883d24d9febb.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -978,7 +990,7 @@ write = True this cell can take several minutes.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Number&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/4068e76f30903779d4415a3ccc72ccf133a92163235e71a46b19ab9416db7d2f.png" src="../../_images/4068e76f30903779d4415a3ccc72ccf133a92163235e71a46b19ab9416db7d2f.png" />
+<img alt="../../_images/d1340718fdbc3e32a602df2455b88c5bcafc44c5f344b6e6ff59dc71831f64b6.png" src="../../_images/d1340718fdbc3e32a602df2455b88c5bcafc44c5f344b6e6ff59dc71831f64b6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1008,12 +1020,18 @@ write = True this cell can take several minutes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/085c5aecbfb9fd827de4df3b7310e76e1d761ab9472105c2ca1d6d81f60be330.png" src="../../_images/085c5aecbfb9fd827de4df3b7310e76e1d761ab9472105c2ca1d6d81f60be330.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/phil/mini310/envs/e440/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/phil/mini310/envs/e440/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+</pre></div>
+</div>
+<img alt="../../_images/f680730e2695191eaa2567318f2f5d9fe6f2fe7d3796750ad959606ef8db2e74.png" src="../../_images/f680730e2695191eaa2567318f2f5d9fe6f2fe7d3796750ad959606ef8db2e74.png" />
 </div>
 </div>
 </section>
 <section id="giss">
-<h3>GISS<a class="headerlink" href="#giss" title="Permalink to this heading">#</a></h3>
+<h3>GISS<a class="headerlink" href="#giss" title="Link to this heading">#</a></h3>
 <p>Repeat the same steps as for CanESM and HadGEM</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1052,7 +1070,7 @@ write = True this cell can take several minutes.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Precipitation total (mm)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/13c5dfdb2de6894853870f06628429868f1b895ae134f26081b08312121e615a.png" src="../../_images/13c5dfdb2de6894853870f06628429868f1b895ae134f26081b08312121e615a.png" />
+<img alt="../../_images/3304c96d2d3f6711e017265380c3f7247b40271e4614792f6b5c7136007cf7aa.png" src="../../_images/3304c96d2d3f6711e017265380c3f7247b40271e4614792f6b5c7136007cf7aa.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1069,7 +1087,7 @@ write = True this cell can take several minutes.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Precipitation total (mm)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/d3fb02d9b530fbe36ffba004bc275cd76e2c5c204e713d7ca79e72e4f1e4a805.png" src="../../_images/d3fb02d9b530fbe36ffba004bc275cd76e2c5c204e713d7ca79e72e4f1e4a805.png" />
+<img alt="../../_images/64625367b35904fcddd08a9574f01db71e2a7a27bc09507972ec8d18f03dbd11.png" src="../../_images/64625367b35904fcddd08a9574f01db71e2a7a27bc09507972ec8d18f03dbd11.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1087,7 +1105,7 @@ write = True this cell can take several minutes.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Number&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/cce89fe1e3c2d1336f19aa990d3165a6e4c5f2a0d46ea28fbffdd609f270d387.png" src="../../_images/cce89fe1e3c2d1336f19aa990d3165a6e4c5f2a0d46ea28fbffdd609f270d387.png" />
+<img alt="../../_images/82a3b5bed1299d7c10b172216193435d9b65c8ca058d334afee69ca705ea4eda.png" src="../../_images/82a3b5bed1299d7c10b172216193435d9b65c8ca058d334afee69ca705ea4eda.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1116,15 +1134,21 @@ write = True this cell can take several minutes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.geocollection.GeoQuadMesh at 0x166013250&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.geocollection.GeoQuadMesh at 0x16a832410&gt;
 </pre></div>
 </div>
-<img alt="../../_images/c6bb74e5c7e180bb7d3c469a224a14d197ccf874e53a86111e5f355d57f26381.png" src="../../_images/c6bb74e5c7e180bb7d3c469a224a14d197ccf874e53a86111e5f355d57f26381.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/phil/mini310/envs/e440/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/phil/mini310/envs/e440/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+</pre></div>
+</div>
+<img alt="../../_images/ccf7c2d8b315a2f6eeb3b604718408d94bea1cf3cf3d7564b64ca281491a9ba5.png" src="../../_images/ccf7c2d8b315a2f6eeb3b604718408d94bea1cf3cf3d7564b64ca281491a9ba5.png" />
 </div>
 </div>
 </section>
 <section id="creating-plots-with-all-3-models">
-<h3>Creating plots with all 3 models<a class="headerlink" href="#creating-plots-with-all-3-models" title="Permalink to this heading">#</a></h3>
+<h3>Creating plots with all 3 models<a class="headerlink" href="#creating-plots-with-all-3-models" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="n">mean_precip_gis</span><span class="o">.</span><span class="n">year</span>
@@ -1136,10 +1160,10 @@ write = True this cell can take several minutes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1661374d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x16a8d0ca0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/a43f8df5911bc43ce5d5f6670922b5189a3cf8f0276bd195cc3120e853e63c10.png" src="../../_images/a43f8df5911bc43ce5d5f6670922b5189a3cf8f0276bd195cc3120e853e63c10.png" />
+<img alt="../../_images/26140f9ae88023d6c594d8cc6b5c823b4f049ffb97a163e1b7e7daccc9232ae2.png" src="../../_images/26140f9ae88023d6c594d8cc6b5c823b4f049ffb97a163e1b7e7daccc9232ae2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1197,7 +1221,7 @@ write = True this cell can take several minutes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/64d82660dc7761cc5657df9c7a38a590d3cbaad4e57dfa42aa71df65c195fd54.png" src="../../_images/64d82660dc7761cc5657df9c7a38a590d3cbaad4e57dfa42aa71df65c195fd54.png" />
+<img alt="../../_images/5aa05a53591783ccf10d91420b784e5e65cdc315021d0f01a016b85008ca0ed1.png" src="../../_images/5aa05a53591783ccf10d91420b784e5e65cdc315021d0f01a016b85008ca0ed1.png" />
 </div>
 </div>
 </section>
@@ -1303,7 +1327,7 @@ By Brian Rose
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

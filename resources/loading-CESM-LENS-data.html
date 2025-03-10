@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Accessing CESM LENS (and LENS2) data with intake-esm &#8212; Climate Laboratory Book</title>
   
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'resources/loading-CESM-LENS-data';</script>
     <link rel="canonical" href="https://phaustin.github.io/climate_students_eoas/resources/loading-CESM-LENS-data.html" />
     <link rel="author" title="About these documents" href="../about.html" />
@@ -159,7 +154,18 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Climate Laboratory Book</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -326,9 +332,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -422,9 +428,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -465,7 +471,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="accessing-cesm-lens-and-lens2-data-with-intake-esm">
-<span id="resource-intake-esm-lens"></span><h1>Accessing CESM LENS (and LENS2) data with intake-esm<a class="headerlink" href="#accessing-cesm-lens-and-lens2-data-with-intake-esm" title="Permalink to this heading">#</a></h1>
+<span id="resource-intake-esm-lens"></span><h1>Accessing CESM LENS (and LENS2) data with intake-esm<a class="headerlink" href="#accessing-cesm-lens-and-lens2-data-with-intake-esm" title="Link to this heading">#</a></h1>
 <p>Preliminary:  You’ll need to install <code class="docutils literal notranslate"><span class="pre">intake-esm</span></code>, <code class="docutils literal notranslate"><span class="pre">xarray-datatree</span></code>, and <code class="docutils literal notranslate"><span class="pre">s3fs</span></code> into</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mamba</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">intake</span><span class="o">-</span><span class="n">esm</span>
 <span class="n">mamba</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">xarray</span><span class="o">-</span><span class="n">datatree</span>
@@ -487,20 +493,9 @@ xarray. Intake-esm aims to facilitate:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">intake</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;intake&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <section id="load-the-catalog-cesm-lens1">
-<h2>Load the catalog - CESM LENS1<a class="headerlink" href="#load-the-catalog-cesm-lens1" title="Permalink to this heading">#</a></h2>
+<h2>Load the catalog - CESM LENS1<a class="headerlink" href="#load-the-catalog-cesm-lens1" title="Link to this heading">#</a></h2>
 <p>At import time, intake-esm plugin is available in intake’s registry as
 <code class="docutils literal notranslate"><span class="pre">esm_datastore</span></code> and can be accessed with <code class="docutils literal notranslate"><span class="pre">intake.open_esm_datastore()</span></code> function.
 Use the <code class="docutils literal notranslate"><span class="pre">intake_esm.tutorial.get_url()</span></code> method to access smaller subsetted catalogs for tutorial purposes.</p>
@@ -517,20 +512,6 @@ Use the <code class="docutils literal notranslate"><span class="pre">intake_esm.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">intake_esm</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#url = intake_esm.tutorial.get_url(&#39;google_cmip6&#39;)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#print(url)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># If you want CESM LENS1:</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">url</span> <span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/NCAR/cesm-lens-aws/main/intake-catalogs/aws-cesm1-le.json&quot;</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;intake_esm&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -540,16 +521,79 @@ Use the <code class="docutils literal notranslate"><span class="pre">intake_esm.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cat</span> <span class="o">=</span> <span class="n">intake</span><span class="o">.</span><span class="n">open_esm_datastore</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">cat</span>
+<div class="output text_html"><p><strong>aws-cesm1-le catalog with 56 dataset(s) from 442 asset(s)</strong>:</p> <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;intake&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>variable</th>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>long_name</th>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>component</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>experiment</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>frequency</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>vertical_levels</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>spatial_domain</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>units</th>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>start_time</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>end_time</th>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>path</th>
+      <td>427</td>
+    </tr>
+    <tr>
+      <th>derived_variable</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>The summary above tells us that this catalog contains 442 data assets (for CESM LENS1).
 We can get more information on the individual data assets contained in the
@@ -561,15 +605,196 @@ catalog by looking at the underlying dataframe created when we load the catalog:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cat</span><span class="o">.</span><span class="n">df</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;cat&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable</th>
+      <th>long_name</th>
+      <th>component</th>
+      <th>experiment</th>
+      <th>frequency</th>
+      <th>vertical_levels</th>
+      <th>spatial_domain</th>
+      <th>units</th>
+      <th>start_time</th>
+      <th>end_time</th>
+      <th>path</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>FLNS</td>
+      <td>net longwave flux at surface</td>
+      <td>atm</td>
+      <td>20C</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1920-01-01 12:00:00</td>
+      <td>2005-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-20C-FLNS....</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>FLNSC</td>
+      <td>clearsky net longwave flux at surface</td>
+      <td>atm</td>
+      <td>20C</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1920-01-01 12:00:00</td>
+      <td>2005-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-20C-FLNSC...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>FLUT</td>
+      <td>upwelling longwave flux at top of model</td>
+      <td>atm</td>
+      <td>20C</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1920-01-01 12:00:00</td>
+      <td>2005-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-20C-FLUT....</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>FSNS</td>
+      <td>net solar flux at surface</td>
+      <td>atm</td>
+      <td>20C</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1920-01-01 12:00:00</td>
+      <td>2005-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-20C-FSNS....</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>FSNSC</td>
+      <td>clearsky net solar flux at surface</td>
+      <td>atm</td>
+      <td>20C</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1920-01-01 12:00:00</td>
+      <td>2005-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-20C-FSNSC...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>437</th>
+      <td>WVEL</td>
+      <td>vertical velocity</td>
+      <td>ocn</td>
+      <td>RCP85</td>
+      <td>monthly</td>
+      <td>60.0</td>
+      <td>global_ocean</td>
+      <td>centimeter/s</td>
+      <td>2006-01-16 12:00:00</td>
+      <td>2100-12-16 12:00:00</td>
+      <td>s3://ncar-cesm-lens/ocn/monthly/cesmLE-RCP85-W...</td>
+    </tr>
+    <tr>
+      <th>438</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ocn</td>
+      <td>CTRL</td>
+      <td>static</td>
+      <td>NaN</td>
+      <td>global_ocean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>s3://ncar-cesm-lens/ocn/static/grid.zarr</td>
+    </tr>
+    <tr>
+      <th>439</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ocn</td>
+      <td>HIST</td>
+      <td>static</td>
+      <td>NaN</td>
+      <td>global_ocean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>s3://ncar-cesm-lens/ocn/static/grid.zarr</td>
+    </tr>
+    <tr>
+      <th>440</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ocn</td>
+      <td>RCP85</td>
+      <td>static</td>
+      <td>NaN</td>
+      <td>global_ocean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>s3://ncar-cesm-lens/ocn/static/grid.zarr</td>
+    </tr>
+    <tr>
+      <th>441</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ocn</td>
+      <td>20C</td>
+      <td>static</td>
+      <td>NaN</td>
+      <td>global_ocean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>s3://ncar-cesm-lens/ocn/static/grid.zarr</td>
+    </tr>
+  </tbody>
+</table>
+<p>442 rows × 11 columns</p>
+</div></div></div>
 </div>
 <p>The first data asset listed in the catalog contains:</p>
 <ul class="simple">
@@ -577,7 +802,7 @@ catalog by looking at the underlying dataframe created when we load the catalog:
 </ul>
 </section>
 <section id="finding-unique-entries">
-<h2>Finding unique entries<a class="headerlink" href="#finding-unique-entries" title="Permalink to this heading">#</a></h2>
+<h2>Finding unique entries<a class="headerlink" href="#finding-unique-entries" title="Link to this heading">#</a></h2>
 <p>To get unique values for given columns in the catalog, intake-esm provides a
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">unique()</span></code> method:</p>
 <p>Let’s query the data catalog to see what models(<code class="docutils literal notranslate"><span class="pre">source_id</span></code>), experiments
@@ -590,13 +815,19 @@ catalog by looking at the underlying dataframe created when we load the catalog:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">unique</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">unique</span>
-
-<span class="ne">NameError</span>: name &#39;cat&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>variable            [FLNS, FLNSC, FLUT, FSNS, FSNSC, FSNTOA, ICEFR...
+long_name           [net longwave flux at surface, clearsky net lo...
+component                             [atm, ice_nh, ice_sh, lnd, ocn]
+experiment                                   [20C, CTRL, HIST, RCP85]
+frequency           [daily, hourly6-1990-2005, hourly6-2026-2035, ...
+vertical_levels                                     [1.0, 30.0, 60.0]
+spatial_domain      [global, artic_ocean, antarctica, global_land,...
+units               [W/m2, fraction, m/s, Pa, kg/kg, kg/m2, K, m, ...
+start_time          [1920-01-01 12:00:00, 0402-01-01 12:00:00, 185...
+end_time            [2005-12-31 12:00:00, 2200-12-31 12:00:00, 191...
+path                [s3://ncar-cesm-lens/atm/daily/cesmLE-20C-FLNS...
+derived_variable                                                   []
+dtype: object
 </pre></div>
 </div>
 </div>
@@ -609,13 +840,84 @@ catalog by looking at the underlying dataframe created when we load the catalog:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Let&#39;s look at the different variables that are available:</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">unique</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;unique&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;FLNS&#39;,
+ &#39;FLNSC&#39;,
+ &#39;FLUT&#39;,
+ &#39;FSNS&#39;,
+ &#39;FSNSC&#39;,
+ &#39;FSNTOA&#39;,
+ &#39;ICEFRAC&#39;,
+ &#39;LHFLX&#39;,
+ &#39;PRECL&#39;,
+ &#39;PRECSC&#39;,
+ &#39;PRECSL&#39;,
+ &#39;PRECT&#39;,
+ &#39;PRECTMX&#39;,
+ &#39;PSL&#39;,
+ &#39;Q850&#39;,
+ &#39;SHFLX&#39;,
+ &#39;TMQ&#39;,
+ &#39;TREFHT&#39;,
+ &#39;TREFHTMN&#39;,
+ &#39;TREFHTMX&#39;,
+ &#39;TS&#39;,
+ &#39;UBOT&#39;,
+ &#39;WSPDSRFAV&#39;,
+ &#39;Z500&#39;,
+ &#39;QBOT&#39;,
+ &#39;VBOT&#39;,
+ &#39;Q&#39;,
+ &#39;T&#39;,
+ &#39;U&#39;,
+ &#39;V&#39;,
+ &#39;Z3&#39;,
+ &#39;PS&#39;,
+ &#39;QREFHT&#39;,
+ &#39;PRECC&#39;,
+ &#39;aice_d&#39;,
+ &#39;hi_d&#39;,
+ &#39;aice&#39;,
+ &#39;hi&#39;,
+ &#39;FSNO&#39;,
+ &#39;H2OSNO&#39;,
+ &#39;QRUNOFF&#39;,
+ &#39;RAIN&#39;,
+ &#39;SNOW&#39;,
+ &#39;SOILWATER_10CM&#39;,
+ &#39;TREFMNAV_U&#39;,
+ &#39;TREFMXAV_U&#39;,
+ &#39;SOILLIQ&#39;,
+ &#39;DIC&#39;,
+ &#39;DOC&#39;,
+ &#39;FW&#39;,
+ &#39;HMXL&#39;,
+ &#39;O2&#39;,
+ &#39;PD&#39;,
+ &#39;QFLUX&#39;,
+ &#39;QSW_HBL&#39;,
+ &#39;QSW_HTP&#39;,
+ &#39;RESID_S&#39;,
+ &#39;SALT&#39;,
+ &#39;SFWF&#39;,
+ &#39;SFWF_WRST&#39;,
+ &#39;SHF&#39;,
+ &#39;SHF_QSW&#39;,
+ &#39;SSH&#39;,
+ &#39;SST&#39;,
+ &#39;TAUX&#39;,
+ &#39;TAUX2&#39;,
+ &#39;TAUY&#39;,
+ &#39;TAUY2&#39;,
+ &#39;TEMP&#39;,
+ &#39;UES&#39;,
+ &#39;UET&#39;,
+ &#39;UVEL&#39;,
+ &#39;VNS&#39;,
+ &#39;VNT&#39;,
+ &#39;VVEL&#39;,
+ &#39;WTS&#39;,
+ &#39;WTT&#39;,
+ &#39;WVEL&#39;]
 </pre></div>
 </div>
 </div>
@@ -629,14 +931,81 @@ catalog by looking at the underlying dataframe created when we load the catalog:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># If you don&#39;t know the shorthand for the variable you&#39;re interested in, we can look </span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># at the &quot;long_name&quot; instead, which is a more descriptive version of the variable name:</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">unique</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;unique&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;net longwave flux at surface&#39;,
+ &#39;clearsky net longwave flux at surface&#39;,
+ &#39;upwelling longwave flux at top of model&#39;,
+ &#39;net solar flux at surface&#39;,
+ &#39;clearsky net solar flux at surface&#39;,
+ &#39;net solar flux at top of atmosphere&#39;,
+ &#39;fraction of sfc area covered by sea-ice&#39;,
+ &#39;surface latent heat flux&#39;,
+ &#39;large-scale (stable) precipitation rate (liq + ice)&#39;,
+ &#39;convective snow rate (water equivalent)&#39;,
+ &#39;large-scale (stable) snow rate (water equivalent)&#39;,
+ &#39;total (convective and large-scale) precipitation rate (liq + ice)&#39;,
+ &#39;maximum (convective and large-scale) precipitation rate (liq+ice)&#39;,
+ &#39;sea level pressure&#39;,
+ &#39;specific humidity at 850 mbar pressure surface&#39;,
+ &#39;surface sensible heat flux&#39;,
+ &#39;total (vertically integrated) precipitable water&#39;,
+ &#39;reference height temperature&#39;,
+ &#39;minimum reference height temperature over output period&#39;,
+ &#39;maximum reference height temperature over output period&#39;,
+ &#39;surface temperature (radiative)&#39;,
+ &#39;lowest model level zonal wind&#39;,
+ &#39;horizontal total wind speed average at the surface&#39;,
+ &#39;geopotential z at 500 mbar pressure surface&#39;,
+ &#39;lowest model level water vapor mixing ratio&#39;,
+ &#39;lowest model level meridional wind&#39;,
+ &#39;specific humidity&#39;,
+ &#39;temperature&#39;,
+ &#39;zonal wind&#39;,
+ &#39;meridional wind&#39;,
+ &#39;geopotential height (above sea level)&#39;,
+ &#39;surface pressure&#39;,
+ &#39;reference height humidity&#39;,
+ &#39;convective precipitation rate (liq + ice)&#39;,
+ &#39;ice area  (aggregate)&#39;,
+ &#39;grid cell mean ice thickness&#39;,
+ &#39;fraction of ground covered by snow&#39;,
+ &#39;snow depth (liquid water)&#39;,
+ &#39;total liquid runoff (does not include qsnwcpice)&#39;,
+ &#39;atmospheric rain&#39;,
+ &#39;atmospheric snow&#39;,
+ &#39;soil liquid water + ice in top 10cm of soil (veg landunits only)&#39;,
+ &#39;urban daily minimum of average 2-m temperature&#39;,
+ &#39;urban daily maximum of average 2-m temperature&#39;,
+ &#39;soil liquid water (vegetated landunits only)&#39;,
+ &#39;dissolved inorganic carbon&#39;,
+ &#39;dissolved organic carbon&#39;,
+ &#39;freshwater flux&#39;,
+ &#39;mixed-layer depth&#39;,
+ &#39;dissolved oxygen&#39;,
+ &#39;potential density ref to surface&#39;,
+ &#39;internal ocean heat flux due to ice formation; heat of fusion &gt; 0 or ice-melting potential &lt; 0&#39;,
+ &#39;solar short-wave heat flux in bndry layer&#39;,
+ &#39;solar short-wave heat flux in top layer&#39;,
+ &#39;free-surface residual flux (s)&#39;,
+ &#39;salinity&#39;,
+ &#39;virtual salt flux in fw flux formulation&#39;,
+ &#39;virtual salt flux due to weak restoring&#39;,
+ &#39;total surface heat flux, including sw&#39;,
+ &#39;solar short-wave heat flux&#39;,
+ &#39;sea surface height&#39;,
+ &#39;potential temperature&#39;,
+ &#39;windstress in grid-x direction&#39;,
+ &#39;windstress**2 in grid-x direction&#39;,
+ &#39;windstress in grid-y direction&#39;,
+ &#39;windstress**2 in grid-y direction&#39;,
+ &#39;salt flux in grid-x direction&#39;,
+ &#39;flux of heat in grid-x direction&#39;,
+ &#39;velocity in grid-x direction&#39;,
+ &#39;salt flux in grid-y direction&#39;,
+ &#39;flux of heat in grid-y direction&#39;,
+ &#39;velocity in grid-y direction&#39;,
+ &#39;salt flux across top face&#39;,
+ &#39;heat flux across top face&#39;,
+ &#39;vertical velocity&#39;]
 </pre></div>
 </div>
 </div>
@@ -649,20 +1018,14 @@ catalog by looking at the underlying dataframe created when we load the catalog:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Let&#39;s look at the different experiments that are available:</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">unique</span><span class="p">[</span><span class="s1">&#39;experiment&#39;</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;unique&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;20C&#39;, &#39;CTRL&#39;, &#39;HIST&#39;, &#39;RCP85&#39;]
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="search-for-specific-datasets">
-<h2>Search for specific datasets<a class="headerlink" href="#search-for-specific-datasets" title="Permalink to this heading">#</a></h2>
+<h2>Search for specific datasets<a class="headerlink" href="#search-for-specific-datasets" title="Link to this heading">#</a></h2>
 <p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code> method allows the user to
 perform a query on a catalog using keyword arguments. The keyword argument names
 must match column names in the catalog. The search method returns a
@@ -689,19 +1052,79 @@ subset of the catalog with all the entries that match the provided query.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cat_subset</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">experiment</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CTRL&quot;</span><span class="p">,</span><span class="s2">&quot;20C&quot;</span><span class="p">,</span><span class="s2">&quot;HIST&quot;</span><span class="p">,</span> <span class="s2">&quot;RCP85&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sea level pressure&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">cat_subset</span>
+<div class="output text_html"><p><strong>aws-cesm1-le catalog with 11 dataset(s) from 11 asset(s)</strong>:</p> <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;cat&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>variable</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>long_name</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>component</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>experiment</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>frequency</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>vertical_levels</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>spatial_domain</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>units</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>start_time</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>end_time</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>path</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>derived_variable</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -710,20 +1133,200 @@ subset of the catalog with all the entries that match the provided query.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cat_subset</span><span class="o">.</span><span class="n">df</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;cat_subset&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable</th>
+      <th>long_name</th>
+      <th>component</th>
+      <th>experiment</th>
+      <th>frequency</th>
+      <th>vertical_levels</th>
+      <th>spatial_domain</th>
+      <th>units</th>
+      <th>start_time</th>
+      <th>end_time</th>
+      <th>path</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>20C</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>1920-01-01 12:00:00</td>
+      <td>2005-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-20C-PSL.zarr</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>CTRL</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>0402-01-01 12:00:00</td>
+      <td>2200-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-CTRL-PSL....</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>HIST</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>1850-01-01 12:00:00</td>
+      <td>1919-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-HIST-PSL....</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>RCP85</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>2006-01-01 12:00:00</td>
+      <td>2100-12-31 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/daily/cesmLE-RCP85-PSL...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>20C</td>
+      <td>hourly6-1990-2005</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>1990-01-01 00:00:00</td>
+      <td>2006-01-01 00:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/hourly6-1990-2005/cesm...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>RCP85</td>
+      <td>hourly6-2026-2035</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>2026-01-01 00:00:00</td>
+      <td>2036-01-01 00:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/hourly6-2026-2035/cesm...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>RCP85</td>
+      <td>hourly6-2071-2080</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>2071-01-01 00:00:00</td>
+      <td>2081-01-01 00:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/hourly6-2071-2080/cesm...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>20C</td>
+      <td>monthly</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>1920-01-16 12:00:00</td>
+      <td>2005-12-16 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/monthly/cesmLE-20C-PSL...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>CTRL</td>
+      <td>monthly</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>0400-01-16 12:00:00</td>
+      <td>2200-12-16 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/monthly/cesmLE-CTRL-PS...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>HIST</td>
+      <td>monthly</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>1850-01-16 12:00:00</td>
+      <td>1919-12-16 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/monthly/cesmLE-HIST-PS...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>PSL</td>
+      <td>sea level pressure</td>
+      <td>atm</td>
+      <td>RCP85</td>
+      <td>monthly</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>Pa</td>
+      <td>2006-01-16 12:00:00</td>
+      <td>2100-12-16 12:00:00</td>
+      <td>s3://ncar-cesm-lens/atm/monthly/cesmLE-RCP85-P...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>We can see that sea level pressure uses the variable name ‘PSL’ (‘pressure sea level’). We can also see that this variable is available on 3 different time frequencies: daily, 6-hourly (hourly6) and monthly averages</p>
 </section>
 <section id="explore-the-catalog-cesm-lens2">
-<h2>Explore the catalog - CESM LENS2<a class="headerlink" href="#explore-the-catalog-cesm-lens2" title="Permalink to this heading">#</a></h2>
+<h2>Explore the catalog - CESM LENS2<a class="headerlink" href="#explore-the-catalog-cesm-lens2" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url2</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/NCAR/cesm2-le-aws/main/intake-catalogs/aws-cesm2-le.json&quot;</span>
@@ -733,17 +1336,83 @@ subset of the catalog with all the entries that match the provided query.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">url2</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/NCAR/cesm2-le-aws/main/intake-catalogs/aws-cesm2-le.json&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">cat2</span> <span class="o">=</span> <span class="n">intake</span><span class="o">.</span><span class="n">open_esm_datastore</span><span class="p">(</span><span class="n">url2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">cat2</span>
+<div class="output text_html"><p><strong>aws-cesm2-le catalog with 40 dataset(s) from 322 asset(s)</strong>:</p> <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;intake&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>variable</th>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>long_name</th>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>component</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>experiment</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>forcing_variant</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>frequency</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>vertical_levels</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>spatial_domain</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>units</th>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>start_time</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>end_time</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>path</th>
+      <td>313</td>
+    </tr>
+    <tr>
+      <th>derived_variable</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -752,15 +1421,208 @@ subset of the catalog with all the entries that match the provided query.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cat2</span><span class="o">.</span><span class="n">df</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;cat2&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable</th>
+      <th>long_name</th>
+      <th>component</th>
+      <th>experiment</th>
+      <th>forcing_variant</th>
+      <th>frequency</th>
+      <th>vertical_levels</th>
+      <th>spatial_domain</th>
+      <th>units</th>
+      <th>start_time</th>
+      <th>end_time</th>
+      <th>path</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>FLNS</td>
+      <td>net longwave flux at surface</td>
+      <td>atm</td>
+      <td>historical</td>
+      <td>cmip6</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1850-01-01 12:00:00</td>
+      <td>2014-12-31 12:00:00</td>
+      <td>s3://ncar-cesm2-lens/atm/daily/cesm2LE-histori...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>FLNSC</td>
+      <td>clearsky net longwave flux at surface</td>
+      <td>atm</td>
+      <td>historical</td>
+      <td>cmip6</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1850-01-01 12:00:00</td>
+      <td>2014-12-31 12:00:00</td>
+      <td>s3://ncar-cesm2-lens/atm/daily/cesm2LE-histori...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>FLUT</td>
+      <td>upwelling longwave flux at top of model</td>
+      <td>atm</td>
+      <td>historical</td>
+      <td>cmip6</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1850-01-01 12:00:00</td>
+      <td>2014-12-31 12:00:00</td>
+      <td>s3://ncar-cesm2-lens/atm/daily/cesm2LE-histori...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>FSNS</td>
+      <td>net solar flux at surface</td>
+      <td>atm</td>
+      <td>historical</td>
+      <td>cmip6</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1850-01-01 12:00:00</td>
+      <td>2014-12-31 12:00:00</td>
+      <td>s3://ncar-cesm2-lens/atm/daily/cesm2LE-histori...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>FSNSC</td>
+      <td>clearsky net solar flux at surface</td>
+      <td>atm</td>
+      <td>historical</td>
+      <td>cmip6</td>
+      <td>daily</td>
+      <td>1.0</td>
+      <td>global</td>
+      <td>W/m2</td>
+      <td>1850-01-01 12:00:00</td>
+      <td>2014-12-31 12:00:00</td>
+      <td>s3://ncar-cesm2-lens/atm/daily/cesm2LE-histori...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>317</th>
+      <td>WVEL</td>
+      <td>vertical velocity</td>
+      <td>ocn</td>
+      <td>ssp370</td>
+      <td>smbb</td>
+      <td>monthly</td>
+      <td>60.0</td>
+      <td>global_ocean</td>
+      <td>centimeter/s</td>
+      <td>2015-01-16 12:00:00</td>
+      <td>2100-12-16 12:00:00</td>
+      <td>s3://ncar-cesm2-lens/ocn/monthly/cesm2LE-ssp37...</td>
+    </tr>
+    <tr>
+      <th>318</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ocn</td>
+      <td>historical</td>
+      <td>smbb</td>
+      <td>static</td>
+      <td>NaN</td>
+      <td>global_ocean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>s3://ncar-cesm2-lens/ocn/static/grid.zarr</td>
+    </tr>
+    <tr>
+      <th>319</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ocn</td>
+      <td>historical</td>
+      <td>cmip6</td>
+      <td>static</td>
+      <td>NaN</td>
+      <td>global_ocean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>s3://ncar-cesm2-lens/ocn/static/grid.zarr</td>
+    </tr>
+    <tr>
+      <th>320</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ocn</td>
+      <td>ssp370</td>
+      <td>smbb</td>
+      <td>static</td>
+      <td>NaN</td>
+      <td>global_ocean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>s3://ncar-cesm2-lens/ocn/static/grid.zarr</td>
+    </tr>
+    <tr>
+      <th>321</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ocn</td>
+      <td>ssp370</td>
+      <td>cmip6</td>
+      <td>static</td>
+      <td>NaN</td>
+      <td>global_ocean</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>s3://ncar-cesm2-lens/ocn/static/grid.zarr</td>
+    </tr>
+  </tbody>
+</table>
+<p>322 rows × 12 columns</p>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -770,13 +1632,20 @@ subset of the catalog with all the entries that match the provided query.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">unique2</span> <span class="o">=</span> <span class="n">cat2</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">unique2</span>
-
-<span class="ne">NameError</span>: name &#39;cat2&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>variable            [FLNS, FLNSC, FLUT, FSNS, FSNSC, LHFLX, PRECC,...
+long_name           [net longwave flux at surface, clearsky net lo...
+component                                        [atm, ice, lnd, ocn]
+experiment                                       [historical, ssp370]
+forcing_variant                                         [cmip6, smbb]
+frequency                                    [daily, monthly, static]
+vertical_levels                                     [1.0, 32.0, 60.0]
+spatial_domain                    [global, global_ocean, global_land]
+units               [W/m2, m/s, Pa, kg/kg, K, kg/m2, m, fraction, ...
+start_time          [1850-01-01 12:00:00, 2015-01-01 12:00:00, 185...
+end_time            [2014-12-31 12:00:00, 2015-01-01 12:00:00, 210...
+path                [s3://ncar-cesm2-lens/atm/daily/cesm2LE-histor...
+derived_variable                                                   []
+dtype: object
 </pre></div>
 </div>
 </div>
@@ -790,14 +1659,57 @@ subset of the catalog with all the entries that match the provided query.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># If you don&#39;t know the shorthand for the variable you&#39;re interested in, we can look </span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># at the &quot;long_name&quot; instead, which is a more descriptive version of the variable name:</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">unique2</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;unique2&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;net longwave flux at surface&#39;,
+ &#39;clearsky net longwave flux at surface&#39;,
+ &#39;upwelling longwave flux at top of model&#39;,
+ &#39;net solar flux at surface&#39;,
+ &#39;clearsky net solar flux at surface&#39;,
+ &#39;surface latent heat flux&#39;,
+ &#39;convective precipitation rate (liq + ice)&#39;,
+ &#39;large-scale (stable) precipitation rate (liq + ice)&#39;,
+ &#39;convective snow rate (water equivalent)&#39;,
+ &#39;large-scale (stable) snow rate (water equivalent)&#39;,
+ &#39;surface pressure&#39;,
+ &#39;sea level pressure&#39;,
+ &#39;specific humidity&#39;,
+ &#39;surface sensible heat flux&#39;,
+ &#39;temperature&#39;,
+ &#39;total (vertically integrated) precipitable water&#39;,
+ &#39;reference height temperature&#39;,
+ &#39;minimum reference height temperature over output period&#39;,
+ &#39;maximum reference height temperature over output period&#39;,
+ &#39;surface temperature (radiative)&#39;,
+ &#39;zonal wind&#39;,
+ &#39;meridional wind&#39;,
+ &#39;geopotential height (above sea level)&#39;,
+ &#39;net solar flux at top of atmosphere&#39;,
+ &#39;fraction of sfc area covered by sea-ice&#39;,
+ &#39;ice area  (aggregate)&#39;,
+ &#39;grid cell mean ice thickness&#39;,
+ &#39;fraction of ground covered by snow&#39;,
+ &#39;snow depth (liquid water)&#39;,
+ &#39;net primary production&#39;,
+ &#39;total liquid runoff not including correction for land use change&#39;,
+ &#39;atmospheric rain, after rain/snow repartitioning based on temperature&#39;,
+ &#39;atmospheric snow, after rain/snow repartitioning based on temperature&#39;,
+ &#39;soil liquid water + ice in top 10cm of soil (veg landunits only)&#39;,
+ &#39;daily maximum of average 2-m temperature&#39;,
+ &#39;soil liquid water (vegetated landunits only)&#39;,
+ &#39;dissolved inorganic carbon&#39;,
+ &#39;dissolved oxygen&#39;,
+ &#39;salinity&#39;,
+ &#39;potential temperature&#39;,
+ &#39;salt flux in grid-x direction&#39;,
+ &#39;velocity in grid-x direction&#39;,
+ &#39;salt flux in grid-y direction&#39;,
+ &#39;flux of heat in grid-y direction&#39;,
+ &#39;heat flux across top face&#39;,
+ &#39;vertical velocity&#39;,
+ &#39;dissolved organic carbon&#39;,
+ &#39;flux of heat in grid-x direction&#39;,
+ &#39;potential density ref to surface&#39;,
+ &#39;velocity in grid-y direction&#39;,
+ &#39;salt flux across top face&#39;]
 </pre></div>
 </div>
 </div>
@@ -814,23 +1726,87 @@ subset of the catalog with all the entries that match the provided query.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cat_subset2</span> <span class="o">=</span> <span class="n">cat2</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">experiment</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;historical&quot;</span><span class="p">,</span><span class="s2">&quot;ssp370&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sea level pressure&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">cat_subset2</span>
+<div class="output text_html"><p><strong>aws-cesm2-le catalog with 8 dataset(s) from 8 asset(s)</strong>:</p> <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;cat2&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>variable</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>long_name</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>component</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>experiment</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>forcing_variant</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>frequency</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>vertical_levels</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>spatial_domain</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>units</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>start_time</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>end_time</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>path</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>derived_variable</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="load-datasets-using-to-dataset-dict">
-<h2>Load datasets using <code class="docutils literal notranslate"><span class="pre">to_dataset_dict()</span></code><a class="headerlink" href="#load-datasets-using-to-dataset-dict" title="Permalink to this heading">#</a></h2>
+<h2>Load datasets using <code class="docutils literal notranslate"><span class="pre">to_dataset_dict()</span></code><a class="headerlink" href="#load-datasets-using-to-dataset-dict" title="Link to this heading">#</a></h2>
 <p>Intake-esm implements convenience utilities for loading the query results into
 higher level xarray datasets. The logic for merging/concatenating the query
 results into higher level xarray datasets is provided in the input JSON file and
@@ -842,12 +1818,7 @@ is available under <code class="docutils literal notranslate"><span class="pre">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cat</span><span class="o">.</span><span class="n">esmcat</span><span class="o">.</span><span class="n">aggregation_control</span>
-
-<span class="ne">NameError</span>: name &#39;cat&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AggregationControl(variable_column_name=&#39;variable&#39;, groupby_attrs=[&#39;component&#39;, &#39;experiment&#39;, &#39;frequency&#39;], aggregations=[Aggregation(type=&lt;AggregationType.union: &#39;union&#39;&gt;, attribute_name=&#39;variable&#39;, options={&#39;compat&#39;: &#39;override&#39;})])
 </pre></div>
 </div>
 </div>
@@ -863,13 +1834,253 @@ returns a dictionary of aggregate xarray datasets as the name hints.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--&gt; The keys in the returned dictionary of datasets are constructed as follows:
+	&#39;component.experiment.frequency&#39;
+</pre></div>
+</div>
+<div class="output text_html">
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div><div class="output text_html">
+    <div>
+      <progress value='0' class='' max='11' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      0.00% [0/11 00:00&lt;?]
+    </div>
+    </div><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/registry.py:246,</span> in <span class="ni">get_filesystem_class</span><span class="nt">(protocol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">245</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">246</span>     <span class="n">register_implementation</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">_import_class</span><span class="p">(</span><span class="n">bit</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]))</span>
+<span class="g g-Whitespace">    </span><span class="mi">247</span> <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/registry.py:281,</span> in <span class="ni">_import_class</span><span class="nt">(fqp)</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span> <span class="n">is_s3</span> <span class="o">=</span> <span class="n">mod</span> <span class="o">==</span> <span class="s2">&quot;s3fs&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">281</span> <span class="n">mod</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">mod</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">282</span> <span class="k">if</span> <span class="n">is_s3</span> <span class="ow">and</span> <span class="n">mod</span><span class="o">.</span><span class="n">__version__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">]:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/importlib/__init__.py:126,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="ne">--&gt; </span><span class="mi">126</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1050,</span> in <span class="ni">_gcd_import</span><span class="nt">(name, package, level)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1027,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1004,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;s3fs&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:244,</span> in <span class="ni">ESMDataSource._open_dataset</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span> <span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span>     <span class="n">_open_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span>         <span class="n">record</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">path_column_name</span><span class="p">],</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="nn">    241     for _, record</span> in <span class="ni">self.df.iterrows</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">242</span> <span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">244</span> <span class="n">datasets</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="o">*</span><span class="n">datasets</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">245</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/dask/base.py:660,</span> in <span class="ni">compute</span><span class="nt">(traverse, optimize_graph, scheduler, get, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span> <span class="k">with</span> <span class="n">shorten_traceback</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">660</span>     <span class="n">results</span> <span class="o">=</span> <span class="n">schedule</span><span class="p">(</span><span class="n">dsk</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="nn">    662 return repack([f(r, *a) for r, (f, a)</span> in <span class="ni">zip</span><span class="nt">(results, postcomputes)])</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:77,</span> in <span class="ni">_open_dataset</span><span class="nt">(urlpath, varname, xarray_open_kwargs, preprocess, requested_variables, additional_attrs, expand_dims, data_format, storage_options)</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">77</span>     <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">xarray_open_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span>     <span class="k">if</span> <span class="n">preprocess</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/xarray/backends/api.py:570,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span> <span class="n">overwrite_encoded_chunks</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;overwrite_encoded_chunks&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">570</span> <span class="n">backend_ds</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span>     <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span>     <span class="o">**</span><span class="n">decoders</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">575</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">576</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_dataset_from_backend_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">577</span>     <span class="n">backend_ds</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">578</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">589</span> <span class="p">)</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/xarray/backends/zarr.py:934,</span> in <span class="ni">ZarrBackendEntrypoint.open_dataset</span><span class="nt">(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, synchronizer, consolidated, chunk_store, storage_options, stacklevel, zarr_version)</span>
+<span class="g g-Whitespace">    </span><span class="mi">933</span> <span class="n">filename_or_obj</span> <span class="o">=</span> <span class="n">_normalize_path</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">934</span> <span class="n">store</span> <span class="o">=</span> <span class="n">ZarrStore</span><span class="o">.</span><span class="n">open_group</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">935</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">936</span>     <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">937</span>     <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">938</span>     <span class="n">synchronizer</span><span class="o">=</span><span class="n">synchronizer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">939</span>     <span class="n">consolidated</span><span class="o">=</span><span class="n">consolidated</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">940</span>     <span class="n">consolidate_on_close</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">941</span>     <span class="n">chunk_store</span><span class="o">=</span><span class="n">chunk_store</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">942</span>     <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">943</span>     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">944</span>     <span class="n">zarr_version</span><span class="o">=</span><span class="n">zarr_version</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">945</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">947</span> <span class="n">store_entrypoint</span> <span class="o">=</span> <span class="n">StoreBackendEntrypoint</span><span class="p">()</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/xarray/backends/zarr.py:450,</span> in <span class="ni">ZarrStore.open_group</span><span class="nt">(cls, store, mode, synchronizer, group, consolidated, consolidate_on_close, chunk_store, storage_options, append_dim, write_region, safe_chunks, stacklevel, zarr_version)</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span> <span class="k">elif</span> <span class="n">consolidated</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span>     <span class="c1"># TODO: an option to pass the metadata_key keyword</span>
+<span class="ne">--&gt; </span><span class="mi">450</span>     <span class="n">zarr_group</span> <span class="o">=</span> <span class="n">zarr</span><span class="o">.</span><span class="n">open_consolidated</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="o">**</span><span class="n">open_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/zarr/convenience.py:1343,</span> in <span class="ni">open_consolidated</span><span class="nt">(store, metadata_key, mode, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1342</span> <span class="n">zarr_version</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;zarr_version&quot;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1343</span> <span class="n">store</span> <span class="o">=</span> <span class="n">normalize_store_arg</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1344</span>     <span class="n">store</span><span class="p">,</span> <span class="n">storage_options</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">zarr_version</span><span class="o">=</span><span class="n">zarr_version</span>
+<span class="g g-Whitespace">   </span><span class="mi">1345</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1346</span> <span class="k">if</span> <span class="n">mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;r+&quot;</span><span class="p">}:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/zarr/storage.py:201,</span> in <span class="ni">normalize_store_arg</span><span class="nt">(store, storage_options, mode, zarr_version)</span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;zarr_version must be either 2 or 3&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">201</span> <span class="k">return</span> <span class="n">normalize_store</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="n">storage_options</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/zarr/storage.py:171,</span> in <span class="ni">_normalize_store_arg_v2</span><span class="nt">(store, storage_options, mode)</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span> <span class="k">if</span> <span class="s2">&quot;://&quot;</span> <span class="ow">in</span> <span class="n">store</span> <span class="ow">or</span> <span class="s2">&quot;::&quot;</span> <span class="ow">in</span> <span class="n">store</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">171</span>     <span class="k">return</span> <span class="n">FSStore</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="o">**</span><span class="p">(</span><span class="n">storage_options</span> <span class="ow">or</span> <span class="p">{}))</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span> <span class="k">elif</span> <span class="n">storage_options</span><span class="p">:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/zarr/storage.py:1384,</span> in <span class="ni">FSStore.__init__</span><span class="nt">(self, url, normalize_keys, key_separator, mode, exceptions, dimension_separator, fs, check, create, missing_exceptions, **storage_options)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1383</span>     <span class="n">storage_options</span><span class="p">[</span><span class="s2">&quot;auto_mkdir&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="ne">-&gt; </span><span class="mi">1384</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="n">fsspec</span><span class="o">.</span><span class="n">get_mapper</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="o">**</span><span class="n">mapper_options</span><span class="p">,</span> <span class="o">**</span><span class="n">storage_options</span><span class="p">})</span>
+<span class="g g-Whitespace">   </span><span class="mi">1385</span> <span class="bp">self</span><span class="o">.</span><span class="n">fs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">fs</span>  <span class="c1"># for direct operations</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/mapping.py:249,</span> in <span class="ni">get_mapper</span><span class="nt">(url, check, create, missing_exceptions, alternate_root, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">248</span> <span class="c1"># Removing protocol here - could defer to each open() on the backend</span>
+<span class="ne">--&gt; </span><span class="mi">249</span> <span class="n">fs</span><span class="p">,</span> <span class="n">urlpath</span> <span class="o">=</span> <span class="n">url_to_fs</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">250</span> <span class="n">root</span> <span class="o">=</span> <span class="n">alternate_root</span> <span class="k">if</span> <span class="n">alternate_root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">urlpath</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/core.py:403,</span> in <span class="ni">url_to_fs</span><span class="nt">(url, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">known_kwargs</span><span class="p">}</span>
+<span class="ne">--&gt; </span><span class="mi">403</span> <span class="n">chain</span> <span class="o">=</span> <span class="n">_un_chain</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span> <span class="n">inkwargs</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/core.py:351,</span> in <span class="ni">_un_chain</span><span class="nt">(path, kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">350</span> <span class="n">protocol</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;protocol&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="n">split_protocol</span><span class="p">(</span><span class="n">bit</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="s2">&quot;file&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">351</span> <span class="bp">cls</span> <span class="o">=</span> <span class="n">get_filesystem_class</span><span class="p">(</span><span class="n">protocol</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">352</span> <span class="n">extra_kwargs</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_get_kwargs_from_urls</span><span class="p">(</span><span class="n">bit</span><span class="p">)</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/registry.py:248,</span> in <span class="ni">get_filesystem_class</span><span class="nt">(protocol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">247</span>     <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">248</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">bit</span><span class="p">[</span><span class="s2">&quot;err&quot;</span><span class="p">])</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+<span class="g g-Whitespace">    </span><span class="mi">249</span> <span class="bp">cls</span> <span class="o">=</span> <span class="n">registry</span><span class="p">[</span><span class="n">protocol</span><span class="p">]</span>
+
+<span class="ne">ImportError</span>: Install s3fs to access S3
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">ESMDataSourceError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># For loading CESM LENS1:</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dset_dict</span> <span class="o">=</span> <span class="n">cat_subset</span><span class="o">.</span><span class="n">to_dataset_dict</span><span class="p">(</span><span class="n">zarr_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;consolidated&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span> <span class="n">storage_options</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;anon&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
 
-<span class="ne">NameError</span>: name &#39;cat_subset&#39; is not defined
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/pydantic/_internal/_validate_call.py:38,</span> in <span class="ni">update_wrapper_attributes.&lt;locals&gt;.wrapper_function</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">wrapped</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="k">def</span><span class="w"> </span><span class="nf">wrapper_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">38</span>     <span class="k">return</span> <span class="n">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/pydantic/_internal/_validate_call.py:111,</span> in <span class="ni">ValidateCallWrapper.__call__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span> <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">111</span>     <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pydantic_validator__</span><span class="o">.</span><span class="n">validate_python</span><span class="p">(</span><span class="n">pydantic_core</span><span class="o">.</span><span class="n">ArgsKwargs</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__return_pydantic_validator__</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__return_pydantic_validator__</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/core.py:686,</span> in <span class="ni">esm_datastore.to_dataset_dict</span><span class="nt">(self, xarray_open_kwargs, xarray_combine_by_coords_kwargs, preprocess, storage_options, progressbar, aggregate, skip_on_error, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">684</span>         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">skip_on_error</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">686</span>                 <span class="k">raise</span> <span class="n">exc</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_derived_variables</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="n">skip_on_error</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">688</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/core.py:682,</span> in <span class="ni">esm_datastore.to_dataset_dict</span><span class="nt">(self, xarray_open_kwargs, xarray_combine_by_coords_kwargs, preprocess, storage_options, progressbar, aggregate, skip_on_error, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">680</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">gen</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">681</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">682</span>         <span class="n">key</span><span class="p">,</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">683</span>         <span class="n">datasets</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span>
+<span class="g g-Whitespace">    </span><span class="mi">684</span>     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/concurrent/futures/_base.py:451,</span> in <span class="ni">Future.result</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span>     <span class="k">raise</span> <span class="n">CancelledError</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">==</span> <span class="n">FINISHED</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">451</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_result</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span> <span class="bp">self</span><span class="o">.</span><span class="n">_condition</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">455</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="ow">in</span> <span class="p">[</span><span class="n">CANCELLED</span><span class="p">,</span> <span class="n">CANCELLED_AND_NOTIFIED</span><span class="p">]:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/concurrent/futures/_base.py:403,</span> in <span class="ni">Future.__get_result</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">403</span>         <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span>     <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">405</span>         <span class="c1"># Break a reference cycle with the exception in self._exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span>         <span class="bp">self</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/concurrent/futures/thread.py:58,</span> in <span class="ni">_WorkItem.run</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="k">return</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">58</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span> <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span>     <span class="bp">self</span><span class="o">.</span><span class="n">future</span><span class="o">.</span><span class="n">set_exception</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/core.py:833,</span> in <span class="ni">_load_source</span><span class="nt">(key, source)</span>
+<span class="g g-Whitespace">    </span><span class="mi">832</span> <span class="k">def</span><span class="w"> </span><span class="nf">_load_source</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">833</span>     <span class="k">return</span> <span class="n">key</span><span class="p">,</span> <span class="n">source</span><span class="o">.</span><span class="n">to_dask</span><span class="p">()</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:272,</span> in <span class="ni">ESMDataSource.to_dask</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span> <span class="k">def</span><span class="w"> </span><span class="nf">to_dask</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return xarray object (which will have chunks)&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">272</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_load_metadata</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ds</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake/source/base.py:283,</span> in <span class="ni">DataSourceBase._load_metadata</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;load metadata only if needed&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">282</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_schema</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">283</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_schema</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_schema</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">284</span>     <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_schema</span><span class="o">.</span><span class="n">dtype</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span>     <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_schema</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:208,</span> in <span class="ni">ESMDataSource._get_schema</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span> <span class="k">def</span><span class="w"> </span><span class="nf">_get_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Schema</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">208</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_dataset</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>         <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;dims&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="s1">&#39;data_vars&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="s1">&#39;coords&#39;</span><span class="p">:</span> <span class="p">()}</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_schema</span> <span class="o">=</span> <span class="n">Schema</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span>             <span class="n">datashape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span>             <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>             <span class="n">extra_metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>         <span class="p">)</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:264,</span> in <span class="ni">ESMDataSource._open_dataset</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="n">OPTIONS</span><span class="p">[</span><span class="s1">&#39;dataset_key&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span>
+<span class="g g-Whitespace">    </span><span class="mi">263</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">264</span>     <span class="k">raise</span> <span class="n">ESMDataSourceError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span>         <span class="sa">f</span><span class="s2">&quot;&quot;&quot;Failed to load dataset with key=&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span><span class="s2">          You can use `cat[&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39;].df` to inspect the assets/files for this key.</span>
+<span class="g g-Whitespace">    </span><span class="mi">267</span><span class="s2">          &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">268</span>     <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+
+<span class="ne">ESMDataSourceError</span>: Failed to load dataset with key=&#39;atm.HIST.daily&#39;
+                 <span class="n">You</span> <span class="n">can</span> <span class="n">use</span> <span class="err">`</span><span class="n">cat</span><span class="p">[</span><span class="s1">&#39;atm.HIST.daily&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">df</span><span class="err">`</span> <span class="n">to</span> <span class="n">inspect</span> <span class="n">the</span> <span class="n">assets</span><span class="o">/</span><span class="n">files</span> <span class="k">for</span> <span class="n">this</span> <span class="n">key</span><span class="o">.</span>
+                 
 </pre></div>
 </div>
 </div>
@@ -981,7 +2192,7 @@ returns a dictionary of aggregate xarray datasets as the name hints.</p>
 </div>
 <p>There are now no separate ensemble members: this is just one long control simulation of 21612/12 = 1801 years! In this case, the forcing (approximating pre-industrial forcing) is constant over time, unlike in the 20th century simulations, where the forcing changes with time. Think about why this means that it’s reasonable to run a single 1801-year simulation for the control simulation, but necessary to have multiple ensemble members for the 20th century simulations.</p>
 <section id="for-cesm-lens2">
-<h3>For CESM LENS2<a class="headerlink" href="#for-cesm-lens2" title="Permalink to this heading">#</a></h3>
+<h3>For CESM LENS2<a class="headerlink" href="#for-cesm-lens2" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat2</span><span class="o">.</span><span class="n">esmcat</span><span class="o">.</span><span class="n">aggregation_control</span>
@@ -989,12 +2200,7 @@ returns a dictionary of aggregate xarray datasets as the name hints.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cat2</span><span class="o">.</span><span class="n">esmcat</span><span class="o">.</span><span class="n">aggregation_control</span>
-
-<span class="ne">NameError</span>: name &#39;cat2&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AggregationControl(variable_column_name=&#39;variable&#39;, groupby_attrs=[&#39;component&#39;, &#39;experiment&#39;, &#39;frequency&#39;, &#39;forcing_variant&#39;], aggregations=[Aggregation(type=&lt;AggregationType.union: &#39;union&#39;&gt;, attribute_name=&#39;variable&#39;, options={&#39;compat&#39;: &#39;override&#39;})])
 </pre></div>
 </div>
 </div>
@@ -1009,15 +2215,255 @@ returns a dictionary of aggregate xarray datasets as the name hints.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--&gt; The keys in the returned dictionary of datasets are constructed as follows:
+	&#39;component.experiment.frequency.forcing_variant&#39;
+</pre></div>
+</div>
+<div class="output text_html">
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div><div class="output text_html">
+    <div>
+      <progress value='0' class='' max='8' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      0.00% [0/8 00:00&lt;?]
+    </div>
+    </div><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/registry.py:246,</span> in <span class="ni">get_filesystem_class</span><span class="nt">(protocol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">245</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">246</span>     <span class="n">register_implementation</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">_import_class</span><span class="p">(</span><span class="n">bit</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]))</span>
+<span class="g g-Whitespace">    </span><span class="mi">247</span> <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/registry.py:281,</span> in <span class="ni">_import_class</span><span class="nt">(fqp)</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span> <span class="n">is_s3</span> <span class="o">=</span> <span class="n">mod</span> <span class="o">==</span> <span class="s2">&quot;s3fs&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">281</span> <span class="n">mod</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">mod</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">282</span> <span class="k">if</span> <span class="n">is_s3</span> <span class="ow">and</span> <span class="n">mod</span><span class="o">.</span><span class="n">__version__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">]:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/importlib/__init__.py:126,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="ne">--&gt; </span><span class="mi">126</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1050,</span> in <span class="ni">_gcd_import</span><span class="nt">(name, package, level)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1027,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1004,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;s3fs&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:244,</span> in <span class="ni">ESMDataSource._open_dataset</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span> <span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span>     <span class="n">_open_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span>         <span class="n">record</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">path_column_name</span><span class="p">],</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="nn">    241     for _, record</span> in <span class="ni">self.df.iterrows</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">242</span> <span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">244</span> <span class="n">datasets</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="o">*</span><span class="n">datasets</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">245</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/dask/base.py:660,</span> in <span class="ni">compute</span><span class="nt">(traverse, optimize_graph, scheduler, get, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span> <span class="k">with</span> <span class="n">shorten_traceback</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">660</span>     <span class="n">results</span> <span class="o">=</span> <span class="n">schedule</span><span class="p">(</span><span class="n">dsk</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="nn">    662 return repack([f(r, *a) for r, (f, a)</span> in <span class="ni">zip</span><span class="nt">(results, postcomputes)])</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:77,</span> in <span class="ni">_open_dataset</span><span class="nt">(urlpath, varname, xarray_open_kwargs, preprocess, requested_variables, additional_attrs, expand_dims, data_format, storage_options)</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">77</span>     <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">xarray_open_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span>     <span class="k">if</span> <span class="n">preprocess</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/xarray/backends/api.py:570,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span> <span class="n">overwrite_encoded_chunks</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;overwrite_encoded_chunks&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">570</span> <span class="n">backend_ds</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span>     <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span>     <span class="o">**</span><span class="n">decoders</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">575</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">576</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_dataset_from_backend_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">577</span>     <span class="n">backend_ds</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">578</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">589</span> <span class="p">)</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/xarray/backends/zarr.py:934,</span> in <span class="ni">ZarrBackendEntrypoint.open_dataset</span><span class="nt">(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, synchronizer, consolidated, chunk_store, storage_options, stacklevel, zarr_version)</span>
+<span class="g g-Whitespace">    </span><span class="mi">933</span> <span class="n">filename_or_obj</span> <span class="o">=</span> <span class="n">_normalize_path</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">934</span> <span class="n">store</span> <span class="o">=</span> <span class="n">ZarrStore</span><span class="o">.</span><span class="n">open_group</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">935</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">936</span>     <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">937</span>     <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">938</span>     <span class="n">synchronizer</span><span class="o">=</span><span class="n">synchronizer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">939</span>     <span class="n">consolidated</span><span class="o">=</span><span class="n">consolidated</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">940</span>     <span class="n">consolidate_on_close</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">941</span>     <span class="n">chunk_store</span><span class="o">=</span><span class="n">chunk_store</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">942</span>     <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">943</span>     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">944</span>     <span class="n">zarr_version</span><span class="o">=</span><span class="n">zarr_version</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">945</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">947</span> <span class="n">store_entrypoint</span> <span class="o">=</span> <span class="n">StoreBackendEntrypoint</span><span class="p">()</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/xarray/backends/zarr.py:450,</span> in <span class="ni">ZarrStore.open_group</span><span class="nt">(cls, store, mode, synchronizer, group, consolidated, consolidate_on_close, chunk_store, storage_options, append_dim, write_region, safe_chunks, stacklevel, zarr_version)</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span> <span class="k">elif</span> <span class="n">consolidated</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span>     <span class="c1"># TODO: an option to pass the metadata_key keyword</span>
+<span class="ne">--&gt; </span><span class="mi">450</span>     <span class="n">zarr_group</span> <span class="o">=</span> <span class="n">zarr</span><span class="o">.</span><span class="n">open_consolidated</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="o">**</span><span class="n">open_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/zarr/convenience.py:1343,</span> in <span class="ni">open_consolidated</span><span class="nt">(store, metadata_key, mode, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1342</span> <span class="n">zarr_version</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;zarr_version&quot;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1343</span> <span class="n">store</span> <span class="o">=</span> <span class="n">normalize_store_arg</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1344</span>     <span class="n">store</span><span class="p">,</span> <span class="n">storage_options</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">zarr_version</span><span class="o">=</span><span class="n">zarr_version</span>
+<span class="g g-Whitespace">   </span><span class="mi">1345</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1346</span> <span class="k">if</span> <span class="n">mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;r+&quot;</span><span class="p">}:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/zarr/storage.py:201,</span> in <span class="ni">normalize_store_arg</span><span class="nt">(store, storage_options, mode, zarr_version)</span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;zarr_version must be either 2 or 3&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">201</span> <span class="k">return</span> <span class="n">normalize_store</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="n">storage_options</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/zarr/storage.py:171,</span> in <span class="ni">_normalize_store_arg_v2</span><span class="nt">(store, storage_options, mode)</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span> <span class="k">if</span> <span class="s2">&quot;://&quot;</span> <span class="ow">in</span> <span class="n">store</span> <span class="ow">or</span> <span class="s2">&quot;::&quot;</span> <span class="ow">in</span> <span class="n">store</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">171</span>     <span class="k">return</span> <span class="n">FSStore</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="o">**</span><span class="p">(</span><span class="n">storage_options</span> <span class="ow">or</span> <span class="p">{}))</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span> <span class="k">elif</span> <span class="n">storage_options</span><span class="p">:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/zarr/storage.py:1384,</span> in <span class="ni">FSStore.__init__</span><span class="nt">(self, url, normalize_keys, key_separator, mode, exceptions, dimension_separator, fs, check, create, missing_exceptions, **storage_options)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1383</span>     <span class="n">storage_options</span><span class="p">[</span><span class="s2">&quot;auto_mkdir&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="ne">-&gt; </span><span class="mi">1384</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="n">fsspec</span><span class="o">.</span><span class="n">get_mapper</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="o">**</span><span class="n">mapper_options</span><span class="p">,</span> <span class="o">**</span><span class="n">storage_options</span><span class="p">})</span>
+<span class="g g-Whitespace">   </span><span class="mi">1385</span> <span class="bp">self</span><span class="o">.</span><span class="n">fs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">fs</span>  <span class="c1"># for direct operations</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/mapping.py:249,</span> in <span class="ni">get_mapper</span><span class="nt">(url, check, create, missing_exceptions, alternate_root, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">248</span> <span class="c1"># Removing protocol here - could defer to each open() on the backend</span>
+<span class="ne">--&gt; </span><span class="mi">249</span> <span class="n">fs</span><span class="p">,</span> <span class="n">urlpath</span> <span class="o">=</span> <span class="n">url_to_fs</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">250</span> <span class="n">root</span> <span class="o">=</span> <span class="n">alternate_root</span> <span class="k">if</span> <span class="n">alternate_root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">urlpath</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/core.py:403,</span> in <span class="ni">url_to_fs</span><span class="nt">(url, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">known_kwargs</span><span class="p">}</span>
+<span class="ne">--&gt; </span><span class="mi">403</span> <span class="n">chain</span> <span class="o">=</span> <span class="n">_un_chain</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span> <span class="n">inkwargs</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/core.py:351,</span> in <span class="ni">_un_chain</span><span class="nt">(path, kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">350</span> <span class="n">protocol</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;protocol&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="n">split_protocol</span><span class="p">(</span><span class="n">bit</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="s2">&quot;file&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">351</span> <span class="bp">cls</span> <span class="o">=</span> <span class="n">get_filesystem_class</span><span class="p">(</span><span class="n">protocol</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">352</span> <span class="n">extra_kwargs</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_get_kwargs_from_urls</span><span class="p">(</span><span class="n">bit</span><span class="p">)</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/fsspec/registry.py:248,</span> in <span class="ni">get_filesystem_class</span><span class="nt">(protocol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">247</span>     <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">248</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">bit</span><span class="p">[</span><span class="s2">&quot;err&quot;</span><span class="p">])</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+<span class="g g-Whitespace">    </span><span class="mi">249</span> <span class="bp">cls</span> <span class="o">=</span> <span class="n">registry</span><span class="p">[</span><span class="n">protocol</span><span class="p">]</span>
+
+<span class="ne">ImportError</span>: Install s3fs to access S3
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">ESMDataSourceError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">## For CESM LENS2:</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dset_dict2</span> <span class="o">=</span> <span class="n">cat_subset2</span><span class="o">.</span><span class="n">to_dataset_dict</span><span class="p">(</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">xarray_open_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;consolidated&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;decode_times&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span> <span class="n">storage_options</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;anon&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
 
-<span class="ne">NameError</span>: name &#39;cat_subset2&#39; is not defined
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/pydantic/_internal/_validate_call.py:38,</span> in <span class="ni">update_wrapper_attributes.&lt;locals&gt;.wrapper_function</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">wrapped</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="k">def</span><span class="w"> </span><span class="nf">wrapper_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">38</span>     <span class="k">return</span> <span class="n">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/pydantic/_internal/_validate_call.py:111,</span> in <span class="ni">ValidateCallWrapper.__call__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span> <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">111</span>     <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pydantic_validator__</span><span class="o">.</span><span class="n">validate_python</span><span class="p">(</span><span class="n">pydantic_core</span><span class="o">.</span><span class="n">ArgsKwargs</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__return_pydantic_validator__</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__return_pydantic_validator__</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/core.py:686,</span> in <span class="ni">esm_datastore.to_dataset_dict</span><span class="nt">(self, xarray_open_kwargs, xarray_combine_by_coords_kwargs, preprocess, storage_options, progressbar, aggregate, skip_on_error, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">684</span>         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">skip_on_error</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">686</span>                 <span class="k">raise</span> <span class="n">exc</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_derived_variables</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="n">skip_on_error</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">688</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/core.py:682,</span> in <span class="ni">esm_datastore.to_dataset_dict</span><span class="nt">(self, xarray_open_kwargs, xarray_combine_by_coords_kwargs, preprocess, storage_options, progressbar, aggregate, skip_on_error, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">680</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">gen</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">681</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">682</span>         <span class="n">key</span><span class="p">,</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">683</span>         <span class="n">datasets</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span>
+<span class="g g-Whitespace">    </span><span class="mi">684</span>     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/concurrent/futures/_base.py:451,</span> in <span class="ni">Future.result</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span>     <span class="k">raise</span> <span class="n">CancelledError</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">==</span> <span class="n">FINISHED</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">451</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_result</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span> <span class="bp">self</span><span class="o">.</span><span class="n">_condition</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">455</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="ow">in</span> <span class="p">[</span><span class="n">CANCELLED</span><span class="p">,</span> <span class="n">CANCELLED_AND_NOTIFIED</span><span class="p">]:</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/concurrent/futures/_base.py:403,</span> in <span class="ni">Future.__get_result</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">403</span>         <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span>     <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">405</span>         <span class="c1"># Break a reference cycle with the exception in self._exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span>         <span class="bp">self</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/concurrent/futures/thread.py:58,</span> in <span class="ni">_WorkItem.run</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="k">return</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">58</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span> <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span>     <span class="bp">self</span><span class="o">.</span><span class="n">future</span><span class="o">.</span><span class="n">set_exception</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/core.py:833,</span> in <span class="ni">_load_source</span><span class="nt">(key, source)</span>
+<span class="g g-Whitespace">    </span><span class="mi">832</span> <span class="k">def</span><span class="w"> </span><span class="nf">_load_source</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">833</span>     <span class="k">return</span> <span class="n">key</span><span class="p">,</span> <span class="n">source</span><span class="o">.</span><span class="n">to_dask</span><span class="p">()</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:272,</span> in <span class="ni">ESMDataSource.to_dask</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span> <span class="k">def</span><span class="w"> </span><span class="nf">to_dask</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return xarray object (which will have chunks)&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">272</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_load_metadata</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ds</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake/source/base.py:283,</span> in <span class="ni">DataSourceBase._load_metadata</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;load metadata only if needed&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">282</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_schema</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">283</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_schema</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_schema</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">284</span>     <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_schema</span><span class="o">.</span><span class="n">dtype</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span>     <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_schema</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:208,</span> in <span class="ni">ESMDataSource._get_schema</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span> <span class="k">def</span><span class="w"> </span><span class="nf">_get_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Schema</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">208</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_dataset</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>         <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;dims&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="s1">&#39;data_vars&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="s1">&#39;coords&#39;</span><span class="p">:</span> <span class="p">()}</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_schema</span> <span class="o">=</span> <span class="n">Schema</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span>             <span class="n">datashape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span>             <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>             <span class="n">extra_metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>         <span class="p">)</span>
+
+<span class="nn">File ~/mini310/envs/e440/lib/python3.10/site-packages/intake_esm/source.py:264,</span> in <span class="ni">ESMDataSource._open_dataset</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="n">OPTIONS</span><span class="p">[</span><span class="s1">&#39;dataset_key&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span>
+<span class="g g-Whitespace">    </span><span class="mi">263</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">264</span>     <span class="k">raise</span> <span class="n">ESMDataSourceError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span>         <span class="sa">f</span><span class="s2">&quot;&quot;&quot;Failed to load dataset with key=&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span><span class="s2">          You can use `cat[&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39;].df` to inspect the assets/files for this key.</span>
+<span class="g g-Whitespace">    </span><span class="mi">267</span><span class="s2">          &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">268</span>     <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+
+<span class="ne">ESMDataSourceError</span>: Failed to load dataset with key=&#39;atm.historical.daily.cmip6&#39;
+                 <span class="n">You</span> <span class="n">can</span> <span class="n">use</span> <span class="err">`</span><span class="n">cat</span><span class="p">[</span><span class="s1">&#39;atm.historical.daily.cmip6&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">df</span><span class="err">`</span> <span class="n">to</span> <span class="n">inspect</span> <span class="n">the</span> <span class="n">assets</span><span class="o">/</span><span class="n">files</span> <span class="k">for</span> <span class="n">this</span> <span class="n">key</span><span class="o">.</span>
+                 
 </pre></div>
 </div>
 </div>
@@ -1101,7 +2547,7 @@ returns a dictionary of aggregate xarray datasets as the name hints.</p>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">merge_ds</span><span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ds_cmip6</span><span class="p">,</span> <span class="n">ds_smbb</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;member_id&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">merge_ds</span>
 
-<span class="ne">NameError</span>: name &#39;xr&#39; is not defined
+<span class="ne">NameError</span>: name &#39;ds_cmip6&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1233,7 +2679,7 @@ By Brian Rose
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
