@@ -19,58 +19,55 @@ kernelspec:
 
 This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](http://www.atmos.albany.edu/facstaff/brose/index.html), University at Albany.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
-____________
-<a id='section1'></a>
 
 ## 1. What is a Climate Model?
-____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 First, some thoughts on modeling from [xkcd](https://xkcd.com)
 
 ![physicists](https://imgs.xkcd.com/comics/physicists.png)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Let's be a little pedantic and decompose that question:
 
 - what is the Climate?
 - what is a Model?
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 **Climate** is
 
 - statistics of weather, e.g. space and time averages of temperature and precip.
 - (statistics might also mean higher-order stats: variability etc)
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 A **model** is
 
  - not easy to define!
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++ 
 
 Wikipedia: http://en.wikipedia.org/wiki/Conceptual_model
 
 > In the most general sense, a model is anything used in any way to represent anything else. Some models are physical objects, for instance, a toy model which may be assembled, and may even be made to work like the object it represents. Whereas, a conceptual model is a model made of the composition of concepts, that thus exists only in the mind. Conceptual models are used to help us know, understand, or simulate the subject matter they represent.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++ 
 
 George E. P. Box (statistician):
 > Essentially, all models are wrong, but some are useful.”
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++ 
 
 From the Climate Modelling Primer, 4th ed (McGuffie and Henderson-Sellers):
 
 > In the broadest sense, models are for learning about the world (in our case, the climate) and the learning takes place in the contruction and the manipulation of the model, as anyone who has watched a child build idealised houses or spaceships with Lego, or built with it themselves, will know.  Climate models are, likewise, idealised representations of a complicated and complex reality through which our understanding of the climate has significantly expanded. All models involve some ignoring, distoring and approximating, but gradually they allow us to build understanding of the system being modelled. A child's Lego construction typically contains the essential elements of the real objects, improves with attention to detail, helps them understand the real world, but is never confused with the real thing.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++ 
 
 ### A minimal definition of a climate model
 
@@ -82,11 +79,8 @@ Note the focus on **planetary energy budget**. That’s the key to all climate m
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-____________
-<a id='section2'></a>
 
 ## 2. The observed global energy budget
-____________
 
 The figure below shows current best estimates of the *global, annual mean* energy fluxes through the climate system.
 
@@ -103,7 +97,7 @@ alt: pha
 Global Energy Budget
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++ 
 
 ## Things to note:
 
@@ -113,7 +107,7 @@ Global Energy Budget
 - Reflection off clouds = 79 W m$^{-2}$
 - Off surface = 23 W m$^{-2}$
     - 3 times as much reflection off clouds as off surface
-    
+
 Why??  Think about both areas of ice and snow, and the fact that sunlight has to travel through cloudy atmosphere to get to the ice and snow. Also there is some absorption of shortwave by the atmosphere.
 
 - Atmospheric absorption = 78 W m$^{-2}$
@@ -124,7 +118,7 @@ QUESTION: Which gases contribute to shortwave absorption?
 - O$_3$ and H$_2$O mostly.
 - We will look at this later.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### On the longwave side
 
@@ -144,7 +138,7 @@ QUESTION: What do we call this?  (greenhouse effect)
 
 Note, the exchanges of energy between the surface and the atmosphere are complicated, involve a number of different processes. We will look at these more carefully later.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Additional points:
 
@@ -168,10 +162,8 @@ How might we expect some of the terms in the global energy budget to vary under 
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-____________
 
 ## 3. Using Python to compute emission to space
-____________
 
 +++
 
@@ -451,10 +443,9 @@ This is very handy. The Python console is taking notes for you!
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-____________
 
 ## 4. Summary
-____________
+
 
 +++
 
@@ -469,7 +460,6 @@ ____________
 
 +++ {"slideshow": {"slide_type": "skip"}}
 
-____________
 
 ## Credits
 
@@ -479,8 +469,4 @@ It is licensed for free and open consumption under the
 [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
 
 Development of these notes and the [climlab software](https://github.com/brian-rose/climlab) is partially supported by the National Science Foundation under award AGS-1455071 to Brian Rose. Any opinions, findings, conclusions or recommendations expressed here are mine and do not necessarily reflect the views of the National Science Foundation.
-____________
 
-```{code-cell} ipython3
-
-```

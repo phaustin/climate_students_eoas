@@ -131,7 +131,7 @@ Notice that the dimensions are `(time: 12, lat: 94, lon: 192)`. The time dimensi
 
 ```
 
-____________
+
 
 ## Credits
 
@@ -141,8 +141,3 @@ It is licensed for free and open consumption under the
 [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
 
 Development of these notes and the [climlab software](https://github.com/brian-rose/climlab) is partially supported by the National Science Foundation under award AGS-1455071 to Brian Rose. Any opinions, findings, conclusions or recommendations expressed here are mine and do not necessarily reflect the views of the National Science Foundation.
-____________
-
-```{code-cell} ipython3
-
-```
