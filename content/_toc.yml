@@ -16,6 +16,8 @@ parts:
   - file: resources/tutorials/index.md
   - file: resources/tutorials/historical_data.md
   - file: resources/tutorials/regridding.md
+  - url: https://drive.google.com/file/d/1FgmsUC4QwrdCQpFpxcCpldWlqg3e_Y7n/view?usp=drive_link
+    title: Project requirements overview
   - file: resources/resource_links.md
   - file: resources/loading-cmip6-data.md
   - file: resources/loading-CESM-LENS-data.md
