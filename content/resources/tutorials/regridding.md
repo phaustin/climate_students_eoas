@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.6
+    jupytext_version: 1.16.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -17,7 +17,11 @@ kernelspec:
 
 This notebook show how to regrid several models and datasets to a common grid for intercomparison. It uses
 [xesmf](https://xesmf.readthedocs.io/en/stable/) with model data files that can be downloaded from the
-`tutorial/tutorial_data` folder on our e440 [google drive](https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=sharing).  There are
+`tutorial/tutorial_data` folder on our e440 [google drive](https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=sharing).
+As with {ref}`tut:historical_data` the netcdf files should be copied to
+`~/repos/e440/tutorials/tutorial_data`
+
+There are
 more tutorials on the xesmf website, as well as [this Ouranos project](https://pavics-sdi.readthedocs.io/en/latest/notebooks/regridding.html) and [this parallel computing tutorial](https://coecms-training.github.io/parallel/case-studies/regridding.html)
 
 ## Installation
@@ -30,7 +34,7 @@ more tutorials on the xesmf website, as well as [this Ouranos project](https://p
 
 `conda install  xesmf esmpy`
 
-and download the `...bc_dset.nc` xarray datasets from the `tutorials/tutorial_data_folder`
+and download the `...bc_dset.nc` xarray datasets from the gdrive `tutorials/tutorial_data_folder` to `~/repos/e440/tutorials/tutorial_data`
 
 ```{code-cell} ipython3
 %matplotlib inline
@@ -39,6 +43,7 @@ import cartopy.crs as ccrs
 import numpy as np
 import xarray as xr
 import os
+from pathlib import Path
 #fp = r"C:\Users\13432\miniconda3\envs\a448\Library\lib\esmf.mk"
 #os.environ['ESMFMKFILE'] = fp
 import xesmf as xe
@@ -47,13 +52,17 @@ import cartopy
 
 ## Import the netcdf data
 
-Start by importing the historical data that was sliced from the historical notebook. 
+Start by importing the historical data that was sliced from the historical notebook.
 
 ```{code-cell} ipython3
-can_dset = xr.open_dataset('can_bc_dset.nc')
-had_dset = xr.open_dataset('had_bc_dset.nc')
-gis_dset = xr.open_dataset('gis_bc_dset.nc')
-cru_dset = xr.open_dataset('cru_6010.nc')
+home_dir = Path.home()
+data_folder = home_dir / "repos/e440/tutorials/tutorial_data"
+```
+
+```{code-cell} ipython3
+can_dset = xr.open_dataset(data_folder / 'can_bc_dset.nc')
+had_dset = xr.open_dataset(data_folder / 'had_bc_dset.nc')
+gis_dset = xr.open_dataset(data_folder / 'gis_bc_dset.nc')
 ```
 
 ## Define the desired resolution
@@ -151,7 +160,11 @@ Write the re-gridded data to file in order to be used later in the plotting proc
 ```{code-cell} ipython3
 write = False
 if write:
-    had_out.load().to_netcdf('had_regrid.nc')
-    gis_out.load().to_netcdf('gis_regrid.nc')
-    cru_out.load().to_netcdf('cru_regrid.nc')
+    had_out.load().to_netcdf(data_folder / 'had_regrid.nc')
+    gis_out.load().to_netcdf(data_folder / 'gis_regrid.nc')
+    cru_out.load().to_netcdf(data_folder /'cru_regrid.nc')
+```
+
+```{code-cell} ipython3
+
 ```

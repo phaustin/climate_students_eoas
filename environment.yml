@@ -21,7 +21,8 @@ dependencies:
   - intake-esm
   - gcsfs
   - climlab
-  - numba  
+  - numba
+  - xesmf
   - netcdf4
   - nc-time-axis
   - conda-lock
