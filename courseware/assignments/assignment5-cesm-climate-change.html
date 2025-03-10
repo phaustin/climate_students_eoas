@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Assignment: Climate change in the CESM simulations &#8212; Climate Laboratory Book</title>
   
@@ -16,50 +17,51 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'courseware/assignments/assignment5-cesm-climate-change';</script>
     <link rel="canonical" href="https://phaustin.github.io/climate_students_eoas/courseware/assignments/assignment5-cesm-climate-change.html" />
     <link rel="author" title="About these documents" href="../../about.html" />
@@ -69,7 +71,6 @@
     <link rel="prev" title="Assignment: Feedbacks in the Radiative-Convective Model" href="assignment4-rcm-feedback.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +86,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -94,6 +106,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -101,8 +114,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +131,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -147,14 +159,7 @@
     <p class="title logo__title">Climate Laboratory Book</p>
   
 </a></div>
-        <div class="sidebar-primary-item">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -176,7 +181,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project resources</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../resources/tutorials/index.html">tutorials and demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/tutorials/historical_data.html">Tutorial: Loading CMIP historical data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/tutorials/regridding.html">CMIP6 regridding using xemsf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/resource_links.html">Project links and notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/loading-cmip6-data.html">Accessing CMIP6 data with intake-esm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/loading-CESM-LENS-data.html">Accessing CESM LENS (and LENS2) data with intake-esm</a></li>
@@ -298,14 +305,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -324,9 +326,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -402,19 +404,27 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -455,10 +465,10 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-climate-change-in-the-cesm-simulations">
-<span id="nb-aclimchange"></span><h1>Assignment: Climate change in the CESM simulations<a class="headerlink" href="#assignment-climate-change-in-the-cesm-simulations" title="Link to this heading">#</a></h1>
+<span id="nb-aclimchange"></span><h1>Assignment: Climate change in the CESM simulations<a class="headerlink" href="#assignment-climate-change-in-the-cesm-simulations" title="Permalink to this heading">#</a></h1>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a> by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <section id="part-1">
-<h2>Part 1<a class="headerlink" href="#part-1" title="Link to this heading">#</a></h2>
+<h2>Part 1<a class="headerlink" href="#part-1" title="Permalink to this heading">#</a></h2>
 <p>Following the examples in the <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook/courseware/transient-cesm.html">lecture notes</a>, open the four CESM simulations (fully coupled and slab ocean versions).</p>
 <p>Calculate timeseries of <strong>global mean ASR and OLR</strong> and store each of these as a new variable. <em>Recall that ASR is called <code class="docutils literal notranslate"><span class="pre">FSNT</span></code> in the CESM output, and OLR is called <code class="docutils literal notranslate"><span class="pre">FLNT</span></code>.</em></p>
 <ul class="simple">
@@ -794,7 +804,7 @@ Coordinates:
 </div>
 </section>
 <section id="part-2">
-<h2>Part 2<a class="headerlink" href="#part-2" title="Link to this heading">#</a></h2>
+<h2>Part 2<a class="headerlink" href="#part-2" title="Permalink to this heading">#</a></h2>
 <p>Calculate and show the <strong>time-average ASR</strong> and <strong>time-average OLR</strong> over the final 10 or 20 years of each simulation. Following the lecture notes, use the 20-year slice for the fully coupled simulations, and the 10-year slice for the slab ocean simulations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1245,7 +1255,7 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray ()&gt; Size: 8B
-array(0.08070099)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-403e99b6-f68f-40bd-8924-b647d6cc76e7' class='xr-array-in' type='checkbox' checked><label for='section-403e99b6-f68f-40bd-8924-b647d6cc76e7' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.0807</span></div><div class='xr-array-data'><pre>array(0.08070099)</pre></div></div></li><li class='xr-section-item'><input id='section-52948c3e-c0bb-46d6-a2a7-7e917b25bac2' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-52948c3e-c0bb-46d6-a2a7-7e917b25bac2' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-c9cde2db-8776-4256-9ba0-2fcb809d7c03' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-c9cde2db-8776-4256-9ba0-2fcb809d7c03' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-9288289c-922d-4fb2-8019-145f7ad2a071' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-9288289c-922d-4fb2-8019-145f7ad2a071' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+array(0.08070099)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-80270f38-3330-45bf-a192-040d33b55a69' class='xr-array-in' type='checkbox' checked><label for='section-80270f38-3330-45bf-a192-040d33b55a69' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.0807</span></div><div class='xr-array-data'><pre>array(0.08070099)</pre></div></div></li><li class='xr-section-item'><input id='section-2d4b703f-94d7-41c7-af39-609fa324801f' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-2d4b703f-94d7-41c7-af39-609fa324801f' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-062ca7bb-c126-45bd-b085-22653b4c0c32' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-062ca7bb-c126-45bd-b085-22653b4c0c32' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-ef81eac7-e023-4782-929a-5e72a8c1db57' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-ef81eac7-e023-4782-929a-5e72a8c1db57' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1625,11 +1635,11 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray ()&gt; Size: 8B
-array(1.05388033)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-1cfc0cdb-a868-44ba-bfa7-676863a3e6a8' class='xr-array-in' type='checkbox' checked><label for='section-1cfc0cdb-a868-44ba-bfa7-676863a3e6a8' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>1.054</span></div><div class='xr-array-data'><pre>array(1.05388033)</pre></div></div></li><li class='xr-section-item'><input id='section-36135349-2825-4ea0-b6d9-7b907d9d3f86' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-36135349-2825-4ea0-b6d9-7b907d9d3f86' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-7e9127ae-2704-42c8-99ee-b44ec9c348b9' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-7e9127ae-2704-42c8-99ee-b44ec9c348b9' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-e4b7c26d-aae0-490e-a389-8fe916eb9bd5' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-e4b7c26d-aae0-490e-a389-8fe916eb9bd5' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+array(1.05388033)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-b36de715-1eb7-42ce-bd4b-4459c94fbb66' class='xr-array-in' type='checkbox' checked><label for='section-b36de715-1eb7-42ce-bd4b-4459c94fbb66' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>1.054</span></div><div class='xr-array-data'><pre>array(1.05388033)</pre></div></div></li><li class='xr-section-item'><input id='section-e22003ee-6700-4b75-a6f2-e2ecb4602a3f' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-e22003ee-6700-4b75-a6f2-e2ecb4602a3f' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-2a9748a9-8ebf-47f2-82a9-7df70d83eb62' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-2a9748a9-8ebf-47f2-82a9-7df70d83eb62' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-6ea2ea4a-6ba4-4acb-9f6e-0e528f4986ec' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-6ea2ea4a-6ba4-4acb-9f6e-0e528f4986ec' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 <section id="part-3">
-<h2>Part 3<a class="headerlink" href="#part-3" title="Link to this heading">#</a></h2>
+<h2>Part 3<a class="headerlink" href="#part-3" title="Permalink to this heading">#</a></h2>
 <p>Based on your plots and numerical results from Parts 1 and 2, answer these questions:</p>
 <ol class="arabic simple">
 <li><p>Are the two control simulations (fully coupled and slab ocean) near energy balance?</p></li>
@@ -2035,7 +2045,7 @@ dl.xr-attrs {
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray ()&gt; Size: 8B
 array(-0.11691685)
 Coordinates:
-    time     float64 8B 1.08e+04</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-f3ba4ebc-8e58-49f3-b89a-ea1072a1bd9f' class='xr-array-in' type='checkbox' checked><label for='section-f3ba4ebc-8e58-49f3-b89a-ea1072a1bd9f' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>-0.1169</span></div><div class='xr-array-data'><pre>array(-0.11691685)</pre></div></div></li><li class='xr-section-item'><input id='section-8472a41b-5b23-413c-ae3c-b088589134b8' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8472a41b-5b23-413c-ae3c-b088589134b8' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.08e+04</div><input id='attrs-94b982eb-2eb0-4be7-9f7d-96272e061dae' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-94b982eb-2eb0-4be7-9f7d-96272e061dae' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a8b1ca01-c726-4f25-8fe1-4466d33525dd' class='xr-var-data-in' type='checkbox'><label for='data-a8b1ca01-c726-4f25-8fe1-4466d33525dd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>units :</span></dt><dd>days since 0001-01-01 00:00:00</dd><dt><span>calendar :</span></dt><dd>noleap</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd></dl></div><div class='xr-var-data'><pre>array(10797.)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-447bb408-ca32-4c60-8a2f-4660d635f223' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-447bb408-ca32-4c60-8a2f-4660d635f223' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-0008adb7-497a-4695-bd7e-e62467521baf' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-0008adb7-497a-4695-bd7e-e62467521baf' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+    time     float64 8B 1.08e+04</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-6e6e53d5-25c9-45ef-9e0e-195feca2a2ce' class='xr-array-in' type='checkbox' checked><label for='section-6e6e53d5-25c9-45ef-9e0e-195feca2a2ce' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>-0.1169</span></div><div class='xr-array-data'><pre>array(-0.11691685)</pre></div></div></li><li class='xr-section-item'><input id='section-342edb9c-b26f-44e6-a9da-9abeb43d1415' class='xr-section-summary-in' type='checkbox'  checked><label for='section-342edb9c-b26f-44e6-a9da-9abeb43d1415' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.08e+04</div><input id='attrs-49cf48bc-477a-42e3-907a-46531d98ff73' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-49cf48bc-477a-42e3-907a-46531d98ff73' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-27c6fbe9-5296-42bc-b3c0-458e607f5df1' class='xr-var-data-in' type='checkbox'><label for='data-27c6fbe9-5296-42bc-b3c0-458e607f5df1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>units :</span></dt><dd>days since 0001-01-01 00:00:00</dd><dt><span>calendar :</span></dt><dd>noleap</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd></dl></div><div class='xr-var-data'><pre>array(10797.)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-951a9d67-7124-40ad-9636-2bb8aaa65032' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-951a9d67-7124-40ad-9636-2bb8aaa65032' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-fb301e84-803c-49a1-a81e-f9aac938154c' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-fb301e84-803c-49a1-a81e-f9aac938154c' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2418,11 +2428,11 @@ dl.xr-attrs {
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray ()&gt; Size: 8B
 array(1.33513191)
 Coordinates:
-    time     float64 8B 3.635e+04</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-18f3fe8d-0254-49b6-8d2d-2a78c164c23c' class='xr-array-in' type='checkbox' checked><label for='section-18f3fe8d-0254-49b6-8d2d-2a78c164c23c' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>1.335</span></div><div class='xr-array-data'><pre>array(1.33513191)</pre></div></div></li><li class='xr-section-item'><input id='section-e64313a1-ea1f-4ba2-8d6f-97f1236c17eb' class='xr-section-summary-in' type='checkbox'  checked><label for='section-e64313a1-ea1f-4ba2-8d6f-97f1236c17eb' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>3.635e+04</div><input id='attrs-fc1d34cc-1cdd-4696-a642-760214a99623' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-fc1d34cc-1cdd-4696-a642-760214a99623' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-078336f7-4526-47d9-ad41-0c9372f520d2' class='xr-var-data-in' type='checkbox'><label for='data-078336f7-4526-47d9-ad41-0c9372f520d2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>units :</span></dt><dd>days since 0001-01-01 00:00:00</dd><dt><span>calendar :</span></dt><dd>noleap</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd></dl></div><div class='xr-var-data'><pre>array(36347.)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-bc029207-61cf-41df-8ff3-ac6aba1c7748' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-bc029207-61cf-41df-8ff3-ac6aba1c7748' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-3a7cc442-a283-4292-b164-1a65ab4e3988' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-3a7cc442-a283-4292-b164-1a65ab4e3988' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+    time     float64 8B 3.635e+04</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-abb7f171-7132-4f6a-9b14-cb0834bd0e5e' class='xr-array-in' type='checkbox' checked><label for='section-abb7f171-7132-4f6a-9b14-cb0834bd0e5e' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>1.335</span></div><div class='xr-array-data'><pre>array(1.33513191)</pre></div></div></li><li class='xr-section-item'><input id='section-175e9027-cf04-4ce7-9b19-880d41db0135' class='xr-section-summary-in' type='checkbox'  checked><label for='section-175e9027-cf04-4ce7-9b19-880d41db0135' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>3.635e+04</div><input id='attrs-12775622-c11f-4da4-806a-e5e500316500' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-12775622-c11f-4da4-806a-e5e500316500' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1bc6514f-132f-4617-8f56-21870af463bb' class='xr-var-data-in' type='checkbox'><label for='data-1bc6514f-132f-4617-8f56-21870af463bb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>units :</span></dt><dd>days since 0001-01-01 00:00:00</dd><dt><span>calendar :</span></dt><dd>noleap</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd></dl></div><div class='xr-var-data'><pre>array(36347.)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-bed85aa5-5787-4003-90aa-91441abb73df' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-bed85aa5-5787-4003-90aa-91441abb73df' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-9fc7ab69-2e9c-4e66-8faf-1d28d7de303a' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-9fc7ab69-2e9c-4e66-8faf-1d28d7de303a' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 <section id="part-4">
-<h2>Part 4<a class="headerlink" href="#part-4" title="Link to this heading">#</a></h2>
+<h2>Part 4<a class="headerlink" href="#part-4" title="Permalink to this heading">#</a></h2>
 <p>Does the global average ASR <strong>increase</strong> or <strong>decrease</strong> because of CO2-driven warming in the CESM?</p>
 <ul class="simple">
 <li><p>We can see from the plot in part one that the global average ASR is increasing with CO2-driven warming.</p></li>
@@ -2433,7 +2443,7 @@ Coordinates:
 </ul>
 </section>
 <section id="part-5">
-<h2>Part 5<a class="headerlink" href="#part-5" title="Link to this heading">#</a></h2>
+<h2>Part 5<a class="headerlink" href="#part-5" title="Permalink to this heading">#</a></h2>
 <p>In the previous question you looked at the global average change in ASR. Now I want you to look at how different parts of the world contribute to this change.</p>
 <p><strong>Make a map</strong> of the <strong>change in ASR</strong> due to the CO2 forcing. Use the average over the last 20 years of the coupled CO2 ramp simulation, comparing against the average over the last 20 years of the control simulation.</p>
 <div class="cell docutils container">
@@ -2493,7 +2503,7 @@ Coordinates:
 </div>
 </section>
 <section id="part-6">
-<h2>Part 6<a class="headerlink" href="#part-6" title="Link to this heading">#</a></h2>
+<h2>Part 6<a class="headerlink" href="#part-6" title="Permalink to this heading">#</a></h2>
 <p>Repeat part 5, but this time instead of the change in ASR, look at the just change in the <strong>clear-sky</strong> component of ASR. You can find this in the output field called <code class="docutils literal notranslate"><span class="pre">FSNTC</span></code>.</p>
 <p><em>The <code class="docutils literal notranslate"><span class="pre">FSNTC</span></code> field shows shortwave absorption in the absence of clouds, so the <strong>change</strong> in <code class="docutils literal notranslate"><span class="pre">FSNTC</span></code> shows how absorption and reflection of shortwave are affected by processes other than clouds.</em></p>
 <div class="cell docutils container">
@@ -2518,7 +2528,7 @@ Coordinates:
 </div>
 </section>
 <section id="part-7">
-<h2>Part 7<a class="headerlink" href="#part-7" title="Link to this heading">#</a></h2>
+<h2>Part 7<a class="headerlink" href="#part-7" title="Permalink to this heading">#</a></h2>
 <p>Discussion:</p>
 <ul class="simple">
 <li><p>Do your two maps (change in ASR, change in clear-sky ASR) look the same?</p>
@@ -2540,7 +2550,7 @@ Coordinates:
 </section>
 <hr class="docutils" />
 <section id="credits">
-<h2>Credits<a class="headerlink" href="#credits" title="Link to this heading">#</a></h2>
+<h2>Credits<a class="headerlink" href="#credits" title="Permalink to this heading">#</a></h2>
 <p>This notebook is part of <a class="reference external" href="https://brian-rose.github.io/ClimateLaboratoryBook">The Climate Laboratory</a>, an open-source textbook developed and maintained by <a class="reference external" href="http://www.atmos.albany.edu/facstaff/brose/index.html">Brian E. J. Rose</a>, University at Albany.</p>
 <p>It is licensed for free and open consumption under the
 <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license.</p>
@@ -2604,8 +2614,7 @@ Coordinates:
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -2646,7 +2655,7 @@ By Brian Rose
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>
@@ -2670,8 +2679,8 @@ By Brian Rose
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
