@@ -19,9 +19,8 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 
 +++
 
-____________
+
 ## 1. The zero-dimensional Energy Balance Model: recap
-____________
 
 +++
 
@@ -40,9 +39,9 @@ The analytical solutions will give us considerable insight into what's actually 
 
 +++
 
-____________
+
 ## 2. Linearizing about the equilibrium solution
-____________
+
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -104,9 +103,9 @@ It may also be refered to as the "no-feedback" climate response parameter. As we
 
 +++
 
-____________
+
 ## 3. Solving the linear ODE
-____________
+
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -134,9 +133,9 @@ I hope that the mathematics is straightforward for everyone in this class. If no
 
 +++
 
-____________
+
 ## 4. e-folding time for relaxation of global mean temperature
-____________
+
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -183,10 +182,9 @@ This is a rather fast timescale relative to other processes that can affect the 
 
 +++
 
-____________
 
 ## 5. Summary
-____________
+
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -201,7 +199,6 @@ ____________
 
 +++ {"slideshow": {"slide_type": "skip"}}
 
-____________
 
 ## Credits
 
@@ -211,4 +208,4 @@ It is licensed for free and open consumption under the
 [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
 
 Development of these notes and the [climlab software](https://github.com/brian-rose/climlab) is partially supported by the National Science Foundation under award AGS-1455071 to Brian Rose. Any opinions, findings, conclusions or recommendations expressed here are mine and do not necessarily reflect the views of the National Science Foundation.
-____________
+

@@ -73,7 +73,7 @@ print(midsummer.head())
 list(midsummer.columns)
 ```
 
-### Plot  temp and vapor mixing ratio rmix ($\rho_{H2O}/\rho_{air}$)
+## Plot  temp and vapor mixing ratio rmix ($\rho_{H2O}/\rho_{air}$)
 
 ```{code-cell}
 %matplotlib inline

@@ -117,8 +117,7 @@ parts:
 - caption: Extra notebooks
   chapters:
   - file: docs/feedback_notation.md
-  - file: courseware/schwarz.rst
-  - file: courseware/hydrostat.rst
+  - file: courseware/hydrostat.md
   - file: courseware/hydrostatic_balance.md
   - file: courseware/multi_layer_equilibrium.md
   - file: courseware/bayes_lecture.md
