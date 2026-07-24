@@ -3,7 +3,7 @@ root: home.md
 parts:
 - caption: Syllabus
   chapters:
-  - file: ugradsyllabus.rst
+  - file: ugradsyllabus-new_2027.rst
   - file: gradsyllabus.rst
 - caption: Weekly topics
   chapters:
