@@ -53,6 +53,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path
 import cartopy.crs as ccrs
+import xesmf
 import cartopy
 ```
 
@@ -124,7 +125,7 @@ can_bc_dset = xr.open_dataset(full_path)
 ```
 
 ```{code-cell} ipython3
-
+can_bc_dset.cf
 ```
 
 Read in the data from the netcdf file and begin plotting the data
