@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.6
+    jupytext_version: 1.19.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -31,20 +31,43 @@ Here we summarize results we generated in the [Lecture on radiative equilibrium]
 *For Python details, click to expand the code*
 
 ```{code-cell} ipython3
-:tags: [hide_input]
+:tags: [hide-input]
 
 %matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
 import xarray as xr
+from pathlib import Path
+import pandas as pd
 from metpy.plots import SkewT
 #  This code is used just to create the skew-T plot of global, annual mean air temperature
-ncep_url = "http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/"
-ncep_air = xr.open_dataset( ncep_url + "pressure/air.mon.1981-2010.ltm.nc", use_cftime=True)
-#  Take global, annual average 
-coslat = np.cos(np.deg2rad(ncep_air.lat))
-weight = coslat / coslat.mean(dim='lat')
-Tglobal = (ncep_air.air * weight).mean(dim=('lat','lon','time'))
+
+# Cache the global-mean profile locally so we only hit the NOAA server once.
+# Delete the csv file (or set use_cache = False) to force a fresh download.
+use_cache = True
+tglobal_csv = Path("Tglobal_ncep.csv")
+
+if use_cache and tglobal_csv.exists():
+    df = pd.read_csv(tglobal_csv)
+    Tglobal = xr.DataArray(
+        df["air"].values,
+        coords={"level": df["level"].values},
+        dims="level",
+        name="air",
+    )
+    print(f"read Tglobal from {tglobal_csv}")
+else:
+    ncep_url = "http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/"
+    ncep_air = xr.open_dataset( ncep_url + "pressure/air.mon.1981-2010.ltm.nc",
+        decode_times=xr.coders.CFDatetimeCoder(use_cftime=True))
+    #  Take global, annual average 
+    coslat = np.cos(np.deg2rad(ncep_air.lat))
+    weight = coslat / coslat.mean(dim='lat')
+    Tglobal = (ncep_air.air * weight).mean(dim=('lat','lon','time'))
+    pd.DataFrame({"level": Tglobal.level.values, "air": Tglobal.values}).to_csv(
+        tglobal_csv, index=False
+    )
+    print(f"wrote Tglobal to {tglobal_csv}")
 #  Resuable function to plot the temperature data on a Skew-T chart
 def make_skewT():
     fig = plt.figure(figsize=(9, 9))
@@ -68,12 +91,27 @@ def add_profile(skew, model, linestyle='-', color=None):
               markersize=8, color=line.get_color())
     skew.ax.legend()
 
-# Get the water vapor data from CESM output
-cesm_data_path = "http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/"
-atm_control = xr.open_dataset(cesm_data_path + "cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc")
-# Take global, annual average of the specific humidity
-weight_factor = atm_control.gw / atm_control.gw.mean(dim='lat')
-Qglobal = (atm_control.Q * weight_factor).mean(dim=('lat','lon','time'))
+# Get the water vapor data from CESM output, cached locally like Tglobal above
+qglobal_csv = Path("Qglobal_cesm.csv")
+if use_cache and qglobal_csv.exists():
+    df = pd.read_csv(qglobal_csv)
+    Qglobal = xr.DataArray(
+        df["Qglobal"].values,
+        coords={"lev": df["lev"].values},
+        dims="lev",
+        name="Qglobal",
+    )
+    print(f"read Qglobal from {qglobal_csv}")
+else:
+    cesm_data_path = "http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/"
+    atm_control = xr.open_dataset(cesm_data_path + "cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc")
+    # Take global, annual average of the specific humidity
+    weight_factor = atm_control.gw / atm_control.gw.mean(dim='lat')
+    Qglobal = (atm_control.Q * weight_factor).mean(dim=('lat','lon','time'))
+    pd.DataFrame({"lev": Qglobal.lev.values, "Qglobal": Qglobal.values}).to_csv(
+        qglobal_csv, index=False
+    )
+    print(f"wrote Qglobal to {qglobal_csv}")
 #  Create the single-column model domain
 import climlab
 #  Make a model on same vertical domain as the GCM
@@ -186,7 +224,7 @@ To get some insight into the interaction between radiation and convection, it's 
 *The code below is complicated but it is mostly for generating the animation. Focus on the results, not the code here.*
 
 ```{code-cell} ipython3
-:tags: [hide_input]
+:tags: [hide-input]
 
 #  Some imports needed to make and display animations
 from IPython.display import HTML
@@ -335,7 +373,7 @@ ____________
 Let's repeat our experiment with removing certain absorbing gases from the model, but use the Radiative-Convective model.
 
 ```{code-cell} ipython3
-:tags: [hide_input]
+:tags: [hide-input]
 
 #  Make a model on same vertical domain as the GCM
 mystate = climlab.column_state(lev=Qglobal.lev, water_depth=2.5)
@@ -386,7 +424,7 @@ for model in rc_models:
 ```
 
 ```{code-cell} ipython3
-:tags: [hide_input]
+:tags: [hide-input]
 
 skew = make_skewT()
 for model in rad_models:
@@ -395,7 +433,7 @@ skew.ax.set_title('Pure radiative equilibrium', fontsize=18);
 ```
 
 ```{code-cell} ipython3
-:tags: [hide_input]
+:tags: [hide-input]
 
 skew2 = make_skewT()
 for model in rc_models:
