@@ -1,0 +1,16 @@
+--- week3/lab8_sympy-greenhouse.md
++++ sympy-greenhouse.md
+@@ -75,2 +75,3 @@
+ U_1 = (1-epsilon)*U_0 + E_0
++U_1
+ #### [markdown]
+@@ -139,3 +140,3 @@
+ ### OLR
+-From the [observed global energy budget](models-budgets-fun#2.-The-observed-global-energy-budget) we set
++From the [observed global energy budget](models-budgets-fun#the-observed-global-energy-budget) we set
+ $$ OLR = 238.5 \text{ W m}^{-2} $$
+@@ -433,3 +434,3 @@
+ ### A follow-up assignment
+-You are now ready to tackle [Assignment 5](../Assignments/Assignment05 -- Radiative forcing in a grey radiation atmosphere.ipynb), where you are asked to extend this grey-gas analysis to many layers.
++You are now ready to tackle a follow-up assignment where you are asked to extend this grey-gas analysis to many layers.
+ For more than a few layers, the analytical approach we used here is no longer very useful. You will code up a numerical solution to calculate OLR given temperatures and absorptivity, and look at how the lapse rate determines radiative forcing for a given increase in absorptivity.

@@ -1,0 +1,49 @@
+--- week3/lab6_radiation.md
++++ radiation.md
+@@ -25,4 +25,5 @@
+ ncep_url = "http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/"
++time_coder = xr.coders.CFDatetimeCoder(use_cftime=True)
+ ncep_air = xr.open_dataset( ncep_url + "pressure/air.mon.1981-2010.ltm.nc",
+-                          use_cftime=True)
++                          decode_times=time_coder)
+ #url = 'http://apdrc.soest.hawaii.edu:80/dods/public_data/Reanalysis_Data/NCEP/NCEP/clima/pressure/air'
+@@ -31,3 +32,3 @@
+ #ncep_air = air.rename({'lev': 'level'})
+-print( ncep_air)
++ncep_air
+ #### [code]
+@@ -123,5 +124,5 @@
+ ax.legend(fontsize=label_size)
+-ax.set_xlabel('Wavelength (um)', fontsize=label_size)
+-ax.set_ylabel('Normalized spectral radiance (W sr$^{-1}$ m$^{-3}$ K$^{-4}$)', fontsize=label_size)
+-ax.set_title("Normalized blackbody emission spectra $T^{-4} B_{\lambda}$ for different temperatures");
++ax.set_xlabel(r'Wavelength (μm)', fontsize=label_size)
++ax.set_ylabel(r'Normalized spectral radiance (W sr$^{-1}$ m$^{-3}$ K$^{-4}$)', fontsize=label_size)
++ax.set_title(r"Normalized blackbody emission spectra $T^{-4} B_{\lambda}$ for different temperatures");
+ #### [markdown]
+@@ -143,3 +144,3 @@
+ #### [markdown]
+-## Terrestrial versus solar wavelengths
++### Terrestrial versus solar wavelengths
+ Now let's look at normalized blackbody curves for Sun and Earth:
+@@ -154,5 +155,5 @@
+ ax.legend(fontsize=label_size)
+-ax.set_xlabel('Wavelength (um)', fontsize=label_size)
+-ax.set_ylabel('Normalized spectral radiance (W sr$^{-1}$ m$^{-2}$ K$^{-4}$)', fontsize=label_size)
+-ax.set_title("Normalized blackbody emission spectra $T^{-4} \lambda B_{\lambda}$ for the sun ($T_e = 6000$ K) and Earth ($T_e = 255$ K)",
++ax.set_xlabel(r'Wavelength (μm)', fontsize=label_size)
++ax.set_ylabel(r'Normalized spectral radiance (W sr$^{-1}$ m$^{-2}$ K$^{-4}$)', fontsize=label_size)
++ax.set_title(r"Normalized blackbody emission spectra $T^{-4} \lambda B_{\lambda}$ for the sun ($T_e = 6000$ K) and Earth ($T_e = 255$ K)",
+             fontsize=label_size);
+@@ -167,9 +168,5 @@
+ #### [markdown]
+-::: {figure} ./images/MarshallPlumbFig2.5.png
+-:width: 80%
+-:name: costheta
+-:alt: pha
+-:::
++![Marshall and Plumb Figure 2.5](../images/MarshallPlumbFig2.5.png)
+ #### [markdown]
+-*Figure reproduced from Marshall and Plumb (2008): Atmosphere, Ocean, and Climate Dynamics*
++*Figure reproduced from Marshall and Plumb (2007): Atmosphere, Ocean, and Climate Dynamics {cite:p}`MarshallPlumbBook`*
+ #### [markdown]

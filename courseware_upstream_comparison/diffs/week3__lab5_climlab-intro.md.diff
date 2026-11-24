@@ -1,0 +1,79 @@
+--- week3/lab5_climlab-intro.md
++++ climlab-intro.md
+@@ -6,3 +6,6 @@
+ ## About climlab
+-climlab is a specialized python package for process-oriented climate modeling.
++:::{glossary}
++climlab
++: climlab {cite:p}`Rose:2018a` is a specialized Python package for process-oriented climate modeling. The name is a contraction of CLIMate LABoratory.
++:::
+ It is based on a very general concept of a model as a collection of individual,
+@@ -15,6 +18,6 @@
+ appropriate collection of sub-processes.
+-climlab is an open-source community project. The latest code can always be found on github:
++{term}`climlab` is an open-source community project. The latest code can always be found on github:
+ https://github.com/climlab/climlab
+ ## Installing climlab
+-If you've followed [these instructions from the Climate Laboratory book](https://brian-rose.github.io/ClimateLaboratoryBook/how-to.html), then you should be all set -- climlab is automatically installed as part of the suite of tools used in [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook).
++If you've followed [these instructions from the Climate Laboratory book](../how-to), then you should be all set -- climlab is automatically installed as part of the suite of tools used in [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook).
+ If you are maintaining your own Python installation (e.g. on a personal laptop), you can always install climlab by doing
+@@ -27,3 +30,3 @@
+ ### The model equation (recap)
+-Recall that we have worked with a zero-dimensional Energy Balance Model
++Recall that we have worked with a zero-dimensional {term}`Energy Balance Model`
+ $$ C \frac{dT_s}{dt} = (1-\alpha) Q - \tau \sigma T_s^4 $$
+@@ -64,2 +67,3 @@
+ #### [code]
++delta_t = 60. * 60. * 24. * 30.  # 30 days, or about 1 month!
+ #  create the longwave radiation process
+@@ -69,3 +73,3 @@
+                                   eps = 1.,
+-                                  timestep = 60*60*24*30.)
++                                  timestep = delta_t)
+ #  Look at what we just created
+@@ -78,3 +82,3 @@
+                                                 albedo=0.299,
+-                                                timestep = 60*60*24*30.)
++                                                timestep = delta_t)
+ #  Look at what we just created
+@@ -95,5 +99,5 @@
+ #### [code]
+-print(ebm.state)
+-#### [code]
+-print(ebm.Ts)
++ebm.state
++#### [code]
++ebm.Ts
+ #### [markdown]
+@@ -109,2 +113,4 @@
+ To take a single step forward:
++#### [code]
++ebm.step_forward()
+ #### [code]
+@@ -202,8 +208,20 @@
+ #  We should be able to accomplish the exact same thing with explicit timestepping
+-for n in range(608):
+-    ebm2.step_forward()
+-#### [code]
+-ebm2.Ts
+-#### [code]
+-ebm2.ASR - ebm2.OLR
++#  And we could make a time-dependent plot too!
++ebm4 = climlab.process_like(ebm2)
++num_steps = 608
++Tarray = np.zeros(num_steps)
++for n in range(num_steps):
++    ebm4.step_forward()
++    Tarray[n] = np.squeeze(ebm4.Ts)
++#### [code]
++ebm4.Ts
++#### [code]
++ebm4.ASR - ebm4.OLR
++#### [markdown]
++Looks like the same temperature and energy imbalance as we got above using `integrate_years` for auomatic timestepping.
++But since we save the temperature from each timestep in variable `Tarray`, now we can make a plot:
++#### [code]
++plt.plot(Tarray)
++plt.xlabel('Months')
++plt.ylabel('Surface temperature (ºC)')
+ #### [markdown]

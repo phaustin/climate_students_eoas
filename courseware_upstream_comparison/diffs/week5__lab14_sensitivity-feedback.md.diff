@@ -1,0 +1,177 @@
+--- week5/lab14_sensitivity-feedback.md
++++ sensitivity-feedback.md
+@@ -25,4 +25,11 @@
+ #  This code is used just to create the skew-T plot of global, annual mean air temperature
+-ncep_url = "http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/"
+-ncep_air = xr.open_dataset( ncep_url + "pressure/air.mon.1981-2010.ltm.nc", use_cftime=True)
++time_coder = xr.coders.CFDatetimeCoder(use_cftime=True)
++## We usually default to the data served from NOAA ESRL
++# ncep_url = "http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/"
++# ncep_air = xr.open_dataset( ncep_url + "pressure/air.mon.1981-2010.ltm.nc", decode_times=time_coder)
++## Alternate data source if the NOAA ESRL server is down
++url = 'http://apdrc.soest.hawaii.edu:80/dods/public_data/Reanalysis_Data/NCEP/NCEP/clima/pressure/air'
++air = xr.open_dataset(url)
++# The name of the vertical axis is different than the NOAA ESRL version..
++ncep_air = air.rename({'lev': 'level'})
+ #  Take global, annual average
+@@ -55,2 +62,4 @@
+ cesm_data_path = "http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/"
++# For better performance if you can access the roselab_rit filesystem (e.g. from JupyterHub)
++# cesm_data_path = "/roselab_rit/cesm_archive/"
+ atm_control = xr.open_dataset(cesm_data_path + "cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc")
+@@ -78,3 +87,3 @@
+ #### [code]
+-print(rcm)
++rcm
+ #### [markdown]
+@@ -86,3 +95,3 @@
+ #### [markdown]
+-Before we can look at the effects of a CO2 perturbation we need to integrate our reference model out to equilibrium:
++Before we can look at the effects of a CO$_2$ perturbation we need to integrate our reference model out to equilibrium:
+ #### [code]
+@@ -132,29 +141,23 @@
+ #### [markdown]
+-### Statosphere-adjusted radiative forcing
+-#### [markdown]
++### Atmosphere-adjusted radiative forcing
+ The point of measuring radiative forcing is that it should give us some information about how much global warming we should expect from a particular forcing agent.
+ We will need to use our model to quantify the **eventual** temperature change associated with this forcing.
+-It turns out, for reasons we won't get into here, that a more useful measure of the global warming impact of a forcing agent comes from thinking about **changes in radiative flux at the tropopause** rather than the Top of Atmosphere.
+-The idea here is that we will **let the stratosphere adjust to the extra CO$_2$** while **holding the troposphere and surface temperatures fixed**.
+-#### [markdown]
+-In this model levels 0 through 12 are in the statosphere; levels 13 and larger are in the troposphere:
+-#### [code]
+-rcm.lev[13:]
+-#### [markdown]
+-So to compute stratosphere-adjusted forcing, we'll timestep the model, but continually reset the temperatures to their reference values below 226 hPa:
+-#### [code]
+-rcm_2xCO2_strat = climlab.process_like(rcm_2xCO2)
+-rcm_2xCO2_strat.name = 'Radiative-Convective Model (2xCO2 stratosphere-adjusted)'
++Because the surface of the Earth is mostly water, and water has a large heat capacity, air temperatures can **change very quickly** in response to forcing agents like CO$_2$, while surface temperatures may take much longer to warm up.
++It turns out, for reasons we won't get into here, that a more useful measure of the *eventual* global warming impact of a forcing agent comes from thinking about the TOA radiation **after the atmosphere adjusts to the extra CO$_2$** while **holding the surface temperature fixed**.
++#### [markdown]
++To compute the **atmosphere-adjusted forcing**, we'll timestep the model, but continually reset the surface temperature to its reference value:
++#### [code]
++rcm_2xCO2_adjusted = climlab.process_like(rcm_2xCO2)
++rcm_2xCO2_adjusted.name = 'Radiative-Convective Model (2xCO2 atmosphere-adjusted)'
+ for n in range(1000):
+-    rcm_2xCO2_strat.step_forward()
+-    # hold tropospheric and surface temperatures fixed
+-    rcm_2xCO2_strat.Tatm[13:] = rcm.Tatm[13:]
+-    rcm_2xCO2_strat.Ts[:] = rcm.Ts[:]
+-#### [markdown]
+-Now we can compute the stratosphere-adjusted radiative forcing for the doubling of CO2:
+-#### [code]
+-DeltaR = (rcm_2xCO2_strat.ASR - rcm_2xCO2_strat.OLR) - (rcm.ASR - rcm.OLR)
+-DeltaR
+-#### [markdown]
+-The result is about 4.3 W m$^{-2}$.
++    rcm_2xCO2_adjusted.step_forward()
++    # hold surface temperature fixed
++    rcm_2xCO2_adjusted.Ts[:] = rcm.Ts[:]
++#### [markdown]
++Now we can compute the atmosphere-adjusted radiative forcing for the doubling of CO$_2$:
++#### [code]
++DeltaR_adjusted = (rcm_2xCO2_adjusted.ASR - rcm_2xCO2_adjusted.OLR) - (rcm.ASR - rcm.OLR)
++DeltaR_adjusted
++#### [markdown]
++The result is about 4.2 W m$^{-2}$.
+ #### [markdown]
+@@ -170,3 +173,3 @@
+ #### [code]
+-rcm_2xCO2_eq = climlab.process_like(rcm_2xCO2_strat)
++rcm_2xCO2_eq = climlab.process_like(rcm_2xCO2_adjusted)
+ rcm_2xCO2_eq.name = 'Radiative-Convective Model (2xCO2 equilibrium)'
+@@ -181,6 +184,22 @@
+ add_profile(skew, rcm)
+-add_profile(skew, rcm_2xCO2_strat)
++add_profile(skew, rcm_2xCO2_adjusted)
+ add_profile(skew, rcm_2xCO2_eq)
+ #### [markdown]
+-What do you see here? What has changed?
++### Alternate visualization to see the changes better
++We could just plot the temperature **differences** from the reference RCM to see the effects of the doubled CO$_2$.
++Here we plot with respect to pressure, rather than height (or log-pressure) as in the Skew-T diagram. Both are valid but emphasize different aspects of the vertical structure.
++#### [code]
++fig,ax = plt.subplots()
++line = ax.plot(rcm_2xCO2_adjusted.Tatm - rcm.Tatm, rcm.lev, label='Rapid atmospheric adjustment')[0]
++ax.plot(rcm_2xCO2_adjusted.Ts - rcm.Ts, 1000., 'o', markersize=8, color=line.get_color(), )
++line = ax.plot(rcm_2xCO2_eq.Tatm - rcm.Tatm, rcm.lev, label='Final equilibrium warming')[0]
++ax.plot(rcm_2xCO2_eq.Ts - rcm.Ts, 1000., 'o', markersize=8, color=line.get_color(), )
++ax.invert_yaxis()
++ax.set_xlabel('Temperature difference (K)')
++ax.set_ylabel('Pressure (hPa)')
++ax.grid()
++ax.legend()
++ax.set_title('Temperature changes due to doubling CO$_2$ in the Radiative-Convective Model');
++#### [markdown]
++What do you see in these two graphs? What has changed?
+ #### [markdown]
+@@ -212,6 +231,6 @@
+ #### [code]
+-lambda0 = DeltaR / ECS_nofeedback
++lambda0 = DeltaR_adjusted / ECS_nofeedback
+ lambda0
+ #### [markdown]
+-The no-feedback climate response parameter is $\lambda_0 = 3.3$ W m$^{-2}$ K$^{-1}$.
++The no-feedback climate response parameter is $\lambda_0 = 3.2$ W m$^{-2}$ K$^{-1}$.
+ #### [markdown]
+@@ -223,3 +242,3 @@
+ #### [markdown]
+-<img src="http://www.atmos.albany.edu/facstaff/brose/classes/ENV415_Spring2018/images/feedback_sketch.png" width="500">
++![Feedback loop sketch](../images/feedback_sketch.png)
+ #### [markdown]
+@@ -320,3 +339,3 @@
+ add_profile(skew, rcm)
+-add_profile(skew, rcm_2xCO2_strat)
++add_profile(skew, rcm_2xCO2_adjusted)
+ add_profile(skew, rcm_2xCO2_eq)
+@@ -377,3 +396,3 @@
+ #### [code]
+-lambda_net = DeltaR / ECS
++lambda_net = DeltaR_adjusted / ECS
+ lambda_net
+@@ -388,3 +407,3 @@
+ #### [markdown]
+-So we measure a water vapor feedback of $\lambda_{h2o} = 1.86$ W m$^{-2}$ K$^{-1}$.
++So we measure a water vapor feedback of $\lambda_{h2o} = 1.8$ W m$^{-2}$ K$^{-1}$.
+ This is a **positive number** consistent with the **amplifying effect** of the water vapor feedback.
+@@ -394,10 +413,20 @@
+ ## 7. Feedbacks diagnosed from complex climate models
+-### Data from the IPCC AR6
+-This figure is reproduced from the IPCC AR6 report. It shows the feedbacks diagnosed from the various models that contributed to the assessment.
+-#### [markdown]
+-:::{figure} ./ar6_feedbacks.png
+-:name: kirchoff
+-:scale: 100
+-AR6 feedbacks
+-:::
++### Data from the IPCC AR5
++This figure is reproduced from the IPCC AR5 report {cite:p}`AR5_Ch9`. It shows the feedbacks diagnosed from the various models that contributed to the assessment.
++(Later in the term we will discuss how the feedback diagnosis is actually done)
++See below for complete citation information.
++#### [markdown]
++![feedback AR5](https://www.ipcc.ch/site/assets/uploads/2018/02/Fig9-43-1.jpg)
++#### [markdown]
++**Figure 9.43** | (a) Strengths of individual feedbacks for CMIP3 and CMIP5 models (left and right columns of symbols) for Planck (P), water vapour (WV), clouds (C), albedo (A), lapse rate (LR), combination of water vapour and lapse rate (WV+LR) and sum of all feedbacks except Planck (ALL), from Soden and Held (2006) and Vial et al. (2013), following Soden et al. (2008). CMIP5 feedbacks are derived from CMIP5 simulations for abrupt fourfold increases in CO2 concentrations (4 × CO2). (b) ECS obtained using regression techniques by Andrews et al. (2012) against ECS estimated from the ratio of CO2 ERF to the sum of all feedbacks. The CO2 ERF is one-half the 4 × CO2 forcings from Andrews et al. (2012), and the total feedback (ALL + Planck) is from Vial et al. (2013).
++*Figure caption reproduced from the AR5 WG1 report {cite:p}`AR5_Ch9`*
++#### [markdown]
++Legend:
++- P: Planck feedback
++- WV: Water vapor feedback
++- LR: Lapse rate feedback
++- WV+LR: combined water vapor plus lapse rate feedback
++- C: cloud feedback
++- A: surface albedo feedback
++- ALL: sum of all feedback except Plank, i.e. ALL = WV+LR+C+A
+ #### [markdown]
+@@ -405,6 +434,6 @@
+ - The models all agree strongly on the Planck feedback.
+-- The Planck feedback is about $-3.3 ~\text{W} ~\text{m}^{-2} ~\text{K}^{-1} $ just like our above estimate of $\lambda_0$ (but with opposite sign convention -- watch carefully for that in the literature)
+-- The water vapor feedback + lapse rate feedback is strongly positive in every model.
++- The Planck feedback is about $-3.2 ~\text{W} ~\text{m}^{-2} ~\text{K}^{-1} $ just like our above estimate of $\lambda_0$ (but with opposite sign convention -- watch carefully for that in the literature)
++- The water vapor feedback is strongly positive in every model.
+ - The lapse rate feedback is something we will study later. It is slightly negative.
+-- For reasons we will discuss later, the best way to measure the water vapor feedback is to combine it with lapse rate feedback.  This is discussed in Hartmann, Figure 10.6, p. 303
++- For reasons we will discuss later, the best way to measure the water vapor feedback is to combine it with lapse rate feedback.
+ - Models agree strongly on the combined water vapor plus lapse rate feedback.

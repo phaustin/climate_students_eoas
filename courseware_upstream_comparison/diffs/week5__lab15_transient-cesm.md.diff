@@ -1,0 +1,92 @@
+--- week5/lab15_transient-cesm.md
++++ transient-cesm.md
+@@ -1,3 +1,3 @@
+ #### [markdown]
+-# Examing the transient and equilibrium CO$_2$ response in the CESM
++# Examing the transient and equilibrium CO2 response in the CESM
+ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](https://www.atmos.albany.edu/facstaff/brose/), University at Albany.
+@@ -7,6 +7,6 @@
+     - pre-industrial control
+-    - 1%/year CO2 ramp scenario for 80 years
++    - 1%/year CO$_2$ ramp scenario for 80 years
+ - The slab ocean model:
+     - pre-industrial control with prescribed q-flux
+-    - 2xCO2 scenario run out to equilibrium
++    - 2xCO$_2$ scenario run out to equilibrium
+ #### [markdown]
+@@ -46,3 +46,3 @@
+ # For better performance if you can access the roselab_rit filesystem (e.g. from JupyterHub)
+-#basepath = '/roselab_rit/cesm_archive/'
++# basepath = '/roselab_rit/cesm_archive/'
+ casepaths = {}
+@@ -71,5 +71,5 @@
+ Issues to think about:
+-- Why do we talk about fractional changes in CO2, such as "doubling atmospheric CO2", and "1%/year compounded CO2 increase?
+-- Why not instead talk about changes in absolute amounts of CO2?
+-The answer is closely related to the fact that the **radiative forcing** associated with CO2 increase is approximately **logarithmic** in CO2 amount. So a doubling of CO2 represents roughly the same radiative forcing *regardless of the initial CO2 concentration*.
++- Why do we talk about fractional changes in CO$_2$, such as "doubling atmospheric CO$_2$", and "1%/year compounded CO$_2$ increase?
++- Why not instead talk about changes in absolute amounts of CO$_2$?
++The answer is closely related to the fact that the **radiative forcing** associated with CO$_2$ increase is approximately **logarithmic** in CO$_2$ amount. So a doubling of CO$_2$ represents roughly the same radiative forcing *regardless of the initial CO$_2$ concentration*.
+ #### [markdown]
+@@ -160,8 +160,10 @@
+ ## Some CMIP climate sensitivity results to compare against
+-#### [markdown]
+-:::{figure} ./AR5_Table9.5.png
+-:name: ar5_feedbacks
+-:scale: 100
+-AR5 feedbacks
+-:::
++Figure and table from {cite:t}`AR5_Ch9`
++#### [markdown]
++![feedback AR5](https://www.ipcc.ch/site/assets/uploads/2018/02/Fig9-43-1.jpg)
++#### [markdown]
++**Figure 9.43** | (a) Strengths of individual feedbacks for CMIP3 and CMIP5 models (left and right columns of symbols) for Planck (P), water vapour (WV), clouds (C), albedo (A), lapse rate (LR), combination of water vapour and lapse rate (WV+LR) and sum of all feedbacks except Planck (ALL), from Soden and Held (2006) and Vial et al. (2013), following Soden et al. (2008). CMIP5 feedbacks are derived from CMIP5 simulations for abrupt fourfold increases in CO2 concentrations (4 × CO2). (b) ECS obtained using regression techniques by Andrews et al. (2012) against ECS estimated from the ratio of CO2 ERF to the sum of all feedbacks. The CO2 ERF is one-half the 4 × CO2 forcings from Andrews et al. (2012), and the total feedback (ALL + Planck) is from Vial et al. (2013).
++*Figure caption reproduced from the AR5 WG1 report {cite:p}`AR5_Ch9`*
++#### [markdown]
++![AR5 Table 9.5](../images/AR5_Table9.5.png)
+ #### [markdown]
+@@ -175,4 +177,5 @@
+ import cartopy.crs as ccrs
+-#### [code]
+-def make_map(field):
++from cartopy.util import add_cyclic_point
++#### [code]
++def make_map(field, title="", levels=8):
+     '''input field should be a 2D xarray.DataArray on a lat/lon grid.
+@@ -185,8 +188,12 @@
+     plotax = plt.subplot2grid((nrows,ncols), (0,ncols-1), rowspan=nrows-1)
+-    cx = mapax.contourf(field.lon, field.lat, field, transform=ccrs.PlateCarree())
++    # add cyclic point so cartopy doesn't show a white strip at zero longitude
++    wrap_data, wrap_lon = add_cyclic_point(field.values, coord=field.lon, axis=field.dims.index('lon'))
++    cx = mapax.contourf(wrap_lon, field.lat, wrap_data, levels=levels, transform=ccrs.PlateCarree())
+     mapax.set_global(); mapax.coastlines();
+-    plt.colorbar(cx, cax=barax, orientation='horizontal')
++    plt.colorbar(cx, cax=barax, orientation='horizontal', label='Surface air temperature (K)')
+     plotax.plot(field.mean(dim='lon'), field.lat)
++    plotax.set_xlabel('Zonal mean (K)')
+     plotax.set_ylabel('Latitude')
+     plotax.grid()
++    fig.suptitle(title, fontsize=16)
+     return fig, (mapax, plotax, barax), cx
+@@ -194,3 +201,4 @@
+ # Plot a single time slice of surface air temperature just as example
+-fig, axes, cx = make_map(atm['cpl_control'].TREFHT.isel(time=0))
++fig, axes, cx = make_map(atm['cpl_control'].TREFHT.isel(time=0),
++                        title="Surface air temperature in the coupled control simulation")
+ #### [markdown]
+@@ -205,10 +213,9 @@
+ #### [code]
+-fig, axes, cx = make_map(DeltaT_cpl)
+-fig.suptitle('Surface air temperature anomaly (coupled transient)', fontsize=16);
++contours = np.arange(0., 8.5, 0.5)
++fig, axes, cx = make_map(DeltaT_cpl, levels=contours,
++                        title="Surface air temperature anomaly (coupled transient)")
+ axes[1].set_xlim(0,7)  # ensure the line plots have same axes
+-cx.set_clim([0, 8])    # ensure the contour maps have the same color intervals
+-fig, axes,cx  = make_map(DeltaT_som)
+-fig.suptitle('Surface air temperature anomaly (equilibrium SOM)', fontsize=16);
++fig, axes,cx  = make_map(DeltaT_som, levels=contours,
++                         title="Surface air temperature anomaly (equilibrium SOM)")
+ axes[1].set_xlim(0,7)
+-cx.set_clim([0, 8])
+ #### [markdown]

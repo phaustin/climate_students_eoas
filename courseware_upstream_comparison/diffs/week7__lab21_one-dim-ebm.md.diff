@@ -1,0 +1,51 @@
+--- week7/lab21_one-dim-ebm.md
++++ one-dim-ebm.md
+@@ -17,3 +17,3 @@
+ ### Simulation of synoptic-scale variability in CESM
+-Let's revisit an animation of the global 6-hourly sea-level pressure field from our slab ocean simulation with CESM. (We first saw this [back in Lecture 5](./Lecture05 -- Climate system and climate models.ipynb))
++Let's revisit an animation of the global 6-hourly sea-level pressure field from our slab ocean simulation with CESM. (We first saw this back in the notes on [Climate Systems and Climate Models](climate-system-models#what-can-we-resolve-with-a-2o-atmosphere))
+ #### [code]
+@@ -95,3 +95,2 @@
+ import numpy as np
+-import math
+ import matplotlib.pyplot as plt
+@@ -280,3 +279,3 @@
+ (although as we have seen over and over, EVERY climate model is actually an “energy balance model” of some kind)
+-Also for historical reasons this is often called the **Budyko-Sellers model**, after Budyko and Sellers who both (independently of each other) published influential papers on this subject in 1969.
++Also for historical reasons this is often called the **Budyko-Sellers model**, after Budyko and Sellers who both (independently of each other) published influential papers on this subject in 1969 {cite:p}`Budyko:1969fm; Sellers:1969sk`.
+ #### [markdown]
+@@ -420,3 +419,3 @@
+ This animation lets us visualize the competition between the **radiation** which is trying to warm the tropics and cool the poles, and the **dynamics** which is doing the opposite.
+-This is very much analogous to the competition between radiation and convection we saw in [our study of radiative-convective equilibrium](rce#Adjustment-from-isothermal-initial-conditions) in a single vertical column.
++This is very much analogous to the competition between radiation and convection we saw in [our study of radiative-convective equilibrium](rce#adjustment-from-isothermal-initial-conditions) in a single vertical column.
+ #### [markdown]
+@@ -457,3 +456,3 @@
+     lat_rad = np.deg2rad( lat_deg )
+-    return ( 1E-15 * 2 * math.pi * const.a**2 *
++    return ( 1E-15 * 2 * np.pi * const.a**2 *
+             integrate.cumulative_trapezoid( np.cos(lat_rad)*energy_in,
+@@ -510,3 +509,3 @@
+ ### Tabulate our crowd-sourced results!
+-The [pandas package](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html) is very very useful for working with spreadsheet-style data in Python.
++The [pandas package](https://pandas.pydata.org/pandas-docs/stable/getting_started/) is very very useful for working with spreadsheet-style data in Python.
+ #### [code]
+@@ -518,3 +517,3 @@
+              ],
+-            columns=['$D$', '$\Delta T$', '$\mathcal{H}_{max}$'])
++            columns=[r'$D$', r'$\Delta T$', r'$\mathcal{H}_{max}$'])
+ classdata
+@@ -524,4 +523,4 @@
+ fig, axes = plt.subplots(2,1)
+-classdata.plot.scatter(x='$D$', y='$\Delta T$', ax=axes[0])
+-classdata.plot.scatter(x='$D$', y='$\mathcal{H}_{max}$', ax=axes[1])
++classdata.plot.scatter(x=r'$D$', y=r'$\Delta T$', ax=axes[0])
++classdata.plot.scatter(x=r'$D$', y=r'$\mathcal{H}_{max}$', ax=axes[1])
+ #### [markdown]
+@@ -566,5 +565,5 @@
+ ax1.plot(Darray, Tmean_list, 'b--')
+-ax1.set_xlabel('D (W m$^{-2}$ K$^{-1}$)', fontsize=14)
++ax1.set_xlabel(r'D (W m$^{-2}$ K$^{-1}$)', fontsize=14)
+ ax1.set_xticks(np.arange(Darray[0], Darray[-1], 0.2))
+-ax1.set_ylabel('$\Delta T$ (equator to pole)', fontsize=14,  color=color1)
++ax1.set_ylabel(r'$\Delta T$ (equator to pole)', fontsize=14,  color=color1)
+ for tl in ax1.get_yticklabels():

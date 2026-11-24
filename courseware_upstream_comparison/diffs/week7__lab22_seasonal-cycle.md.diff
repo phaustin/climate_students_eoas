@@ -1,0 +1,72 @@
+--- week7/lab22_seasonal-cycle.md
++++ seasonal-cycle.md
+@@ -7,3 +7,3 @@
+ Look at the observed seasonal cycle in the NCEP reanalysis data.
+-Read in the necessary data from the online server.
++Read in the necessary data from the online server *courtesy of the [NOAA Physical Sciences Laboratory](https://psl.noaa.gov)*
+ The catalog is here: <https://psl.noaa.gov/thredds/catalog/Datasets/ncep.reanalysis.derived/catalog.html>
+@@ -18,5 +18,5 @@
+ #### [code]
+-## The NOAA ESRL server is shutdown! January 2019
+-ncep_url = "http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/"
++ncep_url = "http://psl.noaa.gov/thredds/dodsC/Datasets/ncep.reanalysis.derived/"
+ ncep_Ts = xr.open_dataset(ncep_url + "surface_gauss/skt.sfc.mon.1981-2010.ltm.nc", decode_times=False)
++# Alternative source from the University of Hawai'i
+ #url = "http://apdrc.soest.hawaii.edu:80/dods/public_data/Reanalysis_Data/NCEP/NCEP/clima/"
+@@ -95,2 +95,3 @@
+ and plug into the model equation to get
++$$
+ \begin{align*}
+@@ -99,2 +100,3 @@
+ \end{align*}
++$$
+ #### [markdown]
+@@ -116,3 +118,3 @@
+ #### [markdown]
+-As a practical example:  at 45ºN the amplitude of the seasonal insolation cycle is about 180 W m$^{-2}$  (see the [Insolation notes](Lecture11 -- Insolation.ipynb) -- the difference between insolation at summer and winter solstice is about 360 W m$^{-2}$ which we divide by two to get the amplitude of seasonal variations).
++As a practical example:  at 45ºN the amplitude of the seasonal insolation cycle is about 180 W m$^{-2}$  (see the [Insolation notes](./insolation.ipynb) -- the difference between insolation at summer and winter solstice is about 360 W m$^{-2}$ which we divide by two to get the amplitude of seasonal variations).
+ We will follow our previous EBM work and take $B = 2$ W m$^{-2}$ K$^{-1}$. This would give a seasonal temperature amplitude of 90ºC!
+@@ -128,2 +130,3 @@
+ We will now use trigonometric identities
++$$
+ \begin{align*}
+@@ -132,3 +135,5 @@
+ \end{align*}
++$$
+ to express our equation as
++$$
+ \begin{align*}
+@@ -139,2 +144,3 @@
+ \end{align*}
++$$
+ #### [markdown]
+@@ -191,3 +197,3 @@
+ #### Heat capacity of a water surface
+-As we wrote [back in Lecture 2](./Lecture02 -- Solving the zero-dimensional EBM.ipynb), the heat capacity for a well-mixed column of water is
++As we wrote [back in the notes on Modeling the Global Energy Budget](./zero-dim-ebm.ipynb), the heat capacity for a well-mixed column of water is
+ $$C_w = c_w \rho_w H_w $$
+@@ -283,3 +289,3 @@
+ We will look at the seasonal cycle of temperature in three different models with different heat capacities (which we express through an equivalent depth of water in meters).
+-All other parameters will be [as chosen in Lecture 16](./Lecture16 -- Diffusive energy balance model.ipynb) (which focussed on tuning the EBM to the annual mean energy budget).
++All other parameters will be [as chosen in the notes on the one-dimensional energy balance model](./one-dim-ebm.ipynb) (which focussed on tuning the EBM to the annual mean energy budget).
+ #### [code]
+@@ -291,3 +297,3 @@
+ model1 = climlab.EBM_seasonal(**param, name='Seasonal EBM')
+-print( model1)
++model1
+ #### [markdown]
+@@ -364,3 +370,3 @@
+         ax.set_xlabel('Latitude', fontsize=14 )
+-        if n is 0:
++        if n == 0:
+             ax.set_ylabel('Temperature', fontsize=14, color=c1 )
+@@ -374,3 +380,3 @@
+         Qline = ax2.plot(lat, models[n].insolation, c2)[0]
+-        if n is 2:
++        if n == 2:
+             ax2.set_ylabel('Insolation (W m$^{-2}$)', color=c2, fontsize=14)
+@@ -472,3 +478,3 @@
+ #### [markdown]
+-If you are interested in how ice-albedo feedback might work on a high-obliquity planet with a cold equator, then I suggest you take a look at this paper:
++If you are interested in how ice-albedo feedback might work on a high-obliquity planet with a cold equator, then I suggest you take a look at this paper {cite:p}`Rose:2017a`:
+ [Rose, Cronin and Bitz (2017): Ice Caps and Ice Belts: The Effects of Obliquity on Ice−Albedo Feedback, The Astrophysical Journal 846, doi:10.3847/1538-4357/aa8306](https://iopscience.iop.org/article/10.3847/1538-4357/aa8306/meta)

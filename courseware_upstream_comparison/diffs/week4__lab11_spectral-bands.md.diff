@@ -1,0 +1,135 @@
+--- week4/lab11_spectral-bands.md
++++ spectral-bands.md
+@@ -7,3 +7,3 @@
+ Suppose that CO$_2$ actually behaved as a grey gas. In other words, no spectral dependence in absorptivity.
+-If we then **double the CO2 concentration** in the atmosphere, we double the number of absorbers. This should imply that we also **double the absorption cross-section** $\kappa$. Following the notation from our [lecture on grey-gas radiative transfer](radiative-transfer#2.-The-Grey-Gas-Model), we have:
++If we then **double the CO$_2$ concentration** in the atmosphere, we double the number of absorbers. This should imply that we also **double the absorption cross-section** $\kappa$. Following the notation from our [lecture on grey-gas radiative transfer](elementary-greenhouse#introducing-the-two-layer-grey-gas-model), we have:
+ $$ \kappa^\prime = 2 ~ \kappa $$
+@@ -13,3 +13,3 @@
+ #### [markdown]
+-And since [the absorptivity / emissivity of each layer](radiative-transfer#Emissivity) is
++And since [the absorptivity / emissivity of each layer](radiative-transfer#emissivity) is
+ $$  \epsilon = 1 - \exp\big( - \Delta \tau \big)  $$
+@@ -22,3 +22,3 @@
+ ### What does our 2-layer analytical model then say about the radiative forcing?
+-Recall that [we tuned the two-layer grey gas model](elementary-greenhouse#4.-Tuning-the-grey-gas-model-to-observations) with
++Recall that [we tuned the two-layer grey gas model](elementary-greenhouse#tuning-the-grey-gas-model-to-observations) with
+ $$ \epsilon = 0.586 $$
+@@ -30,5 +30,5 @@
+ #### [markdown]
+-**If CO2 behaved like a grey gas**, doubling it would cause a huge increase in the absorptivity of each layer!
+-#### [markdown]
+-[We previously worked out that the radiative forcing in this model](elementary-greenhouse#The-radiative-forcing-(change-in-OLR)-depends-on-the-lapse-rate!) (with the observed lapse rate) is about +2.6 W m$^{-2}$ for a 2% increase in $\epsilon$.
++**If CO$_2$ behaved like a grey gas**, doubling it would cause a huge increase in the absorptivity of each layer!
++#### [markdown]
++[We previously worked out that the radiative forcing in this model](elementary-greenhouse#the-radiative-forcing-change-in-olr-depends-on-the-lapse-rate) (with the observed lapse rate) is about +2.6 W m$^{-2}$ for a 2% increase in $\epsilon$.
+ #### [code]
+@@ -46,3 +46,3 @@
+ **Our hypothetical doubling of "grey CO$_2$" gives a radiative forcing greater than 50 W m$^{-2}$.**
+-This is an absolutely enormous number. Assuming a [net climate feedback of -1.3 W m$^{-2}$ K$^{-1}$](sensitivity-feedback#7.-Feedbacks-diagnosed-from-complex-climate-models) (consistent with the CMIP5 model ensemble)
++This is an absolutely enormous number. Assuming a [net climate feedback of -1.3 W m$^{-2}$ K$^{-1}$](sensitivity-feedback#feedbacks-diagnosed-from-complex-climate-models) (consistent with the CMIP5 model ensemble)
+ would then give us a truly astronomical **equilibrium climate sensitivity of 41 K**:
+@@ -54,5 +54,5 @@
+ ### Conclusions:
+-1. **If CO2 did behave like a grey gas, we would be toast\*!**
++1. **If CO$_2$ did behave like a grey gas, we would be toast\*!**
+ 2. The Grey Gas model is insufficient for understanding radiative forcing and feedback.
+-\* *Phrase borrowed with great respect from [R. Pierrehumbert (2010), Principles of Planetary Climate, Cambridge University Press.](https://geosci.uchicago.edu/~rtp1/PrinciplesPlanetaryClimate/), which is easily to best textbook that exists on this subject.*
++\* *Phrase borrowed with great respect from {cite:t}`Pierrehumbert:principles`, which is easily to best textbook that exists on this subject.*
+ #### [markdown]
+@@ -78,8 +78,5 @@
+ #### [markdown]
+-:::{figure} images/Terrestrial_spectrum.png
+-:name: terrestrial
+-:scale: 100
+-:::
+-#### [markdown]
+-Source: https://www.e-education.psu.edu/earth103/node/671
++![Terrestrial spectrum](../images/Terrestrial_spectrum.png)
++#### [markdown]
++Source: David Bice, Penn State University. https://www.e-education.psu.edu/earth103/node/1006
+ #### [markdown]
+@@ -92,3 +89,3 @@
+ We would therefore like to start using a model that includes enough spectral information that it represents
+-- the mostly strong CO2 absorption outside the window region
++- the mostly strong CO$_2$ absorption outside the window region
+ - the weak absorption inside the window region
+@@ -113,2 +110,4 @@
+ datapath = "http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/"
++# For better performance if you can access the roselab_rit filesystem (e.g. from JupyterHub)
++# datapath = "/roselab_rit/cesm_archive/"
+ ctrl = xr.open_dataset(datapath + 'som_1850_f19/clim/som_1850_f19.cam.h0.clim.nc', decode_times=False)
+@@ -167,5 +166,4 @@
+ ### Manabe's constant relative humidity parameterization
+-We are going to adopt a parameterization first used in a very famous paper:
+-> Manabe, S. and Wetherald, R. T. (1967). Thermal equilibrium of the atmosphere with a given distribution of relative humidity. J. Atmos. Sci., 24(3):241–259.
+-This paper was the first to give a really credible calculation of climate sensitivity to a doubling of CO2 by accounting for the known spectral properties of CO2 and H2O absorption, as well as the water vapor feedback!
++We are going to adopt a parameterization first used in a very famous paper by {cite:t}`Manabe:1967aa`, *The thermal equilibrium of the atmosphere with a given distribution of relative humidity*.
++This paper was the first to give a really credible calculation of climate sensitivity to a doubling of CO$_2$ by accounting for the known spectral properties of CO$_2$ and H$_2$O absorption, as well as the water vapor feedback!
+ #### [markdown]
+@@ -196,3 +194,3 @@
+ - Band 0 is the **window region** (between 8.5 and 11 $\mu$m), 17% of total flux.
+-- Band 1 is the CO2 absorption channel (the band of strong absorption by CO2 around 15 $\mu$m), 15% of total flux
++- Band 1 is the CO$_2$ absorption channel (the band of strong absorption by CO$_2$ around 15 $\mu$m), 15% of total flux
+ - Band 2 is a weak water vapor absorption channel, 35% of total flux
+@@ -209,3 +207,3 @@
+ col1 = climlab.BandRCModel()
+-print(col1)
++col1
+ #### [markdown]
+@@ -248,3 +246,3 @@
+ #### [markdown]
+-Water vapor is handled differently: it is determined by the model at each timestep. We make the following assumptions, following a classic paper on radiative-convective equilibrium by Manabe and Wetherald (J. Atmos. Sci. 1967):
++Water vapor is handled differently: it is determined by the model at each timestep. We make the following assumptions, following {cite:t}`Manabe:1967aa`:
+ - the relative humidity just above the surface is fixed at 77% (can be changed of course... see the parameter `col1.relative_humidity`
+@@ -255,3 +253,3 @@
+ #### [markdown]
+-We need to provide some ozone data to the model in order to simulate a stratosphere. We will read in some ozone data just as we did in [the previous lecture on grey-gas modeling in climlab](grey-radiation-climlab#8.-Putting-stratospheric-ozone-in-the-grey-gas-model).
++We need to provide some ozone data to the model in order to simulate a stratosphere. We will read in some ozone data just as we did in [the previous lecture on grey-gas modeling in climlab](grey-radiation-climlab#putting-stratospheric-ozone-in-the-grey-gas-model).
+ #### [code]
+@@ -262,3 +260,3 @@
+ O3_global = (ozone.O3 * weight_ozone).mean(dim=('lat','lon','time'))
+-print(O3_global)
++O3_global
+ #### [code]
+@@ -275,3 +273,3 @@
+ col2 = climlab.BandRCModel(lev=ozone.lev)
+-print( col2)
++col2
+ #### [code]
+@@ -298,3 +296,3 @@
+ - We also used the global annual mean ozone profile! Ozone varies tremendously in latitude and by season. That information is all contained in the ozone data file we opened above. We might explore the effects of those variations.
+-- We can calculate climate sensitivity in this model by doubling the CO2 concentration and re-running out to the new equilibrium. Does the amount of ozone affect the climate sensitivity?  (example below)
++- We can calculate climate sensitivity in this model by doubling the CO$_2$ concentration and re-running out to the new equilibrium. Does the amount of ozone affect the climate sensitivity?  (example below)
+ - An important shortcoming of the model: there are no clouds! (that would be the next step in the hierarchy of column models)
+@@ -303,3 +301,3 @@
+ col3 = climlab.process_like(col2)
+-print( col3)
++col3
+ #### [code]
+@@ -309,3 +307,4 @@
+ col3.compute_diagnostics()
+-print( 'The radiative forcing for doubling CO2 is %f W/m2.' % (col2.diagnostics['OLR'] - col3.diagnostics['OLR']))
++print( 'The radiative forcing for doubling CO2 is %f W/m2.' %
++      (col2.diagnostics['OLR'][0] - col3.diagnostics['OLR'][0]))
+ #### [code]
+@@ -315,3 +314,3 @@
+ #### [code]
+-print( 'The Equilibrium Climate Sensitivity is %f K.' % (col3.Ts - col2.Ts))
++print( 'The Equilibrium Climate Sensitivity is %f K.' % (col3.Ts[0] - col2.Ts[0]))
+ #### [code]
+@@ -319,3 +318,3 @@
+ col4 = climlab.process_like(col1)
+-print( col4)
++col4
+ #### [code]
+@@ -323,3 +322,3 @@
+ col4.compute_diagnostics()
+-print( 'The radiative forcing for doubling CO2 is %f W/m2.' % (col1.OLR - col4.OLR))
++print('The radiative forcing for doubling CO2 is %f W/m2.' % (col1.OLR[0] - col4.OLR[0]))
+ #### [code]
+@@ -328,3 +327,3 @@
+ #### [code]
+-print( 'The Equilibrium Climate Sensitivity is %f K.' % (col4.Ts - col1.Ts))
++print('The Equilibrium Climate Sensitivity is %f K.' % (col4.Ts[0] - col1.Ts[0]))
+ #### [markdown]

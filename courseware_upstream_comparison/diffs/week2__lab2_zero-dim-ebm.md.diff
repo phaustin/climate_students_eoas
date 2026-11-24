@@ -1,0 +1,160 @@
+--- week2/lab2_zero-dim-ebm.md
++++ zero-dim-ebm.md
+@@ -2,3 +2,3 @@
+ # Modeling the global energy budget
+-## Introducing the zero-dimensional Energy Balance Model
++**Introducing the zero-dimensional Energy Balance Model**
+ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](https://www.atmos.albany.edu/facstaff/brose/), University at Albany.
+@@ -7,6 +7,5 @@
+ #### [markdown]
+-Let's look again at the observations in this diagram of energy fluxes:
+-#### [markdown]
+-<img src="../../images/GlobalEnergyBudget.png"  width="80%">
+-Observed global energy flows from Trenberth and Fasullo (2012)
++Let's look again at the observations {cite:p}`Trenberth:2012a`:
++#### [markdown]
++![Observed global energy flows from Trenberth and Fasullo (2012)](../images/GlobalEnergyBudget.png)
+ #### [markdown]
+@@ -15,3 +14,3 @@
+ ### Recap of our simple greenhouse model
+-Last class we introduced a very simple model for the **OLR** or Outgoing Longwave Radiation to space:
++Last class we introduced a very simple model for the {term}`Outgoing Longwave Radiation` to space:
+ $$ \text{OLR} = \tau \sigma T_s^4 $$
+@@ -34,4 +33,9 @@
+ #### Global mean insolation
+-From the observations, the area-averaged incoming solar radiation or **insolation** is 341.3 W m$^{-2}$.
+-Let's denote this quantity by $Q$.
++First let's define a new term:
++:::{glossary}
++Insolation
++: The incoming solar (shortwave) radiation at the top of Earth's atmosphere.
++:::
++From the observations, the global area-averaged {term}`insolation` is 341.3 W m⁻².
++Let's denote this quantity by $Q$ in our equations and Python code:
+ #### [code]
+@@ -55,3 +59,7 @@
+ #### Absorbed Shortwave Radiation
+-The **Absorbed Shortwave Radiation** or ASR is the part of the incoming sunlight that is *not* reflected back to space, i.e. that part that is absorbed somewhere within the Earth system.
++We'll now formally define a key term:
++:::{glossary}
++Absorbed Shortwave Radiation
++: The part of the {term}`insolation` that is *not* reflected back to space, i.e. that part that is absorbed somewhere within the Earth system (often abbreviated as ASR).
++:::
+ Mathematically we write
+@@ -64,3 +72,3 @@
+ #### [markdown]
+-As we noted last time, this number is *just slightly greater* than the observed OLR of 238.5 W m$^{-2}$.
++As we noted last time, this number is *just slightly greater* than the observed OLR of 238.5 W m⁻².
+ #### [markdown]
+@@ -68,3 +76,5 @@
+ #### [markdown]
+-*This is one of the central concepts in climate modeling.*
++:::{important}
++This is one of the central concepts in climate modeling.
++:::
+ The Earth system is in **energy balance** when energy in = energy out, i.e. when
+@@ -132,3 +142,3 @@
+ \begin{align}
+- \frac{dE}{dt} &= \text{net energy flux in to system} \\
++\frac{dE}{dt} &= \text{net energy flux in to system} \\
+  &= \text{flux in – flux out} \\
+@@ -138,3 +148,3 @@
+ where $E$ is the **enthalpy** or **heat content** of the total system.
+-We will express the budget **per unit surface area**, so each term above has units W m$^{-2}$
++We will express the budget **per unit surface area**, so each term above has units W m⁻².
+ Note: any **internal exchanges** of energy between different reservoirs (e.g. between ocean, land, ice, atmosphere) do not appear in this budget – because $E$ is the **sum of all reservoirs**.
+@@ -155,3 +165,3 @@
+ where
+-- $C$ is the **heat capacity** of Earth system, in units of J m$^{-2}$ K$^{-1}$.
++- $C$ is the **heat capacity** of Earth system, in units of J m⁻² K⁻¹.
+ - $\frac{dT_s}{dt}$ is the rate of change of global average surface temperature.
+@@ -167,4 +177,4 @@
+ where
+-$c_w = 4 \times 10^3$ J kg$^{-1}$ $^\circ$C$^{-1}$ is the specific heat of water,
+-$\rho_w = 10^3$ kg m$^{-3}$ is the density of water, and
++$c_w = 4 \times 10^3$ J kg⁻¹ K⁻¹ is the specific heat of water,
++$\rho_w = 10^3$ kg m⁻³ is the density of water, and
+ $H$ is an effective depth of water that is heated or cooled.
+@@ -175,3 +185,3 @@
+ C = c_w * rho_w * H   #  Heat capacity of the model
+-print('The effective heat capacity is {:.1e} J/m2/K'.format(C))
++print('The effective heat capacity is {:.1e} J m⁻² K⁻¹'.format(C))
+ #### [markdown]
+@@ -195,3 +205,3 @@
+ - So we approximate the derivative with $\Delta T/ \Delta t$.
+-- So long as we take the time interval $\Delta t$ "small enough", the approximation is valid and useful.
++- So long as we take the time interval $\Delta t$ *small enough*, the approximation is valid and useful.
+ - (The meaning of "small enough" varies widely in practice. Let's not talk about it now)
+@@ -221,2 +231,4 @@
+ dt = 60. * 60. * 24. * 365.   # one year expressed in seconds
++#### [markdown]
++### Try stepping forward one timestep
+ #### [code]
+@@ -227,2 +239,19 @@
+ #### [markdown]
++***Did you get a `NameError` here?***
++The code above assumes that we have already defined functions `ASR()` and `OLR()`. If you haven't completed the exercise above, then the code won't work.
++#### [markdown]
++Let's now define the functions that we were supposed to create above:
++#### [code]
++def ASR(Q=Q, alpha=alpha):
++    return (1-alpha)*Q
++def OLR(T, tau=tau):
++    return tau * sigma * T**4
++#### [markdown]
++Now we'll try again...
++#### [code]
++# Try a single timestep, assuming we have working functions for ASR and OLR
++T1 = 288.
++T2 = T1 + dt / C * ( ASR(alpha=0.32) - OLR(T1, tau=0.57) )
++print(T2)
++#### [markdown]
+ What happened? Why?
+@@ -248,5 +277,8 @@
+ #### [markdown]
+-#### Python fact 10: Functions can access variables and other functions defined outside of the function.
++:::{tip} Python fact 10
++**Functions can access variables and other functions defined outside of the function.**
+ This is both very useful and occasionally confusing.
+-#### [markdown]
++:::
++#### [markdown]
++### Automate the timestepping with a loop
+ Now let's really harness the power of the computer by **making a loop** (and storing values in arrays):
+@@ -269,5 +301,9 @@
+ #### [markdown]
+-#### Python fact 11: the `for` statement executes a statement (or series of statements) a specified number of times (a loop!)
+-#### [markdown]
+-#### Python fact 12: Use square bracket [ ] to refer to elements of an array or list. Use round parentheses ( ) for function arguments.
++:::{tip} Python fact 11
++The `for` statement executes a statement (or series of statements) a specified number of times (a loop!)
++:::
++#### [markdown]
++:::{tip} Python fact 12
++Use square bracket [ ] to refer to elements of an array or list. Use round parentheses ( ) for function arguments.
++:::
+ #### [markdown]
+@@ -292,3 +328,4 @@
+ #### [markdown]
+-#### Python fact 13: We can easily make simple graphs with the function `plt.plot(x,y)`, where `x` and `y` are arrays of the same size. But we must import it first.
++:::{tip} Python fact 13
++We can easily make simple graphs with the function `plt.plot(x,y)`, where `x` and `y` are arrays of the same size. But we must import it first.
+ This is actually not native Python, but uses a graphics library called [matplotlib](https://matplotlib.org). This is the workhorse of scientific plotting in Python, and we will be using it all the time!
+@@ -296,3 +333,2 @@
+ ```
+-%matplotlib inline
+ import numpy as np
+@@ -300,2 +336,3 @@
+ ```
++:::
+ #### [markdown]
+@@ -305,3 +342,3 @@
+ - These are determined by radiation at the top of the Earth's atmosphere.
+-- Any imbalance between shortwave absorption (ASR) and longwave emission (OLR) drives a change in temperature
++- Any imbalance between {term}`Absorbed Shortwave Radiation` (ASR) and {term}`Outgoing Longwave Radiation` (OLR) drives a change in temperature
+ - Using this idea, we built a climate model!
+@@ -311,3 +348,3 @@
+     - The OLR increases as $\tau \sigma T_s^4$ (our simple greenhouse model)
+-- Earth (or any planet) has a well-defined **equilibrium temperature** $T_{eq}$ at which ASR = OLR, because of the *temperature dependence of the outgoing longwave radiation*.
++- Earth (or any planet) has a well-defined **equilibrium temperature** $T_{eq}$ at which ASR = OLR, because of the *temperature dependence of the {term}`Outgoing Longwave Radiation`*.
+ - If $T_s < T_{eq}$, the model will warm up.

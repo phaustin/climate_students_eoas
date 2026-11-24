@@ -1,0 +1,127 @@
+--- week6/lab18_insolation.md
++++ insolation.md
+@@ -6,3 +6,5 @@
+ #### [markdown]
+-*These notes closely follow section 2.7 of Dennis L. Hartmann, "Global Physical Climatology", Academic Press 1994.*
++:::{note}
++These notes closely follow section 2.7 of *Global Physical Climatology* by {cite:t}`Hartmann`.
++:::
+ #### [markdown]
+@@ -17,5 +19,5 @@
+ #### [markdown]
+-<img src='../../images/Hartmann_Fig2.5.png'>
+-#### [markdown]
+-From the above figure (reproduced from Hartmann's book), the ratio of the shadow area to the surface area is equal to the cosine of the solar zenith angle.
++![Hartmann Figure 2.5](../images/Hartmann_Fig2.5.png)
++#### [markdown]
++From the above figure (reproduced from {cite:t}`Hartmann`), the ratio of the shadow area to the surface area is equal to the cosine of the solar zenith angle.
+ #### [markdown]
+@@ -71,5 +73,36 @@
+ $$ \overline{\cos\theta_s}^{day} = \frac{\int_{-h_0}^{h_0} Q \cos\theta_s~dh}{\int_{-h_0}^{h_0} Q ~dh} $$
+-#### [markdown]
+-<img src='../../images/Hartmann_Fig2.8.png'>
+-#### [markdown]
++{cite:t}`Cronin:2014a` also shows that the insolation-weighted value $\overline{\cos\theta_s}^{day}$ is a good choice for minimizing scattering bias under a variety of circumstances.
++#### [markdown]
++To calculate $\overline{\cos\theta_s}^{day}$, we first note that the factor $S_0 \left(\frac{\overline{d}}{d}\right)^2$ cancels out of the top and bottom of the above expression, leaving
++$$ \overline{\cos\theta_s}^{Q} = \frac{\int_{-h_0}^{h_0} \cos^2 \theta_s ~dh}{\int_{-h_0}^{h_0} \cos\theta_s ~dh} $$
++With a bit of work, we can substitute in the expression for $\cos\theta_s$ in terms of latitude $\phi$, declination angle $\delta$ and hour angle $h$ and integrate the numerator and denominator of the above expression. I implement the resulting formulas in the Python code below
++#### [code]
++import numpy as np
++import matplotlib.pyplot as plt
++from numpy import sin,cos,tan,arccos,arcsin,arctan,pi,abs
++lat = np.linspace(-90., 90, 500)
++phi = np.deg2rad(lat)
++declinations = {'21 December': -23.45,
++                'Equinox': 0.,
++                '21 June': 23.45}
++def hour_angle_at_sunset(delta, phi):
++    return np.where( abs(delta)-pi/2+abs(phi) < 0., # there is sunset/sunrise
++              arccos(-tan(phi)*tan(delta)),
++              # otherwise figure out if it's all night or all day
++              np.where(phi*delta>0., pi, 0.) )
++def insolation_weighted_coszen(delta, phi):
++    h0 = hour_angle_at_sunset(delta, phi)
++    denominator = h0*sin(phi)*sin(delta) + cos(phi)*cos(delta)*sin(h0)
++    numerator = (h0*(2* sin(phi)**2*sin(delta)**2 + cos(phi)**2*cos(delta)**2) +
++        cos(phi)*cos(delta)*sin(h0)*(4*sin(phi)*sin(delta) + cos(phi)*cos(delta)*cos(h0)))
++    return numerator / denominator / 2
++for label, delta in declinations.items():
++    plt.plot(lat, np.rad2deg(arccos(insolation_weighted_coszen(np.deg2rad(delta), phi))), label=label)
++plt.legend()
++plt.grid()
++plt.title('Insolation-weighted daily average solar zenith angle as a function of latitude');
++plt.ylim(30,90);
++plt.xlim(-90,90);
++#### [markdown]
++_The figure above reproduces Figure 2.8 from {cite:p}`Hartmann`._
+ The average zenith angle is much higher at the poles than in the tropics. This contributes to the very high surface albedos observed at high latitudes.
+@@ -94,3 +127,3 @@
+ ```
+-See the [next lecture](./Lecture14 -- Orbital variations.ipynb)!
++See the [next lecture](orbital)!
+ #### [markdown]
+@@ -98,5 +131,2 @@
+ #### [code]
+-%matplotlib inline
+-import numpy as np
+-import matplotlib.pyplot as plt
+ from climlab import constants as const
+@@ -119,3 +149,3 @@
+ #### [code]
+-lat = np.linspace(-90., 90., 30)
++lat = np.linspace(-90., 90., 180)
+ Q = daily_insolation(lat, 80)
+@@ -129,2 +159,35 @@
+ #### [markdown]
++### Using real calendar dates
++The `day` input to the `daily_insolation` function is not tied to a specific calendar year, it's really just measuring the length of time (in fractional days) from the Spring Equinox (which is defined as day 80).
++Real calendar years have variable lengths (i.e. leap years).
++Fortunately there are some easy-to-use software packages to help manage dates and times in Python. Here we're going to use some numpy functionality through the `np.datetime64` and `np.timedelta64` data types.
++First we define a helper function to translate from an actual calendar date / time to the day index needed by the solar calculator:
++#### [code]
++def dates_to_day_index(datetime):
++    '''Convert dates and time (assumed to be UTC) to a fractional number of days
++    from a hypothetical January 1 00h that is exactly 80 days before the spring equinox.
++    Input datetime is a np.datetime64 object (or array of these)
++    Output is array of floats.
++    '''
++    # Precise time of the most recent Spring Equinox in 9:01 UTC on March 20 2025
++    spring_equinox = np.datetime64('2025-03-20T09:01')
++    time_since_equinox = datetime - spring_equinox
++    time_since_jan1 = time_since_equinox + np.timedelta64(80, 'D')
++    return time_since_jan1 / np.timedelta64(1, 'D')  # result as fractional days
++#### [markdown]
++Now we'll define a datetime object to represent a particular calendar date and plot the insolation at all latitudes:
++#### [code]
++# Here we generate a datetime64 object with a specific date:
++Oct15 = np.datetime64('2025-10-15')
++Oct15
++#### [code]
++Q = daily_insolation(lat, dates_to_day_index(Oct15))
++fig, ax = plt.subplots()
++ax.plot(lat,Q)
++ax.set_xlim(-90,90); ax.set_xticks([-90,-60,-30,-0,30,60,90])
++ax.set_xlabel('Latitude')
++ax.set_ylabel('W/m2')
++ax.grid()
++ax.set_title('Daily average insolation at {}'.format(Oct15))
++#### [markdown]
+ ### In-class exercises
+@@ -141,3 +204,3 @@
+ lat = np.linspace( -90., 90., 500)
+-days = np.linspace(0, const.days_per_year, 365 )
++days = np.arange(0., 1., 0.001) * const.days_per_year
+ Q = daily_insolation( lat, days )
+@@ -148,3 +211,3 @@
+ CS = ax.contour( days, lat, Q , levels = np.arange(0., 600., 50.) )
+-ax.clabel(CS, CS.levels, inline=True, fmt='%r', fontsize=10)
++ax.clabel(CS, CS.levels, inline=True, fmt='%1.0f', fontsize=10)
+ ax.set_xlabel('Days since January 1', fontsize=16 )
+@@ -163,4 +226,4 @@
+ #### [code]
+-summer_solstice = 170
+-winter_solstice = 353
++summer_solstice = 472  # index of the solstice along this time axis
++winter_solstice = 976  # and same for winter solstice
+ fig, ax = plt.subplots(figsize=(10,8))

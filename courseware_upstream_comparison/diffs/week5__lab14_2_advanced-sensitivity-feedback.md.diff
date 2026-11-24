@@ -1,0 +1,74 @@
+--- week5/lab14_2_advanced-sensitivity-feedback.md
++++ advanced-sensitivity-feedback.md
+@@ -35,3 +35,3 @@
+ #### [markdown]
+-From last lecture, we have linearized our model for OLR with a slope $\lambda_0 = 3.3$ W m$^{-2}$ K$^{-1}$. This means that a global warming of 1 degree causes a 3.3 W m$^{-2}$ increase in the OLR. So we can write:
++From the [lecture on analytical solutions of the global EBM](analytical-efolding), we have linearized our model for OLR with a slope $\lambda_0 = 3.3$ W m$^{-2}$ K$^{-1}$. This means that a global warming of 1 degree causes a 3.3 W m$^{-2}$ increase in the OLR. So we can write:
+ $$OLR_f \approx OLR_{2xCO2} + \lambda_0 \Delta T_0 $$
+@@ -47,9 +47,7 @@
+ #  Repeating code from Lecture 2
+-sigma = 5.67E-8  #  Stefan-Boltzmann constant in W/m2/K4
+-Q = 341.3  #  global mean insolation in W/m2
+-alpha = 101.9 / Q    #  observed planetary albedo
+-Te = ((1-alpha)*Q/sigma)**0.25  #  Emission temperature (definition)
+-Tsbar = 288.  # global mean surface temperature in K
+-beta = Te / Tsbar   #  Calculate value of beta from observations
+-lambda_0 = 4 * sigma * beta**4 * Tsbar**3
++OLRobserved = 238.5  # in W/m2
++sigma = 5.67E-8  # S-B constant
++Tsobserved = 288.  # global average surface temperature
++tau = OLRobserved / sigma / Tsobserved**4  # solve for tuned value of transmissivity
++lambda_0 = 4 * sigma * tau * Tsobserved**3
+ #### [code]
+@@ -61,3 +59,3 @@
+ We’ll now look at the feedback concept. Climate feedbacks tend to amplify the response to increased CO$_2$. But $\Delta T_0$ is a meaningful climate sensitivity in the absence of feedback.
+-$\Delta T_0 = 1.2$ K is the ** warming that we would have if the Earth radiated the excess energy away to space as a blackbody**, and with no change in the planetary albedo.
++$\Delta T_0 = 1.2$ K is the **warming that we would have if the Earth radiated the excess energy away to space as a blackbody**, and with no change in the planetary albedo.
+ #### [markdown]
+@@ -67,3 +65,3 @@
+ #### [markdown]
+-<img src='../../images/feedback_sketch.png' alt='feedback loop' width=500>
++![Feedback loop sketch](../images/feedback_sketch.png)
+ #### [markdown]
+@@ -121,3 +119,3 @@
+ ECS is an important number. A major goal of climate modeling is to provide better estimates of ECS and its uncertainty.
+-Latest IPCC report AR5 gives a likely range of 1.5 to 4.5 K. (There is lots of uncertainty in these numbers – we will definitely come back to this question)
++The IPCC report AR5 gives a likely range of 1.5 to 4.5 K. (There is lots of uncertainty in these numbers – we will definitely come back to this question)
+ So our simple estimate of the no-feedback change $\Delta T_0$ is apparently underestimating climate sensitivity.
+@@ -165,5 +163,5 @@
+ ### Every climate model has a Planck feedback
+-The "Planck feedback" represented by our reference parameter $\lambda_0$ is not really a feedback at all.
++The "Planck feedback" represented by the negative of our reference parameter $-\lambda_0$ is not really a feedback at all.
+ It is the most basic and universal climate process, and is present in every climate model. It is simply an expression of the fact that a warm planet radiates more to space than a cold planet.
+-As we will see, our estimate of $\lambda_0 = -3.3 ~\text{W} ~\text{m}^{-2} ~\text{K}^{-1} $ is essentially the same as the Planck feedback diagnosed from complex GCMs. Unlike our simple zero-dimensional EBM, however, most other climate models (and the real climate system) have other radiative feedback processes, such that
++As we will see, our estimate of $-\lambda_0 = -3.3 ~\text{W} ~\text{m}^{-2} ~\text{K}^{-1} $ is essentially the same as the Planck feedback diagnosed from complex GCMs. Unlike our simple zero-dimensional EBM, however, most other climate models (and the real climate system) have other radiative feedback processes, such that
+ $$\lambda = \lambda_0 - \sum_{i=1}^{N} \lambda_i \ne \lambda_0 $$
+@@ -172,3 +170,3 @@
+ ### Data from the IPCC AR5
+-This figure is reproduced from the recent IPCC AR5 report. It shows the feedbacks diagnosed from the various models that contributed to the assessment.
++This figure is reproduced from the IPCC AR5 report. It shows the feedbacks diagnosed from the various models that contributed to the assessment.
+ (Later in the term we will discuss how the feedback diagnosis is actually done)
+@@ -176,6 +174,6 @@
+ #### [markdown]
+-<img src='http://www.climatechange2013.org/images/figures/WGI_AR5_Fig9-43.jpg' width=800>
++![feedback AR5](https://www.ipcc.ch/site/assets/uploads/2018/02/Fig9-43-1.jpg)
+ #### [markdown]
+ **Figure 9.43** | (a) Strengths of individual feedbacks for CMIP3 and CMIP5 models (left and right columns of symbols) for Planck (P), water vapour (WV), clouds (C), albedo (A), lapse rate (LR), combination of water vapour and lapse rate (WV+LR) and sum of all feedbacks except Planck (ALL), from Soden and Held (2006) and Vial et al. (2013), following Soden et al. (2008). CMIP5 feedbacks are derived from CMIP5 simulations for abrupt fourfold increases in CO2 concentrations (4 × CO2). (b) ECS obtained using regression techniques by Andrews et al. (2012) against ECS estimated from the ratio of CO2 ERF to the sum of all feedbacks. The CO2 ERF is one-half the 4 × CO2 forcings from Andrews et al. (2012), and the total feedback (ALL + Planck) is from Vial et al. (2013).
+-*Figure caption reproduced from the AR5 WG1 report*
++*Figure caption reproduced from the AR5 WG1 report {cite:p}`AR5_Ch9`*
+ #### [markdown]
+@@ -192,3 +190,3 @@
+ - The models all agree strongly on the Planck feedback.
+-- The Planck feedback is about $\lambda_0 = -3.3 ~\text{W} ~\text{m}^{-2} ~\text{K}^{-1} $ just like our above estimate (but with opposite sign convention -- watch carefully for that in the literature)
++- The Planck feedback is about $-\lambda_0 = -3.3 ~\text{W} ~\text{m}^{-2} ~\text{K}^{-1} $ just like our above estimate (but with opposite sign convention -- watch carefully for that in the literature)
+ - The water vapor feedback is strongly positive in every model.
+@@ -204,9 +202,2 @@
+ - Our estimate of $+2.0 ~\text{W} ~\text{m}^{-2} ~\text{K}^{-1}$ for all the missing processes is consistent with the GCM ensemble.
+-#### [markdown]
+-### Citation
+-This is Figure 9.43 from Chapter 9 of the IPCC AR5 Working Group 1 report.
+-The report and images can be found online at
+-<http://www.climatechange2013.org/report/full-report/>
+-The full citation is:
+-Flato, G., J. Marotzke, B. Abiodun, P. Braconnot, S.C. Chou, W. Collins, P. Cox, F. Driouech, S. Emori, V. Eyring, C. Forest, P. Gleckler, E. Guilyardi, C. Jakob, V. Kattsov, C. Reason and M. Rummukainen, 2013: Evaluation of Climate Models. In: Climate Change 2013: The Physical Science Basis. Contribution of Working Group I to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change [Stocker, T.F., D. Qin, G.-K. Plattner, M. Tignor, S.K. Allen, J. Boschung, A. Nauels, Y. Xia, V. Bex and P.M. Midgley (eds.)]. Cambridge University Press, Cambridge, United Kingdom and New York, NY, USA, pp. 741–866, doi:10.1017/CBO9781107415324.020
+ #### [markdown]

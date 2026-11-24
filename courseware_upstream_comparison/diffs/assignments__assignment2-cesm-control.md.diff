@@ -1,0 +1,20 @@
+--- assignments/assignment2-cesm-control.md
++++ assignment-cesm-control.md
+@@ -46,4 +46,3 @@
+ **Based on your results above, answer the following questions:**
+-- Is the CESM control simulation at (or near) **energy balance**?
+-- Do you think this simulation is near equilibrium?
++- Is the CESM control simulation at (or near) **energy balance**? What does this suggest about whether the modeled climate is near equilibrium?
+ - Summarize in your own words what you think are the most important similarities and differences of the global energy budgets in the CESM simulation and the observations.
+@@ -64,4 +63,4 @@
+ url = "http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/surface_gauss/air.2m.mon.ltm.nc"
+-ncep_air2m = xr.open_dataset(url)
+-print(ncep_air2m)
++ncep_air2m = xr.open_dataset(url, decode_times=False)
++ncep_air2m
+ #### [markdown]
+@@ -69,3 +68,3 @@
+ #### [code]
+-print(ncep_air2m.air)
++ncep_air2m.air
+ #### [markdown]

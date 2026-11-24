@@ -1,0 +1,217 @@
+--- week6/lab19_orbital.md
++++ orbital.md
+@@ -3,4 +3,47 @@
+ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](https://www.atmos.albany.edu/facstaff/brose/), University at Albany.
+-#### [code]
+-%matplotlib inline
++#### [markdown]
++## 1. The ice ages
++Recent Earth history (past few million years) has been dominated by the repeated growth and retreat of large continental ice sheets, mostly over the land masses of the Northern Hemisphere.
++#### [markdown]
++### Extent of glaciation
++The images below show typical maximum extents of the ice sheets during recent glaciations (grey) compared with present-day ice sheets (black)
++#### [markdown]
++<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Iceage_north-intergl_glac_hg.png/480px-Iceage_north-intergl_glac_hg.png'>
++#### [markdown]
++<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Iceage_south-intergl_glac_hg.png/480px-Iceage_south-intergl_glac_hg.png'>
++#### [markdown]
++> Hannes Grobe/AWI, http://commons.wikimedia.org/wiki/File:Iceage_north-intergl_glac_hg.png
++#### [markdown]
++(icevolumeseries)=
++### Pacing of ice ages: evidence from ocean sediments
++#### [markdown]
++The figure below shows a global record of **oxygen isotopes** recorded in the shells of marine organisms {cite:p}`Lisiecki:2005a`. This record tells us primarily about variations in **global ice volume** -- because the net evaporation of water from the oceans to build up the ice sheets leaves the oceans enriched in heavier isotopes.
++The x axis is plotted in **Thousands of years before present** (present-day is at zero on the left).
++#### [markdown]
++![Lisiecki and Raymo Figure 4](../images/Lisiecki_Raymo_Fig.4top.png)
++#### [markdown]
++> Lisiecki, L. E. and Raymo, M. E. (2005). A Pliocene-Pleistocene stack of 57 globally distributed benthic δ18O records. Paleoceanog., 20.
++#### [markdown]
++The ice ages (times of extensive glaciation and high ocean $\delta^{18}$O) do not seem to be random fluctations. They have come and gone (approximately) periodically, somewhat like the seasons.
++#### [markdown]
++**Spectral analysis** of such records reveals peaks at some special frequencies {cite:p}`Imbrie:1986aa`:
++#### [markdown]
++![Imbrie and Imbrie Figure 42](../images/ImbrieImbrie_Fig42.png)
++#### [markdown]
++> Imbrie, J. and Imbrie, K. P. (1986). Ice Ages: Solving the Mystery. Harvard University Press, Cambridge, Massachusetts.
++#### [markdown]
++The peaks noted on this figure are special because they correspond to frequencies of variations in Earth's orbital parameters, as we will see.
++These kind of results became available in the 1970’s for the first time, because ocean sediment cores allowed a sufficiently detailed look into the past to use time series analysis methods on them, e.g. to compute spectra.
++The presence of peaks in the spectrum at orbital frequencies was seen as convincing evidence that the so-called **astronomical theory of the ice ages** was (at least partially) correct.
++#### [markdown]
++## 2. Introducing the astronomical theory of the ice ages
++The **Astronomical Theory** of climate and the ice ages looks to the **regular, predictable variations in the Earth's orbit around the Sun** as the driving force for the growth and melt of the great ice sheets. Such theories have been discussed since long before there was any evidence about the timing of past glaciations.
++#### [markdown]
++Last time we saw that insolation is NOT perfectly symmetrically distributed between the two hemispheres and seasons.
++To refresh our memory, let's use
++```
++climlab.solar.insolation.daily_insolation()
++```
++to compare the maximum insolation received at the North Pole (at its summer solstice) and the South Pole (at its summer solstice).
++#### [code]
+ import numpy as np
+@@ -8,61 +51,6 @@
+ from climlab import constants as const
+-#### [markdown]
+-## 1. The ice ages
+-Recent Earth history (past few million years) has been dominated by the repeated growth and retreat of large continental ice sheets, mostly over the land masses of the Northern Hemisphere.
+-#### [markdown]
+-### Extent of glaciation
+-The images below show typical maximum extents of the ice sheets during recent glaciations (grey) compared with present-day ice sheets (black)
+-#### [markdown]
+-<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Iceage_north-intergl_glac_hg.png/480px-Iceage_north-intergl_glac_hg.png'>
+-#### [markdown]
+-<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Iceage_south-intergl_glac_hg.png/480px-Iceage_south-intergl_glac_hg.png'>
+-#### [markdown]
+-> Hannes Grobe/AWI, http://commons.wikimedia.org/wiki/File:Iceage_north-intergl_glac_hg.png
+-#### [markdown]
+-### Pacing of ice ages: evidence from ocean sediments
+-#### [markdown]
+-The figure below shows a global record of **oxygen isotopes** recorded in the shells of marine organisms. This record tells us primarily about variations in **global ice volume** -- because the net evaporation of water from the oceans to build up the ice sheets leaves the oceans enriched in heavier isotopes.
+-The x axis is plotted in **Thousands of years before present** (present-day is at zero on the left).
+-```{figure} ./Lisiecki_Raymo_Fig.4top.png
+----
+-width: 80%
+-name: directive-fig
+-alt: pha
+----
+-Oxygen 16 isotope changes over the past 1,800,000 years
+-```
+-#### [markdown]
+-> Lisiecki, L. E. and Raymo, M. E. (2005). A Pliocene-Pleistocene stack of 57 globally distributed benthic δ18O records. Paleoceanog., 20.
+-#### [markdown]
+-The ice ages (times of extensive glaciation and high ocean $\delta^{18}$O) do not seem to be random fluctations. They have come and gone (approximately) periodically, somewhat like the seasons.
+-#### [markdown]
+-**Spectral analysis** of such records reveals peaks at some special frequencies:
+-#### [markdown]
+-```{figure} ./ImbrieImbrie_Fig42.png
+----
+-width: 40%
+-name: directive-fig
+-alt: pha
+----
+-Spectral analysis of delta18O
+-```
+-#### [markdown]
+-> Imbrie, J. and Imbrie, K. P. (1986). Ice Ages: Solving the Mystery. Harvard University Press, Cambridge, Massachusetts.
+-#### [markdown]
+-The peaks noted on this figure are special because they correspond to frequencies of variations in Earth's orbital parameters, as we will see.
+-These kind of results became available in the 1970’s for the first time, because ocean sediment cores allowed a sufficiently detailed look into the past to use time series analysis methods on them, e.g. to compute spectra.
+-The presence of peaks in the spectrum at orbital frequencies was seen as convincing evidence that the so-called **astronomical theory of the ice ages** was (at least partially) correct.
+-#### [markdown]
+-## 2. Introducing the astronomical theory of the ice ages
+-The **Astronomical Theory** of climate and the ice ages looks to the **regular, predictable variations in the Earth's orbit around the Sun** as the driving force for the growth and melt of the great ice sheets. Such theories have been discussed since long before there was any evidence about the timing of past glaciations.
+-#### [markdown]
+-Last time we saw that insolation is NOT perfectly symmetrically distributed between the two hemispheres and seasons.
+-To refresh our memory, let's use
+-```
+-climlab.solar.insolation.daily_insolation()
+-```
+-to compare the maximum insolation received at the North Pole (at its summer solstice) and the South Pole (at its summer solstice).
+-#### [code]
+ from climlab.solar.insolation import daily_insolation
+-days = np.linspace(0, const.days_per_year, 365)
++#### [code]
++numpoints = 365.
++days = np.arange(0., 1., 0.001) * const.days_per_year
+ Qnorth = daily_insolation(90,days)
+@@ -91,12 +79,5 @@
+ #### [markdown]
+-The Earth’s orbit around the Sun traces out an **ellipse**, with the Sun at one focal point.
+-#### [markdown]
+-```{figure} ./ImbrieImbrie_Fig14.png
+----
+-width: 40%
+-name: directive-fig
+-alt: pha
+----
+-Earth's orbit
+-```
++The Earth’s orbit around the Sun traces out an **ellipse**, with the Sun at one focal point {cite:p}`Imbrie:1986aa`:
++#### [markdown]
++![Imbrie and Imbrie Figure 14](../images/ImbrieImbrie_Fig14.png)
+ #### [markdown]
+@@ -163,2 +144,3 @@
+ #### [markdown]
++### Lookup tool for known orbital parameters
+ There are tools in `climlab` to look up orbital parameters for Earth over the last 5 million years.
+@@ -173,3 +155,4 @@
+ #### [markdown]
+-Make reference plots of the variation in the three orbital parameter over the last 1 million years
++### Plotting a million years of past orbital parameters
++Let's make reference plots of the variation in the three orbital parameter over the last 1 million years
+ #### [code]
+@@ -188,16 +171,17 @@
+ #### [code]
+-fig = plt.figure( figsize = (8,12) )
++fig = plt.figure( figsize = (8,8) )
+ ax1 = fig.add_subplot(3,1,1)
+ ax1.plot( kyears, orb['ecc'] )
+-ax1.set_title('Eccentricity $e$', fontsize=18 )
+-ax1.set_xlim(-400,0)
++ax1.set_title(r'Eccentricity $e$', fontsize=18 )
++ax1.xaxis.set_ticklabels([])
+ ax2 = fig.add_subplot(3,1,3)
+ ax2.plot( kyears, orb['ecc'] * np.sin( np.deg2rad( orb['long_peri'] ) ) )
+-ax2.set_title('Precessional parameter $e \sin(\Lambda)$', fontsize=18 )
++ax2.set_title(r'Precessional parameter $e \sin(\Lambda)$', fontsize=18 )
+ ax2.set_xlabel( 'Thousands of years before present', fontsize=14 )
+-ax2.set_xlim(-400,0)
+ ax3 = fig.add_subplot(3,1,2)
+ ax3.plot( kyears, orb['obliquity'] )
+-ax3.set_title('Obliquity (axial tilt) $\Phi$', fontsize=18 )
+-ax3.set_xlim(-400,0)
++ax3.set_title(r'Obliquity (axial tilt) $\Phi$', fontsize=18 )
++ax3.xaxis.set_ticklabels([])
++for ax in [ax1,ax2,ax3]:
++    ax.grid()
+ #### [markdown]
+@@ -224,4 +208,4 @@
+ #### [code]
+-days = np.linspace(1.,20.)/20 * const.days_per_year
+-daily_insolation(90, days, thisorb)
++days20 = np.linspace(1.,20.)/20 * const.days_per_year
++daily_insolation(90, days20, thisorb)
+ #### [markdown]
+@@ -229,3 +213,3 @@
+ #### [code]
+-daily_insolation(90, days)
++daily_insolation(90, days20)
+ #### [markdown]
+@@ -265,3 +249,2 @@
+ lat = np.linspace(-90, 90, 181)
+-days = np.linspace(1.,50.)/50 * const.days_per_year
+ orb_0 = OrbitalTable.interp(kyear=0)  # present-day orbital parameters
+@@ -313,5 +296,2 @@
+ #### [code]
+-lat = np.linspace(-90, 90, 91)
+-num = 365.
+-days = np.linspace(1.,num,365)/num * const.days_per_year
+ Q = daily_insolation(lat, days, orb)
+@@ -331,7 +311,7 @@
+ ax[0].plot( kyears, orb['ecc'] )
+-ax[0].set_title('Eccentricity $e$', fontsize=18 )
++ax[0].set_title(r'Eccentricity $e$', fontsize=18 )
+ ax[2].plot( kyears, orb['obliquity'] )
+-ax[2].set_title('Obliquity (axial tilt) $\Phi$', fontsize=18 )
++ax[2].set_title(r'Obliquity (axial tilt) $\Phi$', fontsize=18 )
+ ax[4].plot( kyears, orb['ecc'] * np.sin( np.deg2rad( orb['long_peri'] ) ) )
+-ax[4].set_title('Precessional parameter $e \sin(\Lambda)$', fontsize=18 )
++ax[4].set_title(r'Precessional parameter $e \sin(\Lambda)$', fontsize=18 )
+ ax[1].plot( kyears, Qglobal )
+@@ -339,6 +319,11 @@
+ ax[1].ticklabel_format( useOffset=False )
+-ax[3].plot( kyears, Qann[80,:] )
+-ax[3].set_title('Annual mean insolation at 70N', fontsize=18 )
+-ax[5].plot( kyears, Q[80,170,:] )
+-ax[5].set_title('Summer solstice insolation at 70N', fontsize=18 )
++# These indices depend on the number of gridpoints we're using in latitude and days
++lat70index = 160
++summersolsticeindex = 170
++ax[3].plot( kyears, Qann[lat70index,:] )
++ax[3].set_title('Annual mean insolation at 70°N', fontsize=18 )
++ax[5].plot( kyears, Q[lat70index,summersolsticeindex,:] )
++ax[5].set_title('Summer solstice insolation at 70°N', fontsize=18 )
++for n in range(4):
++    ax[n].xaxis.set_ticklabels([])
+ for n in range(6):

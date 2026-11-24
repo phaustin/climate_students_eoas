@@ -1,0 +1,7 @@
+--- assignments/assignment6-insolation-orbit.md
++++ assignment-insolation-orbit.md
+@@ -28,3 +28,3 @@
+ ## Part 4
+-Recall that the **equilibrium temperature** in [our zero-dimensional EBM](zero-dim-ebm#3.-Equilibrium-temperature) is
++Recall that the **equilibrium temperature** in [our zero-dimensional EBM](zero-dim-ebm#equilibrium-temperature) is
+ $$T_{eq} = \left( \frac{(1-\alpha) ~ Q}{\tau~ \sigma} \right)^{\frac{1}{4}}$$

@@ -1,0 +1,54 @@
+--- week5/lab12_radeq.md
++++ radeq.md
+@@ -16,3 +16,5 @@
+ ncep_url = "http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/"
+-ncep_air = xr.open_dataset( ncep_url + "pressure/air.mon.1981-2010.ltm.nc", use_cftime=True)
++time_coder = xr.coders.CFDatetimeCoder(use_cftime=True)
++ncep_air = xr.open_dataset( ncep_url + "pressure/air.mon.1981-2010.ltm.nc",
++                           decode_times=time_coder)
+ #  Take global, annual average
+@@ -78,5 +80,7 @@
+ cesm_data_path = "http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/"
++# For better performance if you can access the roselab_rit filesystem (e.g. from JupyterHub)
++# cesm_data_path = "/roselab_rit/cesm_archive/"
+ atm_control = xr.open_dataset(cesm_data_path + "cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc")
+ #  The specific humidity is stored in the variable called Q in this dataset:
+-print(atm_control.Q)
++atm_control.Q
+ #### [markdown]
+@@ -88,3 +92,3 @@
+ # Take a look at what we just calculated ... it should be one-dimensional (vertical levels)
+-print(Qglobal)
++Qglobal
+ #### [markdown]
+@@ -110,3 +114,3 @@
+ mystate = climlab.column_state(lev=Qglobal.lev, water_depth=2.5)
+-print(mystate)
++mystate
+ #### [code]
+@@ -118,3 +122,3 @@
+                              )
+-print(radmodel)
++radmodel
+ #### [markdown]
+@@ -150,6 +154,6 @@
+ #  specific humidity in kg/kg, on the same pressure axis
+-print(radmodel.specific_humidity)
++radmodel.specific_humidity
+ #### [markdown]
+ ### The RRTMG radiation model has lots of different input parameters
+-For details you can look at the [documentation](http://climlab.readthedocs.io/en/latest/api/climlab.radiation.radiation.html)
++For details you can look at the [documentation](http://climlab.readthedocs.io/en/latest/api/climlab.radiation.Radiation.html)
+ #### [code]
+@@ -267,3 +271,3 @@
+ radmodel_noH2O.name = 'Radiation (no H2O)'
+-print(radmodel_noH2O)
++radmodel_noH2O
+ #### [code]
+@@ -303,4 +307,4 @@
+ #### [markdown]
+-- We used the `RRTMG` radiation model with prescribed profiles of absorbing gases to calculate **pure radiative equilibrium** temperature profiles.
+-- Radiative Equilibriu means the temperatures that the surface and air column would have **if radiation was the only physical process that could transfer energy between levels**.
++- We used the RRTMG radiation model with prescribed profiles of absorbing gases to calculate **pure radiative equilibrium** temperature profiles.
++- Radiative Equilibrium means the temperatures that the surface and air column would have **if radiation was the only physical process that could transfer energy between levels**.
+ - We computed several different radiative equilibrium profiles, with and without key absorbing gases

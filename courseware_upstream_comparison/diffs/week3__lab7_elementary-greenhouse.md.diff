@@ -1,0 +1,234 @@
+--- week3/lab7_elementary-greenhouse.md
++++ elementary-greenhouse.md
+@@ -7,7 +7,3 @@
+ #### [markdown]
+-::: {figure} ./images/1layerAtm_sketch.png
+-:width: 70%
+-:name: costheta
+-:alt: pha
+-:::
++![One layer atmosphere sketch](../images/1layerAtm_sketch.png)
+ #### [markdown]
+@@ -24,6 +20,8 @@
+ ### Energy balance at the surface
+-\begin{align}
++$$
++\begin{align*}
+ \text{energy in} &= \text{energy out} \\
+ (1-\alpha) Q + \sigma T_a^4 &= \sigma T_s^4 \\
+-\end{align}
++\end{align*}
++$$
+ The presence of the atmosphere above means there is an additional source term: downwelling infrared radiation from the atmosphere.
+@@ -99,15 +97,11 @@
+ #### [markdown]
+-::: {figure} ../../images/2layerAtm_sketch.png
+-:width: 70%
+-:name: costheta
+-:alt: pha
+-:::
++![Two layer atmosphere sketch](../images/2layerAtm_sketch_general.png)
+ #### [markdown]
+ - Surface temperature is $T_s$
+-- Atm. temperatures are $T_0, T_1$ where $T_0$ is closest to the surface.
+-- absorptivity of atm layers is $\epsilon$
+-- Surface emission is $\sigma T_s^4$
+-- Atm emission is $\epsilon \sigma T_0^4, \epsilon \sigma T_1^4$ (up and down)
+-- Absorptivity = emissivity for atmospheric layers
+-- a fraction $(1-\epsilon)$ of the longwave beam is **transmitted** through each layer
++- Atmospheric temperatures are $T_0, T_1$ where $T_0$ is closest to the surface.
++- Each atmospheric layer has an absorptivity $\epsilon_0$ or $\epsilon_1$
++- Surface emission is $\sigma T_s^4$ (i.e., the surface emits as a blackbody)
++- Atmospheric emissions are $\epsilon_0 \sigma T_0^4, \epsilon_1 \sigma T_1^4$ (up and down)
++- Absorptivity = emissivity for each atmospheric layer
++- The non-absorbed fraction $(1-\epsilon_0)$ or $(1-\epsilon_1)$ of the longwave beam is **transmitted** through each layer
+ #### [markdown]
+@@ -122,3 +116,3 @@
+ ### Layer 0 to layer 1
+-Now **following this beam upward**, we first recognize that a fraction $\epsilon$ of this beam is **absorbed** in layer 0.
++Now **following this beam upward**, we first recognize that a fraction $\epsilon_0$ of this beam is **absorbed** in layer 0.
+ The upward flux from layer 0 to layer 1 consists of the sum of two parts:
+@@ -127,8 +121,8 @@
+ We can write this upward flux from layer 0 to layer 1 as:
+-$$U_1 = (1-\epsilon) \sigma T_s^4 + \epsilon \sigma T_0^4$$
++$$U_1 = (1-\epsilon_0) \sigma T_s^4 + \epsilon_0 \sigma T_0^4$$
+ #### [markdown]
+ ### Beyond layer 1
+-Continuing to follow the same beam, we follow the same logic! A fraction $\epsilon$ of $U_1$ is absorbed in layer 1, and therefore the transmitted part is $(1-\epsilon) U_1$.
++Continuing to follow the same beam, we follow the same logic! A fraction $\epsilon_1$ of $U_1$ is absorbed in layer 1, and therefore the transmitted part is $(1-\epsilon_1) U_1$.
+ Including new emissions from layer 1, the upwelling flux above layer 1 is
+-$$U_2 = (1-\epsilon) U_1 + \epsilon \sigma T_1^4$$
++$$U_2 = (1-\epsilon_1) U_1 + \epsilon_1 \sigma T_1^4$$
+ #### [markdown]
+@@ -136,6 +130,7 @@
+ Since there is **no more atmosphere above layer 1**, this upwelling beam is our OLR for this model:
+-$$OLR = U_2 = (1-\epsilon) U_1 + \epsilon \sigma T_1^4$$
++$$\text{OLR} = U_2 = (1-\epsilon_1) U_1 + \epsilon_1 \sigma T_1^4$$
+ which, plugging in the above expression for $U_1$, works out to
+-$$OLR= (1-\epsilon)^2 \sigma T_s^4 + \epsilon(1-\epsilon)\sigma T_0^4 + \epsilon \sigma T_1^4$$
+-Here the three terms represent **contributions to the total OLR** that **originate from each of the three levels**
++$$\text{OLR} = (1-\epsilon_1)(1-\epsilon_0) \sigma T_s^4 + (1-\epsilon_1)\epsilon_0\sigma T_0^4 + \epsilon_1 \sigma T_1^4$$
++Here the three terms represent **contributions to the total OLR** that **originate from each of the three levels**.
++Pay attention to how the parameters $\epsilon_0, \epsilon_1$ appear in different ways in this expression, representing both *emissivity* of a layer as well as *absorptivity* of a layer through which the beam passes.
+ #### [markdown]
+@@ -143,6 +138,16 @@
+ Think about the following two questions:
+-- What happens to this expression if $\epsilon=1$? *What does this represent physically?*
+-- What about $\epsilon=0$?
+-#### [markdown]
++- What happens to this expression if $\epsilon_0 = \epsilon_1 =1$? *What does this represent physically?*
++- What about $\epsilon_0 = \epsilon_1 =0$?
++#### [markdown]
++:::{important}
+ By allowing the atmosphere to partially absorb emissions from other levels, we now see that the Outgoing Longwave Radiation to space **includes emissions from every level** - and therefore **affected by temperature at every level**!
++:::
++#### [markdown]
++### A simplifying assumption: equal emissivities in both layers
++We have introduced **two new parameters**, the emissivities (or absorptivities, same thing) $\epsilon_0, \epsilon_1$. So our equations so far are general enough to account for very different atmospheric compositions (e.g., different absorbing gases or cloud amounts) in the two layers.
++To keep things simple, from here on **we are going to assume that both atmospheric layers have the same emissivity**, that is we assume
++$$ \epsilon_0 = \epsilon_1 = \epsilon $$
++With this assumption, the expression for the OLR reduces to
++$$\text{OLR} = (1-\epsilon)^2 \sigma T_s^4 + \epsilon(1-\epsilon)\sigma T_0^4 + \epsilon \sigma T_1^4$$
++This is the expression we will use to tune our model to observations in the next section.
+ #### [markdown]
+@@ -150,3 +155,3 @@
+ #### [markdown]
+-In building our new model we have introduced exactly **one parameter**, the absorptivity $\epsilon$. We need to choose a value for $\epsilon$.
++Now we have exactly **one new parameter**, the absorptivity $\epsilon$. We need to choose a value for $\epsilon$.
+ We will tune our model so that it **reproduces the observed global mean OLR** given **observed global mean temperatures**.
+@@ -156,3 +161,2 @@
+ #  This code is used just to create the skew-T plot of global, annual mean air temperature
+-%matplotlib inline
+ import numpy as np
+@@ -162,3 +166,5 @@
+ ncep_url = "http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/"
+-ncep_air = xr.open_dataset( ncep_url + "pressure/air.mon.1981-2010.ltm.nc", use_cftime=True)
++time_coder = xr.coders.CFDatetimeCoder(use_cftime=True)
++ncep_air = xr.open_dataset( ncep_url + "pressure/air.mon.1981-2010.ltm.nc",
++                           decode_times=time_coder)
+ #  Take global, annual average and convert to Kelvin
+@@ -175,3 +181,2 @@
+ skew.plot_moist_adiabats(linewidth=0.5)
+-#skew.plot_mixing_lines()
+ skew.ax.legend()
+@@ -189,4 +194,4 @@
+ ### OLR
+-From the [observed global energy budget](models-budgets-fun#2.-The-observed-global-energy-budget) we set
+-$$OLR = 238.5 \text{ W m}^{-2}$$
++From the [observed global energy budget](models-budgets-fun#the-observed-global-energy-budget) we set
++$$\text{OLR} = 238.5 \text{ W m}^{-2}$$
+ #### [markdown]
+@@ -200,3 +205,3 @@
+ The OLR formula for the leaky greenhouse that we derived above is
+-$$OLR= (1-\epsilon)^2 \sigma T_s^4 + \epsilon(1-\epsilon)\sigma T_0^4 + \epsilon \sigma T_1^4$$
++$$\text{OLR} = (1-\epsilon)^2 \sigma T_s^4 + \epsilon(1-\epsilon)\sigma T_0^4 + \epsilon \sigma T_1^4$$
+ Do the following:
+@@ -209,2 +214,11 @@
+ - From your graph, find the approximate value of $\epsilon$ that gives $OLR = 238.5$
++#### [code]
++# Some partial code to get you started
++def OLR(Ts, T0, T1, epsilon):
++    return ... # fill in this line, implementing the formula for OLR above
++eps_array = ... # make an array of values ranging from 0 to 1
++#  uncomment this line to make the plot, after you have created the OLR function
++#plt.plot(eps_array, OLR(288, 275, 230, eps_array))
++# add axis labels and units, e.g. using plt.xlabel() and plt.ylabel()
++#plt.grid()  # uncomment this line to add grid lines to your figure
+ #### [markdown]
+@@ -223,7 +237,9 @@
+ The three components of the OLR are
+-\begin{align*}
+-OLR_s &= (1-\epsilon)^2 \sigma T_s^4  \\
+-OLR_0 &= \epsilon(1-\epsilon)\sigma T_0^4 \\
+-OLR_1 &= \epsilon \sigma T_1^4
+-\end{align*}
++$$
++\begin{align*}
++\text{OLR}_s &= (1-\epsilon)^2 \sigma T_s^4  \\
++\text{OLR}_0 &= \epsilon(1-\epsilon)\sigma T_0^4 \\
++\text{OLR}_1 &= \epsilon \sigma T_1^4
++\end{align*}
++$$
+ which of course add up to the total OLR we wrote down above.
+@@ -256,14 +272,18 @@
+ The components of the OLR before the perturbation are
+-\begin{align*}
+-OLR_s &= (1-\epsilon)^2 \sigma T_s^4  \\
+-OLR_0 &= \epsilon(1-\epsilon)\sigma T_0^4 \\
+-OLR_1 &= \epsilon \sigma T_1^4
+-\end{align*}
++$$
++\begin{align*}
++\text{OLR}_s &= (1-\epsilon)^2 \sigma T_s^4  \\
++\text{OLR}_0 &= \epsilon(1-\epsilon)\sigma T_0^4 \\
++\text{OLR}_1 &= \epsilon \sigma T_1^4
++\end{align*}
++$$
+ #### [markdown]
+ and after the perturbation we have
+-\begin{align*}
+-OLR_s &= (1-\epsilon - \Delta \epsilon)^2 \sigma T_s^4  \\
+-OLR_0 &= (\epsilon + \Delta \epsilon)(1-\epsilon - \Delta \epsilon)\sigma T_0^4 \\
+-OLR_1 &= (\epsilon + \Delta \epsilon) \sigma T_1^4
+-\end{align*}
++$$
++\begin{align*}
++\text{OLR}_s &= (1-\epsilon - \Delta \epsilon)^2 \sigma T_s^4  \\
++\text{OLR}_0 &= (\epsilon + \Delta \epsilon)(1-\epsilon - \Delta \epsilon)\sigma T_0^4 \\
++\text{OLR}_1 &= (\epsilon + \Delta \epsilon) \sigma T_1^4
++\end{align*}
++$$
+ #### [markdown]
+@@ -271,14 +291,18 @@
+ #### [markdown]
+-\begin{align*}
+-\Delta OLR_s &= \left[(1-\epsilon - \Delta \epsilon)^2 - (1-\epsilon)^2\right]\sigma T_s^4  \\
+-\Delta OLR_0 &= \left[(\epsilon + \Delta \epsilon)(1-\epsilon - \Delta \epsilon) - \epsilon(1-\epsilon)  \right] \sigma T_0^4 \\
+-\Delta OLR_1 &= \left[(\epsilon + \Delta \epsilon) - \epsilon \right] \sigma T_1^4
+-\end{align*}
++$$
++\begin{align*}
++\Delta \text{OLR}_s &= \left[(1-\epsilon - \Delta \epsilon)^2 - (1-\epsilon)^2\right]\sigma T_s^4  \\
++\Delta \text{OLR}_0 &= \left[(\epsilon + \Delta \epsilon)(1-\epsilon - \Delta \epsilon) - \epsilon(1-\epsilon)  \right] \sigma T_0^4 \\
++\Delta \text{OLR}_1 &= \left[(\epsilon + \Delta \epsilon) - \epsilon \right] \sigma T_1^4
++\end{align*}
++$$
+ #### [markdown]
+ Now expand this out, but to make things easier to deal with, neglect term in $\Delta \epsilon^2$ (very small - we will be considering changes of less than 10% in $\epsilon$):
+-\begin{align*}
+-\Delta OLR_s &\approx (\Delta \epsilon) \left[ -2(1-\epsilon) \right] \sigma T_s^4  \\
+-\Delta OLR_0 &\approx (\Delta \epsilon) (1 - 2 \epsilon) \sigma T_0^4 \\
+-\Delta OLR_1 &\approx (\Delta \epsilon) \sigma T_1^4
+-\end{align*}
++$$
++\begin{align*}
++\Delta \text{OLR}_s &\approx (\Delta \epsilon) \left[ -2(1-\epsilon) \right] \sigma T_s^4  \\
++\Delta \text{OLR}_0 &\approx (\Delta \epsilon) (1 - 2 \epsilon) \sigma T_0^4 \\
++\Delta \text{OLR}_1 &\approx (\Delta \epsilon) \sigma T_1^4
++\end{align*}
++$$
+ #### [markdown]
+@@ -297,3 +321,3 @@
+ In this model, **only the longwave flux can change**, so we calculate the radiative forcing as
+-$$ R = - \Delta OLR $$
++$$ R = - \Delta \text{OLR} $$
+ (with the minus sign so that $R$ is **positive when the climate system is gaining extra energy**).
+@@ -305,6 +329,8 @@
+ #### [markdown]
+-\begin{align*}
+-R &= -\Delta OLR_s - \Delta OLR_0 - \Delta OLR_1  \\
++$$
++\begin{align*}
++R &= -\Delta \text{OLR}_s - \Delta \text{OLR}_0 - \Delta \text{OLR}_1  \\
+   &= -\Delta \epsilon \left[  -2(1-\epsilon) \sigma T_s^4 + (1 - 2 \epsilon) \sigma T_0^4  + \sigma T_1^4 \right]
+ \end{align*}
++$$
+ #### [markdown]
+@@ -362,5 +388,6 @@
+ So in our example, **the OLR decreases by 2.6 W m$^{-2}$**, or equivalently, the **radiative forcing is +2.6 W m$^{-2}$.**
+-What we have just calculated is this:
++:::{important} What did we just calculate?
+ **Given the observed lapse rates, a small increase in absorbers will cause a small decrease in OLR.**
+ The **greenhouse effect** thus gets **stronger**, and energy will begin to accumulate in the system -- which will eventually **cause temperatures to increase** as the system adjusts to a new equilibrium.
++:::
+ #### [markdown]

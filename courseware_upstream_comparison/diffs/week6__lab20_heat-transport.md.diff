@@ -1,0 +1,57 @@
+--- week6/lab20_heat-transport.md
++++ heat-transport.md
+@@ -30,3 +30,3 @@
+ CS = ax1.contour( days, lat, Q , levels = np.arange(0., 600., 50.) )
+-ax1.clabel(CS, CS.levels, inline=True, fmt='%r', fontsize=10)
++ax1.clabel(CS, CS.levels, inline=True, fmt='%1.0f', fontsize=10)
+ ax1.set_title('Daily average insolation', fontsize=18 )
+@@ -36,3 +36,3 @@
+                  ncep_temp_zon.T, levels=np.arange(210., 310., 10. ) )
+-ax2.clabel(CS, CS.levels, inline=True, fmt='%r', fontsize=10)
++ax2.clabel(CS, CS.levels, inline=True, fmt='%1.0f', fontsize=10)
+ ax2.set_title('Observed zonal average surface temperature', fontsize=18 )
+@@ -75,4 +75,4 @@
+                              albedo=0.125,
+-                             insolation=sun.insolation,
+-                             coszen=sun.coszen)
++                             coszen=sun.coszen,
++                             irradiance_factor=sun.irradiance_factor,)
+ model = climlab.couple([rad,sun,h2o,conv], name='RCM')
+@@ -299,6 +299,6 @@
+ We've been working with an energy budget that looks something like this:
+-<img src='../../images/column_sketch.pdf' width=200>
++![Column sketch](../images/column_sketch.pdf)
+ #### [markdown]
+ When we start thinking about regional climates, we need to modify our budget to account for the **additional heating or cooling** due to **transport** in and out of the column:
+-<img src='../../images/column_sketch2.pdf' width=200>
++![Column sketch 2](../images/column_sketch2.pdf)
+ #### [markdown]
+@@ -311,3 +311,3 @@
+ #### [markdown]
+-<img src='../../images/ZonalEnergyBudget_sketch.png' width=400>
++![Zonal energy budget sketch](../images/ZonalEnergyBudget_sketch.png)
+ #### [markdown]
+@@ -324,2 +324,3 @@
+ So we can write the heating rate as
++$$
+ \begin{align*}
+@@ -328,2 +329,3 @@
+ \end{align*}
++$$
+ #### [markdown]
+@@ -389,4 +391,4 @@
+     #  result as plain numpy array
+-    integral = integrate.cumtrapz(field, x=lat_rad, initial=0., axis=latax)
+-    result = (1E-15 * 2 * np.math.pi * const.a**2 * integral)
++    integral = integrate.cumulative_trapezoid(field, x=lat_rad, initial=0., axis=latax)
++    result = (1E-15 * 2 * np.pi * const.a**2 * integral)
+     if isinstance(field, xr.DataArray):
+@@ -413,6 +415,6 @@
+ #### [markdown]
+-<img src='../../images/Fasullo_Trenberth_2008b_Fig7.jpg'>
++![Fasullo and Trenberth 2008b, Figure 7](../images/Fasullo_Trenberth_2008b_Fig7.jpg)
+ #### [markdown]
+ > The ERBE period zonal mean annual cycle of the meridional energy transport in PW by (a) the atmosphere and ocean as inferred from ERBE $R_T$, NRA $\delta$A_E/$\delta$t, and GODAS $\delta$O_E/$\delta$t; (b) the atmosphere based on NRA; and (c) by the ocean as implied by ERBE + NRA $F_S$ and GODAS $\delta$O_E/$\delta$t. Stippling and hatching in (a)–(c) represent regions and times of year in which the standard deviation of the monthly mean values among estimates, some of which include the CERES period (see text), exceeds 0.5 and 1.0 PW, respectively. (d) The median annual mean transport by latitude for the total (gray), atmosphere (red), and ocean (blue) accompanied with the associated $\pm2\sigma$ range (shaded).
+-This is a reproduction of Figure 7 from Fasullo and Trenberth (2008), "The Annual Cycle of the Energy Budget. Part II: Meridional Structures and Poleward Transports", J. Climate 21, doi:10.1175/2007JCLI1936.1
++This is a reproduction of Figure 7 from {cite:t}`Fasullo:2008b`.
+ #### [markdown]

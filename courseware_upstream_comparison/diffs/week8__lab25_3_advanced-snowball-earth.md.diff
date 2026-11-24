@@ -1,0 +1,82 @@
+--- week8/lab25_3_advanced-snowball-earth.md
++++ advanced-snowball-earth.md
+@@ -4,7 +4,9 @@
+ #### [markdown]
+-*These notes and the companion [Advanced topic: Ice albedo feedback in the EBM](advanced-albedo-feedback) extend the material in the [Ice-albedo feedback and Snowball Earth in the EBM](albedo-snowball) notes.*
+-#### [markdown]
+-<div class="alert alert-warning">
++:::{note}
++These notes and the companion [Advanced topic: Ice albedo feedback in the EBM](advanced-albedo-feedback) extend the material in the [Ice-albedo feedback and Snowball Earth in the EBM](albedo-snowball) notes.
++:::
++#### [markdown]
++:::{warning}
+ Unlike most of the other notebooks in this series, this one performs some intensive computations and may take more than an hour to run from start to finish (your mileage may vary).
+-</div>
++:::
+ #### [code]
+@@ -19,15 +21,14 @@
+ ### The Geologic Time Scale
+-First, some information on the nomenclature for Earth history:
+-#### [markdown]
+-<img src='./GeoTimeScale2009.png'>
+-Source: Walker, J. and Geissman, J. (2009). Geologic time scale. Technical report, Geological Society of America.
++First, some information on the nomenclature for Earth history {cite:p}`GeoTimeScale:2009`:
++![Geological Time Scale](../images/GeoTimeScale2009.png)
++#### [markdown]
++The long view of glacial epochs on Earth {cite:p}`Hoffman:2017a`:
++![Hoffman et al. (2017) Sci. Adv. Figure 2](../images/Hoffman_etal_SciAdv_Fig2.pdf)
+ #### [markdown]
+ ### Extensive evidence for large glaciers at sea level in the tropics
+-Evidently the climate was **very cold** at these times (635 Ma and 715 Ma)
+-#### [markdown]
+-<img src='./Hoffman_Li_2009.png'>
+-Source: [Hoffman, P. F. and Li, Z.-X. (2009). A palaeogeographic context for Neoproterozoic glaciation. Palaeogeogr. Palaeoclimatol. Palaeoecol., 277:158–172.](https://doi.org/10.1016/j.palaeo.2009.03.013)
+-#### [markdown]
+-<img src='./Hoffman_Schrag_2002_Fig2.png'>
+-Source: [Hoffman, P. F. and Schrag, D. P. (2002). The snowball Earth hypothesis: testing the limits of global change. Terra Nova, 14(3):129–155.](https://doi.org/10.1046/j.1365-3121.2002.00408.x)
++Evidently the climate was **very cold** at these times (635 Ma and 715 Ma) {cite:p}`Hoffman:2009a`:
++![Hoffman and Li (2009)](../images/Hoffman_Li_2009.png)
++#### [markdown]
++![Hoffman and Schrag (2002) Figure 2](../images/Hoffman_Schrag_2002_Fig2.png)
++Source: {cite:t}`Hoffman:2002fk`
+ #### [markdown]
+@@ -46,3 +47,3 @@
+ #### [markdown]
+-<img src='./large_ice_cap_sketch.png'>
++![Large ice cap sketch](../images/large_ice_cap_sketch.png)
+ #### [markdown]
+@@ -56,3 +57,3 @@
+ This is called **Large Ice Cap Instability**, and was first discovered in the Budyko-Sellers EBM.
+-See [Rose (2015), J. Geophys. Res., doi:10.1002/2014JD022659](http://onlinelibrary.wiley.com/doi/10.1002/2014JD022659/abstract)
++See {cite:t}`Rose:2015a` for more details.
+ #### [markdown]
+@@ -91,3 +92,3 @@
+ ax1.set_xlabel('Latitude')
+-ax1.set_ylabel('Temperature (degC)')
++ax1.set_ylabel('Temperature (°C)')
+ ax2 = fig.add_subplot(1,2,2)
+@@ -112,3 +113,3 @@
+ #### [markdown]
+-Way back in [Lecture 3](./Lecture03 -- Climate sensitivity and feedback.ipynb) we defined the net climate feedback parameter through a linear Taylor series expansion of the global energy budget:
++Back in our [Lecture on climate sensitivity](advanced-sensitivity-feedback) we defined the net climate feedback parameter through a linear Taylor series expansion of the global energy budget:
+ $$ \lambda = \frac{\partial}{\partial \langle T_s \rangle} \bigg( \Delta F_{TOA} \bigg) $$
+@@ -138,2 +139,4 @@
+     plt.plot(lat, model1.Ts)
++plt.ylabel('Temperature (°C)')
++plt.xlabel('Latitude')
+ #### [markdown]
+@@ -161,2 +164,4 @@
+     plt.plot(lat, model1.Ts)
++plt.ylabel('Temperature (°C)')
++plt.xlabel('Latitude')
+ #### [markdown]
+@@ -236,3 +241,3 @@
+ plt.plot(model4.lat, model4.Ts)
+-plt.xlim(-90,90); plt.ylabel('Temperature'); plt.xlabel('Latitude')
++plt.xlim(-90,90); plt.ylabel('Temperature (°C)'); plt.xlabel('Latitude')
+ plt.grid(); plt.xticks(my_ticks)
+@@ -247,3 +252,3 @@
+ plt.plot(model4.lat, model4.Ts)
+-plt.xlim(-90,90); plt.ylabel('Temperature'); plt.xlabel('Latitude')
++plt.xlim(-90,90); plt.ylabel('Temperature (°C)'); plt.xlabel('Latitude')
+ plt.grid(); plt.xticks(my_ticks);

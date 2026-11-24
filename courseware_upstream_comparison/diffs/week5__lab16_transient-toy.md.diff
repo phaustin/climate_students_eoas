@@ -1,0 +1,82 @@
+--- week5/lab16_transient-toy.md
++++ transient-toy.md
+@@ -21,2 +21,4 @@
+ cesm_data_path = "http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/"
++# For better performance if you can access the roselab_rit filesystem (e.g. from JupyterHub)
++# cesm_data_path = "/roselab_rit/cesm_archive/"
+ atm_control = xr.open_dataset(cesm_data_path + "cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc")
+@@ -53,3 +55,3 @@
+ #### [markdown]
+-We are going to **double CO2 in both models** and label them as high and low sensitivity. We will build in **different feedbacks** into our two columns.
++We are going to **double CO$_2$ in both models** and label them as high and low sensitivity. We will build in **different feedbacks** into our two columns.
+ #### [code]
+@@ -100,4 +102,6 @@
+         rcm_2xCO2.step_forward()
+-    print('The TOA imbalance is %0.5f W/m2' %(rcm_2xCO2.ASR-rcm_2xCO2.OLR))
+-    print('The ECS is %0.3f K' %(rcm_2xCO2.Ts - rcm_control.Ts))
++    imbalance = (rcm_2xCO2.ASR - rcm_2xCO2.OLR).squeeze()  # convert to a single scalar
++    ecs = (rcm_2xCO2.Ts - rcm_control.Ts).squeeze()
++    print('The TOA imbalance is {:.2e} W/m2'.format(imbalance))
++    print('The ECS is {:.2f} K'.format(ecs))
+     print('')
+@@ -171,5 +175,5 @@
+ #### [markdown]
+-Now consider the CO2 increase. In the real world, CO2 has been increasing every year since the beginning of industrialization. Future CO2 concentrations depend on collective choices made by human societies about how much fossil fuel to extract and burn.
+-We will set up a simple scenario. Suppose that CO2 increases by 1% of its existing concentration every year **until it reaches 2x its initial concentration**. This takes about 70 years.
+-After 70 years, we assume that all anthropogenic emissions, and CO2 concentration is **stabilized** at the 2x level.
++Now consider the CO$_2$ increase. In the real world, CO$_2$ has been increasing every year since the beginning of industrialization. Future CO$_2$ concentrations depend on collective choices made by human societies about how much fossil fuel to extract and burn.
++We will set up a simple scenario. Suppose that CO$_2$ increases by 1% of its existing concentration every year **until it reaches 2x its initial concentration**. This takes about 70 years.
++After 70 years, we assume that all anthropogenic emissions, and CO$_2$ concentration is **stabilized** at the 2x level.
+ What happens to the surface temperature?
+@@ -178,5 +182,5 @@
+ #### [markdown]
+-<div class="alert alert-success">
+-This code will take a long time to run! While it's running, we'll think about what the result might look like
+-</div>
++:::{caution}
++This code will take a long time to run! While it's running, we'll think about what the result might look like.
++:::
+ #### [code]
+@@ -191,4 +195,4 @@
+     thisTocean = np.nan * np.zeros((deep[n].Tocean.size, num_years+1))
+-    thisTs[0] = deep[n].Ts
+-    thisnetrad[0] = deep[n].ASR - deep[n].OLR
++    thisTs[0] = deep[n].Ts.squeeze()
++    thisnetrad[0] = (deep[n].ASR - deep[n].OLR).squeeze()
+     thisTocean[:, 0] = deep[n].Tocean
+@@ -214,5 +218,5 @@
+             model.step_forward()
+-            Tsarray[n][y+1] = model.Ts
++            Tsarray[n][y+1] = model.Ts.squeeze()
+             Tocean[n][:, y+1] = model.Tocean
+-            netrad[n][y+1] = model.ASR - model.OLR
++            netrad[n][y+1] = (model.ASR - model.OLR).squeeze()
+ #### [code]
+@@ -266,7 +270,7 @@
+ - The warming in the two models is almost identical during this phase
+-- After year 70, the CO2 levels are stable and so the radiative forcing is no longer increasing
++- After year 70, the CO$_2$ levels are stable and so the radiative forcing is no longer increasing
+ - Both models continue to warm for hundreds of years
+ - The difference between the two models become larger over time
+-- In either case, at the time of CO2 doubling the model has achieved only a fraction of its equilibrium surface warming.
+-- The difference between the warming at year 70 and the equilibrium warming is called the **committed warming**. It is the global warming associated with CO2 emissions that are **already in the atmosphere**.
++- In either case, at the time of CO$_2$ doubling the model has achieved only a fraction of its equilibrium surface warming.
++- The difference between the warming at year 70 and the equilibrium warming is called the **committed warming**. It is the global warming associated with CO$_2$ emissions that are **already in the atmosphere**.
+ - How do we know at year 70 what the committed warming is?  Are we on the blue or the red path? At year 70, have we achieved half or only a third of the eventual equilibrium warming?
+@@ -279,3 +283,3 @@
+ #### [markdown]
+-This figure shows how a comprehensive coupled GCM responds to the same kind of idealized CO2 increase we have looked at above: CO2 increases at 1%/year for 70 years and is then held constant at twice the pre-industrial level (blue curve), or at 4x the pre-industrial level (red curve).
++This figure shows how a comprehensive coupled GCM responds to the same kind of idealized CO$_2$ increase we have looked at above: CO$_2$ increases at 1%/year for 70 years and is then held constant at twice the pre-industrial level (blue curve), or at 4x the pre-industrial level (red curve) {cite:p}`Yoshimori:2016a`
+ The dashed curve show the **ocean heat content** continuing to rise slowly over thousands of years.
+@@ -286,3 +290,3 @@
+ #### [markdown]
+-### What happens if CO2 levels are abruptly returned to pre-industrial levels?
++### What happens if CO$_2$ levels are abruptly returned to pre-industrial levels?
+ #### [markdown]
+@@ -290,4 +294,4 @@
+ The red curves show the effects of suddenly returning greenhouse gases to their preindustrial levels at various times in the future.
+-The temperatures very quickly drop, but **not back to the preindustrial values**. Over time, the build-up of heat content in the deep ocean means that, even if CO2 levels revert to what they used to be, the climate remain quite a bit warmer for thousands of years.
+-This has been referred to as the **recalcitrant** component of global warming, in analogy with stubborn medical conditions that are difficult to treat.
++The temperatures very quickly drop, but **not back to the preindustrial values**. Over time, the build-up of heat content in the deep ocean means that, even if CO$_2$ levels revert to what they used to be, the climate remain quite a bit warmer for thousands of years.
++This has been referred to as the **recalcitrant** component of global warming, in analogy with stubborn medical conditions that are difficult to treat {cite:p}`Held:2010a`.
+ #### [markdown]

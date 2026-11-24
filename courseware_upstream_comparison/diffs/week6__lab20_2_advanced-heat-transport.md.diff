@@ -1,0 +1,123 @@
+--- week6/lab20_2_advanced-heat-transport.md
++++ advanced-heat-transport.md
+@@ -4,3 +4,5 @@
+ #### [markdown]
+-*This notebook is an extension of the [Heat transport notes](heat-transport) containing some additional advanced material on the decomposition of total heat transport in components. The advanced notes are unfinished but may be useful.*
++:::{note}
++This notebook is an extension of the [Heat transport notes](heat-transport) containing some additional advanced material on the decomposition of total heat transport in components. The advanced notes are unfinished but may be useful.
++:::
+ #### [markdown]
+@@ -32,3 +34,3 @@
+ CS = ax1.contour( days, lat, Q , levels = np.arange(0., 600., 50.) )
+-ax1.clabel(CS, CS.levels, inline=True, fmt='%r', fontsize=10)
++ax1.clabel(CS, CS.levels, inline=True, fmt='%1.0f', fontsize=10)
+ ax1.set_title('Daily average insolation', fontsize=18 )
+@@ -38,3 +40,3 @@
+                  ncep_temp_zon.T, levels=np.arange(210., 310., 10. ) )
+-ax2.clabel(CS, CS.levels, inline=True, fmt='%r', fontsize=10)
++ax2.clabel(CS, CS.levels, inline=True, fmt='%1.0f', fontsize=10)
+ ax2.set_title('Observed zonal average surface temperature', fontsize=18 )
+@@ -77,3 +79,3 @@
+                              albedo=0.125,
+-                             insolation=sun.insolation,
++                             irradiance_factor=sun.irradiance_factor,
+                              coszen=sun.coszen)
+@@ -156,2 +158,4 @@
+ ax.grid(); ax.legend();
++ax.set_xlabel('Latitude')
++ax.set_ylabel('Temperature (K)')
+ #### [markdown]
+@@ -186,2 +190,4 @@
+     ax.set_xticks([-90, -60, -30, 0, 30, 60, 90])
++    ax.set_xlabel('Latitude')
++    ax.set_ylabel('Pressure (hPa)')
+ #### [markdown]
+@@ -199,3 +205,3 @@
+ ax.set_xlabel('Latitude')
+-ax.set_ylabel('W/m2')
++ax.set_ylabel('W m$^{-2}$')
+ ax.legend(); ax.grid()
+@@ -233,3 +239,3 @@
+ ax.plot(OLRzon.lat, OLRzon, label='OLR')
+-ax.set_ylabel('W/m2')
++ax.set_ylabel('W m$^{-2}$')
+ ax.set_xlabel('Latitude')
+@@ -286,3 +292,3 @@
+ ax.plot(lat_cesm, OLR_cesm_zon, label='OLR')
+-ax.set_ylabel('W/m2')
++ax.set_ylabel('W m$^{-2}$')
+ ax.set_xlabel('Latitude')
+@@ -301,20 +307,6 @@
+ We've been working with an energy budget that looks something like this:
+-```{figure} ./column_sketch.jpg
+----
+-width: 30%
+-name: directive-fig
+-alt: pha
+----
+-Global Energy Budget
+-```
++![Column sketch](../images/column_sketch.pdf)
+ #### [markdown]
+ When we start thinking about regional climates, we need to modify our budget to account for the **additional heating or cooling** due to **transport** in and out of the column:
+-```{figure} ./column_sketch2.jpg
+----
+-width: 30%
+-name: directive-fig2
+-alt: pha
+----
+-Global Energy Budget
+-```
++![Column sketch 2](../images/column_sketch2.pdf)
+ #### [markdown]
+@@ -327,3 +319,3 @@
+ #### [markdown]
+-<img src='../../images/ZonalEnergyBudget_sketch.png' width=400>
++![Zonal energy budget sketch](../images/ZonalEnergyBudget_sketch.png)
+ #### [markdown]
+@@ -417,4 +409,4 @@
+     #  result as plain numpy array
+-    integral = integrate.cumtrapz(field, x=lat_rad, initial=0., axis=latax)
+-    result = (1E-15 * 2 * np.math.pi * const.a**2 * integral)
++    integral = integrate.cumulative_trapezoid(field, x=lat_rad, initial=0., axis=latax)
++    result = (1E-15 * 2 * np.pi * const.a**2 * integral)
+     if isinstance(field, xr.DataArray):
+@@ -431,2 +423,3 @@
+ ax.set_ylabel('PW')
++ax.set_xlabel('Latitude')
+ ax.set_xticks(ticks)
+@@ -448,2 +441,3 @@
+ ax.set_ylabel('PW')
++ax.set_xlabel('Latitude')
+ ax.set_xticks(ticks)
+@@ -457,3 +451,3 @@
+ weight_ncep = np.cos(np.deg2rad(lat_ncep)) / np.cos(np.deg2rad(lat_ncep)).mean(dim='lat')
+-imbal_ncep = (Rtoa_ncep * weight_ncep).mean(dim='lat')
++imbal_ncep = (Rtoa_ncep).weighted(weight_ncep).mean(dim='lat')
+ print( 'The net downward TOA radiation flux in NCEP renalysis data is %0.1f W/m2.' %imbal_ncep)
+@@ -466,3 +460,3 @@
+ Rtoa_ncep_balanced = Rtoa_ncep - imbal_ncep
+-newimbalance = float((Rtoa_ncep_balanced * weight_ncep).mean(dim='lat'))
++newimbalance = float(Rtoa_ncep_balanced.weighted(weight_ncep).mean(dim='lat'))
+ print( 'The net downward TOA radiation flux after balancing the data is %0.2e W/m2.' %newimbalance)
+@@ -472,2 +466,3 @@
+ ax.set_ylabel('PW')
++ax.set_xlabel('Latitude')
+ ax.set_xticks(ticks)
+@@ -486,3 +481,3 @@
+ #### [markdown]
+-<img src='../../images/Fasullo_Trenberth_2008b_Fig7.jpg'>
++![Fasullo and Trenberth 2008b, Figure 7](../images/Fasullo_Trenberth_2008b_Fig7.jpg)
+ #### [markdown]
+@@ -644,2 +639,4 @@
+     ax.grid()
++    ax.set_xlabel('Latitude')
++    ax.set_ylabel('PW')
+ #### [markdown]
+@@ -695,3 +692,5 @@
+ #### [markdown]
+-### *These notes are not really finished...*
++:::{note}
++These notes are unfinished.
++:::
+ #### [markdown]

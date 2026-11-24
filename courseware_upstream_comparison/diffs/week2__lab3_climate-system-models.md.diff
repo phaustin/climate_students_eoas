@@ -1,0 +1,146 @@
+--- week2/lab3_climate-system-models.md
++++ climate-system-models.md
+@@ -7,26 +7,26 @@
+ ### Definition of the “climate system” and its “spheres”
+-From the IPCC AR5 report:
+-> **Climate System:** “The climate system is the highly complex system consisting of five major components: the atmosphere, the hydrosphere, the cryosphere, the lithosphere and the biosphere, and the interactions between them. The climate system evolves in time under the influence of its own internal dynamics and because of external forcings such as volcanic eruptions, solar variations and anthropogenic forcings such as the changing composition of the atmosphere and land use change.”
++From the IPCC AR5 report {cite:p}`AR5_Ch1`:
++:::{glossary}
++Climate System
++: The climate system is the highly complex system consisting of five major components: the {term}`atmosphere`, the {term}`hydrosphere`, the {term}`cryosphere`, the {term}`lithosphere` and the {term}`biosphere`, and the interactions between them. The climate system evolves in time under the influence of its own internal dynamics and because of external forcings such as volcanic eruptions, solar variations and anthropogenic forcings such as the changing composition of the atmosphere and land use change.
++:::
+ #### [markdown]
+ Which begs some further definitions:
+-#### [markdown]
+-#### Atmosphere
+->The gaseous envelope surrounding the Earth.
+-#### [markdown]
+-#### Hydrosphere
+->The component of the climate system comprising liquid surface and subterranean water, such as oceans, seas, rivers, lakes, underground water, etc.
+-#### [markdown]
+-#### **Biosphere** (terrestrial and marine):
+-> The part of the Earth system comprising all ecosystems and living organisms… including derived dead organic matter, such as litter, soil organic matter and oceanic detritus.
+-#### [markdown]
+-#### **Cryosphere**:
+-> All regions on and beneath the surface of the Earth and ocean where water is in solid form, including sea ice, lake ice, river ice, snow cover, glaciers and ice sheets, and frozen ground (which includes permafrost).
+-#### [markdown]
+-#### **Lithosphere**:
+-> The upper layer of the solid Earth, both continental and oceanic, which comprises all crustal rocks and the cold, mainly elastic part of the uppermost mantle.
++:::{glossary}
++Atmosphere
++: The gaseous envelope surrounding the Earth.
++Hydrosphere
++: The component of the climate system comprising liquid surface and subterranean water, such as oceans, seas, rivers, lakes, underground water, etc.
++Biosphere
++: The part of the Earth system comprising all ecosystems and living organisms (both terrestrial and marine)… including derived dead organic matter, such as litter, soil organic matter and oceanic detritus.
++Cryosphere
++: All regions on and beneath the surface of the Earth and ocean where water is in solid form, including sea ice, lake ice, river ice, snow cover, glaciers and ice sheets, and frozen ground (which includes permafrost).
++Lithosphere
++: The upper layer of the solid Earth, both continental and oceanic, which comprises all crustal rocks and the cold, mainly elastic part of the uppermost mantle.
++:::
+ #### [markdown]
+ ### WHY might we want to include all these “spheres” in our models?
+-Here are two nice figures from the IPCC AR5 WG1 report:
+-#### [markdown]
+-<img src='http://www.climatechange2013.org/images/figures/WGI_AR5_Fig1-1.jpg' width="800">
++Here are two nice figures from the IPCC AR5 WG1 report {cite:p}`AR5_Ch1`:
++#### [markdown]
++<img src='https://www.ipcc.ch/site/assets/uploads/2017/09/Fig1-01.jpg' width="800">
+ #### [markdown]
+@@ -45,3 +45,3 @@
+ #### [markdown]
+-<img src="../../images/Primer_Table1.8.png" width="800">
++![Primer Table 1.8](../images/Primer_Table1.8.png)
+ #### [markdown]
+@@ -50,3 +50,3 @@
+ ### Definitions
+-The *Climate Modelling Primer* (4th ed., page 124) defines **parameterization** as
++The *Climate Modelling Primer* (4th ed., page 124) {cite:p}`ClimateModellingPrimer:4ed` defines **parameterization** as
+ > The process of capturing a physical process through some mathematical relationship between important parameters in the process, but without explicitly modeling all the actual processes. For example, the albedo of leaves might be related to the soil moisture (via some specification of wilting point) but the physical and biological mechanisms in the plant that happen when the leaf wilts are not modelled.
+@@ -86,17 +86,12 @@
+ ### Key components of a climate model
+-#### [markdown]
+-#### Radiation
+-The way in which the input and absorption of solar radiation and the emission of infrared radiation are handled
+-#### [markdown]
+-#### Dynamics
+-The movement of energy around the globe by winds and ocean currents (specifically from low to high latitudes) and vertical movements (e.g. small-scale turbulence, convection and deep-water formation)
+-#### [markdown]
+-#### Surface processes
+-Inclusion of the effects of sea and land ice, snow, vegetation and the resultant change in albedo, emissivity and surface-atmosphere energy and moisture interchanges.
+-#### [markdown]
+-#### Chemistry
+-The chemical composition of the atmosphere and interactions, including biological, with other components (e.g. carbon exchanges between ocean, land and atmosphere)
+-#### [markdown]
+-#### Resolution (in both time and space)
+-The timestep of the model and the horizontal and vertical scales resolved.
++Radiation
++: The way in which the input and absorption of solar radiation and the emission of infrared radiation are handled
++Dynamics
++: The movement of energy around the globe by winds and ocean currents (specifically from low to high latitudes) and vertical movements (e.g. small-scale turbulence, convection and deep-water formation)
++Surface processes
++: Inclusion of the effects of sea and land ice, snow, vegetation and the resultant change in albedo, emissivity and surface-atmosphere energy and moisture interchanges.
++Chemistry
++: The chemical composition of the atmosphere and interactions, including biological, with other components (e.g. carbon exchanges between ocean, land and atmosphere)
++Resolution (in both time and space)
++: The timestep of the model and the horizontal and vertical scales resolved.
+ #### [markdown]
+@@ -105,3 +100,3 @@
+ #### [markdown]
+-<img src='../../images/Primer_Figure2.2.png' width="800">
++![Primer Figure 2.2](../images/Primer_Figure2.2.png)
+ #### [markdown]
+@@ -116,3 +111,6 @@
+ ### 1. Energy Balance Models (EBMs)
+-Zero- or one-dimensional models predicting the surface (strictly the sea-level) temperature as a function of the energy balance of the Earth.
++Here's a definition:
++:::{glossary}
++Energy Balance Model
++: A simplified climate model (typically zero- or one-dimensional) predicting the surface temperature as a function of the Earth's energy balance (i.e., the imbalance between the {term}`Absorbed Shortwave Radiation` and {term}`Outgoing Longwave Radiation`.
+ Simplified relationships are used to calculate the terms contributing to the energy balance in each latitude zone in the one-dimensional case.
+@@ -132,3 +130,6 @@
+ ### 4. Global Circulation Models (GCMs)
+-The **three-dimensional nature** of the atmosphere and ocean is incorporated.
++:::{glossary}
++Global Circulation Model
++: A complex climate model that simulates the global, three-dimensional circulation of the atmosphere, ocean, or both.
++:::
+ These models can exists as *fully coupled ocean-atmosphere models* or, for testing and evaluation, as independent ocean or atmospheric circulation models.
+@@ -154,6 +155,6 @@
+ #### [markdown]
+-<img src='../../images/Primer_Table2.1.png' width="800">
++![Primer Table 2.1](../images/Primer_Table2.1.png)
+ #### [markdown]
+ In this course we are going to work extensively with two kinds of simple one-dimensional model: **EBM**s and **RCM**s.
+-Section 2.2.1 and 2.2.2 of the *Primer* give a sneak peek of the ingredients and uses for these models.
++Section 2.2.1 and 2.2.2 of the *Primer* {cite:p}`ClimateModellingPrimer:4ed` give a sneak peek of the ingredients and uses for these models.
+ #### [markdown]
+@@ -167,3 +168,3 @@
+ - Conservation of energy
+-- Conservation of momentum, Newton's 2nd law of motion (F=ma) for a moving fluid
++- Conservation of momentum, Newton's 2nd law of motion ($\vec{F}=m\vec{a}$) for a moving fluid
+ - Conservation of mass, for the fluid itself (air or water) as well as any quantities carried by the fluid (e.g. water vapor in the atmosphere, salt in the ocean)
+@@ -187,3 +188,3 @@
+ #### [markdown]
+-<img src='http://www.atmos.albany.edu/facstaff/brose/classes/ENV415_Spring2018/images/Primer_Figure2.5.png' width="800">
++![Primer Figure 2.5](../images/Primer_Figure2.5.png)
+ #### [markdown]
+@@ -195,3 +196,3 @@
+ #### [markdown]
+-<img src='http://www.climatechange2013.org/images/figures/WGI_AR5_Fig1-14.jpg' width="800">
++<img src='https://www.ipcc.ch/site/assets/uploads/2018/02/Fig1-14.jpg' width="800">
+ #### [markdown]
+@@ -201,3 +202,3 @@
+ #### [markdown]
+-<img src="http://www.atmos.albany.edu/facstaff/brose/classes/ENV415_Spring2018/images/Primer_Figure2.9.png" width="800" alt="Figure 2.9: ocean model hierarchy">
++![Primer Figure 2.9](../images/Primer_Figure2.9.png)
+ #### [markdown]
+@@ -225,6 +226,6 @@
+ Several figures above are reproduced from Chapter 1 of the IPCC AR5 Working Group 1 report.
+-The report and images can be found online at http://www.climatechange2013.org/report/full-report/
++The report and images can be found online at https://www.ipcc.ch/report/ar5/wg1/
+ The full citation is:
+ > Cubasch, U., D. Wuebbles, D. Chen, M.C. Facchini, D. Frame, N. Mahowald and J.-G. Winther, 2013: Introduction. In: Climate Change 2013: The Physical Science Basis. Contribution of Working Group I to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change [Stocker, T.F., D. Qin, G.-K. Plattner, M. Tignor, S.K. Allen, J. Boschung, A. Nauels, Y. Xia, V. Bex and P.M. Midgley (eds.)]. Cambridge University Press, Cambridge, United Kingdom and New York, NY, USA, pp. 119–158, doi:10.1017/CBO9781107415324.007.
+-Some other figures are reproduced from [*The Climate Modelling Primer* (4th ed)](https://www.wiley.com/en-us/The+Climate+Modelling+Primer%2C+4th+Edition-p-9781119943365)  by Kendal McGuffie and Ann Henderson-Sellers, Wiley-Blackwell 2014.
++Some other figures are reproduced from [*The Climate Modelling Primer* (4th ed)](https://www.wiley.com/en-us/The+Climate+Modelling+Primer%2C+4th+Edition-p-9781118747186)  by Kendal McGuffie and Ann Henderson-Sellers, Wiley-Blackwell 2014.
+ #### [markdown]

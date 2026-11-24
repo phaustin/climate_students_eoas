@@ -1,0 +1,71 @@
+--- week4/lab10_radiative-transfer.md
++++ radiative-transfer.md
+@@ -31,2 +31,3 @@
+ Let $U_\nu$ be the upward beam, and $D_\nu$ be the downward beam. The governing equations for these beams are the *Schwarzschild equations*:
++$$
+ \begin{align}
+@@ -35,2 +36,3 @@
+ \end{align}
++$$
+ where $E$ is the **blackbody emission** (both up and down), which in general depends on both **frequency** and **temperature**. We have written temperature as a function of the vertical coordinate (optical depth).
+@@ -38,2 +40,3 @@
+ The emissions are governed by the **Planck function**:
++$$
+ \begin{align}
+@@ -42,2 +45,3 @@
+ \end{align}
++$$
+ with these fundamental physical constants:
+@@ -82,2 +86,3 @@
+ This gives the governing equations for the grey gas model:
++$$
+ \begin{align}
+@@ -86,2 +91,3 @@
+ \end{align}
++$$
+ These equations now say that the beam is diminished by absorption in a thin layer (first term) and augmented by blackbody emission, where both processes are assumed to be independent of frequency.
+@@ -106,2 +112,3 @@
+ It can come out the integral and the expressions simplify to
++$$
+ \begin{align}
+@@ -110,2 +117,3 @@
+ \end{align}
++$$
+ #### [markdown]
+@@ -113,2 +121,3 @@
+ The first term is the **transmission** of radition from the bottom to the top of the layer (or vice-versa). We can define the **transmissivity** of the layer (denoted $t_{0}$) as the fraction of the incident beam that is passed on to the next layer:
++$$
+ \begin{align}
+@@ -117,2 +126,3 @@
+ \end{align}
++$$
+ #### [markdown]
+@@ -128,2 +138,3 @@
+ Putting this all together gives us two simple equations that govern changes in the upwelling and downwelling beams across a discrete layer of optical depth $\Delta \tau$:
++$$
+ \begin{align}
+@@ -132,2 +143,3 @@
+ \end{align}
++$$
+ #### [markdown]
+@@ -192,3 +204,3 @@
+ ### The transmissivity matrices
+-$$ {\bf{T_{up}}} = \left[ \begin{array}{ccccc} 1 & 0 & 0 &... & 0 & 0 \\
++$$ {\bf{T_{up}}} = \left[ \begin{array}{cccccc} 1 & 0 & 0 & ... & 0 & 0 \\
+                                              t_0 & 1 & 0 & ... & 0 & 0 \\
+@@ -244,2 +256,3 @@
+ To get the total flux, we just need to sum the beams over all bands:
++$$
+ \begin{align}
+@@ -248,6 +261,7 @@
+ \end{align}
+-#### [markdown]
+-## References
+-For many more details about radiative transfer and a more careful derivation of the two-stream equations, see
+-> Pierrehumbert, R. T. (2010). Principles of Planetary Climate. Cambridge University Press.
++$$
++#### [markdown]
++:::{note}
++For many more details about radiative transfer and a more careful derivation of the two-stream equations, see the book by {cite:t}`Pierrehumbert:principles`, *Principles of Planetary Climate*.
++:::
+ #### [markdown]

@@ -1,0 +1,71 @@
+--- week8/lab25_2_advanced-albedo-feedback.md
++++ advanced-albedo-feedback.md
+@@ -1,6 +1,8 @@
+ #### [markdown]
+-# Advanced topic: Ice albedo feedback in the EBM -- test2
++# Advanced topic: Ice albedo feedback in the EBM
+ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](https://www.atmos.albany.edu/facstaff/brose/), University at Albany.
+ #### [markdown]
+-*These notes and the companion [Advanced topic: Snowball Earth and Large Ice Cap Instability in the EBM](advanced-snowball-earth) extend the material in the [Ice-albedo feedback and Snowball Earth in the EBM](albedo-snowball) notes.*
++:::{note}
++These notes and the companion [](advanced-snowball-earth) extend the material in the [](albedo-snowball) notes.
++:::
+ #### [markdown]
+@@ -10,2 +12,3 @@
+ The equation is
++$$
+ \begin{align*}
+@@ -14,2 +17,3 @@
+ \end{align*}
++$$
+ #### [markdown]
+@@ -53,3 +57,3 @@
+     ax1.set_ylim(templimits)
+-    ax1.set_ylabel('Temperature (deg C)')
++    ax1.set_ylabel('Temperature (°C)')
+     ax1.set_xticks( lat_ticks )
+@@ -87,3 +91,3 @@
+ ### Add a small radiative forcing
+-The equivalent of doubling CO2 in this model is something like
++The equivalent of doubling CO$_2$ in this model is something like
+ $$ A \rightarrow A - \delta A $$
+@@ -162,7 +166,7 @@
+ ax1 = fig.add_subplot(111)
+-ax1.plot(Darray, deltaT_list, color=color1, label='$\Delta T$')
+-ax1.plot(Darray, Tmean_list, '--', color=color1, label='$\overline{T}$')
+-ax1.set_xlabel('D (W m$^{-2}$ K$^{-1}$)', fontsize=14)
++ax1.plot(Darray, deltaT_list, color=color1, label=r'$\Delta T$')
++ax1.plot(Darray, Tmean_list, '--', color=color1, label=r'$\overline{T}$')
++ax1.set_xlabel('D (W m$^{-2}$ °C$^{-1}$)', fontsize=14)
+ ax1.set_xticks(np.arange(Darray[0], Darray[-1], 0.2))
+-ax1.set_ylabel('Temperature ($^\circ$C)', fontsize=14,  color=color1)
++ax1.set_ylabel(r'Temperature (°C)', fontsize=14,  color=color1)
+ for tl in ax1.get_yticklabels():
+@@ -172,3 +176,3 @@
+ ax2.plot(Darray, Hmax_list, color=color2)
+-ax2.set_ylabel('Poleward heat transport across 35.5$^\circ$ (PW)', fontsize=14, color=color2)
++ax2.set_ylabel('Poleward heat transport across 35.5° (PW)', fontsize=14, color=color2)
+ for tl in ax2.get_yticklabels():
+@@ -181,4 +185,3 @@
+ Realistic present-day conditions seem to occur right near the local maximum of the $\mathcal{H}_{max}$ graph, showing that total heat transport is relatively insensitive to details of the atmosphere-ocean dynamics.
+-This actually reproduces a result from a classic paper:
+-[Stone (1978), Constraints on dynamical transports of energy on a spherical planet. *Dyn. Atmos. Oceans* 2, 123--139](https://www.sciencedirect.com/science/article/pii/0377026578900064)
++This actually reproduces a result from a classic paper by {cite:t}`Stone:1978ni`.
+ #### [markdown]
+@@ -209,2 +212,4 @@
+ plt.xlim(-90,90)
++plt.xlabel('Latitude')
++plt.ylabel(r'$\Delta T_s$')
+ plt.grid()
+@@ -229,7 +234,9 @@
+ plt.xlim(-90,90)
++plt.xlabel('Latitude')
++plt.ylabel(r'$\Delta T_s$')
+ plt.grid()
+ #### [markdown]
+-Now the maximum warming **does not coincide with the heat source at 45º**!
++Now the maximum warming **does not coincide with the heat source at 45°**!
+ Our heat source has led to melting of snow and ice, which induces an additional heat source in the high northern latitudes.
+-**Heat transport communicates the external warming to the ice cap, and also commuicates the increased shortwave absorption due to ice melt globally!**
++**Heat transport communicates the external warming to the ice cap, and also communicates the increased shortwave absorption due to ice melt globally!**
+ #### [markdown]

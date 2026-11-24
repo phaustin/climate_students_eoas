@@ -1,0 +1,20 @@
+--- assignments/assignment3-simple-clouds.md
++++ assignment-simple-clouds.md
+@@ -21,3 +21,3 @@
+ ## Question 1
+-Suppose a cloud reflects a fraction $\alpha_c$ of the shortwave beam incoming from above. $\alpha_c$ is a number between 0 and 1. Provide a coherent argument (in words, sketches, and/or equations) for why the **shortwave** effects of a cloud should alway be a **cooling** on the surface. Is this cooling effect different if the cloud is low or high? Explain.
++Suppose a cloud reflects a fraction $\alpha_c$ of the shortwave beam incoming from above. $\alpha_c$ is a number between 0 and 1. Provide a coherent argument (in words, sketches, and/or equations) for why the **shortwave** effects cloud should alway be a **cooling** on the surface. Is this cooling effect different if the cloud is low or high? Explain.
+ #### [markdown]
+@@ -28,2 +28,6 @@
+ - a high cloud (the additional $\epsilon_c$ is in layer 1)
++:::{hint}
++Start from the formula from the lecture notes for OLR with separate emissivities for each layer $\epsilon_0, \epsilon_1$.
++The emissivity for layer 0 will either be $\epsilon_0 = \bar{\epsilon}$ or $\epsilon_0 = \bar{\epsilon} + \epsilon_c$ depending on where the cloud is, where $\bar{\epsilon}$ is the normal cloud-free emissivity which we assume to be the same in both layers.
++:::
+ #### [markdown]
+@@ -47,5 +51,2 @@
+ #### [markdown]
+-## Question 6
+-Under what circumstances (structure of atmospheric temperature, i.e. relative values of $T_s$, $T_0$ and $T_1$) would you answer to question 4 be the opposite, and why?
+-#### [markdown]
+ ## Credits

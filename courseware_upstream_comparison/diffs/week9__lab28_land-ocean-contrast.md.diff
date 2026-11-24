@@ -1,0 +1,133 @@
+--- week9/lab28_land-ocean-contrast.md
++++ land-ocean-contrast.md
+@@ -4,2 +4,7 @@
+ #### [markdown]
++## A recent tweet that caught my attention...
++#### [code]
++%%HTML
++<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">actual trends <a href="https://t.co/abnDJGeawr">pic.twitter.com/abnDJGeawr</a></p>&mdash; Gavin Schmidt (@ClimateOfGavin) <a href="https://twitter.com/ClimateOfGavin/status/1117136233409536000?ref_src=twsrc%5Etfw">April 13, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
++#### [markdown]
+ Statistics such as the global average or zonal average temperature do not tell the whole story about climate change!
+@@ -8,5 +13,8 @@
+ #### [markdown]
+-<img src='https://www.pnas.org/cms/10.1073/pnas.1722312115/asset/145a5091-c1da-4155-b4b7-149893cb0151/assets/graphic/pnas.1722312115fig01.jpeg' width = '700'>
+-> A–C) Surface-air annual (A) temperature, (B) specific humidity, and (C) relative humidity anomalies averaged from 40∘S to 40∘N and best-fit trends (1979–2016) over land (red solid lines and asterisks) and ocean (blue lines and asterisks). The best-fit trends in the land–ocean contrasts in temperature and specific humidity (δTL−δTO and δqL−δqO, respectively) are also plotted (black asterisks). Land values are from the HadISDH dataset (13, 14) and ocean values are from the ERA-Interim reanalysis (15). Ocean specific humidity anomalies are calculated assuming fixed climatological relative humidity (Materials and Methods). Also shown are land anomalies and associated trends (dashed lines and circles) estimated using the simple theory (Eqs. 2–4) and subsampled to the months and gridboxes for which HadISDH observations are available. Error bars on the trends indicate the 90% confidence intervals corrected to account for serial correlation (Materials and Methods).
+-Byrne and O'Gorman (2018): Trends in continental temperature and humidity directly linked to ocean warming, PNAS 115 (19) 4863-4868, https://doi.org/10.1073/pnas.1722312115
++Reproduced directly from {cite:t}`Byrne:2018a`:
++:::{figure} ../images/ByrneOGorman2018_Fig1.jpg
++:width: 600
++:align: left
++A–C) Surface-air annual (A) temperature, (B) specific humidity, and (C) relative humidity anomalies averaged from 40∘S to 40∘N and best-fit trends (1979–2016) over land (red solid lines and asterisks) and ocean (blue lines and asterisks). The best-fit trends in the land–ocean contrasts in temperature and specific humidity (δTL−δTO and δqL−δqO, respectively) are also plotted (black asterisks). Land values are from the HadISDH dataset (13, 14) and ocean values are from the ERA-Interim reanalysis (15). Ocean specific humidity anomalies are calculated assuming fixed climatological relative humidity (Materials and Methods). Also shown are land anomalies and associated trends (dashed lines and circles) estimated using the simple theory (Eqs. 2–4) and subsampled to the months and gridboxes for which HadISDH observations are available. Error bars on the trends indicate the 90% confidence intervals corrected to account for serial correlation (Materials and Methods).
++:::
+ #### [markdown]
+@@ -19,2 +27,3 @@
+ import cartopy.crs as ccrs
++from cartopy.util import add_cyclic_point
+ #### [markdown]
+@@ -64,3 +73,5 @@
+     plotax = plt.subplot2grid((nrows,ncols), (0,ncols-1), rowspan=nrows-1)
+-    cx = mapax.contourf(field.lon, field.lat, field, transform=ccrs.PlateCarree())
++    # add cyclic point so cartopy doesn't show a white strip at zero longitude
++    wrap_data, wrap_lon = add_cyclic_point(field.values, coord=field.lon, axis=field.dims.index('lon'))
++    cx = mapax.contourf(wrap_lon, field.lat, wrap_data, transform=ccrs.PlateCarree())
+     mapax.set_global(); mapax.coastlines();
+@@ -91,4 +102,6 @@
+ ax1 = fig.add_subplot(1,2,1, projection=ccrs.Robinson())
+-ax1.contourf(DeltaTmap_cpl.lon, DeltaTmap_cpl.lat,
+-             DeltaTmap_cpl.where(DeltaTmap_cpl>TCR),
++# add cyclic point so cartopy doesn't show a white strip at zero longitude
++field = DeltaTmap_cpl.where(DeltaTmap_cpl>TCR)
++wrap_data, wrap_lon = add_cyclic_point(field.values, coord=field.lon, axis=field.dims.index('lon'))
++ax1.contourf(wrap_lon, field.lat, wrap_data,
+              levels=[0, 100], colors='#81090A',
+@@ -97,4 +110,5 @@
+ ax2 = fig.add_subplot(1,2,2, projection=ccrs.Robinson())
+-ax2.contourf(DeltaTmap_som.lon, DeltaTmap_som.lat,
+-             DeltaTmap_som.where(DeltaTmap_som>ECS),
++field = DeltaTmap_som.where(DeltaTmap_som>ECS)
++wrap_data, wrap_lon = add_cyclic_point(field.values, coord=field.lon, axis=field.dims.index('lon'))
++ax2.contourf(wrap_lon, field.lat, wrap_data,
+              levels=[0, 100], colors='#81090A',
+@@ -132,6 +146,3 @@
+ ## A simple theory for land-ocean warming contrast
+-This section is based on a series of papers by Byrne and O'Gorman:
+-- Byrne and O'Gorman (2013): Land–Ocean Warming Contrast over a Wide Range of Climates: Convective Quasi-Equilibrium Theory and Idealized Simulations. J. Clim. 26, https://journals.ametsoc.org/doi/full/10.1175/JCLI-D-12-00262.1
+-- Byrne and O'Gorman (2016): Understanding Decreases in Land Relative Humidity with Global Warming: Conceptual Model and GCM Simulations. J. Clim. 29, https://journals.ametsoc.org/doi/10.1175/JCLI-D-16-0351.1
+-- Byrne and O'Gorman (2018): Trends in continental temperature and humidity directly linked to ocean warming, PNAS 115 (19) 4863-4868, https://doi.org/10.1073/pnas.1722312115
++This section is based on a series of papers by Michael Byrne and Paul O'Gorman {cite:p}`Byrne:2013a; Byrne:2016a; Byrne:2018a`.
+ ### The atmospheric dynamics constraint
+@@ -141,6 +152,9 @@
+ - Therefore the free troposphere is moist adiabatic everywhere.
+-- The differences between surface air temperature over land and ocean can be expressed in terms of different Lifting Condensation Levels (LCL):
+-<img src='https://journals.ametsoc.org/view/journals/clim/26/12/inline-jcli-d-12-00262.1-f1.jpg' width="300">
+-> Fig. 1. Schematic diagram of potential temperature vs height for moist adiabats over land and ocean and equal temperatures at upper levels. A land–ocean surface air temperature contrast is implied by different LCLs over land and ocean.
+-> Byrne and O'Gorman (2013) J. Clim. 26, https://journals.ametsoc.org/doi/full/10.1175/JCLI-D-12-00262.1
++- The differences between surface air temperature over land and ocean can be expressed in terms of different Lifting Condensation Levels (LCL) {cite:p}`Byrne:2013a`:
++:::{figure} https://journals.ametsoc.org/view/journals/clim/26/12/full-jcli-d-12-00262.1-f1.jpg
++:width: 300
++:align: center
++Fig. 1. Schematic diagram of potential temperature vs height for moist adiabats over land and ocean and equal temperatures at upper levels. A land–ocean surface air temperature contrast is implied by different LCLs over land and ocean.
++Reproduced from {cite:t}`Byrne:2013a`
++:::
+ A consequence of these constraints is that, under a climate change, the near-surface **moist static energy** content over land and ocean are equal:
+@@ -157,6 +171,10 @@
+ ### The surface moisture constraint
+-This section is drawn directly from Byrne and O'Gorman (2016) J. Clim. 29, https://journals.ametsoc.org/doi/10.1175/JCLI-D-16-0351.1
++This section is drawn directly from {cite:t}`Byrne:2016a`.
+ Consider the following simple moisture budgets for the boundary layers over ocean and over land:
+-<img src='https://journals.ametsoc.org/view/journals/clim/29/24/full-jcli-d-16-0351.1-f2.jpg' width="500">
+-> Fig. 2. Schematic diagram of processes involved in the moisture budget of the boundary layer above a land surface [see text and (1) for definitions of the various quantities].
++:::{figure} https://journals.ametsoc.org/view/journals/clim/29/24/full-jcli-d-16-0351.1-f2.jpg
++:width: 500
++:align: left
++Fig. 2. Schematic diagram of processes involved in the moisture budget of the boundary layer above a land surface [see text and (1) for definitions of the various quantities].
++Reproduced from {cite:t}`Byrne:2016a`
++:::
+ The budget over land is
+@@ -172,2 +190,3 @@
+ Now assume that free-tropospheric moisture is proportional to boundary layer moisture:
++$$
+ \begin{align*}
+@@ -175,2 +194,3 @@
+ \end{align*}
++$$
+ Setting the LHS of the moisture budget to zero, we can solve the steady-state budget for land specific humidity $q_L$:
+@@ -178,2 +198,3 @@
+ where for convenience we have defined horizontal and vertical mixing timescales
++$$
+ \begin{align*}
+@@ -181,2 +202,3 @@
+ \end{align*}
++$$
+ The two terms above quantify the relative importance of remote ocean specific humidity and local evapotransipiration on land specific humidity. We can rewrite this as
+@@ -196,3 +218,3 @@
+ ### Combined theory: dynamic and moisture constraints
+-Combining the dynamic and moisture constraints gives the change in land warming amplification factor **solely in terms of the ocean warming and moistening*:
++Combining the dynamic and moisture constraints gives the change in land warming amplification factor *solely in terms of the ocean warming and moistening*:
+ $$ A \equiv \frac{\delta T_L}{\delta T_O}  = 1 + \frac{L_v}{c_p} (1-\gamma) \frac{\delta q_O}{\delta T_O} $$
+@@ -220,3 +242,3 @@
+ The conclusion is that **the relative humidity over land must decrease** along with the amplified warming over land.
+-See Byrne and O'Gorman (2016) for discussion and caveats.
++See {cite:t}`Byrne:2016a` for discussion and caveats.
+ #### [markdown]
+@@ -226,4 +248,4 @@
+ $$ A \equiv \frac{\delta T_L}{\delta T_O} = 1 + \frac{L_v}{c_p} \frac{\delta q_O - \delta q_L}{\delta T_O} $$
+-while
+ 2. the moisture constraint (in its simplest form) gives
++$$
+ \begin{align*}
+@@ -232,2 +254,3 @@
+ \end{align*}
++$$
+ so that the amplification factor is simply
+@@ -301,7 +324,6 @@
+ #### [markdown]
+-Compare to CMIP5 multi-model mean:
+-#### [markdown]
+-<img src='https://journals.ametsoc.org/view/journals/clim/29/24/full-jcli-d-16-0351.1-fa1.jpg' width="500">
++Compare to CMIP5 multi-model mean {cite:p}`Byrne:2016a`:
++#### [markdown]
++<img src='https://journals.ametsoc.org/view/journals/clim/29/24/full-jcli-d-16-0351.1-fa1.jpg' width="400">
+ > Fig. B1. The CMIP5 multimodel mean (a) land–ocean warming contrast (expressed as an amplification factor) and (b) surface-air land pseudo relative humidity change normalized by the global-mean surface-air temperature change (solid lines) and as estimated by the combined moisture and dynamic constraints (dashed lines). The amplification factor and land relative humidity changes are estimated for each land grid point and for each month of the year before taking the zonal and annual means.
+-Byrne and O'Gorman (2016) J. Clim. 29, https://journals.ametsoc.org/doi/10.1175/JCLI-D-16-0351.1
+ #### [markdown]

@@ -1,0 +1,84 @@
+--- week3/lab4_introducing-cesm.md
++++ introducing-cesm.md
+@@ -11,8 +11,8 @@
+ I use CESM in my own research. We are going to be using CESM in this course. For lots more information about CESM:
+-http://www.cesm.ucar.edu/models/
++https://www.cesm.ucar.edu/models/
+ #### [markdown]
+ ### Key components of CESM:
+-see http://www.cesm.ucar.edu/models/cesm1.2/ for more info
++We will be working with output generated from CESM version 1.2, which includes the following components:
+  - Atmospheric model (AGCM)
+-     - Community Atmsophere Model (CAM)
++     - Community Atmosphere Model (CAM)
+  - Ocean model (OGCM)
+@@ -65,3 +65,3 @@
+ We perform a **preindustrial control run** to get a baseline simulation, and take **averages of several years** (because the model has internal variability – every year is a little bit different)
+-We then (later) we will change something, e.g. double the atmospheric $CO_2$!
++We then (later) we will change something, e.g. double the atmospheric CO$_2$!
+ And allow the model to adjust toward a new equilibrium, just as we did with the toy energy balance model.
+@@ -89,2 +89,4 @@
+ cesm_data_path = "http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/"
++# For better performance if you can access the roselab_rit filesystem (e.g. from JupyterHub)
++# cesm_data_path = "/roselab_rit/cesm_archive/"
+ cesm_input_path = cesm_data_path + "som_input/"
+@@ -96,7 +98,3 @@
+ topo = xr.open_dataset( fullURL )
+-print(topo)
+-#### [markdown]
+-### save it for future use
+-#### [code]
+-topo.to_netcdf('USGS-gtopo30_10min_c050419.nc')
++topo
+ #### [markdown]
+@@ -156,3 +154,3 @@
+ som_input = xr.open_dataset( cesm_input_path + "pop_frc.1x1d.090130.nc")
+-print(som_input)
++som_input
+ #### [markdown]
+@@ -235,3 +233,3 @@
+ atm_control = xr.open_dataset(cesm_data_path + "cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc")
+-print(atm_control)
++atm_control
+ #### [markdown]
+@@ -242,4 +240,4 @@
+ #### [markdown]
+-This is the amount of CO2 in the atmosphere (about 285 parts per million by volume). It is prescribed in these simulations and does not change.
+-One nice thing about `xarray.DataArray` objects is that we can do simple arithmetic with them (already seen several examples of this in the notes above). For example, change the units of CO2 amount to ppm:
++This is the amount of CO$_2$ in the atmosphere (about 285 parts per million by volume). It is prescribed in these simulations and does not change.
++One nice thing about `xarray.DataArray` objects is that we can do simple arithmetic with them (already seen several examples of this in the notes above). For example, change the units of CO$_2$ amount to ppm:
+ #### [code]
+@@ -282,3 +280,3 @@
+ coslat = np.cos(np.deg2rad(atm_control.lat))
+-print(coslat)
++coslat
+ #### [code]
+@@ -287,3 +285,3 @@
+ #  Want to see what we just created?
+-print(weight_factor)
++weight_factor
+ #### [markdown]
+@@ -301,4 +299,4 @@
+ #  Notice that we can apply the .mean() operation simultaneously over several dimensions!
+-print( (atm_control.SOLIN * weight_factor).mean(dim=('time', 'lon', 'lat')))
+-print( (atm_control.SOLIN * weight_factor2).mean(dim=('time', 'lon', 'lat')))
++(atm_control.SOLIN * weight_factor).mean(dim=('time', 'lon', 'lat'))
++(atm_control.SOLIN * weight_factor2).mean(dim=('time', 'lon', 'lat'))
+ #### [markdown]
+@@ -315,3 +313,10 @@
+ #### [code]
+-TSglobal.plot()
++# Note we could just do a TSglobal.plot() here!
++#  But this is an example of using matplotlib directly to get more control over the figure
++fig, ax = plt.subplots()
++ax.plot(TSglobal)
++ax.set_xlabel('Months')
++ax.set_ylabel('Temperature (K)')
++ax.grid()
++ax.set_title('Global mean temperature in the CESM slab ocean control simulation');
+ #### [markdown]
+@@ -361,3 +366,3 @@
+ Tlocal = atm_control.T.interp(lat=42.75, lon=(360-73.8))
+-print(Tlocal)
++Tlocal
+ #### [markdown]

@@ -1,0 +1,51 @@
+--- week9/lab29_water-water-everywhere.md
++++ water-water-everywhere.md
+@@ -7,3 +7,3 @@
+ #### [markdown]
+-Recall from [last lecture](./Lecture21 -- The surface energy balance.ipynb) that the bulk formula for surface evaporation (latent heat flux) is
++Recall from the lecture on [surface energy balance](surface-energy-balance) that the bulk formula for surface evaporation (latent heat flux) is
+ $$ \text{LE} = L ~\rho ~ C_D ~ U \left( q_s - q_a \right) $$
+@@ -49,3 +49,3 @@
+     lat_rad = np.deg2rad( lat_deg )
+-    return ( 1E-15 * 2 * np.math.pi * const.a**2 *
++    return ( 1E-15 * 2 * np.pi * const.a**2 *
+             integrate.cumulative_trapezoid( np.cos(lat_rad)*energy_in,
+@@ -106,4 +106,4 @@
+                               albedo=0.125,
+-                              insolation=sun.insolation,
+                               coszen=sun.coszen,
++                              irradiance_factor=sun.irradiance_factor,
+                               **mycloud)
+@@ -113,3 +113,3 @@
+ model.add_subprocess('Convection', conv)
+-print( model)
++print(model)
+ #### [markdown]
+@@ -142,5 +142,5 @@
+ #### [markdown]
+-<div class="alert alert-warning">
+-Although this is a "simple" model, it has a 60 x 30 point grid and is **by far the most complex model** we have built so far in these notes. These runs will probably take 15 minutes or more to execute, depending on the speed of your computer.
+-</div>
++:::{warning}
++Although this is a "simple" model, it has a 60 x 30 point grid and is **by far the most complex model** we have built so far in these notes. These runs will probably take several minutes to execute, depending on the speed of your computer.
++:::
+ #### [code]
+@@ -238,4 +238,3 @@
+ The model is the familiar CESM but in simplified "aquaplanet" setup. The surface is completely covered by a shallow slab ocean.
+-This model setup (with CAM4 model physics) is described in detail in this paper:
+-> [Rose, B. E. J., Armour, K. C., Battisti, D. S., Feldl, N., and Koll, D. D. B. (2014). The dependence of transient climate sensitivity and radiative feedbacks on the spatial pattern of ocean heat uptake. Geophys. Res. Lett., 41, doi:10.1002/2013GL058955](http://onlinelibrary.wiley.com/doi/10.1002/2013GL058955/abstract;jsessionid=D32402F77E96A1F42972A200BF6FC535.f03t01)
++This model setup (with CAM4 model physics) is described in detail in {cite:t}`Rose:2014a` and {cite:t}`Rose:2016a`.
+ #### [markdown]
+@@ -244,8 +243,7 @@
+ # Load the climatologies from the CAM4 aquaplanet runs
+-# The path to the THREDDS server, should work from anywhere
+-basepath = 'http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/'
++datapath = "http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/"
+ # For better performance if you can access the roselab_rit filesystem (e.g. from JupyterHub)
+-#basepath = '/roselab_rit/cesm_archive/'
+-ctrl = xr.open_dataset(basepath + 'QAqu_ctrl/clim/QAqu_ctrl.cam.h0.clim.nc', decode_times=False).mean(dim='time')
+-halfEvap = xr.open_dataset(basepath + 'QAqu_halfEvap/clim/QAqu_halfEvap.cam.h0.clim.nc', decode_times=False).mean(dim='time')
++# datapath = "/roselab_rit/cesm_archive/"
++ctrl = xr.open_dataset(datapath + "QAqu_ctrl/clim/QAqu_ctrl.cam.h0.clim.nc").mean(dim='time')
++halfEvap = xr.open_dataset(datapath + "QAqu_halfEvap_old/clim/QAqu_halfEvap.cam2.h0.clim.nc").mean(dim='time')
+ #### [code]

@@ -1,0 +1,96 @@
+--- week4/lab9_grey-radiation-climlab.md
++++ grey-radiation-climlab.md
+@@ -4,9 +4,9 @@
+ #### [markdown]
+-**Bug fix Jan 27, 2025** -- make the number of levels adjustable with variable num_lev in cell 2
+ ## 1. Introducing `climlab`
+-``climlab`` is a flexible engine for process-oriented climate modeling.
++## About climlab
++climlab is a specialized python package for process-oriented climate modeling.
+ It is based on a very general concept of a model as a collection of individual,
+-interacting processes. ``climlab`` defines a base class called ``Process``, which
++interacting processes. climlab defines a base class called `Process`, which
+ can contain an arbitrarily complex tree of sub-processes (each also some
+-sub-class of ``Process``). Every climate process (radiative, dynamical,
++sub-class of `Process`). Every climate process (radiative, dynamical,
+ physical, turbulent, convective, chemical, etc.) can be simulated as a stand-alone
+@@ -15,7 +15,10 @@
+ appropriate collection of sub-processes.
+-``climlab`` is a work-in-progress, and the code base will evolve substantially over the course of this semester.
+-The latest code can always be found on ``github``:
++climlab is an open-source community project. The latest code can always be found on github:
+ https://github.com/climlab/climlab
+-You are strongly encouraged to clone the ``climlab`` repository and use ``git`` to keep your local copy up-to-date.
+-Running this notebook requires that ``climlab`` is already installed on your system.
++## Installing climlab
++If you've followed [these instructions from the Climate Laboratory book](../how-to), then you should be all set -- climlab is automatically installed as part of the suite of tools used in [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook).
++If you are maintaining your own Python installation (e.g. on a personal laptop), you can always install climlab by doing
++```
++conda install -c conda-forge climlab
++```
+ #### [code]
+@@ -30,3 +33,3 @@
+ One of the things that ``climlab`` is set up to do is the grey-radiation modeling we have already been discussing.
+-Since we already derived a [complete analytical solution to the two-layer leaky greenhouse model](Lecture06 -- Elementary greenhouse models.ipynb), we will use this to validate the `climlab` code.
++Since we already derived a [complete analytical solution to the two-layer leaky greenhouse model](elementary-greenhouse), we will use this to validate the `climlab` code.
+ #### [markdown]
+@@ -34,2 +37,3 @@
+ We want to verify that the model reproduces the observed OLR given observed temperatures, and the absorptivity that we tuned in the analytical model. The target numbers are:
++$$
+ \begin{align}
+@@ -39,2 +43,3 @@
+ \end{align}
++$$
+ $$ \epsilon = 0.586  $$
+@@ -46,5 +51,4 @@
+ #### [code]
+-#  Test in a 2-layer atmosphere  -  change the levels here
+-num_lev=2
+-col = climlab.GreyRadiationModel(num_lev=num_lev)
++#  Test in a 2-layer atmosphere
++col = climlab.GreyRadiationModel(num_lev=2)
+ print( col)
+@@ -70,3 +74,3 @@
+ col.Ts[:] = 288.
+-col.Tatm[:] = np.linspace(230., 275.,num_lev)
++col.Tatm[:] = np.array([230., 275.])
+ climlab.to_xarray(col.state)
+@@ -144,3 +148,3 @@
+ #ncep_air = air.rename({'lev': 'level'})
+-print( ncep_air)
++ncep_air
+ #### [code]
+@@ -149,3 +153,3 @@
+ Tglobal = (ncep_air.air * weight).mean(dim=('lat','lon','time'))
+-print( Tglobal)
++Tglobal
+ #### [markdown]
+@@ -156,3 +160,3 @@
+ Tglobal += climlab.constants.tempCtoK
+-print(Tglobal)
++Tglobal
+ #### [code]
+@@ -322,3 +326,3 @@
+ rce.add_subprocess('Convective Adjustment', conv)
+-print( rce)
++print(rce)
+ #### [markdown]
+@@ -347,5 +351,7 @@
+ datapath = "http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/"
++# For better performance if you can access the roselab_rit filesystem (e.g. from JupyterHub)
++# datapath = "/roselab_rit/cesm_archive/"
+ ozone = xr.open_dataset( datapath + "som_input/ozone_1.9x2.5_L26_2000clim_c091112.nc")
+ #### [code]
+-print(ozone)
++ozone
+ #### [markdown]
+@@ -353,3 +359,3 @@
+ #### [code]
+-print(ozone.lev)
++ozone.lev
+ #### [markdown]
+@@ -360,3 +366,3 @@
+ O3_global = (ozone.O3 * weight_ozone).mean(dim=('lat','lon','time'))
+-print(O3_global)
++O3_global
+ #### [code]

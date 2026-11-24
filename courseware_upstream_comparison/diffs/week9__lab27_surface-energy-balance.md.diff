@@ -1,0 +1,227 @@
+--- week9/lab27_surface-energy-balance.md
++++ surface-energy-balance.md
+@@ -16,3 +16,3 @@
+ #### [markdown]
+-As we mentioned back in [Lecture 15 on heat transport](./Lecture15 -- Heat transport.ipynb), there are four principal contributions to $F_S$:
++As we mentioned back in a previous [Lecture on Heat Transport](advanced-heat-transport), there are four principal contributions to $F_S$:
+ 1. Shortwave radiation
+@@ -36,6 +36,8 @@
+ #### [markdown]
+-We will examine the surface budget in the CESM slab ocean simulations. The advantage of looking at surface fluxes in a model rather than observations is that the model fluxes are completely consistent with the model climate, so that the net flux $F_S$ will be a meaningful measure of the heat storage in the system.
+-The model also gives us an opportunity to look at how the surface budget reponds to global warming under a doubling of CO$_2$.
++We will examine the surface budget in our fully coupled CESM simulations. The advantage of looking at surface fluxes in a model rather than observations is that the model fluxes are completely consistent with the model climate, so that the net flux $F_S$ will be a meaningful measure of the heat storage in the system.
++The model also gives us an opportunity to look at how the surface budget reponds to global warming under a transient increase in CO$_2$.
+ #### [markdown]
+ ### First, load the data
++#### [markdown]
++We'll use the same simulations we worked with in the lecture on the [Transient and Equilibrium Response of the CESM](transient-cesm) to CO2 forcing.
+ #### [code]
+@@ -46,18 +48,35 @@
+ from climlab import constants as const
+-#### [code]
+-datapath = "http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/"
+-topo = xr.open_dataset(datapath+'som_input/USGS-gtopo30_1.9x2.5_remap_c050602.nc')
+-runlist=['control','2xCO2']
+-runnames = {}
+-runnames['control'] = '1850_f19'
+-runnames['2xCO2'] = '1850_2xCO2'
+-runs = {}
+-for run in runlist:
+-    runstr = 'som_' + runnames[run]
+-    path = datapath + runstr + '/clim/' + runstr + '.cam.h0.clim.nc'
+-    runs[run] = xr.open_dataset(path, decode_times=False)
+-#### [code]
+-lat = runs['control'].lat
+-lon = runs['control'].lon
+-lev = runs['control'].lev
++import cartopy.crs as ccrs
++from cartopy.util import add_cyclic_point
++#### [code]
++casenames = {'cpl_control': 'cpl_1850_f19',
++             'cpl_CO2ramp': 'cpl_CO2ramp_f19',
++             'som_control': 'som_1850_f19',
++             'som_2xCO2':   'som_1850_2xCO2',
++            }
++# The path to the THREDDS server, should work from anywhere
++basepath = 'http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/'
++# For better performance if you can access the roselab_rit filesystem (e.g. from JupyterHub)
++# basepath = '/roselab_rit/cesm_archive/'
++# Topography data, just used for plotting
++topo = xr.open_dataset(basepath+'som_input/USGS-gtopo30_1.9x2.5_remap_c050602.nc')
++casepaths = {}
++for name in casenames:
++    casepaths[name] = basepath + casenames[name] + '/concatenated/'
++# make a dictionary of all the CAM atmosphere output
++atm = {}
++for name in casenames:
++    path = casepaths[name] + casenames[name] + '.cam.h0.nc'
++    print('Attempting to open the dataset ', path)
++    atm[name] = xr.open_dataset(path)
++# extract the last 10 years from the slab ocean control simulation
++# and the last 20 years from the coupled control
++nyears_slab = 10
++nyears_cpl = 20
++clim_slice_slab = slice(-(nyears_slab*12),None)
++clim_slice_cpl = slice(-(nyears_cpl*12),None)
++#### [code]
++lat = atm['cpl_control'].lat
++lon = atm['cpl_control'].lon
++lev = atm['cpl_control'].lev
+ #### [markdown]
+@@ -67,19 +86,24 @@
+ surface_budget = {}
+-for (name, run) in runs.items():
+-    budget = xr.Dataset()
+-    budget['LHF'] = run.LHFLX
+-    budget['SHF'] = run.SHFLX
+-    budget['LWsfc'] = run.FLNS
+-    budget['LWsfc_clr'] = run.FLNSC
+-    budget['SWsfc'] = -run.FSNS
+-    budget['SWsfc_clr'] = -run.FSNSC
+-    budget['SnowFlux'] = ((run.PRECSC+run.PRECSL)
++monthly_surface_budget = {}
++for (name, run) in atm.items():
++    fields = xr.Dataset()
++    fields['LHF'] = run.LHFLX
++    fields['SHF'] = run.SHFLX
++    fields['LWsfc'] = run.FLNS
++    fields['LWsfc_clr'] = run.FLNSC
++    fields['SWsfc'] = -run.FSNS
++    fields['SWsfc_clr'] = -run.FSNSC
++    fields['SnowFlux'] = ((run.PRECSC+run.PRECSL)
+                            *const.rho_w*const.Lhfus)
++    clim_budget = fields.isel(time=clim_slice_cpl)
+     # net upward radiation from surface
+-    budget['NetRad'] = budget['LWsfc'] + budget['SWsfc']
+-    budget['NetRad_clr'] = budget['LWsfc_clr'] + budget['SWsfc_clr']
++    clim_budget['NetRad'] = clim_budget.LWsfc + clim_budget.SWsfc
++    clim_budget['NetRad_clr'] = clim_budget.LWsfc_clr + clim_budget.SWsfc_clr
+     # net upward surface heat flux
+-    budget['Net'] = (budget['NetRad'] + budget['LHF'] +
+-                     budget['SHF'] + budget['SnowFlux'])
++    clim_budget['Net'] = (clim_budget.NetRad + clim_budget.LHF +
++                     clim_budget.SHF + clim_budget.SnowFlux)
++    budget = clim_budget.mean(dim='time')
++    monthly_budget = clim_budget.groupby(clim_budget.time.dt.month).mean()
+     surface_budget[name] = budget
++    monthly_surface_budget[name] = monthly_budget
+ #### [markdown]
+@@ -90,3 +114,4 @@
+ #   to get anomalies for every term
+-surface_budget['anom'] = surface_budget['2xCO2'] - surface_budget['control']
++surface_budget['anom'] = surface_budget['cpl_CO2ramp'] - surface_budget['cpl_control']
++monthly_surface_budget['anom'] = monthly_surface_budget['cpl_CO2ramp'] - monthly_surface_budget['cpl_control']
+ #### [code]
+@@ -94,17 +119,28 @@
+ zonal_budget = {}
++monthly_zonal_budget = {}
+ for run, budget in surface_budget.items():
+     zonal_budget[run] = budget.mean(dim='lon')
+-#### [markdown]
+-### Plot the annual mean net upward flux $F_S$ (control and anomaly after warming)
+-#### [code]
+-fig, axes = plt.subplots(1,2, figsize=(16,5))
+-cax1 = axes[0].pcolormesh(lon, lat, surface_budget['control'].Net.mean(dim='time'),
+-                          cmap=plt.cm.seismic, vmin=-200., vmax=200. )
+-axes[0].set_title('Annual mean net surface heat flux (+ up) - CESM control')
+-cax2 = axes[1].pcolormesh(lon, lat, surface_budget['anom'].Net.mean(dim='time'),
+-                    cmap=plt.cm.seismic, vmin=-20., vmax=20. )
+-fig.colorbar(cax1, ax=axes[0]); fig.colorbar(cax2, ax=axes[1])
+-axes[1].set_title('Anomaly after CO2 doubling')
+-for ax in axes:
+-    ax.set_xlim(0, 360); ax.set_ylim(-90, 90); ax.contour( lon, lat, topo.LANDFRAC, [0.5], colors='k');
++for run, budget in monthly_surface_budget.items():
++    monthly_zonal_budget[run] = budget.mean(dim='lon')
++#### [markdown]
++### Plot maps of the annual mean net upward flux $F_S$ (control and anomaly after warming)
++#### [code]
++fig = plt.figure(figsize=(12,5))
++ax1 = fig.add_subplot(1,2,1, projection=ccrs.Robinson())
++field = surface_budget['cpl_control'].Net
++# add cyclic point so cartopy doesn't show a white strip at zero longitude
++wrap_data, wrap_lon = add_cyclic_point(field.values, coord=field.lon, axis=field.dims.index('lon'))
++cax1 = ax1.pcolormesh(wrap_lon, field.lat, wrap_data,
++                        cmap=plt.cm.seismic, vmin=-200., vmax=200.,
++                        transform=ccrs.PlateCarree())
++ax1.set_title('Annual mean net surface heat flux (+ up) - CESM control')
++ax2 = fig.add_subplot(1,2,2, projection=ccrs.Robinson())
++cax2 = ax2.pcolormesh(lon, lat, surface_budget['anom'].Net,
++                    cmap=plt.cm.seismic, vmin=-30., vmax=30.,
++                     transform=ccrs.PlateCarree())
++ax2.set_title('Anomaly after 1%/year CO2 ramp')
++for ax in [ax1, ax2]:
++    ax.set_global(); ax.coastlines();
++for cax in [cax1, cax2]:
++    plt.colorbar(cax, orientation='horizontal', label='W m$^{-2}$')
+ #### [markdown]
+@@ -114,3 +150,3 @@
+ - The spatial pattern of $F_S$ over the oceans is essentially just the prescribed q-flux that we have imposed on the slab ocean to represent ocean heat transport.
+-- We have looked at maps like this before, back in [Lecture 15](./Lecture15 -- Heat transport.ipynb) and [Assignment 2](../Assignments/Assignment02 -- Introducing CESM.ipynb).
++- We have looked at maps like this before, back when we [introduced the slab ocean version of the CESM](introducing-cesm#ocean-boundary-conditions) as well as in the [lecture on decompositions of poleward heat transport](advanced-heat-transport#surface-fluxes).
+ - Net heat uptake by the oceans occurs mostly along the equator and the cold tongues on the eastern sides of the tropical basins.
+@@ -122,4 +158,4 @@
+     - heat storage below the surface
+-    - changes in ocean heat transport (not permitted in a slab ocean model).
+-- Non-zero changes are found in areas where the sea ice cover is changing in the model.
++    - changes in ocean heat transport
++- We can see the dominant regions of ocean heat uptake in the North Atlantic as well as the Southern Ocean showing up as negative anomalies in $F_S$ in the right hand plot.
+ #### [markdown]
+@@ -129,5 +165,5 @@
+ fig, axes = plt.subplots(1,2, figsize=(16,5))
+-for ax, run in zip(axes, ['control', 'anom']):
++for ax, run in zip(axes, ['cpl_control', 'anom']):
+     for field in fieldlist:
+-        ax.plot(lat, zonal_budget[run][field].mean(dim='time'), label=field)
++        ax.plot(lat, zonal_budget[run][field], label=field)
+     ax.set_xlim(-90, 90); ax.grid(); ax.legend()
+@@ -135,2 +171,5 @@
+ axes[1].set_title('Anomaly after CO2 doubling');
++for ax in axes:
++    ax.set_ylabel('W m$^{-2}$')
++    ax.set_xlabel('Latitude')
+ #### [markdown]
+@@ -163,6 +202,6 @@
+ julminusjan_budget = {}
+-for name, budget in surface_budget.items():
++for name, budget in monthly_surface_budget.items():
+     #  xarray.Dataset objects let you "select" a subset in various ways
+     #  Here we are using the integer time index (0-11)
+-    julminusjan_budget[name] = budget.isel(time=6) - budget.isel(time=0)
++    julminusjan_budget[name] = budget.sel(month=7) - budget.sel(month=1)
+ #### [code]
+@@ -171,3 +210,3 @@
+ for field in fieldlist:
+-    axes[0].plot(lat, julminusjan_budget['control'][field].mean(dim='lon'), label=field)
++    axes[0].plot(lat, julminusjan_budget['cpl_control'][field].mean(dim='lon'), label=field)
+ axes[0].set_title('Components of JUL-JAN surface energy budget (+ up) - CESM control')
+@@ -180,2 +219,4 @@
+     ax.legend()
++    ax.set_ylabel('W m$^{-2}$')
++    ax.set_xlabel('Latitude')
+ #### [markdown]
+@@ -184,3 +225,3 @@
+ ## 3. Sensible and Latent Heat Fluxes in the boundary layer
+-These notes largely follow Chapter 4 of Hartmann (1994) "Global Physical Climatology", Academic Press.
++These notes largely follow Chapter 4 of {cite:t}`Hartmann`, *Global Physical Climatology*.
+ #### [markdown]
+@@ -240,3 +281,3 @@
+ #### [markdown]
+-The following code reproduces Figure 4.10 of Hartmann (1994).
++The following code reproduces Figure 4.10 of {cite:t}`Hartmann`.
+ #### [code]
+@@ -268,5 +309,5 @@
+ #### [code]
+-Bo_control = (surface_budget['control'].SHF.mean(dim='time') /
+-              surface_budget['control'].LHF.mean(dim='time'))
+-Be_control = Be(runs['control'].TS.mean(dim='time'))
++Bo_control = (surface_budget['cpl_control'].SHF /
++              surface_budget['cpl_control'].LHF)
++Be_control = Be(atm['cpl_control'].TS.isel(time=clim_slice_cpl).mean(dim='time'))
+ fig,axes = plt.subplots(1,3,figsize=(16,4))
+@@ -292,2 +333,6 @@
+ #### [markdown]
++:::{note}
++These notes are unfinished.
++:::
++#### [markdown]
+ ## Credits

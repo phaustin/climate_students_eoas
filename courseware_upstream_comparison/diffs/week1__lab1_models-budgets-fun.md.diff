@@ -1,0 +1,136 @@
+--- week1/lab1_models-budgets-fun.md
++++ models-budgets-fun.md
+@@ -10,3 +10,3 @@
+ Let's be a little pedantic and decompose that question:
+-- what is the Climate?
++- what is Climate?
+ - what is a Model?
+@@ -26,3 +26,3 @@
+ #### [markdown]
+-From the Climate Modelling Primer, 4th ed (McGuffie and Henderson-Sellers):
++From the Climate Modelling Primer, 4th ed {cite:p}`ClimateModellingPrimer:4ed`
+ > In the broadest sense, models are for learning about the world (in our case, the climate) and the learning takes place in the contruction and the manipulation of the model, as anyone who has watched a child build idealised houses or spaceships with Lego, or built with it themselves, will know.  Climate models are, likewise, idealised representations of a complicated and complex reality through which our understanding of the climate has significantly expanded. All models involve some ignoring, distoring and approximating, but gradually they allow us to build understanding of the system being modelled. A child's Lego construction typically contains the essential elements of the real objects, improves with attention to detail, helps them understand the real world, but is never confused with the real thing.
+@@ -35,13 +35,6 @@
+ ## 2. The observed global energy budget
+-The figure below shows current best estimates of the *global, annual mean* energy fluxes through the climate system.
++The figure below shows current best estimates of the *global, annual mean* energy fluxes through the climate system {cite:p}`Trenberth:2012a`.
+ We will look at many of these processes in detail throughout the course.
+ #### [markdown]
+-```{figure} ./GlobalEnergyBudget.png
+----
+-width: 80%
+-name: directive-fig
+-alt: pha
+----
+-Global Energy Budget
+-```
++![Observed global energy flows from Trenberth and Fasullo (2012)](../images/GlobalEnergyBudget.png)
+ #### [markdown]
+@@ -61,5 +54,11 @@
+ ### On the longwave side
++First, let's define a very important term:
++:::{glossary}
++Outgoing Longwave Radiation
++: The energy emitted by the planet that escapes to space (often abbreviated as OLR).
++:::
++Note the following:
+ - Observed emission from the SURFACE is 396 W m$^{-2}$
+ - very close to the blackbody emission $\sigma T^4$ at $T = 288$ K (the global mean surface temperature).
+-- BUT emission to space is much smaller = 239 W m$^{-2}$
++- BUT emission to space (OLR) is much smaller = 239 W m$^{-2}$
+ QUESTION: What do we call this?  (greenhouse effect)
+@@ -92,6 +91,6 @@
+ Suppose the Earth behaves like a **blackbody radiator** with effective global mean **emission temperature $T_e$**.
+-Then
++Then we can calculate the {term}`Outgoing Longwave Radiation` from
+ $$ OLR = \sigma T_e^4 $$
+-where OLR = "Outgoing Longwave Radiation", and $\sigma = 5.67 \times 10{-8}$ W m$^{-2}$ K$^{-4}$ the Stefan-Boltzmann constant
+-**We can just take this as a definition of the emission temperature.**
++where $\sigma = 5.67 \times 10{-8}$ W m$^{-2}$ K$^{-4}$ the Stefan-Boltzmann constant
++**We can just take this as a definition of the emission temperature $T_e$.**
+ #### [markdown]
+@@ -108,4 +107,5 @@
+ #### [markdown]
+-#### Python fact 1
+-extra spaces are ignored!
++:::{tip} Python fact 1
++Extra spaces are ignored!
++:::
+ #### [markdown]
+@@ -113,4 +113,6 @@
+ #### [markdown]
+-#### Python fact 2
+-We can define new variables interactively. Variables let us give names to things. Names make our code easy to understand.
++:::{tip} Python fact 2
++We can define new variables interactively.
++Variables let us give names to things. Names make our code easy to understand.
++:::
+ #### [markdown]
+@@ -140,8 +142,2 @@
+ What we really want to do is **define a reusable function**
+-#### [code]
+-def OLR(T):
+-    sigma=5.67E-8
+-    tau=238.5 / sigma / 288**4
+-    OLR=tau*sigma*T**4
+-    return(OLR)
+ #### [markdown]
+@@ -153,12 +149,15 @@
+ #### [markdown]
+-#### Python fact 3
++:::{tip} Python fact 3
+ **Indentations are not ignored!  They serve to group together several lines of code.**
+ we will see plenty of examples of this – in this case, the indentation lets the interpreter know that the code is all part of the function definition.
+-#### [markdown]
+-#### Python fact 4:
++:::
++#### [markdown]
++:::{tip} Python fact 4
+ `def` is a keyword that defines a function.
+ Just like a mathematical function, a Python function takes one or more input arguments, performs some operations on those inputs, and gives back some resulting value.
+-#### [markdown]
+-##### Python fact 5:
++:::
++#### [markdown]
++:::{tip} Python fact 5
+ `return` is a keyword that defines what value will be returned by the function.
++:::
+ #### [markdown]
+@@ -168,9 +167,11 @@
+ #### [markdown]
+-#### Python fact 6
++:::{tip} Python fact 6
+ **The `#` symbol is used for comments in Python code.**
+ The interpreter will ignore anything that follows `#` on a line of code.
+-#### [markdown]
+-#### Python fact 7:
+-`print` is a function that causes the value of an expression (or a list of expressions) to be printed to the screen.
+-(Don’t always need it, because by default the interpreter prints the output of the last statement to the screen, as we have seen).
++:::
++#### [markdown]
++:::{tip} Python fact 7
++`print()` is a function that causes the value of an expression (or a list of expressions) to be printed to the screen.
++_Don’t always need it, because by default the interpreter prints the output of the last statement to the screen, as we have seen._
++:::
+ #### [markdown]
+@@ -179,5 +180,6 @@
+ #### [markdown]
+-#### Python fact 8:
++:::{tip} Python fact 8
+ **Variables defined in functions do not exist outside of that function.**
+ Try declaring `sigma = 2`, then `print(sigma)`. And try computing `OLR(288)` again. Did anything change?
++:::
+ #### [markdown]
+@@ -208,4 +210,6 @@
+ #### [markdown]
+-#### Python fact 9: Assigning a value to a named variable overwrites whatever was already assigned to that name.
++:::{tip} Python fact 9
++**Assigning a value to a named variable overwrites whatever was already assigned to that name.**
+ Python is also case sensitive. If we had used `olr` to store the array, there would be no conflict.
++:::
+ #### [markdown]
+@@ -228,3 +232,3 @@
+ - A **climate model** represents (mathematically of numerically) these **exchanges of energy** between the **Earth system** and **space**.
+-- The observed emission to space or **Outgoing Longwave Radiation** is consistent with an emission temperature $T_e = 255$ K -- **much colder than Earth's surface**.
++- The observed emission to space or {term}`Outgoing Longwave Radiation` is consistent with an emission temperature $T_e = 255$ K -- **much colder than Earth's surface**.
+ - This is evidence of the **greenhouse effect**.

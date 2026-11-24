@@ -1,0 +1,29 @@
+--- week2/lab2_1_analytical-efolding.md
++++ analytical-efolding.md
+@@ -6,3 +6,3 @@
+ #### [markdown]
+-Previously we considered a zero-dimensional **Energy Balance Model** with the governing equation:
++In the [previous lecture](zero-dim-ebm) we considered a zero-dimensional **Energy Balance Model** with the governing equation
+ $$ C \frac{dT_s}{dt} = (1-\alpha) Q - \tau \sigma T_s^4 $$
+@@ -38,3 +38,7 @@
+ #### [code]
+-lambda_0 = 4 * sigma * tau * Teq_observed**3
++OLRobserved = 238.5  # in W/m2
++sigma = 5.67E-8  # S-B constant
++Tsobserved = 288.  # global average surface temperature
++tau = OLRobserved / sigma / Tsobserved**4  # solve for tuned value of transmissivity
++lambda_0 = 4 * sigma * tau * Tsobserved**3
+ #  This is an example of formatted text output in Python
+@@ -42,3 +46,4 @@
+ #### [markdown]
+-This is actually our first estimate of what is often called the **Planck feedback**. It is the tendency for a warm surface to cool by increased longwave radiation to space.
++This is actually our first estimate of what is often called the **Planck feedback** (though the Planck feedback parameter is more properly $-\lambda_0$, i.e. a negative number, since it acts as a negative feedback).
++It is the tendency for a warm surface to cool by increased longwave radiation to space.
+ It may also be refered to as the "no-feedback" climate response parameter. As we will see, $\lambda_0$ quantifies the sensitivity of the climate system in the absence of any actual feedback processes.
+@@ -76,2 +81,6 @@
+ #### [code]
++c_w = 4E3  #  Specific heat of water in J/kg/K
++rho_w = 1E3  #  Density of water in kg/m3
++H = 100.   #  Depth of water in m
++C = c_w * rho_w * H   #  Heat capacity of the model
+ tstar = C / lambda_0   #  Calculated value of relaxation time constant

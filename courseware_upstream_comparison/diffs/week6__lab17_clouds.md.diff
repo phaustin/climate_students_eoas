@@ -1,0 +1,65 @@
+--- week6/lab17_clouds.md
++++ clouds.md
+@@ -10,12 +10,5 @@
+ where $\Delta z$ is the depth of the cloudy layer in meters.  $LWP$ has units of g m$^{-2}$.
+-$LWP$ determines the key optical properties of the cloud, both in the longwave and shortwave:
+-#### [markdown]
+-```{figure} ./CloudOpticalProperties_Webster1994.png
+----
+-width: 80%
+-name: directive-fig
+-alt: pha
+----
+-Global Energy Budget
+-```
++$LWP$ determines the key optical properties of the cloud, both in the longwave and shortwave {cite:p}`Webster:1994a`:
++#### [markdown]
++![Webster cloud optical properties schematic](../images/CloudOpticalProperties_Webster1994.png)
+ #### [markdown]
+@@ -92,3 +85,3 @@
+ #### [markdown]
+-We are now going to use the `RRTMG` radiation model to compute the cloud radiative effect in a single column, and look at how the CRE depends on cloud properties and the height of the cloud layer.
++We are now going to use the RRTMG radiation model to compute the cloud radiative effect in a single column, and look at how the CRE depends on cloud properties and the height of the cloud layer.
+ #### [code]
+@@ -185,6 +178,6 @@
+         rad.compute_diagnostics()
+-        OLR[i] = rad.OLR
+-        OLRclr[i] = rad.OLRclr
+-        ASR[i] = rad.ASR
+-        ASRclr[i] = rad.ASRclr
++        OLR[i] = rad.OLR[0]
++        OLRclr[i] = rad.OLRclr[0]
++        ASR[i] = rad.ASR[0]
++        ASRclr[i] = rad.ASRclr[0]
+     CRE_LW[thickness] = -(OLR - OLRclr)
+@@ -277,6 +270,6 @@
+ #### [markdown]
+-<img src='https://www.ipcc.ch/site/assets/uploads/2018/02/Fig9-43-1-1024x572.jpg'>
++![feedback AR5](https://www.ipcc.ch/site/assets/uploads/2018/02/Fig9-43-1.jpg)
+ #### [markdown]
+ > **Figure 9.43** | (a) Strengths of individual feedbacks for CMIP3 and CMIP5 models (left and right columns of symbols) for Planck (P), water vapour (WV), clouds (C), albedo (A), lapse rate (LR), combination of water vapour and lapse rate (WV+LR) and sum of all feedbacks except Planck (ALL), from Soden and Held (2006) and Vial et al. (2013), following Soden et al. (2008). CMIP5 feedbacks are derived from CMIP5 simulations for abrupt fourfold increases in CO2 concentrations (4 × CO2). (b) ECS obtained using regression techniques by Andrews et al. (2012) against ECS estimated from the ratio of CO2 ERF to the sum of all feedbacks. The CO2 ERF is one-half the 4 × CO2 forcings from Andrews et al. (2012), and the total feedback (ALL + Planck) is from Vial et al. (2013).
+-*Figure caption reproduced from the AR5 WG1 report*
++*Figure caption reproduced from the AR5 WG1 report {cite:p}`AR5_Ch9`*
+ #### [markdown]
+@@ -287,11 +280,5 @@
+ You have been building a (primitive) kernel for the water vapor feedback in the last homework.
+-#### [markdown]
+-```{figure} ./Kernels_Held&Soden2000.png
+----
+-width: 80%
+-name: directive-fig
+-alt: pha
+----
+-Global Energy Budget
+-```
++Some plots from {cite:t}`Held:2000kx`:
++#### [markdown]
++![Held and Soden kernels](../images/Kernels_Held&Soden2000.png)
+ #### [markdown]
+@@ -299,3 +286,5 @@
+ #### [markdown]
+-**These notes are unfinished.**
++:::{note}
++These notes are unfinished.
++:::
+ #### [markdown]

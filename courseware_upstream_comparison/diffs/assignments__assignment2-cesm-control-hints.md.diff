@@ -1,0 +1,12 @@
+--- assignments/assignment2-cesm-control-hints.md
++++ assignment-cesm-control-hints.md
+@@ -41,2 +41,4 @@
+ cesm_data_path = "http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/"
++# For better performance if you can access the roselab_rit filesystem (e.g. from JupyterHub)
++# cesm_data_path = "/roselab_rit/cesm_archive/"
+ atm_control = xr.open_dataset(cesm_data_path + "cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc")
+@@ -92,3 +94,3 @@
+ # note that adding .values at the end of the expression gives me just the number without the metadata
+-print('Downwelling longwave radiation at the surface: {:.2f} W/m2'.format(myvalue))
++print('Upwelling longwave radiation at the surface: {:.2f} W/m2'.format(myvalue))
+ # This is an example of a formatted print statement in Python
