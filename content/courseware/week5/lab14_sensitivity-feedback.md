@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.6
+    jupytext_version: 1.19.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -697,7 +697,7 @@ Things to note:
 
 Look back at the feedback parameters we calculated in our single-column model. How do they compare to the data in this figure?
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 ____________
 

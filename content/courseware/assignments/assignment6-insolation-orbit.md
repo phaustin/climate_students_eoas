@@ -1,10 +1,11 @@
 ---
 jupytext:
+  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.6
+    jupytext_version: 1.19.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -99,6 +100,7 @@ Speculate on what the seasonal cycle of temperature might look like at different
 
 ```
 
+____________
 
 ## Credits
 
@@ -108,3 +110,4 @@ It is licensed for free and open consumption under the
 [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
 
 Development of these notes and the [climlab software](https://github.com/brian-rose/climlab) is partially supported by the National Science Foundation under award AGS-1455071 to Brian Rose. Any opinions, findings, conclusions or recommendations expressed here are mine and do not necessarily reflect the views of the National Science Foundation.
+____________

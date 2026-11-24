@@ -1,30 +1,29 @@
 ---
 jupytext:
+  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.19.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 (nb:system)=
 # The climate system and climate models
 
 This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](http://www.atmos.albany.edu/facstaff/brose/index.html), University at Albany.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 ## 1. The climate system and its interactions
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Definition of the “climate system” and its “spheres”
 
@@ -36,56 +35,56 @@ From the IPCC AR5 report:
 
 Which begs some further definitions:
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### Atmosphere
 
 >The gaseous envelope surrounding the Earth.
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 #### Hydrosphere
 
 >The component of the climate system comprising liquid surface and subterranean water, such as oceans, seas, rivers, lakes, underground water, etc.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### **Biosphere** (terrestrial and marine):
 > The part of the Earth system comprising all ecosystems and living organisms… including derived dead organic matter, such as litter, soil organic matter and oceanic detritus.
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 #### **Cryosphere**:
 > All regions on and beneath the surface of the Earth and ocean where water is in solid form, including sea ice, lake ice, river ice, snow cover, glaciers and ice sheets, and frozen ground (which includes permafrost).
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### **Lithosphere**: 
 > The upper layer of the solid Earth, both continental and oceanic, which comprises all crustal rocks and the cold, mainly elastic part of the uppermost mantle.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### WHY might we want to include all these “spheres” in our models?
 
 Here are two nice figures from the IPCC AR5 WG1 report:
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 <img src='http://www.climatechange2013.org/images/figures/WGI_AR5_Fig1-1.jpg' width="800">
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 >Figure 1.1 | Main drivers of climate change. The radiative balance between incoming solar shortwave radiation (SWR) and outgoing longwave radiation (OLR) is influenced by global climate ‘drivers’. Natural fluctuations in solar output (solar cycles) can cause changes in the energy balance (through fluctuations in the amount of incoming SWR) (Section 2.3). Human activity changes the emissions of gases and aerosols, which are involved in atmospheric chemical reactions, resulting in modified O3 and aerosol amounts (Section 2.2). O3 and aerosol particles absorb, scatter and reflect SWR, changing the energy balance. Some aerosols act as cloud condensation nuclei modifying the properties of cloud droplets and possibly affecting precipitation (Section 7.4). Because cloud interactions with SWR and LWR are large, small changes in the properties of clouds have important implications for the radiative budget (Section 7.4). Anthropogenic changes in GHGs (e.g., CO2, CH4, N2O, O3, CFCs) and large aerosols (>2.5 μm in size) modify the amount of outgoing LWR by absorbing outgoing LWR and re-emitting less energy at a lower temperature (Section 2.2). Surface albedo is changed by changes in vegetation or land surface properties, snow or ice cover and ocean colour (Section 2.3). These changes are driven by natural seasonal and diurnal changes (e.g., snow cover), as well as human influence (e.g., changes in vegetation types) (Forster et al., 2007).
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 <img src='https://www.ipcc.ch/site/assets/uploads/2017/09/Fig1-02.jpg' width="800">
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 > Figure 1.2 | Climate feedbacks and timescales. The climate feedbacks related to increasing CO2 and rising temperature include negative feedbacks (–) such as LWR, lapse rate (see Glossary in Annex III), and air–sea carbon exchange and positive feedbacks (+) such as water vapour and snow/ice albedo feedbacks. Some feedbacks may be positive or negative (±): clouds, ocean circulation changes, air–land CO2 exchange, and emissions of non-GHGs and aerosols from natural systems. In the smaller box, the large difference in timescales for the various feedbacks is highlighted.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### The key is that all these processes ultimately affect the planetary energy budget
 
@@ -97,17 +96,17 @@ e.g. growth and decay of ice sheets, geological processes like chemical weatheri
 The choice of which processes to include in a model should therefore be **guided by the timescales of interest**. For example, the IPCC process is primarily concerned with the century timescale – because it is of special concern to human affairs.
 So we don’t tend to include ice sheet and geological feedbacks – though coupled ice sheet modeling is becoming more important.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 <img src="../../images/Primer_Table1.8.png" width="800">
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 ## 2. Simulation versus Parameterization
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Definitions
 
@@ -115,7 +114,7 @@ The *Climate Modelling Primer* (4th ed., page 124) defines **parameterization** 
 
 > The process of capturing a physical process through some mathematical relationship between important parameters in the process, but without explicitly modeling all the actual processes. For example, the albedo of leaves might be related to the soil moisture (via some specification of wilting point) but the physical and biological mechanisms in the plant that happen when the leaf wilts are not modelled.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 An example from our own work so far: the **greenhouse effect**, which causes the OLR to be much lower than the surface emission, and the equilibrium temperature of the surface to be much warmer than it would otherwise be.
 
@@ -123,7 +122,7 @@ In reality the greenhouse effect arises from the contributions of several differ
 
 How can we represent this in a climate model?
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Parameterization
 
@@ -135,7 +134,7 @@ Use observed temperature and OLR to choose an appropriate value for $\tau$
 
 (this is what we have done so far)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### Pro
 
@@ -145,7 +144,7 @@ Simple to implement, easy to understand the result
 
 How might the value of $\tau$ change with climate change? We have no way of knowing, and have to make assumptions.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Simulation
 
@@ -157,7 +156,7 @@ Solve a large set of coupled equations for the time-dependent behavior of the at
 
 This is essentially what goes on in a so-called GCM (General Circulation Model or Global Climate Model).
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### Pro
 
@@ -167,63 +166,63 @@ Model is based on real physical principles (e.g. Newton’s laws of motion, cons
 
 Requires lots of computer resources. Must simulate the weather even though we really just want the climate (statistics of weather!)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Essentially a **simulation** involves representing (at least some aspects of) the underlying rules that govern the process. *There is a chain of causality linking input to output*.
 
 **Parameterization** involves making assumptions about the **statistical properties** of the process – so we can calculate some relevant statistical properties of the output given the input, without needing to explicitly model the actual events.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 ## 3. A taxonomy of climate models
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Key components of a climate model
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 #### Radiation
 
 The way in which the input and absorption of solar radiation and the emission of infrared radiation are handled
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 #### Dynamics
 
 The movement of energy around the globe by winds and ocean currents (specifically from low to high latitudes) and vertical movements (e.g. small-scale turbulence, convection and deep-water formation)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### Surface processes
 
 Inclusion of the effects of sea and land ice, snow, vegetation and the resultant change in albedo, emissivity and surface-atmosphere energy and moisture interchanges.
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 #### Chemistry
 
 The chemical composition of the atmosphere and interactions, including biological, with other components (e.g. carbon exchanges between ocean, land and atmosphere)
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 #### Resolution (in both time and space)
 
 The timestep of the model and the horizontal and vertical scales resolved.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### The climate modeling pyramid
 
 The edges represent the basic elements of the models, with **complexity increasing upwards**. Around the base of the pyramid are the simpler climate models, which incorporate only one primary process.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 <img src='../../images/Primer_Figure2.2.png' width="800">
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Five basic types of climate model
 
@@ -235,7 +234,7 @@ The edges represent the basic elements of the models, with **complexity increasi
 
 The vertical axis in the pyramid figures shows increasing complexity BOTH in terms of number of processes included and linked together, AND increasing resolution in space and time.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### 1. Energy Balance Models (EBMs)
 
@@ -245,7 +244,7 @@ Simplified relationships are used to calculate the terms contributing to the ene
 
 *How might we extend our zero-dimensional model to include a latitude dimension? What new kinds of processes might we have to include?*
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### 2. Radiative-Convective (RC) or Single-Column models (SCMs)
 
@@ -254,7 +253,7 @@ Focus on processes in the **vertical column**.
 - RC models compute the (usually global average) temperature profile by explicit modelling of **radiation** and **convection** processes, which together determine the *lapse rate. 
 - SCMs are single columns 'extracted' from a three-dimensional model and include all the processes that would be modelled in the three-dimensional version but without any of the horizontal energy transfers.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### 3. Dimensionally constrained models
 
@@ -264,7 +263,7 @@ Include the following:
 - Earth-System Models of Intermediate Complexity (EMICs) extend SD models to include interactive chemistry, especially the cycling of carbon between ocean, atmosphere and land.
 - Integrated Assessment Models (IAMs) couple the climate system to models of economic activity to more fully assess the impact of particular policy choices affective emissions.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### 4. Global Circulation Models (GCMs)
 
@@ -276,7 +275,7 @@ These models attempt to simulate as many processes as possible and produce a thr
 
 Vertical resolution is much finer than horizontal resolution but, even so, the number of layers is usually much less than the number of columns.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### Fun fact
 
@@ -288,13 +287,13 @@ Depending on who you ask, **GCM** stands for any of the following:
 
 A GCM was originally a representation of the processes that shape and maintain the **time-average circulation** of the atmosphere, e.g. why are the surface winds, on average, westerly in mid-latitudes and easterly in the tropics?
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Distinctions have historically been drawn between **oceanic** and **atmospheric** general circulation models, which are often denoted **OGCM** and **AGCM** respectively. 
 
 As the pyramid is ascended, more processes are integrated to develop a coupled ocean-atmosphere global model, which might be denoted **AOGCM** or **CGCM**.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### 5. Earth System Models
 
@@ -304,21 +303,21 @@ Such models are now generally known as **Earth System Models**.
 
 For brevity we use the generic term GCM to mean any complex three-dimensional model of the atmosphere and ocean and possibly other components, used for climate simulation. We will be more precise where necessary.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Simple vs. Complex models: their different roles in the science
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 <img src='../../images/Primer_Table2.1.png' width="800">
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 In this course we are going to work extensively with two kinds of simple one-dimensional model: **EBM**s and **RCM**s. 
 
 Section 2.2.1 and 2.2.2 of the *Primer* give a sneak peek of the ingredients and uses for these models.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 ## 4. Introducing the GCM
@@ -332,7 +331,7 @@ The aim of the GCM is the calculation of the **full three-dimensional character*
 
 To **simulate** the fluid flow and its effects on other components of the climate system, instead of **parameterizing** the flow.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 This requires the solution of a series of equations governing the motion of fluids
 
@@ -348,13 +347,13 @@ Atmospheric Science students will recognize this list - the so-called "governing
 
 These equations are the basis of *numerical weather prediction* as well as climate modeling.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The physical laws are expressed in terms of **differential equations**. 
 
 Just as we saw with the zero-dimensional EBM, we need to approximate the derivatives in order to represent them on a computer.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 One way to do this is to divide the Earth into a **series of boxes on a regular grid**. 
 
@@ -369,31 +368,31 @@ for each box - essentially a spatial average of these quantities over the box.
 
 The discretized equations are then solved numerically by **timestepping**, (conceptually at least) just like we have already done with the EBM.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 <img src='http://www.atmos.albany.edu/facstaff/brose/classes/ENV415_Spring2018/images/Primer_Figure2.5.png' width="800">
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Evolving complexity of GCMs
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 <img src='https://www.ipcc.ch/site/assets/uploads/2018/02/Fig1-13.jpg' width="800">
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 > Figure 1.13 | The development of climate models over the last 35 years showing how the different components were coupled into comprehensive climate models over time. In each aspect (e.g., the atmosphere, which comprises a wide range of atmospheric processes) the complexity and range of processes has increased over time (illustrated by growing cylinders). Note that during the same time the horizontal and vertical resolution has increased considerably e.g., for spectral models from T21L9 (roughly 500 km horizontal resolu- tion and 9 vertical levels) in the 1970s to T95L95 (roughly 100 km horizontal resolution and 95 vertical levels) at present, and that now ensembles with at least three independent experiments can be considered as standard.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 <img src='http://www.climatechange2013.org/images/figures/WGI_AR5_Fig1-14.jpg' width="800">
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 > Figure 1.14 | Horizontal resolutions considered in today’s higher resolution models and in the very high resolution models now being tested: (a) Illustration of the European topography at a resolution of 87.5 × 87.5 km; (b) same as (a) but for a resolution of 30.0 × 30.0 km.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### A hierarchy of complexity for ocean models
 
@@ -401,7 +400,7 @@ The discretized equations are then solved numerically by **timestepping**, (conc
 
 <img src="http://www.atmos.albany.edu/facstaff/brose/classes/ENV415_Spring2018/images/Primer_Figure2.9.png" width="800" alt="Figure 2.9: ocean model hierarchy">
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 One goal of all this complexity is to do **more simulation** and **less parameterization** in order to get a more accurate prediction of climate change.
 
@@ -409,7 +408,7 @@ In terms of our simple view of planetary energy budget, **we are trying to repre
 
 Ideally this means basing the model on **laws of physics and chemistry**.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 However it doesn’t always work this way. In many cases we know that a feedback operates in nature, but we can’t represent it in terms of first principles.
 
@@ -421,7 +420,7 @@ We also must deal with interaction across spatial scales.
 
 E.g. cumulus convection and vertical transport of heat and water vapor
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 ## 5. What can we resolve with a 2º atmosphere?
@@ -432,20 +431,14 @@ The following animation shows contours of sea level pressure in the control simu
 The atmosphere is simulated with a 2º finite volume dynamical core.
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 from IPython.display import YouTubeVideo
 YouTubeVideo('As85L34fKYQ')
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### Discussion point:
 How well does this represent the true general circulation of the atmosphere?
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 ____________
 
@@ -462,7 +455,7 @@ Some other figures are reproduced from [*The Climate Modelling Primer* (4th ed)]
 
 ____________
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 ____________
 

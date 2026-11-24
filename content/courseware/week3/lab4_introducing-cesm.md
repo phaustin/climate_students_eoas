@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.6
+    jupytext_version: 1.19.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -22,7 +22,7 @@ ____________
 ## About the CESM
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### What is it?
 
@@ -34,7 +34,7 @@ I use CESM in my own research. We are going to be using CESM in this course. For
 
 http://www.cesm.ucar.edu/models/
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Key components of CESM:
 
@@ -51,17 +51,17 @@ see http://www.cesm.ucar.edu/models/cesm1.2/ for more info
      
 The software is somewhat modular, so different submodels can be combined together depending on the nature of the scientific problem at hand and the available computer power.
 
-+++ {"slideshow": {"slide_type": "-"}}
++++
 
 Recall that we saw this schematic of different ways to represent the ocean in climate models:
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 ## Our numerical experiments with CESM
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Atmosphere
 
@@ -77,7 +77,7 @@ ____________
      - composition of the atmosphere and the absorption properties of different gases
      - radiative effects of clouds.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Sea ice
 
@@ -88,7 +88,7 @@ ____________
     - determine ice motion and deformation.
 - Complex! Sea ice is sort of a mixture of a fluid and a solid.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Land surface model
 
@@ -97,7 +97,7 @@ ____________
 - Don’t actually know much about how it works!
 - Great topic for someone to dig in to for their term project.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Ocean
 
@@ -106,7 +106,7 @@ ____________
 - Receives runoff from the land surface (rivers)
 - Full 3D simulation of the currents.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Experimental setup
 
@@ -118,13 +118,13 @@ We then (later) we will change something, e.g. double the atmospheric $CO_2$!
 
 And allow the model to adjust toward a new equilibrium, just as we did with the toy energy balance model.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Browsing input data with xarray
 
 First, let's take a look at some of the ingredients that go into the control run. **All of the necessary data will be served up by a special data server sitting in the department**, so you should be able to run this code to interact with the data on any computer that is connected to the internet.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### You need to be connected to the internet to run the code in this notebook ###
 
@@ -137,10 +137,6 @@ Within this folder called `CESM archive`, you will find another folder called `s
 The data are all stored in `NetCDF` files, a standard file format for self-describing gridded data.
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 %matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
@@ -149,7 +145,7 @@ import xarray as xr
 
 We are going to use a package called [xarray](http://xarray.pydata.org) (abbreviated here as `xr`) to work with the datasets.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Boundary conditions: continents and topography
 

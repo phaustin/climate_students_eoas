@@ -11,13 +11,13 @@ kernelspec:
   name: python3
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 # Advanced topic: Climate sensitivity and feedback
 
 This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](http://www.atmos.albany.edu/facstaff/brose/index.html), University at Albany.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
@@ -30,7 +30,7 @@ Let’s say we instantaneously double atmospheric CO$_2$. What happens?
 - OLR will decrease
 - The climate system will begin gaining energy.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 We will call this abrupt decrease in OLR the **radiative forcing**, a positive number in W m$^{-2}$
 
@@ -40,7 +40,7 @@ $\Delta R$ is a measure of the rate at which energy begins to accumulate in the 
 
 What happens next?
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
@@ -51,7 +51,7 @@ Let’s use our simple zero-dimensional EBM to calculate the resulting change in
 
 How much warming will we get once the climate system has adjusted to the radiative forcing?
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 First note that at equilibrium we must have
 
@@ -68,7 +68,7 @@ The new equilibrium will have **exactly the same OLR** as the old equilibrium, b
 
 The climate system must warm up by a certain amount to get the OLR back up to its original value! The question is, **how much warming is necessary**? In other words, **what is the new equilibrium temperature**?
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Equilibrium Climate Sensitivity (ECS)
 
@@ -80,7 +80,7 @@ The temperature must increase so that the increase in OLR is exactly equal to th
 
 $$ OLR_f - OLR_{2xCO2} = \Delta R $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 From last lecture, we have linearized our model for OLR with a slope $\lambda_0 = 3.3$ W m$^{-2}$ K$^{-1}$. This means that a global warming of 1 degree causes a 3.3 W m$^{-2}$ increase in the OLR. So we can write:
 
@@ -92,7 +92,7 @@ $$ \Delta T_0 = T_f - T_i $$
 
 (and the subscript zero will remind us that this is the response in the simplest model, in the absence of any feedbacks)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 To achieve energy balance, the planet must warm up by
 
@@ -103,10 +103,6 @@ As we will see later, the actual radiative forcing due CO$_2$ doubling is about 
 So our model without feedback gives a prediction for climate sensitivity:
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 #  Repeating code from Lecture 2
 sigma = 5.67E-8  #  Stefan-Boltzmann constant in W/m2/K4
 Q = 341.3  #  global mean insolation in W/m2
@@ -118,16 +114,12 @@ lambda_0 = 4 * sigma * beta**4 * Tsbar**3
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: fragment
----
 DeltaR = 4.  # Radiative forcing in W/m2
 DeltaT0 = DeltaR / lambda_0
 print( 'The Equilibrium Climate Sensitivity in the absence of feedback is {:.1f} K.'.format(DeltaT0))
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Question: what are the current best estimates for the actual warming (including all feedbacks) in response to a doubling of CO$_2$?
 
@@ -135,7 +127,7 @@ We’ll now look at the feedback concept. Climate feedbacks tend to amplify the 
 
 $\Delta T_0 = 1.2$ K is the ** warming that we would have if the Earth radiated the excess energy away to space as a blackbody**, and with no change in the planetary albedo.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
@@ -150,7 +142,7 @@ A feedback occurs when a portion of the output from the action of a system is ad
 
 <img src='../../images/feedback_sketch.png' alt='feedback loop' width=500>
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The result of a loop system can either be **amplification** or **dampening** of the process, depending on the sign of the gain in the loop, which we will denote $f$.
 
@@ -158,7 +150,7 @@ We will call amplifying feedbacks **positive** ($f>0$) and damping feedbacks **n
 
 We can think of the “process” here as the entire climate system, which contains many examples of both positive and negative feedback.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Example: the water vapor feedback
 
@@ -166,7 +158,7 @@ The capacity of the atmosphere to hold water vapor (saturation specific humidity
 
 **Positive or negative feedback?**
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Example: the ice-albedo feedback
 
@@ -176,7 +168,7 @@ Colder temperatures lead to expansion of the areas covered by ice and snow, whic
 
 *Make sure it’s clear that the sign of the feedback is the same whether we are talking about warming or cooling.*
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 _____________
 ## 4. Climate feedback: some definitions
@@ -185,7 +177,7 @@ ____________
 We start with an initial radiative forcing , and get a response
 $$ \Delta T_0 = \frac{\Delta R}{\lambda_0} $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Now consider what happens in the presence of a feedback process. For a concrete example, let’s take the **water vapor feedback**. For every degree of warming, there is an additional increase in the greenhouse effect, and thus additional energy added to the system.
 
@@ -196,38 +188,38 @@ where $f$ is the **feedback amount**, a number that represents what fraction of 
 
 For the example of the water vapor feedback, $f$ is positive (between 0 and +1) – the process adds extra energy to the original radiative forcing.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The amount of energy in the full "input" is now
 $$ \Delta R + f \lambda_0 \Delta T_0 $$
 or
 $$ (1+f) \lambda_0 \Delta T_0 $$
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 But now we need to consider the next loop. A fraction $f$ of the additional energy is also added to the input, giving us
 $$ (1+f+f^2) \lambda_0 \Delta T_0 $$
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 and we can go round and round, leading to the infinite series
 $$ (1+f+f^2+f^3+ ...) \lambda_0 \Delta T_0 = \lambda_0 \Delta T_0 \sum_{n=0}^{\infty} f^n $$
 
 Question: what happens if $f=1$?
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 It so happens that this infinite series has an exact solution
 
 $$ \sum_{n=0}^{\infty} f^n = \frac{1}{1-f} $$
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 So the full response including all the effects of the feedback is actually
 
 $$ \Delta T = \frac{1}{1-f} \Delta T_0 $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 This is also sometimes written as 
 $$ \Delta T = g \Delta T_0 $$
@@ -238,13 +230,13 @@ $$ g = \frac{1}{1-f} = \frac{\Delta T}{\Delta T_0} $$
 
 is called the **system gain** -- the ratio of the actual warming (including all feedbacks) to the warming we would have in the absence of feedbacks.
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 So if the overall feedback is positive, then $f>0$ and $g>1$.
 
 And if the overall feedback is negative?
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 _____________
 ## 5. Climate sensitivity with feedback
@@ -258,7 +250,7 @@ So our simple estimate of the no-feedback change $\Delta T_0$ is apparently unde
 
 Saying the same thing another way: the overall net climate feedback is positive, amplifying the response, and the system gain $g>1$.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Let’s assume that the true value is $\Delta T_{2xCO2} = 3$ K (middle of the range). This implies that the gain is
 
@@ -268,7 +260,7 @@ The actual warming is substantially amplified!
 
 There are lots of reasons for this, but the water vapor feedback is probably the most important.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Question:  if $g=2.5$, what is the feedback amount $f$?
 
@@ -280,7 +272,7 @@ $$ f = 1 - 1/g = 0.6 $$
 
 The overall feedback (due to water vapor, clouds, etc.) is **positive**.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 _____________
 ## 6. Contribution of individual feedback processes to Equilibrium Climate Sensitivity
@@ -291,13 +283,13 @@ Now what if we have several individual feedback processes occurring simultaneous
 
 We can think of individual feedback amounts $f_1, f_2, f_3, ...$, with each  representing a physically distinct mechanism, e.g. water vapor, surface snow and ice, cloud changes, etc.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Each individual process takes a fraction $f_i$ of the output and adds to the input. So the feedback amounts are additive,
 
 $$ f = f_1 + f_2 + f_3 + ... = \sum_{i=0}^N f_i $$
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 This gives us a way to compare the importance of individual feedback processes!
 
@@ -307,7 +299,7 @@ $$ \Delta T_{2xCO2} = \frac{1}{1- \sum_{i=0}^N f_i } \Delta T_0 $$
 
 The climate sensitivity is thus **increased by positive feedback processes**, and **decreased by negative feedback processes**.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Climate feedback parameters
 
@@ -323,7 +315,7 @@ known as **climate feedback parameters**, in units of W m$^{-2}$ K$^{-1}$.
 
 With this choice of sign conventions, $\lambda_i > 0$ for a positive feedback process.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Individual feedback parameters $\lambda_i$ are then additive, and can be compared to the no-feedback parameter $\lambda_0$.
 
@@ -338,7 +330,7 @@ We might decompose this net climate feedback into, for example
 
 These individual feedback processes may be positive or negative. This is very powerful, because we can **measure the relative importance of different feedback processes** simply by comparing their $\lambda_i$ values.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Every climate model has a Planck feedback
 
@@ -350,7 +342,7 @@ As we will see, our estimate of $\lambda_0 = -3.3 ~\text{W} ~\text{m}^{-2} ~\tex
 
 $$\lambda = \lambda_0 - \sum_{i=1}^{N} \lambda_i \ne \lambda_0 $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 ## 7. Feedbacks diagnosed from complex climate models
@@ -374,7 +366,7 @@ See below for complete citation information.
 
 *Figure caption reproduced from the AR5 WG1 report*
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Legend:
 
@@ -386,7 +378,7 @@ Legend:
 - A: surface albedo feedback
 - ALL: sum of all feedback except Plank, i.e. ALL = WV+LR+C+A
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Things to note:
 
@@ -397,7 +389,7 @@ Things to note:
 - For reasons we will discuss later, the best way to measure the water vapor feedback is to combine it with lapse rate feedback.
 - Models agree strongly on the combined water vapor plus lapse rate feedback.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 - The albedo feedback is slightly positive but rather small globally.
 - By far the largest spread across the models occurs in the cloud feedback.
@@ -406,7 +398,7 @@ Things to note:
 - Therefore, most of the spread in the ECS across the models is due to the spread in the cloud feedback.
 - Our estimate of $+2.0 ~\text{W} ~\text{m}^{-2} ~\text{K}^{-1}$ for all the missing processes is consistent with the GCM ensemble.
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 ### Citation
 
@@ -419,13 +411,13 @@ The full citation is:
 
 Flato, G., J. Marotzke, B. Abiodun, P. Braconnot, S.C. Chou, W. Collins, P. Cox, F. Driouech, S. Emori, V. Eyring, C. Forest, P. Gleckler, E. Guilyardi, C. Jakob, V. Kattsov, C. Reason and M. Rummukainen, 2013: Evaluation of Climate Models. In: Climate Change 2013: The Physical Science Basis. Contribution of Working Group I to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change [Stocker, T.F., D. Qin, G.-K. Plattner, M. Tignor, S.K. Allen, J. Boschung, A. Nauels, Y. Xia, V. Bex and P.M. Midgley (eds.)]. Cambridge University Press, Cambridge, United Kingdom and New York, NY, USA, pp. 741–866, doi:10.1017/CBO9781107415324.020
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 ## 8. The zero-dimensional model with variable albedo
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### The model
 
@@ -438,7 +430,7 @@ $$ \alpha(T) = \left\{ \begin{array}{ccc}
 \alpha_o + (\alpha_i-\alpha_o) \frac{(T-T_o)^2}{(T_i-T_o)^2} &   & T_i < T < T_o \\
 \alpha_o &   & T \ge T_o \end{array} \right\}$$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 with parameter values:
 
@@ -449,27 +441,19 @@ with parameter values:
 
 For intermediate temperature, this formula gives a smooth variation in albedo with global mean temperature. It is tuned to reproduce the observed albedo $\alpha = 0.299$ for $T = 288$ K.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Coding up the model in Python
 
 This largely repeats what I asked you to do in your homework.
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 %matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 def albedo(T, alpha_o = 0.289, alpha_i = 0.7, To = 293., Ti = 260.):
     alb1 = alpha_o + (alpha_i-alpha_o)*(T-To)**2 / (Ti - To)**2
     alb2 = np.where(T>Ti, alb1, alpha_i)
@@ -478,10 +462,6 @@ def albedo(T, alpha_o = 0.289, alpha_i = 0.7, To = 293., Ti = 260.):
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 def ASR(T, Q=341.3):
     alpha = albedo(T)
     return Q * (1-alpha)
@@ -494,10 +474,6 @@ def Ftoa(T):
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 T = np.linspace(220., 300., 100)
 
 plt.plot(T, albedo(T))
@@ -507,15 +483,11 @@ plt.ylim(0,1)
 plt.title('Albedo as a function of global mean temperature')
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Graphical solution: TOA fluxes as functions of temperature
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 plt.plot(T, OLR(T), label='OLR')
 plt.plot(T, ASR(T), label='ASR')
 plt.plot(T, Ftoa(T), label='Ftoa')
@@ -525,19 +497,15 @@ plt.grid()
 plt.legend(loc='upper left')
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The graphs meet at three different points! That means there are actually three different possible equilibrium temperatures in this model.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Numerical solution to get the three equilibrium temperatures
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: fragment
----
 # Use numerical root-finding to get the equilibria
 from scipy.optimize import brentq
 # brentq is a root-finding function
@@ -556,7 +524,7 @@ Using numerical timestepping and different initial temperatures, can you get the
 
 What do you think this means?
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 ____________
 

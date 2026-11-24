@@ -1,6 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all
   notebook_metadata_filter: all
   text_representation:
     extension: .md
@@ -49,7 +48,7 @@ df.to_csv('cool_output.csv', index=False)
 ```
 - To include the DataFrame's index as a column in the CSV file, omit the `index=False` keyword argument.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Quick and Easy Summaries of a DataFrame
 
@@ -64,7 +63,7 @@ df.to_csv('cool_output.csv', index=False)
 |Last `n` rows (default 5) | `df.tail(n)`
 |A random sampling of `n` rows (default 1) | `df.sample(n)`
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Summary Statistics
 
@@ -80,7 +79,7 @@ df.mean()
 
 And similarly for other summary statistics: `df.min()`, `df.max()`, `df.median()`, `df.std()`
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Working with DataFrame Columns
 
@@ -109,7 +108,7 @@ Use a list of column names to select several columns of a DataFrame, in a specif
 df_subset = df[['E', 'A', 'C']]
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Plots
 
@@ -141,7 +140,7 @@ Plots can be adjusted with keyword arguments such as `figsize`, `fontsize`, `tit
 df.plot(kind='bar', subplots=True, figsize=(6, 8))
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Unique Values & Counting
 
@@ -156,7 +155,7 @@ For a column `df['A']` which contains many repeated values (such as categories),
 
 > Note: The `unique`, `nunique`, and `value_counts` methods can only be applied to a Series (not a DataFrame)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Sorting
 
@@ -213,7 +212,7 @@ agg_dict = {'population' : 'sum',
 world.groupby('region').agg(agg_dict)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ---
 ### Setting the Index of a DataFrame

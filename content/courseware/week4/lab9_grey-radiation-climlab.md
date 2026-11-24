@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.6
+    jupytext_version: 1.19.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -690,7 +690,7 @@ Without ozone to absorb incoming solar radiation, the **temperature does not inc
 
 This simple grey-gas model illustrates this principle very clearly.
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 ____________
 

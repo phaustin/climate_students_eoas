@@ -104,7 +104,7 @@ tuned
 #T_e.subs(tuned)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Tracing the upwelling beam of longwave radiation
 
@@ -121,7 +121,7 @@ U_0 = E_s
 U_0
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Following this beam upward, we can write the upward flux from layer 0 to layer 1 as the sum of the transmitted component that originated below layer 0 and the new emissions from layer 0:
 
@@ -131,7 +131,7 @@ $$ U_1 = (1-\epsilon) U_0 + E_0 $$
 U_1 = (1-epsilon)*U_0 + E_0
 ```
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 Continuing to follow the same beam, the upwelling flux above layer 1 is
 $$ U_2 = (1-\epsilon) U_1 + E_1 $$
@@ -140,7 +140,7 @@ $$ U_2 = (1-\epsilon) U_1 + E_1 $$
 U_2 = (1-epsilon) * U_1 + E_1
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Since there is no more atmosphere above layer 1, this upwelling flux is our Outgoing Longwave Radiation for this model:
 
@@ -150,17 +150,13 @@ $$ OLR = U_2 $$
 U_2
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The three terms in the above expression represent the **contributions to the total OLR that originate from each of the three levels**. 
 
 Let's code this up explicitly for future reference:
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: '-'
----
 #  Define the contributions to OLR originating from each level
 OLR_s = (1-epsilon)**2 *sigma*T_s**4
 OLR_0 = epsilon*(1-epsilon)*sigma*T_0**4
@@ -172,7 +168,7 @@ print( 'The expression for OLR is')
 OLR
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Downwelling beam
 
@@ -192,7 +188,7 @@ D_1 = (1-epsilon)*D_2 + E_1
 D_1
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Finally between layer 0 and the surface the beam contains a transmitted component and the emissions from layer 0:
 
@@ -205,14 +201,14 @@ D_0
 
 This $D_0$ is what we call the **back radiation**, i.e. the longwave radiation from the atmosphere to the surface.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 3. Tuning the grey gas model to observations
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 In building our new model we have introduced exactly one parameter, the absorptivity $\epsilon$. We need to choose a value for $\epsilon$.
 
@@ -220,7 +216,7 @@ We will tune our model so that it **reproduces the observed global mean OLR** gi
 
 To get appropriate temperatures for $T_s, T_0, T_1$, revisit the global, annual mean lapse rate plot from NCEP Reanalysis data we first encountered in the [Radiation notes](https://brian-rose.github.io/ClimateLaboratoryBook/courseware/radiation.html).
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Temperatures
 
@@ -238,10 +234,6 @@ $$ T_1 = 230 \text{ K}$$
 From the graph, this is approximately the observed global mean temperature at 275 hPa or about 10 km.
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 #  add to our dictionary of values:
 tuned[T_s] = 288.
 tuned[T_0] = 275.
@@ -249,7 +241,7 @@ tuned[T_1] = 230.
 tuned
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### OLR
 
@@ -257,7 +249,7 @@ From the [observed global energy budget](https://brian-rose.github.io/ClimateLab
 
 $$ OLR = 238.5 \text{ W m}^{-2} $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Solving for $\epsilon$
 
@@ -267,7 +259,7 @@ We just need to equate this to the observed value and solve a **quadratic equati
 
 This is where the real power of the symbolic math toolkit comes in.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Subsitute in the numerical values we are interested in:
 
@@ -279,24 +271,20 @@ OLR2 = OLR.subs(tuned)
 OLR2
 ```
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 We have a quadratic equation for $\epsilon$.
 
 Now use the `sympy.solve` function to solve the quadratic:
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: '-'
----
 #  The sympy.solve method takes an expression equal to zero
 #  So in this case we subtract the tuned value of OLR from our expression
 eps_solution = sympy.solve(OLR2 - 238.5, epsilon)
 eps_solution
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 There are two roots, but the second one is unphysical since we must have $0 < \epsilon < 1$.
 
@@ -314,7 +302,7 @@ eps_tuned = list_result[0]
 print( eps_tuned)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 We conclude that our tuned value is (to within 3 decimal places):
 
@@ -327,46 +315,38 @@ tuned[epsilon] = eps_tuned
 tuned
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 4. Level of emission
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Even in this very simple greenhouse model, there is **no single level** at which the OLR is generated.
 
 The three terms in our formula for OLR tell us the contributions from each level.
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: '-'
----
 OLRterms = sympy.Matrix([OLR_s, OLR_0, OLR_1])
 OLRterms
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Now evaluate these expressions for our tuned temperature and absorptivity:
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: '-'
----
 OLRtuned = OLRterms.subs(tuned)
 OLRtuned
 ```
 
-+++ {"slideshow": {"slide_type": "-"}}
++++
 
 So we are getting about 67 W m$^{-2}$ from the surface, 79 W m$^{-2}$ from layer 0, and 93 W m$^{-2}$ from the top layer.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 In terms of fractional contributions to the total OLR, we have (limiting the output to two decimal places):
 
@@ -376,26 +356,26 @@ sympy.N(OLRtuned / 238.5, 2)
 
 Notice that the largest single contribution is coming from the top layer. This is in spite of the fact that the emissions from this layer are weak, because it is so cold.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Comparing to observations, the actual contribution to OLR from the surface is about 22 W m$^{-2}$ (or about 9% of the total), not 67 W m$^{-2}$. So we certainly don't have all the details worked out yet!
 
 As we will see later, to really understand what sets that observed 22 W m$^{-2}$, we will need to start thinking about the spectral dependence of the longwave absorptivity.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 5. Radiative forcing in the 2-layer grey gas model
 ____________
 
-+++ {"slideshow": {"slide_type": "-"}}
++++
 
 Adding some extra greenhouse absorbers will mean that a greater fraction of incident longwave radiation is absorbed in each layer.
 
 Thus **$\epsilon$ must increase** as we add greenhouse gases.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Suppose we have $\epsilon$ initially, and the absorptivity increases to $\epsilon_2 = \epsilon + \delta_\epsilon$.
 
@@ -405,7 +385,7 @@ Suppose further that this increase happens **abruptly** so that there is no time
 
 Let's use our two-layer leaky greenhouse model to investigate the answer.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The components of the OLR before the perturbation are
 
@@ -413,7 +393,7 @@ The components of the OLR before the perturbation are
 OLRterms
 ```
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 After the perturbation we have
 
@@ -423,7 +403,7 @@ OLRterms_pert = OLRterms.subs(epsilon, epsilon+delta_epsilon)
 OLRterms_pert
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Let's take the difference
 
@@ -432,7 +412,7 @@ deltaOLR = OLRterms_pert - OLRterms
 deltaOLR
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 To make things simpler, we will neglect the terms in $\delta_\epsilon^2$. This is perfectly reasonably because we are dealing with **small perturbations** where $\delta_\epsilon << \epsilon$.
 
@@ -445,7 +425,7 @@ deltaOLR_linear
 
 Recall that the three terms are the contributions to the OLR from the three different levels. In this case, the **changes** in those contributions after adding more absorbers.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Now let's divide through by $\delta_\epsilon$ to get the normalized change in OLR per unit change in absorptivity:
 
@@ -459,13 +439,13 @@ Now look at the **sign** of each term. Recall that $0 < \epsilon < 1$. **Which t
 
 **THIS IS VERY IMPORTANT, SO STOP AND THINK ABOUT IT.**
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 The contribution from the **surface** must **decrease**, while the contribution from the **top layer** must **increase**.
 
 **When we add absorbers, the average level of emission goes up!**
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### "Radiative forcing" is the change in radiative flux at TOA after adding absorbers
 
@@ -475,7 +455,7 @@ $$ R = - \delta OLR $$
 
 (with the minus sign so that $R$ is positive when the climate system is gaining extra energy).
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 We just worked out that whenever we add some extra absorbers, the emissions to space (on average) will originate from higher levels in the atmosphere. 
 
@@ -492,7 +472,7 @@ Is this a positive or negative number? The key point is this:
 
 **It depends on the temperatures, i.e. on the lapse rate.**
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Greenhouse effect for an isothermal atmosphere
 
@@ -502,7 +482,7 @@ If the **surface and atmosphere are all at the same temperature**, does the OLR 
 
 Understanding this question is key to understanding how the greenhouse effect works.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### Let's solve the isothermal case
 
@@ -512,7 +492,7 @@ We will just set $T_s = T_0 = T_1$ in the above expression for the radiative for
 R_per_deltaepsilon.subs([(T_0, T_s), (T_1, T_s)])
 ```
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 which then simplifies to
 
@@ -520,7 +500,7 @@ which then simplifies to
 sympy.simplify(R_per_deltaepsilon.subs([(T_0, T_s), (T_1, T_s)]))
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### The answer is zero
 
@@ -530,11 +510,11 @@ Why?
 
 The level of emission still must go up. But since the temperature at the upper level is the **same** as everywhere else, the emissions are exactly the same.
 
-+++ {"slideshow": {"slide_type": "-"}}
++++
 
 ### The radiative forcing (change in OLR) depends on the lapse rate!
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 For a more realistic example of radiative forcing due to an increase in greenhouse absorbers, we can substitute in our tuned values for temperature and $\epsilon$. 
 
@@ -557,7 +537,7 @@ And the net radiative forcing is
 (R_per_deltaepsilon*delta_epsilon).subs(tuned)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 So in our example, **the OLR decreases by 2.6 W m$^{-2}$**, or equivalently, the radiative forcing is +2.6 W m$^{-2}$.
 
@@ -567,14 +547,14 @@ What we have just calculated is this:
 
 The greenhouse effect thus gets stronger, and energy will begin to accumulate in the system -- which will eventually cause temperatures to increase as the system adjusts to a new equilibrium.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 6. Radiative equilibrium in the 2-layer grey gas model
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 In the previous section we:
 
@@ -586,7 +566,7 @@ A key question in climate dynamics is therefore this:
 
 **What sets the lapse rate?**
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 It turns out that lots of different physical processes contribute to setting the lapse rate. 
 
@@ -599,7 +579,7 @@ We assume that
 - the only exchange of energy between layers is longwave radiation
 - equilibrium is achieved when the **net radiative flux convergence** in each layer is zero.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Compute the radiative flux convergence
 
@@ -614,7 +594,7 @@ F = U-D
 F
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ####  Net absorption is the flux convergence in each layer
 
@@ -633,7 +613,7 @@ for n in range(2):
 A
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### Radiative equilibrium means net absorption is ZERO in the atmosphere
 
@@ -646,7 +626,7 @@ radeq = sympy.Equality(A, sympy.Matrix([(1-alpha)*Q, 0, 0]))
 radeq
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Just as we did for the 1-layer model, it is helpful to rewrite this system using the definition of the **emission temperture** $T_e$
 
@@ -662,10 +642,6 @@ In this form we can see that we actually have a **linear system** of equations f
 We can solve this matrix problem to get these as functions of $T_e^4$.
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 # Solve for radiative equilibrium 
 fourthpower = sympy.solve(radeq2, [T_s**4, T_1**4, T_0**4])
 fourthpower
@@ -673,7 +649,7 @@ fourthpower
 
 This produces a dictionary of solutions for the fourth power of the temperatures!
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 A little manipulation gets us the solutions for temperatures that we want:
 
@@ -688,7 +664,7 @@ T = sympy.Matrix([T_s, T_0, T_1])
 sympy.Equality(T, solution)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 In more familiar notation, the radiative equilibrium solution is thus
 
@@ -698,7 +674,7 @@ T_0 &= T_e \left( \frac{1+\epsilon}{2-\epsilon} \right)^{1/4} \\
 T_1 &= T_e \left( \frac{ 1}{2 - \epsilon} \right)^{1/4}
 \end{align}
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Plugging in the tuned value $\epsilon = 0.586$ gives
 
@@ -708,7 +684,7 @@ Tsolution = solution.subs(tuned)
 sympy.Equality(T, Tsolution)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Now we just need to know the Earth's emission temperature $T_e$!
 
@@ -725,21 +701,17 @@ Te_value = sympy.solve(((1-alpha)*Q - sigma*T_e**4).subs(tuned), T_e)[0]
 Te_value
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### Now we finally get our solution for radiative equilibrium
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: '-'
----
 #  Output 4 significant digits
 Trad = sympy.N(Tsolution.subs([(T_e, Te_value)]), 4)
 sympy.Equality(T, Trad)
 ```
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 Compare these to the values we derived from the **observed lapse rates**:
 
@@ -747,33 +719,33 @@ Compare these to the values we derived from the **observed lapse rates**:
 sympy.Equality(T, T.subs(tuned))
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The **radiative equilibrium** solution is substantially **warmer at the surface** and **colder in the lower troposphere** than reality.
 
 This is a very general feature of radiative equilibrium, and we will see it again very soon in this course.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 7. Summary
 ____________
 
-+++ {"slideshow": {"slide_type": "-"}}
++++
 
 ## Key physical lessons
 
 - Putting a **layer of longwave absorbers** above the surface keeps the **surface substantially warmer**, because of the **backradiation** from the atmosphere (greenhouse effect).
 - The **grey gas** model assumes that each layer absorbs and emits a fraction $\epsilon$ of its blackbody value, independent of wavelength.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 - With **incomplete absorption** ($\epsilon < 1$), there are contributions to the OLR from every level and the surface (there is no single **level of emission**)
 - Adding more absorbers means that **contributions to the OLR** from **upper levels** go **up**, while contributions from the surface go **down**.
 - This upward shift in the weighting of different levels is what we mean when we say the **level of emission goes up**.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 - The **radiative forcing** caused by an increase in absorbers **depends on the lapse rate**.
 - For an **isothermal atmosphere** the radiative forcing is zero and there is **no greenhouse effect**
@@ -781,7 +753,7 @@ ____________
 - Pure **radiative equilibrium** produces a **warm surface** and **cold lower troposphere**.
 - This is unrealistic, and suggests that crucial heat transfer mechanisms are missing from our model.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### And on the Python side...
 
@@ -789,7 +761,7 @@ Did we need `sympy` to work all this out? No, of course not. We could have solve
 
 Hopefully these notes provide a useful starting point.
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 ### A follow-up assignment
 

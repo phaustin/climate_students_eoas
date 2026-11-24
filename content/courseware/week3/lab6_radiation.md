@@ -5,28 +5,26 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.6
+    jupytext_version: 1.19.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 (nb:radiation)=
 # A Brief Review of Radiation
 
 This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](http://www.atmos.albany.edu/facstaff/brose/index.html), University at Albany.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 1. Emission temperature and lapse rates
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Planetary energy balance is the foundation for all climate modeling. So far we have expressed this through a globally averaged budget
 
@@ -36,13 +34,13 @@ and we have written the OLR in terms of an emission temperature $T_e$ where by d
 
 $$ OLR = \sigma T_e^4 $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Using values from the observed planetary energy budget, we found that $T_e = 255$ K
 
 The emission temperature of the planet is thus about 33 K colder than the mean surface temperature (288 K).
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Where in the atmosphere do we find $T = T_e = 255$ K?
 
@@ -51,10 +49,6 @@ That's about -18ºC.
 Let's plot **global, annual average observed air temperature** from NCEP reanalysis data.
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 %matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
@@ -62,10 +56,6 @@ import xarray as xr
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 ## The NOAA ESRL server is shutdown! January 2019
 ncep_url = "http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/"
 ncep_air = xr.open_dataset( ncep_url + "pressure/air.mon.1981-2010.ltm.nc",
@@ -78,10 +68,6 @@ print( ncep_air)
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 #  Take global, annual average and convert to Kelvin
 coslat = np.cos(np.deg2rad(ncep_air.lat))
 weight = coslat / coslat.mean(dim='lat')
@@ -90,33 +76,19 @@ Tglobal
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 #  a "quick and dirty" visualization of the data
 Tglobal.plot()
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 Let's make a better plot.
 
 Here we're going to use a package called `metpy` to automate plotting this temperature profile in a way that's more familiar to meteorologists: a so-called *skew-T* plot.
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 from metpy.plots import SkewT
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 fig = plt.figure(figsize=(9, 9))
 skew = SkewT(fig, rotation=30)
 skew.plot(Tglobal.level, Tglobal, color='black', linestyle='-', linewidth=2, label='Observations')
@@ -131,8 +103,6 @@ skew.ax.set_title('Global, annual mean sounding from NCEP Reanalysis',
              fontsize = 16)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 Note that surface temperature in global mean is indeed about 288 K or 15ºC as we keep saying.
 
 So where do we find temperature $T_e=255$ K or -18ºC?
@@ -141,13 +111,13 @@ Actually in mid-troposphere, near 500 hPa or about 5 km height.
 
 We can infer that much of the outgoing longwave radiation actually originates far above the surface.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Recall that our observed global energy budget diagram shows 217 out of 239 W m$^{-2}$ total OLR emitted by the atmosphere and clouds, only 22 W m$^{-2}$ directly from the surface.
 
 This is due to the **greenhouse effect**.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 So far we have dealt with the greenhouse in a very artificial way in our energy balance model by simply assuming 
 
@@ -157,7 +127,7 @@ i.e., the OLR is reduced by a constant factor from the value it would have if th
 
 Now it's time to start thinking a bit more about how the radiative transfer process actually occurs in the atmosphere, and how to model it.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
@@ -169,21 +139,15 @@ Let's plot a spectrum of solar radiation.
 For Python details, click to expand the code blocks (or see the code in the notebook).
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: skip
-tags: hide-input
----
+:tags: [hide-input]
+
 #  Using pre-defined code for the Planck function from the climlab package
 from climlab.utils.thermo import Planck_wavelength
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: skip
-tags: hide-input
----
+:tags: [hide-input]
+
 # approximate emission temperature of the sun in Kelvin
 Tsun = 5780.
 # boundaries of visible region in nanometers
@@ -195,11 +159,8 @@ to_meters = 1E-9  # conversion factor
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: skip
-tags: hide-input
----
+:tags: [hide-input]
+
 label_size = 16
 fig, ax = plt.subplots(figsize=(14,7))
 ax.plot(wavelength_nm, 
@@ -218,8 +179,6 @@ ax.text(500, 0.8E13, 'Visible', rotation='vertical', fontsize=16, color='w')
 ax.text(800, 0.8E13, 'Infrared', rotation='vertical', fontsize=12);
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 - Spectrum peaks in the visible range
 - most energy at these wavelength.
 - No coincidence that our eyes are sensitive to this range of wavelengths!
@@ -228,7 +187,7 @@ ax.text(800, 0.8E13, 'Infrared', rotation='vertical', fontsize=12);
 The shape of the spectrum is a fundamental characteristic of radiative emissions
 (think about the color of burning coals in a fire – cooler = red, hotter = white)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Theory and experiments tell us that both the total flux of emitted radiation, and the wavelength of maximum emission, depend only on the temperature of the source!
 
@@ -249,8 +208,6 @@ ax.set_ylabel('Normalized spectral radiance (W sr$^{-1}$ m$^{-3}$ K$^{-4}$)', fo
 ax.set_title("Normalized blackbody emission spectra $T^{-4} B_{\lambda}$ for different temperatures");
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 Going from cool to warm:
 
 - total emission increases
@@ -258,7 +215,7 @@ Going from cool to warm:
 
 The **integral of these curves over all wavelengths** gives us our familiar $\sigma T^4$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Mathematically it turns out that 
 
@@ -266,7 +223,7 @@ $$ λ_{max} T = \text{constant} $$
 
 (known as Wien’s displacement law).
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 By fitting the observed solar emission to a blackbody curve, we can deduce that the emission temperature of the sun is about 6000 K.
 
@@ -276,7 +233,7 @@ $$ λ_{max}^{Earth} = 0.6 ~ \mu m \frac{6000}{255} = 14 ~ \mu m $$
 
 This is in the far-infrared part of the spectrum.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
@@ -307,8 +264,6 @@ ax.set_title("Normalized blackbody emission spectra $T^{-4} \lambda B_{\lambda}$
             fontsize=label_size);
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 There is essentially no overlap between the two spectra.
 
 **This is the fundamental reason we can discuss the solar “shortwave” and terrestrial “longwave” radiation as two distinct phenomena.**
@@ -332,11 +287,11 @@ Now look at the atmospheric **absorption spectra**.
 
 :::
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 *Figure reproduced from Marshall and Plumb (2008): Atmosphere, Ocean, and Climate Dynamics*
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 - Atmosphere is almost completely transparent in the visible range, right at the peak of the solar spectrum
 - Atmosphere is very opaque in the UV
@@ -349,7 +304,7 @@ Now look at the atmospheric **absorption spectra**.
     - 1% Ar
     - H$_2$O (variable)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 - The dominant constituent gases N$_2$ and O$_2$ are nearly completely transparent across the entire spectrum (there are O$_2$ absorption features in far UV, but little energy at these wavelengths).
 - The greenhouse effect mostly involves trace constituents: 
@@ -359,7 +314,7 @@ Now look at the atmospheric **absorption spectra**.
     - CH$_4$ = 1.7 ppm
 - Note that most of these are tri-atomic molecules! There are fundamental reasons for this: these molecules have modes of rotational and vibration that are easily excited at IR wavelengths. See courses in radiative transfer!
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 ____________
 

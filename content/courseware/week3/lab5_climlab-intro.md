@@ -5,14 +5,12 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.6
+    jupytext_version: 1.19.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 (nb:climlab)=
 # Building simple climate models using climlab
@@ -373,7 +371,7 @@ We will be using `climlab` extensively throughout this course. Lots of examples 
 - [A video of a talk I gave about `climlab` at the 2018 AMS Python symposium](https://ams.confex.com/ams/98Annual/videogateway.cgi/id/44948?recordingid=44948) (January 2018)
 - [Slides from a talk and demonstration that I gave in Febrary 2018](https://livealbany-my.sharepoint.com/:f:/g/personal/brose_albany_edu/EuA2afxy5-hNkzNhHgkp_HYBYcJumR3l6ukRVIEl4W3MmA?e=sbXN0d) (The Apple Keynote version contains some animations that will not show up in the pdf version)
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 ____________
 

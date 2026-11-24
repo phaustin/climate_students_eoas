@@ -1,18 +1,17 @@
 ---
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
-  kernelspec:
-    display_name: Python 3 (ipykernel)
-    language: python
-    name: python3
+jupytext:
+  formats: ipynb,md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.19.7
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
 ---
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 (nb:atmdyn)=
 # Atmospheric Dynamics in the CESM
 
@@ -50,19 +49,19 @@ http://thredds.atmos.albany.edu:8080/thredds/catalog.html
 
 Within this folder called `CESM archive`, you will find another folder called `som_input` which contains all the input files.
 
-
-<!-- #endregion -->
++++
 
 You will need to install the 'xCdat' package to run some code that translates from model levels to pressure levels
 
 <code>conda install -c conda-forge xcdat<code>
 
++++
 
 ________
 ## Large-scale circulation in the CESM
 ________
 
-```python
+```{code-cell} ipython3
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
@@ -79,29 +78,28 @@ import cartopy.crs as ccrs
 
 We can compare the CESM model results to those in the Hartmann book we are reading (see in particular chapter 6), to see how well the CESM model reproduces observed circulation
 
-```python
+```{code-cell} ipython3
 cesm_data_path = "http://thredds.atmos.albany.edu:8080/thredds/dodsC/CESMA/"
 cesm_input_path = cesm_data_path + "som_input/"
 ```
 
-```python
+```{code-cell} ipython3
 # Read in the file
 #atmfile = xr.open_dataset(cesm_data_path + "cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc")
 #atmfile2 = xr.open_dataset(cesm_data_path + 'som_cam5/' + 'atm/hist/' + 'som_cam5.cam.h0.0030-12.nc')
 
 # Read in using xcdat
 atmfile = xcdat.open_dataset(cesm_data_path + "cpl_1850_f19/concatenated/cpl_1850_f19.cam.h0.nc")
-
 ```
 
 ### Zonal mean circulation
 
-```python
+```{code-cell} ipython3
 #  Let's compare the zonal mean circulation
 atmfile
 ```
 
-```python
+```{code-cell} ipython3
 # we want to take the zonal mean
 zmU = atmfile.U.mean(dim='lon')
 
@@ -117,13 +115,13 @@ The groupby function (https://xarray.pydata.org/en/stable/groupby.html) is very 
 
 Let's make a plot! Remember `xarray` is able to automatically generate labeled plots. This is very handy for "quick and dirty" investigation of the data:
 
-```python
+```{code-cell} ipython3
 zmU_seas['DJF'].plot()
 ```
 
 But this is not the best way to look at zonal cross-sections. For a start, the plot is upside down, as pressure decreases with height. We can make a function to create a nicer looking plot:
 
-```python
+```{code-cell} ipython3
 def plot_zonal_mean(plotvar,title):
     # We can change the size/aspect ratio of our plot
     # Note that these change values globally, i.e. throughout your notebook
@@ -153,11 +151,11 @@ def plot_zonal_mean(plotvar,title):
         plt.show()
 ```
 
-```python
+```{code-cell} ipython3
 plot_zonal_mean(zmU_seas,'CESM')
 ```
 
-```python
+```{code-cell} ipython3
 ## Compare to a plot created from NCER re-analysis data
 ncep_url = "http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/"
 ncep_uwnd = xr.open_dataset(ncep_url + "pressure/uwnd.mon.1981-2010.ltm.nc")
@@ -168,12 +166,11 @@ ncep_uwnd_seas['DJF'] = ncep_uwnd.uwnd.isel(time=[0,1,11]).mean(dim='time').mean
 ncep_uwnd_seas['JJA'] = ncep_uwnd.uwnd.isel(time=[5,6,7]).mean(dim='time').mean(dim='lon') # selecting months 5 (Jun), 6 (Jul), and 7 (Aug)
 
 plot_zonal_mean(ncep_uwnd_seas,'NCEP reanalysis')
-
 ```
 
 When completing model evaluation like this, it is often useful to plot both the model and the re-analysis or observations on the same plot, so you can better evaluate model biases. Even better is to plot the model bias itself, but this involves re-gridding the datasets to be on the same grid (same latitudes, longitudes and pressure levels).
 
-```python
+```{code-cell} ipython3
 def plot_zonal_mean_comp(plotvarmodel,plotvarNCEP,title):
     # We can change the size/aspect ratio of our plot
     # Note that these change values globally, i.e. throughout your notebook
@@ -207,7 +204,7 @@ def plot_zonal_mean_comp(plotvarmodel,plotvarNCEP,title):
         plt.show()
 ```
 
-```python
+```{code-cell} ipython3
 plot_zonal_mean_comp(zmU_seas,ncep_uwnd_seas,'CESM and NCEP')
 ```
 
@@ -220,7 +217,7 @@ Similar to matlab, if there is a variable you want to calculate, it is likely so
 that calculate it. In this case we can use a function from the TropD package: https://tropd.github.io/pytropd/index.html
 This function is shown below.
 
-```python
+```{code-cell} ipython3
 def TropD_Calculate_StreamFunction(V, lat, lev):
     ''' Calculate streamfunction by integrating meridional wind from top of the atmosphere to surface
 
@@ -250,7 +247,7 @@ def TropD_Calculate_StreamFunction(V, lat, lev):
     return psi
 ```
 
-```python
+```{code-cell} ipython3
 # We need seasonal mean, zonal mean, meridional wind
 zmV = atmfile.V.mean(dim='lon')
 
@@ -273,7 +270,7 @@ The output from TropD_Calculate_StreamFunction is a numpy array, not an xarray -
 or 2. plot by hand since we're going to have to adjust the plot anyway.
  For now, here's option 2:
 
-```python
+```{code-cell} ipython3
 matplotlib.rcParams['figure.figsize']=(8,4)
 matplotlib.rcParams.update({'font.size':16})
 
@@ -290,7 +287,7 @@ for iseas in ['DJF','JJA','ANN']:
 
 For those of you interested in creating xarrays. See https://xarray.pydata.org/en/stable/data-structures.html for  more detail, and the basics are shown below:
 
-```python
+```{code-cell} ipython3
 # First let's combine the seasons into a single np array, the first dimension will be season with our
 # 3 'seasons' of interest: 'DJF','JJA','ANN'
 psi_cesm_array = np.zeros([3,len(zmV.lev),len(zmV.lat)])
@@ -308,18 +305,18 @@ psi_cesm_xr = xr.DataArray(psi_cesm_array,
 
 **Exercise:** _Alter the code below to check this dataarray gives the same results as before._
 
-```python
+```{code-cell} ipython3
 # Check this dataarray gives the same results as before
 psi_cesm_xr.sel(time='ANN').plot.contour()
 ```
 
-<!-- #region jp-MarkdownHeadingCollapsed=true -->
++++ {"jp-MarkdownHeadingCollapsed": true}
+
 ### Eddy transport in CESM
 
 Moving away from zonal means, we can look at eddy transports. We can calculate vT using the model output, by multipling v and T at each timestep:
-<!-- #endregion -->
 
-```python
+```{code-cell} ipython3
 vT = (atmfile.V * atmfile.T).mean(dim='lon')
 
 # estimate the seasonal climatology
@@ -339,7 +336,7 @@ for label,data in atmfile.T.groupby('time.season'):
 
 **Exercise:** Now calculate and plot v*T* + v'T' as per equation 6.13 (Hartmann) to compare with figure 6.9 (Hartmann).
 
-```python
+```{code-cell} ipython3
 
 ```
 
@@ -349,13 +346,13 @@ Models such as CESM actually have variables such as $\overline{vT}$ as an output
 
 **Exercise** _Find the vT field in atmfile, and then calculate and plot v'T' + v*T* using vT directly from the model. Compare to the observations and our previous plot._
 
-```python
+```{code-cell} ipython3
 
 ```
 
 **Exercise** _Explore the model and plot some other meridional transports, comparing the model calculated values with those calcualted offline_
 
-```python
+```{code-cell} ipython3
 
 ```
 
@@ -371,7 +368,7 @@ For more accurate plotting we need to convert the data from these model co-ordin
 
 This can take quite some time to run, particularly if you want to convert monthly or daily data onto pressure levels. Ideally this should be written as a separate function and run outside of your notebooks, but we will do this once here as an example.
 
-```python
+```{code-cell} ipython3
 # the parameters hyam and hybm are parameters used to calculate the pressure from the level value
 a = atmfile['hyam']
 b = atmfile['hybm']
@@ -388,7 +385,7 @@ pressure = hybrid_coordinate(p0,a,b,ps)
 pressure
 ```
 
-```python
+```{code-cell} ipython3
 # Prep work for conversion to pressure levels
 # Selection of the pressure levels you would like the data on, in Pa
 # if you are plotting with log pressure as the vertical coodinate it is good to space your levels to be (at least approximately) 
@@ -401,23 +398,21 @@ new_pressure_grid = xcdat.create_grid(
 
 # drop extra lat and lon dimensions from input file, as required by the regridder. 
 ds_wind = atmfile[['U']]
-
 ```
 
-```python
+```{code-cell} ipython3
 # Calculate time mean
 ds_clim = ds_wind.mean(dim='time')
 ```
 
-```python
+```{code-cell} ipython3
 # Now do the work to convert the time mean (climatological) zonal wind from hybrid levels to pressure levels
 output_Upres = ds_clim.regridder.vertical(
     "U", new_pressure_grid, method="linear", target_data=pressure
 )
-
 ```
 
-```python
+```{code-cell} ipython3
 # Now compare this to the annual mean on hybrid levels
 atmfile.U.mean(dim=['lon','time']).plot.contourf(levels=np.arange(-70, 71,5),extend='both')
 # Add in black contours, also at 5m/s intervals. Note plot.contour automatically plots
@@ -462,7 +457,7 @@ plt.show()
 Differences are minor, except close to the surface, as expected as this is where the model levels are least similar to pressure levels. We can now also plot maps of the winds on pressure surfaces, such as the upper-level jets.
 It is useful to define generic functions for sets of operations you will use repeatedly, e.g.:
 
-```python
+```{code-cell} ipython3
 # Allow for a range of map projections
 # set directory where map data is downloaded
 cartopy.config['data_dir'] = '../data/'
@@ -520,7 +515,7 @@ def plot_map(proj,toplot,levels,n,nrows,ncols,title):
     plt.title(title + ' ' + proj + ' projection')
 ```
 
-```python
+```{code-cell} ipython3
 # We can plot different projections too, as subplots on one main plot
 plev=250
 

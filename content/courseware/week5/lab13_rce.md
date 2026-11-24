@@ -12,8 +12,6 @@ kernelspec:
   name: python3
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 (nb:rce)=
 # Radiative-Convective Equilibrium
 
@@ -525,7 +523,7 @@ Our experiments with removing certain absorbing gases show something interesting
 
 Now that we know how to build and use this RCM, we'll be able to use to study some climate change processes in more detail.
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 ____________
 

@@ -5,21 +5,19 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.6
+    jupytext_version: 1.19.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 (nb:elementary-greenhouse)=
 # Elementary greenhouse models
 
 This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](http://www.atmos.albany.edu/facstaff/brose/index.html), University at Albany.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
@@ -37,7 +35,7 @@ We will make our first attempt at quantifying the greenhouse effect in the simpl
 
 :::
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Assumptions
 
@@ -51,7 +49,7 @@ We will make our first attempt at quantifying the greenhouse effect in the simpl
 
 We can now use the concept of energy balance to ask what the temperature need to be in order to balance the energy budgets at the surface and the atmosphere, i.e. the **radiative equilibrium temperatures**.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Energy balance at the surface
 
@@ -64,7 +62,7 @@ The presence of the atmosphere above means there is an additional source term: d
 
 We call this the **back radiation**.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Energy balance for the atmosphere
 
@@ -82,7 +80,7 @@ So we have just determined that, in order to have a purely **radiative equilibri
 
 *The surface must be warmer than the atmosphere.*
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Solve for the radiative equilibrium surface temperature
 
@@ -96,7 +94,7 @@ $$ (1-\alpha) Q = \sigma T_e^4 $$
 
 *In fact, in this model, $T_e$ is identical to the atmospheric temperature $T_a$, since all the OLR originates from this layer.*
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Solve for the surface temperature:
 $$ T_s = 2^\frac{1}{4} T_e $$
@@ -106,7 +104,7 @@ $$T_s = 303 ~\text{K}$$
 
 This model is one small step closer to reality: surface is warmer than atmosphere, emissions to space generated in the atmosphere, atmosphere heated from below and helping to keep surface warm.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Why does this model overpredict the surface temperature
 
@@ -114,7 +112,7 @@ Our model now overpredicts the surface temperature by about 15ºC (303 K versus 
 
 Ideas about why?
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Basically we just need to read our **list of assumptions** above and realize that none of them are very good approximations:
 
@@ -124,14 +122,14 @@ Basically we just need to read our **list of assumptions** above and realize tha
 - Emissions are not determined by a single temperature $T_a$ but by the detailed *vertical profile* of air temperture.
 - Energy is redistributed in the vertical by a variety of dynamical transport mechanisms (e.g. convection and boundary layer turbulence).
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 2. Introducing the two-layer grey gas model
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Let's generalize the above model just a little bit to build a slighly more realistic model of longwave radiative transfer.
 
@@ -141,7 +139,7 @@ We will address two shortcomings of our single-layer model:
 
 Relaxing these two assumptions gives us what turns out to be a very useful prototype model for **understanding how the greenhouse effect works**.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Assumptions
 
@@ -155,7 +153,7 @@ This is called the **grey gas** model, where **grey** here means the emission an
 
 We can think of this model informally as a "leaky greenhouse".
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Note that the assumption that $\epsilon$ is the same in each layer is appropriate if the absorption is actually carried out by a gas that is **well-mixed** in the atmosphere.
 
@@ -166,7 +164,7 @@ Out of our two most important absorbers:
 
 But we will ignore this aspect of reality for now.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Kirchoff's Law
 
@@ -180,7 +178,7 @@ $$ \epsilon ~\sigma ~T^4 $$
 
 both up and down.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### A sketch of the radiative fluxes in the 2-layer atmosphere
 
@@ -193,7 +191,7 @@ both up and down.
 
 :::
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 - Surface temperature is $T_s$
 - Atm. temperatures are $T_0, T_1$ where $T_0$ is closest to the surface.
@@ -209,7 +207,7 @@ ____________
 ## 3. Tracing the upwelling beam of longwave radiation
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Let's think about the upwelling beam of longwave radiation, which we denote $U$.
 
@@ -246,7 +244,7 @@ Including new emissions from layer 1, the upwelling flux above layer 1 is
 
 $$U_2 = (1-\epsilon) U_1 + \epsilon \sigma T_1^4$$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Outgoing Longwave Radiation
 
@@ -273,14 +271,14 @@ Think about the following two questions:
 
 By allowing the atmosphere to partially absorb emissions from other levels, we now see that the Outgoing Longwave Radiation to space **includes emissions from every level** - and therefore **affected by temperature at every level**!
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 4. Tuning the grey gas model to observations
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 In building our new model we have introduced exactly **one parameter**, the absorptivity $\epsilon$. We need to choose a value for $\epsilon$.
 
@@ -318,8 +316,6 @@ skew.ax.legend()
 skew.ax.set_title('Global, annual mean sounding from NCEP Reanalysis', fontsize = 16);
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### Target temperatures for our model tuning
 
 First, we set 
@@ -335,7 +331,7 @@ $$ T_1 = 230 \text{ K}$$
 
 From the graph, this is approximately the observed global mean temperature at 275 hPa or about 10 km.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### OLR
 
@@ -343,7 +339,7 @@ From the [observed global energy budget](https://brian-rose.github.io/ClimateLab
 
 $$OLR = 238.5 \text{ W m}^{-2}$$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Solving for $\epsilon$
 
@@ -355,7 +351,7 @@ It is a **quadratic equation** for the unknown $\epsilon$. We could work out the
 
 But let's do it **graphically**, using Python!
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Exercise: graphical solution to find the best fit value of $\epsilon$
 
@@ -377,8 +373,6 @@ Do the following:
 
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 Note if you solve the quadratic equation algebraically you will get two solutions: 
 
 - $\epsilon \approx 0.586$ 
@@ -392,14 +386,14 @@ Hopefully your graph shows that $\epsilon = 0.586$ gives the correct value of OL
 
 This is the absorptivity that guarantees that **our model reproduces the observed OLR given the observed temperatures**.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 5. Level of emission
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Contributions from each level to the outgoing radiation
 
@@ -425,8 +419,6 @@ which of course add up to the total OLR we wrote down above.
 
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 **Contributions to the OLR originating from each level, in W/m2:**
 
 - Surface: 
@@ -441,17 +433,17 @@ Notice that the largest single contribution is coming from the top layer.
 
 *This is in spite of the fact that the emissions from this layer are weak, because it is so cold.*
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ###  Changing the level of emission by adding absorbers
 
-+++ {"slideshow": {"slide_type": "-"}}
++++
 
 Adding some **extra greenhouse absorbers** will mean that a **greater fraction** of incident longwave radiation is **absorbed in each layer**.
 
 Thus **$\epsilon$ must increase** as we add greenhouse gases.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Suppose we have $\epsilon$ initially, and the absorptivity increases to $\epsilon_2 = \epsilon + \Delta \epsilon$.
 
@@ -465,7 +457,7 @@ Suppose further that this increase happens **abruptly** so that there is no time
 
 Let's use our two-layer leaky greenhouse model to investigate the answer.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The components of the OLR before the perturbation are
 
@@ -475,7 +467,7 @@ OLR_0 &= \epsilon(1-\epsilon)\sigma T_0^4 \\
 OLR_1 &= \epsilon \sigma T_1^4 
 \end{align*}
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 and after the perturbation we have
 
@@ -485,7 +477,7 @@ OLR_0 &= (\epsilon + \Delta \epsilon)(1-\epsilon - \Delta \epsilon)\sigma T_0^4 
 OLR_1 &= (\epsilon + \Delta \epsilon) \sigma T_1^4 
 \end{align*}
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Let's subtract off the original components to get the contributions to the **change in OLR** from each layer:
 
@@ -497,7 +489,7 @@ Let's subtract off the original components to get the contributions to the **cha
 \Delta OLR_1 &= \left[(\epsilon + \Delta \epsilon) - \epsilon \right] \sigma T_1^4 
 \end{align*}
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Now expand this out, but to make things easier to deal with, neglect term in $\Delta \epsilon^2$ (very small - we will be considering changes of less than 10% in $\epsilon$):
 
@@ -507,19 +499,19 @@ Now expand this out, but to make things easier to deal with, neglect term in $\D
 \Delta OLR_1 &\approx (\Delta \epsilon) \sigma T_1^4 
 \end{align*}
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 Now look at the **sign** of each term. Recall that $0 < \epsilon < 1$. **Which terms in the OLR go up and which go down?**
 
 **THIS IS VERY IMPORTANT, SO STOP AND THINK ABOUT IT.**
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 The contribution from the **surface** must **decrease**, while the contribution from the **top layer** must **increase**.
 
 **When we add absorbers, the average level of emission goes up!**
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
@@ -534,7 +526,7 @@ We now define a very important quantity:
 
 **"Radiative forcing" is the change in total radiative flux at TOA after adding absorbers**
 
-+++ {"slideshow": {"slide_type": "-"}}
++++
 
 In this model, **only the longwave flux can change**, so we calculate the radiative forcing as
 
@@ -542,7 +534,7 @@ $$ R = - \Delta OLR $$
 
 (with the minus sign so that $R$ is **positive when the climate system is gaining extra energy**).
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Connection between radiative forcing and level of emission
 
@@ -552,7 +544,7 @@ What does this mean for OLR? Will it increase or decrease?
 
 To get the answer, we just have to sum up the three contributions we wrote above:
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 \begin{align*}
 R &= -\Delta OLR_s - \Delta OLR_0 - \Delta OLR_1  \\
@@ -565,7 +557,7 @@ Is this a positive or negative number? The key point is this:
 
 **It depends on the temperatures, i.e. on the lapse rate.**
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Greenhouse effect for an isothermal atmosphere
 
@@ -575,7 +567,7 @@ If the **surface and atmosphere are all at the same temperature**, does the OLR 
 
 Understanding this question is key to understanding how the greenhouse effect works.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### Let's solve the isothermal case
 
@@ -587,8 +579,6 @@ What do you get?
 
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 #### The answer is $R=0$ 
 
 For an isothermal atmosphere, there is **no change** in OLR when we add extra greenhouse absorbers. Hence, no radiative forcing and no greenhouse effect.
@@ -597,11 +587,11 @@ Why?
 
 The level of emission still must go up. But since the temperature at the upper level is the **same** as everywhere else, the emissions are exactly the same.
 
-+++ {"slideshow": {"slide_type": "-"}}
++++
 
 ### The radiative forcing (change in OLR) depends on the lapse rate!
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 For a more realistic example of radiative forcing due to an increase in greenhouse absorbers, we use our observed temperatures and the tuned value for $\epsilon$. 
 
@@ -610,24 +600,14 @@ We'll express the answer in W m$^{-2}$ for a 2% increase in $\epsilon$:
 $$ \Delta \epsilon = 0.02 \times 0.58 $$
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: '-'
----
 epsilon = 0.586041150248834
 delta_epsilon = 0.02 * epsilon
 delta_epsilon
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 Calculate the three components of the radiative forcing:
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 sigma = 5.67E-8
 Ts = 288.
 T0 = 275.
@@ -635,36 +615,22 @@ T1 = 230.
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 #  Component originating from the surface
 Rs = -delta_epsilon * (-2*(1-epsilon)*sigma * Ts**4)
 Rs
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 #  Component originating from level 0
 R0 = -delta_epsilon * (1-2*epsilon) * sigma * T0**4
 R0
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 #  Component originating from level 1
 R1 = -delta_epsilon * sigma * T1**4
 R1
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 So just add them up to get the total radiative forcing:
 
@@ -672,8 +638,6 @@ So just add them up to get the total radiative forcing:
 R = Rs + R0 + R1 
 R
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 So in our example, **the OLR decreases by 2.6 W m$^{-2}$**, or equivalently, the **radiative forcing is +2.6 W m$^{-2}$.**
 
@@ -683,33 +647,33 @@ What we have just calculated is this:
 
 The **greenhouse effect** thus gets **stronger**, and energy will begin to accumulate in the system -- which will eventually **cause temperatures to increase** as the system adjusts to a new equilibrium.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 7. Summary
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Key physical lessons
 
 - Putting a **layer of longwave absorbers** above the surface keeps the **surface substantially warmer**, because of the **backradiation** from the atmosphere (greenhouse effect).
 - The **grey gas** model assumes that each layer absorbs and emits a fraction $\epsilon$ of its blackbody value, independent of wavelength.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 - With **incomplete absorption** ($\epsilon < 1$), there are contributions to the OLR from every level and the surface (there is no single **level of emission**)
 - Adding more absorbers means that **contributions to the OLR** from **upper levels** go **up**, while contributions from the surface go **down**.
 - This upward shift in the weighting of different levels is what we mean when we say the **level of emission goes up**.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 - The **radiative forcing** caused by an increase in absorbers **depends on the lapse rate**.
 - For an **isothermal atmosphere** the radiative forcing is zero and there is **no greenhouse effect**
 - The radiative forcing is positive for our atmosphere **because tropospheric temperatures tend to decrease with height**.
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 ____________
 

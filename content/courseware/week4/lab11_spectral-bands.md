@@ -5,28 +5,26 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.6
+    jupytext_version: 1.19.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 (nb:spectral-bands)=
 # Who needs spectral bands? We do. Some baby steps...
 
 This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](http://www.atmos.albany.edu/facstaff/brose/index.html), University at Albany.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 1. What if CO$_2$ actually behaved like a Grey Gas?
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Suppose that CO$_2$ actually behaved as a grey gas. In other words, no spectral dependence in absorptivity.
 
@@ -34,13 +32,13 @@ If we then **double the CO2 concentration** in the atmosphere, we double the num
 
 $$ \kappa^\prime = 2 ~ \kappa $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 This would imply that we **double the optical thickness of every layer**:
 
 $$ \Delta \tau^\prime  = 2 \left( -\frac{\kappa}{g} \Delta p \right) = 2 ~ \Delta \tau$$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 And since [the absorptivity / emissivity of each layer](https://brian-rose.github.io/ClimateLaboratoryBook/courseware/radiative-transfer.html#Emissivity) is
 
@@ -54,7 +52,7 @@ $$ \epsilon^\prime = 2 \epsilon  - \epsilon^2 $$
 
 (Note that $\epsilon^\prime = 2 \epsilon$ for very thin layers, for which $\epsilon$ is small).
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### What does our 2-layer analytical model then say about the radiative forcing?
 
@@ -65,20 +63,14 @@ $$ \epsilon = 0.586 $$
 to get the observed OLR with observed temperatures.
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 #  Applying the above formula
 eps = 0.586
 print('Doubling a grey gas absorber would change the absorptivity from {:.3} to {:.3}'.format(eps, 2*eps - eps**2))
 ```
 
-+++ {"slideshow": {"slide_type": "-"}}
-
 **If CO2 behaved like a grey gas**, doubling it would cause a huge increase in the absorptivity of each layer!
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 [We previously worked out that the radiative forcing in this model](https://brian-rose.github.io/ClimateLaboratoryBook/courseware/elementary-greenhouse.html#The-radiative-forcing-(change-in-OLR)-depends-on-the-lapse-rate!) (with the observed lapse rate) is about +2.6 W m$^{-2}$ for a 2% increase in $\epsilon$.
 
@@ -110,8 +102,6 @@ ecs = radiative_forcing / -(lambda_net)  # K
 print(ecs)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### Conclusions:
 
 1. **If CO2 did behave like a grey gas, we would be toast\*!** 
@@ -119,7 +109,7 @@ print(ecs)
 
 \* *Phrase borrowed with great respect from [R. Pierrehumbert (2010), Principles of Planetary Climate, Cambridge University Press.](https://geosci.uchicago.edu/~rtp1/PrinciplesPlanetaryClimate/), which is easily to best textbook that exists on this subject.*
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
@@ -128,7 +118,7 @@ ____________
 
 It's time to move away from the Grey Gas approximation and look more carefully at the actual observed spectra of solar and terrestrial radiation.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Observed solar spectra
 
@@ -138,13 +128,13 @@ The following figure shows observed spectra of solar radiation at TOA and at the
 
 <img src='../../images/Solar_spectrum_en.svg'>
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 > This figure shows the solar radiation spectrum for direct light at both the top of the Earth's atmosphere and at sea level. The sun produces light with a distribution similar to what would be expected from a 5525 K (5250 °C) blackbody, which is approximately the sun's surface temperature. As light passes through the atmosphere, some is absorbed by gases with specific absorption bands. Additional light is redistributed by Raleigh scattering, which is responsible for the atmosphere's blue color. These curves are based on the American Society for Testing and Materials (ASTM) Terrestrial Reference Spectra, which are standards adopted by the photovoltaics industry to ensure consistent test conditions and are similar to the light that could be expected in North America. Regions for ultraviolet, visible and infrared light are indicated.
 
 Source: http://commons.wikimedia.org/wiki/File:Solar_spectrum_en.svg
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 - The figure shows that that the incident beam at TOA has the shape of a blackbody radiator. 
 - By the time the beam arrives at the surface, it is strongly depleted at specific wavelengths.
@@ -152,7 +142,7 @@ Source: http://commons.wikimedia.org/wiki/File:Solar_spectrum_en.svg
 - Weaker absorption features, mostly due to H$_2$O, deplete some parts of the near-infrared.
 - Note that the depletion in the visible band is mostly due to scattering, which depletes the direct beam but contributes diffuse radiation (so we can still see when it's cloudy!)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Observed terrestrial spectra
 
@@ -169,7 +159,7 @@ This figure shows the Planck function for Earth's surface temperature compared w
 
 Source: https://www.e-education.psu.edu/earth103/node/671
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Careful: I'm pretty sure what is plotted here is not the **total** observed spectrum, but rather the part of the **emissions from the surface** that **actual make it out to space**.
 
@@ -179,7 +169,7 @@ However there is a spectral band centered on 10 $\mu$m in which the greenhouse e
 
 Since absorption is so strong across most of the rest of the infrared spectrum, this window region is a key determinant of the overall greenhouse effect.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### One very big shortcoming of the Grey Gas model: it ignores the window region
 
@@ -188,14 +178,14 @@ We would therefore like to start using a model that includes enough spectral inf
 - the mostly strong CO2 absorption outside the window region
 - the weak absorption inside the window region
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 3. Water vapor changes under global warming
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Another big shortcoming of the Grey Gas model is that it cannot represent the **water vapor feedback**.
 
@@ -203,17 +193,13 @@ We have seen above that H$_2$O is an important absorber in both longwave and sho
 
 We also know that the water vapor load in the atmosphere increases as the climate warms. The primary reason is that the **saturation vapor pressure** increases strongly with temperature.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Evidence from CESM simulations
 
 Let's take at changes in the mean water vapor fields in the CESM model after a doubling of CO$_2$
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: '-'
----
 %matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
@@ -230,10 +216,6 @@ co2 = xr.open_dataset(datapath + 'som_1850_2xCO2/clim/som_1850_2xCO2.cam.h0.clim
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: '-'
----
 #  Plot cross-sections of the following anomalies under 2xCO2:
 #   - Temperature 
 #   - Specific humidity
@@ -268,14 +250,12 @@ for ax in axes:
 fig.suptitle('Anomalies for 2xCO2 in CESM slab ocean simulations', fontsize=16);
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### What do you see here?
 
 - Where does the largest warming occur?
 - Where does the largest moistening occur?
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 In fact the specific humidity anomaly has roughly the same shape of the specific humidity field itself -- **it is largest where the temperature is highest**. This is a consequence of the Clausius-Clapeyron relation.
 
@@ -284,20 +264,20 @@ The **relative humidity** anomaly is
 - overall rather small (just a few percent)
 - Largest in places cold places where the specific humidity is very small.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The smallness of the relative humidity change is a rather remarkable result.
 
 This is not something we can derive from first principles. It is an emergent property of the GCMs. However it is a very robust feature of global warming simulations.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 4. A simple water vapor parameterization
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### A credible climate model needs a water vapor feedback
 
@@ -305,7 +285,7 @@ If relative humidity is nearly constant under global warming, and water vapor is
 
 Thus far our simple models have ignored this process, and we have not been able to use them to assess the climate sensitivity.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 To proceed towards more realistic models, we have two options:
 
@@ -314,7 +294,7 @@ To proceed towards more realistic models, we have two options:
 
 We will now explore this second option, so that we can continue to think of the global energy budget under climate change as a process occurring in a single column.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Manabe's constant relative humidity parameterization
 
@@ -324,7 +304,7 @@ We are going to adopt a parameterization first used in a very famous paper:
 
 This paper was the first to give a really credible calculation of climate sensitivity to a doubling of CO2 by accounting for the known spectral properties of CO2 and H2O absorption, as well as the water vapor feedback!
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The parameterization is very simple:
 
@@ -334,7 +314,7 @@ $$ r = r_s \left( \frac{p/p_s - 0.02}{1 - 0.02} \right) $$
 
 where $p_s = 1000$ hPa is the surface pressure, and $r_s$ is a prescribed surface value of relative humidity. Manabe and Wetherald set $r_s = 0.77$, but we should consider this a tunable parameter in our parameterization.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Since this formula gives a negative number above 20 hPa, we also assume that the **specific humidity** has a minimum value of $0.005$ g/kg (a typical stratospheric value).
 
@@ -342,14 +322,14 @@ This formula is implemented in `climlab.radiation.ManabeWaterVapor()`
 
 Using this parameterization, the surface and tropospheric specific humidity will always increase as the temperature increases.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 5. Modeling spectral bands with the `climlab.BandRCModel` process
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Here is a brief introduction to the `climlab.BandRCModel` process.
 
@@ -357,7 +337,7 @@ This is a model that divides the spectrum into 7 distinct bands: three shortwave
 
 As we will see, the process works much like the familiar `climlab.RadiativeConvectiveModel`.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## About the spectra
 
@@ -369,7 +349,7 @@ The shortwave is divided into three channels:
 - Channel 1 is Chappuis band (450 - 800 nm, 27% of total flux, moderate ozone absorption)
 - Channel 2 is remaining radiation (72% of total flux, largely in the visible range, no ozone absorption)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Longwave
 
@@ -382,7 +362,7 @@ The longwave is divided into four bands:
 
 The longwave decomposition is not as easily related to specific wavelengths, as in reality there is a lot of overlap between H$_2$O and CO$_2$ absorption features (as well as absorption by other greenhouse gases such as CH$_4$ and N$_2$O that we are not representing).
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Example usage of the spectral model
 
@@ -398,8 +378,6 @@ col1 = climlab.BandRCModel()
 print(col1)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 Check out the list of subprocesses.
 
 We now have a process called `H2O`, in addition to things we've seen before.
@@ -410,15 +388,11 @@ The state variables are still just temperatures:
 col1.state
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 But the model has a new input field for specific humidity:
 
 ```{code-cell} ipython3
 col1.q
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 The `H2O` process sets the specific humidity field at every timestep to a specified profile, determined by air temperatures. More on that below. For now, let's compute a radiative equilibrium state.
 
@@ -432,10 +406,6 @@ col1.ASR - col1.OLR
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 fig, ax = plt.subplots()
 ax.plot(col1.Tatm, col1.lev, 'c-', label='default')
 ax.plot(col1.Ts, climlab.constants.ps, 'co', markersize=16)
@@ -446,13 +416,11 @@ ax.set_title('Temperature profiles', fontsize = 18)
 ax.grid()
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 By default this model has convective adjustment.  We can set the adjusted lapse rate by passing a parameter when we create the model.
 
 The model currently has no ozone (so there is no stratosphere). Not very realistic!
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### About the radiatively active gases
 
@@ -464,11 +432,9 @@ The Band model is aware of three different absorbing gases: O3 (ozone), CO2, and
 col1.absorber_vmr
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 Ozone and CO2 are both specified in the model. The default, as you see above, is zero ozone, and constant (well-mixed) CO2 at a volume mixing ratio of 3.8E-4 or 380 ppm.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Water vapor is handled differently: it is determined by the model at each timestep. We make the following assumptions, following a classic paper on radiative-convective equilibrium by Manabe and Wetherald (J. Atmos. Sci. 1967):
 
@@ -476,7 +442,7 @@ Water vapor is handled differently: it is determined by the model at each timest
 - water vapor drops off linearly with pressure
 - there is a small specified amount of water vapor in the stratosphere.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Putting in some ozone
 
@@ -489,10 +455,6 @@ ozone = xr.open_dataset( datapath + 'som_input/ozone_1.9x2.5_L26_2000clim_c09111
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 #  Take global (area-weighted) and annual average
 weight_ozone = cos(deg2rad(ozone.lat)) / cos(deg2rad(ozone.lat)).mean(dim='lat')
 O3_global = (ozone.O3 * weight_ozone).mean(dim=('lat','lon','time'))
@@ -500,10 +462,6 @@ print(O3_global)
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 fig, ax = plt.subplots()
 ax.plot( O3_global*1E6, ozone.lev)
 ax.invert_yaxis()
@@ -511,8 +469,6 @@ ax.set_xlabel('Ozone (ppm)', fontsize=16)
 ax.set_ylabel('Pressure (hPa)', fontsize=16 )
 ax.set_title('Global, annual mean ozone concentration', fontsize = 16);
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 We are going to create another instance of the model, this time using the same vertical coordinates as the ozone data.
 
@@ -523,10 +479,6 @@ print( col2)
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 #  Set the ozone mixing ratio
 col2.absorber_vmr['O3'] = O3_global.values
 ```
@@ -537,10 +489,6 @@ col2.integrate_years(2.)
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 fig, ax = plt.subplots()
 ax.plot( col1.Tatm, np.log(col1.lev/1000), 'c-', label='RCE' )
 ax.plot( col1.Ts, 0, 'co', markersize=16 )
@@ -553,8 +501,6 @@ ax.set_title('Temperature profiles', fontsize = 18)
 ax.grid(); ax.legend()
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 Once we include ozone we get a well-defined stratosphere. 
 
 Things to consider / try:
@@ -566,10 +512,6 @@ Things to consider / try:
 - Clouds would act both in the shortwave (increasing the albedo, cooling the climate) and in the longwave (greenhouse effect, warming the climate). Which effect is stronger depends on the vertical structure of the clouds (high or low clouds) and their optical properties (e.g. thin cirrus clouds are nearly transparent to solar radiation but are good longwave absorbers).
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 col3 = climlab.process_like(col2)
 print( col3)
 ```
@@ -585,10 +527,6 @@ print( 'The radiative forcing for doubling CO2 is %f W/m2.' % (col2.diagnostics[
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 col3.integrate_years(3)
 ```
 
@@ -601,10 +539,6 @@ print( 'The Equilibrium Climate Sensitivity is %f K.' % (col3.Ts - col2.Ts))
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 #  An example with no ozone
 col4 = climlab.process_like(col1)
 print( col4)
@@ -617,10 +551,6 @@ print( 'The radiative forcing for doubling CO2 is %f W/m2.' % (col1.OLR - col4.O
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 col4.integrate_years(3.)
 col4.ASR - col4.OLR
 ```
@@ -631,7 +561,7 @@ print( 'The Equilibrium Climate Sensitivity is %f K.' % (col4.Ts - col1.Ts))
 
 Interesting that the model is MORE sensitive when ozone is set to zero.
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 ____________
 
@@ -646,9 +576,5 @@ Development of these notes and the [climlab software](https://github.com/brian-r
 ____________
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: skip
----
 
 ```

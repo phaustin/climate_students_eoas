@@ -420,7 +420,7 @@ This has been referred to as the **recalcitrant** component of global warming, i
 
 > I. M. Held, M. Winton, K. Takahashi, T. Delworth, F. Zeng, and G. K. Vallis. Probing the fast and slow components of global warming by returning abruptly to preindustrial forcing. J. Climate, 23:2418–2427, 2010.
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 ____________
 

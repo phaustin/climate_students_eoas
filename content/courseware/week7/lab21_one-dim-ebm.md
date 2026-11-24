@@ -1,83 +1,82 @@
 ---
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
-  kernelspec:
-    display_name: Python 3 (ipykernel)
-    language: python
-    name: python3
+jupytext:
+  formats: ipynb,md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.19.7
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
 ---
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 (nb:1DEBM)=
 # The one-dimensional energy balance model
 
 This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](http://www.atmos.albany.edu/facstaff/brose/index.html), University at Albany.
-<!-- #endregion -->
+
++++
 
 *Subsections marked with the asterisk * are more detailed mathematical discussions which can be skipped by the first-time reader.*
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ____________
 
 ## 1. Simulation versus parameterization of heat transport
 ____________
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 In the previous lectures we have seen how heat transport by winds and ocean currents acts to COOL the tropics and WARM the poles. The observed temperature gradient is a product of both the insolation and the heat transport!
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 We were able to ignore this issue in our models of the global mean temperature, because the transport just moves energy around between latitude bands – does not create or destroy energy.
 
 But if want to move beyond the global mean and create models of the equator-to-pole temperature structure, we cannot ignore heat transport. Has to be included somehow!
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 This leads to us the old theme of **simulation versus parameterization**.
 
 Complex climate models like the CESM simulate the heat transport by solving the full equations of motion for the atmosphere (and ocean too, if coupled).
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### Simulation of synoptic-scale variability in CESM
 
 Let's revisit an animation of the global 6-hourly sea-level pressure field from our slab ocean simulation with CESM. (We first saw this [back in Lecture 5](./Lecture05 -- Climate system and climate models.ipynb))
-<!-- #endregion -->
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 from IPython.display import YouTubeVideo
 YouTubeVideo('As85L34fKYQ')
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 All these traveling weather systems tend to move **warm, moist air poleward** and **cold, dry air equatorward**. There is thus a **net poleward energy transport**.
 
 A model like this needs to **simulate the weather** in order to **model the heat transport**.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### A simpler statistical approach
 
 Let’s emphasize: the most important role for heat transport by winds and ocean currents is to more energy from where it’s WARM to where it’s COLD, thereby reducing the temperature gradient (equator to pole) from what it would be if the planet were in radiative-convective equilibrium everywhere with no north-south motion.
 
 This is the basis for the parameterization of heat transport often used in simple climate models.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 Discuss analogy with molecular heat conduction: metal rod with one end in the fire.
 
 Define carefully temperature gradient dTs / dy
 Measures how quickly the temperature  decreases as we move northward
 (negative in NH, positive in SH)
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 In any conduction or diffusion process, the flux (transport) of a quantity is always DOWN-gradient  (from WARM to COLD).
 
 So our parameterization will look like
@@ -85,16 +84,16 @@ So our parameterization will look like
 $$ \mathcal{H} = -K ~ dT / dy $$
 
 Where $K$ is some positive number “diffusivity of the climate system”.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ____________
 
 ## 2. The temperature diffusion parameterization
 ____________
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### Definition
 
 Last time we wrote down an energy budget for a thin zonal band centered at latitude $\phi$:
@@ -102,76 +101,76 @@ Last time we wrote down an energy budget for a thin zonal band centered at latit
 $$ \frac{\partial E(\phi)}{\partial t} = \text{ASR}(\phi) - \text{OLR}(\phi) - \frac{1}{2 \pi a^2  \cos\phi } \frac{\partial \mathcal{H}}{\partial \phi} $$
 
 where we have written every term as an explicit function of latitude to remind ourselves that this is a **local** budget, unlike the zero-dimensional global budget we considered at the start of the course.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 Let’s now formally introduce a parameterization that **approximates the heat transport as a down-gradient diffusion process**:
 
 $$ \mathcal{H}(\phi) \approx -2 \pi a^2  \cos\phi ~ D ~ \frac{\partial T_s}{\partial \phi} $$
 
 With $D$ a parameter for the **diffusivity** or **thermal conductivity** of the climate system, a number in W m$^{-2}$ ºC$^{-1}$.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 The value of $D$ will be chosen to match observations – i.e. tuned.
 
 Notice that we have explicitly chosen to the use **surface temperature gradient** to set the heat transport. This is a convenient (and traditional) choice to make, but it is not the only possibility! We could instead tune our parameterization to some measure of the free-tropospheric temperature gradient.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### The diffusive parameterization in the planetary energy budget
 
 Plug the parameterization into our energy budget to get
 
 $$ \frac{\partial E(\phi)}{\partial t} = \text{ASR}(\phi) - \text{OLR}(\phi) - \frac{1}{2 \pi a^2  \cos\phi } \frac{\partial }{\partial \phi} \left( -2 \pi a^2  \cos\phi ~ D ~ \frac{\partial T_s}{\partial \phi} \right) $$
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 If we assume that $D$ is a constant (does not vary with latitude), then this simplifies to
 
 $$ \frac{\partial E(\phi)}{\partial t} = \text{ASR}(\phi) - \text{OLR}(\phi) + \frac{D}{\cos\phi } \frac{\partial }{\partial \phi} \left(   \cos\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### Surface temperature is a good measure of column heat content
 
 Let's now make the same assumption we made [back at the beginning of the course](Lecture01 -- Planetary energy budget.ipynb) when we first wrote down the zero-dimensional EBM.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 *Most of the heat capacity is in the oceans, so that the energy content of each column $E$ is proportional to surface temperature*:
 
 $$ E(\phi) = C(\phi) ~ T_s(\phi) $$
 
 where $C$ is **effective heat capacity** of the atmosphere - ocean column, in units of J m$^{-2}$ K$^{-1}$. Here we are writing $C$ are a function of latitude so that our model is general enough to allow different land-ocean fractions at different latitudes.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### A heat equation for surface temperature
 
 Now our budget becomes a PDE for the surface temperature $T_s(\phi, t)$:
 
 $$ C(\phi) \frac{\partial T_s}{\partial t} = \text{ASR}(\phi) - \text{OLR}(\phi) + \frac{D}{\cos\phi } \frac{\partial }{\partial \phi} \left(   \cos\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 Notice that if we were NOT on a spherical planet and didn’t have to worry about the changing size of latitude circles, this would look something like
 
 $$ \frac{\partial T}{\partial t} = K \frac{\partial^2 T}{\partial y^2} + \text{forcing terms} $$
 with $K = D/C$ in m$^{2}$ s$^{-1}$.
 
 Does equation look familiar?
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 This is the *heat equation*, one of the central equations in classical mathematical physics. 
 
 This equation describes the behavior of a diffusive system, i.e. how mixing by random molecular motion smears out the temperature. 
 
 In our case, the analogy is between the random molecular motion of a metal rod, and the net mixing / stirring effect of weather systems.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### * Take the global average...
 
 Take the integral $\int_{-\pi/2}^{\pi/2} \cos\phi ~ d\phi$ of each term.
@@ -182,16 +181,16 @@ $$ C \frac{\partial \overline{T_s}}{\partial t} d\phi = \overline{\text{ASR}} - 
 The global average of the last term (heat transport) must go to zero (why?)
 
 Therefore this reduces to our familiar zero-dimensional EBM.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ____________
 
 ## 3. Solving the temperature diffusion equation with climlab
 ____________
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "-"} -->
++++
+
 `climlab` has a pre-defined process for solving the meridional diffusion equation. Let's look at a simple example in which diffusion is the ONLY process that changes the temperature.
 
 The equation we're going to solve here is
@@ -199,9 +198,8 @@ The equation we're going to solve here is
 $$ C(\phi) \frac{\partial T_s}{\partial t} = \frac{D}{\cos\phi } \frac{\partial }{\partial \phi} \left(   \cos\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
 
 (i.e. the EBM equation without any radiation terms)
-<!-- #endregion -->
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 %matplotlib inline
 import numpy as np
 import math
@@ -210,7 +208,7 @@ import climlab
 from climlab import constants as const
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 #  First define an initial temperature field
 #   that is warm at the equator and cold at the poles
 #   and varies smoothly with latitude in between
@@ -226,7 +224,7 @@ ax.set_xlabel('Latitude')
 ax.set_ylabel('Temperature (deg C)');
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 ##  Set up the climlab diffusion process
 
 # make a copy of initial so that it remains unmodified
@@ -240,7 +238,7 @@ d = climlab.dynamics.MeridionalHeatDiffusion(name='Diffusion',
 print(d)
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 #  We are going to step forward one month at a time
 #  and store the temperature each time
 n_iter = 5
@@ -251,7 +249,7 @@ for n in range(n_iter):
     temp[:, n+1] = np.squeeze(Ts)
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 #  Now plot the temperatures
 fig,ax = plt.subplots()
 ax.plot(lat, temp)
@@ -260,7 +258,6 @@ ax.set_ylabel('Temperature (deg C)')
 ax.legend(range(n_iter+1)); ax.grid();
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 At each timestep, the warm temperatures get cooler (at the equator) while the cold polar temperatures get warmer!
 
 Diffusion is acting to **reduce the temperature gradient**.
@@ -268,13 +265,11 @@ Diffusion is acting to **reduce the temperature gradient**.
 If we let this run a long time, what should happen??
 
 Try it yourself and find out!
-<!-- #endregion -->
 
-```python
+```{code-cell} ipython3
 
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 ### * Mathematical aside: the Legendre Polynomials
 
 Here we have used a function called the “2nd Legendre polynomial”, defined as
@@ -284,54 +279,57 @@ $$ P_2 (x) = \frac{1}{2} \left( 3x^2-1 \right) $$
 where we have also set
 
 $$ x = \sin\phi $$
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 Just turns out to be a useful mathematical description of the relatively smooth changes in things like annual-mean insolation from equator to pole.
 
 In fact these are so useful that they are coded up in a special module within `climlab`:
-<!-- #endregion -->
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 x = np.linspace(-1,1)
 fig,ax = plt.subplots()
 ax.plot(x, legendre.P2(x))
 ax.set_title('$P_2(x)$')
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 ____________
 
 ## 4. Parameterizing the radiation terms
 ____________
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### The basic problem
 
 Let's go back to the complete budget with our heat transport parameterization
 
 $$ C(\phi) \frac{\partial T_s}{\partial t} = \text{ASR}(\phi) - \text{OLR}(\phi) + \frac{D}{\cos\phi } \frac{\partial }{\partial \phi} \left(   \cos\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
-<!-- #endregion -->
+
++++
 
 To turn our **budget** into a **model**, we need specific *parameterizations* that link the radiation ASR and OLR to surface temperature $T_s$ (the state variable for our model).
 
 In mathematical terms, we want to express this **as a closed equation for surface temperature $T_s$**.
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### Fixed albedo assumption
 
 First, as usual, we can write the solar term as
 
 $$ \text{ASR} = (1-\alpha) ~ Q $$
-<!-- #endregion -->
+
++++
 
 For now, we will **assume that the planetary albedo is fixed (does not depend on temperature)**. Therefore the entire shortwave term $(1-\alpha) Q$ is a fixed source term in our budget. It varies in space and time but does not depend on $T_s$.
 
++++
 
 Note that the solar term is (at least in annual average) larger at equator than poles… and transport term acts to flatten out the temperatures.
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### Parameterizing the longwave radiation
 
 Now, we almost have a model we can solve for T!  Just need to express the OLR in terms of temperature.
@@ -339,21 +337,21 @@ Now, we almost have a model we can solve for T!  Just need to express the OLR in
 So…  what’s the link between OLR and temperature????
 
 [ discuss ]
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 We spent a good chunk of the course looking at this question, and developed a model of a vertical column of air.
 
 We are trying now to build a model of the equator-to-pole (or pole-to-pole) temperature structure.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 We COULD use an array of column models, representing temperature as a function of height and latitude (and time).
 
 But instead, we will keep things simple, one spatial dimension at a time.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 Introduce the following simple parameterization:
 
 $$ OLR = A + B T_s $$
@@ -367,20 +365,21 @@ With:
 Think of $A$ as an inverse measure of the greenhouse gas amount (Why?).
 
 The parameter $B$ is closely related to the **climate feedback parameter** $λ$ that we defined a while back. The only difference is that in the EBM we are going to explicitly separate the **albedo feedback** from all other radiative feedbacks.
-<!-- #endregion -->
+
++++
 
 ____________
 
 ## 5. Tuning the longwave parameters with reanalysis data
 ____________
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### OLR versus surface temperature in NCEP Reanalysis data
 
 Let's look at the data to find reasonable values for $A$ and $B$.
-<!-- #endregion -->
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 import xarray as xr
 ## The NOAA ESRL server is shutdown! January 2019
 ncep_url = "http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/"
@@ -391,12 +390,12 @@ lat_ncep = ncep_Ts.lat; lon_ncep = ncep_Ts.lon
 print( ncep_Ts)
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 #  Take the annual and zonal average!
 Ts_ncep_annual = ncep_Ts.skt.mean(dim=('lon','time'))
 ```
 
-```python slideshow={"slide_type": "-"}
+```{code-cell} ipython3
 # TOA radiation data
 ncep_ulwrf = xr.open_dataset( ncep_url + "other_gauss/ulwrf.ntat.mon.1981-2010.ltm.nc", decode_times=False)
 ncep_dswrf = xr.open_dataset( ncep_url + "other_gauss/dswrf.ntat.mon.1981-2010.ltm.nc", decode_times=False)
@@ -408,7 +407,7 @@ OLR_ncep_annual = ncep_ulwrf.ulwrf.mean(dim=('lon','time'))
 ASR_ncep_annual = (ncep_dswrf.dswrf - ncep_uswrf.uswrf).mean(dim=('lon','time'))
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 #  Use a linear regression package to compute best fit for the slope and intercept
 from scipy.stats import linregress
 slope, intercept, r_value, p_value, std_err = linregress(Ts_ncep_annual, OLR_ncep_annual)
@@ -416,17 +415,15 @@ slope, intercept, r_value, p_value, std_err = linregress(Ts_ncep_annual, OLR_nce
 print( 'Best fit is A = %0.0f W/m2 and B = %0.1f W/m2/degC' %(intercept, slope))
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 We're going to plot the data and the best fit line, but also another line using these values:
-<!-- #endregion -->
 
-```python
+```{code-cell} ipython3
 #  More standard values
 A = 210.
 B = 2.
 ```
 
-```python slideshow={"slide_type": "-"}
+```{code-cell} ipython3
 fig, ax1 = plt.subplots(figsize=(8,6))
 ax1.plot( Ts_ncep_annual, OLR_ncep_annual, 'o' , label='data')
 ax1.plot( Ts_ncep_annual, intercept + slope * Ts_ncep_annual, 'k--', label='best fit')
@@ -438,7 +435,6 @@ ax1.legend(loc='upper left')
 ax1.grid()
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 Discuss these curves...
 
 Suggestion of at least 3 different regimes with different slopes (cold, medium, warm).
@@ -446,15 +442,15 @@ Suggestion of at least 3 different regimes with different slopes (cold, medium, 
 Unbiased "best fit" is actually a poor fit over all the intermediate temperatures.
 
 The astute reader will note that...   by taking the zonal average of the data before the regression, we are biasing this estimate toward cold temperatures.  [WHY?]
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 Let's take these reference values:
 
 $$ A = 210 ~ \text{W m}^{-2}, ~~~ B = 2 ~ \text{W m}^{-2}~^\circ\text{C}^{-1} $$
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### Checking the global average
 
 Note that in the **global average**, recall $\overline{T_s} = 288 \text{ K} = 15^\circ\text{C}$
@@ -465,7 +461,8 @@ $$ \overline{\text{OLR}} = 210 + 15 \times 2 = 240 ~\text{W m}^{-2} $$
 
 And the observed global mean is $\overline{\text{OLR}} = 239 ~\text{W m}^{-2} $
 So this is consistent.
-<!-- #endregion -->
+
++++
 
 ### Relationship between $B$ and feedback parameters
 
@@ -492,30 +489,31 @@ $$ \sum_{i=1}^{N} \lambda_i = 3.3 ~\text{W m}^{-2}~^\circ\text{C}^{-1} - 2 ~\tex
 
 Looking back at the chart of feedback parameter values from GCMs, does this seem plausible?
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ____________
 
 ## 6. The one-dimensional diffusive Energy Balance Model
 ____________
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### Putting the equation together
 
 Putting the above OLR parameterization into our budget equation gives
 
 $$ C(\phi) \frac{\partial T_s}{\partial t} = (1-\alpha) ~ Q - \left( A + B~T_s \right) + \frac{D}{\cos\phi } \frac{\partial }{\partial \phi} \left(   \cos\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 This is the equation for a very important and useful simple model of the climate system. It is typically referred to as the (one-dimensional) Energy Balance Model.
 
 (although as we have seen over and over, EVERY climate model is actually an “energy balance model” of some kind)
 
 Also for historical reasons this is often called the **Budyko-Sellers model**, after Budyko and Sellers who both (independently of each other) published influential papers on this subject in 1969.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 Recap: parameters in this model are
 
 - C: heat capacity in J m$^{-2}$ ºC$^{-1}$
@@ -524,15 +522,14 @@ Recap: parameters in this model are
 - D: horizontal (north-south) diffusivity of the climate system in W m$^{-2}$ ºC$^{-1}$
 
 We also need to specify the albedo.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### Observed albedo
 
 Let's go back to the NCEP Reanalysis data to see how planetary albedo actually varies as a function of latitude.
-<!-- #endregion -->
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 days = np.linspace(1.,50.)/50 * const.days_per_year
 Qann_ncep = climlab.solar.insolation.daily_insolation(lat_ncep, days ).mean(dim='day')
 albedo_ncep = 1 - ASR_ncep_annual / Qann_ncep
@@ -540,7 +537,7 @@ albedo_ncep = 1 - ASR_ncep_annual / Qann_ncep
 albedo_ncep_global = np.average(albedo_ncep, weights=np.cos(np.deg2rad(lat_ncep)))
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 print( 'The annual, global mean planetary albedo is %0.3f' %albedo_ncep_global)
 fig,ax = plt.subplots()
 ax.plot(lat_ncep, albedo_ncep)
@@ -549,7 +546,6 @@ ax.set_xlabel('Latitude')
 ax.set_ylabel('Albedo');
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 **The albedo increases markedly toward the poles.**
 
 There are several reasons for this:
@@ -557,9 +553,9 @@ There are several reasons for this:
 - Surface snow and ice increase toward the poles
 - Cloudiness is an important (but complicated) factor.
 - Albedo increases with solar zenith angle (the angle at which the direct solar beam strikes a surface)
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### Approximating the observed albedo with a smooth function
 
 Like temperature and insolation, this can be approximated by a smooth function that increases with latitude:
@@ -569,15 +565,14 @@ $$ \alpha(\phi) \approx \alpha_0 + \alpha_2 P_2(\sin\phi) $$
 where $P_2$ is the 2nd Legendre polynomial (see above).
 
 In effect we are using a truncated series expansion of the full meridional structure of $\alpha$. $a_0$ is the global average, and $a_2$ is proportional to the equator-to-pole gradient in $\alpha$.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 We will set
 
 $$ \alpha_0 = 0.354, ~~~ \alpha_2 = 0.25 $$
-<!-- #endregion -->
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 # Add a new curve to the previous figure
 a0 = albedo_ncep_global
 a2 = 0.25
@@ -585,22 +580,23 @@ ax.plot(lat_ncep, a0 + a2 * legendre.P2(np.sin(np.deg2rad(lat_ncep))))
 fig
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 Of course we are not fitting all the details of the observed albedo curve. But we do get the correct global mean a reasonable representation of the equator-to-pole gradient in albedo.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ____________
 
 ## 7. The annual-mean EBM
 ____________
-<!-- #endregion -->
+
++++
 
 For now, we will be focusing on the **annual mean** model. 
 
 For the **insolation**, we set $Q(\phi,t) = \bar{Q}(\phi)$, the annual mean value *(large at equator, small at pole)*.
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### * Mathematical details: deriving the annual mean model
 
 Suppose we take the **annual mean of the planetary energy budget**.
@@ -612,15 +608,15 @@ $$ C \frac{\Delta \overline{T_s}}{\text{1 year}} = \left(1-\alpha(\phi) \right) 
 where $\overline{T_s}(\phi)$ is the annual mean surface temperature, and $\overline{Q}(\phi)$ is the annual mean insolation (both functions of latitude).
 
 Notice that once we average over the seasonal cycle, there are no time-dependent forcing terms. The temperature will just evolve toward a steady equilibrium.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 The equilibrium temperature is then the solution of this Ordinary Differential Equation (setting $\Delta \overline{T_s} = 0$ above):
 
 $$ 0 = \left(1-\alpha(\phi) \right) ~ \overline{Q}(\phi) - \left( A + B~\overline{T_s} \right) + \frac{D}{\cos\phi } \frac{d }{d \phi} \left(   \cos\phi  ~ \frac{d \overline{T_s}}{d \phi} \right) $$
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 You will often see this equation written in terms of the independent variable
 
 $$ x = \sin\phi $$
@@ -628,31 +624,30 @@ $$ x = \sin\phi $$
 which is 0 at the equator and $\pm1$ at the poles. Substituting this for $\phi$, noting that $dx = \cos\phi~ d\phi$ and rearranging a bit gives
 
 $$  \frac{D}{B} \frac{d }{d x} \left(   (1-x^2)  ~ \frac{d \overline{T_s}}{d x} \right) - \overline{T_s} = -\frac{\left(1-\alpha(x) \right) ~ \overline{Q}(x) - A}{B}  $$
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 This is actually a 2nd order ODE, and actually a 2-point Boundary Value Problem for the temperature $T(x)$, where the boundary conditions are no-flux at the boundaries (usually the poles).
 
 This form can be convenient for analytical solutions. As we will see, the non-dimensional number $D/B$ is a very important measure of the efficiency of heat transport in the climate system.  We will return to this later.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### Numerical solutions of the time-dependent EBM
 
 We will leave the time derivative in our model, because this is the most convenient way to find the equilibrium solution!
 
 There is code available in `climlab` to solve the diffusive EBM.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### Animating the adjustment of annual mean EBM to equilibrium
 
 Before looking at the details of how to set up an EBM in `climlab`, let's look at an animation of the adjustment of the model (its temperature and energy budget) from an **isothermal initial condition**.
 
 For reference, all the code necessary to generate the animation is here in the notebook.
-<!-- #endregion -->
 
-```python slideshow={"slide_type": "skip"}
+```{code-cell} ipython3
 #  Some imports needed to make and display animations
 from IPython.display import HTML
 from matplotlib import animation
@@ -707,23 +702,23 @@ def animate(day, model, lines):
     return lines   
 ```
 
-```python slideshow={"slide_type": "skip"}
+```{code-cell} ipython3
 #  A model starting from isothermal initial conditions
 e = climlab.EBM_annual()
 e.Ts[:] = 15.  # in degrees Celsius
 e.compute_diagnostics()
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 #  Plot initial data
 fig, axes, lines = initial_figure(e)
 ```
 
-```python slideshow={"slide_type": "skip"}
+```{code-cell} ipython3
 ani = animation.FuncAnimation(fig, animate, frames=np.arange(1, 100), fargs=(e, lines))
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 HTML(ani.to_html5_video())
 ```
 
@@ -731,7 +726,8 @@ This animation lets us visualize the competition between the **radiation** which
 
 This is very much analogous to the competition between radiation and convection we saw in [our study of radiative-convective equilibrium](https://brian-rose.github.io/ClimateLaboratoryBook/courseware/rce.html#Adjustment-from-isothermal-initial-conditions) in a single vertical column.
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ###  Example EBM using climlab
 
 Here is a simple example using the parameter values we just discussed.
@@ -739,27 +735,26 @@ Here is a simple example using the parameter values we just discussed.
 For simplicity, this model will use the **annual mean insolation**, so the forcing is steady in time.
 
 We haven't yet selected an appropriate value for the diffusivity $D$. Let's just try something and see what happens:
-<!-- #endregion -->
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 D = 0.1
 model = climlab.EBM_annual(name='EBM', A=210, B=2, D=D, a0=0.354, a2=0.25)
 print(model)
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 # The model object stores a dictionary of important parameters
 model.param
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 # Run it out long enough to reach equilibrium
 model.integrate_years(10)
 ```
 
 ### Comparison of the equilibrium climate to observations
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 fig, axes = plt.subplots(1,2, figsize=(12,4))
 ax = axes[0]
 ax.plot(model.lat, model.Ts, label=('D = %0.1f' %D))
@@ -774,7 +769,7 @@ for ax in axes:
     ax.set_xlabel('Latitude'); ax.legend(); ax.grid();
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 def inferred_heat_transport( energy_in, lat_deg ):
     '''Returns the inferred heat transport (in PW) by integrating the net energy imbalance from pole to pole.'''
     from scipy import integrate
@@ -785,7 +780,7 @@ def inferred_heat_transport( energy_in, lat_deg ):
             x=lat_rad, initial=0. ) )
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 fig, ax = plt.subplots()
 ax.plot(model.lat, inferred_heat_transport(energy_in, model.lat), label=('D = %0.1f' %D))
 ax.set_ylabel('Heat transport (PW)')
@@ -793,18 +788,18 @@ ax.legend(); ax.grid()
 ax.set_xlabel('Latitude')
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 The upshot: compared to observations, this model has a **much too large equator-to-pole temperature gradient**, and **not enough poleward heat transport**!
 
 Apparently we need to **increase the diffusivity** to get a better fit.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ____________
 
 ## 8. Effects of diffusivity in the annual mean EBM
 ____________
-<!-- #endregion -->
+
++++
 
 ### What is the optimal value for $D$?
 
@@ -813,38 +808,39 @@ We want to choose a value of $D$ that gives a reasonable approximation to observ
 - $\Delta T \approx 45$ ºC between equator and pole
 - $\mathcal{H}_{max} \approx 5.5$ PW (peak heat transport)
 
++++
 
 I can do some trial and error. For no particular reason, let's start with $D = 1$ W m$^{-2}$ ºC$^{-1}$, and see how close we get to these targets.
 
-```python
+```{code-cell} ipython3
 ebm = climlab.EBM_annual(num_lat=40, A=210, B=2, a0=0.354, a2=0.25, D=1.)
 ebm.integrate_years(20.)
 ```
 
 Note that we have an array of 40 surface temperature values on our latitude grid:
 
-```python
+```{code-cell} ipython3
 # I can always look at the model variables as xarray objects if it's helpful
 climlab.to_xarray(ebm.Ts)
 ```
 
 I can calculate the equator-to-pole temperature difference just by looking for the largest and smallest values:
 
-```python
+```{code-cell} ipython3
 deltaT = np.max(ebm.Ts) - np.min(ebm.Ts)
 print(deltaT)
 ```
 
 And the heat transport is a diagnostic calculated by the model:
 
-```python
+```{code-cell} ipython3
 # the poleward heat transport in PW
 ebm.heat_transport
 ```
 
 I am mostly interested in finding its peak value:
 
-```python
+```{code-cell} ipython3
 np.max(ebm.heat_transport)
 ```
 
@@ -855,12 +851,13 @@ So... for a diffusivity parameter $D = 1$ W m$^{-2}$ ºC$^{-1}$ I get the follow
 
 Comparing to our observational targets, this is too much heat transport and too small temperature gradient!
 
++++
 
 ### Class exercise: crowd-sourcing the optical value for $D$
 
 Repeat these calculations with some different values of $D$. We'll crowd-source the optimal value that best matches our observational targets.
 
-```python
+```{code-cell} ipython3
 
 ```
 
@@ -868,7 +865,7 @@ Repeat these calculations with some different values of $D$. We'll crowd-source 
 
 The [pandas package](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html) is very very useful for working with spreadsheet-style data in Python.
 
-```python
+```{code-cell} ipython3
 import pandas as pd
 
 classdata = pd.DataFrame([
@@ -882,7 +879,7 @@ classdata
 
 Now we can do fun things like make a scatterplot of the data. The `pd.DataFrame` object lets us make use of the labels in our dataset to make the code simpler and easier to read:
 
-```python
+```{code-cell} ipython3
 fig, axes = plt.subplots(2,1)
 classdata.plot.scatter(x='$D$', y='$\Delta T$', ax=axes[0])
 classdata.plot.scatter(x='$D$', y='$\mathcal{H}_{max}$', ax=axes[1])
@@ -890,7 +887,8 @@ classdata.plot.scatter(x='$D$', y='$\mathcal{H}_{max}$', ax=axes[1])
 
 Is it starting to become clear what value we should choose?
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### A more systematic search
 
 **Do this as in-class investigation for a more advanced exercise**
@@ -903,21 +901,18 @@ Is it starting to become clear what value we should choose?
 - Choose a value of $D$ that gives a reasonable approximation to observations:
     - $\Delta T \approx 45$ ºC
     - $\mathcal{H}_{max} \approx 5.5$ PW
-<!-- #endregion -->
 
-```python
+```{code-cell} ipython3
 
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 #### One possible way to do this:
-<!-- #endregion -->
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 Darray = np.arange(0., 2.05, 0.05)
 
 model_list = []
@@ -939,7 +934,7 @@ for D in Darray:
     Hmax_list.append(Hmax)
 ```
 
-```python slideshow={"slide_type": "skip"}
+```{code-cell} ipython3
 color1 = 'b'
 color2 = 'r'
 
@@ -963,7 +958,6 @@ ax1.grid()
 ax1.plot([0.6, 0.6], [0, 140], 'k-');
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 When $D=0$, every latitude is in radiative equilibrium and the heat transport is zero. As we have already seen, this gives an equator-to-pole temperature gradient much too high.
 
 When $D$ is **large**, the model is very efficient at moving heat poleward. The heat transport is large and the temperture gradient is weak.
@@ -971,20 +965,20 @@ When $D$ is **large**, the model is very efficient at moving heat poleward. The 
 The real climate seems to lie in a sweet spot in between these limits.
 
 It looks like our fitting criteria are met reasonably well with $D=0.6$ W m$^{-2}$ K$^{-1}$
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 Also, note that the **global mean temperature** (plotted in dashed blue) is completely insensitive to $D$. Why do you think this is so?
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ____________
 
 ## 9. Summary: parameter values in the diffusive EBM
 ____________
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 Our model is defined by the following equation
 
 $$ C \frac{\partial T_s}{\partial t} = (1-\alpha) ~ Q - \left( A + B~T_s \right) + \frac{D}{\cos\phi } \frac{\partial }{\partial \phi} \left(   \cos\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
@@ -992,9 +986,9 @@ $$ C \frac{\partial T_s}{\partial t} = (1-\alpha) ~ Q - \left( A + B~T_s \right)
 with the albedo given by
 
 $$ \alpha(\phi) = \alpha_0 + \alpha_2 P_2(\sin\phi) $$
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 We have chosen the following parameter values, which seems to give a reasonable fit to the observed **annual mean temperature and energy budget**:
 
 - $ A = 210 ~ \text{W m}^{-2}$
@@ -1002,17 +996,17 @@ We have chosen the following parameter values, which seems to give a reasonable 
 - $ a_0 = 0.354$
 - $ a_2 = 0.25$
 - $ D = 0.6 ~ \text{W m}^{-2}~^\circ\text{C}^{-1} $
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 There is one parameter left to choose: the heat capacity $C$. We can't use the annual mean energy budget and temperatures to guide this choice.
 
 [Why?]
 
 We will instead look at seasonally varying models in the next set of notes.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "skip"} -->
++++
+
 ____________
 
 ## Credits
@@ -1024,20 +1018,19 @@ It is licensed for free and open consumption under the
 
 Development of these notes and the [climlab software](https://github.com/brian-rose/climlab) is partially supported by the National Science Foundation under award AGS-1455071 to Brian Rose. Any opinions, findings, conclusions or recommendations expressed here are mine and do not necessarily reflect the views of the National Science Foundation.
 ____________
-<!-- #endregion -->
 
-```python
-
-```
-
-```python
+```{code-cell} ipython3
 
 ```
 
-```python
+```{code-cell} ipython3
 
 ```
 
-```python
+```{code-cell} ipython3
+
+```
+
+```{code-cell} ipython3
 
 ```

@@ -5,14 +5,12 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.6
+    jupytext_version: 1.19.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 (nb:models)=
 # Climate models, the global energy budget, and Fun with Python
@@ -21,8 +19,10 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 
 +++
 
+____________
 
 ## 1. What is a Climate Model?
+____________
 
 +++
 
@@ -50,24 +50,24 @@ A **model** is
 
  - not easy to define!
 
-+++ 
++++
 
 Wikipedia: http://en.wikipedia.org/wiki/Conceptual_model
 
 > In the most general sense, a model is anything used in any way to represent anything else. Some models are physical objects, for instance, a toy model which may be assembled, and may even be made to work like the object it represents. Whereas, a conceptual model is a model made of the composition of concepts, that thus exists only in the mind. Conceptual models are used to help us know, understand, or simulate the subject matter they represent.
 
-+++ 
++++
 
 George E. P. Box (statistician):
 > Essentially, all models are wrong, but some are useful.”
 
-+++ 
++++
 
 From the Climate Modelling Primer, 4th ed (McGuffie and Henderson-Sellers):
 
 > In the broadest sense, models are for learning about the world (in our case, the climate) and the learning takes place in the contruction and the manipulation of the model, as anyone who has watched a child build idealised houses or spaceships with Lego, or built with it themselves, will know.  Climate models are, likewise, idealised representations of a complicated and complex reality through which our understanding of the climate has significantly expanded. All models involve some ignoring, distoring and approximating, but gradually they allow us to build understanding of the system being modelled. A child's Lego construction typically contains the essential elements of the real objects, improves with attention to detail, helps them understand the real world, but is never confused with the real thing.
 
-+++ 
++++
 
 ### A minimal definition of a climate model
 
@@ -77,10 +77,12 @@ From the Climate Modelling Primer, 4th ed (McGuffie and Henderson-Sellers):
 
 Note the focus on **planetary energy budget**. That’s the key to all climate modeling.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
+____________
 
 ## 2. The observed global energy budget
+____________
 
 The figure below shows current best estimates of the *global, annual mean* energy fluxes through the climate system.
 
@@ -97,7 +99,7 @@ alt: pha
 Global Energy Budget
 ```
 
-+++ 
++++
 
 ## Things to note:
 
@@ -128,7 +130,7 @@ QUESTION: Which gases contribute to shortwave absorption?
 
 QUESTION: What do we call this?  (greenhouse effect)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Look at net numbers…
 
@@ -154,16 +156,18 @@ Note, the exchanges of energy between the surface and the atmosphere are complic
     - atmospheric SW absorption
     - surface reflectivity (ice and snow)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Discussion point
 
 How might we expect some of the terms in the global energy budget to vary under anthropogenic climate change?
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
+____________
 
 ## 3. Using Python to compute emission to space
+____________
 
 +++
 
@@ -441,11 +445,10 @@ This is very handy. The Python console is taking notes for you!
 
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
+____________
 
 ## 4. Summary
-
+____________
 
 +++
 
@@ -458,8 +461,9 @@ This is very handy. The Python console is taking notes for you!
 - $\tau$ conceptually represents the *fraction of the emission from the **surface** that makes it all the way to space.* It is a number less than 1.
 - Python is fun and useful.
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
+____________
 
 ## Credits
 
@@ -469,4 +473,4 @@ It is licensed for free and open consumption under the
 [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
 
 Development of these notes and the [climlab software](https://github.com/brian-rose/climlab) is partially supported by the National Science Foundation under award AGS-1455071 to Brian Rose. Any opinions, findings, conclusions or recommendations expressed here are mine and do not necessarily reflect the views of the National Science Foundation.
-
+____________

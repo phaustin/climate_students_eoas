@@ -1,6 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all
   encoding: '# -*- coding: utf-8 -*-'
   formats: ipynb,py:percent,md:myst
   notebook_metadata_filter: all,-language_info,-toc,-latex_envs
@@ -15,13 +14,13 @@ kernelspec:
   name: python3
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 
 # What I wish I'd known about statistics
 
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Probability is a subtle concept
 
@@ -31,7 +30,7 @@ Money quote:  "I must premiss that we, all of us, use this word ["probability"] 
 
 [Laplace and Bayes (1754)](https://www.lesswrong.com/posts/RTt59BtFLqQbsSiqd/a-history-of-bayes-theorem)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 [Kolmogorov Axioms (1933)](https://plato.stanford.edu/entries/probability-interpret/#KolProCal): 
 
@@ -41,7 +40,7 @@ ii) the certain event has probability 1
 
 iii) The probability of the union of mutually exclusive events is the sum of the probabilities of the individual events.    
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 All of these interpretations are consistent with these axioms: 
 
@@ -72,14 +71,14 @@ Bayes theorem gives the formula for computing conditional probabilities.  This f
 
 [A famous example](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4818954/)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## [Frank Harrell on Bayes](https://www.fharrell.com/post/journey/)
 
 If you tossed a coin 100 times resulting in 60 heads, would you rather know the probability of getting > 59 heads out of 100 tosses if the coin happened to be fair, or the probability it is fair given exactly 60 heads? The frequentist approach is alluring because of the minimal work in carrying out a test of the null hypothesis θ=½. But the Bayesian approach provides a direct answer to the second question, and requires you to think. What is an “unfair” coin? Is it θ outside of [0.49, 0.51]? What is the world view of coins, e.g., is someone likely to provide a coin that is easily detectable as unfair because its θ=0.6? Was the coin chosen at random or handed to us?
 
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 and for the [correlation coefficient](https://baezortega.github.io/2018/05/28/robust-correlation/) the statements would be something like:
 
@@ -87,7 +86,7 @@ and for the [correlation coefficient](https://baezortega.github.io/2018/05/28/ro
 
 **Frequentist**: According to the test, we are 95% confident that the correlation coefficient has a value somewhere between -0.51 and -0.99; we don’t really know if this interval contains the value, but if we could repeat this analysis on infinite different samples, we would be wrong just 5% of the time!
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## What about probability of precipitation?
 
@@ -102,7 +101,7 @@ Probabilities can be interpreted in two ways:
 (ii) Subjective interpretation.
 
 
-+++ {"slideshow": {"slide_type": "subslide"}}
++++
 
 UK Met. Office continued:
 
@@ -119,7 +118,7 @@ Thus consider a 'probability of precipitation (PoP) forecast of 30%':
 
 **So what's a graduate student to do?**
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Case study: linear regression two ways
 
@@ -127,7 +126,7 @@ Thus consider a 'probability of precipitation (PoP) forecast of 30%':
 
 "It is a miracle with which we hope everyone reading this is familiar that if you have a set of two-dimensional points (x, y) that depart from a perfect, narrow, straight line y = m x + b only by the addition of Gaussian distributed noise of known amplitudes in the y direction only, then the maximum-likelihood or best-fit line for the points has a slope m and intercept b that can be obtained justifiably by a perfectly linear matrix-algebra operation known as “weighted linear least-square fitting”. This miracle deserves contemplation."
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## The math, following: [Fleshman, 2019](https://towardsdatascience.com/linear-regression-91eeae7d6a2e)
 
@@ -150,7 +149,7 @@ $$
 L_{X}\left(\theta_{0}, \theta_{1}, \sigma^{2}\right)=\frac{1}{\sqrt{2 \pi \sigma^{2}}} \prod_{(x, y) \in X} e^{\frac{-\left(y-(\theta_{1} x +\theta_{0})\right)^{2}}{2 \sigma^{2}}}
 $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Maximum likelihood
 
@@ -174,17 +173,13 @@ $$
 \theta_{1}=\frac{\sum_{i}^{n}\left(x_{i}-\overline{x}\right)\left(y_{i}-\overline{y}\right)}{\sum_{i}^{n}\left(x_{i}-\overline{x}\right)^{2}}
 $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Code this up
 
 A couple of lines of python
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: subslide
----
 import numpy as np
 from matplotlib import pyplot as plt
 import pandas as pd
@@ -212,17 +207,13 @@ def find_line(xs, ys):
     return slope, intercept
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Use it to find $\theta_0, \theta_1$
 
 ### First create 200 simulated measurements using the model
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: subslide
----
 size = 200
 true_intercept = 1
 true_slope = 2
@@ -237,15 +228,11 @@ y = true_regression_line + np.random.normal(scale=true_sigma, size=size)
 data = dict(x=x, y=y);
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Plot the data with the true regression line
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: subslide
----
 fig = plt.figure(figsize=(7, 7))
 ax = fig.add_subplot(111, xlabel='x', ylabel='y', title='Generated data and underlying model')
 ax.plot(x, y, 'x', label='sampled data')
@@ -253,30 +240,22 @@ ax.plot(x, true_regression_line, label='true regression line', lw=2.)
 plt.legend(loc=0);
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Compare the true and estimated (green) regression lines
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: subslide
----
 slope, intercept = find_line(x,y)
 fit_y = intercept + slope * x
 ax.plot(x, fit_y)
 display(fig)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Use bootstrap resampling to estimate confidence intervals
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: subslide
----
 def draw_bs_pairs_linreg(x, y, size=1):
     """Perform pairs bootstrap for linear regression."""
 
@@ -299,15 +278,11 @@ def draw_bs_pairs_linreg(x, y, size=1):
     return bs_slope_reps, bs_intercept_reps
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Plot 100 different regression lines
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: subslide
----
 slopes, intercepts = draw_bs_pairs_linreg(x, y, size=100)
 for the_slope,the_intercept in zip(slopes,intercepts):
     fit_y = the_intercept + the_slope * x
@@ -315,21 +290,17 @@ for the_slope,the_intercept in zip(slopes,intercepts):
 display(fig)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Histogram resampled $\theta_0$ and $\theta_1$
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: subslide
----
 fig, ax = plt.subplots(1,2,figsize=(12,6))
 ax[0].hist(slopes); ax[0].set_title("slopes");
 ax[1].hist(intercepts);ax[1].set_title("intercepts");
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## What's wrong with this workflow?
 
@@ -341,7 +312,7 @@ ax[1].hist(intercepts);ax[1].set_title("intercepts");
 
 1. Can't deal with outliers (robust regression)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Take 2: The Bayesian version
 
@@ -362,7 +333,7 @@ $$
 Note that the Bayesian version makes clear that the likelihood is a function of the data for a fixed set
 of generating function parameters.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## What to do about $p(\text{proposition})$ -- the prior probability
 
@@ -374,7 +345,7 @@ of generating function parameters.
 
 Essentially, we want to "let the data speak" so these are quite flat distributions that don't put any real preconditions on acceptable values for $\theta_0, \theta_1, \sigma$.
 
-+++ {"slideshow": {"slide_type": "subslide"}}
++++
 
 So Bayes rule says:
 
@@ -388,7 +359,7 @@ $$
 p(\sigma^{2}) \propto \int \int p( \theta_{0}, \theta_{1}, \sigma^{2} | y )\, d \theta_0 \, d \theta_1
 $$
 
-+++ {"slideshow": {"slide_type": "subslide"}}
++++
 
 ## How to solve this integral?
 
@@ -398,15 +369,11 @@ A (very) fancy version of naive Monte Carlo integration:
 
 <img src="images/naive_mc_integration.png" width="80%">
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Code this using pymc3
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 import pymc3 as pm
 with pm.Model() as model: # model specifications in PyMC3 are wrapped in a with-statement
     # Define priors
@@ -423,18 +390,10 @@ with pm.Model() as model: # model specifications in PyMC3 are wrapped in a with-
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 axes=pm.plot_trace(trace[100:],figsize=(12, 7));
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 plt.figure(figsize=(7, 7))
 plt.plot(x, y, 'rx', label='data')
 generating_fun = lambda x, sample: sample['Intercept'] + sample['slope'] * x
@@ -448,7 +407,7 @@ plt.xlabel('x')
 plt.ylabel('y');
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Well, that seemed complicated -- but worth it?
 
@@ -471,7 +430,7 @@ Advantages:
    
    1. Example: [the pymc3 gallery](https://docs.pymc.io/nb_examples/index.html)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Bottom line
 
@@ -489,7 +448,7 @@ Advantages:
 
 * Bayesian updating via Bayes rule, and the logical/subjective interpretation of probability is closely connected to machine learning
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Coda:  An example of the debate on Bayesian model comparison
 
@@ -497,7 +456,7 @@ Advantages:
 
 * [Gelman and Shalizi's answer to those issues](http://www.stat.columbia.edu/~gelman/research/published/philosophy.pdf) -- posterior predictive checking
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Further reading -- all books available online through the UBC library
 

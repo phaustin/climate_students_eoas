@@ -1,17 +1,16 @@
 ---
 jupytext:
+  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.6
+    jupytext_version: 1.19.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
-
-+++ {"user_expressions": []}
 
 (resource:hot_cold)=
 # Worksheet: Comparing total cloud fraction in hot and cold models
@@ -44,8 +43,6 @@ import intake
 import xarray
 ```
 
-+++ {"user_expressions": []}
-
 ## Load the catalog
 
 At import time, intake-esm plugin is available in intake’s registry as
@@ -63,8 +60,6 @@ cat = intake.open_esm_datastore(url_official)
 cat.df
 ```
 
-+++ {"user_expressions": []}
-
 The summary above tells us that this catalog contains 514818 data assets.
 We can get more information on the individual data assets contained in the
 catalog by looking at the underlying pandas dataframe created when we load the catalog:
@@ -72,8 +67,6 @@ catalog by looking at the underlying pandas dataframe created when we load the c
 ```{code-cell} ipython3
 cat.df
 ```
-
-+++ {"user_expressions": []}
 
 The first data asset listed in the catalog contains:
 
@@ -120,14 +113,12 @@ experiments[:10]
 unique['table_id'][:10]
 ```
 
-+++ {"user_expressions": []}
-
 ## Q1: find a low and a high climate sensitivity model
 
 
 For the low sensitivity, I'll use MIROC6, ECS = 2.6 K/doubling, for the high sensitivity,  CESM2, ECS = 5.15 K/doubling
 
-+++ {"user_expressions": []}
++++
 
 ## Q2: cloud fraction
 
@@ -138,7 +129,7 @@ What is the difference between **cl** and **clt**?  What table do they belong to
 These are both monthly averaged atmospheric variables in the table Amon -- clt is averaged over height and is 3 dimensional
 (time, lon, lat) while cl is four dimensional (time, height, lon, lat)
 
-+++ {"user_expressions": []}
++++
 
 ## Q3 Grab one realization from each of your two models for two scenarios: historical and ssp585
 
@@ -155,15 +146,11 @@ cat_subset = cat.search(
 cat_subset.df.tail()
 ```
 
-+++ {"user_expressions": []}
-
 Now sort by member_id to get a common realization -- everyone has member_id = "r10i1p1f1"
 
 ```{code-cell} ipython3
 cat_subset.search(experiment_id = ["historical","ssp585"],source_id=["CESM2","MIROC6"]).df.sort_values("member_id").head()
 ```
-
-+++ {"user_expressions": []}
 
 So grab these four realizations, plus the areacella weights for each of them.
 
@@ -172,17 +159,13 @@ single_realization = cat_subset.search(experiment_id = ["historical","ssp585"],s
 ```
 
 ```{code-cell} ipython3
-:user_expressions: []
-
 single_realization.df
 ```
-
-+++ {"user_expressions": []}
 
 (sec:lazy)=
 ## lazy-loading datasets by row
 
-+++ {"user_expressions": []}
++++
 
 We can use [xarray.open_dataset](https://docs.xarray.dev/en/stable/generated/xarray.open_dataset.html) to read in the metadata from a google store zstore url.  This can take a few seconds, but it's "lazy" in the
 sense that no data is read until some calculation (a plot, average, etc.) is conducted.  If you want to force a data read,
@@ -193,8 +176,6 @@ use [xarray.load_dataset](https://docs.xarray.dev/en/stable/generated/xarray.loa
 ds = xarray.open_zarr(single_realization.df.iloc[0]['zstore'])
 ds
 ```
-
-+++ {"user_expressions": []}
 
 ## Load datasets using `to_dataset_dict()`
 
@@ -207,11 +188,9 @@ is available under `.aggregation_info` property of the catalog:
 cat.esmcat.aggregation_control
 ```
 
-+++ {"user_expressions": []}
-
 The purpose of aggregation control is to combine variable datasets from the same table_id into a single dataset if possible.
 
-+++ {"user_expressions": []}
++++
 
 ### Get the 8 datasets (this is a lazy operation)
 
@@ -231,8 +210,6 @@ dset_dict = single_realization.to_dataset_dict(
 dset_dict.keys()
 ```
 
-+++ {"user_expressions": []}
-
 ## Keep track of the `areacella` for each dataset
 
 To keep track of the variables and weights, it helps to have the keys in two sorted lists
@@ -244,8 +221,6 @@ fx_keys.sort()
 cl_keys.sort()
 fx_keys, cl_keys
 ```
-
-+++ {"user_expressions": []}
 
 (sec:isel)=
 ## limiting the dataset to the Sourthern Ocean without reading the data
@@ -266,16 +241,12 @@ def get_so(the_ds):
     return so_slice
 ```
 
-+++ {"user_expressions": []}
-
 This reduces the latitude dimension size from 128 to 43, so your file size is 1/3 of the full dataset size
 
 ```{code-cell} ipython3
 for key, ds in dset_dict.items():
     dset_dict[key]=get_so(ds)
 ```
-
-+++ {"user_expressions": []}
 
 (sec:checkpoint)=
 ## saving a checkpoint
@@ -285,7 +256,7 @@ can preview how much space you'll need with [xarray.dataset.nbytes](https://docs
 
 The cell below shows how to checkpoint the datasets to disk and restore from disk back to a dictionary
 
-+++ {"user_expressions": []}
++++
 
 ```python
 readit = True
@@ -317,7 +288,7 @@ else:
     dset_dict[dataset_name]=xr.open_dataset(the_file)
 ```
 
-+++ {"user_expressions": []}
++++
 
 (sec:weighted)=
 ## Find the area weighted cloud fraction for 1 dataset over the southern ocean
@@ -332,8 +303,6 @@ print(f"{ds.experiment_id=}, {ds.member_id.data[0]=}, {ds.source_id=}")
 ds
 ```
 
-+++ {"user_expressions": []}
-
 ### The areacella weights
 
 We're on a sphere, so every latitude band is going to have grid cells with different areas.  The grid size
@@ -342,8 +311,6 @@ will vary between models, so it's important to do weighted averages.
 ```{code-cell} ipython3
 weights
 ```
-
-+++ {"user_expressions": []}
 
 ### squeeze out the unit dimensions
 
@@ -359,14 +326,12 @@ ds = ds.squeeze()
 weights = weights.squeeze()
 ```
 
-+++ {"user_expressions": []}
-
 ### use the weighted method to apply weights to the average
 
 The [dataArray.weighted](https://docs.xarray.dev/en/stable/generated/xarray.DataArray.weighted.html) method makes a dataArray "weight aware".
 You want to make sure you copy this weighted dataArray to a new variable, because it wipes out all of the dataArray metadata
 
-+++ {"user_expressions": []}
++++
 
 ### Add weights to the dataArray
 
@@ -376,20 +341,14 @@ clt_so =  ds['clt'].weighted(weights)
 clt_so
 ```
 
-+++ {"user_expressions": []}
-
 ### Take the zonal mean
 
 Note that this is the first statement that actually fetches variable values from google
 
 ```{code-cell} ipython3
-:user_expressions: []
-
 clt_so_zonal = clt_so.mean(dim=["lon","lat"])
 clt_so_zonal
 ```
-
-+++ {"user_expressions": []}
 
 ### Smooth the data with a rolling window
 
@@ -399,8 +358,6 @@ In the cell below I use a 5-year running mean to remove shorter-timescale flucua
 I include the metadata in the title for a legend entry.
 
 ```{code-cell} ipython3
-:user_expressions: []
-
 from matplotlib import pyplot as plt
 rolling = clt_so_zonal.rolling(time=60)
 clt_mean = rolling.mean()
@@ -411,8 +368,6 @@ ax.set(title="southern ocean cloud fraction",
     xlabel="time (years)", ylabel = "cloud fraction (percent)")
 fig.legend();
 ```
-
-+++ {"user_expressions": []}
 
 ## now add miroc6
 
@@ -428,8 +383,6 @@ def make_average(ds, weights):
     clt_mean = rolling.mean()
     return clt_mean
 ```
-
-+++ {"user_expressions": []}
 
 ## add the miroc 5 year rolling mean to the plot
 
@@ -447,8 +400,6 @@ ax.set(title = (f"Southern ocean cloud fraction comparison: "
 fig.legend()
 display(fig)
 ```
-
-+++ {"user_expressions": []}
 
 ## Historical runs
 

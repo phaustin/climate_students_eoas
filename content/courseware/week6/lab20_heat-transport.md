@@ -1,34 +1,32 @@
 ---
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
-  kernelspec:
-    display_name: Python 3 (ipykernel)
-    language: python
-    name: python3
+jupytext:
+  formats: ipynb,md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.19.7
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
 ---
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 (nb:heat-transport)=
 # Heat transport
 
 This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](http://www.atmos.albany.edu/facstaff/brose/index.html), University at Albany.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ____________
 
 ## 1. Spatial patterns of insolation and surface temperature
 ____________
 
 Let's take a look at seasonal and spatial pattern of insolation and compare this to the zonal average surface temperatures.
-<!-- #endregion -->
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 %matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
@@ -37,14 +35,14 @@ import climlab
 from climlab import constants as const
 ```
 
-```python
+```{code-cell} ipython3
 #  Calculate daily average insolation as function of latitude and time of year
 lat = np.linspace( -90., 90., 500 )
 days = np.linspace(0, const.days_per_year, 365 )
 Q = climlab.solar.insolation.daily_insolation( lat, days )
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 ##  daily surface temperature from  NCEP reanalysis
 ncep_url = "http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/ncep.reanalysis.derived/"
 ncep_temp = xr.open_dataset( ncep_url + "surface_gauss/skt.sfc.day.1981-2010.ltm.nc", decode_times=False)
@@ -54,7 +52,7 @@ ncep_temp = xr.open_dataset( ncep_url + "surface_gauss/skt.sfc.day.1981-2010.ltm
 ncep_temp_zon = ncep_temp.skt.mean(dim='lon')
 ```
 
-```python
+```{code-cell} ipython3
 fig = plt.figure(figsize=(12,6))
 
 ax1 = fig.add_subplot(121)
@@ -76,7 +74,6 @@ for ax in [ax1,ax2]:
     ax.grid()
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 This figure reveals something fairly obvious, but still worth thinking about:
 
 **Warm temperatures are correlated with high insolation**. It's warm where the sun shines.
@@ -86,16 +83,16 @@ More specifically, we can see a few interesting details here:
 - The seasonal cycle is weakest in the tropics and strongest in the high latitudes.
 - The warmest temperatures occur slighly NORTH of the equator
 - The highest insolation occurs at the poles at summer solstice.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 The local surface temperature does not correlate perfectly with local insolation for two reasons:
 
 - the climate system has heat capacity, which buffers some of the seasonal variations
 - the climate system moves energy around in space!
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ____________
 
 ## 2. Calculating Radiative-Convective Equilibrium as a function of latitude
@@ -104,15 +101,14 @@ ____________
 As a first step to understanding the effects of **heat transport by fluid motions** in the atmosphere and ocean, we can calculate **what the surface temperature would be without any motion**.
 
 Let's calculate a **radiative-convective equilibrium** state for every latitude band.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### Putting realistic insolation into an RCM
 
 This code demonstrates how to create a model with both latitude and vertical dimensions.
-<!-- #endregion -->
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 # A two-dimensional domain
 state = climlab.column_state(num_lev=30, num_lat=40, water_depth=10.)
 #  Specified relative humidity distribution
@@ -132,18 +128,17 @@ model = climlab.couple([rad,sun,h2o,conv], name='RCM')
 print( model)
 ```
 
-```python
+```{code-cell} ipython3
 model.compute_diagnostics()
 ```
 
-```python slideshow={"slide_type": "-"}
+```{code-cell} ipython3
 fig, ax = plt.subplots()
 ax.plot(model.lat, model.insolation)
 ax.set_xlabel('Latitude')
 ax.set_ylabel('Insolation (W/m2)');
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 This new insolation process uses the same code we've already been working with to compute realistic distributions of insolation. Here we are using
 ```
 climlab.radiation.DailyInsolation
@@ -154,13 +149,12 @@ but there is also
 climlab.radiation.AnnualMeanInsolation
 ```
 for models in which you prefer to suppress the seasonal cycle and prescribe a time-invariant insolation.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 The following code will just integrate the model forward in four steps in order to get snapshots of insolation at the solstices and equinoxes.
-<!-- #endregion -->
 
-```python
+```{code-cell} ipython3
 #  model is initialized on Jan. 1
 
 #  integrate forward just under 1/4 year... should get about to the NH spring equinox
@@ -177,7 +171,7 @@ model.integrate_days(30+31+30)
 Q_winter = model.insolation.copy()
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 fig, ax = plt.subplots()
 ax.plot(model.lat, Q_spring, label='Spring')
 ax.plot(model.lat, Q_summer, label='Summer')
@@ -188,52 +182,46 @@ ax.set_xlabel('Latitude')
 ax.set_ylabel('Insolation (W/m2)');
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 This just serves to demonstrate that the `DailyInsolation` process is doing something sensible.
-<!-- #endregion -->
+
++++
 
 Note that we could also pass different orbital parameters to this subprocess. They default to present-day values, which is what we are using here.
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-### Find the steady seasonal cycle of temperature in radiative-convective equilibrium
-<!-- #endregion -->
++++
 
-```python
+### Find the steady seasonal cycle of temperature in radiative-convective equilibrium
+
+```{code-cell} ipython3
 model.integrate_years(4.)
 ```
 
-```python
+```{code-cell} ipython3
 model.integrate_years(1.)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 All climlab `Process` objects have an attribute called `timeave`. 
 
 This is a dictionary of time-averaged diagnostics, which are automatically calculated during the most recent call to `integrate_years()` or `integrate_days()`.
-<!-- #endregion -->
 
-```python
+```{code-cell} ipython3
 model.timeave.keys()
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 Here we use the `timeave['insolation']` to plot the annual mean insolation. 
 
 (We know it is the *annual* average because the last call to `model.integrate_years` was for exactly 1 year)
-<!-- #endregion -->
 
-```python
+```{code-cell} ipython3
 fig, ax = plt.subplots()
 ax.plot(model.lat, model.timeave['insolation'])
 ax.set_xlabel('Latitude')
 ax.set_ylabel('Insolation (W/m2)')
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 ###  Compare annual average temperature in RCE to the zonal-, annual mean observations.
-<!-- #endregion -->
 
-```python
+```{code-cell} ipython3
 # Plot annual mean surface temperature in the model,
 #   compare to observed annual mean surface temperatures
 fig, ax = plt.subplots()
@@ -243,15 +231,13 @@ ax.set_xticks(range(-90,100,30))
 ax.grid(); ax.legend();
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 Our modeled RCE state is **far too warm in the tropics**, and **too cold in the mid- to high latitudes.**
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ###  Vertical structure of temperature: comparing RCE to observations
-<!-- #endregion -->
 
-```python
+```{code-cell} ipython3
 #  Observed air temperature from NCEP reanalysis
 ## The NOAA ESRL server is shutdown! January 2019
 ncep_air = xr.open_dataset( ncep_url + "pressure/air.mon.1981-2010.ltm.nc", decode_times=False)
@@ -262,7 +248,7 @@ lat_ncep_air = ncep_air.lat
 Tzon = ncep_air.air.mean(dim=('time','lon'))
 ```
 
-```python slideshow={"slide_type": "skip"}
+```{code-cell} ipython3
 #  Compare temperature profiles in RCE and observations
 contours = np.arange(180., 350., 15.)
 
@@ -284,23 +270,21 @@ for ax in [ax1, ax2]:
     ax.set_xticks([-90, -60, -30, 0, 30, 60, 90])
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 Again, this plot reveals temperatures that are too warm in the tropics, too cold at the poles throughout the troposphere.
 
 Note however that the **vertical temperature gradients** are largely dictated by the convective adjustment in our model. We have parameterized this gradient, and so we can change it by changing our parameter for the adjustment.
 
 We have (as yet) no parameterization for the **horizontal** redistribution of energy in the climate system.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ###  TOA energy budget in RCE equilibrium
 
 Because there is no horizontal energy transport in this model, the TOA radiation budget should be closed (net flux is zero) at all latitudes.
 
 Let's check this by plotting time-averaged shortwave and longwave radiation:
-<!-- #endregion -->
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 fig, ax = plt.subplots()
 ax.plot(model.lat, model.timeave['ASR'], label='ASR')
 ax.plot(model.lat, model.timeave['OLR'], label='OLR')
@@ -311,26 +295,26 @@ ax.legend(); ax.grid()
 
 Indeed, the budget is (very nearly) closed everywhere. Each latitude is in energy balance, independent of every other column.
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ____________
 
 ## 3. Observed and modeled TOA radiation budget
 ____________
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 We are going to look at the (time average) TOA budget as a function of latitude to see how it differs from the RCE state we just plotted.
 
 Ideally we would look at actual satellite observations of SW and LW fluxes. Instead, here we will use the NCEP Reanalysis for convenience. 
 
 But bear in mind that the radiative fluxes in the reanalysis are a model-generated product, they are not really observations.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### TOA budget from NCEP Reanalysis
-<!-- #endregion -->
 
-```python
+```{code-cell} ipython3
 # Get TOA radiative flux data from NCEP reanalysis
 # downwelling SW
 dswrf = xr.open_dataset(ncep_url + '/other_gauss/dswrf.ntat.mon.1981-2010.ltm.nc', decode_times=False)
@@ -343,17 +327,17 @@ ulwrf = xr.open_dataset(ncep_url + '/other_gauss/ulwrf.ntat.mon.1981-2010.ltm.nc
 #ulwrf = xr.open_dataset(url + 'other_gauss/ulwrf')
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 ASR = dswrf.dswrf - uswrf.uswrf
 OLR = ulwrf.ulwrf
 ```
 
-```python
+```{code-cell} ipython3
 ASRzon = ASR.mean(dim=('time','lon'))
 OLRzon = OLR.mean(dim=('time','lon'))
 ```
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 ticks = [-90, -60, -30, 0, 30, 60, 90]
 fig, ax = plt.subplots()
 ax.plot(ASRzon.lat, ASRzon, label='ASR')
@@ -366,21 +350,19 @@ ax.set_title('Observed annual mean radiation at TOA')
 ax.legend(); ax.grid();
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 We find that ASR does NOT balance OLR in most locations. 
 
 Across the tropics the absorbed solar radiation exceeds the longwave emission to space.  The tropics have a **net gain of energy by radiation**.
 
 The opposite is true in mid- to high latitudes: **the Earth is losing energy by net radiation to space** at these latitudes.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### TOA budget from the control CESM simulation
 
 Load data from the fully coupled CESM control simulation that we've used before.
-<!-- #endregion -->
 
-```python
+```{code-cell} ipython3
 casenames = {'cpl_control': 'cpl_1850_f19',
              'cpl_CO2ramp': 'cpl_CO2ramp_f19',
              'som_control': 'som_1850_f19',
@@ -402,13 +384,13 @@ for name in casenames:
     atm[name] = xr.open_dataset(path)
 ```
 
-```python
+```{code-cell} ipython3
 lat_cesm = atm['cpl_control'].lat
 ASR_cesm = atm['cpl_control'].FSNT
 OLR_cesm = atm['cpl_control'].FLNT
 ```
 
-```python
+```{code-cell} ipython3
 # extract the last 10 years from the slab ocean control simulation
 # and the last 20 years from the coupled control
 nyears_slab = 10
@@ -424,7 +406,7 @@ OLR_cesm_zon = OLR_cesm.isel(time=clim_slice_slab).mean(dim=('lon','time'))
 
 Now we can make the same plot of ASR and OLR that we made for the observations above.
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 fig, ax = plt.subplots()
 ax.plot(lat_cesm, ASR_cesm_zon, label='ASR')
 ax.plot(lat_cesm, OLR_cesm_zon, label='OLR')
@@ -436,18 +418,18 @@ ax.set_title('CESM control simulation: Annual mean radiation at TOA')
 ax.legend(); ax.grid();
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 Essentially the same story as the reanalysis data: there is a **surplus of energy across the tropics** and a net **energy deficit in mid- to high latitudes**.
 
 There are two locations where ASR = OLR, near about 35º in both hemispheres.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ____________
 
 ## 4. The energy budget for a zonal band
 ____________
-<!-- #endregion -->
+
++++
 
 ### The basic idea
 
@@ -457,11 +439,13 @@ We've been working with an energy budget that looks something like this:
 
 <img src='../../images/column_sketch.pdf' width=200>
 
++++
 
 When we start thinking about regional climates, we need to modify our budget to account for the **additional heating or cooling** due to **transport** in and out of the column:
 
 <img src='../../images/column_sketch2.pdf' width=200>
 
++++
 
 Conceptually, the additional energy source is the difference between what's coming in and what's going out:
 
@@ -469,15 +453,18 @@ $$ h = \mathcal{H}_{in}  - \mathcal{H}_{out} $$
 
 where $h$ is a **dynamic heating rate** in W m$^{-2}$.
 
++++
 
 ### A more careful budget
 
 Let’s now consider a thin band of the climate system, of width $\delta \phi$ , and write down a careful energy budget for it.
 
++++
 
 <img src='../../images/ZonalEnergyBudget_sketch.png' width=400>
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 Let $\mathcal{H}(\phi)$ be the total rate of northward energy transport across the latitude line $\phi$, measured in Watts (usually PW).
 
 So the transport into the band is $\mathcal{H}(\phi)$, and the transport out is just $\mathcal{H}(\phi + \delta \phi)$
@@ -485,9 +472,9 @@ So the transport into the band is $\mathcal{H}(\phi)$, and the transport out is 
 The dynamic heating rate looks like
 
 $$ h = \frac{\text{transport in} - \text{transport out}}{\text{area of band}} $$
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 The surface area of the latitude band is
 
 $$ A = \text{Circumference} ~\times ~ \text{north-south width} $$
@@ -495,7 +482,8 @@ $$ A = \text{Circumference} ~\times ~ \text{north-south width} $$
 $$ A = 2 \pi a \cos \phi  ~ \times ~  a \delta \phi  $$
 
 $$ A = 2 \pi a^2  \cos\phi ~ \delta\phi $$
-<!-- #endregion -->
+
++++
 
 So we can write the heating rate as
 
@@ -504,9 +492,11 @@ h &= \frac{\mathcal{H}(\phi) - \mathcal{H}(\phi+\delta\phi)}{2 \pi a^2  \cos\phi
  &= -\frac{1}{2 \pi a^2  \cos\phi} \left( \frac{\mathcal{H}(\phi+\delta\phi) - \mathcal{H}(\phi)}{\delta\phi} \right)
 \end{align*}
 
++++
 
 Writing it this way, we can see that if the width of the band $\delta \phi$ becomes very small, then the quantity in parentheses is simply the **derivative** $d\mathcal{H}/d\phi$.
 
++++
 
 The **dynamical heating rate** in W m$^{-2}$ is thus
 
@@ -514,7 +504,8 @@ $$ h = - \frac{1}{2 \pi a^2  \cos\phi } \frac{\partial \mathcal{H}}{\partial \ph
 
 which is the **convergence of energy transport** into this latitude band: the difference between what's coming in and what's going out.
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ____________
 
 ## 5. Calculating heat transport from the steady-state energy budget
@@ -534,7 +525,8 @@ which we can substitute in for $h$ and rearrange to write as
 $$ \frac{\partial \mathcal{H}}{\partial \phi}  = 2 \pi ~a^2  \cos\phi ~ \left( \text{ASR} - \text{OLR} \right)  = 2 \pi ~a^2  \cos\phi ~ R_{TOA} $$
 
 where for convenience we write $R_{TOA} = ASR - OLR$, the net downward flux at the top of atmosphere.
-<!-- #endregion -->
+
++++
 
 Now integrate from the South Pole ($\phi = -\pi/2$):
 
@@ -542,40 +534,40 @@ $$ \int_{-\pi/2}^{\phi} \frac{\partial \mathcal{H}}{\partial \phi^\prime}  d\phi
 
 $$ \mathcal{H}(\phi) - \mathcal{H}(-\pi/2) = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos\phi^\prime ~ R_{TOA} d\phi^\prime  $$
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 Our boundary condition is that the transport must go to zero at the pole. We therefore have a formula for calculating the heat transport at any latitude, by integrating the imbalance from the South Pole:
 
 $$ \mathcal{H}(\phi) = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos\phi^\prime ~ R_{TOA} d\phi^\prime  $$
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 What about the boundary condition at the other pole? We must have $\mathcal{H}(\pi/2) = 0$ as well, because a non-zero transport at the pole is not physically meaningful.
 
 Notice that if we apply the above formula and integrate all the way to the other pole, we then have
 
 $$ \mathcal{H}(\pi/2) = 2 \pi ~a^2 \int_{-\pi/2}^{\pi/2} \cos\phi^\prime ~ R_{TOA} d\phi^\prime  $$
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 This is an integral of the radiation imbalance weighted by cosine of latitude. In other words, this is **proportional to the area-weighted global average energy imbalance**.
 
 We started by assuming that this imbalance is zero.
 
 If the **global budget is balanced**, then the physical boundary condition of no-flux at the poles is satisfied.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ____________
 
 ## 6. Poleward heat transport in the CESM
 ____________
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "-"} -->
++++
+
 Here we will code up a function that performs the above integration.
-<!-- #endregion -->
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 def inferred_heat_transport(energy_in, lat=None, latax=None):
     '''Compute heat transport as integral of local energy imbalance.
     Required input:
@@ -612,11 +604,9 @@ def inferred_heat_transport(energy_in, lat=None, latax=None):
         return result
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 Let's now use this to calculate the total northward heat transport from our control simulation with the CESM:
-<!-- #endregion -->
 
-```python slideshow={"slide_type": "slide"}
+```{code-cell} ipython3
 fig, ax = plt.subplots()
 ax.plot(lat_cesm, inferred_heat_transport(ASR_cesm_zon - OLR_cesm_zon))
 ax.set_ylabel('PW')
@@ -625,33 +615,34 @@ ax.grid()
 ax.set_title('Total northward heat transport inferred from CESM control simulation')
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 The total heat transport is very nearly symmetric about the equator, with poleward transport of about 5 to 6 PW in both hemispheres.
 
 The transport peaks in magnitude near 35º latitude, the same latitude where we found that ASR = OLR. This is no coincidence!
 
 Equatorward of 35º (across the tropics) there is **net heating by radiation** and **net cooling by dynamics**. The opposite is true poleward of 35º.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 ### An example of a recently published observational estimate of meridional heat transport
-<!-- #endregion -->
+
++++
 
 <img src='../../images/Fasullo_Trenberth_2008b_Fig7.jpg'>
 
-<!-- #region slideshow={"slide_type": "-"} -->
++++
+
 > The ERBE period zonal mean annual cycle of the meridional energy transport in PW by (a) the atmosphere and ocean as inferred from ERBE $R_T$, NRA $\delta$A_E/$\delta$t, and GODAS $\delta$O_E/$\delta$t; (b) the atmosphere based on NRA; and (c) by the ocean as implied by ERBE + NRA $F_S$ and GODAS $\delta$O_E/$\delta$t. Stippling and hatching in (a)–(c) represent regions and times of year in which the standard deviation of the monthly mean values among estimates, some of which include the CERES period (see text), exceeds 0.5 and 1.0 PW, respectively. (d) The median annual mean transport by latitude for the total (gray), atmosphere (red), and ocean (blue) accompanied with the associated $\pm2\sigma$ range (shaded).
 
 This is a reproduction of Figure 7 from Fasullo and Trenberth (2008), "The Annual Cycle of the Energy Budget. Part II: Meridional Structures and Poleward Transports", J. Climate 21, doi:10.1175/2007JCLI1936.1
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++
+
 This figure shows the breakdown of the heat transport by **season** as well as the **partition between the atmosphere and ocean**.
 
 Focussing just on the total, annual transport in panel (d) (black curve), we see that is quite consistent with what we computed from the CESM simulation.
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "skip"} -->
++++
+
 ____________
 
 ## Credits
@@ -663,8 +654,7 @@ It is licensed for free and open consumption under the
 
 Development of these notes and the [climlab software](https://github.com/brian-rose/climlab) is partially supported by the National Science Foundation under award AGS-1455071 to Brian Rose. Any opinions, findings, conclusions or recommendations expressed here are mine and do not necessarily reflect the views of the National Science Foundation.
 ____________
-<!-- #endregion -->
 
-```python slideshow={"slide_type": "skip"}
+```{code-cell} ipython3
 
 ```

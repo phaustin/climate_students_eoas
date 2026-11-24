@@ -128,7 +128,7 @@ weather_file = a301_lib.data_share / "pandas/data/weather_YVR.csv"
 weather = pandas.read_csv(weather_file)
 ```
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 > Pro Tips!
 - Try typing `pandas.re` and then press Tab and select `read_csv` from the auto-complete options
@@ -167,7 +167,7 @@ For large DataFrames, it's often useful to display just the first few or last fe
 print(weather.head())
 ```
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 The `head` method returns a new DataFrame consisting of the first `n` rows (default 5)
 
@@ -230,7 +230,7 @@ type(weather.shape)
 # - Tuples are immutable - you can't modify individual items inside a tuple
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 - Within a column of a DataFrame, the data must all be of the same type
 - We can find out the names and data types of each column from the `dtypes` attribute:
@@ -250,10 +250,6 @@ In a `pandas` DataFrame, a column containing text data (or containing a mix of t
 If we just want a list of the column names, we can use the `columns` attribute:
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: '-'
----
 weather.columns
 ```
 

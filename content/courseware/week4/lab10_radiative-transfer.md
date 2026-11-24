@@ -5,21 +5,19 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.6
+    jupytext_version: 1.19.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 (nb:radiative-transfer)=
 # Modeling non-scattering radiative transfer
 
 This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](http://www.atmos.albany.edu/facstaff/brose/index.html), University at Albany.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
@@ -30,7 +28,7 @@ Here we are going to introduce the governing equations of radiative transfer to 
 
 Our derivations here will also serve as a coherent documentation for how some of the radiation solvers are implemented in `climlab`.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Optical thickness
 
@@ -44,7 +42,7 @@ where **$\kappa_\nu$ is an absorption cross-section** per unit mass at frequency
 
 In general **$\tau_\nu$ depends on the frequency of the radiation**, as indicated here by the subscript $\nu$.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Using optical depth as vertical coordinate
 
@@ -52,7 +50,7 @@ Since pressure decreases with altitude, $\tau_\nu$ increases with altitude.
 
 The equations of radiative transfer can be simplified by using $\tau_\nu$ as vertical coordinate instead of pressure.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Absorption cross-section
 
@@ -60,13 +58,13 @@ The specific absorption cross section $\kappa$ depends on the number of molecule
 
 $$ \kappa(\nu, p, T) = \sum_{k=1}^n \kappa_k\big(\nu, p, T \big) q_k(p) $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 For a well-mixed greenhouse gas, $q_k$ is a constant; for a non-well-mixed gas like water vapor we need to account for the vertical distribution of the gas through $q_k(p)$.
 
 The dependence of $\kappa_k$ on temperature and pressure arises from certain aspects of the physics of molecular absorption.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Two-stream Schwarzschild equations
 
@@ -74,7 +72,7 @@ For climate modeling we almost always seperate the total flux into two beams: **
 
 This involves taking integrals of the full angular dependence of the flux. We'll skip the details here.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Let $U_\nu$ be the upward beam, and $D_\nu$ be the downward beam. The governing equations for these beams are the *Schwarzschild equations*:
 
@@ -85,7 +83,7 @@ Let $U_\nu$ be the upward beam, and $D_\nu$ be the downward beam. The governing 
 
 where $E$ is the **blackbody emission** (both up and down), which in general depends on both **frequency** and **temperature**. We have written temperature as a function of the vertical coordinate (optical depth).
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The emissions are governed by the **Planck function**:
 \begin{align}
@@ -99,32 +97,32 @@ with these fundamental physical constants:
 - $c = 3.00 \times 10^8 ~\text{m s}^{-1} $ is the speed of light
 - $k = 1.38 \times 10^{-23} ~\text{J K}^{-1} $ is the Boltzmann Thermodynamic Constant
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The two-stream equations basically say the beam is **attenuated by absorption** (first term) and **augmented by emission** (second term) in each thin layer of gas.
 
 These equations are valid for beam that are **not affected by scattering**. We may come back to that later.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 2. The Grey Gas Model
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The absorption properties $\kappa_i$ of most atmospheric gases varies enormously with the frequency of the radiation. Hence the optical thickness $\tau_\nu$ also has an intricate dependence on wavenumber or frequency. 
 
 Our job as climate modelers is to calculate and understand the net atmospheric absorption and transmission of radiation. To do this thoroughly and accurately, the fluxes must be solved for individually on a very dense grid of wavenumbers, and then the results integrated over all wavenumbers.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Actual radiative transfer codes (as used in GCMs) apply a lot of tricks and shortcuts to simplify this brute-force approach, but lead to sets of equations that are difficult to understand.
 
 However, there is a lot we can understand about the basics of radiative transfer and the greenhouse effect by ignoring the spectral dependence of the flux.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Specifically, we make the approximation
 
@@ -134,11 +132,11 @@ so that the optical depth $\tau$ is now **independent of frequency**.
 
 This is known as the **grey gas approximation**.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Grey gas versions of the Schwarzschild equations
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Integrating the Planck function
 
@@ -153,10 +151,6 @@ with
 $$ \sigma = \frac{2 \pi^5 k^4}{15 c^2 h^3} = 5.67 \times 10^{-8} ~\text{W m}^{-2}~\text{K}^{-4}$$
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 # climlab has these constants available, and actually calculates sigma from the above formula
 import numpy as np
 import climlab 
@@ -166,8 +160,6 @@ sigma = ((2*np.pi**5 * climlab.constants.kBoltzmann**4) /
 print( sigma)
 sigma == climlab.constants.sigma
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ### The grey gas equations
 
@@ -180,11 +172,11 @@ This gives the governing equations for the grey gas model:
 
 These equations now say that the beam is diminished by absorption in a thin layer (first term) and augmented by blackbody emission, where both processes are assumed to be independent of frequency.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### How do the fluxes change across a finite layer of absorbers?
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The above equations are **linear, first order ODEs**, and they are uncoupled from each other (because we neglected scattering).
 
@@ -192,7 +184,7 @@ The above equations are **linear, first order ODEs**, and they are uncoupled fro
 
 The incident upwelling beam from below is denoted $U_{0}$; the upwelling beam that leaves the top of our layer is denoted $U_{1}$. We want to calculate $U_{1}$, which we can get by integrating the equation for $dU/d\tau$ over our layer.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The result is
 
@@ -200,13 +192,13 @@ $$ U_{1} = U_{0} \exp(-\Delta \tau) + \int_{\tau_{0}}^{\tau_{1}} E \exp \big( -(
 
 where $\tau$ is now a dummy variable of integration, and we've written the blackbody emissions as $E = \sigma T^4$.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The change in the downwelling beam is similar:
 
 $$ D_{0} = D_{1} \exp(-\Delta \tau ) + \int_{\tau_0}^{\tau_1} E \exp\big( -(\tau - \tau_{0}) \big) d\tau $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
@@ -216,7 +208,7 @@ ____________
 
 One particularly important reason to think about these changes over finite layers is that we will typically solve the radiative transfer equations in a numerical model where the temperature is represented on a discrete grid (often using pressure coordinates).
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 If we assume that **temperature is uniform everywhere in our layer** then the blackbody emission $E$ is also a constant across the layer, which we will denote $E_{0}$.
 
@@ -227,7 +219,7 @@ U_1 &= U_0 ~ \exp(-\Delta \tau )  + E_{0} ~\Big( 1 - \exp(-\Delta \tau) \Big)  \
 D_0 &= D_1 ~ \exp(-\Delta \tau )  + E_{0} ~\Big( 1 - \exp(-\Delta \tau) \Big)
 \end{align}
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Transmissitivity
 The first term is the **transmission** of radition from the bottom to the top of the layer (or vice-versa). We can define the **transmissivity** of the layer (denoted $t_{0}$) as the fraction of the incident beam that is passed on to the next layer:
@@ -237,7 +229,7 @@ t_{0} &= \frac{U_{0} \exp(-\Delta \tau)}{U_{0}}  \\
  &= \exp(-\Delta \tau)\\
 \end{align}
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Emissivity
 The second term is the net change in the beam due to **emissions** in the layer. 
@@ -249,7 +241,7 @@ We can the define the **emissivity** $\epsilon_0$ of the layer analogously
   &= 1 - t_{0} 
 \end{align}
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### The discrete two-stream equations on a finite pressure grid
 
@@ -260,14 +252,14 @@ U_{1} &= t_0 ~ U_{0} + \epsilon_{0} ~ E_{0}  \\
 D_{0} &= t_0 ~ D_{1} + \epsilon_{0} ~ E_{0}  \\
 \end{align}
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Our model will typically be discretized in pressure coordinates. Suppose the thickness of the layer is $\Delta p$, then the optical depth is
 
 $$ \Delta \tau  = -\frac{\kappa}{g} \Delta p$$ 
 (the minus sign accounts for the opposite sign conventions of the two coordinates).
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Thus the emissivity of the layer is
 
@@ -277,14 +269,14 @@ In the grey gas approximation we ignore all spectral dependence of the flux, so 
 
 $$ E_0 = \sigma T_0^4 $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 4. Matrix equations for the grey gas model
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 `climlab` implements the discretized two-stream equations as written above. 
 
@@ -294,7 +286,7 @@ Let the **upwelling flux** be a column vector
 
 $${\bf{U}} = [U_0, U_1, ..., U_{N-1}, U_N]^T$$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 If there are $N$ levels then $\bf{U}$ has $N+1$ elements (i.e. the fluxes are defined at the boundaries between levels). We will number the layers starting from 0 following `numpy` index conventions.
 
@@ -302,7 +294,7 @@ If there are $N$ levels then $\bf{U}$ has $N+1$ elements (i.e. the fluxes are de
 - $U_1$ is the upwelling flux layer 0 to layer 1, etc.
 - $U_N$ is the upwelling flux from layer N-1 (the top level) to space.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Same for the **downwelling flux**
 
@@ -310,13 +302,13 @@ $${\bf{D}} = [D_0, D_1, ..., D_N]^T$$
 
 So $D_N$ is the flux down from space and $D_0$ is the back-radiation to the surface.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The **temperature** and **blackbody emissions** are defined for each $N$ pressure level, and are related by 
 
 $$E_i = \sigma T_i^4$$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Emissivity and Transmissivity vectors
 
@@ -328,7 +320,7 @@ where each element is determined by the thickness of the layer and the absorptio
 
 $$ \epsilon_{i} = 1 - \exp\big( \frac{\kappa}{g} \Delta p_i \big) $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 And the transmissivity of individual layers is 
 
@@ -338,7 +330,7 @@ It is convenient to define a vector of transmissivities ${\bf{t}}$ with $N+1$ el
 
 $$ {\bf{t}} = [1, t_0, t_1, ..., t_{N-1}] $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### The downwelling beam
 
@@ -350,13 +342,13 @@ where we define the last element $E_N$ as the **incident flux at the TOA**.
 
 For a longwave model, we would usually set $E_N = 0$. For a shortwave model, this would be the incident solar radiation.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 We want a matrix ${\bf{T_{down}}}$ that, when multiplied by $E_N$, gives the downwelling beam at each of the $N+1$ layer interfaces:
 
 $${\bf{D}} = {\bf{T_{down}}} ~ {\bf{E_{down}}} $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### The upwelling beam
 
@@ -364,19 +356,19 @@ Define a vector of emissions for the upwelling beam thus:
 
 $$ {\bf{E_{up}}} = [up_{sfc}, E_0, E_1, ..., E_{N-1}] $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 We need to add the reflected part of the downwelling beam at the surface to any emissions from the surface:
 
 $$ up_{sfc} = E_{sfc} + \alpha_{sfc} ~ D[0] $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Now we want a matrix ${\bf{T_{up}}}$ such that the upwelling beam is
 
 $${\bf{U}} = {\bf{T_{up}}} ~ {\bf{E_{up}}} $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### The transmissivity matrices
 
@@ -395,10 +387,6 @@ $$ {\bf{T_{down}}} = {\bf{T_{up}}}^T  $$
 These formulas have been implemented in `climlab.radiation.transmissivity.Transmissivity()` using vectorized `numpy` array operations.
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 # example with N=2 layers and constant absorptivity
 #  we construct an array of absorptivities
 eps = np.array([0.58, 0.58])
@@ -410,8 +398,6 @@ print( 'Matrix Tdown is ')
 print( trans.Tdown)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ____________
 
 ## 5. Band-averaged radiation models in `climlab`
@@ -421,7 +407,7 @@ The Grey Gas model is a useful first step in understanding how radiation shapes 
 
 What's the next step in the model hierarchy?
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Suppose we break up the spectrum into a discrete number $M$ of **spectral bands**. The idea is that we find parts of the spectrum in which the absorption characteristics of the important gases are relatively uniform. We then write the **band-averaged absorption cross section** for gas $k$ and band $j$ as
 
@@ -429,7 +415,7 @@ $$ \kappa_{kj} \big(p, T \big) = \frac{\int_{\nu_j} \kappa_j \big(\nu, p, T \big
 
 where we integrate over whatever part of the spectrum we have chosen to define band $j$.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 In our band models we will typically ignore any dependence of $\kappa$ on temperature. The total absorption cross section for our band is thus (summing over all absorbing gases):
 
@@ -437,7 +423,7 @@ $$ \kappa_j(p) = \sum_{k=1}^n \kappa_{kj}(p) q_k(p) $$
 
 Notice that once we make this defintion, all of the formulas we wrote down above for the grey gas model can be written nearly identically for the fluxes in each band.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The optical depth in band $j$ is
 
@@ -445,13 +431,13 @@ $$ \Delta \tau_j  = -\frac{\kappa_j}{g} \Delta p$$
 
 from which we can define emissivity and transmissivity for band $j$ just as above.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The only difference from the Grey Gas formulas is that the **blackbody emission** in band $j$ (denoted $E_j$) is now only a fraction of $\sigma T^4$.
 
 We will denote this fraction as $b_j$.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 The fraction $b_j$ is temperature-dependent, and can be solved by integrating the Planck function:
 
@@ -463,17 +449,17 @@ $$ E_j(T) = b_j ~ \sigma ~ T^4 $$
 
 which is sensible if the temperatures don't vary too much.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Regardless of how we calculate $b_j$, they must add up to one over all the bands in our model:
 
 $$ \sum_0^{M-1} b_j = 1 $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Once we've figured out this division of the total flux into multiple bands, and we know the absorption cross-sections of each band, we can calculate the upwelling and downwelling fluxes independently for each band, **using the same formulas (same code!) as we use in the grey gas model**.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 To get the total flux, we just need to sum the beams over all bands:
 
@@ -482,7 +468,7 @@ U &= \sum_0^{M-1} U_j  \\
 D &= \sum_0^{M-1} D_j  
 \end{align}
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
@@ -493,7 +479,7 @@ For many more details about radiative transfer and a more careful derivation of 
 
 > Pierrehumbert, R. T. (2010). Principles of Planetary Climate. Cambridge University Press.
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 ____________
 
@@ -508,9 +494,5 @@ Development of these notes and the [climlab software](https://github.com/brian-r
 ____________
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: skip
----
 
 ```

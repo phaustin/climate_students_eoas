@@ -12,8 +12,6 @@ kernelspec:
   name: python3
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 (nb:radeq)=
 # Radiative Equilibrium
 
@@ -299,22 +297,14 @@ The other radiatively important gas is of course water vapor, which is stored se
 print(radmodel.specific_humidity)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### The RRTMG radiation model has lots of different input parameters
 
 For details you can look at the [documentation](http://climlab.readthedocs.io/en/latest/api/climlab.radiation.radiation.html)
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 for item in radmodel.input:
     print(item)
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 Many of the parameters control the **radiative effects of clouds**.
 
@@ -581,7 +571,7 @@ Plotting on the skew-T diagram makes it clear that **all the radiative equilibri
 
 The next step is therefore to look at the effects of convective mixing on the temperatures of the surface and lower troposphere.
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 ____________
 

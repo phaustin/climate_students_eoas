@@ -1,17 +1,16 @@
 ---
 jupytext:
+  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.19.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 (nb:modeling)=
 # Modeling the global energy budget
@@ -20,14 +19,14 @@ kernelspec:
 
 This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](http://www.atmos.albany.edu/facstaff/brose/index.html), University at Albany.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 1. Recap of the global energy budget
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Let's look again at the observations in this diagram of energy fluxes:
 
@@ -37,14 +36,14 @@ Let's look again at the observations in this diagram of energy fluxes:
 
 Observed global energy flows from Trenberth and Fasullo (2012)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
 ## 2. Tuning radiative fluxes to the observations
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Recap of our simple greenhouse model
 
@@ -54,7 +53,7 @@ $$ \text{OLR} = \tau \sigma T_s^4 $$
 
 where $\tau$ is the **transmissivity** of the atmosphere, a number less than 1 that represents the greenhouse effect of Earth's atmosphere.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 We also tuned this model to the observations by choosing $ \tau \approx 0.61$.
 
@@ -68,17 +67,15 @@ tau = OLRobserved / sigma / Tsobserved**4  # solve for tuned value of transmissi
 print(tau)
 ```
 
-+++ {"slideshow": {"slide_type": "fragment"}}
-
 Let's now deal with the shortwave (solar) side of the energy budget.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Absorbed Shortwave Radiation (ASR) and Planetary Albedo
 
 Let's define a few terms.
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 #### Global mean insolation
 
@@ -90,8 +87,6 @@ Let's denote this quantity by $Q$.
 Q = 341.3  # the insolation
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 #### Planetary albedo
 
 Some of the incoming radiation is not absorbed at all but simply reflected back to space. Let's call this quantity $F_{reflected}$
@@ -101,8 +96,6 @@ From observations we have:
 ```{code-cell} ipython3
 Freflected = 101.9  #  reflected shortwave flux in W/m2
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 The **planetary albedo** is the fraction of $Q$ that is reflected.
 
@@ -115,11 +108,9 @@ alpha = Freflected / Q
 print(alpha)
 ```
 
-+++ {"slideshow": {"slide_type": "fragment"}}
-
 That is, about 30% of the incoming radiation is reflected back to space.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### Absorbed Shortwave Radiation
 
@@ -129,7 +120,7 @@ Mathematically we write
 
 $$ \text{ASR} = Q - F_{reflected} = (1-\alpha) Q $$
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 From the observations:
 
@@ -138,11 +129,9 @@ ASRobserved = Q - Freflected
 print(ASRobserved)
 ```
 
-+++ {"slideshow": {"slide_type": "fragment"}}
-
 As we noted last time, this number is *just slightly greater* than the observed OLR of 238.5 W m$^{-2}$.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
@@ -157,7 +146,7 @@ The Earth system is in **energy balance** when energy in = energy out, i.e. when
 
 $$ \text{ASR} = \text{OLR} $$
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 We want to know:
 
@@ -167,7 +156,7 @@ We want to know:
     - Changes in cloudiness
     - etc.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 With our simple greenhouse model, we can get an **exact solution** for the equilibrium temperature.
 
@@ -175,7 +164,7 @@ First, write down our statement of energy balance:
 
 $$ (1-\alpha) Q = \tau \sigma T_s^4 $$
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 Rearrange to solve for $T_s$:
 
@@ -185,7 +174,7 @@ and take the fourth root, denoting our **equilibrium temperature** as $T_{eq}$:
 
 $$ T_{eq} = \left( \frac{(1-\alpha) Q}{\tau \sigma} \right)^\frac{1}{4} $$
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Plugging the observed values back in, we compute:
 
@@ -198,17 +187,15 @@ Teq_observed = equilibrium_temperature(alpha,Q,tau)
 print(Teq_observed)
 ```
 
-+++ {"slideshow": {"slide_type": "fragment"}}
-
 And this equilibrium temperature is *just slightly warmer* than 288 K.  Why?
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 ## 4. A climate change scenario
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Suppose that, due to global warming (changes in atmospheric composition and subsequent changes in cloudiness):
 
@@ -217,7 +204,7 @@ Suppose that, due to global warming (changes in atmospheric composition and subs
 
 What is the ***new equilibrium temperature***?
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 For this very simple model, we can work out the answer exactly:
 
@@ -228,13 +215,11 @@ print('The new equilibrium temperature is {:.2f} K.'.format(Teq_new))
 print('The equilibrium temperature increased by about {:.1f} K.'.format(Teq_new-Teq_observed))
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 Most climate models are more complicated mathematically, and solving directly for the equilibrium temperature will not be possible! 
 
 Instead, we will be able to use the model to calculate the terms in the energy budget (ASR and OLR).
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Python exercise
 
@@ -247,8 +232,6 @@ Instead, we will be able to use the model to calculate the terms in the energy b
 ```{code-cell} ipython3
 
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
 
@@ -263,7 +246,7 @@ The temperature must then increase to get back into balance. The increase will n
 
 In fact almost all climate models are **time-dependent**, meaning the model calculates **time derivatives** (rates of change) of climate variables.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### An energy balance **equation**
 
@@ -316,7 +299,7 @@ where
 - $C$ is the **heat capacity** of Earth system, in units of J m$^{-2}$ K$^{-1}$.
 - $\frac{dT_s}{dt}$ is the rate of change of global average surface temperature.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 By adopting this equation, we are assuming that the energy content of the Earth system (atmosphere, ocean, ice, etc.) is *proportional to surface temperature*.
 
@@ -326,7 +309,7 @@ Important things to think about:
 - What determines the heat capacity $C$?
 - What are some limitations of this assumption?
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 For our purposes here we are going to use a value of C equivalent to heating 100 meters of water:
 
@@ -348,8 +331,6 @@ C = c_w * rho_w * H   #  Heat capacity of the model
 print('The effective heat capacity is {:.1e} J/m2/K'.format(C))
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### Solving the energy balance model
 
 This is a first-order Ordinary Differential Equation (ODE) for $T_s$ as a function of time. It is also **our very first climate model!**
@@ -359,7 +340,7 @@ To solve it (i.e. see how $T_s$ evolves from some specified initial condition) w
 1. Solve it analytically
 2. Solve it numerically
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Option 1 (analytical) will usually not be possible because the equations will typically be too complex and non-linear. This is why computers are our best friends in the world of climate modeling.
 
@@ -368,7 +349,7 @@ HOWEVER it is often useful and instructive to simplify a model down to something
 1. Analysis will often yield a deeper understanding of the behavior of the system
 2. Gives us a benchmark against which to test the results of our numerical solutions.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
@@ -387,7 +368,7 @@ $$ \frac{dT}{dt} = \lim_{\Delta t\rightarrow 0} \frac{\Delta T}{\Delta t}$$
 - So long as we take the time interval $\Delta t$ "small enough", the approximation is valid and useful.
 - (The meaning of "small enough" varies widely in practice. Let's not talk about it now)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 So we write our model as
 
@@ -401,7 +382,7 @@ We can now use this to **make a prediction**:
 
 Given a current temperature $T_1$ at time $t_1$, what is the temperature $T_2$ at a future time $t_2$?
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 We can write
 
@@ -420,7 +401,7 @@ We now have a formula with which to make our prediction!
 
 Notice that we have written the OLR as a *function of temperature*. We will use the current temperature $T_1$ to compute the OLR, and use that OLR to determine the future temperature.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ____________
 
@@ -438,10 +419,6 @@ dt = 60. * 60. * 24. * 365.   # one year expressed in seconds
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 # Try a single timestep, assuming we have working functions for ASR and OLR
 T1 = 288.
 T2 = T1 + dt / C * ( ASR(alpha=0.32) - OLR(T1, tau=0.57) )
@@ -450,7 +427,7 @@ print(T2)
 
 What happened? Why?
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Try another timestep
 
@@ -462,7 +439,7 @@ print(T2)
 
 Warmed up again, but by a smaller amount.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 But this is tedious typing. Time to **define a function** to make things easier and more reliable:
 
@@ -470,8 +447,6 @@ But this is tedious typing. Time to **define a function** to make things easier 
 def step_forward(T):
     return T + dt / C * ( ASR(alpha=0.32) - OLR(T, tau=0.57) )
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 Try it out with an arbitrary temperature:
 
@@ -481,13 +456,13 @@ step_forward(300.)
 
 Notice that our function calls other functions and variables we have already defined.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### Python fact 10: Functions can access variables and other functions defined outside of the function. 
 
 This is both very useful and occasionally confusing.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Now let's really harness the power of the computer by **making a loop** (and storing values in arrays):
 
@@ -511,15 +486,15 @@ What did we just do?
 - repeated our time step 20 times. 
 - Stored the results of each time step into the array.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### Python fact 11: the `for` statement executes a statement (or series of statements) a specified number of times (a loop!)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### Python fact 12: Use square bracket [ ] to refer to elements of an array or list. Use round parentheses ( ) for function arguments.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Plotting the result
 
@@ -539,8 +514,6 @@ plt.xlabel('Years')
 plt.ylabel('Global mean temperature (K)');
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 Note how the temperature *adjusts smoothly toward the equilibrium temperature*, that is, the temperature at which
 ASR = OLR.
 
@@ -550,7 +523,7 @@ The adjustment is actually an *exponential decay* process: The rate of adjustmen
 
 The temperature gets very very close to equilibrium but never reaches it exactly.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 #### Python fact 13: We can easily make simple graphs with the function `plt.plot(x,y)`, where `x` and `y` are arrays of the same size. But we must import it first. 
 
@@ -571,7 +544,7 @@ ____________
 ## 8. Summary and take-away messages
 ____________
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 - We looked at the flows of energy in and out of the Earth system. 
 - These are determined by radiation at the top of the Earth's atmosphere.
@@ -587,7 +560,7 @@ ____________
 - We can represent the continous warming process on the computer using discrete timesteps.
 - We can plot the result.
 
-+++ {"slideshow": {"slide_type": "skip"}}
++++
 
 ____________
 

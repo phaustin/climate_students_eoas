@@ -1,15 +1,15 @@
 ---
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
-  kernelspec:
-    display_name: Python 3 (ipykernel)
-    language: python
-    name: python3
+jupytext:
+  formats: ipynb,md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.19.7
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
 ---
 
 (nb:landocean)=
@@ -17,12 +17,15 @@ jupyter:
 
 This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook) by [Brian E. J. Rose](http://www.atmos.albany.edu/facstaff/brose/index.html), University at Albany.
 
++++
 
 Statistics such as the global average or zonal average temperature do not tell the whole story about climate change!
 
++++
 
 ## Some observational results on land-ocean warming differences from a recent paper
 
++++
 
 <img src='https://www.pnas.org/cms/10.1073/pnas.1722312115/asset/145a5091-c1da-4155-b4b7-149893cb0151/assets/graphic/pnas.1722312115fig01.jpeg' width = '700'>
 
@@ -30,10 +33,11 @@ Statistics such as the global average or zonal average temperature do not tell t
 
 Byrne and O'Gorman (2018): Trends in continental temperature and humidity directly linked to ocean warming, PNAS 115 (19) 4863-4868, https://doi.org/10.1073/pnas.1722312115
 
++++
 
 ## Looking at land-ocean warming patterns in the CESM
 
-```python
+```{code-cell} ipython3
 %matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
@@ -43,7 +47,7 @@ import cartopy.crs as ccrs
 
 The following repeats the calculation we already did of the Equilibrium Climate Sensitity (ECS) and Transient Climate Response (TCR):
 
-```python
+```{code-cell} ipython3
 casenames = {'cpl_control': 'cpl_1850_f19',
              'cpl_CO2ramp': 'cpl_CO2ramp_f19',
              'som_control': 'som_1850_f19',
@@ -65,7 +69,7 @@ for name in casenames:
     atm[name] = xr.open_dataset(path, decode_times=False)
 ```
 
-```python
+```{code-cell} ipython3
 # extract the last 10 years from the slab ocean control simulation
 nyears_som = 10
 # and the last 20 years from the coupled control
@@ -74,7 +78,7 @@ clim_slice_som = slice(-(nyears_som*12),None)
 clim_slice_cpl = slice(-(nyears_cpl*12),None)
 ```
 
-```python
+```{code-cell} ipython3
 Tmap_cpl_2x = atm['cpl_CO2ramp'].TREFHT.isel(time=clim_slice_cpl).mean(dim='time')
 Tmap_cpl_control = atm['cpl_control'].TREFHT.isel(time=clim_slice_cpl).mean(dim='time')
 DeltaTmap_cpl = Tmap_cpl_2x - Tmap_cpl_control
@@ -84,7 +88,7 @@ Tmap_som_control = atm['som_control'].TREFHT.isel(time=clim_slice_som).mean(dim=
 DeltaTmap_som = Tmap_som_2x - Tmap_som_control
 ```
 
-```python
+```{code-cell} ipython3
 def make_map(field, title=None):
     '''input field should be a 2D xarray.DataArray on a lat/lon grid.
         Make a filled contour plot of the field, and a line plot of the zonal mean
@@ -104,7 +108,7 @@ def make_map(field, title=None):
     return fig, (mapax, plotax, barax), cx
 ```
 
-```python
+```{code-cell} ipython3
 fig, axes, cx = make_map(DeltaTmap_cpl, title='Surface air temperature anomaly (coupled transient)')
 axes[1].set_xlim(0,7)  # ensure the line plots have same axes
 cx.set_clim([0, 8])    # ensure the contour maps have the same color intervals
@@ -114,7 +118,7 @@ axes[1].set_xlim(0,7)
 cx.set_clim([0, 8])
 ```
 
-```python
+```{code-cell} ipython3
 def global_mean(field, weight=atm['som_control'].gw):
     '''Return the area-weighted global average of the input field'''
     return (field*weight).mean(dim=('lat','lon'))/weight.mean(dim='lat')
@@ -126,7 +130,7 @@ print('The Equilibrium Climate Sensitivity is {:.3} K.'.format(float(ECS)))
 print('The Transient Climate Response is {:.3} K.'.format(float(TCR)))
 ```
 
-```python
+```{code-cell} ipython3
 # Make a map like Gavin's...  places where warming is > global average
 fig = plt.figure(figsize=(18,5))
 
@@ -157,6 +161,7 @@ We cannot understand this result solely in terms of heat capacity differences.
 
 **This motivates some detailed study of surface processes and the climatic coupling between land and ocean.**
 
++++
 
 ## Plot the "land amplification factor"
 
@@ -166,12 +171,12 @@ $$A \equiv \frac{\delta T_L}{\delta T_O} $$
 
 where $\delta T_L$ is the near-surface air temperature increase **over land**, and $\delta T_O$ is the **zonally averaged** near-surface air temperature increase **over ocean**.
 
-```python
+```{code-cell} ipython3
 #  The land-ocean mask ... same for all simulations
 landfrac = atm['cpl_control'].LANDFRAC.mean(dim='time')
 ```
 
-```python
+```{code-cell} ipython3
 # Zonally averaged ocean warming
 DeltaTO_cpl = DeltaTmap_cpl.where(landfrac<0.5).mean(dim='lon')
 DeltaTO_som = DeltaTmap_som.where(landfrac<0.5).mean(dim='lon')
@@ -228,6 +233,7 @@ $$ A \equiv \frac{\delta T_L}{\delta T_O} = 1 + \frac{L_v}{c_p} \frac{\delta q_O
 
 which implies that there will be **greater warming over land than ocean** so long as *the moistening rate with warming over ocean is greater than over land*, $\delta q_O > \delta q_L$.
 
++++
 
 ### The surface moisture constraint
 
@@ -274,6 +280,7 @@ The two terms above quantify the relative importance of remote ocean specific hu
 
 $$ q_L = \gamma q_O + q_E $$
 
++++
 
 ### The "Ocean-influence" box model
 
@@ -295,6 +302,7 @@ where the constant can be evaluated from the reference climate:
 
 $$ \gamma = \frac{\overline{q_L}}{\overline{q_O}} $$
 
++++
 
 ### Combined theory: dynamic and moisture constraints
 
@@ -306,6 +314,7 @@ which implies that there will be **greater warming over land than ocean** so lon
 
 Notice that with the combined constraints we are able to make this prediction without using an information about the land surface conditions other than the reference specific humidity (parameter $\gamma$).
 
++++
 
 ### Relative humidity changes over land
 
@@ -347,6 +356,7 @@ The conclusion is that **the relative humidity over land must decrease** along w
 
 See Byrne and O'Gorman (2016) for discussion and caveats.
 
++++
 
 ## Evaluation of simple land amplification theory
 
@@ -370,14 +380,14 @@ $$ A = 1 + \frac{L_v}{c_p} (1-\gamma) \frac{\delta q_O}{\delta T_O} $$
 
 We are going to evaluate this theory quantitatively against the CESM simulations.
 
-```python
+```{code-cell} ipython3
 from climlab.utils.constants import Lhvap, cp, Rv
 
 def land_amp(deltaQO, deltaQL, deltaTO):
     return 1 + Lhvap/cp*(deltaQO - deltaQL)/deltaTO
 ```
 
-```python
+```{code-cell} ipython3
 # Look at zonally averaged specific humidity over land and ocean
 qL = atm['cpl_control'].QREFHT.where(landfrac>0.5).isel(time=clim_slice_cpl).mean(dim=('time', 'lon'))
 qO = atm['cpl_control'].QREFHT.where(landfrac<0.5).isel(time=clim_slice_cpl).mean(dim=('time', 'lon'))
@@ -390,7 +400,7 @@ plt.ylabel('Specific humidity (kg/kg)');
 
 ### Amplification factors using dynamic constraint only
 
-```python
+```{code-cell} ipython3
 #  Compute changes in specific humidity
 Qmap_cpl_2x = atm['cpl_CO2ramp'].QREFHT.isel(time=clim_slice_cpl).mean(dim='time')
 Qmap_cpl_control = atm['cpl_control'].QREFHT.isel(time=clim_slice_cpl).mean(dim='time')
@@ -401,7 +411,7 @@ Qmap_som_control = atm['som_control'].QREFHT.isel(time=clim_slice_som).mean(dim=
 DeltaQmap_som = Qmap_som_2x - Qmap_som_control
 ```
 
-```python
+```{code-cell} ipython3
 # Increase in specific humidity over oceans per degree warming
 DeltaQO_cpl = DeltaQmap_cpl.where(landfrac<0.5).mean(dim='lon')
 DeltaQO_som = DeltaQmap_som.where(landfrac<0.5).mean(dim='lon')
@@ -417,7 +427,7 @@ plt.ylabel('kg/kg/K')
 
 Notice that the normalized humidity increase is nearly identical in the two models, and very well predicted by Clausius-Clapeyron.
 
-```python
+```{code-cell} ipython3
 # Compute the land amplification factor based on dynamic constraint only
 #  Note that this requires knowledge of actual specific humidity changes over land
 
@@ -432,20 +442,20 @@ make_map(predicted_land_amplification_som,
 
 ### Amplification factors using dynamic + moisture constraint
 
-```python
+```{code-cell} ipython3
 # Make a map of the "gamma" factor, ratio of land specific humidity to surrounding oceans
 qL_map = atm['cpl_control'].QREFHT.where(landfrac>0.5).isel(time=clim_slice_cpl).mean(dim=('time'))
 gamma_map = qL_map / qO
 make_map(gamma_map, 'Relative dryness of land surface compared to oceans, $\gamma = q_L / q_O$');
 ```
 
-```python
+```{code-cell} ipython3
 predicted_land_amplification_simple = land_amp(DeltaQO_cpl, gamma_map*DeltaQO_cpl, DeltaTO_cpl)
 make_map(predicted_land_amplification_simple,
         title='PREDICTED Land warming amplification factor (dynamic+moisture constraints)');
 ```
 
-```python
+```{code-cell} ipython3
 # Summarize the zonal average results (Plot coupled model only)
 plt.figure(figsize=(10,6))
 land_amplification_cpl.mean(dim='lon').plot(label='Simulated', color='blue')
@@ -459,6 +469,7 @@ plt.ylim(0.6, 2.2);
 
 Compare to CMIP5 multi-model mean:
 
++++
 
 <img src='https://journals.ametsoc.org/view/journals/clim/29/24/full-jcli-d-16-0351.1-fa1.jpg' width="500">
 
@@ -466,6 +477,7 @@ Compare to CMIP5 multi-model mean:
 
 Byrne and O'Gorman (2016) J. Clim. 29, https://journals.ametsoc.org/doi/10.1175/JCLI-D-16-0351.1
 
++++
 
 Our results are consistent with Byrne and O'Gorman in that the simple theory captures the amplification signal in the **southern subtropics** quite well, but strongly overestimates the amplifcation in the **northern subtropics**.
 
@@ -473,10 +485,11 @@ The simple "ocean influence" theory works best in the hemisphere dominated by oc
 
 We may get more insight into the weaknesses of the theory by looking more carefully at the relative humidity changes, and the role of land-surface evaporation changes (neglected under the "ocean-influence" theory).
 
++++
 
 ## Critical evaluation of assumptions
 
-```python
+```{code-cell} ipython3
 # Recompute gamma for the warmer climate.
 # We assumed it did not change with global warming
 
@@ -490,33 +503,35 @@ gamma_map_2x = qL_map_2x / qO_2x
 make_map(gamma_map_2x, 'Relative dryness of land surface compared to oceans (2x CO2), $\gamma = q_L / q_O$');
 ```
 
-```python
+```{code-cell} ipython3
 # Plot the percentage change
 make_map((gamma_map_2x-gamma_map)/gamma_map * 100, title='Percent change in gamma');
 ```
 
 The error is pretty small.
 
++++
 
 ### Relative humidity change
 
-```python
+```{code-cell} ipython3
 RHmap = atm['cpl_control'].RELHUM.isel(lev=-1, time=clim_slice_cpl).mean(dim='time')
 RHmap_2x = atm['cpl_CO2ramp'].RELHUM.isel(lev=-1, time=clim_slice_cpl).mean(dim='time')
 DeltaRHmap = RHmap_2x - RHmap
 ```
 
-```python
+```{code-cell} ipython3
 make_map(RHmap, title='Control relative humidity');
 ```
 
-```python
+```{code-cell} ipython3
 make_map(DeltaRHmap, title='Relative humidity change (transient coupled)');
 ```
 
 Looks like a big source of error in the simple estimates of land amplification here is the unexpected relative moistening over the arid regions of North Africa and Arabia.
 
-<!-- #region slideshow={"slide_type": "skip"} -->
++++
+
 ____________
 
 ## Credits
@@ -528,4 +543,3 @@ It is licensed for free and open consumption under the
 
 Development of these notes and the [climlab software](https://github.com/brian-rose/climlab) is partially supported by the National Science Foundation under award AGS-1455071 to Brian Rose. Any opinions, findings, conclusions or recommendations expressed here are mine and do not necessarily reflect the views of the National Science Foundation.
 ____________
-<!-- #endregion -->
