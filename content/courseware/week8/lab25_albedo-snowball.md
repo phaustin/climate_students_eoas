@@ -1,5 +1,6 @@
 ---
-skip_execution: true  # was in v1 execute.exclude_patterns
+execute:
+  skip: true  # was in v1 execute.exclude_patterns
 jupyter:
   jupytext:
     text_representation:
@@ -28,7 +29,7 @@ ____________
 Last time we derived the equation for the one-dimensional EBM with diffusive heat transport:
 
 
-$$ C \frac{\partial T}{\partial t} = (1-\alpha) ~ Q - \left( A + B~T \right) + \frac{D}{\cos⁡\phi } \frac{\partial }{\partial \phi} \left(   \cos⁡\phi  ~ \frac{\partial T}{\partial \phi} \right) $$
+$$ C \frac{\partial T}{\partial t} = (1-\alpha) ~ Q - \left( A + B~T \right) + \frac{D}{\cos\phi } \frac{\partial }{\partial \phi} \left(   \cos\phi  ~ \frac{\partial T}{\partial \phi} \right) $$
 
 
 We have chosen the following parameter values, which seems to give a reasonable fit to the observed **annual mean temperature and energy budget**:
@@ -66,7 +67,7 @@ Here, since our model resolves temperature at each latitude, we want to do somet
 
 Let the surface albedo be larger wherever the temperature is below some threshold $T_f$:
 
-$$ \alpha\left(\phi, T(\phi) \right) = \left\{\begin{array}{ccc} 
+$$ \alpha\left(\phi, T(\phi) \right) = \left\{\begin{array}{cccc} 
 \alpha_0 + \alpha_2 P_2(\sin\phi) & ~ & T(\phi) > T_f  & \text{(no ice)} \\
 a_i & ~ & T(\phi) \le T_f & \text{(ice-covered)} \\
 \end{array} \right. $$

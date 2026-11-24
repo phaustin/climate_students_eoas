@@ -366,7 +366,7 @@ See below for complete citation information.
 
 +++
 
-<img src='http://www.climatechange2013.org/images/figures/WGI_AR5_Fig9-43.jpg' width=800>
+<img src='../../images/AR5_Fig9-43.jpg' width=800>
 
 +++
 

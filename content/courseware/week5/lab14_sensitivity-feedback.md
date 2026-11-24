@@ -670,7 +670,6 @@ This figure is reproduced from the IPCC AR6 report. It shows the feedbacks diagn
 
 :::{figure} ./ar6_feedbacks.png
 :name: kirchoff
-:scale: 100
 
 AR6 feedbacks
 :::

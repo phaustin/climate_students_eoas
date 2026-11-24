@@ -479,7 +479,7 @@ Our 1D diffusive EBM is the appropriate tool for exploring this further.
 We are looking at the 1D (zonally averaged) energy balance model with diffusive heat transport. The equation is
 <!-- #endregion -->
 
-$$ C \frac{\partial T_s}{\partial t} = (1-\alpha) ~ Q - \left( A + B~T_s \right) + \frac{D}{\cos⁡\phi } \frac{\partial }{\partial \phi} \left(   \cos⁡\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
+$$ C \frac{\partial T_s}{\partial t} = (1-\alpha) ~ Q - \left( A + B~T_s \right) + \frac{D}{\cos\phi } \frac{\partial }{\partial \phi} \left(   \cos\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
 
 with the albedo given by
 

@@ -275,7 +275,6 @@ theAx.set_ylim([0,5])
 theAx.legend(loc='best');
 ```
 
-<a name="oct7assign"></a>
 
 ### Assignment4 -- (preview)
 

@@ -91,7 +91,7 @@ We will look at many of these processes in detail throughout the course.
 ```{figure} ./GlobalEnergyBudget.png
 ---
 width: 80%
-name: directive-fig
+name: fig-global-energy-budget
 alt: pha
 ---
 Global Energy Budget

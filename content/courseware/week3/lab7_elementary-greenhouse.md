@@ -32,7 +32,7 @@ We will make our first attempt at quantifying the greenhouse effect in the simpl
 
 ::: {figure} ./images/1layerAtm_sketch.png
 :width: 70%
-:name: costheta
+:name: fig-1layer-sketch
 :alt: pha
 
 :::
@@ -188,7 +188,7 @@ both up and down.
 
 ::: {figure} ../../images/2layerAtm_sketch.png
 :width: 70%
-:name: costheta
+:name: fig-2layer-sketch
 :alt: pha
 
 :::
@@ -291,7 +291,7 @@ We will tune our model so that it **reproduces the observed global mean OLR** gi
 To get appropriate temperatures for $T_s, T_0, T_1$, let's revisit the global, annual mean lapse rate plot from NCEP Reanalysis data we first encountered in the [Radiation notes](https://brian-rose.github.io/ClimateLaboratoryBook/courseware/radiation.html).
 
 ```{code-cell} ipython3
-:tags: [hide_input]
+:tags: [hide-input]
 
 #  This code is used just to create the skew-T plot of global, annual mean air temperature
 %matplotlib inline

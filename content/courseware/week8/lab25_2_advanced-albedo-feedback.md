@@ -34,7 +34,7 @@ The equation is
 
 \begin{align*}
 C(\phi) \frac{\partial T_s}{\partial t} = & ~(1-\alpha) ~ Q - \left( A + B~T_s \right) +  \\
-& \frac{D}{\cos⁡\phi } \frac{\partial }{\partial \phi} \left(\cos⁡\phi  ~ \frac{\partial T_s}{\partial \phi} \right)
+& \frac{D}{\cos\phi } \frac{\partial }{\partial \phi} \left(\cos\phi  ~ \frac{\partial T_s}{\partial \phi} \right)
 \end{align*}
 <!-- #endregion -->
 

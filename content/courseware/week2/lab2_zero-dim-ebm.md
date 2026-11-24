@@ -379,7 +379,7 @@ ____________
 
 Recall that the derivative is the **instantaneous rate of change**. It is defined as 
 
-$$ \frac{dT}{dt} = \lim_{\Delta t\rightarrow 0}⁡ \frac{\Delta T}{\Delta t}$$
+$$ \frac{dT}{dt} = \lim_{\Delta t\rightarrow 0} \frac{\Delta T}{\Delta t}$$
 
 - **On the computer there is no such thing as an instantaneous change.** 
 - We are always dealing with *discrete quantities*.

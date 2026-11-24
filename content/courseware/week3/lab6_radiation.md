@@ -172,7 +172,7 @@ For Python details, click to expand the code blocks (or see the code in the note
 ---
 slideshow:
   slide_type: skip
-tags: [hide_input]
+tags: hide-input
 ---
 #  Using pre-defined code for the Planck function from the climlab package
 from climlab.utils.thermo import Planck_wavelength
@@ -182,7 +182,7 @@ from climlab.utils.thermo import Planck_wavelength
 ---
 slideshow:
   slide_type: skip
-tags: [hide_input]
+tags: hide-input
 ---
 # approximate emission temperature of the sun in Kelvin
 Tsun = 5780.
@@ -198,7 +198,7 @@ to_meters = 1E-9  # conversion factor
 ---
 slideshow:
   slide_type: skip
-tags: [hide_input]
+tags: hide-input
 ---
 label_size = 16
 fig, ax = plt.subplots(figsize=(14,7))
@@ -235,7 +235,7 @@ Theory and experiments tell us that both the total flux of emitted radiation, an
 The theoretical spectrum was worked out by Max Planck and is therefore known as the “Planck” spectrum (or simply blackbody spectrum).
 
 ```{code-cell} ipython3
-:tags: [hide_input]
+:tags: [hide-input]
 
 fig, ax = plt.subplots(figsize=(14,7))
 wavelength_um = wavelength_nm / 1000
@@ -290,7 +290,7 @@ ____________
 Now let's look at normalized blackbody curves for Sun and Earth:
 
 ```{code-cell} ipython3
-:tags: [hide_input]
+:tags: [hide-input]
 
 fig, ax = plt.subplots(figsize=(14,7))
 wavelength_um = np.linspace(0.1, 200, 10000)
@@ -327,7 +327,7 @@ Now look at the atmospheric **absorption spectra**.
 
 ::: {figure} ./images/MarshallPlumbFig2.5.png
 :width: 80%
-:name: costheta
+:name: fig-marshall-plumb-2-5
 :alt: pha
 
 :::

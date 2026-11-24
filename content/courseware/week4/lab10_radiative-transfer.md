@@ -380,7 +380,7 @@ $${\bf{U}} = {\bf{T_{up}}} ~ {\bf{E_{up}}} $$
 
 ### The transmissivity matrices
 
-$$ {\bf{T_{up}}} = \left[ \begin{array}{ccccc} 1 & 0 & 0 &... & 0 & 0 \\  
+$$ {\bf{T_{up}}} = \left[ \begin{array}{cccccc} 1 & 0 & 0 &... & 0 & 0 \\  
                                              t_0 & 1 & 0 & ... & 0 & 0 \\
                                          t_1 t_0 & t_1 & 1 & ... & 0 & 0 \\
                                      t_2 t_1 t_0 & t_2 t_1 & t_2 & ... & 0 & 0 \\

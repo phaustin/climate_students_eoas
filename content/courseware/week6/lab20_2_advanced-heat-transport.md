@@ -532,7 +532,7 @@ $$ A = \text{Circumference} ~\times ~ \text{north-south width} $$
 
 $$ A = 2 \pi a \cos \phi  ~ \times ~  a \delta \phi  $$
 
-$$ A = 2 \pi a^2  \cos⁡\phi ~ \delta\phi $$
+$$ A = 2 \pi a^2  \cos\phi ~ \delta\phi $$
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -540,7 +540,7 @@ We will denote the energy transport in and out of the band respectively as $\mat
 
 Then the budget can be written
 
-$$ \frac{\partial E}{\partial t} = \text{ASR} - \text{OLR} - \frac{1}{2 \pi a^2  \cos⁡\phi ~ \delta\phi} \Big( \mathcal{H}(\phi + \delta\phi) - \mathcal{H}(\phi) \Big) $$
+$$ \frac{\partial E}{\partial t} = \text{ASR} - \text{OLR} - \frac{1}{2 \pi a^2  \cos\phi ~ \delta\phi} \Big( \mathcal{H}(\phi + \delta\phi) - \mathcal{H}(\phi) \Big) $$
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -552,13 +552,13 @@ $$ \frac{1}{\delta\phi} \Big( \mathcal{H}(\phi + \delta\phi) - \mathcal{H}(\phi)
 <!-- #region slideshow={"slide_type": "fragment"} -->
 So the local budget at any latitude $\phi$ is
 
-$$ \frac{\partial E}{\partial t} = \text{ASR} - \text{OLR} - \frac{1}{2 \pi a^2  \cos⁡\phi } \frac{\partial \mathcal{H}}{\partial \phi} $$
+$$ \frac{\partial E}{\partial t} = \text{ASR} - \text{OLR} - \frac{1}{2 \pi a^2  \cos\phi } \frac{\partial \mathcal{H}}{\partial \phi} $$
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 The **dynamical heating rate** in W m$^{-2}$ is thus
 
-$$ h = - \frac{1}{2 \pi a^2  \cos⁡\phi } \frac{\partial \mathcal{H}}{\partial \phi} $$
+$$ h = - \frac{1}{2 \pi a^2  \cos\phi } \frac{\partial \mathcal{H}}{\partial \phi} $$
 
 which is the **convergence of energy transport** into this latitude band: the difference between what's coming in and what's going out.
 <!-- #endregion -->
@@ -574,19 +574,19 @@ If we can **assume that the budget is balanced**, i.e. assume that the system is
 <!-- #region slideshow={"slide_type": "slide"} -->
 Setting $\partial E/ \partial t = 0$ and rearranging:
 
-$$ \frac{\partial \mathcal{H}}{\partial \phi}  = 2 \pi ~a^2  \cos⁡\phi ~ R_{TOA} $$
+$$ \frac{\partial \mathcal{H}}{\partial \phi}  = 2 \pi ~a^2  \cos\phi ~ R_{TOA} $$
 <!-- #endregion -->
 
 Now integrate from the South Pole ($\phi = -\pi/2$):
 
-$$ \int_{-\pi/2}^{\phi} \frac{\partial \mathcal{H}}{\partial \phi^\prime}  d\phi^\prime = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos⁡\phi^\prime ~ R_{TOA} d\phi^\prime  $$
+$$ \int_{-\pi/2}^{\phi} \frac{\partial \mathcal{H}}{\partial \phi^\prime}  d\phi^\prime = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos\phi^\prime ~ R_{TOA} d\phi^\prime  $$
 
-$$ \mathcal{H}(\phi) - \mathcal{H}(-\pi/2) = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos⁡\phi^\prime ~ R_{TOA} d\phi^\prime  $$
+$$ \mathcal{H}(\phi) - \mathcal{H}(-\pi/2) = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos\phi^\prime ~ R_{TOA} d\phi^\prime  $$
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 Our boundary condition is that the transport must go to zero at the pole. We therefore have a formula for calculating the heat transport at any latitude, by integrating the imbalance from the South Pole:
 
-$$ \mathcal{H}(\phi) = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos⁡\phi^\prime ~ R_{TOA} d\phi^\prime  $$
+$$ \mathcal{H}(\phi) = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos\phi^\prime ~ R_{TOA} d\phi^\prime  $$
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -594,7 +594,7 @@ What about the boundary condition at the other pole? We must have $\mathcal{H}(\
 
 Notice that if we apply the above formula and integrate all the way to the other pole, we then have
 
-$$ \mathcal{H}(\pi/2) = 2 \pi ~a^2 \int_{-\pi/2}^{\pi/2} \cos⁡\phi^\prime ~ R_{TOA} d\phi^\prime  $$
+$$ \mathcal{H}(\pi/2) = 2 \pi ~a^2 \int_{-\pi/2}^{\pi/2} \cos\phi^\prime ~ R_{TOA} d\phi^\prime  $$
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -840,7 +840,7 @@ Discuss...  Large net fluxes over ocean, not over land.
 
 Using exactly the same reasoning we used for the whole climate system, we can write a budget for the OCEAN ONLY:
 
-$$ \frac{\partial E_o}{\partial t} = -F_S - \frac{1}{2 \pi a^2  \cos⁡\phi } \frac{\partial \mathcal{H_o}}{\partial \phi} $$
+$$ \frac{\partial E_o}{\partial t} = -F_S - \frac{1}{2 \pi a^2  \cos\phi } \frac{\partial \mathcal{H_o}}{\partial \phi} $$
 <!-- #endregion -->
 
 In principle it is possible to calculate $\mathcal{H}_o$ from this budget, analagously to how we calculated the total $\mathcal{H}$.
@@ -853,7 +853,7 @@ Assuming that
 
 we can write
 
-$$ \mathcal{H}_o(\phi) = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} - \cos⁡\phi^\prime ~ F_S d\phi^\prime  $$
+$$ \mathcal{H}_o(\phi) = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} - \cos\phi^\prime ~ F_S d\phi^\prime  $$
 
 where the minus sign account for the fact that we defined $F_S$ as **positive up** (out of the ocean).
 <!-- #endregion -->
@@ -863,13 +863,13 @@ where the minus sign account for the fact that we defined $F_S$ as **positive up
 
 The net energy source to the atmosphere is the sum of the TOA flux and the surface flux. Thus we can write
 
-$$ \frac{\partial E_a}{\partial t} = R_{TOA} + F_S - \frac{1}{2 \pi a^2  \cos⁡\phi } \frac{\partial \mathcal{H_a}}{\partial \phi} $$
+$$ \frac{\partial E_a}{\partial t} = R_{TOA} + F_S - \frac{1}{2 \pi a^2  \cos\phi } \frac{\partial \mathcal{H_a}}{\partial \phi} $$
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 and we can similarly integrate to get the transport:
 
-$$ \mathcal{H}_a(\phi) = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos⁡\phi^\prime ~ \big( R_{TOA} + F_S \big) d\phi^\prime  $$
+$$ \mathcal{H}_a(\phi) = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos\phi^\prime ~ \big( R_{TOA} + F_S \big) d\phi^\prime  $$
 
 Note that these formulas ensure that $\mathcal{H} = \mathcal{H}_a + \mathcal{H}_o$.
 <!-- #endregion -->
@@ -889,7 +889,7 @@ We can use the same kind of budget reasoning to compute this **latent heat trans
 <!-- #region slideshow={"slide_type": "slide"} -->
 The only sources and sinks of water vapor to the atmosphere are surface evaporation and precipitation:
 
-$$ L_v \frac{\partial Q}{\partial t} = L_v \big( Evap - Precip \big) - \frac{1}{2 \pi a^2  \cos⁡\phi } \frac{\partial \mathcal{H}_{LH}}{\partial \phi} $$
+$$ L_v \frac{\partial Q}{\partial t} = L_v \big( Evap - Precip \big) - \frac{1}{2 \pi a^2  \cos\phi } \frac{\partial \mathcal{H}_{LH}}{\partial \phi} $$
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -906,7 +906,7 @@ All terms in the above equation thus have units of W m$^{-2}$.
 <!-- #region slideshow={"slide_type": "slide"} -->
 Using the now-familiar equilibrium reasoning, we can use this water balance to compute the latent heat transport from the net surface evaporation minus precipitation:
 
-$$ \mathcal{H}_{LH}(\phi) = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos⁡\phi^\prime ~ L_v ~\big( Evap - Precip \big) d\phi^\prime  $$
+$$ \mathcal{H}_{LH}(\phi) = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos\phi^\prime ~ L_v ~\big( Evap - Precip \big) d\phi^\prime  $$
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->

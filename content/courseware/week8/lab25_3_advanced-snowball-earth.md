@@ -1,5 +1,6 @@
 ---
-skip_execution: true  # was in v1 execute.exclude_patterns
+execute:
+  skip: true  # was in v1 execute.exclude_patterns
 jupytext:
   formats: ipynb,md:myst
   text_representation:

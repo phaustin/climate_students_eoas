@@ -494,14 +494,14 @@ $$ A = \text{Circumference} ~\times ~ \text{north-south width} $$
 
 $$ A = 2 \pi a \cos \phi  ~ \times ~  a \delta \phi  $$
 
-$$ A = 2 \pi a^2  \cos⁡\phi ~ \delta\phi $$
+$$ A = 2 \pi a^2  \cos\phi ~ \delta\phi $$
 <!-- #endregion -->
 
 So we can write the heating rate as
 
 \begin{align*}
-h &= \frac{\mathcal{H}(\phi) - \mathcal{H}(\phi+\delta\phi)}{2 \pi a^2  \cos⁡\phi ~ \delta\phi} \\
- &= -\frac{1}{2 \pi a^2  \cos⁡\phi} \left( \frac{\mathcal{H}(\phi+\delta\phi) - \mathcal{H}(\phi)}{\delta\phi} \right)
+h &= \frac{\mathcal{H}(\phi) - \mathcal{H}(\phi+\delta\phi)}{2 \pi a^2  \cos\phi ~ \delta\phi} \\
+ &= -\frac{1}{2 \pi a^2  \cos\phi} \left( \frac{\mathcal{H}(\phi+\delta\phi) - \mathcal{H}(\phi)}{\delta\phi} \right)
 \end{align*}
 
 
@@ -510,7 +510,7 @@ Writing it this way, we can see that if the width of the band $\delta \phi$ beco
 
 The **dynamical heating rate** in W m$^{-2}$ is thus
 
-$$ h = - \frac{1}{2 \pi a^2  \cos⁡\phi } \frac{\partial \mathcal{H}}{\partial \phi} $$
+$$ h = - \frac{1}{2 \pi a^2  \cos\phi } \frac{\partial \mathcal{H}}{\partial \phi} $$
 
 which is the **convergence of energy transport** into this latitude band: the difference between what's coming in and what's going out.
 
@@ -531,21 +531,21 @@ $$ ASR + h = OLR $$
 
 which we can substitute in for $h$ and rearrange to write as
 
-$$ \frac{\partial \mathcal{H}}{\partial \phi}  = 2 \pi ~a^2  \cos⁡\phi ~ \left( \text{ASR} - \text{OLR} \right)  = 2 \pi ~a^2  \cos⁡\phi ~ R_{TOA} $$
+$$ \frac{\partial \mathcal{H}}{\partial \phi}  = 2 \pi ~a^2  \cos\phi ~ \left( \text{ASR} - \text{OLR} \right)  = 2 \pi ~a^2  \cos\phi ~ R_{TOA} $$
 
 where for convenience we write $R_{TOA} = ASR - OLR$, the net downward flux at the top of atmosphere.
 <!-- #endregion -->
 
 Now integrate from the South Pole ($\phi = -\pi/2$):
 
-$$ \int_{-\pi/2}^{\phi} \frac{\partial \mathcal{H}}{\partial \phi^\prime}  d\phi^\prime = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos⁡\phi^\prime ~ R_{TOA} d\phi^\prime  $$
+$$ \int_{-\pi/2}^{\phi} \frac{\partial \mathcal{H}}{\partial \phi^\prime}  d\phi^\prime = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos\phi^\prime ~ R_{TOA} d\phi^\prime  $$
 
-$$ \mathcal{H}(\phi) - \mathcal{H}(-\pi/2) = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos⁡\phi^\prime ~ R_{TOA} d\phi^\prime  $$
+$$ \mathcal{H}(\phi) - \mathcal{H}(-\pi/2) = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos\phi^\prime ~ R_{TOA} d\phi^\prime  $$
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 Our boundary condition is that the transport must go to zero at the pole. We therefore have a formula for calculating the heat transport at any latitude, by integrating the imbalance from the South Pole:
 
-$$ \mathcal{H}(\phi) = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos⁡\phi^\prime ~ R_{TOA} d\phi^\prime  $$
+$$ \mathcal{H}(\phi) = 2 \pi ~a^2 \int_{-\pi/2}^{\phi} \cos\phi^\prime ~ R_{TOA} d\phi^\prime  $$
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -553,7 +553,7 @@ What about the boundary condition at the other pole? We must have $\mathcal{H}(\
 
 Notice that if we apply the above formula and integrate all the way to the other pole, we then have
 
-$$ \mathcal{H}(\pi/2) = 2 \pi ~a^2 \int_{-\pi/2}^{\pi/2} \cos⁡\phi^\prime ~ R_{TOA} d\phi^\prime  $$
+$$ \mathcal{H}(\pi/2) = 2 \pi ~a^2 \int_{-\pi/2}^{\pi/2} \cos\phi^\prime ~ R_{TOA} d\phi^\prime  $$
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->

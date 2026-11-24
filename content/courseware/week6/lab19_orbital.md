@@ -41,10 +41,10 @@ Recent Earth history (past few million years) has been dominated by the repeated
 The images below show typical maximum extents of the ice sheets during recent glaciations (grey) compared with present-day ice sheets (black)
 <!-- #endregion -->
 
-<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Iceage_north-intergl_glac_hg.png/480px-Iceage_north-intergl_glac_hg.png'>
+<img src='../../images/Iceage_north-intergl_glac_hg.png' width=480>
 
 
-<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Iceage_south-intergl_glac_hg.png/480px-Iceage_south-intergl_glac_hg.png'>
+<img src='../../images/Iceage_south-intergl_glac_hg.png' width=480>
 
 <!-- #region slideshow={"slide_type": "skip"} -->
 > Hannes Grobe/AWI, http://commons.wikimedia.org/wiki/File:Iceage_north-intergl_glac_hg.png
@@ -62,7 +62,7 @@ The x axis is plotted in **Thousands of years before present** (present-day is a
 ```{figure} ./Lisiecki_Raymo_Fig.4top.png
 ---
 width: 80%
-name: directive-fig
+name: fig-lisiecki-raymo
 alt: pha
 ---
 Oxygen 16 isotope changes over the past 1,800,000 years
@@ -83,7 +83,7 @@ The ice ages (times of extensive glaciation and high ocean $\delta^{18}$O) do no
 ```{figure} ./ImbrieImbrie_Fig42.png
 ---
 width: 40%
-name: directive-fig
+name: fig-imbrie-spectrum
 alt: pha
 ---
 Spectral analysis of delta18O
@@ -173,7 +173,7 @@ The Earth’s orbit around the Sun traces out an **ellipse**, with the Sun at on
 ```{figure} ./ImbrieImbrie_Fig14.png
 ---
 width: 40%
-name: directive-fig
+name: fig-imbrie-orbit
 alt: pha
 ---
 Earth's orbit
@@ -605,7 +605,7 @@ ____________
 <!-- #region slideshow={"slide_type": "slide"} -->
 - The annual, global mean insolation varies only as a result of eccentricity $e$. The changes are very small (about 0.1 % through a typical eccentricity cycle from more circular to more elliptical)
 - Obliquity controls the annual-mean equator-to-pole insolation gradient.
-- The precessional parameter $e \sin⁡\Lambda$ controls the modulation in seasonal insolation due to eccentricity and longitude of perihelion $\Lambda$.
+- The precessional parameter $e \sin\Lambda$ controls the modulation in seasonal insolation due to eccentricity and longitude of perihelion $\Lambda$.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->

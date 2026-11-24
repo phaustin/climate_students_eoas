@@ -136,7 +136,7 @@ The following figure shows observed spectra of solar radiation at TOA and at the
 
 +++
 
-<img src='https://upload.wikimedia.org/wikipedia/commons/e/e7/Solar_spectrum_en.svg'>
+<img src='../../images/Solar_spectrum_en.svg'>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -162,7 +162,6 @@ This figure shows the Planck function for Earth's surface temperature compared w
 
 :::{figure} images/Terrestrial_spectrum.png
 :name: terrestrial
-:scale: 100
 
 :::
 

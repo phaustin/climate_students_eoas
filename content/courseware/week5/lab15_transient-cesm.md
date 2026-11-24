@@ -41,7 +41,7 @@ From the IPCC AR5 WG1 report, Chapter 9, page 817:
 
 > Equilibrium climate sensitivity (ECS) is the equilibrium change in global and annual mean surface air temperature after doubling the atmos- pheric concentration of CO2 relative to pre-industrial levels. 
 
-> The transient climate response (TCR) is the change in global and annual mean surface temperature from an experiment in which the CO2 concentration is increased by 1% yr$^{–1}$, and calculated using the difference between the start of the experiment and a 20-year period centred on the time of CO2 doubling.
+> The transient climate response (TCR) is the change in global and annual mean surface temperature from an experiment in which the CO2 concentration is increased by 1% yr$^{-1}$, and calculated using the difference between the start of the experiment and a 20-year period centred on the time of CO2 doubling.
 
 +++
 
@@ -230,7 +230,6 @@ print('The Transient Climate Response is {:.3} K.'.format(float(TCR)))
 
 :::{figure} ./AR5_Table9.5.png
 :name: ar5_feedbacks
-:scale: 100
 
 AR5 feedbacks
 :::

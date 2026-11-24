@@ -99,7 +99,7 @@ ____________
 
 Last time we wrote down an energy budget for a thin zonal band centered at latitude $\phi$:
 
-$$ \frac{\partial E(\phi)}{\partial t} = \text{ASR}(\phi) - \text{OLR}(\phi) - \frac{1}{2 \pi a^2  \cos⁡\phi } \frac{\partial \mathcal{H}}{\partial \phi} $$
+$$ \frac{\partial E(\phi)}{\partial t} = \text{ASR}(\phi) - \text{OLR}(\phi) - \frac{1}{2 \pi a^2  \cos\phi } \frac{\partial \mathcal{H}}{\partial \phi} $$
 
 where we have written every term as an explicit function of latitude to remind ourselves that this is a **local** budget, unlike the zero-dimensional global budget we considered at the start of the course.
 <!-- #endregion -->
@@ -107,7 +107,7 @@ where we have written every term as an explicit function of latitude to remind o
 <!-- #region slideshow={"slide_type": "slide"} -->
 Let’s now formally introduce a parameterization that **approximates the heat transport as a down-gradient diffusion process**:
 
-$$ \mathcal{H}(\phi) \approx -2 \pi a^2  \cos⁡\phi ~ D ~ \frac{\partial T_s}{\partial \phi} $$
+$$ \mathcal{H}(\phi) \approx -2 \pi a^2  \cos\phi ~ D ~ \frac{\partial T_s}{\partial \phi} $$
 
 With $D$ a parameter for the **diffusivity** or **thermal conductivity** of the climate system, a number in W m$^{-2}$ ºC$^{-1}$.
 <!-- #endregion -->
@@ -123,13 +123,13 @@ Notice that we have explicitly chosen to the use **surface temperature gradient*
 
 Plug the parameterization into our energy budget to get
 
-$$ \frac{\partial E(\phi)}{\partial t} = \text{ASR}(\phi) - \text{OLR}(\phi) - \frac{1}{2 \pi a^2  \cos⁡\phi } \frac{\partial }{\partial \phi} \left( -2 \pi a^2  \cos⁡\phi ~ D ~ \frac{\partial T_s}{\partial \phi} \right) $$
+$$ \frac{\partial E(\phi)}{\partial t} = \text{ASR}(\phi) - \text{OLR}(\phi) - \frac{1}{2 \pi a^2  \cos\phi } \frac{\partial }{\partial \phi} \left( -2 \pi a^2  \cos\phi ~ D ~ \frac{\partial T_s}{\partial \phi} \right) $$
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 If we assume that $D$ is a constant (does not vary with latitude), then this simplifies to
 
-$$ \frac{\partial E(\phi)}{\partial t} = \text{ASR}(\phi) - \text{OLR}(\phi) + \frac{D}{\cos⁡\phi } \frac{\partial }{\partial \phi} \left(   \cos⁡\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
+$$ \frac{\partial E(\phi)}{\partial t} = \text{ASR}(\phi) - \text{OLR}(\phi) + \frac{D}{\cos\phi } \frac{\partial }{\partial \phi} \left(   \cos\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -151,7 +151,7 @@ where $C$ is **effective heat capacity** of the atmosphere - ocean column, in un
 
 Now our budget becomes a PDE for the surface temperature $T_s(\phi, t)$:
 
-$$ C(\phi) \frac{\partial T_s}{\partial t} = \text{ASR}(\phi) - \text{OLR}(\phi) + \frac{D}{\cos⁡\phi } \frac{\partial }{\partial \phi} \left(   \cos⁡\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
+$$ C(\phi) \frac{\partial T_s}{\partial t} = \text{ASR}(\phi) - \text{OLR}(\phi) + \frac{D}{\cos\phi } \frac{\partial }{\partial \phi} \left(   \cos\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -177,7 +177,7 @@ In our case, the analogy is between the random molecular motion of a metal rod, 
 Take the integral $\int_{-\pi/2}^{\pi/2} \cos\phi ~ d\phi$ of each term.
 
 
-$$ C \frac{\partial \overline{T_s}}{\partial t} d\phi = \overline{\text{ASR}} - \overline{\text{OLR}} + D \int_{-\pi/2}^{\pi/2} \frac{\partial }{\partial \phi} \left(   \cos⁡\phi  ~ \frac{\partial T_s}{\partial \phi} \right) d\phi$$
+$$ C \frac{\partial \overline{T_s}}{\partial t} d\phi = \overline{\text{ASR}} - \overline{\text{OLR}} + D \int_{-\pi/2}^{\pi/2} \frac{\partial }{\partial \phi} \left(   \cos\phi  ~ \frac{\partial T_s}{\partial \phi} \right) d\phi$$
 
 The global average of the last term (heat transport) must go to zero (why?)
 
@@ -196,7 +196,7 @@ ____________
 
 The equation we're going to solve here is
 
-$$ C(\phi) \frac{\partial T_s}{\partial t} = \frac{D}{\cos⁡\phi } \frac{\partial }{\partial \phi} \left(   \cos⁡\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
+$$ C(\phi) \frac{\partial T_s}{\partial t} = \frac{D}{\cos\phi } \frac{\partial }{\partial \phi} \left(   \cos\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
 
 (i.e. the EBM equation without any radiation terms)
 <!-- #endregion -->
@@ -311,7 +311,7 @@ ____________
 
 Let's go back to the complete budget with our heat transport parameterization
 
-$$ C(\phi) \frac{\partial T_s}{\partial t} = \text{ASR}(\phi) - \text{OLR}(\phi) + \frac{D}{\cos⁡\phi } \frac{\partial }{\partial \phi} \left(   \cos⁡\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
+$$ C(\phi) \frac{\partial T_s}{\partial t} = \text{ASR}(\phi) - \text{OLR}(\phi) + \frac{D}{\cos\phi } \frac{\partial }{\partial \phi} \left(   \cos\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
 <!-- #endregion -->
 
 To turn our **budget** into a **model**, we need specific *parameterizations* that link the radiation ASR and OLR to surface temperature $T_s$ (the state variable for our model).
@@ -504,7 +504,7 @@ ____________
 
 Putting the above OLR parameterization into our budget equation gives
 
-$$ C(\phi) \frac{\partial T_s}{\partial t} = (1-\alpha) ~ Q - \left( A + B~T_s \right) + \frac{D}{\cos⁡\phi } \frac{\partial }{\partial \phi} \left(   \cos⁡\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
+$$ C(\phi) \frac{\partial T_s}{\partial t} = (1-\alpha) ~ Q - \left( A + B~T_s \right) + \frac{D}{\cos\phi } \frac{\partial }{\partial \phi} \left(   \cos\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -607,7 +607,7 @@ Suppose we take the **annual mean of the planetary energy budget**.
 
 If the albedo is fixed, then the average is pretty simple. Our EBM equation is purely linear, so the change over one year is just
 
-$$ C \frac{\Delta \overline{T_s}}{\text{1 year}} = \left(1-\alpha(\phi) \right) ~ \overline{Q}(\phi) - \left( A + B~\overline{T_s} \right) + \frac{D}{\cos⁡\phi } \frac{\partial }{\partial \phi} \left(   \cos⁡\phi  ~ \frac{\partial \overline{T_s}}{\partial \phi} \right) $$
+$$ C \frac{\Delta \overline{T_s}}{\text{1 year}} = \left(1-\alpha(\phi) \right) ~ \overline{Q}(\phi) - \left( A + B~\overline{T_s} \right) + \frac{D}{\cos\phi } \frac{\partial }{\partial \phi} \left(   \cos\phi  ~ \frac{\partial \overline{T_s}}{\partial \phi} \right) $$
 
 where $\overline{T_s}(\phi)$ is the annual mean surface temperature, and $\overline{Q}(\phi)$ is the annual mean insolation (both functions of latitude).
 
@@ -617,7 +617,7 @@ Notice that once we average over the seasonal cycle, there are no time-dependent
 <!-- #region slideshow={"slide_type": "slide"} -->
 The equilibrium temperature is then the solution of this Ordinary Differential Equation (setting $\Delta \overline{T_s} = 0$ above):
 
-$$ 0 = \left(1-\alpha(\phi) \right) ~ \overline{Q}(\phi) - \left( A + B~\overline{T_s} \right) + \frac{D}{\cos⁡\phi } \frac{d }{d \phi} \left(   \cos⁡\phi  ~ \frac{d \overline{T_s}}{d \phi} \right) $$
+$$ 0 = \left(1-\alpha(\phi) \right) ~ \overline{Q}(\phi) - \left( A + B~\overline{T_s} \right) + \frac{D}{\cos\phi } \frac{d }{d \phi} \left(   \cos\phi  ~ \frac{d \overline{T_s}}{d \phi} \right) $$
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -987,7 +987,7 @@ ____________
 <!-- #region slideshow={"slide_type": "slide"} -->
 Our model is defined by the following equation
 
-$$ C \frac{\partial T_s}{\partial t} = (1-\alpha) ~ Q - \left( A + B~T_s \right) + \frac{D}{\cos⁡\phi } \frac{\partial }{\partial \phi} \left(   \cos⁡\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
+$$ C \frac{\partial T_s}{\partial t} = (1-\alpha) ~ Q - \left( A + B~T_s \right) + \frac{D}{\cos\phi } \frac{\partial }{\partial \phi} \left(   \cos\phi  ~ \frac{\partial T_s}{\partial \phi} \right) $$
 
 with the albedo given by
 

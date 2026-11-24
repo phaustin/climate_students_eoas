@@ -193,7 +193,7 @@ For an in-depth discussion of how Xarray handles metadata, start in the Xarray d
 
 Along with `DataArray`, the other key object type in Xarray is the `Dataset`: a dictionary-like container that holds one or more `DataArray`s, which can also optionally share coordinates (see docs [here](http://xarray.pydata.org/en/stable/user-guide/data-structures.html#dataset)).
 
-The most common way to create a `Dataset` object is to load data from a file (see [below](#Opening-netCDF-data)). Here, instead, we will create another `DataArray` and combine it with our `temp` data.
+The most common way to create a `Dataset` object is to load data from a file (see [below](#opening-netcdf-data)). Here, instead, we will create another `DataArray` and combine it with our `temp` data.
 
 This will illustrate how the information about common coordinate axes is used.
 
@@ -373,6 +373,7 @@ What *doesn't* work is passing the slices in a different order:
 # temp.loc[-110:-70, 25:45,'2018-01-01':'2018-01-03']
 ```
 
+(opening-netcdf-data)=
 ## Opening netCDF data
 
 With its close ties to the netCDF data model, Xarray also supports netCDF as a first-class file format. This means it has easy support for opening netCDF datasets, so long as they conform to some of Xarray's limitations (such as 1-dimensional coordinates).
