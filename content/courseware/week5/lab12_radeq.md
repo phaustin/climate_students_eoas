@@ -22,7 +22,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 +++
 
 ____________
-<a id='section1'></a>
 
 ## 1. The observed annual, global mean temperature profile
 ____________

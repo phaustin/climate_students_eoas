@@ -21,7 +21,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section1'></a>
 
 ## 1. Energy exchange mechanisms at the Earth's surface
 ____________
@@ -74,7 +73,6 @@ All of these terms are small globally but can be significant locally or seasonal
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section2'></a>
 
 ## 2. The surface energy budget in CESM simulations
 ____________
@@ -283,7 +281,6 @@ Seasonally, the dominant balance by far is between solar radiation and heat stor
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section3'></a>
 
 ## 3. Sensible and Latent Heat Fluxes in the boundary layer
 ____________
@@ -436,7 +433,6 @@ ax.set_title('Saturation specific humidity (g/kg) and equilibrium Bowen ratio');
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section4'></a>
 
 ## 4. Bowen ratio in CESM simulations
 ____________

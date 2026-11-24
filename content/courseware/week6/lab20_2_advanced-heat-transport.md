@@ -22,7 +22,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section1'></a>
 
 ## 1. Spatial patterns of insolation and surface temperature
 ____________
@@ -99,7 +98,6 @@ The local surface temperature does not correlate perfectly with local insolation
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section2'></a>
 
 ## 2. Calculating Radiative-Convective Equilibrium as a function of latitude
 ____________
@@ -316,7 +314,6 @@ Indeed, the budget is (very nearly) closed everywhere. Each latitude is in energ
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section3'></a>
 
 ## 3. Observed and modeled TOA radiation budget
 ____________
@@ -610,7 +607,6 @@ If the **global budget is balanced**, then the physical boundary condition of no
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section5'></a>
 
 ## 5. Observed and modeled poleward heat transport
 ____________
@@ -770,7 +766,6 @@ Focussing just on the total, annual transport in panel (d) (black curve), we see
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section6'></a>
 
 ## 6. Energy budgets for the atmosphere and ocean
 ____________
@@ -922,7 +917,6 @@ $$\mathcal{H}_{Dry} = \mathcal{H}_a - \mathcal{H}_{LH} $$
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section7'></a>
 
 ## 7. Calculating the partitioning of poleward energy transport into different components
 ____________
@@ -1005,7 +999,6 @@ Discuss the shape of these curves, before and after the global warming.
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section8'></a>
 
 ## 8. Mechanisms of heat transport
 ____________

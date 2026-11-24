@@ -74,7 +74,7 @@ And is located in Google Cloud Storage at 'gs://cmip6/CMIP6/HighResMIP/CMCC/CMCC
 ## Finding unique entries
 
 To get unique values for given columns in the catalog, intake-esm provides a
-{py:meth}`~intake_esm.core.esm_datastore.unique` method:
+`unique()` method:
 
 Let's query the data catalog to see what models(`source_id`), experiments
 (`experiment_id`) and temporal frequencies (`table_id`) are available.
@@ -103,7 +103,7 @@ unique['table_id'][:10]
 
 ## Search for specific datasets
 
-The {py:meth}`~intake_esm.core.esm_datastore.search` method allows the user to
+The `search()` method allows the user to
 perform a query on a catalog using keyword arguments. The keyword argument names
 must match column names in the catalog. The search method returns a
 subset of the catalog with all the entries that match the provided query.
@@ -148,7 +148,7 @@ cat.esmcat.aggregation_control
 ```
 
 To load data assets into xarray datasets, we need to use the
-{py:meth}`~intake_esm.core.esm_datastore.to_dataset_dict` method. This method
+`to_dataset_dict()` method. This method
 returns a dictionary of aggregate xarray datasets as the name hints.
 
 ```{code-cell} ipython3

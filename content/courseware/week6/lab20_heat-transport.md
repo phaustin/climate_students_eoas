@@ -21,7 +21,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section1'></a>
 
 ## 1. Spatial patterns of insolation and surface temperature
 ____________
@@ -98,7 +97,6 @@ The local surface temperature does not correlate perfectly with local insolation
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section2'></a>
 
 ## 2. Calculating Radiative-Convective Equilibrium as a function of latitude
 ____________
@@ -315,7 +313,6 @@ Indeed, the budget is (very nearly) closed everywhere. Each latitude is in energ
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section3'></a>
 
 ## 3. Observed and modeled TOA radiation budget
 ____________

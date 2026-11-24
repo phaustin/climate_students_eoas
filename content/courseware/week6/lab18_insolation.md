@@ -21,7 +21,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section1'></a>
 
 ## 1. Distribution of insolation
 ____________
@@ -157,7 +156,6 @@ The average zenith angle is much higher at the poles than in the tropics. This c
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section2'></a>
 
 ## 2. Computing daily insolation with `climlab`
 ____________
@@ -253,7 +251,6 @@ Try to answer the following questions **before reading the rest of these notes**
 <!-- #endregion -->
 
 ____________
-<a id='section3'></a>
 
 ## 3. Global, seasonal distribution of insolation (present-day orbital parameters)
 ____________

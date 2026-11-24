@@ -53,7 +53,6 @@ import climlab
 ```
 
 ____________
-<a id='section2'></a>
 
 ## 2. Using `climlab` to implement the two-layer leaky greenhouse model
 ____________
@@ -216,7 +215,6 @@ So it looks like `climlab` agrees with our analytical results to within 0.1 K. T
 +++
 
 ____________
-<a id='section3'></a>
 
 ## 3. The observed annual, global mean temperature profile
 ____________
@@ -301,7 +299,6 @@ plot_soundings([],[] );
 ```
 
 ____________
-<a id='section4'></a>
 
 ## 4. A 30-layer model using the observed temperatures
 ____________
@@ -399,7 +396,6 @@ col.OLR
 ```
 
 ____________
-<a id='section5'></a>
 
 ## 5. Radiative forcing in the 30-layer model
 ____________
@@ -440,7 +436,6 @@ print( 'The radiative forcing is %.2f W/m2.' %RF)
 ```
 
 ____________
-<a id='section6'></a>
 
 ## 6. Radiative equilibrium in the 30-layer model
 ____________
@@ -475,7 +470,6 @@ Some properties of the **radiative equilibrium** temperature profile:
 +++
 
 ____________
-<a id='section7'></a>
 
 ## 7. Radiative-Convective Equilibrium in the 30-layer model
 ____________
@@ -542,7 +536,6 @@ But of course we still have no stratosphere.
 +++
 
 ____________
-<a id='section8'></a>
 
 ## 8. Putting stratospheric ozone in the grey-gas model
 ____________

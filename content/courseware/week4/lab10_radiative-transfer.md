@@ -22,7 +22,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section1'></a>
 
 ## 1. The two-stream Schwarschild equations
 ____________
@@ -109,7 +108,6 @@ These equations are valid for beam that are **not affected by scattering**. We m
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section2'></a>
 
 ## 2. The Grey Gas Model
 ____________
@@ -211,7 +209,6 @@ $$ D_{0} = D_{1} \exp(-\Delta \tau ) + \int_{\tau_0}^{\tau_1} E \exp\big( -(\tau
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section3'></a>
 
 ## 3. Discretizing the Grey-gas equations on a finite grid
 ____________
@@ -283,7 +280,6 @@ $$ E_0 = \sigma T_0^4 $$
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section4'></a>
 
 ## 4. Matrix equations for the grey gas model
 ____________
@@ -417,7 +413,6 @@ print( trans.Tdown)
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section5'></a>
 
 ## 5. Band-averaged radiation models in `climlab`
 ____________
@@ -490,7 +485,6 @@ D &= \sum_0^{M-1} D_j
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='references'></a>
 
 ## References
 ____________

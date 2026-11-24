@@ -58,7 +58,6 @@ Recall that we saw this schematic of different ways to represent the ocean in cl
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section6'></a>
 ## Our numerical experiments with CESM
 ____________
 

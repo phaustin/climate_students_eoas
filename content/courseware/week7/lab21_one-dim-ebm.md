@@ -23,7 +23,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section1'></a>
 
 ## 1. Simulation versus parameterization of heat transport
 ____________

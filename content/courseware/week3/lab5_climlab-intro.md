@@ -22,7 +22,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 +++
 
 ____________
-<a id='section1'></a>
 
 ## 1. Introducing climlab
 ____________
@@ -58,7 +57,6 @@ conda install -c conda-forge climlab
 +++
 
 ____________
-<a id='section2'></a>
 
 ## 2. Using climlab to implement the zero-dimensional energy balance model
 ____________
@@ -222,7 +220,6 @@ What do you think will happen next?
 +++
 
 ____________
-<a id='section3'></a>
 
 ## 3. Run the zero-dimensional EBM out to equilibrium
 ____________
@@ -242,7 +239,6 @@ Let's look at how the model adjusts toward its equilibrium temperature.
 ```
 
 ____________
-<a id='section4'></a>
 
 ## 4. A climate change scenario 
 ____________
@@ -364,7 +360,6 @@ ebm2.ASR - ebm2.OLR
 ```
 
 ____________
-<a id='section5'></a>
 
 ## 5. Further `climlab` resources
 ____________

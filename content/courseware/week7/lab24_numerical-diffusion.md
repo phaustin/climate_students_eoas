@@ -21,7 +21,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section1'></a>
 
 ## 1. The one-dimensional diffusion equation
 ____________
@@ -59,7 +58,6 @@ This equation represents a time-dependent diffusion process. It is an **initial-
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section2'></a>
 
 ## 2. Discretizing the diffusion operator in space
 ____________
@@ -220,7 +218,6 @@ $$ \frac{\partial u}{\partial t} \bigg|_{J-1}  \approx - K \frac{ u_{J-1} - u_{J
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section3'></a>
 
 ## 3. Coding the discretized diffusion operator in `numpy`
 ____________
@@ -362,7 +359,6 @@ for n in range(4):
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section4'></a>
 
 ## 4. Discretizing the time derivative
 ____________
@@ -475,7 +471,6 @@ What went wrong, and what can we do about it?
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section5'></a>
 
 ## 5. Stability analysis of the FTCS scheme
 ____________
@@ -567,7 +562,6 @@ Physically, the restriction is that the maximum allowable timestep is approximat
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section6'></a>
 
 ## 6. Numerical tests with a shorter timestep
 ____________
@@ -612,7 +606,6 @@ The total increase in computational cost was actally a factor of 8 to get a fact
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section7'></a>
 
 ## 7. The need for a more efficient method
 ____________
@@ -656,7 +649,6 @@ This can be a very onerous requirement for a model that would like to integrate 
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section8'></a>
 
 ## 8. Implicit time method
 ____________
@@ -770,7 +762,6 @@ The implicit method (also called **backward time**) is unconditionally stable fo
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section9'></a>
 
 ## 9. Your homework assignment
 ____________

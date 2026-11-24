@@ -8,5 +8,9 @@ content/_build
 *~
 climatehub_image/user_list.txt
 /content/courseware/xarray/.ipynb_checkpoints/
-
 *ipynb
+content/_build_v1
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+

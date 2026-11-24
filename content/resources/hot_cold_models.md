@@ -92,7 +92,7 @@ And is located in Google Cloud Storage at 'gs://cmip6/CMIP6/HighResMIP/CMCC/CMCC
 ## Finding unique entries
 
 To get unique values for given columns in the catalog, intake-esm provides a
-{py:meth}`~intake_esm.core.esm_datastore.unique` method:
+`unique()` method:
 
 Let's query the data catalog to see what models(`source_id`), experiments
 (`experiment_id`) and temporal frequencies (`table_id`) are available.

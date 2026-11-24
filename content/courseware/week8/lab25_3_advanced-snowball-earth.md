@@ -1,4 +1,5 @@
 ---
+skip_execution: true  # was in v1 execute.exclude_patterns
 jupytext:
   formats: ipynb,md:myst
   text_representation:
@@ -43,7 +44,6 @@ import climlab
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section1'></a>
 
 ## 1. The Neoproterozoic Snowball Earth events
 ____________
@@ -98,7 +98,6 @@ The hypothesis rests on a phenomenon first discovered by climate modelers in the
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section2'></a>
 
 ## 2. Stability of the polar ice caps: the concept
 ____________
@@ -130,7 +129,6 @@ See [Rose (2015), J. Geophys. Res., doi:10.1002/2014JD022659](http://onlinelibra
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section3'></a>
 
 ## 3. Annual-mean EBM with albedo feedback: adjustment to equilibrium
 ____________
@@ -215,7 +213,6 @@ Less shortwave means that there is a tendency for the climate to cool down even 
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section4'></a>
 
 ## 4. Global feedback analysis in the EBM
 ____________
@@ -334,7 +331,6 @@ Note that the warmest spot on the planet is still the equator, but it is now abo
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section5'></a>
 
 ## 5. Here Comes the Sun! Where is the ice edge?
 ____________

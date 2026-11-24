@@ -28,7 +28,6 @@ from climlab import constants as const
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section1'></a>
 
 ## 1. The ice ages
 ____________
@@ -52,7 +51,6 @@ The images below show typical maximum extents of the ice sheets during recent gl
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-<a id='icevolumeseries'></a>
 ### Pacing of ice ages: evidence from ocean sediments
 <!-- #endregion -->
 
@@ -105,7 +103,6 @@ The presence of peaks in the spectrum at orbital frequencies was seen as convinc
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section2'></a>
 
 ## 2. Introducing the astronomical theory of the ice ages
 ____________
@@ -153,7 +150,6 @@ The idea is that for an ice sheet to grow, seasonal snow must survive through th
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section3'></a>
 
 ## 3. Ellipses and orbits
 ____________
@@ -295,7 +291,6 @@ All three vary in predictable ways over time. They have been calculated very acc
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section4'></a>
 
 ## 4. Past orbital variations
 ____________
@@ -368,7 +363,6 @@ ax3.set_xlim(-400,0)
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section5'></a>
 
 ## 5. Using `climlab` to calculate insolation for arbitrary orbital parameters
 ____________
@@ -415,7 +409,6 @@ Do you understand what's going on here?
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section6'></a>
 
 ## 6. Past changes in insolation: investigating the Milankovitch hypothesis
 ____________
@@ -529,7 +522,6 @@ The difference is tiny (and due to very small changes in the eccentricity).
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section7'></a>
 
 ## 7. Understanding the effects of orbital variations on insolation
 ____________
@@ -605,7 +597,6 @@ We see that
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section8'></a>
 
 ## 8. Summary
 ____________

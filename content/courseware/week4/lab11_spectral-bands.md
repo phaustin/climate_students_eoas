@@ -22,7 +22,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section1'></a>
 
 ## 1. What if CO$_2$ actually behaved like a Grey Gas?
 ____________
@@ -123,7 +122,6 @@ print(ecs)
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section2'></a>
 
 ## 2. Another look at observed spectra
 ____________
@@ -194,7 +192,6 @@ We would therefore like to start using a model that includes enough spectral inf
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section3'></a>
 
 ## 3. Water vapor changes under global warming
 ____________
@@ -297,7 +294,6 @@ This is not something we can derive from first principles. It is an emergent pro
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section4'></a>
 
 ## 4. A simple water vapor parameterization
 ____________
@@ -350,7 +346,6 @@ Using this parameterization, the surface and tropospheric specific humidity will
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section5'></a>
 
 ## 5. Modeling spectral bands with the `climlab.BandRCModel` process
 ____________

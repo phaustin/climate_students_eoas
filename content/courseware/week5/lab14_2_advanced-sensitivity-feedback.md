@@ -20,7 +20,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section1'></a>
 
 ## 1. Radiative forcing
 ____________
@@ -44,7 +43,6 @@ What happens next?
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section2'></a>
 
 ## 2. Climate sensitivity (without feedback)
 ____________
@@ -140,7 +138,6 @@ $\Delta T_0 = 1.2$ K is the ** warming that we would have if the Earth radiated 
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section3'></a>
 
 ## 3. The feedback concept
 ____________
@@ -151,7 +148,7 @@ A feedback occurs when a portion of the output from the action of a system is ad
 
 +++
 
-<img src='../images/feedback_sketch.png' alt='feedback loop' width=500>
+<img src='../../images/feedback_sketch.png' alt='feedback loop' width=500>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -182,7 +179,6 @@ Colder temperatures lead to expansion of the areas covered by ice and snow, whic
 +++ {"slideshow": {"slide_type": "slide"}}
 
 _____________
-<a id='section4'></a>
 ## 4. Climate feedback: some definitions
 ____________
 
@@ -251,7 +247,6 @@ And if the overall feedback is negative?
 +++ {"slideshow": {"slide_type": "slide"}}
 
 _____________
-<a id='section5'></a>
 ## 5. Climate sensitivity with feedback
 ____________
 
@@ -288,7 +283,6 @@ The overall feedback (due to water vapor, clouds, etc.) is **positive**.
 +++ {"slideshow": {"slide_type": "slide"}}
 
 _____________
-<a id='section6'></a>
 ## 6. Contribution of individual feedback processes to Equilibrium Climate Sensitivity
 ____________
 
@@ -359,7 +353,6 @@ $$\lambda = \lambda_0 - \sum_{i=1}^{N} \lambda_i \ne \lambda_0 $$
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section7'></a>
 ## 7. Feedbacks diagnosed from complex climate models
 ____________
 
@@ -429,7 +422,6 @@ Flato, G., J. Marotzke, B. Abiodun, P. Braconnot, S.C. Chou, W. Collins, P. Cox,
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section8'></a>
 ## 8. The zero-dimensional model with variable albedo
 ____________
 

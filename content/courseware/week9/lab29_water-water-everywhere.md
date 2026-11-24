@@ -23,7 +23,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section1'></a>
 
 ## 1. Imagine a world with reduced efficiency of evaporation
 ____________
@@ -60,7 +59,6 @@ Reasoning through the effects of this perturbation (and calculating the effects 
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section2'></a>
 
 ## 2. Reduced evaporation experiment in a simple model with `climlab`
 ____________
@@ -348,7 +346,6 @@ We will compare this result to an analogous experiment in a GCM.
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section3'></a>
 
 ## 3. Reduced evaporation efficiency experiment in an aquaplanet GCM
 ____________
@@ -548,7 +545,6 @@ ax.legend(loc='upper left'); ax.set_ylabel('PW'); ax.set_xlabel('Latitude')
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section4'></a>
 
 ## 4. Conclusion
 ____________

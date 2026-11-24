@@ -21,7 +21,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section1'></a>
 ## 1. The climate system and its interactions
 ____________
 
@@ -105,7 +104,6 @@ So we don’t tend to include ice sheet and geological feedbacks – though coup
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section2'></a>
 ## 2. Simulation versus Parameterization
 ____________
 
@@ -178,7 +176,6 @@ Essentially a **simulation** involves representing (at least some aspects of) th
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section3'></a>
 ## 3. A taxonomy of climate models
 ____________
 
@@ -324,7 +321,6 @@ Section 2.2.1 and 2.2.2 of the *Primer* give a sneak peek of the ingredients and
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section4'></a>
 ## 4. Introducing the GCM
 ____________
 
@@ -428,7 +424,6 @@ E.g. cumulus convection and vertical transport of heat and water vapor
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section5'></a>
 ## 5. What can we resolve with a 2º atmosphere?
 ____________
 

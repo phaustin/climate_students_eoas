@@ -1,4 +1,5 @@
 ---
+skip_execution: true  # was in v1 execute.exclude_patterns
 jupyter:
   jupytext:
     text_representation:
@@ -45,7 +46,6 @@ Actually for the new version of this model with interactive ice line, we are goi
 
 
 ____________
-<a id='section2'></a>
 
 ## 2. Interactive snow/ice line in the EBM
 ____________
@@ -83,7 +83,6 @@ This is known as a "step function" formula, because the value of $\alpha$ steps 
 
 
 ____________
-<a id='section3'></a>
 
 ## 3. Solving the EBM with variable snow/ice line in CLIMLAB
 ____________
@@ -213,7 +212,6 @@ This model is tuned up to reasonable "present-day" conditions.
 
 
 ____________
-<a id='section4'></a>
 
 ## 4. Polar-amplified warming in the EBM
 ____________
@@ -279,7 +277,6 @@ In the ice-free regime, there is no polar-amplified warming. A uniform radiative
 
 
 ____________
-<a id='section5'></a>
 
 ## 5. A different kind of climate forcing: changing the solar constant
 ____________
@@ -332,7 +329,6 @@ A much colder climate!  The ice line is sitting at 54º. The heat transport show
 
 
 ____________
-<a id='section6'></a>
 
 ## 6. The large ice cap instability
 ____________
@@ -393,7 +389,6 @@ If the oceans froze over and the Earth were covered in ice and snow today, it wo
 
 
 ____________
-<a id='section7'></a>
 
 ## 7. The Neoproterozoic Snowball Earth
 ____________
@@ -443,7 +438,6 @@ The hypothesis rests on a phenomenon first discovered by climate modelers in the
 
 
 ____________
-<a id='section8'></a>
 
 ## 8. Computing the complete hysteresis curve for the 1D diffusive EBM
 ____________

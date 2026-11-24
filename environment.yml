@@ -12,6 +12,8 @@ dependencies:
   - metpy
   - cartopy
   - sympy
+  - pythia_datasets
+  - SkillMetrics
   - scipy
   - ffmpeg
   - jupyterlab

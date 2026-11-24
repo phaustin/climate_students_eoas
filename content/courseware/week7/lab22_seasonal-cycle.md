@@ -21,7 +21,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section1'></a>
 
 ## 1. The observed seasonal cycle from NCEP Reanalysis data
 ____________
@@ -102,7 +101,6 @@ ax.set_title('Zonal mean surface temperature (degC)', fontsize=20)
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section2'></a>
 
 ## 2. Analytical toy model of the seasonal cycle
 ____________
@@ -464,7 +462,6 @@ The blue curve in this figure is in phase with the insolation.
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section3'></a>
 
 ## 3. Exploring the amplitude of the seasonal cycle with an EBM
 ____________
@@ -668,7 +665,6 @@ HTML(ani.to_html5_video())
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section4'></a>
 
 ## 4. The seasonal cycle for a planet with 90º obliquity
 ____________

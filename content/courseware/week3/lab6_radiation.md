@@ -22,7 +22,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section1'></a>
 
 ## 1. Emission temperature and lapse rates
 ____________
@@ -161,7 +160,6 @@ Now it's time to start thinking a bit more about how the radiative transfer proc
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section2'></a>
 
 ## 2. Solar Radiation
 ____________
@@ -281,7 +279,6 @@ This is in the far-infrared part of the spectrum.
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section3'></a>
 
 ## 3. Terrestrial Radiation and absorption spectra
 ____________

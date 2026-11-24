@@ -22,7 +22,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section1'></a>
 
 ## 1. A single layer atmosphere
 ____________
@@ -128,7 +127,6 @@ Basically we just need to read our **list of assumptions** above and realize tha
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section2'></a>
 
 ## 2. Introducing the two-layer grey gas model
 ____________
@@ -188,7 +186,7 @@ both up and down.
 
 +++
 
-::: {figure} ./images/2layerAtm_sketch.png
+::: {figure} ../../images/2layerAtm_sketch.png
 :width: 70%
 :name: costheta
 :alt: pha

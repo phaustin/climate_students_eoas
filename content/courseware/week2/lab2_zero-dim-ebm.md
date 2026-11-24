@@ -23,7 +23,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section1'></a>
 
 ## 1. Recap of the global energy budget
 ____________
@@ -41,7 +40,6 @@ Observed global energy flows from Trenberth and Fasullo (2012)
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section1'></a>
 
 ## 2. Tuning radiative fluxes to the observations
 ____________
@@ -147,7 +145,6 @@ As we noted last time, this number is *just slightly greater* than the observed 
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section3'></a>
 
 ## 3. Equilibrium temperature
 ____________

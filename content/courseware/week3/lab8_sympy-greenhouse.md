@@ -208,7 +208,6 @@ This $D_0$ is what we call the **back radiation**, i.e. the longwave radiation f
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section3'></a>
 
 ## 3. Tuning the grey gas model to observations
 ____________
@@ -331,7 +330,6 @@ tuned
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section4'></a>
 
 ## 4. Level of emission
 ____________
@@ -387,7 +385,6 @@ As we will see later, to really understand what sets that observed 22 W m$^{-2}$
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section5'></a>
 
 ## 5. Radiative forcing in the 2-layer grey gas model
 ____________
@@ -573,7 +570,6 @@ The greenhouse effect thus gets stronger, and energy will begin to accumulate in
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section6'></a>
 
 ## 6. Radiative equilibrium in the 2-layer grey gas model
 ____________
@@ -760,7 +756,6 @@ This is a very general feature of radiative equilibrium, and we will see it agai
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ____________
-<a id='section7'></a>
 
 ## 7. Summary
 ____________

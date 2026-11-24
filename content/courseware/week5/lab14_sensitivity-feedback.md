@@ -249,7 +249,6 @@ The result is about 4.3 W m$^{-2}$.
 
 ____________
 
-<a id='section2'></a>
 
 ## 2. Equilibrium climate sensitivity (without feedback)
 ____________
@@ -353,7 +352,6 @@ What are some important processes that our model has neglected?
 +++
 
 ____________
-<a id='section3'></a>
 
 ## 3. The feedback concept
 ____________
@@ -395,7 +393,6 @@ Colder temperatures lead to expansion of the areas covered by ice and snow, whic
 +++
 
 _____________
-<a id='section4'></a>
 ## 4. Climate feedback: some definitions
 ____________
 
@@ -560,7 +557,6 @@ So the moistening of the atmosphere more than doubles the global warming effect.
 +++
 
 ____________
-<a id='section6'></a>
 ## 6. Contribution of individual feedback processes to Equilibrium Climate Sensitivity
 ____________
 

@@ -21,7 +21,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section1'></a>
 
 ## 1. Optical properties of individual clouds depend on the Cloud Liquid Water Path
 ____________
@@ -92,7 +91,6 @@ A relatively thick stratus cloud at the top of the planetary boundary layer refl
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section2'></a>
 
 ## 2. Cloudy sky versus clear sky radiation
 ____________
@@ -158,7 +156,6 @@ We need a model to work out the details!
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section3'></a>
 
 ## 3. Cloud Radiative Effect (CRE)
 ____________
@@ -184,7 +181,6 @@ We calculated CRE (including both longwave and shortwave components) in the CESM
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section4'></a>
 
 ## 4. Modeling the dependence of CRE on cloud height
 ____________
@@ -344,7 +340,6 @@ What do you see here? Look carefully at how the LW and SW effects of the cloud d
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section5'></a>
 
 ## 5. Cloud Feedback
 ____________
@@ -461,7 +456,6 @@ This is how we can "correct" the change in $CRE$ to get the actual cloud feedbac
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section6'></a>
 
 ## 6. Feedback measured in comprehensive GCMs
 ____________
@@ -477,7 +471,6 @@ ____________
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section7'></a>
 
 ## 7. Measuring $\lambda_{clear}$ with radiative kernels
 ____________

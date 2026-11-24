@@ -22,7 +22,6 @@ This notebook is part of [The Climate Laboratory](https://brian-rose.github.io/C
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section1'></a>
 
 ## 1. Interactive snow and ice line in the EBM
 ____________
@@ -134,7 +133,6 @@ model1.icelat
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section2'></a>
 
 ## 2. Polar-amplified warming in the EBM
 ____________
@@ -199,7 +197,6 @@ In the ice-free regime, there is no polar-amplified warming. A uniform radiative
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ____________
-<a id='section3'></a>
 
 ## 3. Effects of diffusivity in the annual mean EBM with albedo feedback
 ____________
