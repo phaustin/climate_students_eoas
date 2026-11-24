@@ -373,7 +373,7 @@ sample.where((sample > 25) & (sample < 30)).plot(size=6);
 
 We can use coordinates to apply a mask as well. Below, we use the `latitude` and `longitude` coordinates to mask everywhere outside of the [Niño 3.4 region](https://www.ncdc.noaa.gov/teleconnections/enso/indicators/sst/):
 
-![](https://www.ncdc.noaa.gov/monitoring-content/teleconnections/nino-regions.gif)
+![Niño index regions (NOAA)](../../images/nino-regions.gif)
 
 ```{code-cell} ipython3
 sample.where(

@@ -437,13 +437,13 @@ Through most of the previous notes we have been thinking about **global averages
 
 We've been working with an energy budget that looks something like this:
 
-<img src='../../images/column_sketch.pdf' width=200>
+<img src='column_sketch.jpg' width=200>
 
 +++
 
 When we start thinking about regional climates, we need to modify our budget to account for the **additional heating or cooling** due to **transport** in and out of the column:
 
-<img src='../../images/column_sketch2.pdf' width=200>
+<img src='column_sketch2.jpg' width=200>
 
 +++
 

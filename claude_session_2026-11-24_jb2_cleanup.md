@@ -116,11 +116,43 @@ site:
 - **New theme options:** the latest theme adds `hide_breadcrumbs` and `redirects`. It still has no `hide_branding`.
 - **Caveat:** with the theme unpinned, each fresh build can pull a newer version, so the site's look may change without edits. To lock it, pin a specific release URL again.
 
+## 8. Build with `BASE_URL` for GitHub Pages
+
+**Request:** `BASE_URL=climate_students_eoas myst build --html` was failing with errors.
+
+**Cause:** `BASE_URL` needs a leading slash. Without it, the theme's prerender step builds paths it can't match, and the build exits 1 with errors such as:
+
+```
+Error: No route matches URL "/climate_students_eoas/myst-theme.css"
+```
+
+**Correct command:**
+
+```bash
+BASE_URL=/climate_students_eoas myst build --html
+```
+
+A clean build (`_build/site` and `_build/html` deleted first) gives 68 pages with no errors or warnings. Links are prefixed correctly, e.g. `href="/climate_students_eoas/_assets/..."`.
+
+### Image problems found by the clean build
+
+Earlier builds had reused cached downloads and conversions, which hid these three:
+
+- **Niño-regions map** (`courseware/xarray/02-computation-masking.md:376` and `courseware/xarray/03-enso-xarray.md:72`)
+  - It came from `https://www.ncdc.noaa.gov/monitoring-content/teleconnections/nino-regions.gif`, which now returns a 404 HTML page, so it showed up as an "Unsupported image extension .html" error.
+  - Current NOAA locations tried (ncei.noaa.gov, cpc.ncep.noaa.gov, psl.noaa.gov) also returned 404, and a web search didn't find a current copy.
+  - The original GIF (511×328, public-domain NOAA) was recovered from the Internet Archive (`web.archive.org/web/2022id_/...`) and checked visually: it shows the Niño 4, 3.4, 3 and 1+2 boxes.
+  - Saved as `content/images/nino-regions.gif`. Both pages now use `![Niño index regions (NOAA)](../../images/nino-regions.gif)`.
+- **Column sketches** (`courseware/week6/lab20_heat-transport.md:440,446`)
+  - These pointed at `../../images/column_sketch.pdf` and `column_sketch2.pdf`. MyST converts PDF images to webp, which needs the `cwebp` command-line tool ("imagemagick and cwebp are required"). ImageMagick is in the pixi environment, but `cwebp` isn't.
+  - Changed to `column_sketch.jpg` and `column_sketch2.jpg`, which already sit in `courseware/week6/` and are used by lab20_2. This avoids needing `cwebp`.
+- **Notebook sync:** after the edits, `jupytext --sync` updated `03-enso-xarray.ipynb` and `lab20_heat-transport.ipynb`. `02-computation-masking.md` has no paired notebook.
+
 ## Final state
 
-- `myst build --html` builds 68 pages with no errors and no warnings.
+- `BASE_URL=/climate_students_eoas myst build --html` builds 68 pages with no errors and no warnings, including from a clean `_build`.
 - The site uses the latest book-theme and shows "EOSC 440 2026" in place of "Made with MyST".
-- Nothing from sections 3–7 is committed yet.
+- Nothing from sections 3–8 is committed yet, including the new `images/nino-regions.gif`.
 
 ## Still to do
 

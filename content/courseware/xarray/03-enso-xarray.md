@@ -69,7 +69,7 @@ In this notebook, we are going to combine several topics we've covered so far to
 
 > Nino X Index computation: (a) Compute area averaged total SST from Niño X region; (b) Compute monthly climatology (e.g., 1950-1979) for area averaged total SST from Niño X region, and subtract climatology from area averaged total SST time series to obtain anomalies; (c) Smooth the anomalies with a 5-month running mean; (d) Normalize the smoothed values by its standard deviation over the climatological period.
 
-![](https://www.ncdc.noaa.gov/monitoring-content/teleconnections/nino-regions.gif)
+![Niño index regions (NOAA)](../../images/nino-regions.gif)
 
 At the end of this notebook, you should be able to produce a plot that looks similar to this [Oceanic Niño Index plot](https://climatedataguide.ucar.edu/sites/default/files/styles/extra_large/public/2022-03/indices_oni_2_2_lg.png):
 
