@@ -1,0 +1,132 @@
+# Jupyter Book 2 / MyST configuration, converted from the v1 _config.yml + _toc.yml
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 76585e5a-fb95-48c3-9e52-0329e6eaeb9c
+  title: Climate Laboratory Book
+  description: Climate Laboratory
+  authors:
+    - name: Brian Rose
+  github: https://github.com/phaustin/ClimateLaboratoryBook
+  exclude:
+    - _build/**
+    - .jupyter_cache/**
+    - "**/.ipynb_checkpoints/**"
+  toc:
+  - file: home.md
+  - title: Syllabus
+    children:
+    - file: ugradsyllabus.md
+    - file: gradsyllabus.md
+  - title: Weekly topics
+    children:
+    - file: week_topics.md
+    - title: Course download folder
+      url: https://drive.google.com/drive/folders/1ktPMS5IaZYox06MYTd9CP5pKle7Coocs?usp=sharing
+  - title: Project resources
+    children:
+    - file: resources/tutorials/index.md
+    - file: resources/tutorials/historical_data.md
+    - file: resources/tutorials/regridding.md
+    - title: Project requirements overview
+      url: https://drive.google.com/file/d/1FgmsUC4QwrdCQpFpxcCpldWlqg3e_Y7n/view?usp=drive_link
+    - file: resources/resource_links.md
+    - file: resources/loading-cmip6-data.md
+    - file: resources/loading-CESM-LENS-data.md
+    - file: resources/hot_cold_models.md
+  - title: Front matter
+    children:
+    - file: preamble.md
+    - file: about.md
+    - file: who-for.md
+    - file: how-to.md
+    - file: attribution.md
+    - file: extra_reading.md
+  - title: Week 1 Labs
+    children:
+    - file: courseware/week1/lab1_models-budgets-fun.md
+  - title: Week 2 Labs
+    children:
+    - file: courseware/week2/lab2_zero-dim-ebm.md
+      children:
+      - file: courseware/week2/lab2_1_analytical-efolding.md
+    - file: courseware/week2/lab3_climate-system-models.md
+  - title: Week 3 Labs
+    children:
+    - file: courseware/week3/lab4_introducing-cesm.md
+    - file: courseware/week3/lab5_climlab-intro.md
+    - file: courseware/week3/lab6_radiation.md
+    - file: courseware/week3/lab7_elementary-greenhouse.md
+    - file: courseware/week3/lab8_sympy-greenhouse.md
+  - title: Week 4 Labs
+    children:
+    - file: courseware/week4/lab9_grey-radiation-climlab.md
+    - file: courseware/week4/lab10_radiative-transfer.md
+    - file: courseware/week4/lab11_spectral-bands.md
+  - title: Week 5 Labs
+    children:
+    - file: courseware/week5/lab12_radeq.md
+    - file: courseware/week5/lab13_rce.md
+    - file: courseware/week5/lab14_sensitivity-feedback.md
+      children:
+      - file: courseware/week5/lab14_2_advanced-sensitivity-feedback.md
+    - file: courseware/week5/lab15_transient-cesm.md
+    - file: courseware/week5/lab16_transient-toy.md
+  - title: Week 6 Labs
+    children:
+    - file: courseware/week6/lab17_clouds.md
+    - file: courseware/week6/lab18_insolation.md
+    - file: courseware/week6/lab19_orbital.md
+    - file: courseware/week6/lab20_heat-transport.md
+      children:
+      - file: courseware/week6/lab20_2_advanced-heat-transport.md
+  - title: Week 7 Labs
+    children:
+    - file: courseware/week7/lab21_one-dim-ebm.md
+    - file: courseware/week7/lab22_seasonal-cycle.md
+    - file: courseware/week7/lab23_cesm-atmospheric-dynamics.md
+    - file: courseware/week7/lab24_numerical-diffusion.md
+  - title: Week 8 Labs
+    children:
+    - file: courseware/week8/lab25_albedo-snowball.md
+      children:
+      - file: courseware/week8/lab25_2_advanced-albedo-feedback.md
+      - file: courseware/week8/lab25_3_advanced-snowball-earth.md
+    - file: courseware/week8/lab26_cesm-coupled-dynamics.md
+  - title: Week 9 Labs
+    children:
+    - file: courseware/week9/lab27_surface-energy-balance.md
+    - file: courseware/week9/lab28_land-ocean-contrast.md
+    - file: courseware/week9/lab29_water-water-everywhere.md
+  - title: Assignments
+    children:
+    - file: about-assignments.md
+    - file: courseware/assignments/assignment1-zero-dim-ebm.md
+    - file: courseware/assignments/assignment2-cesm-control.md
+    - file: courseware/assignments/assignment2-cesm-control-hints.md
+    - file: courseware/assignments/assignment3-simple-clouds.md
+    - file: courseware/assignments/assignment4-rcm-feedback.md
+    - file: courseware/assignments/assignment5-cesm-climate-change.md
+    - file: courseware/assignments/assignment6-insolation-orbit.md
+  - title: xarray tutorial
+    children:
+    - file: courseware/xarray/01-xarray-intro.md
+    - file: courseware/xarray/02-computation-masking.md
+    - file: courseware/xarray/03-enso-xarray.md
+    - file: courseware/xarray/04-dask-arrays-xarray.md
+  - title: Extra notebooks
+    children:
+    - file: docs/feedback_notation.md
+    - file: courseware/hydrostat.md
+    - file: courseware/hydrostatic_balance.md
+    - file: courseware/multi_layer_equilibrium.md
+  - title: References
+    children:
+    - file: references.md
+site:
+  template: book-theme
+  options:
+    folders: true   # keep v1 URL layout, e.g. courseware/week3/lab5_climlab-intro
+    logo_text: EOSC 440 2026   # replaces "Made with MyST" in the top bar
+  parts:
+    primary_sidebar_footer: EOSC 440 2026   # replaces "Made with MyST" at the bottom of the sidebar

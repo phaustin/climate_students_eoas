@@ -81,10 +81,46 @@ These fixes were committed by the user as `44388d9 remove warnings`.
 - `myst.yml` now points at `courseware/week1/lab1_models-budgets-fun.md`, like every other lab. The page address is unchanged.
 - lab1's saved outputs only show when building with `--execute`.
 
+## 6. Replace "Made with MyST" with "EOSC 440 2026"
+
+**Request:** replace the "Made with MyST" text at the top and bottom of the pages with "EOSC 440 2026", following the approach in `~/repos/a405`.
+
+**What a405 does:** a405's `myst.yml` sets `site.options.hide_branding: true` (added in a405 commit `3fbf403a`). That setting only aims to hide the badges and adds no replacement text. Neither the pinned book-theme 1.4.1 nor the latest book-theme lists `hide_branding` among its options. So it probably has no effect in a405 either.
+
+**What was done instead:** both book-theme versions support these two settings, now in `content/myst.yml`:
+
+```yaml
+site:
+  template: book-theme
+  options:
+    folders: true   # keep v1 URL layout, e.g. courseware/week3/lab5_climlab-intro
+    logo_text: EOSC 440 2026   # replaces "Made with MyST" in the top bar
+  parts:
+    primary_sidebar_footer: EOSC 440 2026   # replaces "Made with MyST" at the bottom of the sidebar
+```
+
+- `logo_text` is short text shown at the top of every page.
+- The `primary_sidebar_footer` part is described in the theme's `template.yml` as "The primary sidebar footer, to replace Made with MyST".
+
+**Check:** the built `lab12-radeq/index.html` contains "EOSC 440 2026" in the top bar and the sidebar footer, and no "Made with MyST". The rendered site wasn't viewed in a browser.
+
+## 7. Remove the book-theme 1.4.1 pin
+
+**Request:** remove the pin to book-theme 1.4.1 and see if the site still builds.
+
+- **Change:** `site.template` went from
+  `https://github.com/jupyter-book/myst-theme/releases/download/myst-to-react%401.4.1/book-theme.zip`
+  to `book-theme`, the same as a405. The latest theme downloads to `_build/templates/site/myst/book-theme`.
+- **Result:** builds 68 pages with no errors or warnings. Node prints one `url.parse()` deprecation notice from the theme's server, which isn't a build warning.
+- **Branding:** still correct. "EOSC 440 2026" now appears 3 times in the built lab12 page instead of 6. That's only because the new theme stores page data differently; both visible places are there.
+- **New theme options:** the latest theme adds `hide_breadcrumbs` and `redirects`. It still has no `hide_branding`.
+- **Caveat:** with the theme unpinned, each fresh build can pull a newer version, so the site's look may change without edits. To lock it, pin a specific release URL again.
+
 ## Final state
 
 - `myst build --html` builds 68 pages with no errors and no warnings.
-- Nothing from sections 3–5 is committed yet.
+- The site uses the latest book-theme and shows "EOSC 440 2026" in place of "Made with MyST".
+- Nothing from sections 3–7 is committed yet.
 
 ## Still to do
 
